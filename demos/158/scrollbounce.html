@@ -1,0 +1,98 @@
+<script>
+function MovingObject(x)
+{
+  // Everything in SI units
+  
+  this.x = x; // Position of the object
+  this.v = 0; // Speed of the object
+  this.m = 0.1; // Mass of the object
+
+  // gravity
+  this.g = 9.81; // Approx. for the Netherlands
+  
+  // friction
+  this.A = 0.01; // Area of the object in the direction of movement
+  this.rho = 1.204; // Density of air at 20 degrees C
+  this.Cd = 1; // Drag coefficient
+  this.q = 0.5 * this.rho * this.Cd * this.A;
+  
+  // spring
+  this.springX = 2;
+  this.springStrength = 0;
+  
+  this.CR = 0.9; // coefficient of restitution, 1 = elastic, 0 = sticky
+  
+  this.oldT = new Date();
+}
+MovingObject.prototype.move = function()
+{
+  var t = new Date();
+  
+  var dt = (t - this.oldT) / 1000;
+  
+  // Air friction and gravitation
+  var F_friction = - this.sign(this.v) * this.q * this.v * this.v;
+  var F_gravity = - this.m * this.g;
+  var F_spring = this.springStrength * this.m * (this.springX - this.x);
+  var F = F_friction + F_gravity + F_spring; 
+  var a = F / this.m;
+
+  this.v += a * dt;
+  this.x += this.v * dt;
+
+  // Hit rock bottom?
+  if (this.x < 0)
+  {
+    this.x = 0;
+    this.v = -this.v * this.CR;
+  }
+  
+  this.oldT = t;
+}
+MovingObject.prototype.sign = function(x)
+{
+  return x < 0 ? -1 : 1;
+}
+
+var height = 3; // height of the drop
+var scrollbarThumb = new MovingObject(height);
+
+var scrollElem;
+
+function init()
+{
+  scrollElem = document.body.scrollHeight ? document.body : document.documentElement;
+  setInterval(anim, 5);
+}
+
+function anim()
+{
+  scrollbarThumb.move();
+  
+  ignore = true;
+  scrollElem.scrollTop = (1 - scrollbarThumb.x / height) * (scrollElem.scrollHeight - scrollElem.offsetHeight);
+}
+
+var ignore = false;
+function doScroll()
+{
+  if (ignore)
+  {
+    ignore = false;
+    return;
+  }
+  
+  scrollbarThumb.x = height * (1 - scrollElem.scrollTop / (scrollElem.scrollHeight - scrollElem.offsetHeight));
+  status = scrollElem.scrollTop;
+  scrollbarThumb.v = 0;
+}
+</script>
+<style>
+html, body { height: 100%; }
+div
+{
+  height: 500em;
+}
+</style>
+<body onload="init()" onscroll="doScroll()">
+<div>test</div>

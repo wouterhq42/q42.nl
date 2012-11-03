@@ -1,0 +1,10 @@
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\Qsite2012.dll
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\Qsite2012.pdb
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\dotless.Core.dll
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\ImageResizer.dll
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\log4net.dll
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\ImageResizer.xml
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\bin\log4net.xml
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\obj\Debug\Qsite2012.dll
+C:\Users\frankalot\Documents\Projecten\Qsite\website\www\obj\Debug\Qsite2012.pdb
