@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Qsite2012", "www\Qsite2012.csproj", "{68018DC2-CFEE-4DDD-9159-F6FBBB464F39}"
 EndProject
 Global

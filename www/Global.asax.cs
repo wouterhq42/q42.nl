@@ -15,7 +15,7 @@ namespace Qsite2012
 
   public class MvcApplication : HttpApplication
   {
-    private static ILog log;
+    private static ILog log = LogManager.GetLogger(typeof(MvcApplication));
 
     public static void RegisterGlobalFilters(GlobalFilterCollection filters)
     {
@@ -44,7 +44,6 @@ namespace Qsite2012
     protected void Application_Start()
     {
       XmlConfigurator.Configure();
-      log = LogManager.GetLogger(typeof(MvcApplication));
       log.Info("Starting website");
 
       AreaRegistration.RegisterAllAreas();
@@ -54,33 +53,61 @@ namespace Qsite2012
 
     }
 
-    protected void Application_Error()
+    protected void Application_Error(object sender, EventArgs e)
     {
-      var exception = Server.GetLastError();
-      var httpException = exception as HttpException;
-      Response.Clear();
-      Server.ClearError();
-      var routeData = new RouteData();
-      routeData.Values["controller"] = "Errors";
-      routeData.Values["action"] = "General";
-      routeData.Values["exception"] = exception;
-      Response.StatusCode = 500;
-      if (httpException != null)
+      if (Context.IsCustomErrorEnabled)
       {
-        Response.StatusCode = httpException.GetHttpCode();
-        switch (Response.StatusCode)
-        {
-          case 404:
-            routeData.Values["action"] = "Http404";
-            break;
-        }
+        ShowCustomErrorPage(Server.GetLastError());
       }
-      // Avoid IIS7 getting in the middle
-      Response.TrySkipIisCustomErrors = true;
-      IController errorsController = new ErrorsController();
-      HttpContextWrapper wrapper = new HttpContextWrapper(Context);
-      var rc = new RequestContext(wrapper, routeData);
-      errorsController.Execute(rc);
+      else {
+        log.Error(string.Format("ERROR at: {0}", Request.Url.AbsoluteUri), Server.GetLastError());
+      }
+    }
+
+    /// <summary>
+    /// Redirect to errorcontroller with the given exception
+    /// </summary>
+    /// <param name="exception"></param>
+    /// <remarks>
+    /// copy-pasted largely from http://www.digitallycreated.net/Blog/57/getting-the-correct-http-status-codes-out-of-asp.net-custom-error-pages
+    /// </remarks>
+    private void ShowCustomErrorPage(Exception exception)
+    {
+      HttpException httpException = exception as HttpException;
+      if (httpException == null)
+        httpException = new HttpException(500, "Internal Server Error", exception);
+
+      Response.Clear();
+      RouteData routeData = new RouteData();
+      routeData.Values.Add("controller", "Error");
+      routeData.Values.Add("fromAppErrorEvent", true);
+
+      switch (httpException.GetHttpCode())
+      {
+        case 403:
+          routeData.Values.Add("action", "AccessDenied");
+          log.Error(string.Format("ERROR [{0}] at : {1}", httpException.GetHttpCode(), Request.Url.AbsoluteUri), exception);
+          break;
+        case 404:
+          log.Warn(string.Format("Page not found: {0} (referrer={1})", Request.Url.AbsoluteUri, Request.UrlReferrer));
+          routeData.Values.Add("action", "NotFound");
+          break;
+        case 500:
+          routeData.Values.Add("action", "ServerError");
+          log.Error(string.Format("ERROR [{0}] at : {1}", httpException.GetHttpCode(), Request.Url.AbsoluteUri), exception);
+          break;
+        default:
+          log.Error(string.Format("ERROR [{0}] at : {1}", httpException.GetHttpCode(), Request.Url.AbsoluteUri), exception);
+          routeData.Values.Add("action", "OtherHttpStatusCode");
+          routeData.Values.Add("httpStatusCode", httpException.GetHttpCode());
+          break;
+      }
+
+      Server.ClearError();
+      //try fix for somehow not seeing the custom error pages on acceptatie.schaatsen.nl http://stackoverflow.com/questions/553922/custom-asp-net-mvc-404-error-page
+      Context.Response.TrySkipIisCustomErrors = true;
+      IController controller = new ErrorController();
+      controller.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
     }
   }
 }
