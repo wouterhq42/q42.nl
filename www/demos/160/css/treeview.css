@@ -1,0 +1,54 @@
+﻿* {
+  margin:0; padding:0;
+}
+body {
+  padding:20px;
+	font-family:Verdana,Arial,sans-serif;
+	font-size:70%;
+}
+p {
+  margin-bottom:2em;
+  font-size:120%;
+}
+ul, li {
+	list-style:none;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;  
+}
+#treeview a {  
+	color:#000000;
+}
+.icon {
+	margin:0 6px 0 0;
+	border:none;
+	vertical-align:middle;
+}
+ul {
+  overflow:hidden;
+  margin-left:12px;
+}
+label.hover {
+  text-decoration:underline;
+  cursor:pointer;
+  cursor:hand;
+}
+.collapsed ul {
+  display:none;
+  height:1px;
+}
+label {
+  display:block;
+  padding-left:22px;
+  background-position:top left;
+  background-repeat:no-repeat;
+}
+.expanded label {
+  background-image:url("../img/exp.gif");
+}
+.collapsed label {
+  background-image:url("../img/col.gif");
+}

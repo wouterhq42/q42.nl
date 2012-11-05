@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68018DC2-CFEE-4DDD-9159-F6FBBB464F39}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qsite2012</RootNamespace>
+    <AssemblyName>Qsite2012</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dotless.Core">
+      <HintPath>..\packages\dotless.1.2.4.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.1.5\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Static\Fonts\bebasneue-webfont-webfont.svg" />
+    <Content Include="Static\Fonts\chevin-lightitalic-webfont.svg" />
+    <Content Include="Static\Fonts\league_gothic-webfont.svg" />
+    <Content Include="Static\Images\external_link_icon.png" />
+    <Content Include="Static\Images\external_link_icon_green.png" />
+    <Content Include="Static\Images\headBg.jpg" />
+    <Content Include="Static\Images\icons\icon-address.png" />
+    <Content Include="Static\Images\icons\icon-car.png" />
+    <Content Include="Static\Images\icons\icon-email.png" />
+    <Content Include="Static\Images\icons\icon-googleplus.png" />
+    <Content Include="Static\Images\icons\icon-kvk.png" />
+    <Content Include="Static\Images\icons\icon-like.png" />
+    <Content Include="Static\Images\icons\icon-linkedin-grey.png" />
+    <Content Include="Static\Images\icons\icon-phone.png" />
+    <Content Include="Static\Images\icons\icon-train.png" />
+    <Content Include="Static\Images\icons\icon-twitter-grey.png" />
+    <Content Include="Static\Images\icons\icon-twitter.png" />
+    <Content Include="Static\Images\icons\icon-vimeo-grey.png" />
+    <Content Include="Static\Images\icons\icon-youtube-grey.png" />
+    <Content Include="Static\Images\lukasschietend.png" />
+    <Content Include="Static\Images\office_jelle.jpg" />
+    <Content Include="Static\Images\projecten\9292.jpg" />
+    <Content Include="Static\Images\projecten\boeken.jpg" />
+    <Content Include="Static\Images\projecten\candq.jpg" />
+    <Content Include="Static\Images\projecten\charmquality.jpg" />
+    <Content Include="Static\Images\projecten\d-reizen.jpg" />
+    <Content Include="Static\Images\projecten\dia.jpg" />
+    <Content Include="Static\Images\projecten\digibord.jpg" />
+    <Content Include="Static\Images\projecten\dreizen.jpg" />
+    <Content Include="Static\Images\projecten\idealenkompas.jpg" />
+    <Content Include="Static\Images\projecten\iemandzoalsik.jpg" />
+    <Content Include="Static\Images\projecten\ik.jpg" />
+    <Content Include="Static\Images\projecten\izi.jpg" />
+    <Content Include="Static\Images\projecten\kindertelefoon.jpg" />
+    <Content Include="Static\Images\projecten\kindertelefoon2.jpg" />
+    <Content Include="Static\Images\projecten\kompas.jpg" />
+    <Content Include="Static\Images\projecten\manbijthond.jpg" />
+    <Content Include="Static\Images\projecten\mendo.jpg" />
+    <Content Include="Static\Images\projecten\mendo2.jpg" />
+    <Content Include="Static\Images\projecten\nerdsInLove.jpg" />
+    <Content Include="Static\Images\projecten\nokia.jpg" />
+    <Content Include="Static\Images\projecten\nokia.png" />
+    <Content Include="Static\Images\projecten\pepper.jpg" />
+    <Content Include="Static\Images\projecten\pepper.png" />
+    <Content Include="Static\Images\projecten\project_schooltas_1.png" />
+    <Content Include="Static\Images\projecten\project_schooltas_main.png" />
+    <Content Include="Static\Images\projecten\rijks.jpg" />
+    <Content Include="Static\Images\projecten\schaatsen.jpg" />
+    <Content Include="Static\Images\projecten\schooltas.jpg" />
+    <Content Include="Static\Images\projecten\schooltas.png" />
+    <Content Include="Static\Images\projecten\schooltas2.jpg" />
+    <Content Include="Static\Images\projecten\schooltas2.png" />
+    <Content Include="Static\Images\projecten\schooltas3.jpg" />
+    <Content Include="Static\Images\projecten\stedelijkmuseumamsterdam.jpg" />
+    <Content Include="Static\Images\projecten\UIT.jpg" />
+    <Content Include="Static\Images\projecten\uit2.jpg" />
+    <Content Include="Static\Images\projecten\uitapp.jpg" />
+    <Content Include="Static\Images\projecten\wellant.jpg" />
+    <Content Include="Static\Images\projecten\wellantcollege.jpg" />
+    <Content Include="Static\Images\projecten\woordentikkertje.jpg" />
+    <Content Include="Static\Images\projecten\xwashier.jpg" />
+    <Content Include="Static\Images\q-ers\Arian-gr.jpg" />
+    <Content Include="Static\Images\q-ers\Arian-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Arian.jpg" />
+    <Content Include="Static\Images\q-ers\avatarTemplate-gr.jpg" />
+    <Content Include="Static\Images\q-ers\avatarTemplate-zw.jpg" />
+    <Content Include="Static\Images\q-ers\avatarTemplate.jpg" />
+    <Content Include="Static\Images\q-ers\Bas-gr.jpg" />
+    <Content Include="Static\Images\q-ers\bas-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Bas.jpg" />
+    <Content Include="Static\Images\q-ers\Benjamin-gr.jpg" />
+    <Content Include="Static\Images\q-ers\Benjamin-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Benjamin.jpg" />
+    <Content Include="Static\Images\q-ers\benjamingif.gif" />
+    <Content Include="Static\Images\q-ers\benjaminzw.jpg" />
+    <Content Include="Static\Images\q-ers\Bob-gr.jpg" />
+    <Content Include="Static\Images\q-ers\bob-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Bob.jpg" />
+    <Content Include="Static\Images\q-ers\Chris-gr.jpg" />
+    <Content Include="Static\Images\q-ers\chris-zw.jpg" />
+    <Content Include="Static\Images\q-ers\chris.jpg" />
+    <Content Include="Static\Images\q-ers\Christiaan-gr.jpg" />
+    <Content Include="Static\Images\q-ers\christiaan-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Christiaan.jpg" />
+    <Content Include="Static\Images\q-ers\Cihan-gr.jpg" />
+    <Content Include="Static\Images\q-ers\cihan-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Cihan.jpg" />
+    <Content Include="Static\Images\q-ers\Coen-gr.jpg" />
+    <Content Include="Static\Images\q-ers\coen-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Coen.jpg" />
+    <Content Include="Static\Images\q-ers\Cynthia-gr.jpg" />
+    <Content Include="Static\Images\q-ers\cynthia-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Cynthia.jpg" />
+    <Content Include="Static\Images\q-ers\Elaine-gr.jpg" />
+    <Content Include="Static\Images\q-ers\elaine-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Elaine.jpg" />
+    <Content Include="Static\Images\q-ers\Frank-gr.jpg" />
+    <Content Include="Static\Images\q-ers\frank-zw.jpg" />
+    <Content Include="Static\Images\q-ers\frank.gif" />
+    <Content Include="Static\Images\q-ers\Frank.jpg" />
+    <Content Include="Static\Images\q-ers\frankgif.gif" />
+    <Content Include="Static\Images\q-ers\frankkleur.jpg" />
+    <Content Include="Static\Images\q-ers\frankzw.jpg" />
+    <Content Include="Static\Images\q-ers\Frido-gr.jpg" />
+    <Content Include="Static\Images\q-ers\frido-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Frido.jpg" />
+    <Content Include="Static\Images\q-ers\herman-gr.jpg" />
+    <Content Include="Static\Images\q-ers\herman-zw.jpg" />
+    <Content Include="Static\Images\q-ers\herman-zw.png" />
+    <Content Include="Static\Images\q-ers\hermangif.gif" />
+    <Content Include="Static\Images\q-ers\hermanzw.jpg" />
+    <Content Include="Static\Images\q-ers\Ivo-gr.jpg" />
+    <Content Include="Static\Images\q-ers\ivo-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Ivo.jpg" />
+    <Content Include="Static\Images\q-ers\Jaap-gr.jpg" />
+    <Content Include="Static\Images\q-ers\jaap-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Jaap.jpg" />
+    <Content Include="Static\Images\q-ers\janwillem-gr.jpg" />
+    <Content Include="Static\Images\q-ers\janwillem-zw.jpg" />
+    <Content Include="Static\Images\q-ers\janwillemgif.gif" />
+    <Content Include="Static\Images\q-ers\janwillemzw.jpg" />
+    <Content Include="Static\Images\q-ers\Jasper-gr.jpg" />
+    <Content Include="Static\Images\q-ers\jasper-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Jasper.jpg" />
+    <Content Include="Static\Images\q-ers\Jelle-gr.jpg" />
+    <Content Include="Static\Images\q-ers\jelle-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Jelle.jpg" />
+    <Content Include="Static\Images\q-ers\Jeroen-gr.jpg" />
+    <Content Include="Static\Images\q-ers\jeroen-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Jeroen.jpg" />
+    <Content Include="Static\Images\q-ers\jeroengif.gif" />
+    <Content Include="Static\Images\q-ers\jeroenzw.jpg" />
+    <Content Include="Static\Images\q-ers\Johan-gr.jpg" />
+    <Content Include="Static\Images\q-ers\johan-zw.jpg" />
+    <Content Include="Static\Images\q-ers\kamil-gr.jpg" />
+    <Content Include="Static\Images\q-ers\kamil-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Kars-gr.jpg" />
+    <Content Include="Static\Images\q-ers\kars-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Kars.jpg" />
+    <Content Include="Static\Images\q-ers\Katja-gr.jpg" />
+    <Content Include="Static\Images\q-ers\katja-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Katja.jpg" />
+    <Content Include="Static\Images\q-ers\katjagif.gif" />
+    <Content Include="Static\Images\q-ers\katjazw.jpg" />
+    <Content Include="Static\Images\q-ers\korjan-gr.jpg" />
+    <Content Include="Static\Images\q-ers\korjan-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Lukas-gr.jpg" />
+    <Content Include="Static\Images\q-ers\lukas-zw.jpg" />
+    <Content Include="Static\Images\q-ers\lukasgif.gif" />
+    <Content Include="Static\Images\q-ers\lukaszw.jpg" />
+    <Content Include="Static\Images\q-ers\Marcel-gr.jpg" />
+    <Content Include="Static\Images\q-ers\marcel-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Marcel.jpg" />
+    <Content Include="Static\Images\q-ers\Mark-gr.jpg" />
+    <Content Include="Static\Images\q-ers\mark-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Mark.jpg" />
+    <Content Include="Static\Images\q-ers\Martijn-gr.jpg" />
+    <Content Include="Static\Images\q-ers\martijn-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Martijn.jpg" />
+    <Content Include="Static\Images\q-ers\martijngif.gif" />
+    <Content Include="Static\Images\q-ers\Martijnl-gr.jpg" />
+    <Content Include="Static\Images\q-ers\martijnl-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Martijnl.jpg" />
+    <Content Include="Static\Images\q-ers\martijnzw.jpg" />
+    <Content Include="Static\Images\q-ers\Martin-gr.jpg" />
+    <Content Include="Static\Images\q-ers\martin-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Martin.jpg" />
+    <Content Include="Static\Images\q-ers\Michiel-gr.jpg" />
+    <Content Include="Static\Images\q-ers\michiel-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Michiel.jpg" />
+    <Content Include="Static\Images\q-ers\paulgif.gif" />
+    <Content Include="Static\Images\q-ers\paulzw.jpg" />
+    <Content Include="Static\Images\q-ers\Rahul-gr.jpg" />
+    <Content Include="Static\Images\q-ers\rahul-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Rahul.jpg" />
+    <Content Include="Static\Images\q-ers\rahulgif.gif" />
+    <Content Include="Static\Images\q-ers\rahulzw.jpg" />
+    <Content Include="Static\Images\q-ers\Remco-gr.jpg" />
+    <Content Include="Static\Images\q-ers\remco-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Remco.jpg" />
+    <Content Include="Static\Images\q-ers\remcogif.gif" />
+    <Content Include="Static\Images\q-ers\remcozw.jpg" />
+    <Content Include="Static\Images\q-ers\richard-gr.jpg" />
+    <Content Include="Static\Images\q-ers\richard-zw.jpg" />
+    <Content Include="Static\Images\q-ers\RoelfJan-gr.jpg" />
+    <Content Include="Static\Images\q-ers\roelfJan-zw.jpg" />
+    <Content Include="Static\Images\q-ers\RoelfJan.jpg" />
+    <Content Include="Static\Images\q-ers\Sander-gr.jpg" />
+    <Content Include="Static\Images\q-ers\sander-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Sander.jpg" />
+    <Content Include="Static\Images\q-ers\sjoerd-gr.jpg" />
+    <Content Include="Static\Images\q-ers\sjoerd-zw.jpg" />
+    <Content Include="Static\Images\q-ers\sjoerdgif.gif" />
+    <Content Include="Static\Images\q-ers\sjoerdzw.jpg" />
+    <Content Include="Static\Images\q-ers\Stef-gr.jpg" />
+    <Content Include="Static\Images\q-ers\stef-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Stef.jpg" />
+    <Content Include="Static\Images\q-ers\Suzanne-gr.jpg" />
+    <Content Include="Static\Images\q-ers\suzanne-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Suzanne.jpg" />
+    <Content Include="Static\Images\q-ers\TimD-gr.jpg" />
+    <Content Include="Static\Images\q-ers\timD-zw.jpg" />
+    <Content Include="Static\Images\q-ers\TimD.jpg" />
+    <Content Include="Static\Images\q-ers\TimL-gr.jpg" />
+    <Content Include="Static\Images\q-ers\timL-zw.jpg" />
+    <Content Include="Static\Images\q-ers\TimL.jpg" />
+    <Content Include="Static\Images\q-ers\TimS-gr.jpg" />
+    <Content Include="Static\Images\q-ers\timS-zw.jpg" />
+    <Content Include="Static\Images\q-ers\tims.jpg" />
+    <Content Include="Static\Images\q-ers\tims.png" />
+    <Content Include="Static\Images\q-ers\Tom-gr.jpg" />
+    <Content Include="Static\Images\q-ers\tom-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Tom.jpg" />
+    <Content Include="Static\Images\q-ers\Wijnand-gr.jpg" />
+    <Content Include="Static\Images\q-ers\wijnand-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Wijnand.jpg" />
+    <Content Include="Static\Images\q-ers\Wilbert-gr.jpg" />
+    <Content Include="Static\Images\q-ers\wilbert-zw.jpg" />
+    <Content Include="Static\Images\q-ers\Wilbert.jpg" />
+    <Content Include="Static\Images\q42-logo2.png" />
+    <Content Include="Static\Scripts\codeteller.js" />
+    <Content Include="Static\Scripts\overq42.js" />
+    <Content Include="Static\Scripts\home.js" />
+    <Content Include="Static\Scripts\qsaus.js" />
+    <Content Include="Static\Scripts\globaljs.js" />
+    <Content Include="Static\Scripts\head.min.js" />
+    <Content Include="Static\Scripts\koffieteller.js" />
+    <Content Include="Static\Scripts\mersenne-twister.js" />
+    <Content Include="Static\Scripts\script.js" />
+    <Content Include="Static\Scripts\seurat.js" />
+    <Content Include="Static\Styles\components.css" />
+    <Content Include="Static\Styles\css-responsive.css" />
+    <Content Include="Static\Styles\Fonts\BebasNeueRegular.css" />
+    <Content Include="Static\Styles\Fonts\ChevinLightItalicRegular.css" />
+    <Content Include="Static\Styles\Fonts\LeagueGothic.css" />
+    <Content Include="Static\Styles\h5bp.css" />
+    <Content Include="Static\Styles\style.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Page\Projecten.cshtml" />
+    <Content Include="Views\Shared\Partials\SiteHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Page\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Page\Home.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Static\Fonts\bebasneue-webfont-webfont.eot" />
+    <None Include="Static\Fonts\bebasneue-webfont-webfont.ttf" />
+    <None Include="Static\Fonts\bebasneue-webfont-webfont.woff" />
+    <None Include="Static\Fonts\chevin-lightitalic-webfont.eot" />
+    <None Include="Static\Fonts\chevin-lightitalic-webfont.ttf" />
+    <None Include="Static\Fonts\chevin-lightitalic-webfont.woff" />
+    <None Include="Static\Fonts\league_gothic-webfont.eot" />
+    <None Include="Static\Fonts\league_gothic-webfont.ttf" />
+    <None Include="Static\Fonts\league_gothic-webfont.woff" />
+    <Content Include="Views\Shared\Partials\SiteFooter.cshtml" />
+    <Content Include="Views\Shared\Partials\FooterScript.cshtml" />
+    <Content Include="Views\Page\Producten.cshtml" />
+    <Content Include="Views\Page\Over-q42.cshtml" />
+    <Content Include="Views\Shared\Partials\SiteHeaderInner.cshtml" />
+    <Content Include="Views\Page\Interaction-Engineering.cshtml" />
+    <Content Include="Views\Page\Gereedschapskist.cshtml" />
+    <Content Include="Views\Page\Games.cshtml" />
+    <Content Include="Views\Page\Systeembeheersysteem.cshtml" />
+    <Content Include="Views\Errors\404.cshtml" />
+    <Content Include="Views\Errors\Exception.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

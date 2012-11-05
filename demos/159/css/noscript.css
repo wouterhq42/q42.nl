@@ -1,9 +1,0 @@
-﻿.group label {
-	cursor:auto;
-}
-.collapsed .submenu {
-  display:block;
-  height:280px;
-  opacity:1;
-  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
-}
