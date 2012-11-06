@@ -1,9 +1,0 @@
-<template>
-  <width>100</width>
-  <height>999</height>
-  <rotation></rotation>
-  <crop>false</crop>
-  <enlarge>true</enlarge>
-  <output>jpg</output><!--jpg, jpeg, png, tiff-->
-  <notfoundimage></notfoundimage>
-</template>
