@@ -6,32 +6,37 @@
 @section script_at_foot {
   <script src="/Static/Scripts/home.js" type="text/javascript"></script>
 }
-
 <section id="showreel2" class="css3showreel">
-  <a href="http://blog.q42.nl/post/27330382175/een-nieuwe-website" class="item active-item" style="background-image: url(/Static/Images/balloons.jpg)" data-number="0">
-    <p>Een nieuwe website</p>
-  </a>
-  <a href="http://rijksmuseum.nl" class="item" style="background-image: url(/Static/Images/SK-C-5.jpg); background-position: center center;" data-number="1">
-    <p>Rijksmuseum.nl in een nieuwe jas</p>
-  </a>
-  <a href="http://blog.q42.nl/post/34827577445/trots-op-philips-hue" class="item" style="background-image: url(/Static/Images/hue.jpeg); background-position: center center;" data-number="2">
-    <p class="left">Philips Hue wereldwijd gelanceerd</p>
-  </a>
-  <a href="http://blog.q42.nl/post/27330709690/mendo-finalist-dutch-design-awards" class="item" style="background-image: url(/Static/Images/boeken.jpg)" data-number="3">
-    <p>MENDO.nl finalist Dutch Design Awards</p>
-  </a>
-  @*<a href="#" class="item" style="background-image: url(/Static/Images/adam.jpg)" data-number="x">
-    <p>Q42 opent vestiging Amsterdam</p>
-  </a>*@
-  <a href="http://blog.q42.nl/post/27330784863/schooltas-wint-dutch-interactive-award" class="item" style="background-image: url(/Static/Images/dia.jpg); background-position: center center;" data-number="4">
-    <p>Schooltas wint Dutch Interactive Award</p>
-  </a>
-  <a href="/interaction-engineering" class="item" style="background-image: url(/Static/Images/johan.jpg); background-position: center center;" data-number="5">
-    <p>Johan over Interaction Engineering</p>
-  </a>
-  <a href="/games" class="item" style="background-image: url(/Static/Images/q42games.png)" data-number="6">
-    <p class="left">Uit de hand gelopen hobby</p>
-  </a>
+ <div id="showreel-container">
+    <div id="showreel-stage">
+      <div id="showreel-shape">
+        <a href="http://blog.q42.nl/post/27330382175/een-nieuwe-website" class="item active-item" style="background-image: url(/Static/Images/balloons.jpg)" data-number="0">
+          <p>Een nieuwe website</p>
+        </a>
+        <a href="http://rijksmuseum.nl" class="item" style="background-image: url(/Static/Images/SK-C-5.jpg); background-position: center center;" data-number="1">
+          <p>Rijksmuseum.nl in een nieuwe jas</p>
+        </a>
+        <a href="http://blog.q42.nl/post/34827577445/trots-op-philips-hue" class="item" style="background-image: url(/Static/Images/hue.jpeg); background-position: center center;" data-number="2">
+          <p class="left">Philips Hue wereldwijd gelanceerd</p>
+        </a>
+        <a href="http://blog.q42.nl/post/27330709690/mendo-finalist-dutch-design-awards" class="item" style="background-image: url(/Static/Images/boeken.jpg)" data-number="3">
+          <p>MENDO.nl finalist Dutch Design Awards</p>
+        </a>
+        @*<a href="#" class="item" style="background-image: url(/Static/Images/adam.jpg)" data-number="x">
+          <p>Q42 opent vestiging Amsterdam</p>
+        </a>*@
+        <a href="http://blog.q42.nl/post/27330784863/schooltas-wint-dutch-interactive-award" class="item" style="background-image: url(/Static/Images/dia.jpg); background-position: center center;" data-number="4">
+          <p>Schooltas wint Dutch Interactive Award</p>
+        </a>
+        <a href="/interaction-engineering" class="item" style="background-image: url(/Static/Images/johan.jpg); background-position: center center;" data-number="5">
+          <p>Johan over Interaction Engineering</p>
+        </a>
+        <a href="/games" class="item" style="background-image: url(/Static/Images/q42games.png)" data-number="6">
+          <p class="left">Uit de hand gelopen hobby</p>
+        </a>
+      </div>
+    </div>
+  </div>
         
   <div id="indicators"></div>
 
@@ -39,7 +44,6 @@
   @Html.Partial("Partials/SiteHeaderInner")
 
 </section>
-
 <section id="homecontent">
   <section>
     <header id="q42is-header" class="block-text" style="padding-top: 0;">
