@@ -163,7 +163,7 @@
   
   .noShowreel nav.dynamic,
   .noShowreel nav { position: fixed; top: 0px; }
-  .noShowreelHeader { background: url(/Static/Images/headBg.jpg); background-size: cover; }
+  .noShowreelHeader { background: url(/images/headBg.jpg); background-size: cover; }
    
   nav.fixedNav {
     position: fixed;
@@ -414,7 +414,7 @@
   #colleagues ol li .polaroid .closePolaroid {
     width: 30px;
     height: 30px;
-    background: url('/Static/Images/closebox.png') no-repeat;
+    background: url('/images/closebox.png') no-repeat;
     position: absolute;
     top: -16px;
     right: -16px;
@@ -491,7 +491,7 @@
   }
   
   #footer .external {
-    background: url(/Static/Images/external_link_icon_green.png) no-repeat center right;
+    background: url(/images/external_link_icon_green.png) no-repeat center right;
     padding-right: 18px;
   }
   
@@ -566,10 +566,10 @@
     padding: 5px 0px 7px 0px;
   }
   
-  #footer .twitter-icon a { background: url(/Static/Images/external_link_icon_green.png) no-repeat center right; }
-  #footer .linkedin-icon a { background: url(/Static/Images/external_link_icon_green.png) no-repeat center right; }
-  #footer .youtube-icon a { background: url(/Static/Images/external_link_icon_green.png) no-repeat center right; }
-  #footer .vimeo-icon a { background: url(/Static/Images/external_link_icon_green.png) no-repeat center right; }
+  #footer .twitter-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
+  #footer .linkedin-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
+  #footer .youtube-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
+  #footer .vimeo-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
   
   #footer #endtag {
     font: 40px LeagueGothicRegular, Arial, Helvetica, sans-serif;

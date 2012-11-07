@@ -74,9 +74,9 @@ function checkPositionInWindow(el) {
 }
 
 function makeQerMove(qer) {
-  var qerPhoto = $('img[src="' + '/Static/Images/' + qer + 'zw.jpg' + '"]');
+  var qerPhoto = $('img[src="' + '/images/' + qer + 'zw.jpg' + '"]');
   if (qerPhoto.length != 0)
-    qerPhoto.closest('li').find('.color').attr('src', '/Static/Images/' + qer + 'gif.gif');
+    qerPhoto.closest('li').find('.color').attr('src', '/images/' + qer + 'gif.gif');
 }
 
 function setDifferentRotationsForQers() {
