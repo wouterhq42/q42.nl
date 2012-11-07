@@ -5,9 +5,11 @@ var Q42Router = Backbone.Router.extend({
   },
   main: function (page) {
     Session.set("page", page);
-    document.title = page[0].toUpperCase() + page.substring(1).replace("-", " ") || "Q42";
-    if (document.title != "Q42")
-      document.title += " - Q42";
+    if (page) {
+      document.title = page[0].toUpperCase() + page.substring(1).replace("-", " ") || "Q42";
+      if (document.title != "Q42")
+        document.title += " - Q42";
+    }
   },
   loadPage: function (page) {
     this.navigate(page, {trigger: true});
@@ -35,6 +37,10 @@ Template.body.content = function() {
   Meteor.defer(homepageShowreel);
   Meteor.defer(addPolaroidFunctionality);
   Meteor.defer(qsausInit);
+  Meteor.defer(function() {
+    $($("section")[0]).addClass("show");
+    $("#homecontent").addClass("show");
+  });
   return (Template[page] || Template["error404"])();
 };
 

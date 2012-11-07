@@ -28,7 +28,7 @@
   a, a:visited { color: #1D78B4; text-decoration: none; }
   a:hover { color: #1D78B4; text-decoration: underline; }
   .external {
-    background: url(/Static/Images/external_link_icon.png) no-repeat center right;
+    background: url(/images/external_link_icon.png) no-repeat center right;
     padding-right: 18px;
   }
   .readmore {
@@ -67,6 +67,13 @@
   body > section {
     width: 940px;
     margin: 0 auto;
+    opacity: 0;
+    -webkit-transition: ease-in-out all .6s;
+    -webkit-transform: translate(0, -20px);
+  }
+  body > section.show {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
   }
   
   
@@ -92,7 +99,7 @@
     right: 0; top: 65px;
     width: 101%; 
     height: 300px;
-    background: url(/Static/Images/office_jelle.jpg) no-repeat center center;      
+    background: url(/images/office_jelle.jpg) no-repeat center center;      
     background-size: cover;
     z-index: 2;
   }
@@ -109,7 +116,7 @@
     right: 0; top: 0;
     width: 101%; 
     height: 150px;
-    background: url(/Static/Images/chris.jpg) no-repeat center 30%;      
+    background: url(/images/chris.jpg) no-repeat center 30%;      
     background-size: cover;
     z-index: -1;
     -webkit-transition: all .3s ease-out;
@@ -135,7 +142,7 @@
     left: 50%; top: 20px;
     margin-left: -35px;
     font-size: 0; line-height: 0; color: transparent;
-    background:url(/Static/Images/q42-logo.png) no-repeat;
+    background:url(/images/q42-logo.png) no-repeat;
     background-size: cover;
     -webkit-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;
@@ -173,7 +180,7 @@
     position: absolute;
     top:7px; left:70px;
     width:32px; height:32px;
-    background: url(/Static/Images/Previous-icon.png);
+    background: url(/images/Previous-icon.png);
   }
   
   #tweetbar .tweet {
@@ -187,7 +194,7 @@
     position: absolute;
     top:7px; right:70px;
     width:32px; height:32px;
-    background: url(/Static/Images/Next-icon.png);
+    background: url(/images/Next-icon.png);
   }
   /* end tweetbar */
   
@@ -205,7 +212,7 @@
   
   /* block-text */
   .block-text {
-    border-top: solid #fff 20px;
+    border-top: solid transparent 20px;
     padding-bottom: 20px;
     border-bottom: solid #ccc 1px;  
   }
