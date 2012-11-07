@@ -280,8 +280,12 @@
   .block-readmore a { -webkit-transition: all .3s ease-out; opacity: 1;  }
   
   /* Icon boxes */
-  .block-with-icons {
-    height: 275px;
+  .block-with-icons ul {
+    margin-bottom: 0px;
+  }
+  
+  .block-with-icons ul li:last-child {
+    padding-bottom: 0px;
   }
   
   .block-with-icons h2 {

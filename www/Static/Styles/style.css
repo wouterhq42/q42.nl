@@ -306,6 +306,7 @@
     width: 300px;
     float: left;    
     white-space: normal;
+    overflow: hidden;
   }
   .block-small .body {
     float: none;
