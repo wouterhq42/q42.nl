@@ -212,7 +212,7 @@
   
   .block-text h1,
   .blog h1 {
-    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+    font: normal 2.5em ChevinLightItalicRegular, Georgia, Times, serif;
     margin: 20px 0;
     color: #888;
     text-align: left;
