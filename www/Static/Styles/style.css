@@ -212,7 +212,7 @@
   
   .block-text h1,
   .blog h1 {
-    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+    font: normal 2.5em ChevinLightItalicRegular, Georgia, Times, serif;
     margin: 20px 0;
     color: #888;
     text-align: left;
@@ -306,6 +306,7 @@
     width: 300px;
     float: left;    
     white-space: normal;
+    overflow: hidden;
   }
   .block-small .body {
     float: none;
@@ -389,4 +390,8 @@
   .blog .index-page .block-small img {
     width: 300px;
     height: auto;
+  }
+  
+  .blog .bigText img {
+    max-width: 100%;
   }
