@@ -588,6 +588,10 @@
     margin-top: 15px;
   }
   
+  nav#pageNav ul:nth-of-type(1) {
+    width: 100%;
+  }
+  
   #pageNav ul li a {
     color: #1D78B4;
   }

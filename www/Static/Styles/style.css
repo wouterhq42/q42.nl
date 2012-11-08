@@ -391,3 +391,7 @@
     width: 300px;
     height: auto;
   }
+  
+  .blog .bigText img {
+    max-width: 100%;
+  }
