@@ -11,7 +11,7 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <link href="http://fonts.googleapis.com/css?family=Trocchi|Shadows+Into+Light" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet" type="text/css" />
 
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
@@ -22,6 +22,10 @@
 <body>
   {{> body}}
 </body>
+
+<template name="page_title">
+  {{title}}
+</template>
 
 <template name="body">
   {{#unless viewRendersHeader}}

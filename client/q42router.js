@@ -4,6 +4,9 @@ var Q42Router = Backbone.Router.extend({
     ":page": "main"
   },
   main: function (page) {
+    if (page.indexOf("?") > -1)
+      page = page.split("?")[0]
+    
     Session.set("page", page);
     if (page) {
       document.title = page[0].toUpperCase() + page.substring(1).replace("-", " ") || "Q42";
@@ -15,12 +18,12 @@ var Q42Router = Backbone.Router.extend({
     this.navigate(page, {trigger: true});
   }
 });
-
 Router = new Q42Router;
 
 Meteor.startup(function () {
   if (window.console)
     console.log("%cWelcome to the Q42.nl console! trololololololololo :-D", "font-size: 42px; background: #000; color: yellow");
+  
   Backbone.history.start({pushState: true});
 });
 

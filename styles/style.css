@@ -69,13 +69,12 @@
     margin: 0 auto;
     opacity: 0;
     -webkit-transition: ease-in-out all .6s;
-    -webkit-transform: translate(0, -20px);
+    -webkit-transform: translate3d(0, -20px, 0);
   }
   body > section.show {
     opacity: 1;
-    -webkit-transform: translate(0,0);
+    -webkit-transform: translate3d(0,0,0);
   }
-  
   
   .visual img {  
     width: 100%;
