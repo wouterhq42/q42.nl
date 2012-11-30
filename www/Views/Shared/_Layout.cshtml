@@ -33,6 +33,10 @@ Chris
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="shortcut icon" href="/favicon.ico">
 
+  <!--[if lt IE 9]>
+  <script src="/Static/Scripts/html5shiv.js"></script>
+  <![endif]-->
+
   @*Fonts styles*@
   <link href="http://fonts.googleapis.com/css?family=Trocchi|Shadows+Into+Light" rel="stylesheet" type="text/css" />
   <link href="/Static/Styles/Fonts/ChevinLightItalicRegular.css" type="text/css" rel="stylesheet" />
@@ -44,6 +48,10 @@ Chris
   <link href="/Static/Styles/css-responsive.css" type="text/css" rel="stylesheet" />
   @*Extra Styles*@
   @RenderSection("extra_style", false)
+
+  <!--[if lt IE 9]>
+  <link href="/Static/Styles/iefixes.css" type="text/css" rel="stylesheet" />
+  <![endif]-->
 
   <script type="text/javascript" src="//use.typekit.net/pxh1tgr.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
