@@ -269,6 +269,7 @@
     <Content Include="Static\Images\icon-address.png" />
     <Content Include="Static\Images\icon-car.png" />
     <Content Include="Static\Images\icon-email.png" />
+    <Content Include="Static\Images\icon-github-grey.png" />
     <Content Include="Static\Images\icon-googleplus.png" />
     <Content Include="Static\Images\icon-kvk.png" />
     <Content Include="Static\Images\icon-like.png" />
@@ -282,6 +283,7 @@
     <Content Include="Static\Images\icons\icon-address.png" />
     <Content Include="Static\Images\icons\icon-car.png" />
     <Content Include="Static\Images\icons\icon-email.png" />
+    <Content Include="Static\Images\icons\icon-github-grey.png" />
     <Content Include="Static\Images\icons\icon-googleplus.png" />
     <Content Include="Static\Images\icons\icon-kvk.png" />
     <Content Include="Static\Images\icons\icon-like.png" />
@@ -340,6 +342,7 @@
     <Content Include="Static\Images\martijnlzw.jpg" />
     <Content Include="Static\Images\martijnzw.jpg" />
     <Content Include="Static\Images\martin-gr.jpg" />
+    <Content Include="Static\Images\martingif.gif" />
     <Content Include="Static\Images\martinzw.jpg" />
     <Content Include="Static\Images\mbb-q-2.png" />
     <Content Include="Static\Images\mendo2.jpg" />
@@ -348,6 +351,7 @@
     <Content Include="Static\Images\monkeykong2.png" />
     <Content Include="Static\Images\nerdsInLove.jpg" />
     <Content Include="Static\Images\nieuw.jpg" />
+    <Content Include="Static\Images\oeps.png" />
     <Content Include="Static\Images\office_jelle.jpg" />
     <Content Include="Static\Images\oil2.jpg" />
     <Content Include="Static\Images\oilsmall.jpg" />
@@ -602,6 +606,21 @@
     <Content Include="Static\Images\trello.png" />
     <Content Include="Static\Images\uitapp.jpg" />
     <Content Include="Static\Images\UlIqmHJn-SK.gif" />
+    <Content Include="Static\Images\w00tcamp\camper.jpg" />
+    <Content Include="Static\Images\w00tcamp\carrrds.jpg" />
+    <Content Include="Static\Images\w00tcamp\castle-of-madness.jpg" />
+    <Content Include="Static\Images\w00tcamp\cookview.jpg" />
+    <Content Include="Static\Images\w00tcamp\Fuq42.jpg" />
+    <Content Include="Static\Images\w00tcamp\gipf.jpg" />
+    <Content Include="Static\Images\w00tcamp\histree.jpg" />
+    <Content Include="Static\Images\w00tcamp\huelandsspoor.jpg" />
+    <Content Include="Static\Images\w00tcamp\skyroads.jpg" />
+    <Content Include="Static\Images\w00tcamp\straightshot.jpg" />
+    <Content Include="Static\Images\w00tcamp\tinytravel.jpg" />
+    <Content Include="Static\Images\w00tcamp\tixi.jpg" />
+    <Content Include="Static\Images\w00tcamp\touchtable.jpg" />
+    <Content Include="Static\Images\w00tcamp\tyrian.jpg" />
+    <Content Include="Static\Images\w00tcamp\zien.jpg" />
     <Content Include="Static\Images\wayfinding.jpg" />
     <Content Include="Static\Images\wellantcollege.jpg" />
     <Content Include="Static\Images\wilbertgif.gif" />
