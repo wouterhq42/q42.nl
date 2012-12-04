@@ -1,9 +1,12 @@
 ﻿var zindexPolaroids = 1000;
 
 var isTouchDevice = false;
-document.addEventListener('touchstart', function (e) {
-  isTouchDevice = true;
-}, false);
+
+if (document.addEventListener) {
+  document.addEventListener('touchstart', function (e) { isTouchDevice = true; }, false);
+} else {
+  document.attachEvent('touchstart', function (e) { isTouchDevice = true; }, false);
+}
 
 $(function () {
   addPolaroidFunctionality();

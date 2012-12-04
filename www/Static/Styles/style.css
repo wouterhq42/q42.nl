@@ -217,6 +217,10 @@
     color: #888;
     text-align: left;
   }
+  #q42is-header h1 {
+    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+  }
+  
   .block-text h1 b,
   .blog h1 b {
     color: #232323;
@@ -239,6 +243,7 @@
     border-bottom: solid #ccc 1px;
     padding: 40px 0;
     clear: both;
+    overflow: hidden;
   }
   article h1,
   .block-large h1 {
@@ -325,7 +330,7 @@
     width: 300px;
     overflow: hidden;
   }
-  
+   
   .block-small:nth-of-type(1),
   .block-small:nth-of-type(2) {  
     margin-right: 20px;

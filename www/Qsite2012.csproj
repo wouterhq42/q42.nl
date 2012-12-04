@@ -628,6 +628,8 @@
     <Content Include="Static\Images\wilbertzw.jpg" />
     <Content Include="Static\Images\xwashier.jpg" />
     <Content Include="Static\Scripts\codeteller.js" />
+    <Content Include="Static\Scripts\html5shiv.js" />
+    <Content Include="Static\Scripts\swipe.js" />
     <Content Include="Static\Scripts\overq42.js" />
     <Content Include="Static\Scripts\home.js" />
     <Content Include="Static\Scripts\qsaus.js" />
@@ -638,6 +640,7 @@
     <Content Include="Static\Scripts\script.js" />
     <Content Include="Static\Scripts\seurat.js" />
     <Content Include="Static\Styles\components.css" />
+    <Content Include="Static\Styles\iefixes.css" />
     <Content Include="Static\Styles\css-responsive.css" />
     <Content Include="Static\Styles\Fonts\BebasNeueRegular.css" />
     <Content Include="Static\Styles\Fonts\ChevinLightItalicRegular.css" />
