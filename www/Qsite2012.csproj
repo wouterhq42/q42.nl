@@ -262,6 +262,7 @@
     <Content Include="Static\Images\headBg.jpg" />
     <Content Include="Static\Images\hermangif.gif" />
     <Content Include="Static\Images\hermanzw.jpg" />
+    <Content Include="Static\Images\homew00t.jpg" />
     <Content Include="Static\Images\htlmorg.png" />
     <Content Include="Static\Images\hue-Starter-Pack.jpg" />
     <Content Include="Static\Images\hue.jpeg" />
@@ -660,6 +661,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="demos\308\Silverlight 4 net magazine 2010.pdf" />
+    <None Include="Properties\PublishProfiles\disk.pubxml" />
     <None Include="Properties\PublishProfiles\to file.pubxml" />
     <Content Include="Static\Fonts\bebasneue-webfont-webfont.eot" />
     <Content Include="Static\Fonts\bebasneue-webfont-webfont.ttf" />
