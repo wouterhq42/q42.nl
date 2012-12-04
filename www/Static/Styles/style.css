@@ -217,6 +217,10 @@
     color: #888;
     text-align: left;
   }
+  #q42is-header h1 {
+    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+  }
+  
   .block-text h1 b,
   .blog h1 b {
     color: #232323;

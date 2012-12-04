@@ -46,21 +46,33 @@
     transition: transform 2.5s ease-in-out;
   }
   #showreel2 .item {
-    -webkit-backface-visibility: visible;
-    -moz-backface-visibility: visible;
-    backface-visibility: visible;
-    background-color: #FFF;
+    -webkit-transition: opacity 2.5s ease-in-out;
+    -moz-transition: opacity 2.5s ease-in-out;
+    transition: opacity 2.5s ease-in-out;
     display: block;
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0px;
     background-size: cover;
-    /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";*/
     background-repeat: no-repeat;
     background-position: left center;
     z-index: 42;
+    opacity: 0;
+  }
+  #showreel-stage.transition.transitioningBySwipe #showreel-shape.transition,
+  #showreel-stage.transition.transitioningBySwipe .item {
+    -webkit-transition-duration: 0.5s !important;
+    -moz-transition-duration: 0.5s !important;
+    transition-duration: 0.5s !important;
+  }
+  #showreel-stage.transitioningByClick .item,
+  #showreel-stage.transitioningByDoubleSwipe .item {
+    opacity: 1;
+  }
+  #showreel2 .active-item {
+    z-index: 43;
+    opacity: 1;
   }
   
   #showreel2 .item p {
@@ -84,10 +96,6 @@
   
   #showreel2 .active-item p {
     opacity: 1;
-  }
-  
-  #showreel2 .animating-item {
-    z-index: 43;
   }
   
   .css3showreel a {

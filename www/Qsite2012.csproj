@@ -608,6 +608,8 @@
     <Content Include="Static\Images\wilbertzw.jpg" />
     <Content Include="Static\Images\xwashier.jpg" />
     <Content Include="Static\Scripts\codeteller.js" />
+    <Content Include="Static\Scripts\html5shiv.js" />
+    <Content Include="Static\Scripts\swipe.js" />
     <Content Include="Static\Scripts\overq42.js" />
     <Content Include="Static\Scripts\home.js" />
     <Content Include="Static\Scripts\qsaus.js" />
