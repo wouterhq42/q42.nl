@@ -8,3 +8,5 @@ Data/Logs/**
 UpgradeLog.*
 _UpgradeReport_Files
 Backup
+Deploy
+/www/Properties/PublishProfiles/*.pubxml
