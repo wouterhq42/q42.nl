@@ -391,12 +391,14 @@
     <Content Include="Static\Images\nieuw.jpg" />
     <Content Include="Static\Images\oeps.png" />
     <Content Include="Static\Images\office_jelle.jpg" />
+    <Content Include="Static\Images\ohmy-trifle.jpg" />
     <Content Include="Static\Images\oil2.jpg" />
     <Content Include="Static\Images\oilsmall.jpg" />
     <Content Include="Static\Images\orchard.jpg" />
     <Content Include="Static\Images\outnumbered-q.png" />
     <Content Include="Static\Images\paulgif.gif" />
     <Content Include="Static\Images\paulzw.jpg" />
+    <Content Include="Static\Images\peeler-new.jpg" />
     <Content Include="Static\Images\peteralexandermemory-q.png" />
     <Content Include="Static\Images\projecten\9292.jpg" />
     <Content Include="Static\Images\projecten\boeken.jpg" />
@@ -627,6 +629,7 @@
     <Content Include="Static\Images\stedelijkmuseumamsterdam.jpg" />
     <Content Include="Static\Images\stefgif.gif" />
     <Content Include="Static\Images\stefzw.jpg" />
+    <Content Include="Static\Images\Strawberry-Trifle-Small.jpg" />
     <Content Include="Static\Images\suzannegif.gif" />
     <Content Include="Static\Images\suzannezw.jpg" />
     <Content Include="Static\Images\thequre.png" />
