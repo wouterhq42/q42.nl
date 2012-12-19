@@ -724,6 +724,7 @@
     <Content Include="Views\Error\404.cshtml" />
     <Content Include="Views\Error\Exception.cshtml" />
     <Content Include="Views\Page\w00tcamp.cshtml" />
+    <Content Include="Views\Page\UXCandy.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

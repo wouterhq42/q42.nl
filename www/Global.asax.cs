@@ -30,7 +30,7 @@ namespace Qsite2012
           "Default", // Route name
           "{id}", // URL with parameters
           new { controller = "Page", action = "Index" },
-          new { id = "Games|Gereedschapskist|Interaction-Engineering|Over-Q42|Producten|Projecten|Systeembeheersysteem|w00tcamp" } // regular expression matching all valid controllers
+          new { id = "UXCandy|Games|Gereedschapskist|Interaction-Engineering|Over-Q42|Producten|Projecten|Systeembeheersysteem|w00tcamp" } // regular expression matching all valid controllers
       );
 
       routes.MapRoute(
