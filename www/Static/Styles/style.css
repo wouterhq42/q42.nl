@@ -412,3 +412,8 @@
   .socialShare .facebookShare {
     float: left;
   }
+  
+  .nowrap 
+  {
+    white-space:nowrap;
+  }
