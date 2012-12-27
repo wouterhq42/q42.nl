@@ -46,10 +46,9 @@
     transition: transform 2.5s ease-in-out;
   }
   #showreel2 .item {
-    -webkit-backface-visibility: visible;
-    -moz-backface-visibility: visible;
-    backface-visibility: visible;
-    background-color: #FFF;
+    -webkit-transition: opacity 2.5s ease-in-out;
+    -moz-transition: opacity 2.5s ease-in-out;
+    transition: opacity 2.5s ease-in-out;
     display: block;
     position: absolute;
     width: 100%;
@@ -59,6 +58,21 @@
     background-repeat: no-repeat;
     background-position: left center;
     z-index: 42;
+    opacity: 0;
+  }
+  #showreel-stage.transition.transitioningBySwipe #showreel-shape.transition,
+  #showreel-stage.transition.transitioningBySwipe .item {
+    -webkit-transition-duration: 0.5s !important;
+    -moz-transition-duration: 0.5s !important;
+    transition-duration: 0.5s !important;
+  }
+  #showreel-stage.transitioningByClick .item,
+  #showreel-stage.transitioningByDoubleSwipe .item {
+    opacity: 1;
+  }
+  #showreel2 .active-item {
+    z-index: 43;
+    opacity: 1;
   }
   
   #showreel2 .item p {
@@ -82,10 +96,6 @@
   
   #showreel2 .active-item p {
     opacity: 1;
-  }
-  
-  #showreel2 .animating-item {
-    z-index: 43;
   }
   
   .css3showreel a {
@@ -192,10 +202,12 @@
     vertical-align: baseline;
   }
   
+  nav ul { float: left; text-align: left; } /* fallback for IE */
   nav ul:nth-of-type(1) { float: left; text-align: left; }
   nav ul:nth-of-type(2) { float: right; text-align: right; }
-  nav .logo { width: 30%; float: left; }
+  nav .logo { width: 22%; float: left; }
   
+  nav ul li { display: inline-block; margin-right: 40px; position: relative; } /* fallback for IE */
   nav ul:nth-of-type(1) li { display: inline-block; margin-right: 40px; position: relative; }
   nav ul:nth-of-type(2) li { display: inline-block; margin-left: 40px; position: relative; }
 
@@ -280,8 +292,12 @@
   .block-readmore a { -webkit-transition: all .3s ease-out; opacity: 1;  }
   
   /* Icon boxes */
-  .block-with-icons {
-    height: 275px;
+  .block-with-icons ul {
+    margin-bottom: 0px;
+  }
+  
+  .block-with-icons ul li:last-child {
+    padding-bottom: 0px;
   }
   
   .block-with-icons h2 {
@@ -342,6 +358,7 @@
     bottom: 3px;
     left: 3px;
     color: black;
+    background-color: #fff; /* IE otherwise displays a transparent background */
     background: rgba(255, 255, 255, 0.72);
     display: inline-block;
     padding: 1px 3px;
@@ -368,8 +385,6 @@
     -webkit-box-shadow: 0px 4px 13px 3px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 4px 13px 3px rgba(0,0,0,0.4);
     box-shadow: 0px 4px 13px 3px rgba(0,0,0,0.4);
-    /*-webkit-transform:rotate(0deg);*/
-    xoverflow: hidden;
   }
   
   #colleagues ol .hover { overflow: visible;  }
@@ -386,7 +401,7 @@
     -webkit-transition-delay: 0s, 0s, 0s, 3.05s;
     -moz-transform: rotate(0deg);
     -moz-transform: scale(0.71);
-    -moz-transition-property: opacity, margin, -webkit-transform, left;
+    -moz-transition-property: opacity, margin, -moz-transform, left;
     -moz-transition-duration: .05s, .05s, .05s, 0s;
     -moz-transition-timing-function: linear, linear, linear, linear;
     -moz-transition-delay: 0s, 0s, 0s, 3.05s;
@@ -405,7 +420,7 @@
     
     -moz-transform: scale(1.0) rotate(-5deg);
     -moz-transform-origin: center center;
-    -moz-transition-property: opacity, margin, -webkit-transform, left;
+    -moz-transition-property: opacity, margin, -moz-transform, left;
     -moz-transition-duration: .1s, .1s, .1s, 0s;
     -moz-transition-timing-function: linear, linear, linear, linear;
     -moz-transition-delay: 0s, 0s, 0s, 0s;
@@ -584,6 +599,10 @@
     background: none;
     text-align: center;
     margin-top: 15px;
+  }
+  
+  nav#pageNav ul:nth-of-type(1) {
+    width: 100%;
   }
   
   #pageNav ul li a {

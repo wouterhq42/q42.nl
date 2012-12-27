@@ -218,11 +218,15 @@
   
   .block-text h1,
   .blog h1 {
-    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+    font: normal 2.5em ChevinLightItalicRegular, Georgia, Times, serif;
     margin: 20px 0;
     color: #888;
     text-align: left;
   }
+  #q42is-header h1 {
+    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+  }
+  
   .block-text h1 b,
   .blog h1 b {
     color: #232323;
@@ -245,6 +249,7 @@
     border-bottom: solid #ccc 1px;
     padding: 40px 0;
     clear: both;
+    overflow: hidden;
   }
   article h1,
   .block-large h1 {
@@ -312,6 +317,7 @@
     width: 300px;
     float: left;    
     white-space: normal;
+    overflow: hidden;
   }
   .block-small .body {
     float: none;
@@ -330,7 +336,7 @@
     width: 300px;
     overflow: hidden;
   }
-  
+   
   .block-small:nth-of-type(1),
   .block-small:nth-of-type(2) {  
     margin-right: 20px;
@@ -395,4 +401,25 @@
   .blog .index-page .block-small img {
     width: 300px;
     height: auto;
+  }
+  
+  .blog .bigText img {
+    max-width: 100%;
+  }
+  
+  /* Sharing */
+  
+  .socialShare {
+    margin: 10px 0 40px;
+    height: 50px;
+  }
+  
+  .socialShare .twitterShare,
+  .socialShare .facebookShare {
+    float: left;
+  }
+  
+  .nowrap 
+  {
+    white-space:nowrap;
   }
