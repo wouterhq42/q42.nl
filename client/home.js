@@ -21,7 +21,7 @@ window.requestAnimFrame = (function () {
          };
 })();
 
-window.onload = function () {
+function homepageShowreel() {
   if (!onLoadFinished) {
     // declare global items
     $showreel = $('#showreel2');
