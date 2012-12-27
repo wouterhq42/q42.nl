@@ -4,7 +4,7 @@ var Q42Router = Backbone.Router.extend({
     ":page": "main"
   },
   main: function (page) {
-    if (page.indexOf("?") > -1)
+    if (page && page.indexOf("?") > -1)
       page = page.split("?")[0]
     
     Session.set("page", page);
