@@ -41,6 +41,7 @@ Template.body.content = function() {
   Meteor.defer(addPolaroidFunctionality);
   Meteor.defer(qsausInit);
   Meteor.defer(koffieteller);
+  Meteor.defer(codeteller);
   Meteor.defer(function() {
     $($("section")[0]).addClass("show");
     $("#homecontent").addClass("show");

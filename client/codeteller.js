@@ -1,4 +1,4 @@
-$(function () {
+function codeteller() {
 
   var $counter = $('#regels-code');
   codeCounter(42);
@@ -38,4 +38,4 @@ $(function () {
     }
   };
 
-});
+}
