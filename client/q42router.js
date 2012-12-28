@@ -40,9 +40,13 @@ Template.body.content = function() {
   Meteor.defer(homepageShowreel);
   Meteor.defer(addPolaroidFunctionality);
   Meteor.defer(qsausInit);
+  Meteor.defer(koffieteller);
   Meteor.defer(function() {
     $($("section")[0]).addClass("show");
     $("#homecontent").addClass("show");
+  });
+  Meteor.defer(function() {
+    window.scrollTo(0,0);
   });
   return (Template[page] || Template["error404"])();
 };
