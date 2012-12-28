@@ -22,7 +22,7 @@ window.requestAnimFrame = (function () {
 })();
 
 function homepageShowreel() {
-  if (!onLoadFinished) {
+  //if (!onLoadFinished) {
     // declare global items
     $showreel = $('#showreel2');
     $nav = $showreel.find('nav');
@@ -49,8 +49,8 @@ function homepageShowreel() {
     q42IsTimer = new Date().getTime();
     requestAnimFrame(q42Is);
 
-    onLoadFinished = true;
-  }
+    //onLoadFinished = true;
+ // }
 }
 
 function setup3DShowreel() {
