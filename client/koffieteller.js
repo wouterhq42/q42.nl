@@ -1,4 +1,4 @@
-$(function () {
+function koffieteller() {
 
   // get localdate
 
@@ -122,4 +122,4 @@ $(function () {
       setTimeout(function () { updateCups(el) }, intervalSpeed);
     }
   }
-});
+}
