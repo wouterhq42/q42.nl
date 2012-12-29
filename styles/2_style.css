@@ -310,9 +310,6 @@
     padding: 0px 0px 16px;
     text-align: right;
   }
-  section:last-child .block-readmore {
-    border: none;
-  }
   
   /* block-small */
   .block-small {
