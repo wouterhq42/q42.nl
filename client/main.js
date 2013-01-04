@@ -12,6 +12,9 @@ Template.body.content = function() {
   return template();
 };
 Template.body.rendered = function() {
+  if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
+    document.title = $(this.find('h1')).text() + " - Q42";
+
   reattachBehavior();
 
   Meteor.setTimeout(function() {
