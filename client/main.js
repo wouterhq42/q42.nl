@@ -1,8 +1,8 @@
 Meteor.startup(function () {
   $(window).bind('resize', resize);
   $(window).bind('resize', resizeFBwidget);
-  resize();
-
+  $(window).bind("resize", resizeShowreel);
+  $(window).bind('scroll', bounceBack);
   Backbone.history.start({pushState: true});
 });
 
@@ -32,6 +32,9 @@ function handleLinkClicks() {
 }
 
 function reattachBehavior() {
+  resize();
+  resizeShowreel();
+
   setReadmoreBouncers();
   handleLinkClicks();
   homepageShowreel();

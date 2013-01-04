@@ -221,8 +221,6 @@ function resizeShowreel() {
   if (onLoadFinished)
     setup3DShowreel();
 }
-$(window).bind("resize", resizeShowreel);
-resizeShowreel();
 
 $('#showreel-container')
 .on('swipeleft', function (e) {

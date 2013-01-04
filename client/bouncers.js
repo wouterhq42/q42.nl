@@ -1,7 +1,6 @@
 function setReadmoreBouncers() {
   $('.block-readmore a').each(function () {
     $(this).addClass('readyToBounce');
-    $(window).bind('scroll', bounceBack);
   });
 }
 
