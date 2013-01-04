@@ -328,7 +328,7 @@
   .block-large .bigText .visual { margin-bottom: 15px; }
   .block-large .bigTextVisual { float: right; width: 300px; }
   .block-large .bigTextVisual img { max-width: 100%; }
-  .block-large .introText { font-size: 19px; }
+  .block-large .introText { font-size: 18px; }
 
   /* Qers */
   #colleagues { margin-right: -30px; }
@@ -490,6 +490,10 @@
     margin-top: 80px;
     clear: both;
     -webkit-font-smoothing: antialiased;
+  }
+
+  #footer p {
+    font-size: 14px;
   }
 
   #footer h3 {
