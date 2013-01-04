@@ -251,6 +251,10 @@
     clear: both;
     overflow: hidden;
   }
+  body > section > section > section:last-child .block-large {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
   article h1,
   .block-large h1 {
     text-align: left;
