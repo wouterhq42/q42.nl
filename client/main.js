@@ -13,6 +13,12 @@ Template.body.content = function() {
 };
 Template.body.rendered = function() {
   reattachBehavior();
+
+  Meteor.setTimeout(function() {
+    if (window.location.hash)
+      var $el = $(window.location.hash);
+      if ($el && $el[0]) $el[0].scrollIntoView();
+  }, 1000);
 }
 
 Template.body.viewRendersHeader = function() {
