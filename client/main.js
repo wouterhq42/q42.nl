@@ -1,4 +1,5 @@
 Meteor.startup(function () {
+  $(window).bind('resize', resizeFBwidget);
   Backbone.history.start({pushState: true});
 });
 
@@ -32,11 +33,27 @@ function reattachBehavior() {
   Meteor.defer(qsausInit);
   Meteor.defer(koffieteller);
   Meteor.defer(codeteller);
+
+  // fade in new page
   Meteor.defer(function() {
     $($("section")[0]).addClass("show");
     $("#homecontent").addClass("show");
   });
+
+  // scroll to top of page
   Meteor.defer(function() {
     window.scrollTo(0,0);
   });
+
+  // facebook widget
+  Meteor.defer(function() {
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=292443547438127";
+      fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));
+  });
+  Meteor.defer(resizeFBwidget);
 }

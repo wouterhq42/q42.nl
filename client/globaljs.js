@@ -1,11 +1,3 @@
-$(function () {
-  resizeFBwidget();
-});
-
-$(function load() {
-  $(window).bind('resize', resizeFBwidget);
-});
-
 var retries = 0;
 function resizeFBwidget() {
   var $fbWidget = $('.fb_iframe_widget iframe');
