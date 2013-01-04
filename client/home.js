@@ -22,35 +22,31 @@ window.requestAnimFrame = (function () {
 })();
 
 function homepageShowreel() {
-  //if (!onLoadFinished) {
-    // declare global items
-    $showreel = $('#showreel2');
-    $nav = $showreel.find('nav');
+  // declare global items
+  $showreel = $('#showreel2');
+  $nav = $showreel.find('nav');
 
-    // setup indicators
-    showreelItems = $showreel.find('.item');
-    showreelItemCount = showreelItems.length;
-    for (var i = 0; i < showreelItemCount; i++) {
-      $("#indicators").append("<span data-number=" + i + ">●</span>");
-    }
-    $("#indicators").find('span:first').addClass('active');
-    $("#indicators").delay(1000).animate({ opacity: 1 }, 500);
-    $("#indicators span").on("click", handleIndicatorClick);
+  // setup indicators
+  showreelItems = $showreel.find('.item');
+  showreelItemCount = showreelItems.length;
+  for (var i = 0; i < showreelItemCount; i++) {
+    $("#indicators").append("<span data-number=" + i + ">●</span>");
+  }
+  $("#indicators").find('span:first').addClass('active');
+  $("#indicators").delay(1000).animate({ opacity: 1 }, 500);
+  $("#indicators span").on("click", handleIndicatorClick);
 
-    setup3DShowreel();
-    if (showreel3D) {
-      $("#showreel-shape").css("-webkit-transform", "rotateY(360deg)");
-      $("#showreel-shape").css("-moz-transform", "rotateY(360deg)");
-    }
+  setup3DShowreel();
+  if (showreel3D) {
+    $("#showreel-shape").css("-webkit-transform", "rotateY(360deg)");
+    $("#showreel-shape").css("-moz-transform", "rotateY(360deg)");
+  }
 
-    showreelTimer = new Date().getTime();
-    requestAnimFrame(nextShowreelItem);
+  showreelTimer = new Date().getTime();
+  requestAnimFrame(nextShowreelItem);
 
-    q42IsTimer = new Date().getTime();
-    requestAnimFrame(q42Is);
-
-    //onLoadFinished = true;
- // }
+  q42IsTimer = new Date().getTime();
+  requestAnimFrame(q42Is);
 }
 
 function setup3DShowreel() {
@@ -124,7 +120,7 @@ function gotoShowreelItem(nr, click) {
   if (prevousItemNr == nr) {
     return;
   }
-  
+
   $currentItem.removeClass('active-item');
   $nextItem.addClass('active-item');
   $currentIndicator.removeClass('active');
@@ -147,7 +143,7 @@ function gotoShowreelItem(nr, click) {
         $("#showreel-shape").addClass("transition");
       });
     }
-    
+
     var position = 360 - showreelDeg * nr;
     if (prevousItemNr == showreelItemCount - 1 && nr == 0) {
       position = 0;

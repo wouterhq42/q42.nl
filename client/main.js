@@ -1,5 +1,8 @@
 Meteor.startup(function () {
+  $(window).bind('resize', resize);
   $(window).bind('resize', resizeFBwidget);
+  resize();
+
   Backbone.history.start({pushState: true});
 });
 
@@ -29,16 +32,13 @@ function handleLinkClicks() {
 }
 
 function reattachBehavior() {
+  setReadmoreBouncers();
   handleLinkClicks();
   homepageShowreel();
   addPolaroidFunctionality();
-  qsausInit();
+  initQers();
   koffieteller();
   codeteller();
-
-  // fade in new page
-  $($("section")[0]).addClass("show");
-  $("#homecontent").addClass("show");
 
   // scroll to top of page
   window.scrollTo(0,0);
@@ -53,4 +53,10 @@ function reattachBehavior() {
   } (document, 'script', 'facebook-jssdk'));
 
   resizeFBwidget();
+
+  // fade in new page
+  Meteor.defer(function() {
+    $($("section")[0]).addClass("show");
+    $("#homecontent").addClass("show");
+  })
 }

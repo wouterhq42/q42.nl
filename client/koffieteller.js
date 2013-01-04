@@ -1,9 +1,5 @@
 function koffieteller() {
 
-  // get localdate
-
-
-  // convert date to
   var date = new Date();
   var day = date.getDay();
   var timeZoneOffsetHours;
@@ -12,7 +8,6 @@ function koffieteller() {
   var utcDateSeconds;
   var timeInMS;
   var seed;
-
 
   setCurrentTime();
 
