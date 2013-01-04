@@ -16,11 +16,11 @@
   }
   html, body {
     width: 100%;
-    font: 16px Georgia, Times, serif;
+    font: 16px Domine, Georgia, Times, serif;
   }
 
   p {
-    line-height: 1.4em;
+    line-height: 1.5em;
   }
 
   address {font-style: normal;}
@@ -224,7 +224,7 @@
     text-align: left;
   }
   #q42is-header h1 {
-    font: 80px bebas-neue, Arial, Helvetica, sans-serif;
+    font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .block-text h1 b,
@@ -262,14 +262,14 @@
   article h2,
   .block-large > figure > .body > h2
   {
-    font: normal 40px bebas-neue, Arial, Helvetica, sans-serif;
+    font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 0.04em;
     margin: 0 0 20px 0;
 
     color: #232323;
   }
   .block-large > figure > .body > h3 {
-    font: 12px Arial, Helvetica, sans-serif;
+    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0px;
     margin-top: -18px;
     color: #888;
@@ -277,7 +277,7 @@
 
 
   .block-small h3 {
-    font: 12px Arial, Helvetica, sans-serif;
+    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0px;
     margin-top: 3px;
     color: #888;
