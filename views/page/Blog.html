@@ -1,0 +1,15 @@
+<template name="blog">
+  <h1>We<b>blog</b></h1>
+  {{#each post}}
+    <h2>{{title}}</h2>
+    {{{intro}}}
+    <p><a href="/blog/post/{{id}}/{{slug}}">Lees verder</a></p>
+  {{/each}}
+</template>
+
+<template name="blogpost">
+  {{#with post}}
+    <h1>{{title}}</h1>
+    {{{body}}}
+  {{/with}}
+</template>
