@@ -1,3 +1,54 @@
+var _kickAssQ42Folk = [
+ { name: "Alexander Overvoorde", handle:"alexander", github:""},
+ { name: "Arian van Gend", handle:"arian", github:""},
+ { name: "Bas Warmerdam", handle:"bas", github:""},
+ { name: "Benjamin de Jager", handle:"benjamin", github:""},
+ { name: "Bob van Oorschot", handle:"bob", github:""},
+ { name: "Chris Waalberg", handle:"chris", github:""},
+ { name: "Christiaan Hees", handle:"christiaan", github:""},
+ { name: "Cihan Duruer", handle:"cihan", github:""},
+ { name: "Coen Bijpost", handle:"coen", github:""},
+ { name: "Cynthia Wijntje", handle:"cynthia", github:""},
+ { name: "Elaine Oliver", handle:"elaine", github:""},
+ { name: "Frank Raterink", handle:"frank", github:""},
+ { name: "Herman Banken", handle:"herman", github:""},
+ { name: "Ivo de Kler", handle:"ivo", github:""},
+ { name: "Jaap Taal", handle:"jaap", github:""},
+ { name: "Jan Willem Maneschijn", handle:"jan-willem", github:""},
+ { name: "Jasper Kaizer", handle:"jasper", github:""},
+ { name: "Jelle Visser", handle:"jelle", github:""},
+ { name: "Jeroen Gijsman", handle:"jeroen", github:""},
+ { name: "Johan Huijkman", handle:"johan", github:""},
+ { name: "Kamil Afsar", handle:"kamil", github:""},
+ { name: "Kars Veling", handle:"kars", github:""},
+ { name: "Katja Hollaar", handle:"katja", github:""},
+ { name: "Korjan van Wieringen", handle:"korjan", github:""},
+ { name: "Leonard Punt", handle:"leonard", github:""},
+ { name: "Lukas van Driel", handle:"lukas", github:""},
+ { name: "Marcel Duin", handle:"marcel", github:""},
+ { name: "Mark van Straten", handle:"mark", github:""},
+ { name: "Martijn Laarman", handle:"martijn", github:""},
+ { name: "Martijn van Steenbergen", handle:"martijn", github:""},
+ { name: "Martin Kool", handle:"martin", github:""},
+ { name: "Michiel Post", handle:"michiel", github:""},
+ { name: "Paul Visschers", handle:"paul", github:""},
+ { name: "Rahul Choudhury", handle:"rahul", github:""},
+ { name: "Remco Veldkamp", handle:"remco", github:""},
+ { name: "Richard Lems", handle:"richard", github:""},
+ { name: "Roelf-Jan de Vries", handle:"roelf-jan", github:""},
+ { name: "Sander de Vos", handle:"sander", github:""},
+ { name: "Sanjay Sheombar", handle:"sanjay", github:""},
+ { name: "Sjoerd Visscher", handle:"sjoerd", github:""},
+ { name: "Stef Brooijmans", handle:"stef", github:""},
+ { name: "Suzanne Waalberg", handle:"suzanne", github:""},
+ { name: "Tim Logtenberg", handle:"tim", github:""},
+ { name: "Tim van Deursen", handle:"tim", github:""},
+ { name: "Tim van Steenis", handle:"tim", github:""},
+ { name: "Thijs van der Meulen", handle:"thijs", github:""},
+ { name: "Tom Lokhorst", handle:"tom", github:""},
+ { name: "Wilbert Mekenkamp", handle:"wilbert", github:""}
+];
+ 
 var Employees = new Meteor.Collection("Employees");
 Employees.allow({
 	insert: function () {
@@ -6,7 +57,7 @@ Employees.allow({
 });
 
 Employees.insert({
-	name: "Martijn Laarman",
+	 name: "Martijn Laarman",
 	shortName: "martijnl",
 	githubHandle: "Mpdreamz"
 });	
@@ -20,8 +71,8 @@ Meteor.publish("employees", function () {
 //var e = new Meteor.Collection("Employees"); e.count() works,
 //but i can only instantiate this collection once or i get this:
 //
-//Error: There is already a collection named 'Employees'
+//Error: There is already a collection  named 'Employees'
 //
 //var e = new Meteor.Collection("employees");
-//does not work even though that is the name i am publishing it under.
+//does not work even though that is the  name i am publishing it under.
 //
