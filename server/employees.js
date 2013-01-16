@@ -49,19 +49,31 @@ var _kickAssQ42Folk = [
  { name: "Wilbert Mekenkamp", handle:"wilbert", github:""}
 ];
  
+//reference/create empoyees collection
 var Employees = new Meteor.Collection("Employees");
+
+//Get an ACL going on, clients should not get to insert q folk.
 Employees.allow({
 	insert: function () {
 		return false;
 	}
 });
 
-Employees.insert({
-	 name: "Martijn Laarman",
-	shortName: "martijnl",
-	githubHandle: "Mpdreamz"
-});	
-
+//minimongo has no support for mongodb's upserts :(
+console.log("trying to insert q42 peeps");
+var inserts = 0, updates = 0;
+_.each(_kickAssQ42Folk, function(e) {
+	var count = Employees.find({handle: e.handle}).count()
+	if (count === 0) {
+		Employees.insert(e);
+		inserts++;
+	}
+	else {
+		Employees.update({hanle: e.handle}, e, {$set: e });
+		updates++;
+	}
+});
+console.log("Inserted " + inserts + " and udated " + updates + " q peeps");
 
 Meteor.publish("employees", function () {
 	return Employees.find(); 
