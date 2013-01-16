@@ -9,7 +9,28 @@
 
 <template name="blogpost">
   {{#with post}}
-    <h1>{{title}}</h1>
-    {{{body}}}
+    <section class="blog">
+      <article>
+        <article class="block-large">
+          <div class="bigText">
+            <h1><b>{{title}}</b></h1>
+            {{{body}}}
+          </div>
+          <div class="block-small subcontent">
+            <p>Geschreven op <abbr>{{prettyDate}}</abbr></p>
+            {{#if tags}}
+              <h2>Tags</h2>
+              <ul class="tags">
+                {{#each tags}}
+                  <li>
+                    <a href="/blog/tagged/{{this}}">{{this}}</a>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </div>
+        </article>
+      </article>
+    </section>
   {{/with}}
 </template>
