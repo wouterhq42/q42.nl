@@ -60,3 +60,18 @@ Meteor.methods({
 var Posts = new Meteor.Collection("Posts");
 if (Posts.find().count() == 0)
   Meteor.call("reimportTumblr");
+
+Meteor.publish("blogpostIndex", function (page, tag) {
+  page = page || 1;
+  var filter = tag ? { tags: tag } : {};
+  return Posts.find(filter, {
+    limit: 10,
+    skip: (page - 1) * 10,
+    sort: { timestamp: -1 },
+    fields: { body: false }
+  });
+});
+
+Meteor.publish("blogpostFull", function (id) {
+  return Posts.find({ id: id });
+});
