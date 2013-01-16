@@ -6,8 +6,12 @@ Meteor.autosubscribe(function() {
 });
 var Posts = new Meteor.Collection("Posts");
 
-Template.blog.post = function() {
-  return Posts.find();
+Template.blog.postGroup = function() {
+  var posts = Posts.find().fetch();
+  var postGroups = [];
+  while (posts.length)
+    postGroups.push(posts.splice(0, 3));
+  return postGroups;
 }
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });

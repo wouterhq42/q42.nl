@@ -1,10 +1,23 @@
 <template name="blog">
-  <h1>We<b>blog</b></h1>
-  {{#each post}}
-    <h2>{{title}}</h2>
-    {{{intro}}}
-    <p><a href="/blog/post/{{id}}/{{slug}}">Lees verder</a></p>
-  {{/each}}
+  <section class="blog">
+    <header class="block-text"><h1>We<b>blog</b></h1></header>
+    {{#each postGroup}}
+      <section class="block-large index-page">
+        {{#each this}}
+          <article class="block-small">
+            <figure>
+              <figcaption class="body">
+                <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
+                <h3><abbr>{{prettyDate}}</abbr></h3>
+                {{{intro}}}
+              </figcaption>
+              <a href="/blog/post/{{id}}/{{slug}}" class="big_ass_button">Lees verder</a>
+            </figure>
+          </article>
+        {{/each}}
+      </section>
+    {{/each}}
+  </section>
 </template>
 
 <template name="blogpost">
