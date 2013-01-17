@@ -35,9 +35,14 @@ Template.blog.pagination = function() {
 Template.blog.tag = function() {
   return Session.get("blogtag");
 }
-Template.blog.debug = function(obj) {
-  return "<!--" + JSON.stringify(obj) + "-->"
-}
+
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
+
+Handlebars.registerHelper("ifWidthEquals", function(width, options) {
+  return this.width == width ? options.fn(this) : "";
+});
+Handlebars.registerHelper("debug", function(obj) {
+  // console.log(obj)
+});

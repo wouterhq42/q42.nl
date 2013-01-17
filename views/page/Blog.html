@@ -5,15 +5,57 @@
       <section class="block-large index-page">
         {{#each this}}
           <article class="block-small">
-            <figure>
-              <figcaption class="body">
-                <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
-                <h3><abbr>{{prettyDate}}</abbr></h3>
-                {{{intro}}}
-                {{{description}}}
-              </figcaption>
-              <a href="/blog/post/{{id}}/{{slug}}" class="big_ass_button">Lees verder</a>
-            </figure>
+            {{#if player}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="/blog/post/{{id}}/{{slug}}">Filmpje</a></h2>
+                  <h3><abbr>{{prettyDate}}</abbr></h3>
+                  {{#each player}}
+                    {{#ifWidthEquals 250}}
+                      {{{embed_code}}}
+                    {{/ifWidthEquals}}
+                  {{/each}}
+                  {{{caption}}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if photos}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="/blog/post/{{id}}/{{slug}}">Foto's</a></h2>
+                  {{{caption}}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if text}}
+              <figure>
+                <figcaption class="body">
+                  <h2>"{{{text}}}"</h2>
+                  {{#if source}}
+                  <p>—{{{source}}}</p>
+                  {{/if}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if description}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="{{url}}">{{title}}</a></h2>
+                  <h3><abbr>{{prettyDate}}</abbr></h3>
+                  {{{description}}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if intro}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
+                  <h3><abbr>{{prettyDate}}</abbr></h3>
+                  {{{intro}}}
+                </figcaption>
+                <a href="/blog/post/{{id}}/{{slug}}" class="big_ass_button">Lees verder</a>
+              </figure>
+            {{/if}}
           </article>
           {{{debug this}}}
         {{/each}}
@@ -38,9 +80,39 @@
       <article>
         <article class="block-large">
           <div class="bigText">
-            <h1><b>{{title}}</b></h1>
-            {{{body}}}
-            {{{description}}}
+            {{#if player}}
+              <h1><b>Filmpje</b></h1>
+              {{#each player}}
+                {{#ifWidthEquals 500}}
+                  {{{embed_code}}}
+                {{/ifWidthEquals}}
+              {{/each}}
+              {{{caption}}}
+            {{/if}}
+            {{#if photos}}
+              <h1><b>Foto's</b></h1>
+              {{{caption}}}
+              {{#each photos}}
+                <p><figure>
+                {{#each alt_sizes}}
+                  {{#ifWidthEquals 500}}
+                    <img src="{{url}}">
+                  {{/ifWidthEquals}}
+                {{/each}}
+                  <figcaption>
+                    {{{caption}}}
+                  </figcaption>
+                </figure></p>
+              {{/each}}
+            {{/if}}
+            {{#if description}}
+              <h1><b><a href="{{url}}">{{title}}</a></b></h1>
+              {{{description}}}
+            {{/if}}
+            {{#if body}}
+              <h1><b>{{title}}</b></h1>
+              {{{body}}}
+            {{/if}}
           </div>
           <div class="block-small subcontent">
             <p>Geschreven op <abbr>{{prettyDate}}</abbr></p>
@@ -59,4 +131,5 @@
       </article>
     </section>
   {{/with}}
+  {{{debug post}}}
 </template>

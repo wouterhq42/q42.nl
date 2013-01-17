@@ -45,7 +45,7 @@ function upsertPost(post)
   if (post.body)
   {
     var pos = post.body.indexOf("<!-- more -->");
-    post.intro = pos > -1 ? post.body.substring(0, pos) : "";
+    post.intro = pos > -1 ? post.body.substring(0, pos) : post.body;
   }
   if (!Posts.findOne({ id: post.id }))
     Posts.insert(post);
