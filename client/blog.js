@@ -1,14 +1,8 @@
 Meteor.autosubscribe(function() {
   Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
-});
-Meteor.autosubscribe(function() {
   Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
-});
-Meteor.autosubscribe(function() {
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
 });
-var Posts = new Meteor.Collection("Posts");
-var PageCounts = new Meteor.Collection("PageCounts");
 
 Template.blog.postGroup = function() {
   var posts = Posts.find().fetch();

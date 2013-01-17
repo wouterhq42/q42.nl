@@ -1,5 +1,5 @@
-TUMBLR_KEY = "9MFWwaN0dXvqXEfp8fXNFCW8b0DWczrTb7GadGwiFO4Du2WUIg";
-BLOGPOSTS_PER_PAGE = 12
+const TUMBLR_KEY = "9MFWwaN0dXvqXEfp8fXNFCW8b0DWczrTb7GadGwiFO4Du2WUIg";
+const BLOGPOSTS_PER_PAGE = 12
 
 Meteor.methods({
   checkTumblr: function()
@@ -68,10 +68,6 @@ Meteor.publish("blogpostFull", function (id) {
   return Posts.find({ id: id });
 });
 
-var Posts = new Meteor.Collection("Posts");
-var blogPostCount = 0;
-
-var PageCounts = new Meteor.Collection("PageCounts");
 Meteor.publish("pagesByTag", function (tag) {
   var self = this;
   var uuid = Meteor.uuid();
