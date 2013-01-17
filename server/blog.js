@@ -1,4 +1,5 @@
 TUMBLR_KEY = "9MFWwaN0dXvqXEfp8fXNFCW8b0DWczrTb7GadGwiFO4Du2WUIg";
+BLOGPOSTS_PER_PAGE = 12
 
 Meteor.methods({
   checkTumblr: function()
@@ -52,16 +53,12 @@ function upsertPost(post)
     Posts.update({ id: post.id }, post);
 }
 
-var Posts = new Meteor.Collection("Posts");
-if (Posts.find().count() == 0)
-  Meteor.call("reimportTumblr");
-
 Meteor.publish("blogpostIndex", function (page, tag) {
   page = page || 1;
   var filter = tag ? { tags: tag } : {};
   return Posts.find(filter, {
-    limit: 12,
-    skip: (page - 1) * 12,
+    limit: BLOGPOSTS_PER_PAGE,
+    skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: { body: false }
   });
@@ -70,3 +67,41 @@ Meteor.publish("blogpostIndex", function (page, tag) {
 Meteor.publish("blogpostFull", function (id) {
   return Posts.find({ id: id });
 });
+
+var Posts = new Meteor.Collection("Posts");
+var blogPostCount = 0;
+
+var PageCounts = new Meteor.Collection("PageCounts");
+Meteor.publish("pagesByTag", function (tag) {
+  var self = this;
+  var uuid = Meteor.uuid();
+  var count = 0;
+
+  var filter = tag ? {tags: tag} : {};
+  var handle = Posts.find(filter).observe({
+    added: function (doc, idx) {
+      count++;
+      self.set("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
+      self.flush();
+    },
+    removed: function (doc, idx) {
+      count--;
+      self.set("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
+      self.flush();
+    }
+    // don't care about moved or changed
+  });
+
+  // Observe only returns after the initial added callbacks have
+  // run.  Now mark the subscription as ready.
+  self.complete();
+  self.flush();
+
+  // stop observing the cursor when client unsubs
+  self.onStop(function () {
+    handle.stop();
+  });
+});
+
+if (Posts.find().count() == 0)
+  Meteor.call("reimportTumblr");

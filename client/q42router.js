@@ -28,8 +28,9 @@ var Q42Router = Backbone.Router.extend({
   },
   blog: function (page, tag)
   {
-    Session.set("blogpage", page || 0);
+    Session.set("blogpage", 1*page || 0);
     Session.set("blogtag", tag || "");
+    Session.set("blogpostid", -1);
     this.main("blog");
   },
   blogpost: function (id)
