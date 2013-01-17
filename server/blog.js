@@ -47,6 +47,8 @@ function upsertPost(post)
     var pos = post.body.indexOf("<!-- more -->");
     post.intro = pos > -1 ? post.body.substring(0, pos) : post.body;
   }
+  if (post.tags)
+    post.tags = post.tags.map(function(s) { return s.toLowerCase() });
   if (!Posts.findOne({ id: post.id }))
     Posts.insert(post);
   else
