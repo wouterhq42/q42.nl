@@ -16,12 +16,24 @@ The hard bit since the repo is around ~100MB
 ### Install meteor
 
 	https://install.meteor.com | /bin/sh
+	
+### But I have Windows
+
+That's okay! Just follow [the instructions for the Windows port](http://win.meteor.com).
 
 ### cd into checkout and run meteor
 
 	cd q42.nl
 	meteor
 
+# Contributing
 
+Content for the site is located in the /views/page folder as regular .html files, so if you want to edit some content, just
+navigate to that file and edit it! A really fast way to clean up spelling mistakes and similar small problems is to just
+load the repository on Github and use its built-in editor to edit files. Github will automatically fork the project for you
+and submit a pull request. Yay!
 
+# License
 
+There is no license. This is the code for our website, copyright Q42. You can browse the source and learn from our mishaps,
+but please don't re-use the code elsewhere or redistribute it.
