@@ -1,5 +1,5 @@
 var _kickAssQ42Folk = [
- { name: "Alexander Overvoorde", handle:"alexander", github:""},
+ { name: "Alexander Overvoorde", handle:"alexander", github:"", image: "anonymous.jpg"},
  { name: "Arian van Gend", handle:"arian", github:""},
  { name: "Bas Warmerdam", handle:"bas", github:""},
  { name: "Benjamin de Jager", handle:"benjamin", github:""},
@@ -28,7 +28,7 @@ var _kickAssQ42Folk = [
  { name: "Marcel Duin", handle:"marcel", github:""},
  { name: "Mark van Straten", handle:"mark", github:""},
  { name: "Martijn Laarman", handle:"martijn", github:""},
- { name: "Martijn van Steenbergen", handle:"martijn", github:""},
+ { name: "Martijn van Steenbergen", handle:"martijnl", github:""},
  { name: "Martin Kool", handle:"martin", github:""},
  { name: "Michiel Post", handle:"michiel", github:""},
  { name: "Paul Visschers", handle:"paul", github:""},
@@ -41,16 +41,13 @@ var _kickAssQ42Folk = [
  { name: "Sjoerd Visscher", handle:"sjoerd", github:""},
  { name: "Stef Brooijmans", handle:"stef", github:""},
  { name: "Suzanne Waalberg", handle:"suzanne", github:""},
- { name: "Tim Logtenberg", handle:"tim", github:""},
+ { name: "Tim Logtenberg", handle:"timl", github:""},
  { name: "Tim van Deursen", handle:"tim", github:""},
- { name: "Tim van Steenis", handle:"tim", github:""},
+ { name: "Tim van Steenis", handle:"tims", github:""},
  { name: "Thijs van der Meulen", handle:"thijs", github:""},
  { name: "Tom Lokhorst", handle:"tom", github:""},
  { name: "Wilbert Mekenkamp", handle:"wilbert", github:""}
 ];
- 
-//reference/create empoyees collection
-var Employees = new Meteor.Collection("Employees");
 
 //Get an ACL going on, clients should not get to insert q folk.
 Employees.allow({
@@ -76,7 +73,7 @@ _.each(_kickAssQ42Folk, function(e) {
 console.log("Inserted " + inserts + " and udated " + updates + " q peeps");
 
 Meteor.publish("employees", function () {
-	return Employees.find(); 
+	return Employees.find({}); 
 });
 
 //client 
