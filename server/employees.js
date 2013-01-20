@@ -14,7 +14,7 @@ var _kickAssQ42Folk = [
  { name: "Herman Banken", handle:"herman", github:""},
  { name: "Ivo de Kler", handle:"ivo", github:""},
  { name: "Jaap Taal", handle:"jaap", github:""},
- { name: "Jan Willem Maneschijn", handle:"jan-willem", github:""},
+ { name: "Jan Willem Maneschijn", handle:"janwillem", github:""},
  { name: "Jasper Kaizer", handle:"jasper", github:""},
  { name: "Jelle Visser", handle:"jelle", github:""},
  { name: "Jeroen Gijsman", handle:"jeroen", github:""},
@@ -27,22 +27,22 @@ var _kickAssQ42Folk = [
  { name: "Lukas van Driel", handle:"lukas", github:""},
  { name: "Marcel Duin", handle:"marcel", github:""},
  { name: "Mark van Straten", handle:"mark", github:""},
- { name: "Martijn Laarman", handle:"martijn", github:""},
- { name: "Martijn van Steenbergen", handle:"martijnl", github:""},
+ { name: "Martijn Laarman", handle:"martijnl", github:""},
+ { name: "Martijn van Steenbergen", handle:"martijn", github:""},
  { name: "Martin Kool", handle:"martin", github:""},
  { name: "Michiel Post", handle:"michiel", github:""},
  { name: "Paul Visschers", handle:"paul", github:""},
  { name: "Rahul Choudhury", handle:"rahul", github:""},
  { name: "Remco Veldkamp", handle:"remco", github:""},
  { name: "Richard Lems", handle:"richard", github:""},
- { name: "Roelf-Jan de Vries", handle:"roelf-jan", github:""},
+ { name: "Roelf-Jan de Vries", handle:"roelfjan", github:""},
  { name: "Sander de Vos", handle:"sander", github:""},
  { name: "Sanjay Sheombar", handle:"sanjay", github:""},
  { name: "Sjoerd Visscher", handle:"sjoerd", github:""},
  { name: "Stef Brooijmans", handle:"stef", github:""},
  { name: "Suzanne Waalberg", handle:"suzanne", github:""},
  { name: "Tim Logtenberg", handle:"timl", github:""},
- { name: "Tim van Deursen", handle:"tim", github:""},
+ { name: "Tim van Deursen", handle:"timd", github:""},
  { name: "Tim van Steenis", handle:"tims", github:""},
  { name: "Thijs van der Meulen", handle:"thijs", github:""},
  { name: "Tom Lokhorst", handle:"tom", github:""},
@@ -66,16 +66,28 @@ _.each(_kickAssQ42Folk, function(e) {
 		inserts++;
 	}
 	else {
-		Employees.update({hanle: e.handle}, e, {$set: e });
+		Employees.update({hanle: e.handle}, e, {set: e });
 		updates++;
 	}
 });
 console.log("Inserted " + inserts + " and udated " + updates + " q peeps");
 
+var employeeHandles = _.map(_kickAssQ42Folk, function(e) { return e.handle;  });
+
+//Delete employees whos handles are no longer there:
+var employeeCountBefore = Employees.find({}).count();
+Employees.remove({ handle: { $nin: employeeHandles } });
+
+var employeeCountAfter = Employees.find({}).count();
+console.log("Deleted " + Math.max(0, employeeCountBefore - employeeCountAfter) + " q peeps");
+
 Meteor.publish("employees", function () {
 	return Employees.find({}); 
 });
 
+Meteor.publish("employeeHandles", function () {
+	return employeeHandles;
+});
 //client 
 
 //var x = new Meteor.Collection("Employees")
