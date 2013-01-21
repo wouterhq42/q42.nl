@@ -82,6 +82,7 @@
           <div class="bigText">
             {{#if player}}
               <h1><b>Filmpje</b></h1>
+              {{> postDate}}
               {{#each player}}
                 {{#ifWidthEquals 500}}
                   {{{embed_code}}}
@@ -91,6 +92,7 @@
             {{/if}}
             {{#if photos}}
               <h1><b>Foto's</b></h1>
+              {{> postDate}}
               {{{caption}}}
               {{#each photos}}
                 <p><figure>
@@ -111,21 +113,15 @@
             {{/if}}
             {{#if body}}
               <h1><b>{{title}}</b></h1>
+              {{> postDate}}
               {{{body}}}
             {{/if}}
           </div>
           <div class="block-small subcontent">
-            <p>Geschreven op <abbr>{{prettyDate}}</abbr></p>
-            {{#if tags}}
-              <h2>Tags</h2>
-              <ul class="tags">
-                {{#each tags}}
-                  <li>
-                    <a href="/blog/tagged/{{this}}">{{this}}</a>
-                  </li>
-                {{/each}}
-              </ul>
-            {{/if}}
+            <h2><strong>Web</strong>log</h2>
+            <p>Dit is het blog van Q42, waarin Q'ers schrijven over hun werk, passie en het leven bij Q42.</p>
+            <p>Diezelfde Q'ers zijn ook actief op Twitter. We hebben een lijstje gemaakt, kijk maar: <a href="https://twitter.com/q42/q-ers">Q'ers op Twitter</a>. En je kunt ons natuurlijk ook volgen op <a href="http://twitter.com/q42">@q42</a>.</p>
+            {{> otherPosts}}
           </div>
         </article>
 
@@ -139,6 +135,8 @@
           </div>
         </div>
 
+        {{> tags}}
+
       </article>
       
       <div id="disqus_thread" style="margin-top: 1em"></div>
@@ -147,4 +145,31 @@
     </section>
   {{/with}}
   {{{debug post}}}
+</template>
+
+<template name="postDate">
+  <p class="post-date">Geschreven op <abbr>{{prettyDate}}</abbr></p>
+</template>
+
+<template name="tags">  
+{{#if tags}}
+  <div class="block-tags">
+    <ul class="tags">
+      {{#each tags}}
+        <li>
+          <a href="/blog/tagged/{{this}}">{{this}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+</template>
+
+<template name="otherPosts">
+  <h2>Ook op Q42.nl</h2>
+  <ul>
+    {{#each post}}
+      <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
+    {{/each}}
+  </ul>
 </template>

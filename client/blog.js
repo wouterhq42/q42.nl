@@ -34,6 +34,14 @@ Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
 
+Template.postDate.prettyDate = function() {
+  return moment(this.date).format('dddd D MMMM YYYY')
+}
+
+Template.otherPosts.post = function() {
+  return Posts.find({}, {limit: 10, filter: {$not: {id: Session.get('blogpostid')}}});
+}
+
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {
   return this.width == width ? options.fn(this) : "";
 });
