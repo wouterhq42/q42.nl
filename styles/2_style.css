@@ -264,6 +264,10 @@
 
     color: #232323;
   }
+  .blog article h2,
+  .blog .block-large > figure > .body > h2 {
+    font: normal 1.4em ChevinLightItalicRegular,Georgia,Times,serif;
+  }
   .block-large > figure > .body > h3 {
     font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0px;
