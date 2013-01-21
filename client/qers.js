@@ -10,6 +10,8 @@ function initQers() {
   setDifferentRotationsForQers();
 
   $('#colleagues .polaroid').mouseenter(resetCinemagraph);
+
+  $("#num-qers").text($("#colleagues li").length);
 }
 
 function makeQerMove(qer) {
