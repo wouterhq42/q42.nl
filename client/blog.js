@@ -39,7 +39,7 @@ Template.postDate.prettyDate = function() {
 }
 
 Template.otherPosts.post = function() {
-  return Posts.find({}, {limit: 10, filter: {$not: {id: Session.get('blogpostid')}}});
+  return Posts.find({id: {$ne: Session.get('blogpostid')}}, {limit: 10}).fetch();
 }
 
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {
