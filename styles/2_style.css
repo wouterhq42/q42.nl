@@ -216,6 +216,9 @@ body.alt #header ol li {
   color: #888;
   text-align: left;
 }
+.blog h1 {
+  margin: 0;
+}
 #q42is-header h1 {
   font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -402,6 +405,16 @@ span.effect-glow {
 
 .blog .bigText img {
   max-width: 100%;
+  border: solid 5px white;
+  box-shadow: 0 0 4px rgba(0,0,0,.4);
+}
+
+.blog .block-readmore {
+  margin-top: 20px;
+}
+
+.blog .loading {
+  opacity: 0;
 }
 
 /* Sharing */
@@ -424,7 +437,7 @@ span.effect-glow {
 }
 
 .post-date {
-  color: #999;
+  color: #888;
 }
 
 .block-tags {
