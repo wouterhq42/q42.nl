@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-var Employees = new Meteor.Collection("Employees");
-=======
-var Posts = new Meteor.Collection("Posts");
-var PageCounts = new Meteor.Collection("PageCounts");
->>>>>>> 0f9b525891f6de47efc60df85369082164a84b6f
