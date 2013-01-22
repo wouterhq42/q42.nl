@@ -1,7 +1,7 @@
 <template name="employees">
 {{#each employee}}
 <li>
-<span class="name">{{name}}</span>
+<span class="name">{{firstname}}</span>
 	<span class="contactData">
 		<a href="mailto:alexander@q42.nl"><email>{{handle}}@q42.nl</email></a>
 		<a href="tel:"><phone>{{phone}}</phone></a>
@@ -9,7 +9,7 @@
 	<img class="zw" src="/images/{{avatar_static}}" width="108" alt="{{name}}" title="{{name}}">
 	<div class="polaroid">
 		<a class="insetshadow">
-			<img class="color" src="/images/{{avatar_animated}}" width="220" alt="{{name}}" title="{{name}}">
+			<img class="color" data-src="/images/{{avatar_animated}}" src="/images/{{avatar_static}}" width="220" alt="{{name}}" title="{{name}}">
 		</a>
 		<h3><name>{{name}}</name></h3>
 		<p class="contactData">

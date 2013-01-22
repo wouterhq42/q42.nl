@@ -82,7 +82,7 @@ var employeeCountAfter = Employees.find({}).count();
 console.log("Deleted " + Math.max(0, employeeCountBefore - employeeCountAfter) + " q peeps");
 
 Meteor.publish("employees", function () {
-	return Employees.find({}); 
+	return Employees.find({}, { sort : { handle: 1 } }); 
 });
 
 Meteor.publish("employeeHandles", function () {

@@ -1,5 +1,5 @@
 Meteor.autosubscribe(function() {
-	Meteor.subscribe("employees", function() { console.log("recieved employees"); initEmployees(); });
+	Meteor.subscribe("employees");
 	
 });
 Template.employees.employee = function () {
@@ -12,29 +12,32 @@ Handlebars.registerHelper('avatar_animated', function() {
 	return this.image || this.handle + "gif.gif";
 });
 
-var initEmployees = function() {
+Handlebars.registerHelper('firstname', function() {
+	if (!this.name)
+		return "droid";
+	return this.name.split(" ")[0];
+});
 
-	var employeeHandles = Employees.find({}).map(function(e) { return e.handle; }); 
 
-	setDifferentRotationsForQers();
+var EmployeeGallery = (function () {
+	function swapGif() {
+		var $color = $(this).find(".color");
+		var animatedGif = $color.data("src");
+		var colorSrc = $color.attr("src");
+		if (animatedGif != colorSrc)
+			$color.attr("src", animatedGif);
+	}
+	function rotatePolaroid() {
+		var randomRotation = Math.floor(Math.random() * 21) - 10;
+		var polaroid = $(this);
+		polaroid.css('-webkit-transform', 'scale(1.0) rotate(' + randomRotation + 'deg)');
+		polaroid.css('-webkit-transform', 'scale(1.0) rotate(' + randomRotation + 'deg)');
+	}
 
-	$('#colleagues .polaroid').mouseenter(resetCinemagraph);
-}
+	function init() {
+		$('#colleagues .polaroid').live('mouseenter', _.compose(swapGif, rotatePolaroid));
+	};
 
-function setDifferentRotationsForQers() {
-  $('#colleagues').find('.polaroid').each(function () {
-    var randomRotation = Math.floor(Math.random() * 21) - 10;
-    var polaroid = $(this);
-    polaroid.css('-webkit-transform', 'scale(1.0) rotate(' + randomRotation + 'deg)');
-    polaroid.css('-webkit-transform', 'scale(1.0) rotate(' + randomRotation + 'deg)');
-  });
-}
+	init();
+})();
 
-function resetCinemagraph() {
-  var $img = $(this).find('.insetshadow img');
-  var src = $img.attr('src');
-  $img.attr('src', '');
-  setTimeout(function () {
-    $img.attr('src', src);
-  }, 0);
-}
