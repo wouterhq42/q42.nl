@@ -4,12 +4,20 @@ Meteor.autosubscribe(function() {
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
 });
 
-Template.blog.postGroup = function() {
-  var posts = Posts.find().fetch();
-  var postGroups = [];
-  while (posts.length)
-    postGroups.push(posts.splice(0, 3));
-  return postGroups;
+Template.blog.post = function() {
+  var posts = Posts.find();
+  if (posts.count() > 0)
+    Session.set("blogloading", false);
+  return posts;
+}
+Template.blog.rendered = function() {
+  var loading = Session.get("blogloading");
+  if (loading)
+    $(".loading").addClass("loading");
+  else
+    $(".loading").removeClass("loading");
+
+  $(".blog .subcontent:not(:first)").remove();
 }
 Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
@@ -35,6 +43,14 @@ Template.blog.tag = function() {
 
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
+}
+
+Template.postDate.prettyDate = function() {
+  return moment(this.date).format('dddd D MMMM YYYY')
+}
+
+Template.otherPosts.post = function() {
+  return Posts.find({id: {$ne: Session.get('blogpostid')}}, {limit: 10}).fetch();
 }
 
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {
