@@ -7,7 +7,10 @@ Meteor.autosubscribe(function() {
 Template.blog.post = function() {
   var posts = Posts.find();
   if (posts.count() > 0)
+  {
     Session.set("blogloading", false);
+    Meteor.call("checkTumblr");
+  }
   return posts;
 }
 Template.blog.rendered = function() {
