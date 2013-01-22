@@ -406,8 +406,8 @@ span.effect-glow {
 }
 
 .reblog {
-  padding: 1em 0 1em 2em;
-  background: url(/images/icon_reblog.jpeg) left no-repeat;
+  padding: 1em 0 1em 4em;
+  background: url(/images/icon_reblog.jpeg) 1em no-repeat;
 }
 .reblog h1 {
   font-size: 32px;
