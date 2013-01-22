@@ -3,8 +3,9 @@
     <header class="block-text loading"><h1>We<b>blog</b></h1></header>
     {{#each post}}
     <article>
-      <article class="block-large">
+      <article class="block-large {{#if description}}reblog{{/if}}">
         <div class="bigText">
+          <!-- video -->
           {{#if player}}
             <h1><a href="/blog/post/{{id}}/{{slug}}">Filmpje</a></h1>
             {{> postDate}}
@@ -15,21 +16,23 @@
             {{/each}}
             {{{caption}}}
           {{/if}}
+          <!-- image(s) -->
           {{#if photos}}
             <h1><a href="/blog/post/{{id}}/{{slug}}">Foto's</a></h1>
             {{{caption}}}
           {{/if}}
+          <!-- quote -->
           {{#if text}}
             <h1>"{{{text}}}"</h1>
             {{#if source}}
             <p>—{{{source}}}</p>
             {{/if}}
           {{/if}}
+          <!-- reblog -->
           {{#if description}}
             <h1><a href="{{url}}">{{title}}</a></h1>
-            {{> postDate}}
-            {{{description}}}
           {{/if}}
+          <!-- text post -->
           {{#if intro}}
             <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
             {{> postDate}}

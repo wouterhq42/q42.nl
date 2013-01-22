@@ -497,7 +497,8 @@
   #footer h3 {
     width: 940px;
     margin: -80px auto 40px auto;
-    font:31px ChevinLightItalicRegular, Georgia, Times, serif;
+    font:31px ABeeZee, Georgia, Times, serif;
+    letter-spacing: -1px;
     color: #888
   }
   #footer h3 b{
