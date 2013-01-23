@@ -141,7 +141,9 @@ body.alt #header ol li {
 }
 
 /* footer */
-
+footer {
+  clear: both;
+}
 
 /* end footer */
 
@@ -247,6 +249,9 @@ body.alt #header ol li {
   padding: 40px 0;
   clear: both;
   overflow: hidden;
+}
+.blog .block-large {
+  clear: none;
 }
 article h1,
 .block-large h1 {
@@ -405,8 +410,8 @@ span.effect-glow {
   min-height: 1000px;
 }
 
-.reblog {
-  padding: 1em 0 1em 4em;
+.reblog .bigText {
+  padding: 0 0 0 4em;
   background: url(/images/icon_reblog.jpeg) 1em no-repeat;
 }
 .reblog h1 {
@@ -461,4 +466,14 @@ span.effect-glow {
   float: right;
   width: 45%;
   font-size: smaller;
+}
+
+#blog-posts {
+  width: 640px;
+  float: left;
+}
+
+#blog-sidebar {
+  margin: 0;
+  padding-right: 0;
 }

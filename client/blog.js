@@ -14,20 +14,14 @@ Template.blog.post = function() {
   return posts;
 }
 Template.blog.rendered = function() {
-  var loading = Session.get("blogloading");
-  if (loading)
-    $(".loading").addClass("loading");
-  else
-    $(".loading").removeClass("loading");
-
-  $(".blog .subcontent:not(:first)").remove();
+  $(".blog,.block-text,.subcontent").toggleClass("loading", Session.get("blogloading"));
 }
 Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
   var pages = item ? item.count : 1;
   if (pages == 1)
     return [];
-    
+
   var items = [];
   var page = Session.get("blogpage") || 1;
   if (page > 1)
