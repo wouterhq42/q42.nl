@@ -41,6 +41,9 @@ Template.blog.tag = function() {
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
+Template.blogpost.rendered = function() {
+  $(".blog,.block-text,.subcontent").toggleClass("loading", Session.get("blogloading"));
+}
 
 Template.postDate.prettyDate = function() {
   return moment(this.date).format('dddd D MMMM YYYY')
