@@ -14,7 +14,7 @@ Template.blog.post = function() {
   return posts;
 }
 Template.blog.rendered = function() {
-  $(".blog,.block-text,.subcontent").toggleClass("loading", Session.get("blogloading"));
+  toggleLoadingState();
 }
 Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
@@ -42,7 +42,7 @@ Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
 Template.blogpost.rendered = function() {
-  $(".blog,.block-text,.subcontent").toggleClass("loading", Session.get("blogloading"));
+  toggleLoadingState();
 }
 
 Template.postDate.prettyDate = function() {
@@ -59,3 +59,7 @@ Handlebars.registerHelper("ifWidthEquals", function(width, options) {
 Handlebars.registerHelper("debug", function(obj) {
   // console.log(obj)
 });
+
+function toggleLoadingState() {
+  $(".blog,.block-text,.subcontent,#pageNav").toggleClass("loading", Session.get("blogloading"));
+}
