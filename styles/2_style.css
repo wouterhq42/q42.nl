@@ -222,9 +222,6 @@ footer {
 .blog h1 {
   margin: 0;
 }
-.blog article h1 {
-  font-size: 2em;
-}
 #q42is-header h1 {
   font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -476,6 +473,9 @@ span.effect-glow {
 #blog-posts {
   width: 640px;
   float: left;
+}
+#blog-posts h1 {
+  font-size: 2em;
 }
 
 #blog-sidebar {
