@@ -6,8 +6,8 @@
     {{#each post}}
       <article class="block-large {{#if description}}reblog{{/if}}">
         <div class="bigText">
-          <!-- video -->
           {{#if player}}
+          <!-- video -->
             <h1><a href="/blog/post/{{id}}/{{slug}}">Filmpje</a></h1>
             {{> postDate}}
             {{#each player}}
@@ -17,8 +17,8 @@
             {{/each}}
             {{{caption}}}
           {{/if}}
-          <!-- image(s) -->
           {{#if photos}}
+          <!-- image(s) -->
             <figure>
             {{#each photos.0.alt_sizes}}
               {{#ifWidthEquals 500}}
@@ -34,19 +34,19 @@
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
           {{/if}}
-          <!-- quote -->
           {{#if text}}
+          <!-- quote -->
             <h1>"{{{text}}}"</h1>
             {{#if source}}
             <p>—{{{source}}}</p>
             {{/if}}
           {{/if}}
-          <!-- reblog -->
           {{#if description}}
+          <!-- reblog -->
             <h1><a href="{{url}}">{{title}}</a></h1>
           {{/if}}
-          <!-- text post -->
           {{#if intro}}
+          <!-- text post -->
             <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
             {{> postDate}}
             {{{intro}}}
