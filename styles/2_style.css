@@ -128,18 +128,6 @@ body.alt #header ol li {
   margin-top: 10px;
 }
 
-#header h1 {
-  position: absolute;
-  width: 70px; height: 108px;
-  left: 50%; top: 20px;
-  margin-left: -35px;
-  font-size: 0; line-height: 0; color: transparent;
-  background:url(/images/q42-logo.png) no-repeat;
-  background-size: cover;
-  -webkit-transition: all .3s ease-out;
-  -moz-transition: all .3s ease-out;
-}
-
 /* footer */
 footer {
   clear: both;
