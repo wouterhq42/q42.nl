@@ -19,8 +19,21 @@
           {{/if}}
           <!-- image(s) -->
           {{#if photos}}
-            <h1><a href="/blog/post/{{id}}/{{slug}}">Foto's</a></h1>
-            {{{caption}}}
+            <h1>{{{caption}}}</h1>
+            {{> postDate}}
+            <figure>
+            {{#each photos.0.alt_sizes}}
+              {{#ifWidthEquals 500}}
+                <img src="{{url}}" alt="">
+              {{/ifWidthEquals}}
+            {{/each}}
+              <figcaption>
+                {{{caption}}}
+              </figcaption>
+            </figure>
+            <p class="block-readmore">
+              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
+            </p>
           {{/if}}
           <!-- quote -->
           {{#if text}}
@@ -87,7 +100,7 @@
                 <p><figure>
                 {{#each alt_sizes}}
                   {{#ifWidthEquals 500}}
-                    <img src="{{url}}">
+                    <img src="{{url}}" alt="">
                   {{/ifWidthEquals}}
                 {{/each}}
                   <figcaption>

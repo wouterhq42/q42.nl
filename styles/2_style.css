@@ -428,6 +428,13 @@ span.effect-glow {
   border: solid 5px white;
   box-shadow: 0 0 4px rgba(0,0,0,.4);
 }
+.blog .bigText h1 p {
+  margin: 0 0 5px 0;
+  line-height: 1;
+}
+.blog .bigText figure {
+  margin-top: 20px;
+}
 
 .blog .block-readmore {
   margin-top: 20px;
