@@ -427,6 +427,7 @@ span.effect-glow {
   max-width: 100%;
   border: solid 5px white;
   box-shadow: 0 0 4px rgba(0,0,0,.4);
+  margin-left: 2px; /* force the box shadow to be shown since the parent has overflow: hidden */
 }
 .blog .bigText h1 p {
   margin: 0 0 5px 0;

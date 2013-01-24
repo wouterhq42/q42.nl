@@ -19,8 +19,6 @@
           {{/if}}
           <!-- image(s) -->
           {{#if photos}}
-            <h1>{{{caption}}}</h1>
-            {{> postDate}}
             <figure>
             {{#each photos.0.alt_sizes}}
               {{#ifWidthEquals 500}}
@@ -31,6 +29,7 @@
                 {{{caption}}}
               </figcaption>
             </figure>
+            {{> postDate}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
@@ -128,7 +127,7 @@
               <a href="https://twitter.com/share" class="twitter-share-button"
                 data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42">Tweet</a>
             </div>
-  
+
             <div class="facebookShare" style="float: left;">
               <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
             </div>
