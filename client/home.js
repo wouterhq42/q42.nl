@@ -30,6 +30,7 @@ function homepageShowreel() {
   showreelItems = $showreel.find('.item');
   showreelItemCount = showreelItems.length;
   for (var i = 0; i < showreelItemCount; i++) {
+    $(showreelItems[i]).attr("data-number", i);
     $("#indicators").append("<span data-number=" + i + ">●</span>");
   }
   $("#indicators").find('span:first').addClass('active');
