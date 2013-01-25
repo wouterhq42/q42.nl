@@ -67,6 +67,9 @@ Handlebars.registerHelper("ifWidthEquals", function(width, options) {
 Handlebars.registerHelper("debug", function(obj) {
   // console.log(obj)
 });
+Handlebars.registerHelper("typeIs", function(type) {
+  return this.type == type;
+})
 
 function toggleLoadingState() {
   $(".blog,.block-text,.subcontent,#pageNav").toggleClass("loading", Session.get("blogloading"));
