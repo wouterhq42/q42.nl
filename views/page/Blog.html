@@ -7,9 +7,11 @@
       <article class="block-large {{#if description}}reblog{{/if}}">
         <div class="bigText">
           {{#if typeIs "link"}}
-          <!-- link -->
-            <h1><a href="{{url}}">{{title}}</a></h1>
-            {{> postDate}}
+            {{#unless description}}
+            <!-- link -->
+              <h1><a href="{{url}}">{{title}}</a></h1>
+              {{> postDate}}
+            {{/unless}}
           {{/if}}
           {{#if player}}
           <!-- video -->
