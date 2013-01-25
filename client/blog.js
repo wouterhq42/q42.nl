@@ -14,20 +14,14 @@ Template.blog.post = function() {
   return posts;
 }
 Template.blog.rendered = function() {
-  var loading = Session.get("blogloading");
-  if (loading)
-    $(".loading").addClass("loading");
-  else
-    $(".loading").removeClass("loading");
-
-  $(".blog .subcontent:not(:first)").remove();
+  toggleLoadingState();
 }
 Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
   var pages = item ? item.count : 1;
   if (pages == 1)
     return [];
-    
+
   var items = [];
   var page = Session.get("blogpage") || 1;
   if (page > 1)
@@ -47,6 +41,17 @@ Template.blog.tag = function() {
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
+Template.blogpost.rendered = function() {
+  toggleLoadingState();
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=292443547438127";
+    fjs.parentNode.insertBefore(js, fjs);
+  } (document, 'script', 'facebook-jssdk'));
+}
 
 Template.postDate.prettyDate = function() {
   return moment(this.date).format('dddd D MMMM YYYY')
@@ -62,3 +67,10 @@ Handlebars.registerHelper("ifWidthEquals", function(width, options) {
 Handlebars.registerHelper("debug", function(obj) {
   // console.log(obj)
 });
+Handlebars.registerHelper("typeIs", function(type) {
+  return this.type == type;
+})
+
+function toggleLoadingState() {
+  $(".blog,.block-text,.subcontent,#pageNav").toggleClass("loading", Session.get("blogloading"));
+}
