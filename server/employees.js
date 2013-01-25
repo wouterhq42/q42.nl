@@ -70,7 +70,7 @@ _.each(_kickAssQ42Folk, function(e) {
 		updates++;
 	}
 });
-console.log("Inserted " + inserts + " and udated " + updates + " q peeps");
+console.log("Inserted " + inserts + " and updated " + updates + " q peeps");
 
 var employeeHandles = _.map(_kickAssQ42Folk, function(e) { return e.handle;  });
 
