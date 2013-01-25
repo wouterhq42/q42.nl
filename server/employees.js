@@ -66,7 +66,7 @@ _.each(_kickAssQ42Folk, function(e) {
 		inserts++;
 	}
 	else {
-		Employees.update({hanle: e.handle}, e, {set: e });
+		Employees.update({handle: e.handle}, e, {set: e });
 		updates++;
 	}
 });
