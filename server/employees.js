@@ -89,13 +89,3 @@ Meteor.publish("employees", function () {
 Meteor.publish("employeeHandles", function () {
 	return employeeHandles;
 });
-//client 
-
-//var x = new Meteor.Collection("Employees")
-//undefined
-//Meteor.subscribe("employees");
-//Object
-//var c = x.find({})
-//undefined
-//c.count()
-//45
