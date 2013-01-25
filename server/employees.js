@@ -75,7 +75,7 @@ console.log("Inserted " + inserts + " and updated " + updates + " q peeps");
 var employeeHandles = _.map(_kickAssQ42Folk, function(e) { return e.handle;  });
 
 //Delete employees whose handles are no longer there:
- handles are no longer there:
+// handles are no longer there:
 var employeeCountBefore = Employees.find({}).count();
 Employees.remove({ handle: { $nin: employeeHandles } });
 
