@@ -6,16 +6,19 @@ Template.employees.employee = function () {
 	return Employees.find({});
 }
 Handlebars.registerHelper('avatar_static', function() {
-	return this.image || this.handle + "zw.jpg";
+	return this.imageStatic || this.handle + "zw.jpg";
 });
 Handlebars.registerHelper('avatar_animated', function() {
-	return this.image || this.handle + "gif.gif";
+	return this.imageAnimated || this.handle + "gif.gif";
 });
 
 Handlebars.registerHelper('firstname', function() {
 	if (!this.name)
 		return "droid";
 	return this.name.split(" ")[0];
+});
+Handlebars.registerHelper('email', function() {
+	return this.email || this.handle;
 });
 
 

@@ -3,8 +3,10 @@
 <li>
 <span class="name">{{firstname}}</span>
 	<span class="contactData">
-		<a href="mailto:{{handle}}@q42.nl">{{handle}}@q42.nl</a>
-		<a href="tel:">{{phone}}</a>
+		<a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+    {{#if phone}}
+		<a href="tel:{{phone}}">{{phone}}</a>
+    {{/if}}
 	</span>
 	<img class="zw" src="/images/{{avatar_static}}" width="108" alt="{{name}}" title="{{name}}">
 	<div class="polaroid">
@@ -14,9 +16,14 @@
 		<h3>{{name}}</h3>
 		<p class="contactData">
 			<span class="email">
-				<a href="mailto:{{handle}}@q42.nl">{{handle}}@q42.nl</a>
+				<a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
 			</span>
+      {{#if phone}}
 			<span class="phonenumber">{{phone}}</span>
+      {{/if}}
+      {{#if web}}
+      <span class="website"><a href="{{web}}">website</a></span>
+      {{/if}}
 		</p>
 	</div>
 </li>
