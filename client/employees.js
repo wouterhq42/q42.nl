@@ -59,8 +59,15 @@ var EmployeeGallery = (function () {
 		}
 		function rotatePolaroid() {
 			var randomRotation = Math.floor(Math.random() * 21) - 10;
-			$polaroid.css('-webkit-transform', 'scale(1.0) rotate(' + randomRotation + 'deg)');
-			$polaroid.css('-webkit-transform', 'scale(1.0) rotate(' + randomRotation + 'deg)');
+			var rotateValue = 'scale(1.0) rotate(' + randomRotation + 'deg)';
+
+			$polaroid.css({
+				'-webkit-transform': rotateValue,
+				'-moz-transform': rotateValue,
+				'-ms-transform': rotateValue,
+				'-o-transform': rotateValue,
+				'transform': rotateValue
+			});
 		}	
 		function intitializeHover() {
 			var $polaroidLists = $('#colleagues .polaroid').parent("li");
@@ -120,13 +127,7 @@ var EmployeeGallery = (function () {
 		var $li = $(this);
 		var name = $li.find(".color").attr("alt");
 		polaroids[name] = polaroids[name] || new Polaroid($li);
-		
 		polaroids[name].show();
-
-		//make sure we hide all open polaroid if the window size changed
-		if (windowWidth <= mobileMaxWidth)
-			hideAllPolaroids();
-
 	}
 	function hidePolaroid() {
 		var $li = $(this);
