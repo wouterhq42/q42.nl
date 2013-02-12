@@ -64,7 +64,6 @@ function reattachBehavior() {
   setReadmoreBouncers();
   handleLinkClicks();
   homepageShowreel();
-  addPolaroidFunctionality();
   koffieteller();
   codeteller();
 
