@@ -1,9 +1,9 @@
-Meteor.autosubscribe(function() {
+Meteor.autorun(function() {
 	Meteor.subscribe("employees");
-	
+
 });
 Template.employees.employee = function () {
-	return Employees.find({});
+	return Employees.find({}, {sort: {name: 1}});
 }
 Handlebars.registerHelper('avatar_static', function() {
 	return this.imageStatic || this.handle + "zw.jpg";
@@ -68,14 +68,14 @@ var EmployeeGallery = (function () {
 				'-o-transform': rotateValue,
 				'transform': rotateValue
 			});
-		}	
+		}
 		function intitializeHover() {
 			var $polaroidLists = $('#colleagues .polaroid').parent("li");
 			$polaroidLists.removeClass('hover').removeClass('openedByHover');
 			var windowWidth = $(window).width();
 			if (windowWidth > mobileMaxWidth)
 				$li.addClass('hover');
-			else 
+			else
 				swapGifMobile();
 
 			$polaroid.css('z-index', ++zIndex);
@@ -111,19 +111,19 @@ var EmployeeGallery = (function () {
 		//make sure we hide all open polaroid if the window size changed
 		if (windowWidth <= mobileMaxWidth)
 			hideAllPolaroids();
-		else 
+		else
 			swapAllMobileHoversBackToBlackAndWhite();
 	}
 	function swapAllMobileHoversBackToBlackAndWhite() {
-		_.each(polaroids, function (p) { p.swapGifMobileBackToZw(); });	
+		_.each(polaroids, function (p) { p.swapGifMobileBackToZw(); });
 	}
 	function hideAllPolaroids(){
 		_.each(polaroids, function (p) { p.hide(); });
 	}
-	
+
 	function showPolaroid() {
 		var windowWidth = $(window).width();
-			
+
 		var $li = $(this);
 		var name = $li.find(".color").attr("alt");
 		polaroids[name] = polaroids[name] || new Polaroid($li);
@@ -135,7 +135,7 @@ var EmployeeGallery = (function () {
 		polaroids[name] = polaroids[name] || new Polaroid($li);
 		polaroids[name].hide();
 	}
-	
+
 
 	function init() {
 		$(window).resize(_.debounce(onWindowResize, 100));

@@ -22,7 +22,7 @@ function koffieteller() {
   }
 
   /* editable vars */
-  var qers = 43;
+  var qers = Employees.find().count();
   var averageCupsPerQer = 3;
   var variation = 20;
   var coffeeCupsMeasurePoints = { 8: 0, 10: 40, 12: 60, 14: 90, 17: 100 }; // hours, percentage
@@ -35,7 +35,7 @@ function koffieteller() {
   //console.log("mt: ", randomVariation, randomizedTotalCups);
   // vrijdag was random 17 en random totaal 143
 
-  var $coffeeCounter = $('#koppen-koffie');
+  var coffeeCounter = 0;
   var workdayFinished = false;
 
   //calculate cups at Measure Points
@@ -58,13 +58,13 @@ function koffieteller() {
 
     if (matchingMPs == i) {
       //set cups to max because the workday is over
-      $coffeeCounter.html(splitAmounts[matchingInterval[1]]);
+      coffeeCounter = splitAmounts[matchingInterval[1]];
       workdayFinished = true;
     }
     if (day == 6 || day == 7 || matchingMPs == 0) {
       //reset cups when the day isn't started yet
       //reset cups on weekend days
-      $coffeeCounter.html(0);
+      coffeeCounter = 0;
     }
     return matchingInterval;
   }
@@ -97,10 +97,10 @@ function koffieteller() {
       var cupsAtCurrentTime = startAmountCups + cupsInCurrentInterval;
 
       //write number of cups to screen
-      $coffeeCounter.html(cupsAtCurrentTime);
+      coffeeCounter = cupsAtCurrentTime;
 
       // start cupsUpdater
-      setTimeout(function () { updateCups($coffeeCounter) }, intervalSpeed);
+      setTimeout(function () { updateCups(coffeeCounter) }, intervalSpeed);
     } else {
       // there is no previous MP. That's because it's early dude! Retry in 1 minutos
       setTimeout(function () {
@@ -108,13 +108,14 @@ function koffieteller() {
       }, 60000);
     }
 
-    function updateCups(el) {
+    function updateCups(counter) {
       //repeat this function with the intervalspeed
-      var currentCups = parseInt($(el).html());
-      $(el).html(parseInt($(el).html()) + 1);
+      counter = counter + 1;
       previousInterval = calculatePreviousMP(timeInMS);
       intervalSpeed = calculateIntervalSpeed(previousInterval);
-      setTimeout(function () { updateCups(el) }, intervalSpeed);
+      setTimeout(function () { updateCups(counter) }, intervalSpeed);
     }
   }
+
+  return coffeeCounter;
 }
