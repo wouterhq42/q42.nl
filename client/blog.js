@@ -1,11 +1,11 @@
-Meteor.autosubscribe(function() {
+Meteor.autorun(function() {
   Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
   Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
 });
 
 Template.blog.post = function() {
-  var posts = Posts.find();
+  var posts = Posts.find({}, {sort: {date: -1}});
   if (posts.count() > 0)
   {
     Session.set("blogloading", false);
@@ -42,7 +42,7 @@ Template.blog.tag = function() {
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
-Template.blogpost.rendered = function() {  
+Template.blogpost.rendered = function() {
   toggleLoadingState();
 
   (function (d, s, id) {
@@ -52,7 +52,7 @@ Template.blogpost.rendered = function() {
     js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=292443547438127";
     fjs.parentNode.insertBefore(js, fjs);
   } (document, 'script', 'facebook-jssdk'));
-  
+
   syntaxHighlight();
 
 }
@@ -79,19 +79,15 @@ function toggleLoadingState() {
   $(".blog,.block-text,.subcontent,#pageNav").toggleClass("loading", Session.get("blogloading"));
 }
 
-function syntaxHighlight() {   
-  if (typeof disableStyleCode != 'undefined') { return; }
-
+function syntaxHighlight() {
   var a = false;
 
   $('code').each(function() {
     if (!$(this).parent().hasClass('prettyprint')) {
       $(this).wrap('<pre class="prettyprint" />');
-      a = true;  
+      a = true;
     }
-    
-    
   });
 
-  if (a) { prettyPrint(); } 
+  if (a) prettyPrint();
 }

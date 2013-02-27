@@ -493,12 +493,12 @@ span.effect-glow {
 @media screen {
   /* string content */
   .str {
-    color: #66ff00;
+    color: #88c546;
   }
 
   /* a keyword */
   .kwd {
-    color: #ff6600;
+    color: #ff9900;
   }
 
   /* a comment */
@@ -508,7 +508,7 @@ span.effect-glow {
 
   /* a type name */
   .typ {
-    color: #006dcf;
+    color: rgb(95, 179, 255);
   }
 
   /* a literal value */
@@ -564,12 +564,14 @@ span.effect-glow {
 
 /* Style */
 pre.prettyprint {
-  background: black;
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
-  font-size: 12px;
-  line-height: 1.6;  
+  background: #222;
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important;
+  font-size: 14px;
+  line-height: 1.2;
   padding: 10px;
-  border-left: 8px solid #88c546;
+}
+pre.prettyprint code {
+  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important;
 }
 
 pre code span:first-child {

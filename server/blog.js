@@ -8,7 +8,7 @@ Meteor.methods({
     // Only check once every minute
     if (new Date() - lastTumblrCheck < 60*1000)
       return;
-    
+
     lastTumblrCheck = new Date();
     this.unblock();
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
@@ -84,26 +84,27 @@ Meteor.publish("pagesByTag", function (tag) {
   var self = this;
   var uuid = Meteor.uuid();
   var count = 0;
+  var initializing = true;
 
   var filter = tag ? {tags: tag} : {};
-  var handle = Posts.find(filter).observe({
-    added: function (doc, idx) {
+  var handle = Posts.find(filter).observeChanges({
+    added: function () {
       count++;
-      self.set("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
-      self.flush();
+      if (!initializing)
+        self.changed("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
     },
-    removed: function (doc, idx) {
+    removed: function () {
       count--;
-      self.set("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
-      self.flush();
+      self.changed("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
     }
     // don't care about moved or changed
   });
 
   // Observe only returns after the initial added callbacks have
   // run.  Now mark the subscription as ready.
-  self.complete();
-  self.flush();
+  initializing = false;
+  self.added("PageCounts", uuid, {tag: tag, count: count});
+  self.ready();
 
   // stop observing the cursor when client unsubs
   self.onStop(function () {
