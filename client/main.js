@@ -2,7 +2,7 @@ Meteor.startup(function () {
   $(window).bind('resize', resize);
   $(window).bind('resize', resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
-  $(window).bind('scroll', bounceBack);
+  $(window).bind("scroll", bounceBack);
   Backbone.history.start({pushState: true});
 });
 
@@ -100,6 +100,7 @@ function reattachBehavior() {
   setReadmoreBouncers();
   handleLinkClicks();
   homepageShowreel();
+  bounceBack();
 
   // scroll to top of page
   window.scrollTo(0,0);
