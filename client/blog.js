@@ -5,7 +5,7 @@ Meteor.autorun(function() {
 });
 
 Template.blog.post = function() {
-  var posts = Posts.find();
+  var posts = Posts.find({}, {sort: {date: -1}});
   if (posts.count() > 0)
   {
     Session.set("blogloading", false);
