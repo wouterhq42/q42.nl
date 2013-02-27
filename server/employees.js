@@ -1,6 +1,7 @@
 var _kickAssQ42Folk = [
  { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Arian van Gend", handle:"arian"},
+ { name: "Arjen van der Ende", handle: "arjen", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364"},
  { name: "Benjamin de Jager", handle:"benjamin"},
  { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352"},
@@ -10,6 +11,7 @@ var _kickAssQ42Folk = [
  { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" },
  { name: "Elaine Oliver", handle:"elaine"},
  { name: "Frank Raterink", handle:"frank", phone: "070-4452368", web: "http://www.frankraterink.nl"},
+ { name: "Guus Goossens", handle:"guus", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
  { name: "Ivo de Kler", handle:"ivo"},
  { name: "Jaap Taal", handle:"jaap"},
@@ -22,6 +24,7 @@ var _kickAssQ42Folk = [
  { name: "Kars Veling", handle:"kars", phone: "070-4452350"},
  { name: "Katja Hollaar", handle:"katja"},
  { name: "Korjan van Wieringen", handle:"korjan"},
+ { name: "Laurens van den Oever", handle:"laurens", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Leonard Punt", handle:"leonard"},
  { name: "Lukas van Driel", handle:"lukas", phone: "070-4452366", web: "http://developer.3l.nl/"},
  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/"},
@@ -29,8 +32,8 @@ var _kickAssQ42Folk = [
  { name: "Martijn Laarman", handle:"martijnl"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
+ { name: "Matthijs van der Meulen", handle:"matthijs"},
  { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/"},
- { name: "Paul Visschers", handle:"paul"},
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
  { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/"},
  { name: "Richard Lems", handle:"richard"},
@@ -42,7 +45,6 @@ var _kickAssQ42Folk = [
  { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim"},
  { name: "Tim van Deursen", handle:"timd", phone: "070-4452361"},
  { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/"},
- { name: "Thijs van der Meulen", handle:"thijs"},
  { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"},
  { name: "Wilbert Mekenkamp", handle:"wilbert"}
 ];
@@ -81,7 +83,7 @@ var employeeCountAfter = Employees.find({}).count();
 console.log("Deleted " + Math.max(0, employeeCountBefore - employeeCountAfter) + " q peeps");
 
 Meteor.publish("employees", function () {
-	return Employees.find({}, { sort : { handle: 1 } }); 
+	return Employees.find({}, { sort : { name: 1 } });
 });
 
 Meteor.publish("employeeHandles", function () {
