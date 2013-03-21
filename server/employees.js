@@ -16,6 +16,7 @@ var _kickAssQ42Folk = [
  { name: "Ivo de Kler", handle:"ivo"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jan-Willem Maneschijn", handle:"janwillem"},
+ { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
  { name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},
@@ -51,24 +52,24 @@ var _kickAssQ42Folk = [
 
 //Get an ACL going on, clients should not get to insert q folk.
 Employees.allow({
-	insert: function () {
-		return false;
-	}
+  insert: function () {
+    return false;
+  }
 });
 
 //minimongo has no support for mongodb's upserts :(
 console.log("trying to insert q42 peeps");
 var inserts = 0, updates = 0;
 _.each(_kickAssQ42Folk, function(e) {
-	var count = Employees.find({handle: e.handle}).count()
-	if (count === 0) {
-		Employees.insert(e);
-		inserts++;
-	}
-	else {
-		Employees.update({handle: e.handle}, e, {set: e });
-		updates++;
-	}
+  var count = Employees.find({handle: e.handle}).count()
+  if (count === 0) {
+    Employees.insert(e);
+    inserts++;
+  }
+  else {
+    Employees.update({handle: e.handle}, e, {set: e });
+    updates++;
+  }
 });
 console.log("Inserted " + inserts + " and updated " + updates + " q peeps");
 
@@ -83,9 +84,15 @@ var employeeCountAfter = Employees.find({}).count();
 console.log("Deleted " + Math.max(0, employeeCountBefore - employeeCountAfter) + " q peeps");
 
 Meteor.publish("employees", function () {
-	return Employees.find({}, { sort : { name: 1 } });
+  return Employees.find({}, { sort : { name: 1 } });
 });
 
 Meteor.publish("employeeHandles", function () {
-	return employeeHandles;
+  return employeeHandles;
+});
+
+Meteor.methods({
+  addQer: function(record) {
+    Employees.insert(record);
+  }
 });
