@@ -134,7 +134,6 @@ function reattachBehavior() {
 
       resizeFBwidget();
 
-
       if ($("#disqus_thread")[0]) {
         (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -144,7 +143,7 @@ function reattachBehavior() {
       }
 
       // Twitter
-      twttr.widgets.load();
+      twttr && twttr.widgets.load();
     }, 0);
 
   }
