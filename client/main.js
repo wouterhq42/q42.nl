@@ -49,6 +49,12 @@ Template.body.header = function() {
   return template();
 }
 
+Template.body.footer = function() {
+  var lang = Session.get("lang") == "en" ? "en_" : "";
+  var template = Template[lang + "footer"];
+  return template();
+}
+
 Template.error404.url = function() {
   return document.location.pathname;
 };
