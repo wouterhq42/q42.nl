@@ -18,7 +18,11 @@ Handlebars.registerHelper("isPhantom", function() {
 Template.body.content = function() {
   var lang = Session.get("lang") == "en" ? "en_" : "";
   var page = Session.get("page") || "home";
+
+  // if the template for the current language doesn't exist,
+  // fall back to Dutch version or show a 404
   var template = Template[lang + page] || Template[page] || Template[lang + "error404"];
+
   return template();
 };
 Template.body.rendered = function() {
