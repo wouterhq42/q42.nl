@@ -1,0 +1,67 @@
+<template name="footer">
+  <footer>
+    <div id="footer">
+      <section>
+        <section class="block-large">
+          <article class="vcard block-small">
+            <h2>Contact</h2>
+            {{#unless isPhantom}}
+            <iframe src="http://player.vimeo.com/video/47226129" height="160" frameborder="0"></iframe>
+            {{/unless}}
+            <p>Of je nu klant bent of wilt worden, een toffe baan zoekt of zomaar eens kennis wilt maken, kom langs! We zitten in Den Haag en Amsterdam.</p>
+            <p class="fn hidden">Q42</p>
+            <p>
+              <a class="email" href="mailto:info@q42.nl">info@q42.nl</a>
+            </p>
+            <p class="adr" style="1 px solid red">
+              <span class="street-address"><a href="http://maps.google.nl/maps?hl=nl&q=Q42,+Den+Haag" >Waldorpstraat 17F</a></span>
+              <span class="postal-code">2521CA <span class="locality">Den Haag</span></span>
+              <span>Telefoon: <span class="tel">070-4452342</span></span>
+            </p>
+            <p class="adr" style="1 px solid red">
+              <span class="street-address"><a href="https://maps.google.nl/maps?hl=nl&q=vijzelstraat72+amsterdam" >Vijzelstraat 72</a>, unit 4.23</span>
+              <span class="postal-code">1017HG <span class="locality">Amsterdam</span></span>
+            </p>
+            <p><span class="note kvk">KvK 30164662 te Den Haag</span></p>
+          </article>
+
+          <article class="block-small">
+            <h2>Sociaal netwerken</h2>
+            <div id="fb-root"></div>
+            <div class="fb-like-box" data-href="http://www.facebook.com/q42bv" data-width="300" data-height="160" data-colorscheme="dark" data-show-faces="true" data-border-color="#444" data-stream="false" data-header="false"></div>
+            <ul class="iconList">
+              <li class="twitter-icon listIcon"><img src="/images/icon-twitter-grey.png" width="30" /><div><a href="https://twitter.com/q42" class="external">Q42 op Twitter</a></div></li>
+              <li class="linkedin-icon listIcon"><img src="/images/icon-linkedin-grey.png" width="30" /><div><a href="http://www.linkedin.com/company/q42" class="external">Q42 op LinkedIn</a></div></li>
+              <li class="vimeo-icon listIcon"><img src="/images/icon-vimeo-grey.png" width="30" /><div><a href="http://vimeo.com/q42" class="external">Q42 op Vimeo</a></div></li>
+              <li class="youtube-icon listIcon"><img src="/images/icon-youtube-grey.png" width="30" /><div><a href="http://www.youtube.com/user/Q42TV" class="external">Q42 op YouTube</a></div></li>
+              <li class="github-icon listIcon"><img src="/images/icon-github-grey.png" width="30" /><div><a href="http://github.com/q42" class="external">Q42 op Github</a></div></li>
+            </ul>
+          </article>
+
+          <article class="block-small">
+            <h2>Maar wie zijn Q42?</h2>
+            <a class="visual caption">
+              <img src="/images/lukasschietend.jpg" alt=""/>
+              <p>Who wants to know?!</p>
+            </a>
+            <p>'Een technisch innovatief internetbureau', zeggen sommigen. 'Nerds', zeggen anderen. Wij zelf bijvoorbeeld, als we eerlijk zijn. We houden namelijk heel erg van goed programmeren.</p>
+            <p>Maar dat is niet het hele verhaal. Computers zijn pas interessant met mensen erbij. We vinden het daarom nog leuker om zo te programmeren dat een webapplicatie niet alleen nuttig, maar ook vriendelijk is.</p>
+          </article>
+        </section>
+      </section>
+      <div id="endtag">&lt;/body&gt;</div>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2714808-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</template>
