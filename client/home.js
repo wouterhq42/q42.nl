@@ -26,6 +26,8 @@ function homepageShowreel() {
   $showreel = $('#showreel2');
   $nav = $showreel.find('nav');
 
+  $("#indicators").html("");
+
   // setup indicators
   showreelItems = $showreel.find('.item');
   showreelItemCount = showreelItems.length;
