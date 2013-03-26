@@ -1,12 +1,1 @@
-bin
-obj
-*.suo
-*.user
-Data/Logs/**
-
-#vs upgrade logs
-UpgradeLog.*
-_UpgradeReport_Files
-Backup
-Deploy
-/www/Properties/PublishProfiles/*.pubxml
+password.txt
