@@ -4,7 +4,7 @@ Meteor.autorun(function() {
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
 });
 
-Template.blog.post = function() {
+Template.en_blog.post = Template.blog.post = function() {
   var posts = Posts.find({}, {sort: {date: -1}});
   if (posts.count() > 0)
   {
@@ -13,11 +13,11 @@ Template.blog.post = function() {
   }
   return posts;
 }
-Template.blog.rendered = function() {
+Template.en_blog.rendered = Template.blog.rendered = function() {
   toggleLoadingState();
   syntaxHighlight();
 }
-Template.blog.pagination = function() {
+Template.en_blog.pagination = Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
   var pages = item ? item.count : 1;
   if (pages == 1)
@@ -35,14 +35,14 @@ Template.blog.pagination = function() {
     items.push({ label: "ouder", page: page + 1 })
   return items;
 }
-Template.blog.tag = function() {
+Template.en_blog.tag = Template.blog.tag = function() {
   return Session.get("blogtag");
 }
 
-Template.blogpost.post = function() {
+Template.en_blogpost.post = Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
-Template.blogpost.rendered = function() {
+Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
   toggleLoadingState();
 
   (function (d, s, id) {
@@ -57,11 +57,11 @@ Template.blogpost.rendered = function() {
 
 }
 
-Template.postDate.prettyDate = function() {
+Template.en_postDate.prettyDate = Template.postDate.prettyDate = function() {
   return moment(this.date).format('dddd D MMMM YYYY')
 }
 
-Template.otherPosts.post = function() {
+Template.en_otherPosts.post = Template.otherPosts.post = function() {
   return Posts.find({id: {$ne: Session.get('blogpostid')}, title: {$exists: true}}, {limit: 12}).fetch();
 }
 

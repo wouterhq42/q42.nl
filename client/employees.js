@@ -2,7 +2,7 @@ Meteor.autorun(function() {
 	Meteor.subscribe("employees");
 
 });
-Template.employees.employee = function () {
+Template.en_employees.employee = Template.employees.employee = function () {
 	return Employees.find({}, {sort: {name: 1}});
 }
 Handlebars.registerHelper('avatar_static', function() {

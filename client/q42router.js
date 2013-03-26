@@ -9,11 +9,8 @@ var Q42Router = Backbone.Router.extend({
     ":page": "main"
   },
   main: function (page) {
-    if (page && page.indexOf("#") > -1)
-      page = page.split("#")[0];
-
-    if (page && page.indexOf("?") > -1)
-      page = page.split("?")[0];
+    if (page)
+      page = page.split("#")[0].split("?")[0];
 
     Session.set("page", page);
 

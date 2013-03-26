@@ -3,6 +3,10 @@ Meteor.startup(function () {
   $(window).bind('resize', resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
   $(window).bind("scroll", bounceBack);
+
+  var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
+  Session.setDefault("lang", lang);
+
   Backbone.history.start({pushState: true});
 });
 
@@ -12,8 +16,13 @@ Handlebars.registerHelper("isPhantom", function() {
 });
 
 Template.body.content = function() {
+  var lang = Session.get("lang") == "en" ? "en_" : "";
   var page = Session.get("page") || "home";
-  var template = Template[page] || Template["error404"];
+
+  // if the template for the current language doesn't exist,
+  // fall back to Dutch version or show a 404
+  var template = Template[lang + page] || Template[page] || Template[lang + "error404"];
+
   return template();
 };
 Template.body.rendered = function() {
@@ -34,11 +43,23 @@ Template.body.viewRendersHeader = function() {
   return page == "home";
 };
 
-Template.error404.url = function() {
+Template.body.header = function() {
+  var lang = Session.get("lang") == "en" ? "en_" : "";
+  var template = Template[lang + "header"];
+  return template();
+}
+
+Template.body.footer = function() {
+  var lang = Session.get("lang") == "en" ? "en_" : "";
+  var template = Template[lang + "footer"];
+  return template();
+}
+
+Template.en_error404.url = Template.error404.url = function() {
   return document.location.pathname;
 };
 
-Template.regelsCode.regelsCode = function() {
+Template.en_regelsCode.regelsCode = Template.regelsCode.regelsCode = function() {
   var numQers = Employees.find().count();
   var Qers = [], to;
   for (var i = 0; i < numQers; i++) Qers.push(new Qer());
@@ -76,11 +97,11 @@ Template.regelsCode.regelsCode = function() {
   return counter;
 }
 
-Template.numQers.numQers = function() {
+Template.en_numQers.numQers = Template.numQers.numQers = function() {
   return Employees.find().count();
 }
 
-Template.koppenKoffie.koppenKoffie = function() {
+Template.en_koppenKoffie.koppenKoffie = Template.koppenKoffie.koppenKoffie = function() {
   return koffieteller();
 }
 
