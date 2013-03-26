@@ -23,7 +23,7 @@
             {{{caption}}}
             {{> postDate}}
             <p class="block-readmore">
-              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
+              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
             </p>
           {{/if}}
           {{#if photos}}
@@ -40,7 +40,7 @@
             </figure>
             {{> en_postDate}}
             <p class="block-readmore">
-              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
+              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
             </p>
           {{/if}}
           {{#if text}}
@@ -60,7 +60,7 @@
             {{> en_postDate}}
             {{{intro}}}
             <p class="block-readmore">
-              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
+              <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
             </p>
           {{/if}}
         </div>
@@ -91,7 +91,7 @@
           <div class="bigText">
             <div style="width:100%;height:1px"></div>
             {{#if player}}
-              <h1><b>Filmpje</b></h1>
+              <h1><b>Video</b></h1>
               {{> en_postDate}}
               {{#each player}}
                 {{#ifWidthEquals 500}}
@@ -101,7 +101,7 @@
               {{{caption}}}
             {{/if}}
             {{#if photos}}
-              <h1><b>Foto's</b></h1>
+              <h1><b>Photos</b></h1>
               {{> en_postDate}}
               {{{caption}}}
               {{#each photos}}
@@ -158,7 +158,7 @@
 </template>
 
 <template name="en_postDate">
-  <p class="post-date">Geschreven op <abbr>{{prettyDate}}</abbr></p>
+  <p class="post-date">Written on <abbr>{{prettyDate}}</abbr></p>
 </template>
 
 <template name="en_tags">
@@ -176,7 +176,7 @@
 </template>
 
 <template name="en_otherPosts">
-  <h2>Ook op Q42.nl</h2>
+  <h2>Also on Q42.com</h2>
   <ul>
     {{#each post}}
       <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
@@ -187,8 +187,10 @@
 <template name="en_blogSidebar">
   <div class="block-small subcontent loading" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
-    <p>Dit is het blog van Q42, waarin Q'ers schrijven over hun werk, passie en het leven bij Q42.</p>
-    <p>Diezelfde Q'ers zijn ook actief op Twitter. We hebben een lijstje gemaakt, kijk maar: <a href="https://twitter.com/q42/q-ers">Q'ers op Twitter</a>. En je kunt ons natuurlijk ook volgen op <a href="http://twitter.com/q42">@q42</a>.</p>
+    <p>This is the Q42 blog, for which Q'ers write about their work, passion and life at Q42.</p>
+    <p>Those same Q'ers are also active on Twitter. We made a list, take a look: <a href="https://twitter.com/q42/q-ers">Q'ers on Twitter</a>.
+    And you can of course follow us at <a href="http://twitter.com/q42">@q42</a>.</p>
+    <p>Some posts on our blog are in Dutch. We recommend Google Translate for those.</p>
     {{#unless isPhantom}}
       <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
     {{/unless}}
