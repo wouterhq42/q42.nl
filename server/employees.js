@@ -13,7 +13,6 @@ var _kickAssQ42Folk = [
  { name: "Frank Raterink", handle:"frank", phone: "070-4452368", web: "http://www.frankraterink.nl"},
  { name: "Guus Goossens", handle:"guus", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
- { name: "Ivo de Kler", handle:"ivo"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
