@@ -3,6 +3,10 @@ Meteor.startup(function () {
   $(window).bind('resize', resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
   $(window).bind("scroll", bounceBack);
+
+  var lang = _.last(window.location.pathname.split(".")) == "com" ? "en" : "nl";
+  Session.setDefault("lang", lang);
+
   Backbone.history.start({pushState: true});
 });
 
@@ -12,8 +16,9 @@ Handlebars.registerHelper("isPhantom", function() {
 });
 
 Template.body.content = function() {
+  var lang = Session.get("lang") == "en" ? "en_" : "";
   var page = Session.get("page") || "home";
-  var template = Template[page] || Template["error404"];
+  var template = Template[lang + page] || Template[lang + "error404"];
   return template();
 };
 Template.body.rendered = function() {
@@ -33,6 +38,12 @@ Template.body.viewRendersHeader = function() {
   var page = Session.get("page") || "home";
   return page == "home";
 };
+
+Template.body.header = function() {
+  var lang = Session.get("lang") == "en" ? "en_" : "";
+  var template = Template[lang + "header"];
+  return template();
+}
 
 Template.error404.url = function() {
   return document.location.pathname;
