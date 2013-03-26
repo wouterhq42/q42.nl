@@ -18,7 +18,7 @@ Handlebars.registerHelper("isPhantom", function() {
 Template.body.content = function() {
   var lang = Session.get("lang") == "en" ? "en_" : "";
   var page = Session.get("page") || "home";
-  var template = Template[lang + page] || Template[lang + "error404"];
+  var template = Template[lang + page] || Template[page] || Template[lang + "error404"];
   return template();
 };
 Template.body.rendered = function() {
