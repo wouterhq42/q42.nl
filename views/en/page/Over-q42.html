@@ -1,4 +1,4 @@
-<template name="employees">
+<template name="en_employees">
 {{#each employee}}
 <li>
 <span class="name">{{firstname}}</span>
@@ -32,7 +32,7 @@
 </template>
 
 
-<template name="over-q42">
+<template name="en_about-q42">
   <section>
     <section>
       <header class="block-text">
@@ -130,7 +130,7 @@
             <h2>Hallo, wij zijn de Q-ers</h2>
             <h3>Aangenaam kennis te maken.</h3>
             <ol>
-             	{{> employees }}
+             	{{> en_employees }}
             </ol>
           </div>
           <div class="clear"></div>
@@ -142,21 +142,21 @@
           <article class="block-small">
             <div class="body">
               <p>Q42 is méér dan de som van</p>
-              {{> numQers}}
+              {{> en_numQers}}
               <p>Q'ers.</p>
             </div>
           </article>
           <article class="block-small">
             <div class="body">
               <p>Vandaag hebben wij al</p>
-              {{> koppenKoffie}}
+              {{> en_koppenKoffie}}
               <p>koppen koffie op.</p>
             </div>
           </article>
           <article class="block-small">
             <div class="body">
               <p>En</p>
-              {{> regelsCode}}
+              {{> en_regelsCode}}
               <p>regels code geschreven.</p>
             </div>
           </article>
@@ -303,14 +303,14 @@
   </section>
 </template>
 
-<template name="regelsCode">
+<template name="en_regelsCode">
   <p id="regels-code" class="counter">{{regelsCode}}</p>
 </template>
 
-<template name="numQers">
+<template name="en_numQers">
   <p class="counter">{{numQers}}</p>
 </template>
 
-<template name="koppenKoffie">
+<template name="en_koppenKoffie">
   <p id="koppen-koffie" class="counter">{{koppenKoffie}}</p>
 </template>

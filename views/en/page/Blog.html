@@ -1,4 +1,4 @@
-<template name="blog">
+<template name="en_blog">
   <section class="blog">
     <header class="block-text loading"><h1>We<b>blog</b></h1></header>
 
@@ -10,7 +10,7 @@
             {{#unless description}}
             <!-- link -->
               <h1><a href="{{url}}">{{title}}</a></h1>
-              {{> postDate}}
+              {{> en_postDate}}
             {{/unless}}
           {{/if}}
           {{#if player}}
@@ -38,7 +38,7 @@
                 {{{caption}}}
               </figcaption>
             </figure>
-            {{> postDate}}
+            {{> en_postDate}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
@@ -57,7 +57,7 @@
           {{#if intro}}
           <!-- text post -->
             <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
-            {{> postDate}}
+            {{> en_postDate}}
             {{{intro}}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
@@ -68,7 +68,7 @@
     {{/each}}
     </div>
 
-    {{> blogSidebar}}
+    {{> en_blogSidebar}}
 
     <nav id="pageNav" class="loading">
       <ul class="clearfix">
@@ -83,7 +83,7 @@
   </section>
 </template>
 
-<template name="blogpost">
+<template name="en_blogpost">
   {{#with post}}
     <section class="blog">
       <article>
@@ -92,7 +92,7 @@
             <div style="width:100%;height:1px"></div>
             {{#if player}}
               <h1><b>Filmpje</b></h1>
-              {{> postDate}}
+              {{> en_postDate}}
               {{#each player}}
                 {{#ifWidthEquals 500}}
                   {{{embed_code}}}
@@ -102,7 +102,7 @@
             {{/if}}
             {{#if photos}}
               <h1><b>Foto's</b></h1>
-              {{> postDate}}
+              {{> en_postDate}}
               {{{caption}}}
               {{#each photos}}
                 <p><figure>
@@ -123,7 +123,7 @@
             {{/if}}
             {{#if body}}
               <h1><b>{{title}}</b></h1>
-              {{> postDate}}
+              {{> en_postDate}}
               {{{body}}}
             {{/if}}
           </div>
@@ -157,11 +157,11 @@
   {{{debug post}}}
 </template>
 
-<template name="postDate">
+<template name="en_postDate">
   <p class="post-date">Geschreven op <abbr>{{prettyDate}}</abbr></p>
 </template>
 
-<template name="tags">
+<template name="en_tags">
 {{#if tags}}
   <div class="block-tags">
     <ul class="tags">
@@ -175,7 +175,7 @@
 {{/if}}
 </template>
 
-<template name="otherPosts">
+<template name="en_otherPosts">
   <h2>Ook op Q42.nl</h2>
   <ul>
     {{#each post}}
@@ -184,7 +184,7 @@
   </ul>
 </template>
 
-<template name="blogSidebar">
+<template name="en_blogSidebar">
   <div class="block-small subcontent loading" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
     <p>Dit is het blog van Q42, waarin Q'ers schrijven over hun werk, passie en het leven bij Q42.</p>
