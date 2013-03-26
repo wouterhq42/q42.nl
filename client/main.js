@@ -55,11 +55,11 @@ Template.body.footer = function() {
   return template();
 }
 
-Template.error404.url = function() {
+Template.en_error404.url = Template.error404.url = function() {
   return document.location.pathname;
 };
 
-Template.regelsCode.regelsCode = function() {
+Template.en_regelsCode.regelsCode = Template.regelsCode.regelsCode = function() {
   var numQers = Employees.find().count();
   var Qers = [], to;
   for (var i = 0; i < numQers; i++) Qers.push(new Qer());
@@ -97,11 +97,11 @@ Template.regelsCode.regelsCode = function() {
   return counter;
 }
 
-Template.numQers.numQers = function() {
+Template.en_numQers.numQers = Template.numQers.numQers = function() {
   return Employees.find().count();
 }
 
-Template.koppenKoffie.koppenKoffie = function() {
+Template.en_koppenKoffie.koppenKoffie = Template.koppenKoffie.koppenKoffie = function() {
   return koffieteller();
 }
 
