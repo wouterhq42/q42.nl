@@ -4,7 +4,7 @@ Meteor.startup(function () {
   $(window).bind("resize", resizeShowreel);
   $(window).bind("scroll", bounceBack);
 
-  var lang = _.last(window.location.pathname.split(".")) == "com" ? "en" : "nl";
+  var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
 
   Backbone.history.start({pushState: true});
