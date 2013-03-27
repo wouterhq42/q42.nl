@@ -1,4 +1,3 @@
-const TUMBLR_KEY = "9MFWwaN0dXvqXEfp8fXNFCW8b0DWczrTb7GadGwiFO4Du2WUIg";
 const BLOGPOSTS_PER_PAGE = 12;
 var lastTumblrCheck;
 
