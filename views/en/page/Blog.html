@@ -21,7 +21,7 @@
               {{/ifWidthEquals}}
             {{/each}}
             {{{caption}}}
-            {{> postDate}}
+            {{> en_postDate}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
             </p>
@@ -75,7 +75,7 @@
         {{#each pagination}}
           <li>
             <a href="/blog{{#if tag}}/tagged/{{tag}}{{/if}}/page/{{page}}"
-              {{#if active}} class="active"{{/if}}>{{label}}</a>
+              class="{{#if active}}active{{/if}}">{{label}}</a>
           </li>
         {{/each}}
       </ul>
