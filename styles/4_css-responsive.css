@@ -70,7 +70,7 @@
   #header { height: 65px; margin-bottom: 250px; }
 
   /* header */
-  #logo img { height: 61px; }
+  #logo img { height: 53px; }
 
   nav .pos { width: 620px; font-size: 35px; }
 
@@ -248,7 +248,7 @@
 
   /* header */
   #logo { margin-left: 15px; }
-  #logo img { height: 42px;}
+  #logo img { height: 35px;}
   nav .pos { width: 100%; font-size: 23px; }
   nav ul li { margin-left: 20px; line-height: 55px;}
   #header, nav, nav ul, nav ul li { height: 50px;}
