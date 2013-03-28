@@ -104,6 +104,11 @@
 
   /* Q42is */
 
+  #q42is-pre {
+    display: inline-block;
+    color: #000;
+  }
+
   #showreel2 #indicators {
     opacity: 0;
     position: absolute;
