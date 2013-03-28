@@ -182,10 +182,10 @@
     background: -moz-linear-gradient(top, rgba(0,0,0,.9), rgba(0,0,0,.3));
   }
   .noShowreelHeader {
-    -webkit-animation: animateNavBg infinite 30s;
-    -webkit-transition: ease-in-out background .2s;
-    -moz-animation: animateNavBg infinite 30s;
-    -moz-transition: ease-in-out background .2s;
+    /*-webkit-animation: animateNavBg infinite 30s;
+    -moz-animation: animateNavBg infinite 30s;*/
+    -webkit-transition: ease-in-out background 2s;
+    -moz-transition: ease-in-out background 2s;
   }
 
   @-webkit-keyframes animateNavBg {
