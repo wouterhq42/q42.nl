@@ -7,11 +7,8 @@ Meteor.startup(function () {
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
 
-  var lightsOff = new Date().getHours() > 20 || new Date().getHours() < 7;
-  Session.setDefault("lightsOff", lightsOff);
-
   Meteor.autorun(function() {
-    $(document.body).toggleClass("lights-off", Session.get("lightsOff"));
+    $(document.body).toggleClass("lights-off", new Date().getHours() > 20 || new Date().getHours() < 7);
   });
 
   Backbone.history.start({pushState: true});
@@ -37,6 +34,8 @@ Template.body.rendered = function() {
     document.title = $(this.find('h1')).text() + " - Q42";
 
   reattachBehavior();
+
+  updateLightbar();
 
   Meteor.setTimeout(function() {
     if (window.location.hash)
