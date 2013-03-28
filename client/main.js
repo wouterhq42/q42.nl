@@ -7,6 +7,13 @@ Meteor.startup(function () {
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
 
+  var lightsOff = new Date().getHours() > 20 || new Date().getHours() < 7;
+  Session.setDefault("lightsOff", lightsOff);
+
+  Meteor.autorun(function() {
+    $(document.body).toggleClass("lights-off", Session.get("lightsOff"));
+  });
+
   Backbone.history.start({pushState: true});
 });
 
