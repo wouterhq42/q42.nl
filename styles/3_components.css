@@ -156,6 +156,9 @@
   #q42is span.selected {
     color: #888;
   }
+  #header {
+    -webkit-font-smoothing: antialiased;
+  }
   #homecontent header h1 {
     text-align: left;
   }
@@ -237,6 +240,7 @@
 
   nav ul li.right {
     float: right;
+    margin-left: 20px;
   }
 
   #logo {
@@ -673,3 +677,26 @@
   .tags li:last-child:after {
     content: "";
   }
+
+/* lights color picker */
+#lights-color {
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,.7);
+  width: 30px; height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-transition: ease-in-out background-color .3s;
+  -moz-transition: ease-in-out background-color .3s;
+}
+#lights-color:hover {
+  background-color: rgba(255,255,200,.5);
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  display: none;
+}
+input[type="color"]::-webkit-color-swatch {
+  display: none;
+}​

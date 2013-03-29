@@ -122,6 +122,15 @@ Template.header.events({
     Session.set("toggleLights", !Session.get("toggleLights"));
     $(document.body).toggleClass("lights-off");
     evt.preventDefault();
+  },
+  "input #lights-color": function(evt) {
+    var color = $(evt.target).val().replace("#", "");
+    if (color) {
+      $.get("http://huelandsspoor.nl/api/lamps/setcolor?color=" + color, function() {
+        $.get("/updateLightbar");
+        $(evt.target).css("background-color", "#" + color);
+      });
+    }
   }
 });
 
