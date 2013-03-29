@@ -7,9 +7,7 @@ Meteor.startup(function () {
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
 
-  Meteor.autorun(function() {
-    $(document.body).toggleClass("lights-off", new Date().getHours() > 20 || new Date().getHours() < 7);
-  });
+  $(document.body).toggleClass("lights-off", new Date().getHours() > 20 || new Date().getHours() < 7);
 
   Backbone.history.start({pushState: true});
 });
@@ -28,7 +26,7 @@ Template.body.content = function() {
   var template = Template[lang + page] || Template[page] || Template[lang + "error404"];
 
   return template();
-};
+}
 Template.body.rendered = function() {
   if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
@@ -38,16 +36,15 @@ Template.body.rendered = function() {
   updateLightbar();
 
   Meteor.setTimeout(function() {
-    if (window.location.hash)
-      var $el = $(window.location.hash);
-      if ($el && $el[0]) $el[0].scrollIntoView();
+    var $el = $(window.location.hash);
+    if ($el[0]) $el[0].scrollIntoView();
   }, 1000);
 }
 
 Template.body.viewRendersHeader = function() {
   var page = Session.get("page") || "home";
   return page == "home";
-};
+}
 
 Template.body.header = function() {
   var lang = Session.get("lang") == "en" ? "en_" : "";
@@ -63,7 +60,7 @@ Template.body.footer = function() {
 
 Template.en_error404.url = Template.error404.url = function() {
   return document.location.pathname;
-};
+}
 
 Template.en_regelsCode.regelsCode = Template.regelsCode.regelsCode = function() {
   var numQers = Employees.find().count();
@@ -110,6 +107,16 @@ Template.en_numQers.numQers = Template.numQers.numQers = function() {
 Template.en_koppenKoffie.koppenKoffie = Template.koppenKoffie.koppenKoffie = function() {
   return koffieteller();
 }
+
+Template.header.events({
+  "click #lights-toggle a": function(evt) {
+    $(document.body).toggleClass("lights-off");
+    evt.preventDefault();
+  }
+});
+
+
+
 
 function handleLinkClicks() {
   $("a[href^='/']").click(function(evt) {
