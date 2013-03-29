@@ -336,21 +336,18 @@
   }
 
   .block-with-icons .iconList {
-    padding: 0px 0px 0px 0px;
+    padding: 0;
   }
 
-  .block-with-icons ul li {
-    line-height: 24px;
-  }
-
-  .listIcon {
+  .iconList li {
+    overflow: hidden;
     padding: 5px 0 19px 0px;
     list-style-type: none;
   }
 
- .iconList .listIcon { overflow: hidden; }
- .iconList .listIcon img { float: left; }
- .iconList .listIcon div { float: left; padding: 4px 0px 0px 9px; }
+ .iconList li img { float: left; }
+ .iconList li i { vertical-align: middle; display: block; float: left;}
+ .iconList li div { display: inline-block; padding: 4px 0px 0px 9px; }
 
 
   /* Big text block */
