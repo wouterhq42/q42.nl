@@ -1,6 +1,5 @@
-Meteor.autorun(function() {
+Deps.autorun(function() {
 	Meteor.subscribe("employees");
-
 });
 Template.en_employees.employee = Template.employees.employee = function () {
 	return Employees.find({}, {sort: {name: 1}});

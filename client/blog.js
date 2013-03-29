@@ -1,4 +1,4 @@
-Meteor.autorun(function() {
+Deps.autorun(function() {
   Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
   Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
