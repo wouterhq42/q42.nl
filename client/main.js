@@ -6,8 +6,17 @@ Meteor.startup(function () {
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
+  Session.setDefault("date", new Date());
+  Session.setDefault("toggleLights", false);
 
-  $(document.body).toggleClass("lights-off", new Date().getHours() > 20 || new Date().getHours() < 7);
+  Meteor.setInterval(function() {
+    Session.set("date", new Date());
+  }, 1000);
+
+  Deps.autorun(function() {
+    var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
+    $(document.body).toggleClass("lights-off", turnOnLights);
+  });
 
   Backbone.history.start({pushState: true});
 });
@@ -110,6 +119,7 @@ Template.en_koppenKoffie.koppenKoffie = Template.koppenKoffie.koppenKoffie = fun
 
 Template.header.events({
   "click #lights-toggle a": function(evt) {
+    Session.set("toggleLights", !Session.get("toggleLights"));
     $(document.body).toggleClass("lights-off");
     evt.preventDefault();
   }

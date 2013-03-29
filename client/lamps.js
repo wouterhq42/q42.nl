@@ -16,8 +16,16 @@ function updateLightbar() {
   var kitchenLight = lights[14] || "#9cf";
 
   lights = [handcraftCornerLight, stefOfficeLight, rijksmuseumTeamLight, cynthiaDeskLight, _9292Light];
-  if (Lights.find().count() == 29) // THERE ARE 29 LIGHTS!!!
+  if (Lights.find().count() == 29) { // THERE ARE 29 LIGHTS!!!
     $("#header").css("background", "-webkit-linear-gradient(left, " + lights + ")");
+    $("#header-bg-gradient").css("opacity", 0);
+    Meteor.setTimeout(function() {
+      $("#header-bg-gradient").css({
+        background: "-webkit-linear-gradient(left, " + lights + ")",
+        opacity: 1
+      });
+    }, 400)
+  }
 }
 
 Meteor.startup(function() {
