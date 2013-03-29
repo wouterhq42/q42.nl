@@ -235,6 +235,10 @@
     margin: 0 0 0 40px;
   }
 
+  nav ul li.right {
+    float: right;
+  }
+
   #logo {
     margin: 0;
     text-align: left;
@@ -242,6 +246,19 @@
   #logo img {
     height: 53px;
     /*vertical-align: baseline;*/
+  }
+  #lights-toggle a {
+    font-size: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    background: rgba(0,0,0,.7);
+    height: 30px;
+    line-height: 150%;
+    border-radius: 10px;
+  }
+  #lights-toggle a:hover {
+    text-decoration: none;
+    color: #ff9;
   }
 
   nav ul li a,
@@ -255,20 +272,6 @@
     color: #fff;
     text-decoration: underline;
   }
-
-  .projMenu:hover a,
-  .prodMenu:hover a { text-decoration: underline;}
-
-  nav ul li a.highlight{
-    text-shadow: 0 0 10px #B2F769;
-  }
-
-  nav ul li a.highlight{
-    transition: text-shadow 0.3s ease-in-out;
-    -webkit-transition: text-shadow 0.3s ease-in-out;
-    -moz-transition: text-shadow 0.3s ease-in-out;
-  }
-
 
   /* VISUAL */
 
