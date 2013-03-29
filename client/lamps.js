@@ -1,29 +1,28 @@
-var Colors = new Meteor.Collection("colors");
+var Lights = new Meteor.Collection("lights");
 
 function updateLightbar() {
-  var colors = _.map(Colors.find().fetch(), function(doc) {
-    if (doc.hex) return "#" + doc.hex;
-    else return null;
-  });
-  colors = _.reject(colors, function(c) { return !c; });
-  if (colors.length)
-    console.log("Draw colors", colors);
+  var lights = [];
+  if (Lights.find().count() > 0) {
+    lights = _.map(Lights.find().fetch(), function(doc) {
+      return "#" + doc.hex;
+    });
+  }
 
-  var handcraftCornerLight = colors[9] || "#9fc"; //12
-  var stefOfficeLight = colors[0] || "#c9f";
-  var rijksmuseumTeamLight = colors[4] || "#f66";
-  var cynthiaDeskLight = colors[23] || "#cf9";
-  var _9292Light = colors[26] || "#9cf";
-  var kitchenLight = colors[14] || "#9cf";
+  var handcraftCornerLight = lights[9] || "#9fc";
+  var stefOfficeLight = lights[0] || "#c9f";
+  var rijksmuseumTeamLight = lights[4] || "#f66";
+  var cynthiaDeskLight = lights[23] || "#cf9";
+  var _9292Light = lights[26] || "#9cf";
+  var kitchenLight = lights[14] || "#9cf";
 
-  colors = [handcraftCornerLight, stefOfficeLight, rijksmuseumTeamLight, cynthiaDeskLight, _9292Light];
-  if (1 || Colors.find().count() == 29) // THERE ARE 29 LIGHTS!!!
-    $("#header").css("background", "-webkit-linear-gradient(left, " + colors + ")");
+  lights = [handcraftCornerLight, stefOfficeLight, rijksmuseumTeamLight, cynthiaDeskLight, _9292Light];
+  if (Lights.find().count() == 29) // THERE ARE 29 LIGHTS!!!
+    $("#header").css("background", "-webkit-linear-gradient(left, " + lights + ")");
 }
 
 Meteor.startup(function() {
-  Meteor.autorun(function() {
-    Meteor.subscribe("colors");
+  Deps.autorun(function() {
+    Meteor.subscribe("lights");
     updateLightbar();
   });
 });
