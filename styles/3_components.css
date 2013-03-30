@@ -682,7 +682,6 @@
 #lights-color {
   border: none;
   border-radius: 10px;
-  background-color: rgba(0,0,0,.7);
   width: 30px; height: 30px;
   display: inline-block;
   vertical-align: middle;

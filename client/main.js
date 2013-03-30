@@ -8,6 +8,7 @@ Meteor.startup(function () {
   Session.setDefault("lang", lang);
   Session.setDefault("date", new Date());
   Session.setDefault("toggleLights", false);
+  Session.setDefault("lightsColor", "baff23");
 
   Meteor.setInterval(function() {
     Session.set("date", new Date());
@@ -128,11 +129,17 @@ Template.header.events({
     if (color) {
       $.get("http://huelandsspoor.nl/api/lamps/setcolor?color=" + color, function() {
         $.get("/updateLightbar");
+        $(evt.target).attr("value", "#" + color);
         $(evt.target).css("background-color", "#" + color);
+        Session.set("lightsColor", color);
       });
     }
   }
 });
+
+Template.header.lightsColor = function() {
+  return Session.get("lightsColor");
+}
 
 
 

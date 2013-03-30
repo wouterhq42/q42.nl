@@ -24,6 +24,7 @@ function updateLightbar() {
         background: "-webkit-linear-gradient(left, " + lights + ")",
         opacity: 1
       });
+      Session.set("lightsColor", lights[0]);
     }, 400)
   }
 }
