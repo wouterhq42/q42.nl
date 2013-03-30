@@ -9,6 +9,12 @@ var Q42Router = Backbone.Router.extend({
     ":page": "main"
   },
   main: function (page) {
+    // forward to domain without www. prefix
+    if (window.location.hostname.indexOf("www") == 0) {
+      window.location.href = window.location.href.replace("http://www.", "http://");
+      return;
+    }
+
     if (page)
       page = page.split("#")[0].split("?")[0];
 
