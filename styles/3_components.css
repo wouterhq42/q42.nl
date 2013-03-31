@@ -681,16 +681,17 @@
 /* lights color picker */
 #lights-color {
   border: none;
-  border-radius: 10px;
+  border-radius: 30px;
   width: 30px; height: 30px;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
-  -webkit-transition: ease-in-out background-color .3s;
-  -moz-transition: ease-in-out background-color .3s;
+  -webkit-transition: ease-in-out opacity .3s;
+  -moz-transition: ease-in-out opacity .3s;
+  background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), rgba(0,255,255,0)), radial-gradient(circle closest-corner at 50% 100%, rgba(255,0,255,1), rgba(255,0,255,0)), radial-gradient(circle at 0% 100%, rgba(0,0,255,1), rgba(0,0,255,0) 50%, rgba(0,0,255,0)), linear-gradient(135deg, #00ff00, #ffff00, #ff0000)
 }
 #lights-color:hover {
-  background-color: rgba(255,255,200,.5);
+  opacity: .7;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -698,4 +699,4 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 }
 input[type="color"]::-webkit-color-swatch {
   display: none;
-}​
+}
