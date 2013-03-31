@@ -8,7 +8,7 @@ Meteor.startup(function () {
   Session.setDefault("lang", lang);
   Session.setDefault("date", new Date());
   Session.setDefault("toggleLights", false);
-  Session.setDefault("lightsColor", "baff23");
+  Session.setDefault("lightsColor", "#000000");
 
   Meteor.setInterval(function() {
     Session.set("date", new Date());
@@ -131,7 +131,6 @@ Template.header.events({
         $.get("/updateLightbar");
         $(evt.target).attr("value", "#" + color);
         $(evt.target).css("background-color", "#" + color);
-        Session.set("lightsColor", color);
       });
     }
   }
