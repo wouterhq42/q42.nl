@@ -10,6 +10,18 @@ Meteor.startup(function () {
   Session.setDefault("toggleLights", false);
   Session.setDefault("lightsColor", "#000000");
 
+  // http://stackoverflow.com/questions/8278670/how-to-check-if-a-html5-input-is-supported
+  var supportsInputTypeColor = (function() {
+    var i = document.createElement("input");
+    i.setAttribute("type", "color");
+    return i.type !== "text";
+  })();
+  Session.setDefault("enableColorpicker", !supportsInputTypeColor);
+
+  if (supportsInputTypeColor) {
+    $(document.body).addClass("show-colorpicker");
+  }
+
   Meteor.setInterval(function() {
     Session.set("date", new Date());
   }, 1000);

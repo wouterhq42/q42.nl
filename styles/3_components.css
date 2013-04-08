@@ -700,3 +700,51 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::-webkit-color-swatch {
   display: none;
 }
+
+#colorpicker {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99;
+  background: white;
+  padding: 5px;
+  border: solid 2px #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0,0,0,.4);
+}
+#colorpicker svg {
+  display: block;
+}
+.show-colorpicker #colorpicker {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#colorpicker {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #ccc;
+}
+#colorpicker:after, #colorpicker:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+#colorpicker:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+  border-width: 10px;
+  left: 50%;
+  margin-left: -10px;
+}
+#colorpicker:before {
+  border-color: rgba(204, 204, 204, 0);
+  border-bottom-color: #ccc;
+  border-width: 13px;
+  left: 50%;
+  margin-left: -13px;
+}
