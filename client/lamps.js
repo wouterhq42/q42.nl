@@ -19,10 +19,12 @@ function updateLightbar() {
   lights = [handcraftCornerLight, stefOfficeLight, rijksmuseumTeamLight, cynthiaDeskLight, _9292Light];
   if (Lights.find().count() == NUM_LIGHTS) {
     $("#header").css("background", "-webkit-linear-gradient(left, " + lights + ")");
+    $("#header").css("background", "-moz-linear-gradient(left, " + lights + ")");
     $("#header-bg-gradient").css("opacity", 0);
     Meteor.setTimeout(function() {
       $("#header-bg-gradient").css({
         background: "-webkit-linear-gradient(left, " + lights + ")",
+        background: "-moz-linear-gradient(left, " + lights + ")",
         opacity: 1
       });
       Session.set("lightsColor", lights[0]);
