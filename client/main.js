@@ -18,10 +18,6 @@ Meteor.startup(function () {
   })();
   Session.setDefault("enableColorpicker", !supportsInputTypeColor);
 
-  if (supportsInputTypeColor) {
-    $(document.body).addClass("show-colorpicker");
-  }
-
   Meteor.setInterval(function() {
     Session.set("date", new Date());
   }, 1000);
@@ -136,13 +132,17 @@ Template.header.events({
     $(document.body).toggleClass("lights-off");
     evt.preventDefault();
   },
+  "click #lights-color": function() {
+    if (Session.get("enableColorpicker")) {
+      $(document.body).toggleClass("show-colorpicker");
+    }
+  },
   "input #lights-color": function(evt) {
     var color = $(evt.target).val().replace("#", "");
     if (color) {
       $.get("http://huelandsspoor.nl/api/lamps/setcolor?color=" + color, function() {
         $.get("/updateLightbar");
-        $(evt.target).attr("value", "#" + color);
-        $(evt.target).css("background-color", "#" + color);
+        $(evt.target).attr("value", "#" + color).css("background-color", "#" + color);
       });
     }
   }
