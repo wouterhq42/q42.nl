@@ -10,6 +10,14 @@ Meteor.startup(function () {
   Session.setDefault("toggleLights", false);
   Session.setDefault("lightsColor", "#000000");
 
+  // http://stackoverflow.com/questions/8278670/how-to-check-if-a-html5-input-is-supported
+  var supportsInputTypeColor = (function() {
+    var i = document.createElement("input");
+    i.setAttribute("type", "color");
+    return i.type !== "text";
+  })();
+  Session.setDefault("enableColorpicker", !supportsInputTypeColor);
+
   Meteor.setInterval(function() {
     Session.set("date", new Date());
   }, 1000);
@@ -124,13 +132,17 @@ Template.header.events({
     $(document.body).toggleClass("lights-off");
     evt.preventDefault();
   },
+  "click #lights-color": function() {
+    if (Session.get("enableColorpicker")) {
+      $(document.body).toggleClass("show-colorpicker");
+    }
+  },
   "input #lights-color": function(evt) {
     var color = $(evt.target).val().replace("#", "");
     if (color) {
       $.get("http://huelandsspoor.nl/api/lamps/setcolor?color=" + color, function() {
         $.get("/updateLightbar");
-        $(evt.target).attr("value", "#" + color);
-        $(evt.target).css("background-color", "#" + color);
+        $(evt.target).attr("value", "#" + color).css("background-color", "#" + color);
       });
     }
   }
