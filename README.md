@@ -27,7 +27,7 @@ Meteor doesn't currently support Windows. Buy a Mac!
 	
 ### Add a tumblr API key
 
-Create a file in the server directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
+Create a file in the server/lib directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
 
 	const TUMBLR_KEY = "MY_KEY";
 	
