@@ -24,6 +24,14 @@ Meteor doesn't currently support Windows. Buy a Mac!
 ### Install the Meteorite package manager
 
 	sudo npm install -g meteorite
+	
+### Add a tumblr API key
+
+Create a file in the server directory called `tumblr_api_key.js` that declares the `TUMBLR_API_KEY` constant:
+
+	const TUMBLR_API_KEY = "MY_KEY";
+	
+This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
 
 ### cd into checkout and run meteorite
 
