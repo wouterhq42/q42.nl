@@ -7,7 +7,7 @@ Meteor.startup(function() {
     var fullURL = "http://" + host + url;
 
     if (host.indexOf("www") == 0) {
-      return [301, fullURL.replace("www.", "")];
+      return [301, {Location: fullURL.replace("www.", "")}, ""];
     }
 
     return false;
