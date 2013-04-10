@@ -1,11 +1,15 @@
-﻿<template name="header">
+<template name="header">
   <div id="header-bg-gradient"></div>
   <nav class="dynamic">
     <div class="pos">
       <ul>
         <li id="logo">
           <a href="/">
-            <img src="/images/q42-logo.png" />
+            {{#if supportsSVG}}
+              <img src="/images/q42-logo.svg" />
+            {{else}}
+              <img src="/images/q42-logo.png" />
+            {{/if}}
           </a>
         </li>
         <li><a href="/projecten">Projecten</a></li>

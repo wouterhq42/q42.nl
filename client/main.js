@@ -157,7 +157,9 @@ Template.en_header.lightsColor = Template.header.lightsColor = function() {
 Template.en_header.supportsInputTypeColor = Template.header.supportsInputTypeColor = function() {
   return Session.get("supportsInputTypeColor");
 }
-
+Template.en_header.supportsSVG = Template.header.supportsSVG = function() {
+  return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
+}
 
 
 
