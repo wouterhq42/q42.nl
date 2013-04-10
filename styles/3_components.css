@@ -276,11 +276,14 @@
   {
     color: #FFF;
     text-decoration: none;
-    text-shadow: 0 0 4px rgba(0,0,0,.7)
   }
   nav ul li a:hover {
     color: #fff;
     text-decoration: underline;
+  }
+
+  #header nav ul li a, #header nav ul li a:visited {
+    text-shadow: 0 0 4px rgba(0,0,0,.7)
   }
 
   /* VISUAL */
