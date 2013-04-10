@@ -13,10 +13,7 @@ Meteor.startup(function () {
     i.setAttribute("type", "color");
     return i.type !== "text";
   })();
-  Session.setDefault("enableColorpicker", !supportsInputTypeColor);
-  if (!supportsInputTypeColor) {
-    $("#lights-color").attr("type", "hidden");
-  }
+  Session.setDefault("supportsInputTypeColor", supportsInputTypeColor);
 
   Session.setDefault("toggleLights", false);
   Session.setDefault("lightsColor", "#000000");
@@ -130,14 +127,14 @@ Template.en_koppenKoffie.koppenKoffie = Template.koppenKoffie.koppenKoffie = fun
   return koffieteller();
 }
 
-Template.header.events({
+var templateHeaderEvents = {
   "click #lights-toggle a": function(evt) {
     Session.set("toggleLights", !Session.get("toggleLights"));
     $(document.body).toggleClass("lights-off");
     evt.preventDefault();
   },
   "click #lights-color": function() {
-    if (Session.get("enableColorpicker")) {
+    if (!Session.get("supportsInputTypeColor")) {
       $(document.body).toggleClass("show-colorpicker");
     }
   },
@@ -150,10 +147,15 @@ Template.header.events({
       });
     }
   }
-});
+};
+Template.en_header.events(templateHeaderEvents);
+Template.header.events(templateHeaderEvents);
 
-Template.header.lightsColor = function() {
+Template.en_header.lightsColor = Template.header.lightsColor = function() {
   return Session.get("lightsColor");
+}
+Template.en_header.supportsInputTypeColor = Template.header.supportsInputTypeColor = function() {
+  return Session.get("supportsInputTypeColor");
 }
 
 

@@ -1,13 +1,10 @@
 
 Template.colorpicker.enable = function() {
-  return Session.get("enableColorpicker");
+  return !Session.get("supportsInputTypeColor");
 }
 
 Template.colorpicker.events({
-  /*"change #readColor": function(evt) {
-    readColor(evt.target.value);
-  },*/
-  "mousedown #colorwheel": function(evt) {
+  "click #colorwheel": function(evt) {
     fromEvt(evt);
     evt.preventDefault();
 
@@ -18,13 +15,6 @@ Template.colorpicker.events({
         $("#lights-color").attr("value", "#" + color).css("background-color", "#" + color);
       });
     }
-  },
-  "touchstart #colorwheel": function(evt) {
-    fromEvt(evt.touches[0]);
-    evt.preventDefault();
-  },
-  "touchmove #colorwheel": function(evt) {
-    fromEvt(evt.touches[0]);
   }
 });
 

@@ -13,7 +13,11 @@
         <li><a href="/blog">Blog</a></li>
         <li><a href="/about-q42">About Q42</a></li>
         <li class="right">
-          <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+          {{#if supportsInputTypeColor}}
+            <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+          {{else}}
+            <div id="lights-color" style="background-color: {{lightsColor}}"></div>
+          {{/if}}
           {{> colorpicker}}
         </li>
         <li class="right" id="lights-toggle"><a href="#"><i class="icon-lightbulb"></i></a></li>

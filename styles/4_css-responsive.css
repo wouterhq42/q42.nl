@@ -253,9 +253,10 @@
   /* header */
   #logo { margin-left: 15px; }
   #logo img { height: 35px;}
-  nav .pos { width: 100%; font-size: 23px; }
+  nav .pos { width: 100%; font-size: 19px; }
   nav ul li { margin-left: 12px; line-height: 55px;}
   #header, nav, nav ul, nav ul li { height: 50px;}
+  #header nav .right { margin-left: 0; margin-right: 30px;}
 
 }
 /* end 480 */
