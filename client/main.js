@@ -14,6 +14,9 @@ Meteor.startup(function () {
     return i.type !== "text";
   })();
   Session.setDefault("enableColorpicker", !supportsInputTypeColor);
+  if (!supportsInputTypeColor) {
+    $("#lights-color").attr("type", "hidden");
+  }
 
   Session.setDefault("toggleLights", false);
   Session.setDefault("lightsColor", "#000000");
