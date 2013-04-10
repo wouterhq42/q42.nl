@@ -170,10 +170,7 @@ Template.en_header.supportsSVG = Template.header.supportsSVG = function() {
 function handleLinkClicks() {
   $("a[href^='/']").click(function(evt) {
     Router.loadPage(this.getAttribute("href"));
-
-    // scroll to top of page
     window.scrollTo(0,0);
-    
     return false;
   });
 }
