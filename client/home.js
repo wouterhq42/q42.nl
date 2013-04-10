@@ -1,4 +1,4 @@
-﻿var showreelItems = undefined;
+var showreelItems = undefined;
 var showreelDeg = 0;
 var showreelZ = 0;
 var showreelItemCount = 0;
@@ -21,7 +21,7 @@ window.requestAnimFrame = (function () {
          };
 })();
 
-function homepageShowreel() {
+homepageShowreel = function () {
   // declare global items
   $showreel = $('#showreel2');
   $nav = $showreel.find('nav');
@@ -214,7 +214,7 @@ function q42Is() {
   });
 }
 
-function resizeShowreel() {
+resizeShowreel = function () {
   // De showreel vult de volledige hoogt van het scherm minus de ruimte voor de titel,
   // maar nooit meer dan 2,5 keer de breedte van het scherm en nooit minder dan de
   // breedte van het scherm. Anders zie je wel erg gekke uitsnedes van de foto's.

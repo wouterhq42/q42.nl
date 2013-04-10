@@ -1,5 +1,5 @@
 var retries = 0;
-function resizeFBwidget() {
+resizeFBwidget = function () {
   var $fbWidget = $('.fb_iframe_widget iframe');
   if ($fbWidget.length != 0) {
     $fbWidget.width('100%')
@@ -15,7 +15,7 @@ function resizeFBwidget() {
   }
 }
 
-function resize(event) {
+resize = function (event) {
   var widths = [0, 480, 620, 940, 9999], cur = $(window).width();
   for (var i = 1; i < widths.length; i++) {
     var upperBound = widths[i], lowerBound = widths[i - 1];

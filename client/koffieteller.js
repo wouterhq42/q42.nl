@@ -1,4 +1,4 @@
-function koffieteller() {
+koffieteller = function () {
 
   var date = new Date();
   var day = date.getDay();

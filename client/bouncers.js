@@ -1,10 +1,10 @@
-function setReadmoreBouncers() {
+setReadmoreBouncers = function () {
   $('.block-readmore a').each(function () {
     $(this).addClass('readyToBounce');
   });
 }
 
-function bounceBack() {
+bounceBack = function () {
   $('.block-readmore a').each(function () {
     var el = $(this);
     if (checkPositionInWindow(el) < 97) {

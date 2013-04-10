@@ -22,15 +22,15 @@
   Sean McCullough (banksean@gmail.com)
 */
 
-/* 
+/*
    A C-program for MT19937, with initialization improved 2002/1/26.
    Coded by Takuji Nishimura and Makoto Matsumoto.
  
-   Before using, initialize the state by using init_genrand(seed)  
+   Before using, initialize the state by using init_genrand(seed)
    or init_by_array(init_key, key_length).
  
    Copyright (C) 1997 - 2002, Makoto Matsumoto and Takuji Nishimura,
-   All rights reserved.                          
+   All rights reserved.
  
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions
@@ -43,8 +43,8 @@
         notice, this list of conditions and the following disclaimer in the
         documentation and/or other materials provided with the distribution.
  
-     3. The names of its contributors may not be used to endorse or promote 
-        products derived from this software without specific prior written 
+     3. The names of its contributors may not be used to endorse or promote
+        products derived from this software without specific prior written
         permission.
  
    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -65,11 +65,11 @@
    email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
 */
 
-var MersenneTwister = function(seed) {
+MersenneTwister = function(seed) {
   if (seed == undefined) {
     seed = new Date().getTime();
-  } 
-  /* Period parameters */  
+  }
+  /* Period parameters */
   this.N = 624;
   this.M = 397;
   this.MATRIX_A = 0x9908b0df;   /* constant vector a */
@@ -80,7 +80,7 @@ var MersenneTwister = function(seed) {
   this.mti=this.N+1; /* mti==N+1 means mt[N] is not initialized */
 
   this.init_genrand(seed);
-}  
+}
  
 /* initializes mt[N] with a seed */
 MersenneTwister.prototype.init_genrand = function(s) {
@@ -125,7 +125,7 @@ MersenneTwister.prototype.init_by_array = function(init_key, key_length) {
     if (i>=this.N) { this.mt[0] = this.mt[this.N-1]; i=1; }
   }
 
-  this.mt[0] = 0x80000000; /* MSB is 1; assuring non-zero initial array */ 
+  this.mt[0] = 0x80000000; /* MSB is 1; assuring non-zero initial array */
 }
  
 /* generates a random number on [0,0xffffffff]-interval */
@@ -172,26 +172,26 @@ MersenneTwister.prototype.genrand_int31 = function() {
  
 /* generates a random number on [0,1]-real-interval */
 MersenneTwister.prototype.genrand_real1 = function() {
-  return this.genrand_int32()*(1.0/4294967295.0); 
-  /* divided by 2^32-1 */ 
+  return this.genrand_int32()*(1.0/4294967295.0);
+  /* divided by 2^32-1 */
 }
 
 /* generates a random number on [0,1)-real-interval */
 MersenneTwister.prototype.random = function() {
-  return this.genrand_int32()*(1.0/4294967296.0); 
+  return this.genrand_int32()*(1.0/4294967296.0);
   /* divided by 2^32 */
 }
  
 /* generates a random number on (0,1)-real-interval */
 MersenneTwister.prototype.genrand_real3 = function() {
-  return (this.genrand_int32() + 0.5)*(1.0/4294967296.0); 
+  return (this.genrand_int32() + 0.5)*(1.0/4294967296.0);
   /* divided by 2^32 */
 }
  
 /* generates a random number on [0,1) with 53-bit resolution*/
-MersenneTwister.prototype.genrand_res53 = function() { 
-  var a=this.genrand_int32()>>>5, b=this.genrand_int32()>>>6; 
-  return(a*67108864.0+b)*(1.0/9007199254740992.0); 
-} 
+MersenneTwister.prototype.genrand_res53 = function() {
+  var a=this.genrand_int32()>>>5, b=this.genrand_int32()>>>6;
+  return(a*67108864.0+b)*(1.0/9007199254740992.0);
+}
 
 /* These real versions are due to Isaku Wada, 2002/01/09 added */
