@@ -10,5 +10,6 @@ backbone
 underscore
 http
 stylus
+HTML5-History-API
 router
 font-awesome
