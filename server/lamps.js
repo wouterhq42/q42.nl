@@ -1,6 +1,6 @@
 var Lights = new Meteor.Collection("lights");
 
-function updateLightbar() {
+updateLightbar = function () {
   console.log("Asking huelandsspoor for light data...")
   Meteor.http.get("http://huelandsspoor.nl/api/lamps/getlamps", function(err, result) {
     _.each(Lights.find().fetch(), function(doc) { Lights.remove({_id: doc._id}); });

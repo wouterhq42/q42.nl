@@ -1,7 +1,7 @@
 var Lights = new Meteor.Collection("lights");
 var NUM_LIGHTS = 29; // THERE ARE 29 LIGHTS!!!
 
-function updateLightbar() {
+updateLightbar = function () {
   var lights = [];
   if (Lights.find().count() > 0) {
     lights = _.map(Lights.find().fetch(), function(doc) {
