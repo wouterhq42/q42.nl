@@ -29,7 +29,7 @@ Meteor doesn't currently support Windows. Buy a Mac!
 
 Create a file in the server/lib directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
 
-	const TUMBLR_KEY = "MY_KEY";
+	TUMBLR_KEY = "MY_KEY";
 	
 This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
 
