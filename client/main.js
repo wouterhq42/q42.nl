@@ -5,7 +5,7 @@ Meteor.startup(function () {
   $(window).bind("scroll", bounceBack);
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
-  Session.setDefault("lang", lang);
+  Session.setDefault("lang", "en");
 
   // http://stackoverflow.com/questions/8278670/how-to-check-if-a-html5-input-is-supported
   var supportsInputTypeColor = (function() {
@@ -26,6 +26,10 @@ Meteor.startup(function () {
   Deps.autorun(function() {
     var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
     $(document.body).toggleClass("lights-off", turnOnLights);
+  });
+  
+  Meteor.autosubscribe(function () {
+    Meteor.subscribe("allUserData");
   });
 
   Backbone.history.start({pushState: true});
@@ -166,6 +170,10 @@ Template.en_header.supportsSVG = Template.header.supportsSVG = function() {
 function handleLinkClicks() {
   $("a[href^='/']").click(function(evt) {
     Router.loadPage(this.getAttribute("href"));
+
+    // scroll to top of page
+    window.scrollTo(0,0);
+    
     return false;
   });
 }
@@ -180,9 +188,6 @@ function reattachBehavior() {
   handleLinkClicks();
   homepageShowreel();
   bounceBack();
-
-  // scroll to top of page
-  window.scrollTo(0,0);
 
   if (!isPhantom) {
 

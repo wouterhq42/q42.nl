@@ -47,6 +47,16 @@ Meteor.methods({
         if (error)
           console.log("Error:", error);
     });
+  },
+  addComment: function(blogpostId, text)
+  {
+    BlogComments.insert({
+      text: text,
+      blogpostId: blogpostId,
+      userName: Meteor.user().profile.name,
+      userId: Meteor.userId(),
+      date: new Date()
+    });
   }
 })
 
@@ -129,6 +139,10 @@ Meteor.publish("pagesByTag", function (tag) {
   self.onStop(function () {
     handle.stop();
   });
+});
+
+Meteor.publish("blogComments", function (blogpostId) {
+  return BlogComments.find({ blogpostId: blogpostId });
 });
 
 if (Posts.find().count() == 0)

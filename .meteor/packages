@@ -13,3 +13,10 @@ stylus
 HTML5-History-API
 router
 font-awesome
+accounts-ui
+accounts-base
+accounts-google
+accounts-facebook
+accounts-twitter
+accounts-github
+gravatar

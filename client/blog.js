@@ -5,6 +5,7 @@ Deps.autorun(function() {
   Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
   Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
+  Meteor.subscribe("blogComments", Session.get("blogpostid"));
 });
 
 Template.en_blog.post = Template.blog.post = function() {
@@ -57,8 +58,55 @@ Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
   } (document, 'script', 'facebook-jssdk'));
 
   syntaxHighlight();
-
 }
+Template.en_blogpost.comments = Template.blogpost.comments = function() {
+  return BlogComments.find();
+}
+Template.en_blogpost.commentsCount = Template.blogpost.commentsCount = function() {
+  return BlogComments.find().count();
+}
+Template.en_blogpost.oneComment = Template.blogpost.oneComment = function() {
+  return BlogComments.find().count() == 1;
+}
+Template.en_blogpost.loggedin = Template.blogpost.loggedin = function() {
+  return !!Meteor.user();
+}
+Template.en_blogpost.service = Template.blogpost.service = function() {
+  var user = Meteor.users.findOne({ _id: this.userId });
+  if (!user)
+    return "";
+  for (var p in user.services)
+    return p;
+}
+Template.en_blogpost.picture = Template.blogpost.picture = function() {
+  console.log(this.userId)
+  var user = Meteor.users.findOne({ _id: this.userId });
+  if (!user || !user.services)
+    return "";
+  var services = user.services;
+  if (services.twitter)
+    return "https://api.twitter.com/1/users/profile_image?user_id=" + services.twitter.id;
+  if (services.google)
+    return services.google.picture;
+  if (services.facebook)
+    return "https://graph.facebook.com/" + services.facebook.id + "/picture";
+  if (services.github)
+    return Gravatar.imageUrl(services.github.email);
+  return ""
+}
+Template.en_blogpost.datediff = Template.blogpost.datediff = function() {
+  return moment.duration(moment(Session.get("date")).diff(this.date)).humanize();
+}
+
+var templateBlogPostEvents = {
+  "click #addComment": function()
+  {
+    Meteor.call("addComment", Session.get("blogpostid"), $("#comment")[0].value);
+  }
+};
+Template.en_blogpost.events(templateBlogPostEvents);
+Template.blogpost.events(templateBlogPostEvents);
+
 
 Template.en_postDate.prettyDate = Template.postDate.prettyDate = function() {
   return moment(this.date).format('dddd D MMMM YYYY')

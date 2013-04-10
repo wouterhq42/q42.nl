@@ -147,11 +147,26 @@
 
       </article>
 
-      {{#unless isPhantom}}
-      <div id="disqus_thread" style="margin-top: 1em"></div>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      {{/unless}}
-
+      <section class="comments">
+        <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
+        <div>
+          <textarea id="comment" placeholder="Reageer..."></textarea>
+          <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Reageer</button> als {{loginButtons}}
+        </div>
+        <ul>
+        {{#each comments}}
+          <li>
+            <div class="user {{service}}-service">
+              <img src="{{picture}}">
+              <span class="name">{{userName}}</span>
+              {{#isolate}}<span class="datediff"> - {{datediff}} geleden</span>{{/isolate}}
+            </div>
+            <div>{{text}}</div>
+          </li>
+        {{/each}}
+      </ul>
+      </section>
+      
     </section>
   {{/with}}
   {{{debug post}}}
