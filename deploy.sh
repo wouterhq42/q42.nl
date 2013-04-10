@@ -9,13 +9,8 @@ fi
 
 echo "Deploying to q42.nl..."
 echo
-meteor deploy q42.nl < password.txt
-echo "Deploying to www.q42.nl..."
-echo
-meteor deploy www.q42.nl < password.txt
+mrt deploy q42.nl < password.txt
 echo "Deploying to q42.com..."
 echo
-meteor deploy q42.com < password.txt
+mrt deploy q42.com < password.txt
 echo "Done."
-echo
-#meteor deploy www.q42.com < password.txt
