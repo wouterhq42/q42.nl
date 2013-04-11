@@ -31,6 +31,8 @@ Meteor.startup(function () {
   Meteor.autosubscribe(function () {
     Meteor.subscribe("allUserData");
   });
+  
+  marked.setOptions({ breaks: true });
 
   Backbone.history.start({pushState: true});
 });

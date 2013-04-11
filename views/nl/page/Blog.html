@@ -193,6 +193,15 @@
   </ul>
 </template>
 
+<template name="latestComments">
+  <h2>Nieuwste reacties</h2>
+  <ul id="latestComments">
+    {{#each comment}}
+      <li><div><a href="/blog/post/{{blogpostId}}/#comment{{_id}}">{{text}}</a></div></li>
+    {{/each}}
+  </ul>
+</template>
+
 <template name="blogSidebar">
   <div class="block-small subcontent loading" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
@@ -201,13 +210,13 @@
     {{#unless isPhantom}}
       <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
     {{/unless}}
-    <br/><br/>
     {{> otherPosts}}
+    {{> latestComments}}
   </div>
 </template>
 
 <template name="comment">
-  <li>
+  <li id="comment{{_id}}">
     <div class="user {{service}}-service">
       <img src="{{picture}}">
       <span class="name">{{userName}}</span>
@@ -216,6 +225,7 @@
         <span class="meta"> -
           <a href="#" class="edit-link">wijzig</a>
           <a href="#" class="save-link">opslaan</a>
+          - <a href="#" class="delete-link">verwijderen</a>
         </span>
       {{/if}}
     </div>

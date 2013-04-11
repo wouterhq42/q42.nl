@@ -25,8 +25,11 @@ button {
   border: 1px solid #ccc;
   background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
 }
-button:hover {
+button:hover, button[disabled] {
   background-image: linear-gradient(to bottom, #f0f0f0, #e6e6e6);
+}
+button[disabled] {
+  cursor: default;
 }
 
 textarea {
@@ -374,7 +377,7 @@ article h2,
   line-height: 24px;
 }
 
-.subcontent h2 {
+.subcontent h2:first-child {
   margin: 0px;
 }
 
@@ -496,7 +499,7 @@ span.effect-glow {
   width: 40px;
   position: absolute;
   left: -50px;
-  top: 4px;
+  top: 2px;
   border-radius: 4px;
 }
 .comments .user .name {
@@ -518,6 +521,13 @@ span.effect-glow {
 .comments li.edit-mode .text,
 .comments li.edit-mode .edit-link {
   display: none;
+}
+
+#latestComments ul {
+  overflow: hidden;
+}
+#latestComments li div {
+  white-space: nowrap;
 }
 
 /* Sharing */

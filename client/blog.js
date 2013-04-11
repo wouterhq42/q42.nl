@@ -1,11 +1,13 @@
 var blogpostFull = new Meteor.Collection("blogpostFull");
 var blogpostIndex = new Meteor.Collection("blogpostIndex");
+var LatestComments = new Meteor.Collection("LatestComments");
 
 Deps.autorun(function() {
   Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
   Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
   Meteor.subscribe("blogComments", Session.get("blogpostid"));
+  Meteor.subscribe("LatestComments", 10);
 });
 
 Template.en_blog.post = Template.blog.post = function() {
@@ -95,6 +97,11 @@ var templateBlogPostEvents = {
     Meteor.call("updateComment", this._id, $comment.find(".edit-area")[0].value);
     evt.preventDefault();
   },
+  "click .delete-link": function(evt)
+  {
+    Meteor.call("deleteComment", this._id);
+    evt.preventDefault();
+  },
   "keyup textarea": function(evt)
   {
     evt.target.rows = evt.target.value.replace(/[^\n]/g, '').length + 2;
@@ -112,6 +119,10 @@ Template.en_otherPosts.post = Template.otherPosts.post = function() {
   return blogpostIndex.find({id: {$ne: Session.get('blogpostid')}, title: {$exists: true}}, {limit: 12}).fetch();
 }
 
+Template.en_latestComments.comment = Template.latestComments.comment = function() {
+  return LatestComments.find({}, { sort: { date: -1 } });
+}
+
 
 Template.en_comment.service = Template.comment.service = function() {
   var user = Meteor.users.findOne({ _id: this.userId });
@@ -124,7 +135,7 @@ Template.en_comment.picture = Template.comment.picture = function() {
   return getPictureURL(Meteor.users.findOne({ _id: this.userId }));
 }
 Template.en_comment.ownsComment = Template.comment.ownsComment = function() {
-  return Meteor.userId() == this.userId;
+  return Meteor.userId() === this.userId || (Meteor.user() && Meteor.user().isAdmin);
 }
 Template.en_comment.datediff = Template.comment.datediff = function() {
   return moment.duration(moment(Session.get("date")).diff(this.date)).humanize();
@@ -162,7 +173,7 @@ function syntaxHighlight() {
 
 function getPictureURL(user) {
   if (!user || !user.services)
-    return "";
+    return "/images/anonymous.jpg";
   var services = user.services;
   if (services.twitter)
     return "https://api.twitter.com/1/users/profile_image?user_id=" + services.twitter.id;
@@ -172,5 +183,5 @@ function getPictureURL(user) {
     return "https://graph.facebook.com/" + services.facebook.id + "/picture";
   if (services.github)
     return Gravatar.imageUrl(services.github.email);
-  return "";
+  return "/images/anonymous.jpg";
 }
