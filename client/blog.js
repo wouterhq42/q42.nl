@@ -7,6 +7,8 @@ Deps.autorun(function() {
   Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
 });
 
+Session.setDefault("blogloading", true);
+
 Template.en_blog.post = Template.blog.post = function() {
   var posts = blogpostIndex.find({}, {sort: {date: -1}});
   if (posts.count() > 0)
@@ -43,6 +45,7 @@ Template.en_blog.tag = Template.blog.tag = function() {
 }
 
 Template.en_blogpost.post = Template.blogpost.post = function() {
+  Session.set("blogloading", false);
   return blogpostFull.findOne();
 }
 Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
