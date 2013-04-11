@@ -149,22 +149,16 @@
 
       <section class="comments">
         <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
-        <div>
+        <div class="commentbox">
+          <img src="{{picture}}">
           <textarea id="comment" placeholder="Reageer..."></textarea>
           <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Reageer</button> als {{loginButtons}}
         </div>
         <ul>
-        {{#each comments}}
-          <li>
-            <div class="user {{service}}-service">
-              <img src="{{picture}}">
-              <span class="name">{{userName}}</span>
-              {{#isolate}}<span class="datediff"> - {{datediff}} geleden</span>{{/isolate}}
-            </div>
-            <div>{{text}}</div>
-          </li>
-        {{/each}}
-      </ul>
+          {{#each comments}}
+            {{> comment}}
+          {{/each}}
+        </ul>
       </section>
       
     </section>
@@ -210,4 +204,22 @@
     <br/><br/>
     {{> otherPosts}}
   </div>
+</template>
+
+<template name="comment">
+  <li>
+    <div class="user {{service}}-service">
+      <img src="{{picture}}">
+      <span class="name">{{userName}}</span>
+      {{#isolate}}<span class="meta"> - {{datediff}} geleden</span>{{/isolate}}
+      {{#if ownsComment}}
+        <span class="meta"> -
+          <a href="#" class="edit-link">wijzig</a>
+          <a href="#" class="save-link">opslaan</a>
+        </span>
+      {{/if}}
+    </div>
+    <div class="text">{{{mdtext}}}</div>
+    {{#if ownsComment}}<textarea class="edit-area">{{text}}</textarea>{{/if}}
+  </li>
 </template>

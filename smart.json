@@ -3,6 +3,7 @@
     "router": {},
     "font-awesome": {},
     "HTML5-History-API": {},
-    "gravatar": {}
+    "gravatar": {},
+    "marked": {}
   }
 }

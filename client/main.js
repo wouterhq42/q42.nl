@@ -5,7 +5,7 @@ Meteor.startup(function () {
   $(window).bind("scroll", bounceBack);
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
-  Session.setDefault("lang", "en");
+  Session.setDefault("lang", lang);
 
   // http://stackoverflow.com/questions/8278670/how-to-check-if-a-html5-input-is-supported
   var supportsInputTypeColor = (function() {

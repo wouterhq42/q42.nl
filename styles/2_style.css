@@ -467,35 +467,57 @@ span.effect-glow {
 
 .comments {
   clear: both;
+  padding: 0 0 0 50px;
+}
+.comments h2 {
+  margin-left: -50px;
+}
+.comments .commentbox {
+  position: relative;
 }
 .comments textarea {
   width: 100%;
 }
 .comments > ul {
   margin: 0;
-  padding: 0 0 0 50px;
+  padding: 0;
   list-style: none;
 }
 .comments > ul > li {
-  margin: 1em 0 0 0;
-  padding: 0;
+  margin: 0.5em 0 0 0;
+  padding: 0.5em 0 0 0;
   list-style: none;
+  border-top: 1px solid #eee;
 }
 .comments .user {
   position: relative;
 }
-.comments .user img {
+.comments .user img, .comments .commentbox img {
   width: 40px;
   position: absolute;
   left: -50px;
   top: 4px;
   border-radius: 4px;
 }
-.comment .user .name {
+.comments .user .name {
   font: normal 1em ABeeZee, Georgia, Times, serif;
 }
-.comment .datediff {
+.comments .meta {
   color: #ccc;
+}
+.comments .edit-area,
+.comments .save-link {
+  display: none;
+}
+.comments li.edit-mode .edit-area {
+  display: block;
+}
+.comments li.edit-mode .save-link {
+  display: inline;
+}
+.comments li.edit-mode .text,
+.comments li.edit-mode .edit-link {
+  display: none;
 }
 
 /* Sharing */

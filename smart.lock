@@ -9,7 +9,8 @@
       "router": {},
       "font-awesome": {},
       "HTML5-History-API": {},
-      "gravatar": {}
+      "gravatar": {},
+      "marked": {}
     },
     "packages": {
       "router": {
@@ -31,6 +32,11 @@
         "git": "https://github.com/tmeasday/meteor-gravatar.git",
         "tag": "v0.0.3",
         "commit": "557d1a7bff98d285cb023b0f44541a66bf0c7b4c"
+      },
+      "marked": {
+        "git": "https://github.com/chuangbo/meteor-marked.git",
+        "tag": "v0.2.8.2",
+        "commit": "f5d9d6dbc013ad1bd568fa610eb4d8a479943f18"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

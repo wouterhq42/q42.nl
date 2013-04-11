@@ -57,6 +57,10 @@ Meteor.methods({
       userId: Meteor.userId(),
       date: new Date()
     });
+  },
+  updateComment: function(_id, text)
+  {
+    BlogComments.update({ _id: _id, userId: Meteor.userId() }, { $set: { text: text } });
   }
 })
 
