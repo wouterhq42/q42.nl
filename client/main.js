@@ -53,17 +53,16 @@ Template.body.content = function() {
   return template();
 }
 Template.body.rendered = function() {
+  // If we've given the main section the show class we're done.
+  if ($("body>section.show")[0])
+    return;
+  
   if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
   reattachBehavior();
 
   updateLightbar();
-
-  Meteor.setTimeout(function() {
-    var $el = $(window.location.hash);
-    if ($el[0]) $el[0].scrollIntoView();
-  }, 1000);
 }
 
 Template.body.viewRendersHeader = function() {
@@ -203,8 +202,7 @@ function reattachBehavior() {
 
     Meteor.clearTimeout(widgetsTimeout);
     widgetsTimeout = Meteor.setTimeout(function() {
-      // fade in the page only once
-      $($("section")[0]).addClass("show");
+      $("body>section").addClass("show");
       $("#homecontent").addClass("show");
 
       (function (d, s, id) {

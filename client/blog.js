@@ -10,19 +10,13 @@ Deps.autorun(function() {
   Meteor.subscribe("LatestComments", 10);
 });
 
-Session.setDefault("blogloading", true);
-
 Template.en_blog.post = Template.blog.post = function() {
   var posts = blogpostIndex.find({}, {sort: {date: -1}});
   if (posts.count() > 0)
-  {
-    Session.set("blogloading", false);
     Meteor.call("checkTumblr");
-  }
   return posts;
 }
 Template.en_blog.rendered = Template.blog.rendered = function() {
-  toggleLoadingState();
   syntaxHighlight();
 }
 Template.en_blog.pagination = Template.blog.pagination = function() {
@@ -48,12 +42,9 @@ Template.en_blog.tag = Template.blog.tag = function() {
 }
 
 Template.en_blogpost.post = Template.blogpost.post = function() {
-  Session.set("blogloading", false);
   return blogpostFull.findOne();
 }
 Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
-  toggleLoadingState();
-
   (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -156,10 +147,6 @@ Handlebars.registerHelper("debug", function(obj) {
 Handlebars.registerHelper("typeIs", function(type) {
   return this.type == type;
 })
-
-function toggleLoadingState() {
-  $(".blog,.block-text,.subcontent,#pageNav").toggleClass("loading", Session.get("blogloading"));
-}
 
 function syntaxHighlight() {
   var a = false;

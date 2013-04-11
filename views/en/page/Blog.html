@@ -1,6 +1,6 @@
 <template name="en_blog">
   <section class="blog">
-    <header class="block-text loading"><h1>We<b>blog</b></h1></header>
+    <header class="block-text"><h1>We<b>blog</b></h1></header>
 
     <div id="blog-posts">
     {{#each post}}
@@ -70,7 +70,7 @@
 
     {{> en_blogSidebar}}
 
-    <nav id="pageNav" class="loading">
+    <nav id="pageNav">
       <ul class="clearfix">
         {{#each pagination}}
           <li>
@@ -203,7 +203,7 @@
 </template>
 
 <template name="en_blogSidebar">
-  <div class="block-small subcontent loading" id="blog-sidebar">
+  <div class="block-small subcontent" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
     <p>This is the Q42 blog, for which Q'ers write about their work, passion and life at Q42.</p>
     <p>Those same Q'ers are also active on Twitter. We made a list, take a look: <a href="https://twitter.com/q42/q-ers">Q'ers on Twitter</a>.
