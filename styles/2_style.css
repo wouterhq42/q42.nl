@@ -472,7 +472,7 @@ span.effect-glow {
   clear: both;
   padding: 0 0 0 50px;
 }
-.comments h2 {
+.comments h2:first-child {
   margin-left: -50px;
 }
 .comments .commentbox {
@@ -608,7 +608,7 @@ span.effect-glow {
 
   /* a literal value */
   .lit {
-    color: #445588;
+    color: #8899cc;
   }
 
   /* punctuation */
