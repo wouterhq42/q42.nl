@@ -83,6 +83,15 @@ Template.body.footer = function() {
   return template();
 }
 
+Template.body.events({
+  "click a[href^='/']": function handleLinkClick(evt) {
+    Router.loadPage(evt.target.getAttribute("href"));
+    window.scrollTo(0,0);
+    evt.preventDefault();
+    return false;
+  }
+});
+
 Template.en_error404.url = Template.error404.url = function() {
   return document.location.pathname;
 }
@@ -168,15 +177,6 @@ Template.en_header.supportsSVG = Template.header.supportsSVG = function() {
 }
 
 
-
-function handleLinkClicks() {
-  $("a[href^='/']").click(function(evt) {
-    Router.loadPage(this.getAttribute("href"));
-    window.scrollTo(0,0);
-    return false;
-  });
-}
-
 var widgetsTimeout = null;
 
 function reattachBehavior() {
@@ -184,7 +184,6 @@ function reattachBehavior() {
   resizeShowreel();
 
   setReadmoreBouncers();
-  handleLinkClicks();
   homepageShowreel();
   bounceBack();
 
