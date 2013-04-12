@@ -1,6 +1,6 @@
 <template name="blog">
   <section class="blog">
-    <header class="block-text loading"><h1>We<b>blog</b></h1></header>
+    <header class="block-text"><h1>We<b>blog</b></h1></header>
 
     <div id="blog-posts">
     {{#each post}}
@@ -70,7 +70,7 @@
 
     {{> blogSidebar}}
 
-    <nav id="pageNav" class="loading">
+    <nav id="pageNav">
       <ul class="clearfix">
         {{#each pagination}}
           <li>
@@ -147,11 +147,20 @@
 
       </article>
 
-      {{#unless isPhantom}}
-      <div id="disqus_thread" style="margin-top: 1em"></div>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      {{/unless}}
-
+      <section class="comments">
+        <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
+        <div class="commentbox">
+          <img src="{{picture}}">
+          <textarea id="comment" placeholder="Reageer..."></textarea>
+          <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Reageer</button> als {{loginButtons}}
+        </div>
+        <ul>
+          {{#each comments}}
+            {{> comment}}
+          {{/each}}
+        </ul>
+      </section>
+      
     </section>
   {{/with}}
   {{{debug post}}}
@@ -184,15 +193,43 @@
   </ul>
 </template>
 
+<template name="latestComments">
+  <h2>Nieuwste reacties</h2>
+  <ul id="latestComments">
+    {{#each comment}}
+      <li><div><a href="/blog/post/{{blogpostId}}/#comment{{_id}}">{{text}}</a></div></li>
+    {{/each}}
+  </ul>
+</template>
+
 <template name="blogSidebar">
-  <div class="block-small subcontent loading" id="blog-sidebar">
+  <div class="block-small subcontent" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
     <p>Dit is het blog van Q42, waarin Q'ers schrijven over hun werk, passie en het leven bij Q42.</p>
     <p>Diezelfde Q'ers zijn ook actief op Twitter. We hebben een lijstje gemaakt, kijk maar: <a href="https://twitter.com/q42/q-ers">Q'ers op Twitter</a>. En je kunt ons natuurlijk ook volgen op <a href="http://twitter.com/q42">@q42</a>.</p>
     {{#unless isPhantom}}
       <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
     {{/unless}}
-    <br/><br/>
     {{> otherPosts}}
+    {{> latestComments}}
   </div>
+</template>
+
+<template name="comment">
+  <li id="comment{{_id}}">
+    <div class="user {{service}}-service">
+      <img src="{{picture}}">
+      <span class="name">{{userName}}</span>
+      {{#isolate}}<span class="meta"> - {{datediff}} geleden</span>{{/isolate}}
+      {{#if ownsComment}}
+        <span class="meta"> -
+          <a href="#" class="edit-link">wijzig</a>
+          <a href="#" class="save-link">opslaan</a>
+          - <a href="#" class="delete-link">verwijderen</a>
+        </span>
+      {{/if}}
+    </div>
+    <div class="text">{{{mdtext}}}</div>
+    {{#if ownsComment}}<textarea class="edit-area">{{text}}</textarea>{{/if}}
+  </li>
 </template>

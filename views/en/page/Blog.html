@@ -1,6 +1,6 @@
 <template name="en_blog">
   <section class="blog">
-    <header class="block-text loading"><h1>We<b>blog</b></h1></header>
+    <header class="block-text"><h1>We<b>blog</b></h1></header>
 
     <div id="blog-posts">
     {{#each post}}
@@ -70,7 +70,7 @@
 
     {{> en_blogSidebar}}
 
-    <nav id="pageNav" class="loading">
+    <nav id="pageNav">
       <ul class="clearfix">
         {{#each pagination}}
           <li>
@@ -147,10 +147,19 @@
 
       </article>
 
-      {{#unless isPhantom}}
-      <div id="disqus_thread" style="margin-top: 1em"></div>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      {{/unless}}
+      <section class="comments">
+        <h2>{{commentsCount}} reaction{{#unless oneComment}}s{{/unless}}</h2>
+        <div class="commentbox">
+          <img src="{{picture}}">
+          <textarea id="comment" placeholder="Comment..."></textarea>
+          <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Comment</button> as {{loginButtons}}
+        </div>
+        <ul>
+          {{#each comments}}
+            {{> comment}}
+          {{/each}}
+        </ul>
+      </section>
 
     </section>
   {{/with}}
@@ -184,8 +193,17 @@
   </ul>
 </template>
 
+<template name="en_latestComments">
+  <h2>Latest comments</h2>
+  <ul id="latestComments">
+    {{#each comment}}
+      <li><div><a href="/blog/post/{{blogpostId}}/#comment{{_id}}">{{text}}</a></div></li>
+    {{/each}}
+  </ul>
+</template>
+
 <template name="en_blogSidebar">
-  <div class="block-small subcontent loading" id="blog-sidebar">
+  <div class="block-small subcontent" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
     <p>This is the Q42 blog, for which Q'ers write about their work, passion and life at Q42.</p>
     <p>Those same Q'ers are also active on Twitter. We made a list, take a look: <a href="https://twitter.com/q42/q-ers">Q'ers on Twitter</a>.
@@ -194,7 +212,25 @@
     {{#unless isPhantom}}
       <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
     {{/unless}}
-    <br/><br/>
     {{> en_otherPosts}}
+    {{> en_latestComments}}
   </div>
+</template>
+
+<template name="en_comment">
+  <li>
+    <div class="user {{service}}-service">
+      <img src="{{picture}}">
+      <span class="name">{{userName}}</span>
+      {{#isolate}}<span class="meta"> - {{datediff}} ago</span>{{/isolate}}
+      {{#if ownsComment}}
+        <span class="meta"> -
+          <a href="#" class="edit-link">edit</a>
+          <a href="#" class="save-link">save</a>
+        </span>
+      {{/if}}
+    </div>
+    <div class="text">{{{mdtext}}}</div>
+    {{#if ownsComment}}<textarea class="edit-area">{{text}}</textarea>{{/if}}
+  </li>
 </template>

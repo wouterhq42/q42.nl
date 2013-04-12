@@ -5,6 +5,8 @@ var Q42Router = Backbone.Router.extend({
     "blog/page/:page": "blog",
     "blog/tagged/:tag": "blogtagged",
     "blog/tagged/:tag/page/:page": "blogtagged",
+    "blog/post/:id": "blogpost",
+    "blog/post/:id/": "blogpost",
     "blog/post/:id/:slug": "blogpost",
     ":page": "main"
   },
@@ -23,15 +25,16 @@ var Q42Router = Backbone.Router.extend({
     if (page) {
       var pageTitle = page[0].toUpperCase() + page.substring(1).replace("-", " ");
 
-      document.title =  pageTitle || "Q42";
+      document.title = pageTitle || "Q42";
 
       if (document.title != "Q42")
         document.title += " - Q42";
     }
+    
+    this.checkFragmentId();
   },
   blog: function (page, tag)
   {
-    Session.set("blogloading", true);
     Session.set("blogpage", 1*page || 0);
     Session.set("blogtag", tag || "");
     Session.set("blogpostid", -1);
@@ -48,6 +51,26 @@ var Q42Router = Backbone.Router.extend({
   },
   loadPage: function (page) {
     this.navigate(page, {trigger: true});
+  },
+  checkFragmentId: function () {
+    if (window.location.hash)
+    {
+      var $el = $(window.location.hash);
+      if ($el[0])
+      {
+        // Wait a bit, the first check can come before the scroll to top of a page nav.
+        Meteor.setTimeout(function() {
+          $el[0].scrollIntoView();
+        }, 100);
+      }
+      else
+      {
+        // Try again in a second.
+        Meteor.setTimeout(function() {
+          Router.checkFragmentId();
+        }, 1000);
+      }
+    }
   }
 });
 Router = new Q42Router;
