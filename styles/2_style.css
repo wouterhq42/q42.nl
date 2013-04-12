@@ -509,6 +509,7 @@ span.effect-glow {
 }
 .comments .meta {
   color: #999;
+  font-size: smaller;
 }
 .comments .edit-area,
 .comments .save-link {
