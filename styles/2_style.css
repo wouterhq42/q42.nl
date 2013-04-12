@@ -30,6 +30,7 @@ button:hover, button[disabled] {
 }
 button[disabled] {
   cursor: default;
+  color: #999;
 }
 
 textarea {
@@ -264,7 +265,6 @@ footer {
 
 /* block-large */
 .block-large {
-  position: relative;
   border-bottom: solid #ccc 1px;
   padding: 40px 0;
   clear: both;
@@ -315,19 +315,19 @@ article h2,
   float: left;
 }
 
-  .block-large.right .visual {
-    margin: 0 0 0 20px;
-    float: right;
-  }
+.block-large.right .visual {
+  margin: 0 0 0 20px;
+  float: right;
+}
 
 
 .block-large .body {
   width: 300px;
   float: right;
 }
-    .block-large.right .body {
-      float: left;
-    }
+.block-large.right .body {
+  float: left;
+}
 .block-large .block-small:nth-of-type(1) {
   clear:both;
 }
@@ -341,7 +341,6 @@ article h2,
 
 /* block-small */
 .block-small {
-  position: relative;
   width: 300px;
   float: left;
   white-space: normal;
@@ -503,10 +502,9 @@ span.effect-glow {
   border-radius: 4px;
 }
 .comments .user .name {
-  font: normal 1em ABeeZee, Georgia, Times, serif;
 }
 .comments .meta {
-  color: #ccc;
+  color: #999;
 }
 .comments .edit-area,
 .comments .save-link {
