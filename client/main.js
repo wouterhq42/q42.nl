@@ -6,6 +6,7 @@ Meteor.startup(function () {
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
+  moment.lang(lang);
 
   // http://stackoverflow.com/questions/8278670/how-to-check-if-a-html5-input-is-supported
   var supportsInputTypeColor = (function() {
@@ -27,6 +28,12 @@ Meteor.startup(function () {
     var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
     $(document.body).toggleClass("lights-off", turnOnLights);
   });
+  
+  Meteor.autosubscribe(function () {
+    Meteor.subscribe("allUserData");
+  });
+  
+  marked.setOptions({ breaks: true });
 
   Backbone.history.start({pushState: true});
 });
@@ -47,17 +54,16 @@ Template.body.content = function() {
   return template();
 }
 Template.body.rendered = function() {
+  // If we've given the main section the show class we're done.
+  if ($("body>section.show")[0])
+    return;
+  
   if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
   reattachBehavior();
 
   updateLightbar();
-
-  Meteor.setTimeout(function() {
-    var $el = $(window.location.hash);
-    if ($el[0]) $el[0].scrollIntoView();
-  }, 1000);
 }
 
 Template.body.viewRendersHeader = function() {
@@ -197,8 +203,7 @@ function reattachBehavior() {
 
     Meteor.clearTimeout(widgetsTimeout);
     widgetsTimeout = Meteor.setTimeout(function() {
-      // fade in the page only once
-      $($("section")[0]).addClass("show");
+      $("body>section").addClass("show");
       $("#homecontent").addClass("show");
 
       (function (d, s, id) {
@@ -210,14 +215,6 @@ function reattachBehavior() {
       } (document, 'script', 'facebook-jssdk'));
 
       resizeFBwidget();
-
-      if ($("#disqus_thread")[0]) {
-        (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://q42.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      }
 
       // Twitter
       twttr && twttr.widgets.load();

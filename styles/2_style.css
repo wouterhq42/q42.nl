@@ -16,6 +16,30 @@ p {
 
 address {font-style: normal;}
 
+button {
+  color: #000;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  margin: 2px 0px;
+  padding: 4px 1em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+}
+button:hover, button[disabled] {
+  background-image: linear-gradient(to bottom, #f0f0f0, #e6e6e6);
+}
+button[disabled] {
+  cursor: default;
+}
+
+textarea {
+  margin: 2px 0px;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
 a, a:visited { color: #1D78B4; text-decoration: none; }
 a:hover { color: #1D78B4; text-decoration: underline; }
 .external {
@@ -254,7 +278,7 @@ article h1,
   text-align: left;
 }
 article h2,
-.block-large > figure > .body > h2
+.block-large > figure > .body > h2,
 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.04em;
@@ -263,6 +287,7 @@ article h2,
   color: #232323;
 }
 .blog article h2,
+.comments h2,
 .blog .block-large > figure > .body > h2 {
   font: normal 1.4em ABeeZee,Georgia,Times,serif;
   letter-spacing: -1px;
@@ -352,7 +377,7 @@ article h2,
   line-height: 24px;
 }
 
-.subcontent h2 {
+.subcontent h2:first-child {
   margin: 0px;
 }
 
@@ -443,6 +468,68 @@ span.effect-glow {
   opacity: 0;
 }
 
+.comments {
+  clear: both;
+  padding: 0 0 0 50px;
+}
+.comments h2:first-child {
+  margin-left: -50px;
+}
+.comments .commentbox {
+  position: relative;
+}
+.comments textarea {
+  width: 100%;
+}
+.comments > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.comments > ul > li {
+  margin: 0.5em 0 0 0;
+  padding: 0.5em 0 0 0;
+  list-style: none;
+  border-top: 1px solid #eee;
+}
+.comments .user {
+  position: relative;
+}
+.comments .user img, .comments .commentbox img {
+  width: 40px;
+  position: absolute;
+  left: -50px;
+  top: 2px;
+  border-radius: 4px;
+}
+.comments .user .name {
+  font: normal 1em ABeeZee, Georgia, Times, serif;
+}
+.comments .meta {
+  color: #ccc;
+}
+.comments .edit-area,
+.comments .save-link {
+  display: none;
+}
+.comments li.edit-mode .edit-area {
+  display: block;
+}
+.comments li.edit-mode .save-link {
+  display: inline;
+}
+.comments li.edit-mode .text,
+.comments li.edit-mode .edit-link {
+  display: none;
+}
+
+#latestComments ul {
+  overflow: hidden;
+}
+#latestComments li div {
+  white-space: nowrap;
+}
+
 /* Sharing */
 
 .socialShare {
@@ -521,7 +608,7 @@ span.effect-glow {
 
   /* a literal value */
   .lit {
-    color: #445588;
+    color: #8899cc;
   }
 
   /* punctuation */

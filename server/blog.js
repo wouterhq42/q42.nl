@@ -47,6 +47,24 @@ Meteor.methods({
         if (error)
           console.log("Error:", error);
     });
+  },
+  addComment: function(blogpostId, text)
+  {
+    BlogComments.insert({
+      text: text,
+      blogpostId: blogpostId,
+      userName: Meteor.user().profile.name,
+      userId: Meteor.userId(),
+      date: new Date()
+    });
+  },
+  updateComment: function(_id, text)
+  {
+    BlogComments.update(commentSecurityFilter(_id), { $set: { text: text } });
+  },
+  deleteComment: function(_id)
+  {
+    BlogComments.remove(commentSecurityFilter(_id));
   }
 })
 
@@ -66,37 +84,27 @@ function upsertPost(post)
     Posts.update({ id: post.id }, post);
 }
 
-Meteor.publish("blogpostIndex", function (page, tag) {
+function commentSecurityFilter(_id) {
+  return Meteor.user().isAdmin ? { _id: _id } : { _id: _id, userId: Meteor.userId() };
+}
+
+publishRenamed("blogpostIndex", function (page, tag) {
   page = page || 1;
   var filter = tag ? { tags: tag } : {};
-  var self = this;
   return Posts.find(filter, {
     limit: BLOGPOSTS_PER_PAGE,
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: { body: false }
-  }).observeChanges({
-    added: function (id, fields) {
-      self.added("blogpostIndex", id, fields);
-    }
-  });
-  self.ready();
-  self.onStop(function () {
-    handle.stop();
   });
 });
 
-Meteor.publish("blogpostFull", function (id) {
-  var self = this;
-  var handle = Posts.find({ id: id }).observeChanges({
-    added: function (id, fields) {
-      self.added("blogpostFull", id, fields);
-    }
-  });
-  self.ready();
-  self.onStop(function () {
-    handle.stop();
-  });
+publishRenamed("blogpostFull", function (id) {
+  return Posts.find({ id: id });
+});
+
+publishRenamed("LatestComments", function(limit) {
+  return BlogComments.find({}, { sort: { date: -1 }, limit: limit })
 });
 
 Meteor.publish("pagesByTag", function (tag) {
@@ -129,6 +137,10 @@ Meteor.publish("pagesByTag", function (tag) {
   self.onStop(function () {
     handle.stop();
   });
+});
+
+Meteor.publish("blogComments", function (blogpostId) {
+  return BlogComments.find({ blogpostId: blogpostId });
 });
 
 if (Posts.find().count() == 0)
