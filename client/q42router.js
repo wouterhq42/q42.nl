@@ -5,6 +5,7 @@ var Q42Router = Backbone.Router.extend({
     "blog/page/:page": "blog",
     "blog/tagged/:tag": "blogtagged",
     "blog/tagged/:tag/page/:page": "blogtagged",
+    "blog/post/:id": "blogpost",
     "blog/post/:id/:slug": "blogpost",
     ":page": "main"
   },
