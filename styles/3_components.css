@@ -674,6 +674,9 @@ nav#pageNav ul:nth-of-type(1) {
 .blog #pageNav {
   clear: both;
 }
+.blog .loading {
+  text-align: center;
+}
 
 .tags {
   padding: 0px;
@@ -764,3 +767,4 @@ background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), 
   left: 95%;
   margin-left: -13px;
 }
+
