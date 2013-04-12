@@ -163,7 +163,7 @@ function syntaxHighlight() {
 
 function getPictureURL(user) {
   if (!user || !user.services)
-    return "/images/anonymous.jpg";
+    return "/images/employees/anonymous.jpg";
   var services = user.services;
   if (services.twitter)
     return "https://api.twitter.com/1/users/profile_image?user_id=" + services.twitter.id;
@@ -173,5 +173,5 @@ function getPictureURL(user) {
     return "https://graph.facebook.com/" + services.facebook.id + "/picture";
   if (services.github)
     return Gravatar.imageUrl(services.github.email);
-  return "/images/anonymous.jpg";
+  return "/images/employees/anonymous.jpg";
 }
