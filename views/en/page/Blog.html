@@ -148,17 +148,8 @@
       </article>
 
       <section class="comments">
-        <h2>{{commentsCount}} comment{{#unless oneComment}}s{{/unless}}</h2>
-        <div class="commentbox">
-          <img src="{{picture}}">
-          <textarea id="comment" placeholder="Comment..."></textarea>
-          <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Comment</button> as {{loginButtons}}
-        </div>
-        <ul>
-          {{#each comments}}
-            {{> comment}}
-          {{/each}}
-        </ul>
+        <h2>Comments</h2>
+        <p style="margin-left:-50px">Please visit the Dutch version of this article to <a href="http://q42.nl/blog/post/{{id}}/{{slug}}">leave a comment</a>.</p>
       </section>
 
     </section>
