@@ -19,7 +19,7 @@ Template.en_blog.post = Template.blog.post = function() {
 Template.en_blog.rendered = Template.blog.rendered = function() {
   syntaxHighlight();
 }
-Template.en_blog.pagination = Template.blog.pagination = function() {
+Template.en_pageNav.pagination = Template.pageNav.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
   var pages = item ? item.count : 1;
   if (pages == 1)
