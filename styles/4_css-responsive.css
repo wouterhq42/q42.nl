@@ -18,6 +18,9 @@
     margin-left: 20px;
     padding-right: 0;
   }
+  #colleagues ol li:nth-of-type(7n) {
+    margin-right: 0;
+  }
 }
 
 
@@ -141,7 +144,7 @@
 
   #colleagues ol li > img {
     width: 60px;
-
+    height: 60px;
   }
   #colleagues ol li > .name {
     margin-left: 70px;
@@ -153,6 +156,8 @@
     font-size: 25px;
     position: relative;
   }
+  .lights-off #colleagues ol li > .name { color: #fff;}
+  .lights-off #colleagues ol li { border-color: #555;}
 
   #colleagues ol li > .contactData {
     display: block;

@@ -9,6 +9,10 @@ html, body {
   -webkit-transition: ease-in-out background-color .3s;
   -moz-transition: ease-in-out background-color .3s;
 }
+body {
+  margin: 0;
+  padding: 0;
+}
 
 p {
   line-height: 1.5em;
@@ -301,6 +305,11 @@ article h2,
   padding: 0px;
   margin-top: -18px;
   color: #888;
+}
+.block-large figure {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 
