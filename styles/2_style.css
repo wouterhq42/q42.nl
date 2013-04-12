@@ -278,7 +278,7 @@ article h1,
   text-align: left;
 }
 article h2,
-.block-large > figure > .body > h2,
+.block-large > figure > .body > h2
 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.04em;
