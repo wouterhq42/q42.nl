@@ -1,35 +1,3 @@
-<template name="en_employees">
-{{#each employee}}
-<li>
-<span class="name">{{firstname}}</span>
-	<span class="contactData">
-		<a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-    {{#if phone}}
-		<a href="tel:{{phone}}">{{phone}}</a>
-    {{/if}}
-	</span>
-	<img class="zw" data-src="/images/{{avatar_static}}" src="/images/{{avatar_static}}" width="108" alt="{{name}}">
-	<div class="polaroid">
-		<img class="color" data-src="/images/{{avatar_animated}}" src="/images/{{avatar_static}}" width="220" alt="{{name}}">
-		<h3>{{name}}</h3>
-		<p class="contactData">
-			<span class="email">
-				<a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-			</span>
-      {{#if phone}}
-			<span class="phonenumber">{{phone}}</span>
-      {{/if}}
-      {{#if web}}
-      <span class="website"><a href="{{web}}">website</a></span>
-      {{/if}}
-		</p>
-	</div>
-</li>
-
-{{/each}}
-</template>
-
-
 <template name="en_about-q42">
   <section>
     <section>
@@ -304,4 +272,35 @@
 
 <template name="en_koppenKoffie">
   <p id="koppen-koffie" class="counter">{{koppenKoffie}}</p>
+</template>
+
+<template name="en_employees">
+  {{#each employee}}
+  <li>
+  <span class="name">{{firstname}}</span>
+    <span class="contactData">
+      <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+      {{#if phone}}
+      <a href="tel:{{phone}}">{{phone}}</a>
+      {{/if}}
+    </span>
+    <img class="zw" data-src="/images/employees/{{avatar_static}}" src="/images/employees/{{avatar_static}}" width="108" alt="{{name}}">
+    <div class="polaroid">
+      <img class="color" data-src="/images/employees/{{avatar_animated}}" src="/images/employees/{{avatar_static}}" width="220" alt="{{name}}">
+      <h3>{{name}}</h3>
+      <p class="contactData">
+        <span class="email">
+          <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+        </span>
+        {{#if phone}}
+        <span class="phonenumber">{{phone}}</span>
+        {{/if}}
+        {{#if web}}
+        <span class="website"><a href="{{web}}">website</a></span>
+        {{/if}}
+      </p>
+    </div>
+  </li>
+
+  {{/each}}
 </template>
