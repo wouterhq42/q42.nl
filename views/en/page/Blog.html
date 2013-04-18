@@ -3,7 +3,7 @@
     <header class="block-text"><h1>We<b>blog</b></h1></header>
 
     <div id="blog-posts">
-    {{#each post}}
+    {{#isolate}}{{#each post}}
       <article class="block-large {{#if description}}reblog{{/if}}">
         <div class="bigText">
           {{#if typeIs "link"}}
@@ -65,21 +65,12 @@
           {{/if}}
         </div>
       </article>
-    {{/each}}
+    {{/each}}{{/isolate}}
     </div>
 
     {{> en_blogSidebar}}
+    {{> en_pageNav}}
 
-    <nav id="pageNav">
-      <ul class="clearfix">
-        {{#each pagination}}
-          <li>
-            <a href="/blog{{#if tag}}/tagged/{{tag}}{{/if}}/page/{{page}}"
-              class="{{#if active}}active{{/if}}">{{label}}</a>
-          </li>
-        {{/each}}
-      </ul>
-    </nav>
   </section>
 </template>
 
@@ -206,6 +197,19 @@
     {{> en_otherPosts}}
     {{> en_latestComments}}
   </div>
+</template>
+
+<template name="en_pageNav">
+  <nav id="pageNav">
+    <ul class="clearfix">
+      {{#each pagination}}
+        <li>
+          <a href="/blog{{#if tag}}/tagged/{{tag}}{{/if}}/page/{{page}}"
+            class="{{#if active}}active{{/if}}">{{label}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
 </template>
 
 <template name="en_comment">
