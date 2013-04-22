@@ -30,6 +30,7 @@ homepageShowreel = function () {
 
   // setup indicators
   showreelItems = $showreel.find('.item');
+  showreelItems.first().addClass("active-item");
   showreelItemCount = showreelItems.length;
   for (var i = 0; i < showreelItemCount; i++) {
     $(showreelItems[i]).attr("data-number", i);

@@ -3,24 +3,7 @@
    <div id="showreel-container">
       <div id="showreel-stage">
         <div id="showreel-shape">
-          <a href="/blog/post/48609991339/rijksmuseum-wins-3-awards-at-the-museums-and-the-web" class="item active-item" style="background-image: url(/images/carrousel/rijksmuseum-awards.jpg)">
-            <p class="left">3 Museum and the Web awards for the Rijksmuseum</p>
-          </a>
-          <a href="/blog/post/45861370772/q42-is-de-best-place-to-work-in-nederland" class="item active-item" style="background-image: url(/images/carrousel/GPTW.jpg)">
-            <p class="left">Q42 is officially the Greatest Place to Work</p>
-          </a>
-          <a href="http://quento.nl" class="item" style="background-image: url(/images/carrousel/quento.png)">
-            <p>Quento now available for iOS and Android</p>
-          </a>
-          <a href="/blog/post/44245650650/kars-en-stef-waren-deze-week-bij-google-in" class="item" style="background-image: url(/images/carrousel/GoogleAward.jpg)">
-            <p>Q42 is Google Cloud Platform Partner of the Year</p>
-          </a>
-          <a href="/blog/post/41360239268/schooltas-heeft-de-not-innovatieprijs-gewonnen" class="item" style="background-image: url(/images/carrousel/kindmetschooltasipad.jpeg)">
-            <p>Schooltas wins the NOT Innovation prize</p>
-          </a>
-          <a href="/blog/post/34827577445/trots-op-philips-hue" class="item" style="background-image: url(/images/hue.jpeg); background-position: center center;">
-            <p class="left">Philips Hue launches worldwide</p>
-          </a>
+          {{> carrousel_items}}
         </div>
       </div>
     </div>
@@ -34,7 +17,7 @@
     <section>
       <header id="q42is-header" class="block-text" style="padding-top: 0;">
         <h1 style="position: relative; overflow: hidden; margin: 10px 0;">
-          <div style="display:inline-block; color: #000;">Q42 is </div>
+          <div id="q42is-pre">Q42 is </div>
           <div id="q42is">
             <div>
               <span class="selected">technical web dev agency</span>
