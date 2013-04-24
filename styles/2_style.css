@@ -465,8 +465,10 @@ span.effect-glow {
   padding: 0;
 }
 
-.blog .loading {
-  opacity: 0;
+.loading {
+  margin: 3em auto;
+  padding: 30em;
+  text-align: center;
 }
 
 .comments {

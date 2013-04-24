@@ -674,9 +674,6 @@ nav#pageNav ul:nth-of-type(1) {
 .blog #pageNav {
   clear: both;
 }
-.blog .loading {
-  text-align: center;
-}
 
 .tags {
   padding: 0px;

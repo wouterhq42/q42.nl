@@ -65,6 +65,8 @@
           {{/if}}
         </div>
       </article>
+      {{else}}
+      <div class="loading"><i class="icon-spinner icon-spin icon-2x"></i></div>
     {{/each}}{{/isolate}}
     </div>
 
@@ -73,84 +75,88 @@
   </section>
 </template>
 
-<template name="blogpost">  
+<template name="blogpost">
   <section class="blog">
-    {{#with post}}
-      <article>
-        <article class="block-large">
-          <div class="bigText">
-            <div style="width:100%;height:1px"></div>
-            {{#if player}}
-              <h1><b>Filmpje</b></h1>
-              {{> postDate}}
-              {{#each player}}
-                {{#ifWidthEquals 500}}
-                  {{{embed_code}}}
-                {{/ifWidthEquals}}
-              {{/each}}
-              {{{caption}}}
-            {{/if}}
-            {{#if photos}}
-              <h1><b>Foto's</b></h1>
-              {{> postDate}}
-              {{{caption}}}
-              {{#each photos}}
-                <p><figure>
-                {{#each alt_sizes}}
+    {{#if post}}
+      {{#with post}}
+        <article>
+          <article class="block-large">
+            <div class="bigText">
+              <div style="width:100%;height:1px"></div>
+              {{#if player}}
+                <h1><b>Filmpje</b></h1>
+                {{> postDate}}
+                {{#each player}}
                   {{#ifWidthEquals 500}}
-                    <img src="{{url}}" alt="">
+                    {{{embed_code}}}
                   {{/ifWidthEquals}}
                 {{/each}}
-                  <figcaption>
-                    {{{caption}}}
-                  </figcaption>
-                </figure></p>
-              {{/each}}
-            {{/if}}
-            {{#if description}}
-              <h1><b><a href="{{url}}">{{title}}</a></b></h1>
-              {{{description}}}
-            {{/if}}
-            {{#if body}}
-              <h1><b>{{title}}</b></h1>
-              {{> postDate}}
-              {{{body}}}
-            {{/if}}
-          </div>
-          {{> blogSidebar}}
+                {{{caption}}}
+              {{/if}}
+              {{#if photos}}
+                <h1><b>Foto's</b></h1>
+                {{> postDate}}
+                {{{caption}}}
+                {{#each photos}}
+                  <p><figure>
+                  {{#each alt_sizes}}
+                    {{#ifWidthEquals 500}}
+                      <img src="{{url}}" alt="">
+                    {{/ifWidthEquals}}
+                  {{/each}}
+                    <figcaption>
+                      {{{caption}}}
+                    </figcaption>
+                  </figure></p>
+                {{/each}}
+              {{/if}}
+              {{#if description}}
+                <h1><b><a href="{{url}}">{{title}}</a></b></h1>
+                {{{description}}}
+              {{/if}}
+              {{#if body}}
+                <h1><b>{{title}}</b></h1>
+                {{> postDate}}
+                {{{body}}}
+              {{/if}}
+            </div>
+            {{> blogSidebar}}
+          </article>
+
+          {{#unless isPhantom}}
+            <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
+              <div class="twitterShare" style="float: left;">
+                <a href="https://twitter.com/share" class="twitter-share-button"
+                  data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
+              </div>
+
+              <div class="facebookShare" style="float: left;">
+                <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
+              </div>
+            </div>
+          {{/unless}}
+
+          {{> tags}}
+
         </article>
 
-        {{#unless isPhantom}}
-          <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
-            <div class="twitterShare" style="float: left;">
-              <a href="https://twitter.com/share" class="twitter-share-button"
-                data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
-            </div>
-
-            <div class="facebookShare" style="float: left;">
-              <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
-            </div>
+        <section class="comments">
+          <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
+          <div class="commentbox">
+            <img src="{{picture}}">
+            <textarea id="comment" placeholder="Reageer..."></textarea>
+            <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Reageer</button> als {{loginButtons}}
           </div>
-        {{/unless}}
-
-        {{> tags}}
-
-      </article>
-
-      <section class="comments">
-        <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
-        <div class="commentbox">
-          <img src="{{picture}}">
-          <textarea id="comment" placeholder="Reageer..."></textarea>
-          <button id="addComment" {{#unless loggedin}}disabled{{/unless}}>Reageer</button> als {{loginButtons}}
-        </div>
-        <ul>
-          {{#each comments}}
-            {{> comment}}
-          {{/each}}
-        </ul>
-      </section>
-    {{/with}}
+          <ul>
+            {{#each comments}}
+              {{> comment}}
+            {{/each}}
+          </ul>
+        </section>
+      {{/with}}
+      {{else}}
+      <div class="loading"><i class="icon-spinner icon-spin icon-2x"></i></div>
+    {{/if}}
   </section>
   {{{debug post}}}
 </template>
