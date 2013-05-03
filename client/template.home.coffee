@@ -1,5 +1,12 @@
 Carrousel = [
   {
+    url: "/blog/post/49503089620/q42-opent-vestiging-in-amsterdam"
+    bg: "/images/carrousel/Q020.jpg"
+    text: "Q42 opent vestiging in Amsterdam"
+    en_text: "Q42 opens office in Amsterdam"
+    pos: "right"
+  }
+  {
     url: "/blog/post/48609991339/rijksmuseum-wins-3-awards-at-the-museums-and-the-web"
     bg: "/images/carrousel/rijksmuseum-awards.jpg"
     text: "3 Museum and the Web awards voor het Rijksmuseum"
@@ -24,19 +31,6 @@ Carrousel = [
     url: "/blog/post/44245650650/kars-en-stef-waren-deze-week-bij-google-in"
     bg: "/images/carrousel/GoogleAward.jpg"
     text: "Q42 is Google Cloud Platform Partner of the Year"
-  }
-  {
-    url: "/blog/post/41360239268/schooltas-heeft-de-not-innovatieprijs-gewonnen"
-    bg: "/images/carrousel/kindmetschooltasipad.jpeg"
-    text: "Schooltas wint de NOT Innovatieprijs"
-    en_text: "Schooltas wins the NOT Innovation prize"
-  }
-  {
-    url: "/blog/post/34827577445/trots-op-philips-hue"
-    bg: "/images/hue.jpeg"
-    text: "Philips Hue lanceert wereldwijd"
-    en_text: "Philips Hue launches worldwide"
-    pos: "left"
   }
 ]
 
