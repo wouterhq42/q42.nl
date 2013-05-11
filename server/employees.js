@@ -51,6 +51,11 @@ var _kickAssQ42Folk = [
  { name: "Wilbert Mekenkamp", handle:"wilbert"}
 ];
 
+
+
+
+
+
 Employees.allow({
   insert: function () {
     return false;
@@ -69,6 +74,74 @@ _.each(_kickAssQ42Folk, function(e) {
     updates++;
   }
 });
+
+
+var allQers = _.pluck(Employees.find().fetch(), "handle");
+addLabel("Rijksmuseum",                   ["remco", "jasper", "jaap", "martijnl", "elaine"]);
+addLabel("9292",                          ["mark", "timd", "elaine", "johan", "michiel", "christiaan"]);
+addLabel("Schooltas",                     ["kars", "martin", "tims", "benjamin"]);
+addLabel("Philips Hue",                   ["christiaan", "lukas", "korjan", "roelfjan"]);
+addLabel("TADC",                          ["lukas"]);
+addLabel("MENDO",                         ["chris", "jeroen", "elaine"]);
+addLabel("Iamsterdam",                    ["stef", "timd", "lukas"]);
+addLabel("Pepper",                        ["bas", "gerard", "timd", "elaine"]);
+addLabel("D-reizen",                      ["jaap"]);
+addLabel("Greetz",                        ["martin", "arian", "roelfjan"]);
+
+addLabel("Handcraft",                     ["rahul", "kars", "sjoerd", "remco", "kamil", "martin"]);
+
+addLabel("Cat Quest",                     ["martin", "jelle", "richard", "benjamin", "tom", "sjoerd"]);
+addLabel("Quento",                        ["martin", "richard", "benjamin", "michiel", "christiaan"]);
+addLabel("Carrrrds",                      ["martin", "richard", "benjamin"]);
+
+addLabel("Projectleider",                 ["jasper", "korjan", "timd", "gerard", "laurens"]);
+addLabel("Software Engineer",             allQers);
+addLabel("Interaction Engineer",          ["rahul", "elaine", "johan", "roelfjan", "frank"]);
+addLabel("Q'er",                          allQers);
+addLabel("De sjaak",                      [allQers[_.random(0, allQers.length)]]);
+addLabel("Oprichter",                     ["kars"]);
+addLabel("Student",                       ["alexander", "herman", "janwillem"]);
+
+addLabel("Speelt nog World of Warcraft",  ["rahul", "christiaan", "benjamin", "richard", "martijn"]);
+addLabel("Weet wat Spiffy is",            []); // LOL!
+//addLabel("1/42e",                         ["kars", "stef", "chris", "martin", "lukas", ""]);
+//addLabel("Team Wintersport",              []);
+//addLabel("w00tcamp winnaar",              []);
+addLabel("Heeft een baard",               ["rahul", "richard", "martijn", "arian", "coen", "christiaan", "kamil"])
+addLabel("Stokoud",                       ["stef", "johan"]);
+addLabel("Tatoeage",                      ["chris", "jeroen", "jasperh", "elaine"]);
+addLabel("Voortgeplant",                  ["martin", "chris", "mark", "kars", "bas", "coen", "cynthia",
+  "gerard", "jasper", "johan", "korjan", "michiel", "remco", "sander", "stef", "suzanne", "timd"]);
+addLabel("Rijdt soms op een motor",       ["stef", "jeroen", "arian"]);
+addLabel("Wordt binnenkort aangenomen door Microsoft", ["michiel"]);
+//addLabel("Blauwe ogen",                   []);
+addLabel("Vroeger stewardess geweest",    ["cynthia", "wilbert"]);
+addLabel("Heeft bij Fabrique gewerkt",    ["sander"]);
+//addLabel("Meer dan 42 maanden in dienst", []);
+//addLabel("Verdient minder dan Jasper", []);
+addLabel("Google IO alumni",              ["kars", "rahul", "martin", "jaap", "mark", "kamil", "christiaan", "chris", "arian"]);
+addLabel("WWDC kaartje kwijtgeraakt",     ["tims"]);
+//addLabel("Heeft Max Raabe live gezien",   []);
+addLabel("Schoenmaat 42",                 ["rahul"]);
+addLabel("IQ boven de 200",               ["sjoerd"]);
+/*
+var filters = [
+    ,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is", "1/42e",
+      "Team Wintersport", "w00tcamp winnaar", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",
+      "Rijdt soms op een motor", "Wordt binnenkort aangenomen door Microsoft", "Blauwe ogen", "Vroeger stewardess geweest",
+      "Heeft bij Fabrique gewerkt", "Meer dan 42 maanden in dienst", "Verdient minder dan Jasper", "Google IO alumni",
+      "WWDC kaartje kwijtgeraakt", "Heeft Max Raabe live gezien", "Schoenmaat 42", "IQ boven de 200"]}
+  ]
+*/
+
+function addLabel(label, handles) {
+  _.each(handles, function(handle) {
+    Employees.update({handle: handle}, {$addToSet: {labels: label}});
+  });
+}
+
+
+
 
 var employeeHandles = _.map(_kickAssQ42Folk, function(e) { return e.handle;  });
 
