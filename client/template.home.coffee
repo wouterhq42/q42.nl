@@ -2,8 +2,8 @@ Carrousel = [
   {
     url: "/blog/post/50648443491/fabrique-en-q42-komen-als-grote-winnaars-van-de-dutch"
     bg: "/images/carrousel/DIA13.jpg"
-    text: "\"Disrupter of the year\""
-    en_text: "\"Disrupter of the year\""
+    text: "3 DIA awards voor Rijksmuseum en Philips"
+    en_text: "3 DIA awards for Rijksmuseum and Philips"
     pos: "left"
   }
   {
