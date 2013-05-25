@@ -190,7 +190,7 @@ Template.filter_employees.rendered = function() {
 }
 
 Template.filter_employees.events({
-	"change [data-role='filter-qers']": function(evt) {
+	"keyup [data-role='filter-qers']": function(evt) {
 		var val = $(evt.target).val();
 		Session.set("employees_filter", val);
 	}

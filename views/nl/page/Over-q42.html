@@ -330,7 +330,8 @@
 <template name="filter_employees">
   <span id="filter-colleagues">
     {{#isolate}}
-    <select data-role="filter-qers">
+    <input data-role="filter-qers" list="filter-options" placeholder="Filter de Q'ers..." id="filter-qers-input">
+    <datalist id="filter-options">
       {{#each list}}
         <optgroup label="{{name}}">
           {{#each items}}
@@ -340,7 +341,7 @@
         {{else}}
         <option>No items :(</option>
       {{/each}}
-    </select>
+    </datalist>
     {{/isolate}}
   </span>
 </template>
