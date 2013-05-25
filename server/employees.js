@@ -98,7 +98,7 @@ addLabel("Quento",                        ["martin", "richard", "benjamin", "mic
 addLabel("Carrrrds",                      ["martin", "richard", "benjamin"]);
 addLabel("Spaceventure",                  ["martin", "rahul", "richard"]);
 
-addLabel("Projectleider",                 ["jasper", "korjan", "timd", "gerard", "laurens"]);
+addLabel("Projectleider",                 ["jasper", "korjan", "timd", "gerard", "laurens", "tims"]);
 addLabel("Software Engineer",             allQers);
 addLabel("Interaction Engineer",          ["rahul", "elaine", "johan", "roelfjan", "frank"]);
 addLabel("Q'er",                          allQers);
