@@ -40,6 +40,16 @@ homepageShowreel = function () {
   $("#indicators").delay(1000).animate({ opacity: 1 }, 500);
   $("#indicators span").on("click", handleIndicatorClick);
 
+  $(window).bind("keyup", function keyup(evt) {
+    $("#showreel-stage").addClass("transitioningByClick");
+    var nr = parseInt($("#indicators .active").attr("data-number"));
+    if (!nr) nr = 0;
+    if (evt.which == 39)
+      gotoShowreelItem(nr + 1, true);
+    if (evt.which == 37)
+      gotoShowreelItem(nr - 1, true);
+  });
+
   setup3DShowreel();
   if (showreel3D) {
     $("#showreel-shape").css("-webkit-transform", "rotateY(360deg)");
