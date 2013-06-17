@@ -28,11 +28,11 @@ Meteor.startup(function () {
     var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
     $(document.body).toggleClass("lights-off", turnOnLights);
   });
-  
-  Meteor.autosubscribe(function () {
+
+  Deps.autorun(function() {
     Meteor.subscribe("allUserData");
   });
-  
+
   marked.setOptions({ breaks: true });
 
   Backbone.history.start({pushState: true});
@@ -57,7 +57,7 @@ Template.body.rendered = function() {
   // If we've given the main section the show class we're done.
   if ($("body>section.show")[0])
     return;
-  
+
   if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
