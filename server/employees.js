@@ -14,11 +14,13 @@ var _kickAssQ42Folk = [
  { name: "Gerard Dorst", handle:"gerard"},
  { name: "Guus Goossens", handle:"guus"},
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
+ { name: "Huib Piguillet", handle: "huib", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Jaap Taal", handle:"jaap"},
+ { name: "Jaap Mengers", handle: "jaapm", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
- { name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
+ //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},
  { name: "Johan Huijkman", handle:"johan", phone: "070-4452379"},
  { name: "Kamil Afsar", handle:"kamil", phone: "070-4452357"},
@@ -51,6 +53,11 @@ var _kickAssQ42Folk = [
  { name: "Wilbert Mekenkamp", handle:"wilbert"}
 ];
 
+
+
+
+
+
 Employees.allow({
   insert: function () {
     return false;
@@ -70,10 +77,77 @@ _.each(_kickAssQ42Folk, function(e) {
   }
 });
 
+
+var allQers = _.pluck(Employees.find().fetch(), "handle");
+addLabel("Rijksmuseum",                   "remco jasper jaap martijnl elaine");
+addLabel("9292",                          "mark timd elaine johan michiel christiaan");
+addLabel("Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob jelle sjoerd wilbert");
+addLabel("Schooltas",                     "kars martin tims benjamin");
+addLabel("Philips Hue",                   "christiaan lukas korjan roelfjan johan arian");
+addLabel("TADC",                          "lukas");
+addLabel("MENDO",                         "chris jeroen elaine");
+addLabel("Iamsterdam",                    "stef timd lukas");
+addLabel("Pepper",                        "bas gerard timd elaine");
+addLabel("D-reizen",                      "jaap");
+addLabel("Greetz",                        "martin arian roelfjan marcel timd");
+addLabel("Malmberg",                      "laurens kamil jeroen bob coen michiel martin marcel jasper")
+
+addLabel("Handcraft",                     "rahul kars sjoerd remco kamil martin");
+
+addLabel("Cat Quest",                     "martin jelle richard benjamin tom sjoerd");
+addLabel("Quento",                        "martin richard benjamin michiel christiaan");
+addLabel("Carrrrds",                      "martin richard benjamin");
+addLabel("Spaceventure",                  "martin rahul richard");
+
+addLabel("Projectleider",                 "jasper korjan timd gerard laurens tims");
+addLabel("Software Engineer",             _.without(allQers, "stef", "cynthia", "suzanne", "rik"));
+addLabel("Interaction Engineer",          "rahul elaine johan roelfjan frank");
+addLabel("Q'er",                          allQers);
+addLabel("De sjaak",                      [allQers[_.random(0, allQers.length)]]);
+addLabel("Oprichter",                     "kars");
+addLabel("Student",                       "alexander herman janwillem arian christiaan");
+addLabel("Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil");
+addLabel("Ex-klant",                      "gerard matthijs stef");
+addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark rik martijnl michiel stef timd");
+addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne jelle");
+
+addLabel("Speelt nog World of Warcraft",  "rahul christiaan benjamin richard martijn coen");
+addLabel("Weet wat Spiffy is",            []); // LOL!
+//addLabel("1/42e",                         "kars stef chris martin lukas ");
+//addLabel("Team Wintersport",              []);
+//addLabel("w00tcamp winnaar",              []);
+addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
+addLabel("Stokoud",                       "stef johan");
+addLabel("Tatoeage",                      "chris jeroen jasperh elaine");
+addLabel("Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd");
+addLabel("Rijdt soms op een motor",       "stef jeroen arian");
+addLabel("Wordt binnenkort aangenomen door Microsoft", "michiel");
+//addLabel("Blauwe ogen",                   []);
+addLabel("Vroeger stewardess geweest",    "cynthia wilbert");
+addLabel("Heeft bij Fabrique gewerkt",    "sander");
+//addLabel("Meer dan 42 maanden in dienst", []);
+//addLabel("Verdient minder dan Jasper", []);
+addLabel("Google IO alumni",              "kars rahul martin jaap mark kamil christiaan chris arian");
+addLabel("WWDC kaartje kwijtgeraakt",     "tims");
+//addLabel("Heeft Max Raabe live gezien",   []);
+addLabel("Schoenmaat 42",                 "rahul chris");
+addLabel("IQ boven de 200",               "sjoerd");
+addLabel("Blessure tijdens werktijd",     "rahul matthijs");
+
+function addLabel(label, handles) {
+  if (handles && !(handles instanceof Array))
+    handles = handles.split(" ")
+  _.each(handles, function(handle) {
+    Employees.update({handle: handle}, {$addToSet: {labels: label}});
+  });
+}
+
+
+
+
 var employeeHandles = _.map(_kickAssQ42Folk, function(e) { return e.handle;  });
 
-//Delete employees whose handles are no longer there:
-// handles are no longer there:
+// Delete employees whose handles are no longer there:
 var employeeCountBefore = Employees.find({}).count();
 Employees.remove({ handle: { $nin: employeeHandles } });
 
