@@ -175,12 +175,12 @@ Template.filter_employees.list = function() {
 		,{name: "School",    items: ["Universiteit Utrecht", "De Haagse Hogeschool", "Hogeschool Rotterdam", "TU Delft",
 																 "Enschede", "Hogeschool van Amsterdam"]}
 		,{name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "De sjaak", "Oprichter", "Student"]}
-		,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is", "1/42e",
-			"Team Wintersport", "w00tcamp winnaar", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",
-			"Rijdt soms op een motor", "Wordt binnenkort aangenomen door Microsoft", "Blauwe ogen", "Vroeger stewardess geweest",
-			"Heeft bij Fabrique gewerkt", "Meer dan 42 maanden in dienst", "Verdient minder dan Jasper", "Google IO alumni",
+		,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is",
+			"Team Wintersport", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",
+			"Rijdt soms op een motor", "Wordt binnenkort aangenomen door Microsoft", "Vroeger stewardess geweest",
+			"Heeft bij Fabrique gewerkt", "Verdient minder dan Jasper", "Google IO alumni",
 			"WWDC kaartje kwijtgeraakt", "Heeft Max Raabe live gezien", "Schoenmaat 42", "IQ boven de 200", "Blessure tijdens werktijd",
-			"Ex-stagiair", "Ex-klant", "Ex-concullega", "Ex-ex-q'er"]}
+			"Ex-stagiair", "Ex-klant", "Ex-concullega", "Ex-ex-q'er", "Kan stiekem best goed programmeren", "Nerf gun owner"]}
 	]
 	return filters;
 }
