@@ -81,6 +81,12 @@
 
   #facts .block-small { width: 200px; }
   #facts .block-small .body { width: 100%; }
+
+  #filter-colleagues {
+    float: none;
+    margin: 0 0 30px 0;
+    display: block;
+  }
   /* end 940 */
 }
 
@@ -133,7 +139,7 @@
     height: 60px;
     margin: 0 0 6px 0;
     padding-bottom: 65px;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #aaa;
   }
 
   #colleagues ol li > img {
@@ -146,8 +152,7 @@
     text-shadow: none;
     top: 0px;
     background: none;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 25px;
+    font: 25px 'Permanent Marker', cursive;
     position: relative;
   }
   .lights-off #colleagues ol li > .name { color: #fff;}
@@ -200,6 +205,14 @@
   #showreel { height: 170px; }
   #showreel .item p { font-size: 24px; bottom: 53px; right: 10px; }
 
+  .block-large h2 {
+    padding-left: 0;
+  }
+
+  .blog h1, .subcontent h2, .socialShare {
+    padding: 0 16px;
+  }
+
   #q42is { margin-left: 5px; }
   #q42is-header { margin-right: 10px; }
   #q42is-header h1 { font-size: 1.54em;}
@@ -217,6 +230,10 @@
   #footer h2,
   .big_ass_button
   { padding: 0px 16px; }
+
+  .block-small > ul, #blog-sidebar ul {
+    padding-left: 40px;
+  }
 
   #footer .iconList { margin-left: 0px; }
 
