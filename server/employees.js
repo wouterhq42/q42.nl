@@ -9,6 +9,19 @@ function addLabel(label, handles) {
 
 var allQers = _.pluck(Employees.find().fetch(), "handle");
 
+var inserts = 0, updates = 0;
+_.each(currentQers, function(e) {
+  var qer = Employees.findOne({handle: e.handle});
+  if (!qer) {
+    Employees.insert(e);
+    inserts++;
+  }
+  else {
+    Employees.update({handle: e.handle}, e, {set: e});
+    updates++;
+  }
+});
+
 var currentQers = [
  { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Arian van Gend", handle:"arian"},
@@ -125,19 +138,6 @@ addLabel("Kan stiekem best goed programmeren",     "chris");
 Employees.allow({
   insert: function () {
     return false;
-  }
-});
-
-var inserts = 0, updates = 0;
-_.each(currentQers, function(e) {
-  var qer = Employees.findOne({handle: e.handle});
-  if (!qer) {
-    Employees.insert(e);
-    inserts++;
-  }
-  else {
-    Employees.update({handle: e.handle}, e, {set: e});
-    updates++;
   }
 });
 
