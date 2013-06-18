@@ -1,4 +1,15 @@
-var _kickAssQ42Folk = [
+
+function addLabel(label, handles) {
+  if (handles && !(handles instanceof Array))
+    handles = handles.split(" ");
+  _.each(handles, function(handle) {
+    Employees.update({handle: handle}, {$addToSet: {labels: label}});
+  });
+}
+
+var allQers = _.pluck(Employees.find().fetch(), "handle");
+
+var currentQers = [
  { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Arian van Gend", handle:"arian"},
  { name: "Arjen van der Ende", handle: "arjen"},
@@ -52,33 +63,6 @@ var _kickAssQ42Folk = [
  { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"},
  { name: "Wilbert Mekenkamp", handle:"wilbert"}
 ];
-
-
-
-
-
-
-Employees.allow({
-  insert: function () {
-    return false;
-  }
-});
-
-var inserts = 0, updates = 0;
-_.each(_kickAssQ42Folk, function(e) {
-  var qer = Employees.findOne({handle: e.handle});
-  if (!qer) {
-    Employees.insert(e);
-    inserts++;
-  }
-  else {
-    Employees.update({handle: e.handle}, e, {set: e});
-    updates++;
-  }
-});
-
-
-var allQers = _.pluck(Employees.find().fetch(), "handle");
 
 // Projecten
 addLabel("Rijksmuseum",                   "remco jasper jaap martijnl elaine jasperh");
@@ -138,20 +122,26 @@ addLabel("Blessure tijdens werktijd",     "rahul matthijs");
 addLabel("Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin");
 addLabel("Kan stiekem best goed programmeren",     "chris");
 
+Employees.allow({
+  insert: function () {
+    return false;
+  }
+});
 
+var inserts = 0, updates = 0;
+_.each(currentQers, function(e) {
+  var qer = Employees.findOne({handle: e.handle});
+  if (!qer) {
+    Employees.insert(e);
+    inserts++;
+  }
+  else {
+    Employees.update({handle: e.handle}, e, {set: e});
+    updates++;
+  }
+});
 
-function addLabel(label, handles) {
-  if (handles && !(handles instanceof Array))
-    handles = handles.split(" ")
-  _.each(handles, function(handle) {
-    Employees.update({handle: handle}, {$addToSet: {labels: label}});
-  });
-}
-
-
-
-
-var employeeHandles = _.map(_kickAssQ42Folk, function(e) { return e.handle;  });
+var employeeHandles = _.map(currentQers, function(e) { return e.handle;  });
 
 // Delete employees whose handles are no longer there:
 var employeeCountBefore = Employees.find({}).count();
