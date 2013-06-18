@@ -9,6 +9,7 @@ var q42IsTimer = undefined;
 var q42IsFirstTime = true;
 var showreelActiveItem = 0;
 var onLoadFinished = false;
+showreelPaused = false;
 
 window.requestAnimFrame = (function () {
   return window.requestAnimationFrame ||
@@ -93,6 +94,7 @@ function setup3DShowreel() {
 
 function nextShowreelItem() {
   requestAnimFrame(nextShowreelItem);
+  if (showreelPaused) return;
   if (new Date().getTime() - showreelTimer < 8000)
     return;
   goToNext();

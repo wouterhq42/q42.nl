@@ -20,13 +20,6 @@ Carrousel = [
     en_text: "Q42 is officially the Greatest Place to Work"
     pos: "left"
   }
-  {
-    url: "http://quento.nl"
-    en_url: "http://quento.com"
-    bg: "/images/carrousel/quento.png"
-    text: "Quento nu beschikbaar voor iOS en Android"
-    en_text: "Quento now available for iOS and Android"
-  }
 ]
 
 Template.carrousel_items.item = -> Carrousel
@@ -46,3 +39,11 @@ Template.carrousel_items.bg = ->
     @en_bg
   else
     @bg
+
+Template.carrousel_items.todaysDate = -> moment().format("YYYY-MM-DD")
+
+Template.carrousel_items.events =
+  "mouseover #quento": ->
+    window.showreelPaused = yes
+  "mouseout #quento": ->
+    window.showreelPaused = no
