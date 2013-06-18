@@ -1,7 +1,7 @@
 @media all and (max-width: 1024px) {
   /* Links always have an underline, because there is no hover state. */
   a, a:visited, a:hover { text-decoration: underline; }
-  #showreel2 { height: 460px; position: relative; }
+  #showreel { height: 460px; position: relative; }
 
   .noShowreel nav.dynamic,
   .noShowreel nav { position: absolute; }
@@ -27,9 +27,13 @@
 
 @media all and (max-width: 940px) {
 
-  #showreel2 { height: 310px; }
+  #showreel { height: 310px; }
   .block-text h1,
-  #showreel2 .item p { font-size: 2.84em; }
+  #showreel .item p { font-size: 2.84em; }
+
+  .blog h1 {
+    font-size: 2em;
+  }
 
   .block-large > figure > .body > h2 { font-size: 30px; }
   /*.block-small h2 { font-size: 18px; }*/
@@ -90,9 +94,9 @@
 
 @media all and (max-width: 620px) {
 
-  #showreel2 { height: 200px; }
+  #showreel { height: 200px; }
   .block-text h1,
-  #showreel2 .item p { font-size: 37px; }
+  #showreel .item p { font-size: 37px; }
 
   body > section,
   #footer > section,
@@ -206,8 +210,8 @@
   #visual,
   .block-small figure img { xdisplay: none; }
 
-  #showreel2 { height: 170px; }
-  #showreel2 .item p { font-size: 24px; bottom: 53px; right: 10px; }
+  #showreel { height: 170px; }
+  #showreel .item p { font-size: 24px; bottom: 53px; right: 10px; }
 
   #q42is { margin-left: 5px; }
   #q42is-header { margin-right: 10px; }
@@ -243,10 +247,10 @@
   #footer > section { width: 100%; }
   .readmore { margin-right: 10px; }
 
-  #showreel2 h1, #header h1 { margin-left: auto; left: 0px; top: 33px; }
-  #showreel2 ol, #header ol { bottom: auto; top: 20px; }
-  #showreel2 li, #header li { display: block; }
-  #showreel2 .left, #header .left { float: none; }
+  #showreel h1, #header h1 { margin-left: auto; left: 0px; top: 33px; }
+  #showreel ol, #header ol { bottom: auto; top: 20px; }
+  #showreel li, #header li { display: block; }
+  #showreel .left, #header .left { float: none; }
 
   #footer section,
   #footer .block-small,

@@ -1,6 +1,6 @@
 /* SHOWREEL */
 
-#showreel2
+#showreel
 {
   background-color: #000;
   position: relative;
@@ -27,9 +27,9 @@
   transform-style: preserve-3d;
 }
 #showreel-stage.transition {
-  -webkit-transition: -webkit-transform 1.25s ease-in-out;
-  -moz-transition: -moz-transform 1.25s ease-in-out;
-  transition: transform 1.25s ease-in-out;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  -moz-transition: -moz-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 #showreel-shape {
   margin: 0 auto;
@@ -41,14 +41,14 @@
   transform-style: preserve-3d;
 }
 #showreel-shape.transition {
-  -webkit-transition: -webkit-transform 2.5s ease-in-out;
-  -moz-transition: -moz-transform 2.5s ease-in-out;
-  transition: transform 2.5s ease-in-out;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  -moz-transition: -moz-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
 }
-#showreel2 .item {
-  -webkit-transition: opacity 2.5s ease-in-out;
-  -moz-transition: opacity 2.5s ease-in-out;
-  transition: opacity 2.5s ease-in-out;
+#showreel .item {
+  -webkit-transition: opacity 2s ease-in-out;
+  -moz-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
   display: block;
   position: absolute;
   width: 100%;
@@ -70,12 +70,12 @@
 #showreel-stage.transitioningByDoubleSwipe .item {
   opacity: 1;
 }
-#showreel2 .active-item {
+#showreel .active-item {
   z-index: 43;
   opacity: 1;
 }
 
-#showreel2 .item p {
+#showreel .item p {
   opacity: 1;
   position: absolute;
   top: 40px;
@@ -88,17 +88,18 @@
   font: 64px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: right;
   text-shadow: 0px 1px 1px rgba(0,0,0,.6);
+  -webkit-font-smoothing: antialiased;
 }
-#showreel2 .item p.left {
+#showreel .item p.left {
   left: 5%;
   text-align: left;
 }
 
-#showreel2 .active-item p {
+#showreel .active-item p {
   opacity: 1;
 }
 
-.css3showreel a {
+#showreel a {
   text-decoration: none;
 }
 
@@ -109,7 +110,7 @@
   color: #000;
 }
 
-#showreel2 #indicators {
+#showreel #indicators {
   opacity: 0;
   position: absolute;
   top: 20px;
@@ -124,7 +125,7 @@
   text-shadow: 0 0 3px #000;
   cursor: pointer;
 }
-#showreel2 #indicators span {
+#showreel #indicators span {
   opacity: 0.4;
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 0.5s;
@@ -133,7 +134,7 @@
   -moz-transition-duration: 0.5s;
   -moz-transition-delay: 0.2s;
 }
-#showreel2 #indicators span.active {
+#showreel #indicators .active {
   opacity: 1;
 }
 
@@ -279,6 +280,7 @@ nav ul li a:visited
   color: #FFF;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(0,0,0,.6);
+  -webkit-font-smoothing: antialiased;
 }
 nav ul li a:hover {
   color: #fff;
@@ -326,10 +328,6 @@ nav ul li a:hover {
   transition: all .2s ease-out;
 }
 
-/* geenschoolbuildinghoog */
-#geenschoolbuildinghoog { height: 161px; }
-#geenschoolbuildinghoog img { margin-top: -139px; }
-
 .block-readmore .readyToBounce { margin-right: 140px; opacity: 0; }
 .block-readmore a { -webkit-transition: all .3s ease-out; opacity: 1;  }
 
@@ -357,7 +355,13 @@ nav ul li a:hover {
 }
 
 .iconList li img { float: left; }
-.iconList li i { vertical-align: middle; display: block; float: left;}
+.iconList li i {
+  vertical-align: middle;
+  display: block;
+  float: left;
+  min-width: 40px;
+  text-align: center;
+}
 .iconList li div { display: inline-block; padding: 4px 0px 0px 9px; }
 
 
