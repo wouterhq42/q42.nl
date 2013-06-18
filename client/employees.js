@@ -94,7 +94,7 @@ var EmployeeGallery = (function () {
     }
     function rotatePolaroid() {
       var randomRotation = Math.floor(Math.random() * 21) - 10;
-      var rotateValue = 'scale(1.0) rotate(' + randomRotation + 'deg)';
+      var rotateValue = 'scale(1.0) rotateZ(' + randomRotation + 'deg)';
 
       $polaroid.css({
         '-webkit-transform': rotateValue,
