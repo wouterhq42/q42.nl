@@ -334,11 +334,9 @@
     <input data-role="filter-qers" list="filter-options" placeholder="Filter de Q'ers..." id="filter-qers-input">
     <datalist id="filter-options">
       {{#each list}}
-        <optgroup label="{{name}}">
-          {{#each items}}
-          <option value="{{.}}">{{.}}</option>
-          {{/each}}
-        </optgroup>
+        {{#each items}}
+        <option value="{{.}}">{{.}}</option>
+        {{/each}}
         {{else}}
         <option>No items :(</option>
       {{/each}}
