@@ -14,7 +14,7 @@ body {
   padding: 0;
 }
 
-p {
+p, ol, ul {
   line-height: 1.5em;
 }
 
@@ -86,6 +86,11 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 }
 
 /* default screen size: 320 + 320 + 300 = 3 columns*/
+body {
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  perspective: 2000px;
+}
 body > section {
   width: 940px;
   min-height: 300px;
@@ -93,10 +98,16 @@ body > section {
   opacity: 0;
   -webkit-transition: ease-in-out all .6s;
   -webkit-transform: translate3d(0, -20px, 0);
+  -moz-transition: ease-in-out all .6s;
+  -moz-transform: translate3d(0, -20px, 0);
+  transition: ease-in-out all .6s;
+  transform: translate3d(0, -20px, 0);
 }
 body > section.show {
   opacity: 1;
   -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
 
 .visual img {
@@ -107,6 +118,7 @@ body > section.show {
   width: 100%; height: 65px;
   margin: 0 auto 300px auto;
   position: relative;
+  -webkit-font-smoothing: antialiased;
 }
 
 #header.noShowreelHeader {
@@ -126,111 +138,12 @@ body > section.show {
   -moz-transition: ease-in-out .3s;
 }
 
-#visual {
-  position: absolute;
-  right: 0; top: 65px;
-  width: 101%;
-  height: 300px;
-  background: url(/images/office_jelle.jpg) no-repeat center center;
-  background-size: cover;
-  z-index: 2;
-}
-
-body.alt #header {
-  position: relative;
-  width: 100%; height: 150px;
-  margin: 0 auto;
-  -webkit-transition: all .3s ease-out;
-  -moz-transition: all .3s ease-out;
-}
-body.alt #visual {
-  position: absolute;
-  right: 0; top: 0;
-  width: 101%;
-  height: 150px;
-  background: url(/images/chris.jpg) no-repeat center 30%;
-  background-size: cover;
-  z-index: -1;
-  -webkit-transition: all .3s ease-out;
-  -moz-transition: all .3s ease-out;
-}
-body.alt #header li a {
-  padding: 2px 4px;
-  border-radius: 7px;
-  background-color: rgba(255,255,255,.7);
-}
-body.alt #header ol {
-  width: 200px;
-}
-body.alt .left { float: left; }
-body.alt .right { float: right; }
-body.alt #header ol li {
-  margin-top: 10px;
-}
-
 /* footer */
 footer {
   clear: both;
 }
 
 /* end footer */
-
-/* tweetbar */
-#tweetstream {
-  clear: both;
-  margin: 40px 0 20px 0;
-  font-size: 24px;
-  text-align: center;
-  border-top: solid 1px #555; border-bottom: solid 1px #555;
-  padding: 20px 0
-}
-#tweetbar {
-  position: relative;
-  margin:30px 0 30px 0;
-  padding:10px 0;
-  border-top:1px solid #CCC;
-  border-bottom:1px solid #CCC;
-}
-
-#tweetbar .icon{
-  position: absolute;
-  top:-30px;
-  width:45px;
-}
-
-#tweetbar .left {
-  position: absolute;
-  top:7px; left:70px;
-  width:32px; height:32px;
-  background: url(/images/Previous-icon.png);
-}
-
-#tweetbar .tweet {
-  margin:0 auto;
-  width:700px; height:25px;
-  font-size: 90%;
-  overflow: hidden;
-}
-
-#tweetbar .right{
-  position: absolute;
-  top:7px; right:70px;
-  width:32px; height:32px;
-  background: url(/images/Next-icon.png);
-}
-/* end tweetbar */
-
-/* copyright */
-.copyright .text {
-  width:150px;
-  margin:0 auto;
-  font-size: 80%;
-}
-.copyright img{
-  display:block;
-  margin:10px auto 0 auto;
-}
-/* end copyright */
 
 /* block-text */
 .block-text {
@@ -361,9 +274,6 @@ article h2,
   float: none;
   overflow: hidden;
 }
-.contains-body-and-blocks .block-small {
-  border-top: solid #aaa 1px;
-}
 .block-small h2 {
   font: normal 25px ABeeZee, Georgia, Times, serif;
   margin: 20px 0 0 0;
@@ -400,14 +310,6 @@ span {
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
 }
-span.effect-glow {
-  color: #fff !important;
-}
-
-.todo {
-  outline: solid 3px red;
-
-}
 
 .block-large:after {
   content: ".";
@@ -416,16 +318,6 @@ span.effect-glow {
   visibility: hidden;
   line-height: 0;
   height: 0;
-}
-
-#fb-root {
-  display: none;
-}
-
-.fb_iframe_widget:hover {
-  -webkit-box-shadow: 0 0 8px 0 white;
-  -moz-box-shadow: 0 0 8px 0 white;
-  box-shadow: 0 0 8px 0 white;
 }
 
 .clear {
@@ -551,9 +443,8 @@ span.effect-glow {
   float: left;
 }
 
-.nowrap
-{
-  white-space:nowrap;
+.nowrap {
+  white-space: nowrap;
 }
 
 .post-date {
@@ -581,111 +472,3 @@ span.effect-glow {
   margin: 0;
   padding-right: 0;
 }
-
-
-/* Syntax hightlighting */
-/* Vibrant Ink Theme */
-/* Original theme - http://alternateidea.com/blog/articles/2006/1/3/textmate-vibrant-ink-theme-and-prototype-bundle */
-/* Pretty printing styles. Used with prettify.js. */
-/* SPAN elements with the classes below are added by prettyprint. */
-/* plain text */
-.pln {
-  color: white;
-}
-
-@media screen {
-  /* string content */
-  .str {
-    color: #88c546;
-  }
-
-  /* a keyword */
-  .kwd {
-    color: #ff9900;
-  }
-
-  /* a comment */
-  .com {
-    color: #9933cc;
-  }
-
-  /* a type name */
-  .typ {
-    color: rgb(95, 179, 255);
-  }
-
-  /* a literal value */
-  .lit {
-    color: #8899cc;
-  }
-
-  /* punctuation */
-  .pun {
-    color: white;
-  }
-
-  /* lisp open bracket */
-  .opn {
-    color: white;
-  }
-
-  /* lisp close bracket */
-  .clo {
-    color: white;
-  }
-
-  /* a markup tag name */
-  .tag {
-    color: white;
-  }
-
-  /* a markup attribute name */
-  .atn {
-    color: #99cc99;
-  }
-
-  /* a markup attribute value */
-  .atv {
-    color: #66ff00;
-  }
-
-  /* a declaration */
-  .dec {
-    color: white;
-  }
-
-  /* a variable name */
-  .var {
-    color: white;
-  }
-
-  /* a function name */
-  .fun {
-    color: #ffcc00;
-  }
-}
-
-/* Style */
-pre.prettyprint {
-  background: #222;
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important;
-  font-size: 14px;
-  line-height: 1.2;
-  padding: 10px;
-}
-pre.prettyprint code {
-  font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important;
-}
-
-pre code span:first-child {
-  white-space: nowrap;
-}
-
-/* Specify class=linenums on a pre to get line numbering */
-ol.linenums {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-
-

@@ -1,15 +1,11 @@
 @media all and (max-width: 1024px) {
   /* Links always have an underline, because there is no hover state. */
   a, a:visited, a:hover { text-decoration: underline; }
-  #showreel2 { height: 460px; position: relative; }
+  #showreel { height: 460px; position: relative; }
 
-  .noShowreel nav.dynamic,
   .noShowreel nav { position: absolute; }
 
   #homecontent { margin-top: 0px; }
-
-  .inline-livejs { display: none; }
-
 }
 
 @media all and (min-width: 941px) {
@@ -27,9 +23,13 @@
 
 @media all and (max-width: 940px) {
 
-  #showreel2 { height: 310px; }
+  #showreel { height: 310px; }
   .block-text h1,
-  #showreel2 .item p { font-size: 2.84em; }
+  #showreel .item p { font-size: 2.84em; }
+
+  .blog h1 {
+    font-size: 2em;
+  }
 
   .block-large > figure > .body > h2 { font-size: 30px; }
   /*.block-small h2 { font-size: 18px; }*/
@@ -68,8 +68,6 @@
     width: 350px;
   }
 
-  #visual { height: 250px; top: 50px; }
-
   #header { height: 65px; margin-bottom: 250px; }
 
   /* header */
@@ -81,8 +79,14 @@
     margin-left: 30px;
   }
 
-  #facts1 .block-small { width: 200px; }
-  #facts1 .block-small .body { width: 100%; }
+  #facts .block-small { width: 200px; }
+  #facts .block-small .body { width: 100%; }
+
+  #filter-colleagues {
+    float: none;
+    margin: 0 0 30px 0;
+    display: block;
+  }
   /* end 940 */
 }
 
@@ -90,9 +94,9 @@
 
 @media all and (max-width: 620px) {
 
-  #showreel2 { height: 200px; }
+  #showreel { height: 200px; }
   .block-text h1,
-  #showreel2 .item p { font-size: 37px; }
+  #showreel .item p { font-size: 37px; }
 
   body > section,
   #footer > section,
@@ -116,10 +120,6 @@
   .block-small:nth-of-type(2) { margin-right: 0 }
   .block-small { float: none; }
   .block-small figure .visual { display: none; }
-  .blog .block-small figure .visual,
-  .blog .block-small figure img.
-  #visual { display: block; }
-
 
   .block-with-icons { margin-bottom: -16px; padding-bottom: 50px; }
   .block-with-icons:nth-of-type(3) { padding-bottom: 0px; }
@@ -139,7 +139,7 @@
     height: 60px;
     margin: 0 0 6px 0;
     padding-bottom: 65px;
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #aaa;
   }
 
   #colleagues ol li > img {
@@ -152,8 +152,7 @@
     text-shadow: none;
     top: 0px;
     background: none;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 25px;
+    font: 25px 'Permanent Marker', cursive;
     position: relative;
   }
   .lights-off #colleagues ol li > .name { color: #fff;}
@@ -195,7 +194,7 @@
     width: auto;
   }
 
-  #facts1 .block-small { width: 100%; }
+  #facts .block-small { width: 100%; }
 
   /* end 620 */
 }
@@ -203,11 +202,16 @@
 
 
 @media all and (max-width: 480px) {
-  #visual,
-  .block-small figure img { xdisplay: none; }
+  #showreel { height: 170px; }
+  #showreel .item p { font-size: 24px; bottom: 53px; right: 10px; }
 
-  #showreel2 { height: 170px; }
-  #showreel2 .item p { font-size: 24px; bottom: 53px; right: 10px; }
+  .block-large h2 {
+    padding-left: 0;
+  }
+
+  .blog h1, .subcontent h2, .socialShare {
+    padding: 0 16px;
+  }
 
   #q42is { margin-left: 5px; }
   #q42is-header { margin-right: 10px; }
@@ -227,6 +231,10 @@
   .big_ass_button
   { padding: 0px 16px; }
 
+  .block-small > ul, #blog-sidebar ul {
+    padding-left: 40px;
+  }
+
   #footer .iconList { margin-left: 0px; }
 
   .block-with-icons h2 { padding: 0px; }
@@ -243,10 +251,10 @@
   #footer > section { width: 100%; }
   .readmore { margin-right: 10px; }
 
-  #showreel2 h1, #header h1 { margin-left: auto; left: 0px; top: 33px; }
-  #showreel2 ol, #header ol { bottom: auto; top: 20px; }
-  #showreel2 li, #header li { display: block; }
-  #showreel2 .left, #header .left { float: none; }
+  #showreel h1, #header h1 { margin-left: auto; left: 0px; top: 33px; }
+  #showreel ol, #header ol { bottom: auto; top: 20px; }
+  #showreel li, #header li { display: block; }
+  #showreel .left, #header .left { float: none; }
 
   #footer section,
   #footer .block-small,

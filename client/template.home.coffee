@@ -4,7 +4,7 @@ Carrousel = [
     bg: "/images/carrousel/DIA13.jpg"
     text: "3 DIA awards voor Rijksmuseum en Philips"
     en_text: "3 DIA awards for Rijksmuseum and Philips"
-    pos: "left"
+    pos: "right"
   }
   {
     url: "/blog/post/49503089620/q42-opent-vestiging-in-amsterdam"
@@ -19,18 +19,6 @@ Carrousel = [
     text: "Q42 officieel dé Greatest Place to Work"
     en_text: "Q42 is officially the Greatest Place to Work"
     pos: "left"
-  }
-  {
-    url: "http://quento.nl"
-    en_url: "http://quento.com"
-    bg: "/images/carrousel/quento.png"
-    text: "Quento nu beschikbaar voor iOS en Android"
-    en_text: "Quento now available for iOS and Android"
-  }
-  {
-    url: "/blog/post/44245650650/kars-en-stef-waren-deze-week-bij-google-in"
-    bg: "/images/carrousel/GoogleAward.jpg"
-    text: "Q42 is Google Cloud Platform Partner of the Year"
   }
 ]
 
@@ -51,3 +39,11 @@ Template.carrousel_items.bg = ->
     @en_bg
   else
     @bg
+
+Template.carrousel_items.todaysDate = -> moment().format("YYYY-MM-DD")
+
+Template.carrousel_items.events =
+  "mouseover #quento": ->
+    window.showreelPaused = yes
+  "mouseout #quento": ->
+    window.showreelPaused = no

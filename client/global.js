@@ -4,7 +4,7 @@ resizeFBwidget = function () {
   if ($fbWidget.length != 0) {
     $fbWidget.width('100%')
   } else {
-    // try to ajust the width of the FB max 100 times
+    // try to adjust the width of the FB max 100 times
     if (retries < 100) {
       setTimeout(function () {
         retries++;

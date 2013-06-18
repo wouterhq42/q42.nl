@@ -9,6 +9,7 @@ var q42IsTimer = undefined;
 var q42IsFirstTime = true;
 var showreelActiveItem = 0;
 var onLoadFinished = false;
+showreelPaused = false;
 
 window.requestAnimFrame = (function () {
   return window.requestAnimationFrame ||
@@ -23,7 +24,7 @@ window.requestAnimFrame = (function () {
 
 homepageShowreel = function () {
   // declare global items
-  $showreel = $('#showreel2');
+  $showreel = $('#showreel');
   $nav = $showreel.find('nav');
 
   $("#indicators").html("");
@@ -39,6 +40,16 @@ homepageShowreel = function () {
   $("#indicators").find('span:first').addClass('active');
   $("#indicators").delay(1000).animate({ opacity: 1 }, 500);
   $("#indicators span").on("click", handleIndicatorClick);
+
+  $(window).bind("keyup", function keyup(evt) {
+    $("#showreel-stage").addClass("transitioningByClick");
+    var nr = parseInt($("#indicators .active").attr("data-number"));
+    if (!nr) nr = 0;
+    if (evt.which == 39)
+      gotoShowreelItem(nr + 1, true);
+    if (evt.which == 37)
+      gotoShowreelItem(nr - 1, true);
+  });
 
   setup3DShowreel();
   if (showreel3D) {
@@ -83,6 +94,7 @@ function setup3DShowreel() {
 
 function nextShowreelItem() {
   requestAnimFrame(nextShowreelItem);
+  if (showreelPaused) return;
   if (new Date().getTime() - showreelTimer < 8000)
     return;
   goToNext();
@@ -219,7 +231,7 @@ resizeShowreel = function () {
   // De showreel vult de volledige hoogt van het scherm minus de ruimte voor de titel,
   // maar nooit meer dan 2,5 keer de breedte van het scherm en nooit minder dan de
   // breedte van het scherm. Anders zie je wel erg gekke uitsnedes van de foto's.
-  $("#showreel2").height(Math.min(Math.max($(window).height() - $("#q42is-header").outerHeight(), $(window).width() / 2.5), $(window).width()));
+  $("#showreel").height(Math.min(Math.max($(window).height() - $("#q42is-header").outerHeight(), $(window).width() / 2.5), $(window).width()));
 
   // recalculate 3D circle
   if (onLoadFinished)

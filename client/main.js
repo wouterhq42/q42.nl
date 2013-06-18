@@ -28,11 +28,11 @@ Meteor.startup(function () {
     var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
     $(document.body).toggleClass("lights-off", turnOnLights);
   });
-  
-  Meteor.autosubscribe(function () {
+
+  Deps.autorun(function() {
     Meteor.subscribe("allUserData");
   });
-  
+
   marked.setOptions({ breaks: true });
 
   Backbone.history.start({pushState: true});
@@ -57,7 +57,7 @@ Template.body.rendered = function() {
   // If we've given the main section the show class we're done.
   if ($("body>section.show")[0])
     return;
-  
+
   if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
@@ -92,55 +92,73 @@ Template.body.events({
   }
 });
 
-Template.en_error404.url = Template.error404.url = function() {
-  return document.location.pathname;
-}
-
-Template.en_regelsCode.regelsCode = Template.regelsCode.regelsCode = function() {
-  var numQers = Employees.find().count();
-  var Qers = [], to;
-  for (var i = 0; i < numQers; i++) Qers.push(new Qer());
-  var counter = 0;
-
-  (function cycle() {
-    clearTimeout(to);
-    var lines = 0;
-    var now = new Date();
-    for (var i = 0; i < numQers; i++) lines += Qers[i].linesWritten(now);
-    lines = Math.round(lines);
-    counter = Math.max(lines, 0);
-    to = setTimeout(cycle, 1000);
-  })();
-
-  function Qer() {
-    var codeLinesPerDay = 100 + 200 * Math.random(); //100-600
-    var hoursWorkPerDay = 6 + 2 * Math.random(); //6-8
-
-    var startsAt = new Date();
-    startsAt.setHours(Math.round(8 + 3 * Math.random())); //7AM - 10AM
-    startsAt.setMinutes(Math.round(60 * Math.random()));
-
-    var workLength = new Date(0);
-    workLength.setHours(Math.round(hoursWorkPerDay));
-
-    this.linesWritten = function (date) {
-      var linesWritten = 0;
-      var timeWorked = new Date(date.getTime() - startsAt.getTime());
-      var perc = Math.min(1, timeWorked.getTime() / workLength.getTime());
-      return codeLinesPerDay * perc;
+$Template({
+  error404: {
+    url: function() {
+      return document.location.pathname;
     }
-  };
+  },
+  regelsCode: {
+    regelsCode: function() {
+      var numQers = Employees.find().count();
+      var Qers = [], to;
+      for (var i = 0; i < numQers; i++) Qers.push(new Qer());
+      var counter = 0;
 
-  return counter;
-}
+      (function cycle() {
+        clearTimeout(to);
+        var lines = 0;
+        var now = new Date();
+        for (var i = 0; i < numQers; i++) lines += Qers[i].linesWritten(now);
+        lines = Math.round(lines);
+        counter = Math.max(lines, 0);
+        to = setTimeout(cycle, 1000);
+      })();
 
-Template.en_numQers.numQers = Template.numQers.numQers = function() {
-  return Employees.find().count();
-}
+      function Qer() {
+        var codeLinesPerDay = 100 + 200 * Math.random(); //100-600
+        var hoursWorkPerDay = 6 + 2 * Math.random(); //6-8
 
-Template.en_koppenKoffie.koppenKoffie = Template.koppenKoffie.koppenKoffie = function() {
-  return koffieteller();
-}
+        var startsAt = new Date();
+        startsAt.setHours(Math.round(8 + 3 * Math.random())); //7AM - 10AM
+        startsAt.setMinutes(Math.round(60 * Math.random()));
+
+        var workLength = new Date(0);
+        workLength.setHours(Math.round(hoursWorkPerDay));
+
+        this.linesWritten = function (date) {
+          var linesWritten = 0;
+          var timeWorked = new Date(date.getTime() - startsAt.getTime());
+          var perc = Math.min(1, timeWorked.getTime() / workLength.getTime());
+          return codeLinesPerDay * perc;
+        }
+      };
+
+      return counter;
+    }
+  },
+  numQers: {
+    numQers: function() {
+      return Employees.find().count();
+    }
+  },
+  koppenKoffie: {
+    koppenKoffie: function() {
+      return koffieteller();
+    }
+  },
+  header: {
+    lightsColor: function() {
+      return Session.get("lightsColor");
+    },
+    supportsInputTypeColor: function() {
+      return Session.get("supportsInputTypeColor");
+    },
+    supportsSVG: function() {
+      return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
+    }
+  }
+});
 
 var templateHeaderEvents = {
   "click #lights-toggle a": function(evt) {
@@ -166,15 +184,6 @@ var templateHeaderEvents = {
 Template.en_header.events(templateHeaderEvents);
 Template.header.events(templateHeaderEvents);
 
-Template.en_header.lightsColor = Template.header.lightsColor = function() {
-  return Session.get("lightsColor");
-}
-Template.en_header.supportsInputTypeColor = Template.header.supportsInputTypeColor = function() {
-  return Session.get("supportsInputTypeColor");
-}
-Template.en_header.supportsSVG = Template.header.supportsSVG = function() {
-  return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect;
-}
 
 
 var widgetsTimeout = null;
