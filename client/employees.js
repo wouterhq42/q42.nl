@@ -18,8 +18,9 @@ $Template({
         if (regex)
           return Employees.find({$or: [{name: regex}, {phone: regex}, {handle: regex}, {web: regex}]});
       }
-      else if (filter != "" && filter != "Q'er")
+      else if (filter != "" && filter != "Q'er") {
         return Employees.find({labels: {$in: [filter]}}, {sort: {name: 1}});
+      }
       else
         return Employees.find({}, {sort: {name: 1}});
     }
