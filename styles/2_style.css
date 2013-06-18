@@ -274,9 +274,6 @@ article h2,
   float: none;
   overflow: hidden;
 }
-.contains-body-and-blocks .block-small {
-  border-top: solid #aaa 1px;
-}
 .block-small h2 {
   font: normal 25px ABeeZee, Georgia, Times, serif;
   margin: 20px 0 0 0;
@@ -312,11 +309,6 @@ ul {
 span {
   -webkit-transition: all .3s ease-out;
   -moz-transition: all .3s ease-out;
-}
-
-.todo {
-  outline: solid 3px red;
-
 }
 
 .block-large:after {
