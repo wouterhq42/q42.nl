@@ -195,32 +195,6 @@ nav.dynamic {
   background: -moz-linear-gradient(top, rgba(0,0,0,.9), rgba(0,0,0,.1));
 }
 
-@-webkit-keyframes animateNavBg {
-  0% { background:    #57a; }
-  20% { background:   #5a7; }
-  40% { background:   #75a; }
-  60% { background:   #7a5; }
-  80% { background:   #a75; }
-  100% { background:   #57a; }
-}
-@-moz-keyframes animateNavBg {
-  0% { background:    #57a; }
-  20% { background:   #5a7; }
-  40% { background:   #75a; }
-  60% { background:   #7a5; }
-  80% { background:   #a75; }
-  100% { background:   #57a; }
-}
-
-nav.fixedNav {
-  position: fixed;
-  top: 0; left: 0;
-  -webkit-box-shadow: 0 -2px 6px 4px black;
-  -moz-box-shadow: 0 -2px 6px 4px black;
-  box-shadow: 0 -2px 6px 4px black;
-  text-align: center;
-}
-
 nav,
 nav ul,
 nav ul li { height: 65px; line-height: 70px; }
@@ -364,13 +338,10 @@ nav ul li a:hover {
 }
 .iconList li div { display: inline-block; padding: 4px 0px 0px 9px; }
 
-
 /* Big text block */
 .block-large {}
 .block-large .bigText { width: 600px; margin: 0 20px 0 0; float: left; }
 .block-large .bigText .visual { margin-bottom: 15px; }
-.block-large .bigTextVisual { float: right; width: 300px; }
-.block-large .bigTextVisual img { max-width: 100%; }
 .block-large .introText { font-size: 18px; }
 
 /* Qers */
@@ -390,7 +361,6 @@ nav ul li a:hover {
   float:left;
   position: relative;
   margin: 0px 30px 30px 0;
-  /*-webkit-transition: all .3s;*/
 }
 
 #colleagues ol li.no-results {
@@ -410,19 +380,19 @@ nav ul li a:hover {
   bottom: 3px;
   left: 3px;
   color: black;
-  background-color: #fff; /* IE otherwise displays a transparent background */
-  background: rgba(255, 255, 255, 0.72);
   display: inline-block;
-  padding: 1px 3px;
+  padding: 0 3px;
+  line-height: 1.3em;
+  font: 18px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  text-shadow: 0 1px 1px black;
+  letter-spacing: 1px;
+  background-color: #000;
+  background-color: rgba(0,0,0,.3);
 }
 
 #colleagues ol li > .contactData {
   display: none;
-}
-
-#colleagues .written {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 25px;
 }
 
 #colleagues ol li > img {
@@ -506,16 +476,14 @@ nav ul li a:hover {
 }
 
 .polaroid h3 {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 18px;
+  font: 16px/1.3em 'Permanent Marker', cursive;
   margin: 5px 0px -7px;
-  line-height: 21px;
   text-align: center;
 }
 
 .polaroid .contactData {
   margin: 6px 0px;
-  line-height: 19px;
+  font-size: 14px;
 }
 
 .polaroid .contactData span {
@@ -523,26 +491,7 @@ nav ul li a:hover {
   display: block;
 }
 
-.insetshadow {
-  display:block;
-  position:relative;
-  width: 100%;
-}
-
-.insetshadow img { width: 100%; }
-
-.insetshadow::before
-{
-  content:'';
-  position:absolute;
-  width:100%;
-  height:100%;
-  -moz-box-shadow:inset 0px 0px 13px 0px rgba(0,0,0,0.8);
-  -webkit-box-shadow:inset 0px 0px 13px 1px rgba(0,0,0,0.8);
-  box-shadow:inset 0px 0px 6px 2px rgba(0,0,0,0.2);
-}
-
-#facts1 section { text-align: center; }
+#facts section { text-align: center; }
 .counter { font-size: 78px; margin: 0;}
 
 /* FOOTER */
@@ -559,11 +508,9 @@ nav ul li a:hover {
   clear: both;
   -webkit-font-smoothing: antialiased;
 }
-
 #footer p {
   font-size: 14px;
 }
-
 #footer h3 {
   width: 940px;
   margin: -80px auto 40px auto;
@@ -571,7 +518,7 @@ nav ul li a:hover {
   letter-spacing: -1px;
   color: #888
 }
-#footer h3 b{
+#footer h3 b {
   color:#232323;
 }
 #footer h4 {
@@ -579,12 +526,10 @@ nav ul li a:hover {
   border-bottom: solid #CCC 1px;
   font: 30px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 #footer .external {
   background: url(/images/external_link_icon_green.png) no-repeat center right;
   padding-right: 18px;
 }
-
 #footer .social {
   margin:0; padding:0;
 }
@@ -609,7 +554,6 @@ nav ul li a:hover {
 #footer .block-small {
   border-top: none;
 }
-
 #footer > section {
   overflow: visible;
 }
@@ -786,4 +730,3 @@ background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), 
   left: 95%;
   margin-left: -13px;
 }
-
