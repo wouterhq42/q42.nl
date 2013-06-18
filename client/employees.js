@@ -4,22 +4,28 @@ Meteor.startup(function() {
 Deps.autorun(function() {
   Meteor.subscribe("employees");
 });
-Template.en_employees.employee = Template.employees.employee = function () {
-  var filter = Session.get("employees_filter");
-  if (_.first(filter) == "/" && _.last(filter) == "/") {
-    var regex;
-    try {
-       regex = new RegExp(_.without(filter, "/").join(""), "i");
+
+$Template({
+  employees: {
+    employee: function () {
+      var filter = Session.get("employees_filter");
+      if (_.first(filter) == "/" && _.last(filter) == "/") {
+        var regex;
+        try {
+           regex = new RegExp(_.without(filter, "/").join(""), "i");
+        }
+        catch(e) {}
+        if (regex)
+          return Employees.find({$or: [{name: regex}, {phone: regex}, {handle: regex}, {web: regex}]});
+      }
+      else if (filter != "" && filter != "Q'er")
+        return Employees.find({labels: {$in: [filter]}}, {sort: {name: 1}});
+      else
+        return Employees.find({}, {sort: {name: 1}});
     }
-    catch(e) {}
-    if (regex)
-      return Employees.find({$or: [{name: regex}, {phone: regex}, {handle: regex}, {web: regex}]});
   }
-  else if (filter != "" && filter != "Q'er")
-    return Employees.find({labels: {$in: [filter]}}, {sort: {name: 1}});
-  else
-    return Employees.find({}, {sort: {name: 1}});
-}
+});
+
 Template.employees.filter = function() {
   return Session.get("employees_filter");
 }
@@ -204,7 +210,3 @@ Template.filter_employees.events({
     Session.set("employees_filter", val);
   }
 });
-
-
-
-
