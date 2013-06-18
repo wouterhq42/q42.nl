@@ -9,19 +9,6 @@ function addLabel(label, handles) {
 
 var allQers = _.pluck(Employees.find().fetch(), "handle");
 
-var inserts = 0, updates = 0;
-_.each(currentQers, function(e) {
-  var qer = Employees.findOne({handle: e.handle});
-  if (!qer) {
-    Employees.insert(e);
-    inserts++;
-  }
-  else {
-    Employees.update({handle: e.handle}, e, {set: e});
-    updates++;
-  }
-});
-
 var currentQers = [
  { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Arian van Gend", handle:"arian"},
@@ -76,6 +63,19 @@ var currentQers = [
  { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"},
  { name: "Wilbert Mekenkamp", handle:"wilbert"}
 ];
+
+var inserts = 0, updates = 0;
+_.each(currentQers, function(e) {
+  var qer = Employees.findOne({handle: e.handle});
+  if (!qer) {
+    Employees.insert(e);
+    inserts++;
+  }
+  else {
+    Employees.update({handle: e.handle}, e, {set: e});
+    updates++;
+  }
+});
 
 // Projecten
 addLabel("Rijksmuseum",                   "remco jasper jaap martijnl elaine jasperh");
