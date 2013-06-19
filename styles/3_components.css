@@ -81,11 +81,11 @@
   top: 40px;
   right: 5%;
   width: 50%;
-  max-width: 400px;
+  max-width: 450px;
   z-index: 43;
   color: #FFF;
   font-weight: bold;
-  font: 64px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 70px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: right;
   text-shadow: 0px 1px 1px rgba(0,0,0,.6);
   -webkit-font-smoothing: antialiased;
@@ -99,15 +99,8 @@
   opacity: 1;
 }
 
-#showreel a {
+#showreel-stage a {
   text-decoration: none;
-}
-
-/* Q42is */
-
-#q42is-pre {
-  display: inline-block;
-  color: #000;
 }
 
 #showreel #indicators {
@@ -138,6 +131,17 @@
   opacity: 1;
 }
 
+
+/* Q42is */
+#q42is-header h1 {
+  font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#q42is-pre {
+  display: inline-block;
+  color: #000;
+}
+
 #q42is {
   height: 1em;
   width: 100%;
@@ -147,15 +151,19 @@
   margin-left: 10px;
   white-space: nowrap;
 }
-#q42is div {
+#q42is-container {
   position: relative;
+  -webkit-perspective: 2000px;
 }
 #q42is span {
+  display: block;
   color: #DDD;
-  padding-right: 10px;
+  -webkit-transition: -webkit-transform linear .2s;
+  -webkit-transform: rotateX(90deg);
 }
 #q42is span.selected {
   color: #888;
+  -webkit-transform: rotateX(0deg);
 }
 
 /* NAVIGATION */
