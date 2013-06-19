@@ -231,7 +231,9 @@ resizeShowreel = function () {
   // De showreel vult de volledige hoogt van het scherm minus de ruimte voor de titel,
   // maar nooit meer dan 2,5 keer de breedte van het scherm en nooit minder dan de
   // breedte van het scherm. Anders zie je wel erg gekke uitsnedes van de foto's.
-  $("#showreel").height(Math.min(Math.max($(window).height() - $("#q42is-header").outerHeight(), $(window).width() / 2.5), $(window).width()));
+  var max = Math.max($(window).height() - $("#q42is-header").outerHeight(), $(window).width() / 2.5);
+  var min = Math.min(max, $(window).width());
+  $("#showreel").height(min);
 
   // recalculate 3D circle
   if (onLoadFinished)
