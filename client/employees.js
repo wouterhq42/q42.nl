@@ -5,6 +5,9 @@ Deps.autorun(function() {
   Meteor.subscribe("employees");
 });
 
+/**********************/
+/* For both languages */
+/**********************/
 $Template({
   employees: {
     employee: function () {
@@ -27,20 +30,6 @@ $Template({
   }
 });
 
-Template.employees.filter = function() {
-  return Session.get("employees_filter");
-}
-
-Template.employees.desjaak = function() {
-  return Session.equals("employees_filter", "De sjaak");
-}
-Template.employees.desjaakName = function() {
-  return Employees.findOne({labels: {$in: ["De sjaak"]}}).name.split(" ")[0];
-}
-Template.employees.desjaakHandle = function() {
-  return Employees.findOne({labels: {$in: ["De sjaak"]}}).handle;
-}
-
 Handlebars.registerHelper('avatar_static', function() {
   return this.imageStatic || this.handle + "zw.jpg";
 });
@@ -57,130 +46,153 @@ Handlebars.registerHelper('email', function() {
   return this.email || this.handle;
 });
 
+/**************/
+/* Dutch only */
+/**************/
+Template.employees.filter = function() {
+  return Session.get("employees_filter");
+}
+
+Template.employees.desjaak = function() {
+  return Session.equals("employees_filter", "De sjaak");
+}
+Template.employees.desjaakName = function() {
+  return Employees.findOne({labels: {$in: ["De sjaak"]}}).name.split(" ")[0];
+}
+Template.employees.desjaakHandle = function() {
+  return Employees.findOne({labels: {$in: ["De sjaak"]}}).handle;
+}
 
 
 
 
-var EmployeeGallery = (function () {
-  var zIndex = 1000;
-  var polaroids = {};
-  var mobileMaxWidth = 620;
-  var isTouchEnabled = false;
-  $(window).one("touchstart",  function (e) { isTouchEnabled = true; });
 
-  var Polaroid = function ($li) {
+var zIndex = 1000;
+var polaroids = {};
+var mobileMaxWidth = 620;
+var isTouchEnabled = false;
+$(window).one("touchstart",  function (e) { isTouchEnabled = true; });
 
-    var $polaroid = $li.find(".polaroid");
-    var $picture = $li.find(".color");
-    var $zw = $li.find(".zw");
+var Polaroid = function ($li) {
 
-    function swapGif() {
-      var animatedGif = $picture.data("src");
-      var colorSrc = $picture.attr("src");
-      if (animatedGif != colorSrc)
-        $picture.attr("src", animatedGif);
-    }
-    function swapGifMobile() {
-      var animatedGif = $picture.data("src");
-      var zwSrc = $zw.attr("src");
-      if (animatedGif != zwSrc)
-        $zw.attr("src", animatedGif);
-    }
-    function swapGifMobileBackToZw() {
-      var animatedGif = $picture.data("src");
-      var zwSrc = $zw.attr("src");
-      var zwDataSrc = $zw.data("src");
-      if (animatedGif == zwSrc)
-        $zw.attr("src", zwDataSrc);
-    }
-    function rotatePolaroid() {
-      var randomRotation = Math.floor(Math.random() * 21) - 10;
-      var rotateValue = 'scale(1.0) rotateZ(' + randomRotation + 'deg)';
+  var $polaroid = $li.find(".polaroid");
+  var $picture = $li.find(".color");
+  var $zw = $li.find(".zw");
 
-      $polaroid.css({
-        '-webkit-transform': rotateValue,
-        '-moz-transform': rotateValue,
-        '-ms-transform': rotateValue,
-        '-o-transform': rotateValue,
-        'transform': rotateValue
-      });
-    }
-    function intitializeHover() {
-      var $polaroidLists = $('#colleagues .polaroid').parent("li");
-      $polaroidLists.removeClass('hover').removeClass('openedByHover');
-      var windowWidth = $(window).width();
-      if (windowWidth > mobileMaxWidth)
-        $li.addClass('hover');
-      else
-        swapGifMobile();
-
-      $polaroid.css('z-index', ++zIndex);
-      $polaroidLists.find('.closePolaroid').remove();
-      if (isTouchEnabled) {
-        var $closebutton = $('<div class="closePolaroid" />');
-        $closebutton.click(hide);
-        $polaroid.append($closebutton);
-      }
-    }
-    function destroyHover() {
-      $li.removeClass('hover').removeClass('openedByHover');
-      $li.find('.closePolaroid').remove();
-    }
-    function show() {
-      swapGif();
-      rotatePolaroid();
-      intitializeHover();
-    }
-    function hide() {
-      destroyHover();
-    }
-    return {
-      show: show,
-      hide: hide,
-      swapGifMobileBackToZw : swapGifMobileBackToZw
-    }
+  function swapGif() {
+    var animatedGif = $picture.data("src");
+    var colorSrc = $picture.attr("src");
+    if (animatedGif != colorSrc)
+      $picture.attr("src", animatedGif);
   }
+  function swapGifMobile() {
+    var animatedGif = $picture.data("src");
+    var zwSrc = $zw.attr("src");
+    if (animatedGif != zwSrc)
+      $zw.attr("src", animatedGif);
+  }
+  function swapGifMobileBackToZw() {
+    var animatedGif = $picture.data("src");
+    var zwSrc = $zw.attr("src");
+    var zwDataSrc = $zw.data("src");
+    if (animatedGif == zwSrc)
+      $zw.attr("src", zwDataSrc);
+  }
+  function rotatePolaroid() {
+    var randomRotation = Math.floor(Math.random() * 21) - 10;
+    var rotateValue = 'scale(1.0) rotateZ(' + randomRotation + 'deg)';
 
-  function onWindowResize() {
+    $polaroid.css({
+      '-webkit-transform': rotateValue,
+      '-moz-transform': rotateValue,
+      '-ms-transform': rotateValue,
+      '-o-transform': rotateValue,
+      'transform': rotateValue
+    });
+  }
+  function intitializeHover(el) {
+    var $li = $(el);
+    var $polaroidLists = $('#colleagues .polaroid').parent("li");
+    $polaroidLists.removeClass('hover').removeClass('openedByHover');
     var windowWidth = $(window).width();
-
-    //make sure we hide all open polaroid if the window size changed
-    if (windowWidth <= mobileMaxWidth)
-      hideAllPolaroids();
+    if (windowWidth > mobileMaxWidth)
+      $li.addClass('hover');
     else
-      swapAllMobileHoversBackToBlackAndWhite();
-  }
-  function swapAllMobileHoversBackToBlackAndWhite() {
-    _.each(polaroids, function (p) { p.swapGifMobileBackToZw(); });
-  }
-  function hideAllPolaroids(){
-    _.each(polaroids, function (p) { p.hide(); });
-  }
+      swapGifMobile();
 
-  function showPolaroid() {
-    var windowWidth = $(window).width();
-
-    var $li = $(this);
-    var name = $li.find(".color").attr("alt");
-    polaroids[name] = polaroids[name] || new Polaroid($li);
-    polaroids[name].show();
+    $polaroid.css('z-index', ++zIndex);
+    $polaroidLists.find('.closePolaroid').remove();
+    if (isTouchEnabled) {
+      var $closebutton = $('<div class="closePolaroid" />');
+      $closebutton.click(hide);
+      $polaroid.append($closebutton);
+    }
   }
-  function hidePolaroid() {
-    var $li = $(this);
-    var name = $li.find(".color").attr("alt");
-    polaroids[name] = polaroids[name] || new Polaroid($li);
-    polaroids[name].hide();
+  function destroyHover(el) {
+    var $li = $(el);
+    $li.removeClass('hover').removeClass('openedByHover');
+    $li.find('.closePolaroid').remove();
   }
+  function show(el) {
+    swapGif();
+    rotatePolaroid();
+    intitializeHover(el);
+  }
+  function hide(el) {
+    destroyHover(el);
+  }
+  return {
+    show: show,
+    hide: hide,
+    swapGifMobileBackToZw : swapGifMobileBackToZw
+  }
+}
+
+function onWindowResize() {
+  var windowWidth = $(window).width();
+
+  //make sure we hide all open polaroid if the window size changed
+  if (windowWidth <= mobileMaxWidth)
+    hideAllPolaroids();
+  else
+    swapAllMobileHoversBackToBlackAndWhite();
+}
+function swapAllMobileHoversBackToBlackAndWhite() {
+  _.each(polaroids, function (p) { p.swapGifMobileBackToZw(); });
+}
+function hideAllPolaroids(){
+  _.each(polaroids, function (p) { p.hide(); });
+}
+
+function showPolaroid(el) {
+  var windowWidth = $(window).width();
+
+  var $li = $(el);
+  var name = $li.find(".color").attr("alt");
+  polaroids[name] = polaroids[name] || new Polaroid($li);
+  polaroids[name].show(el);
+}
+function hidePolaroid(el) {
+  var $li = $(el);
+  var name = $li.find(".color").attr("alt");
+  polaroids[name] = polaroids[name] || new Polaroid($li);
+  polaroids[name].hide(el);
+}
 
 
-  function init() {
-    $(window).resize(_.debounce(onWindowResize, 100));
-    $('#colleagues li').live('mouseenter click', showPolaroid);
-    $('#colleagues li').live('mouseleave', _.debounce(hidePolaroid, 50));
-  };
-
-  $(init);
-})();
+var employeeEvents = {
+  "mouseenter li": function(evt) {
+    showPolaroid(evt.target);
+  },
+  "click li": function(evt) {
+    showPolaroid(evt.target);
+  },
+  "mouseleave li": function(evt) {
+    hidePolaroid(evt.target);
+  }
+};
+Template.employees.events(employeeEvents);
+Template.en_employees.events(employeeEvents);
 
 Template.filter_employees.list = function() {
   var filters = [
