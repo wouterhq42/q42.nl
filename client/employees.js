@@ -128,18 +128,15 @@ var Polaroid = function ($li) {
       $polaroid.append($closebutton);
     }
   }
-  function destroyHover(el) {
-    var $li = $(el);
-    $li.removeClass('hover').removeClass('openedByHover');
-    $li.find('.closePolaroid').remove();
-  }
   function show(el) {
     swapGif();
     rotatePolaroid();
     intitializeHover(el);
   }
   function hide(el) {
-    destroyHover(el);
+    var $li = $(el);
+    $li.removeClass('hover').removeClass('openedByHover');
+    $li.find('.closePolaroid').remove();
   }
   return {
     show: show,
