@@ -135,6 +135,7 @@
 /* Q42is */
 #q42is-header h1 {
   font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 #q42is-pre {
