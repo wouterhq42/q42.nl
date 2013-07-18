@@ -1,4 +1,3 @@
-
 function addLabel(label, handles) {
   if (handles && !(handles instanceof Array))
     handles = handles.split(" ");
@@ -115,7 +114,7 @@ addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 
 // Arbitraire selecties
 addLabel("Speelt nog World of Warcraft",  "rahul christiaan benjamin richard martijn coen");
-addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn"); // LOL!
+addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
 addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil huib")
 addLabel("Stokoud",                       "stef johan");
