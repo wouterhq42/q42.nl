@@ -9,13 +9,16 @@ Q42Router = Backbone.Router.extend
     "blog/post/:id/":              "blogpost"
     "blog/post/:id/:slug":         "blogpost"
     ":page":                       "main"
+    ":page/:subpage":              "main"
 
-  main: (page) ->
+  main: (page, subpage) ->
     # forward to domain without www.prefix
     # fallback in case server-side redirect doesn't work for some reason
     if window.location.hostname.indexOf("www.") is 0
       window.location.href = window.location.href.replace "http://www.", "http://"
       return
+
+    page = subpage if subpage
 
     if page
       page = page.split("#")[0].split("?")[0]
