@@ -144,33 +144,30 @@ footer {
   margin: 0;
 }
 
-
 .block-text h1 b,
 .blog h1 b {
   color: #232323;
   font-weight: normal;
 }
 
-/*block-full*/
-.block-full
-{
+.block-full {
   position: relative;
   border-bottom: solid #ccc 1px;
   padding: 40px 0;
   clear: both;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
-/* block-large */
 .block-large {
   border-bottom: solid #ccc 1px;
   padding: 40px 0;
   clear: both;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .blog .block-large {
   clear: none;
 }
+
 article h1,
 .block-large h1 {
   text-align: left;
