@@ -18,6 +18,9 @@ Q42Router = Backbone.Router.extend
       window.location.href = window.location.href.replace "http://www.", "http://"
       return
 
+    $(document.body).removeClass (item) -> item if /^page-.*/.test item
+    _.each [page, subpage], (item) -> $(document.body).addClass "page-#{item}" if item
+
     page = subpage if subpage
 
     if page
