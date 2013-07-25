@@ -143,9 +143,6 @@ footer {
 .blog h1 {
   margin: 0;
 }
-#q42is-header h1 {
-  font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
 .block-text h1 b,
 .blog h1 b {
@@ -153,26 +150,24 @@ footer {
   font-weight: normal;
 }
 
-/*block-full*/
-.block-full
-{
+.block-full {
   position: relative;
   border-bottom: solid #ccc 1px;
   padding: 40px 0;
   clear: both;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
-/* block-large */
 .block-large {
   border-bottom: solid #ccc 1px;
   padding: 40px 0;
   clear: both;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .blog .block-large {
   clear: none;
 }
+
 article h1,
 .block-large h1 {
   text-align: left;

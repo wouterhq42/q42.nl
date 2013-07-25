@@ -1,4 +1,3 @@
-
 function addLabel(label, handles) {
   if (handles && !(handles instanceof Array))
     handles = handles.split(" ");
@@ -51,7 +50,6 @@ var currentQers = [
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
  { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/"},
  { name: "Richard Lems", handle:"richard"},
- { name: "Rik van der Kroon", handle:"rik"},
  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl"},
  { name: "Sander de Vos", handle:"sander", phone: "070-4452354"},
  { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/"},
@@ -66,6 +64,7 @@ var currentQers = [
 
 var inserts = 0, updates = 0;
 _.each(currentQers, function(e) {
+  e.labels = [];
   var qer = Employees.findOne({handle: e.handle});
   if (!qer) {
     Employees.insert(e);
@@ -102,7 +101,7 @@ addLabel("Spaceventure",                  "martin rahul richard");
 
 // Roles
 addLabel("Projectleider",                 "jasper korjan timd gerard laurens tims");
-addLabel("Software Engineer",             _.without(allQers, "stef", "cynthia", "suzanne", "rik"));
+addLabel("Software Engineer",             _.without(allQers, "stef", "cynthia", "suzanne"));
 addLabel("Interaction Engineer",          "rahul elaine johan roelfjan frank");
 addLabel("Q'er",                          allQers);
 addLabel("De sjaak",                      [allQers[_.random(0, allQers.length)]]);
@@ -110,12 +109,12 @@ addLabel("Oprichter",                     "kars");
 addLabel("Student",                       "alexander herman janwillem");
 addLabel("Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil");
 addLabel("Ex-klant",                      "gerard matthijs stef");
-addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark rik martijnl michiel stef timd");
+addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark martijnl michiel stef timd");
 addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 
 // Arbitraire selecties
 addLabel("Speelt nog World of Warcraft",  "rahul christiaan benjamin richard martijn coen");
-addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn"); // LOL!
+addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
 addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil huib")
 addLabel("Stokoud",                       "stef johan");
@@ -129,7 +128,7 @@ addLabel("Verdient minder dan Jasper",    _.without(allQers, "jasper"));
 addLabel("Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian");
 addLabel("WWDC kaartje kwijtgeraakt",     "tims");
 addLabel("Heeft Max Raabe live gezien",   "kars martin wilbert laurens bob");
-addLabel("Schoenmaat 42",                 "rahul chris rik arian guus christiaan mark");
+addLabel("Schoenmaat 42",                 "rahul chris arian guus christiaan mark");
 addLabel("IQ boven de 200",               "sjoerd");
 addLabel("Blessure tijdens werktijd",     "rahul matthijs");
 addLabel("Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin");

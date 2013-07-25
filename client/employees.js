@@ -197,8 +197,8 @@ Template.filter_employees.list = function() {
       "Pepper", "D-reizen", "Greetz", "Malmberg"]}
     ,{name: "Producten", items: ["Handcraft"]}
     ,{name: "Games",     items: ["Cat Quest", "Quento", "Carrrrds", "Spaceventure"]}
-    ,{name: "School",    items: ["Universiteit Utrecht", "De Haagse Hogeschool", "Hogeschool Rotterdam", "TU Delft",
-                                 "Enschede", "Hogeschool van Amsterdam"]}
+  //  ,{name: "School",    items: ["Universiteit Utrecht", "De Haagse Hogeschool", "Hogeschool Rotterdam", "TU Delft",
+  //                               "Universiteit Enschede", "Hogeschool van Amsterdam"]}
     ,{name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "De sjaak", "Oprichter", "Student"]}
     ,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is",
       "Team Wintersport", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",

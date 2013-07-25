@@ -220,11 +220,9 @@ function q42Is() {
   var currentItem = $("#q42is span.selected");
   var nextItem = currentItem.next();
   currentItem.removeClass("selected");
-  container.delay(300).animate({ left: '-=' + currentItem.outerWidth() }, 1000, 'easeInOutQuart', function () {
-    nextItem.addClass("selected");
-    container.css({ left: 0 });
-    container.append(currentItem);
-  });
+  nextItem.delay(300).addClass("selected");
+  container.append(currentItem);
+
 }
 
 resizeShowreel = function () {

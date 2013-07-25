@@ -85,7 +85,9 @@ Template.body.footer = function() {
 
 Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
-    Router.loadPage(evt.target.getAttribute("href"));
+    var href = evt.target.getAttribute("href");
+    if (_.contains(href, ".")) return;
+    Router.loadPage(href);
     window.scrollTo(0,0);
     evt.preventDefault();
     return false;
