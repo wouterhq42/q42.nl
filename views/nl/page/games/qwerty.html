@@ -1,4 +1,5 @@
 <template name="qwerty">
+  <audio src="/audio/qwerty.mp3" autoplay loop id="audio"></audio>
   <link href="http://fonts.googleapis.com/css?family=Griffy" rel="stylesheet" type="text/css" />
   <style>
   .page-games.page-qwerty {
@@ -45,9 +46,23 @@
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAATlBMVEVNTU06Ojo/Pz89PT1SUlJLS0tOTk5CQkJDQ0NISEhQUFBRUVFERERHR0dGRkY5OTlPT088PDxKSkpBQUFJSUk7OztAQEA+Pj5MTExFRUXoP3UCAAAAGnRSTlNUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFJaql4AAAJwSURBVHgBndbbbqPYFgXQwQYM2NgmibtS9f8fd6riuH3HNteWeOjHIzVaQkJzaqwX9paIiExjNEj001uYnujfGcQamdbCHLKUiLSC3tNWq9MINlPdGLxsRI7WUqPHLPKhlk7FVqQWeXrTWqhFchedpUzjYa1VzCJvgsHRp7OFpVZt0FihsdGrdSqviQ26WaTE2lnmpDTqlGqj3tbBys27WOuIdy+vWeSHVuQq2Kg9jIIf/qe0NnqqJ/y3nVGtEM8iQSlxlxg9VRZecleFVuchn/IdLtZq6SySa/VK3AXvaoPS3ocGtV5uEEBvJZtFPpxsnXz6bS0zuFm5qQyOgkpwlbjL1AphFvmpkU7BcaKJXmrlJJe5GeycBBs9npqZpBfs/aV3Vih0Yi+JB3Jna3ednW+pN39mkU83qUStdJqiXCR3VEiNGpm7cloUXGSzSPEfr3E9i+QqX950Oi/vYmeJMNU3hdSXVGJaLLKcRWKVo51R7Lef9irTp/NSiFw1CkGkFek0s8h04G19WRhs3UUeVgqDl8FS72Wp85SIXWYRNoLUwyB3k7sL2PmWaZROShe51m7q5pAPR4W7Xy5GDxsva2e5qzdnhdrCmy+Zp0/tLPJT5KpVOvj0JVGJ8G0hUUsktlp3g9hoNYvElpZTUDhYWYsM9pZqG4UzMk8rZxWGWSQRy2QSo4NWaueP0kKtk1n6ltq6awStbBYJCqmLwS+9gL2No1yn0knxsHZSehk1s0j0f38LMkEnsXDTC1LxLEIqEWsUMt8qiYOV2oe9ylEldTAoLT2ks8iHu1wvchNJVfZS9JZqmdhFsDa4CnrFHPIPIkc2vQLPxhIAAAAASUVORK5CYII=);
     }
   }
+  #toggleAudio {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 50px; right: 0;
+    z-index: 99999;
+  }
+  #toggleAudio:hover {
+    color: #ffc;
+  }
+  #toggleAudio:active {
+    color: #999;
+  }
   </style>
   <div id="noise"></div>
   <section id="qwerty">
+    <div id="toggleAudio"><i class="icon-volume-up icon-volume-up-2x"></i></div>
     <section>
       <header class="block-text" style="display:none">
         <h1><b>Qwerty's</b> Cat Caper</h1>
@@ -123,7 +138,7 @@
             <figcaption class="body">
               <h2>Simpel en voor iedereen</h2>
               <p>Qwerty's Cat Caper is voor iedereen. Het maakt niet uit welke taal je spreekt of hoe oud je bent.
-                Daarom hebben we de bediening simpel en (bijna) tekst-vrij gehouden.</p>
+                Daarom hebben we de bediening simpel en (bijna) tekst-vrij gehouden. Zelfs oma kan dan meedoen!</p>
             </figcaption>
           </figure>
         </article>
@@ -133,14 +148,14 @@
         <figure>
           <figcaption class="body">
             <h2>Maak je eigen levels</h2>
-            <p>Naast het spelen van de standaardlevels in Qwerty's Cat Caper, kun je ook je eigen levels maken.</p>
-            <p>Dat doe je met de eenvoudige en intuïtieve level editor.</p>
+            <p>Naast het spelen van de gewone levels, kun je in Qwerty's Cat Caper ook je eigen levels maken.</p>
+            <p>Dat doe je met de supersimpele level editor.</p>
             <p>En binnenkort kun je zelf gemaakte levels ook delen met anderen!</p>
           </figcaption>
           <div class="visual">
             <a class="visual caption">
               <img src="/images/games/qwerty/screenshot3.jpg" alt="">
-              <p>Vanaf 5 jaar. Tot en met 100</p>
+              <p>Ja, vroeger zag je spelletje er op de tv zo uit</p>
             </a>
           </div>
         </figure>
