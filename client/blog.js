@@ -173,6 +173,6 @@ function getPictureURL(user) {
   if (services.facebook)
     return "https://graph.facebook.com/" + services.facebook.id + "/picture";
   if (services.github)
-    return Gravatar.imageUrl(services.github.email);
+    return Gravatar.imageUrl(services.github.email || "");
   return "/images/employees/anonymous.jpg";
 }

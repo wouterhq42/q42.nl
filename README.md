@@ -19,7 +19,7 @@ The hard bit since the repo is around ~100MB
 	
 ### But I have Windows
 
-Meteor doesn't currently support Windows. Buy a Mac!
+Visit http://win.meteor.com/ for instructions on how to get Meteor running on Windows.
 
 ### Install the Meteorite package manager
 
@@ -33,10 +33,10 @@ Create a file in the server/lib directory called `tumblr_api_key.js` that declar
 	
 This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
 
-### cd into checkout and run meteorite
+### cd into checkout and run meteor
 
 	cd q42.nl
-	mrt
+	meteor
 
 # Contributing
 
