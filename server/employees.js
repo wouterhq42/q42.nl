@@ -162,5 +162,8 @@ Meteor.publish("employeeHandles", function () {
 Meteor.methods({
   addQer: function(record) {
     Employees.insert(record);
+  },
+  getQers: function() {
+    return Employees.find();
   }
 });
