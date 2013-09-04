@@ -30,6 +30,7 @@ Meteor.publish("allUserData", function () {
     'services.facebook': 1,
     'services.google.id': 1,
     'services.google.picture': 1,
-    'services.twitter.id': 1
+    'services.twitter.id': 1,
+    'services.twitter.profile_image_url': 1
   }});
 });

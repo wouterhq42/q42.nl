@@ -10,7 +10,6 @@ backbone
 underscore
 http
 stylus
-font-awesome
 accounts-ui
 accounts-base
 accounts-google
@@ -20,3 +19,7 @@ accounts-github
 gravatar
 marked
 coffeescript
+standard-app-packages
+crypto-base
+router
+font-awesome

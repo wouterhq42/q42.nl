@@ -167,12 +167,12 @@ function getPictureURL(user) {
     return "/images/employees/anonymous.jpg";
   var services = user.services;
   if (services.twitter)
-    return "https://api.twitter.com/1/users/profile_image?user_id=" + services.twitter.id;
+    return services.twitter.profile_image_url;
   if (services.google)
     return services.google.picture;
   if (services.facebook)
     return "https://graph.facebook.com/" + services.facebook.id + "/picture";
   if (services.github)
-    return Gravatar.imageUrl(services.github.email);
+    return Gravatar.imageUrl(services.github.email || "");
   return "/images/employees/anonymous.jpg";
 }
