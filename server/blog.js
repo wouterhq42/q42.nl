@@ -15,12 +15,19 @@ Meteor.methods({
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
       params: { api_key: TUMBLR_KEY, limit: 5 }
     }, function(error, result) {
-      var count = result.data && result.data.response.posts.length;
+      var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
       if (result.statusCode == 200 && count)
       {
         console.log("Updating " + count + " from Tumblr.")
         for (var i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
+      }
+      else
+      {
+        if (count !== 0)
+          console.log("Unexpected result:", result);
+        if (error)
+          console.log("Error:", error);
       }
     });
   },
@@ -35,7 +42,7 @@ Meteor.methods({
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
       params: { api_key: TUMBLR_KEY, limit: 20, offset: offset }
     }, function(error, result) {
-      var count = result.data && result.data.response.posts.length;
+      var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
       if (result.statusCode == 200 && count)
       {
         console.log("Importing " + count + " from Tumblr.")
@@ -44,8 +51,12 @@ Meteor.methods({
         Meteor.call("reimportTumblr", offset + 20);
       }
       else
+      {
+        if (count !== 0)
+          console.log("Unexpected result:", result);
         if (error)
           console.log("Error:", error);
+      }
     });
   },
   addComment: function(blogpostId, text)
