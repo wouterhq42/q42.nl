@@ -13,7 +13,6 @@ Q42Router = Backbone.Router.extend
     ":page/:subpage":              "main"
 
   main: (page, subpage) ->
-    console.log page, subpage
     # forward to domain without www.prefix
     # fallback in case server-side redirect doesn't work for some reason
     if window.location.hostname.indexOf("www.") is 0
