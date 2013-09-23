@@ -8,10 +8,12 @@ Q42Router = Backbone.Router.extend
     "blog/post/:id":               "blogpost"
     "blog/post/:id/":              "blogpost"
     "blog/post/:id/:slug":         "blogpost"
+    "wootcamp":                    "wootcamp"
     ":page":                       "main"
     ":page/:subpage":              "main"
 
   main: (page, subpage) ->
+    console.log page, subpage
     # forward to domain without www.prefix
     # fallback in case server-side redirect doesn't work for some reason
     if window.location.hostname.indexOf("www.") is 0
@@ -36,6 +38,9 @@ Q42Router = Backbone.Router.extend
         document.title += " - Q42"
 
     @checkFragmentId()
+
+  wootcamp: ->
+    window.location.href = window.location.href.replace "wootcamp", "w00tcamp" 
 
   blog: (page, tag) ->
     Session.set "blogpage", 1 * page or 0
