@@ -8,6 +8,7 @@ Q42Router = Backbone.Router.extend
     "blog/post/:id":               "blogpost"
     "blog/post/:id/":              "blogpost"
     "blog/post/:id/:slug":         "blogpost"
+    "wootcamp":                    "wootcamp"
     ":page":                       "main"
     ":page/:subpage":              "main"
 
@@ -36,6 +37,9 @@ Q42Router = Backbone.Router.extend
         document.title += " - Q42"
 
     @checkFragmentId()
+
+  wootcamp: ->
+    window.location.href = window.location.href.replace "wootcamp", "w00tcamp" 
 
   blog: (page, tag) ->
     Session.set "blogpage", 1 * page or 0
