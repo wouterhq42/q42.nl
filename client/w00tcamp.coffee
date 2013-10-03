@@ -40,8 +40,12 @@ countdown = ->
   w00t = new Date(2013, 10, 8)
   if now < round1
     msg days(now, round1), "Pitchronde 1"
+  else if days(now, round1) == 0
+    "Vandaag is <strong>Pitchronde 1</strong>!"
   else if now < round2
     msg days(now, round2), "Pitchronde 2"
+  else if days(now, round2) == 0
+    "Vandaag is <strong>Pitchronde 2</strong>!"
   else if now < w00t
     msg days(now, w00t), "w00tcamp"
   else if days(now, w00t) <= -2
