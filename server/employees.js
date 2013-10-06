@@ -26,8 +26,8 @@ var currentQers = [
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
  { name: "Huib Piguillet", handle: "huib", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Jaap Taal", handle:"jaap"},
- { name: "Jaap Mengers", handle: "jaapm", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
- { name: "Jan-Willem Maneschijn", handle:"janwillem"},
+ { name: "Jaap Mengers", handle: "jaapm"},
+ //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
  //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
@@ -37,7 +37,7 @@ var currentQers = [
  { name: "Kars Veling", handle:"kars", phone: "070-4452350"},
  { name: "Katja Hollaar", handle:"katja"},
  { name: "Korjan van Wieringen", handle:"korjan"},
- { name: "Laurens van den Oever", handle:"laurens", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
+ { name: "Laurens van den Oever", handle:"laurens"},
  { name: "Leonard Punt", handle:"leonard"},
  { name: "Lukas van Driel", handle:"lukas", phone: "070-4452366", web: "http://developer.3l.nl/"},
  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/"},
@@ -65,8 +65,13 @@ var currentQers = [
 var inserts = 0, updates = 0;
 _.each(currentQers, function(e) {
   e.labels = [];
-  e.floorplan = {x: 0, y: 0};
+
   var qer = Employees.findOne({handle: e.handle});
+
+  e.floorplan = qer.floorplan;
+  if (!e.floorplan)
+    e.floorplan = {x:0, y:0};
+
   if (!qer) {
     Employees.insert(e);
     inserts++;
