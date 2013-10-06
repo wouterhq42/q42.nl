@@ -27,7 +27,7 @@ var currentQers = [
  { name: "Huib Piguillet", handle: "huib", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jaap Mengers", handle: "jaapm", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
- { name: "Jan-Willem Maneschijn", handle:"janwillem"},
+ //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
  //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
@@ -65,7 +65,11 @@ var currentQers = [
 var inserts = 0, updates = 0;
 _.each(currentQers, function(e) {
   e.labels = [];
-  e.floorplan = {x: 0, y: 0};
+
+  e.floorplan = e.floorplan || {};
+  e.floorplan.x = e.floorplan.x || 0;
+  e.floorplan.y = e.floorplan.y || 0;
+
   var qer = Employees.findOne({handle: e.handle});
   if (!qer) {
     Employees.insert(e);
