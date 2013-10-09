@@ -16,23 +16,6 @@ Template.w00tcamp.countdown = -> countdown()
 
 Template.video_overlay.currentDateTime = -> getDateTime()
 
-###
-var weather = "sunny";
-var weatherDep = new Deps.Dependency;
-
-var getWeather = function () {
-  weatherDep.depend()
-  return weather;
-};
-
-var setWeather = function (w) {
-  weather = w;
-  // (could add logic here to only call changed()
-  // if the new value is different from the old)
-  weatherDep.changed();
-};
-###
-
 countdown = ->
   now = new Date()
   round1 = new Date(2013, 9, 3)
