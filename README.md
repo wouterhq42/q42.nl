@@ -37,6 +37,14 @@ This is required for the blog to not explode (even though you won't actually be 
 
 	cd q42.nl
 	meteor
+	
+# Deploying
+
+Since you need to deploy to two separate sites (q42.nl and q42.com), there's a script which will take care of both commands. Just run:
+
+	./deploy.sh
+	
+Deploying is protected by a password which you should place in `password.txt` in the root followed by a newline.
 
 # Contributing
 
