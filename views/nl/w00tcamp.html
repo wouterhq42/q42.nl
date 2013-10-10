@@ -1,5 +1,10 @@
 <template name="w00tcamp">
 <style>
+body {
+  font-family: monospace;
+  background-image: url(http://3.bp.blogspot.com/-mvmaXN8reK4/UKSGrkaw-kI/AAAAAAAADNs/IiFdSWfVy3o/s1600/white_grid_paper-background_pattern.jpg);
+}
+
 #w00tcamp-header h1 {
   text-align: center;
 }
@@ -30,10 +35,10 @@
 
 #current-date-time {
   position: absolute;
-  bottom: 20px; left: 30px;
+  bottom: 42px; left: 60px;
   display: inline-block;
-  padding: 4px;
-  background: black;
+  padding: 8px;
+  background: rgba(0,0,0,.5);
   color: #ddd;
   font: normal 22px monospace;
   letter-spacing: 1px;
@@ -87,50 +92,49 @@
         <h1>
           <span style="display: none">w00tcamp 2013</span>
           <img src="/images/w00tcamp/w00tcamp-logo.png" alt="w00tcamp" id="w00tcamp-logo">
-          <br>
+          <br><br>
           <span style="display: none"> - </span>
           <div id="countdown">{{{countdown}}}</div>
         </h1>
+        <p style="text-align:center">Onze 'best and brightest' zijn al in het geheim bezig met het uitwerken van ideeën.</p>
       </header>
 
-        <div class="block-large">
-          <div class="bigText introText">
-            <p>Ieder jaar houden we bij Q42 een tweedaagse hackathon. In twee pitchrondes presenteren we onze idee&euml;n aan elkaar, waarna de beste en coolste idee&euml;n worden gekozen en teams worden gevormd. 
-            Je kunt op de w00tcampsite van <a href="/w00tcamp/2012">vorig jaar</a> zien wat we zoal bedenken.</p>
-
-            <h2>Data</h2>
-            <p>
-              De pitchrondes vinden plaats op:<br />
-              <ul>
-                <li>3 oktober in Den Haag</li>
-                <li>17 oktober in Amsterdam</li>
-              </ul>
-            </p>
-            <p>w00tcamp vindt plaats in Den Haag en loopt van vrijdag 8 november om 09:00 tot zaterdag 9 november om 17:00.</p>
-
-            <h2>Invite only</h2>
-            <p>Wil je meedoen met w00tcamp, maar heb je geen invite ontvangen? Stuur ons dan even <a href="mailto:w00tcamp@q42.nl">een mailtje</a>.
-
-            <h2>Heb je een idee?</h2>
-            <p>Registreer je idee in <a href="https://docs.google.com/a/q42.nl/forms/d/1cX0nPRr56YsaFGi7vSGMFhY0NFfX4k2DCb9RTfldJj4/viewform">dit formulier</a> om mee te kunnen doen aan de pitchrondes.
-          </div>
-          <div class="block-small subcontent">
-            <h2>Zie ook</h2>
-            <ul>
-              <li><a href="/w00tcamp/2012">w00tcamp 2012</a></li>
-              <li><a class="external" href="http://w00tcamp.nl">w00tcamp 2012 blog</a></li>
-              <li><a class="external" href="http://w00tcamp2011.tumblr.com">w00tcamp 2011 blog</a></li>
-            </ul>
-          </div>
+      <div class="block-full" id="live-cam">
+        <div>
+          {{> background_video}}
         </div>
-       
-        <p>Onze 'best and brightest' zijn al in het geheim bezig met het uitwerken van ideeën.</p>
-        
-        <div class="block-full" id="live-cam">
-          <div>
-            {{> background_video}}
-          </div>
-        </div>        
+      </div>
+
+      <div class="block-large">
+        <div class="bigText introText">
+          <p>Ieder jaar voeren we bij Q42 twee dagen lang experimenten uit in de vorm van een hackathon. In twee pitchrondes presenteren we onze idee&euml;n aan elkaar, waarna de idee&euml;n die het beste met de groep reageren worden gekozen en teams worden gevormd. Ieder jaar proberen we ook een uniek thema aan w00tcamp te geven. Dit jaar is het thema <b>science</b>, vorig jaar was het <b>piraten</b>.
+          Je kunt op de w00tcampsite van <a href="/w00tcamp/2012">vorig jaar</a> zien wat we zoal bedenken.</p>
+
+          <h2>Data</h2>
+          <p>
+            De pitchrondes vinden plaats op:<br />
+            <ul>
+              <li>3 oktober in Den Haag</li>
+              <li>17 oktober in Amsterdam</li>
+            </ul>
+          </p>
+          <p>w00tcamp vindt plaats in Den Haag en loopt van vrijdag 8 november om 09:00 tot zaterdag 9 november om 17:00.</p>
+
+          <h2>Invite only</h2>
+          <p>Wil je meedoen met w00tcamp, maar heb je geen invite ontvangen? Stuur ons dan even <a href="mailto:w00tcamp@q42.nl">een mailtje</a>.
+
+          <h2>Heb je een idee?</h2>
+          <p>Registreer je idee in <a href="https://docs.google.com/a/q42.nl/forms/d/1cX0nPRr56YsaFGi7vSGMFhY0NFfX4k2DCb9RTfldJj4/viewform">dit formulier</a> om mee te kunnen doen aan de pitchrondes.
+        </div>
+        <div class="block-small subcontent">
+          <h2>Zie ook</h2>
+          <ul>
+            <li><a href="/w00tcamp/2012">w00tcamp 2012</a></li>
+            <li><a class="external" href="http://w00tcamp.nl">w00tcamp 2012 blog</a></li>
+            <li><a class="external" href="http://w00tcamp2011.tumblr.com">w00tcamp 2011 blog</a></li>
+          </ul>
+        </div>
+      </div>
 
     </section>
   </section>
