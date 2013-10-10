@@ -65,18 +65,18 @@ var currentQers = [
 var inserts = 0, updates = 0;
 _.each(currentQers, function(e) {
   e.labels = [];
+  e.floorplan = {x:0, y:0};
 
   var qer = Employees.findOne({handle: e.handle});
-
-  e.floorplan = qer.floorplan;
-  if (!e.floorplan)
-    e.floorplan = {x:0, y:0};
 
   if (!qer) {
     Employees.insert(e);
     inserts++;
   }
   else {
+    if (qer.floorplan)
+      e.floorplan = qer.floorplan;
+ 
     Employees.update({handle: e.handle}, e, {set: e});
     updates++;
   }
