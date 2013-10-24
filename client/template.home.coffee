@@ -1,5 +1,12 @@
 Carrousel = [
   {
+    url: "http://handcraft.com"
+    bg: "/images/carrousel/handcraft.jpg"
+    text: "De nieuwe Handcraft is er"
+    en_text: "The new Handcraft is here"
+    pos: "left"
+  }
+  {
     url: "/blog/post/58908429444/steve-jobsschools-make-young-nerds-happy"
     bg: "/images/carrousel/stevejobsschool.jpg"
     text: "Steve JobsScholen maken jonge nerds blij"
