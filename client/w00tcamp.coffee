@@ -47,5 +47,5 @@ days = (d1, d2) ->
   Math.ceil (d2 - d1) / 1000 / 60 / 60 / 24
 
 Meteor.setTimeout ->
-  $('#background-video')[0].play()
+  $('#background-video')[0]?.play()
 , 1000
