@@ -24,7 +24,6 @@ var currentQers = [
  { name: "Gerard Dorst", handle:"gerard"},
  { name: "Guus Goossens", handle:"guus"},
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
- { name: "Huib Piguillet", handle: "huib", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jaap Mengers", handle: "jaapm"},
  //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},

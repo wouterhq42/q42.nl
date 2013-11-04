@@ -358,6 +358,21 @@ nav ul li a:hover {
 }
 .iconList li div { display: inline-block; padding: 4px 0px 0px 9px; }
 
+.iconList.no-text li {
+  display: inline-block;
+}
+.iconList.no-text li div {
+  display: none;
+  padding: 0;
+}
+.iconList.no-text a {
+  color: inherit !important;
+}
+.iconList.no-text a:hover {
+  color: #88c546 !important;
+  text-decoration: none !important;
+}
+
 /* Big text block */
 .block-large {}
 .block-large .bigText { width: 600px; margin: 0 20px 0 0; float: left; }
