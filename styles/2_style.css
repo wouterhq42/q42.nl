@@ -173,7 +173,7 @@ article h1,
   text-align: left;
 }
 article h2,
-.block-large > figure > .body > h2
+.block-large > .figure > .body > h2
 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.04em;
@@ -183,17 +183,17 @@ article h2,
 }
 .blog article h2,
 .comments h2,
-.blog .block-large > figure > .body > h2 {
+.blog .block-large > .figure > .body > h2 {
   font: normal 1.4em ABeeZee,Georgia,Times,serif;
   letter-spacing: -1px;
 }
-.block-large > figure > .body > h3 {
+.block-large > .figure > .body > h3 {
   font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
   margin-top: -18px;
   color: #888;
 }
-.block-large figure {
+.block-large .figure {
   margin: 0;
   padding: 0;
   border: none;
@@ -322,7 +322,7 @@ span {
   margin: 0 0 5px 0;
   line-height: 1;
 }
-.blog .bigText figure {
+.blog .bigText .figure {
   margin-top: 20px;
 }
 
