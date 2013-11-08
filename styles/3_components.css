@@ -283,7 +283,7 @@ nav ul li a:hover {
 
 /* VISUAL */
 
-.block-small figure { float: left; }
+.block-small .figure { float: left; }
 
  a.caption,
 .visual.caption, .visual.caption p, .visual.caption img

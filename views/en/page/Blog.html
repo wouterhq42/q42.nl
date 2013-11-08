@@ -28,16 +28,16 @@
           {{/if}}
           {{#if photos}}
           <!-- image(s) -->
-            <figure>
+            <div class="figure">
             {{#each photos.0.alt_sizes}}
               {{#ifWidthEquals 500}}
                 <img src="{{url}}" alt="">
               {{/ifWidthEquals}}
             {{/each}}
-              <figcaption>
+              <div class="figcaption">
                 {{{caption}}}
-              </figcaption>
-            </figure>
+              </div>
+            </div>
             {{> en_postDate}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
@@ -98,16 +98,16 @@
               {{> en_postDate}}
               {{{caption}}}
               {{#each photos}}
-                <p><figure>
+                <p><div class="figure">
                 {{#each alt_sizes}}
                   {{#ifWidthEquals 500}}
                     <img src="{{url}}" alt="">
                   {{/ifWidthEquals}}
                 {{/each}}
-                  <figcaption>
+                  <div class="figcaption">
                     {{{caption}}}
-                  </figcaption>
-                </figure></p>
+                  </div>
+                </div></p>
               {{/each}}
             {{/if}}
             {{#if description}}
