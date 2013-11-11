@@ -1,5 +1,12 @@
 Carrousel = [
   {
+    url: "http://w00tcamp2013.tumblr.com"
+    bg: "/images/carrousel/w00tcamp2013.jpg"
+    text: "w00tcamp is weer begonnen!"
+    en_text: "w00tcamp has started again!"
+    pos: "left"
+  }
+  {
     url: "http://handcraft.com"
     bg: "/images/carrousel/handcraft.jpg"
     text: "De nieuwe Handcraft is er"
