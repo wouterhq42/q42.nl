@@ -111,7 +111,7 @@ addLabel("Interaction Engineer",          "rahul elaine johan roelfjan frank");
 addLabel("Q'er",                          allQers);
 addLabel("De sjaak",                      [allQers[_.random(0, allQers.length)]]);
 addLabel("Oprichter",                     "kars");
-addLabel("Student",                       "alexander herman janwillem");
+addLabel("Student",                       "alexander herman");
 addLabel("Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil");
 addLabel("Ex-klant",                      "gerard matthijs stef");
 addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark martijnl michiel stef timd");
@@ -121,7 +121,7 @@ addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 addLabel("Speelt nog World of Warcraft",  "rahul christiaan benjamin richard martijn coen");
 addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
-addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil huib")
+addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
 addLabel("Stokoud",                       "stef johan");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
 addLabel("Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd");
