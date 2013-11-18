@@ -25,6 +25,10 @@ Visit http://win.meteor.com/ for instructions on how to get Meteor running on Wi
 
 	sudo npm install -g meteorite
 	
+### Install packages locally
+
+	mrt install
+	
 ### Add a tumblr API key
 
 Create a file in the server/lib directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
