@@ -1,6 +1,6 @@
 Meteor.startup(function () {
-  $(window).bind('resize', resize);
-  $(window).bind('resize', resizeFBwidget);
+  $(window).bind("resize", resize);
+  $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
   $(window).bind("scroll", bounceBack);
 
@@ -35,7 +35,7 @@ Meteor.startup(function () {
 
   marked.setOptions({ breaks: true });
 
-  Backbone.history.start({pushState: true});
+  //Backbone.history.start({pushState: true});
 });
 
 var isPhantom = /phantom/i.test(navigator.userAgent);
@@ -43,16 +43,6 @@ Handlebars.registerHelper("isPhantom", function() {
   return isPhantom;
 });
 
-Template.body.content = function() {
-  var lang = Session.get("lang") == "en" ? "en_" : "";
-  var page = Session.get("page") || "home";
-
-  // if the template for the current language doesn't exist,
-  // fall back to Dutch version or show a 404
-  var template = Template[lang + page] || Template[page] || Template[lang + "error404"];
-
-  return template();
-}
 Template.body.rendered = function() {
   // If we've given the main section the show class we're done.
   if ($("body>section.show")[0])
@@ -66,28 +56,17 @@ Template.body.rendered = function() {
   updateLightbar();
 }
 
-Template.body.viewRendersHeader = function() {
+Template.body.defaultNav = function() {
   var page = Session.get("page") || "home";
-  return page == "home";
-}
-
-Template.body.header = function() {
-  var lang = Session.get("lang") == "en" ? "en_" : "";
-  var template = Template[lang + "header"];
-  return template();
-}
-
-Template.body.footer = function() {
-  var lang = Session.get("lang") == "en" ? "en_" : "";
-  var template = Template[lang + "footer"];
-  return template();
+  return page != "home";
 }
 
 Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
     var href = evt.target.getAttribute("href");
     if (_.contains(href, ".")) return;
-    Router.loadPage(href);
+    //_Router.loadPage(href);
+    Router.go(href);
     window.scrollTo(0,0);
     evt.preventDefault();
     return false;

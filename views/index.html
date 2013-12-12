@@ -49,16 +49,14 @@
   <script>try{Typekit.load();}catch(e){}</script>
 </head>
 
-<body>
-  {{> body}}
-</body>
-
 <template name="body">
-  {{#unless viewRendersHeader}}
+  {{#if defaultNav}}
     <div id="header">
-      {{{header}}}
+      {{yield 'header'}}
     </div>
-  {{/unless}}
-  {{{content}}}
-  {{{footer}}}
+  {{/if}}
+
+  {{yield}}
+
+  {{yield 'footer'}}
 </template>

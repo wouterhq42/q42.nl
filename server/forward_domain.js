@@ -1,6 +1,6 @@
 
 // 301 redirect to remove www. from domain
-Meteor.startup(function() {
+/*Meteor.startup(function() {
   Meteor.Router.add("*", function() {
     var host = this.request.headers.host;
     var url = this.request.url;
@@ -12,4 +12,4 @@ Meteor.startup(function() {
 
     return false;
   });
-});
+});*/

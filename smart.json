@@ -4,6 +4,7 @@
     "font-awesome": {},
     "HTML5-History-API": {},
     "gravatar": {},
-    "marked": {}
+    "marked": {},
+    "iron-router": {}
   }
 }

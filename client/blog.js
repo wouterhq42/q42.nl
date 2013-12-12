@@ -1,21 +1,15 @@
-var blogpostFull = new Meteor.Collection("blogpostFull");
-var blogpostIndex = new Meteor.Collection("blogpostIndex");
+window.blogpostFull = new Meteor.Collection("blogpostFull");
+window.blogpostIndex = new Meteor.Collection("blogpostIndex");
 var LatestComments = new Meteor.Collection("LatestComments");
 
 Deps.autorun(function() {
-  Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
-  Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
-  Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
+  //Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
+  //Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
+  //Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
   Meteor.subscribe("blogComments", Session.get("blogpostid"));
   Meteor.subscribe("LatestComments", 10);
 });
 
-Template.en_blog.post = Template.blog.post = function() {
-  var posts = blogpostIndex.find({}, {sort: {date: -1}});
-  if (posts.count() > 0)
-    Meteor.call("checkTumblr");
-  return posts;
-}
 Template.en_blog.rendered = Template.blog.rendered = function() {
   syntaxHighlight();
 }
@@ -45,9 +39,6 @@ Template.en_blog.tag = Template.blog.tag = function() {
   return Session.get("blogtag");
 }
 
-Template.en_blogpost.post = Template.blogpost.post = function() {
-  return blogpostFull.findOne();
-}
 Template.en_blogpost._404 = Template.blogpost._404 = function() {
   return Template.en_error404();
 }

@@ -71,7 +71,17 @@
     </div>
 
     {{> blogSidebar}}
-    {{> pageNav}}
+
+    <nav id="pageNav">
+      <ul class="clearfix">
+        {{#each pagination}}
+          <li>
+            <a href="/blog{{#if tag}}/tagged/{{tag}}{{/if}}/page/{{page}}"
+              {{#if active}} class="active"{{/if}}>{{label}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
   </section>
 </template>
 
