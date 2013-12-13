@@ -23,16 +23,15 @@ if Meteor.isClient
 
     @route "home",
       path: "/"
-      action: ->
-        lang = Session.get "lang"
-        @render (if lang is "en" then "en_home" else "home")
+      action: -> @render (if Session.equals("lang", "en") then "en_home" else "home")
 
     @route "blog",
       path: "/blog/:page?/:pageNumOrTagName?"
       waitOn: ->
         [
-          Meteor.subscribe("blogpostIndex", @params.pageNumOrTagName * 1, @params.pageNumOrTagName)
-          Meteor.subscribe("pagesByTag", @params.pageNumOrTagName or "")
+          Meteor.subscribe "blogpostIndex", @params.pageNumOrTagName * 1, @params.pageNumOrTagName
+          Meteor.subscribe "pagesByTag", @params.pageNumOrTagName or ""
+          Meteor.subscribe "LatestComments", 10
         ]
       data: ->
         if @params.page is null and not @params.page in ["page", "tagged"]
@@ -59,19 +58,33 @@ if Meteor.isClient
           if page < pages
             items.push label: "ouder", page: page + 1
 
-        return post: posts, pagination: items
+        return post: posts, pagination: items, tag: @params.pageNumOrTagName
 
     @route "blogpost",
       path: "/blog/post/:id/:title"
-      waitOn: -> Meteor.subscribe "blogpostFull", @params.id * 1
-      data: -> post: blogpostFull.findOne()
+      before: -> Session.set "blogpostid", @params.id * 1
+      waitOn: -> [
+        Meteor.subscribe "blogpostIndex", 1
+        Meteor.subscribe "blogpostFull", @params.id * 1
+        Meteor.subscribe "blogComments", @params.id * 1
+        Meteor.subscribe "LatestComments", 10
+      ]
+      data: -> {
+        post:           blogpostFull.findOne()
+        comments:       BlogComments.find({}, sort: date: -1)
+        commentsCount:  BlogComments.find().count()
+        oneComment:     BlogComments.find().count() is 1
+      }
 
     @route "page",
       path: "/:page"
       before: -> Session.set "page", @params.page
-      action: ->
-        lang = Session.get "lang"
-        @render (if lang is "en" then "en_" + @params.page else @params.page)
+      action: -> @render (if Session.equals("lang", "en") then "en_" + @params.page else @params.page)
+      data: ->
+        # there should be a nicer way to do this...
+        tmpl = (if Session.equals("lang", "en") then "en_" + @params.page else @params.page)
+        return null unless Template[tmpl]
+        [] # data() needs to return something
 
 if Meteor.isServer
 
