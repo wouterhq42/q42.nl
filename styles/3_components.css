@@ -492,7 +492,7 @@ nav ul li a:hover {
 #colleagues ol li .polaroid .closePolaroid {
   width: 30px;
   height: 30px;
-  background: url('/images/closebox.png') no-repeat;
+  background: url('http://static.q42.nl/images/closebox.png') no-repeat;
   position: absolute;
   top: -16px;
   right: -16px;
@@ -545,7 +545,7 @@ nav ul li a:hover {
   font-size: 14px;
 }
 #footer .external {
-  background: url(/images/external_link_icon_green.png) no-repeat center right;
+  background: url(http://static.q42.nl/images/external_link_icon_green.png) no-repeat center right;
   padding-right: 18px;
 }
 #footer .social {
@@ -618,10 +618,10 @@ nav ul li a:hover {
   padding: 5px 0px 7px 0px;
 }
 
-#footer .twitter-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
-#footer .linkedin-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
-#footer .youtube-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
-#footer .vimeo-icon a { background: url(/images/external_link_icon_green.png) no-repeat center right; }
+#footer .twitter-icon a { background: url(http://static.q42.nl/images/external_link_icon_green.png) no-repeat center right; }
+#footer .linkedin-icon a { background: url(http://static.q42.nl/images/external_link_icon_green.png) no-repeat center right; }
+#footer .youtube-icon a { background: url(http://static.q42.nl/images/external_link_icon_green.png) no-repeat center right; }
+#footer .vimeo-icon a { background: url(http://static.q42.nl/images/external_link_icon_green.png) no-repeat center right; }
 
 #footer #endtag {
   font: 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;

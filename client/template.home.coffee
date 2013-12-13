@@ -50,9 +50,9 @@ Template.carrousel_items.text = ->
     @text
 Template.carrousel_items.bg = ->
   if @en_bg and Session.equals "lang", "en"
-    @en_bg
+    "http://static.q42.nl#{@en_bg}"
   else
-    @bg
+    "http://static.q42.nl#{@bg}"
 
 Template.carrousel_items.todaysDate = -> moment().format("YYYY-MM-DD")
 

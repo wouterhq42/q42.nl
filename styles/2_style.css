@@ -55,7 +55,7 @@ textarea {
 a, a:visited { color: #1D78B4; text-decoration: none; }
 a:hover { color: #1D78B4; text-decoration: underline; }
 .external {
-  background: url(/images/external_link_icon.png) no-repeat center right;
+  background: url(http://static.q42.nl/images/external_link_icon.png) no-repeat center right;
   padding-right: 18px;
 }
 .readmore {
@@ -301,7 +301,7 @@ span {
 
 .reblog .bigText {
   padding: 0 0 0 4em;
-  background: url(/images/icon_reblog.jpeg) 1em no-repeat;
+  background: url(http://static.q42.nl/images/icon_reblog.jpeg) 1em no-repeat;
 }
 .reblog h1 {
   font-size: 32px;
