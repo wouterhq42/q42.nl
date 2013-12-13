@@ -39,16 +39,24 @@ This is required for the blog to not explode (even though you won't actually be 
 
 ### Set up the CDN
 
-	We are now serving all assets from a Google Cloud Storage bucket. To set this up on your machine you're going to need the `gsutil` command line utility. Info on how to get this running and other details you might be interested in are found here:
+We are now serving all assets from a Google Cloud Storage bucket. To set this up on your machine you're going to need the `gsutil` command line utility. Info on how to get this running and other details you might be interested in are found here:
 
-	https://developers.google.com/storage/docs/gsutil_install
+https://developers.google.com/storage/docs/gsutil_install
 
-	The `gsutil` command is used by the `deploy.sh` script when deploying the site. It will publish all the assets to the CDN for you automatically! Unfortunately, to be able to do this you need to have write access to the bucket. Which you probably don't have. So you won't be able to deploy the site. If this happens, just get in touch with Rahul (http://github.com/primigenus) and he can add you to the list.
+The `gsutil` command is used by the `deploy.sh` script when deploying the site. It will publish all the assets to the CDN for you automatically! Unfortunately, to be able to do this you need to have write access to the bucket. Which you probably don't have. So you won't be able to deploy the site. If this happens, just get in touch with Rahul (http://github.com/primigenus) and he can add you to the list.
+
+Now that assets are served from the CDN, Meteor's `/public` folder is only useful for local development. From now on we'll be referencing all assets via `http://static.q42.nl`, so no more `<img src="/mypicture.jpg">`! To get things working nicely in local dev, you'll need to add `http://static.q42.nl` to your `hosts` file:
+
+	127.0.0.1 static.q42.nl
+
+But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor on port 80 too (see below).
 
 ### cd into checkout and run meteor
 
 	cd q42.nl
-	meteor
+	sudo meteor --port 80
+
+Note that we need to use sudo to get it to bind to port 80.
 
 # Deploying
 
