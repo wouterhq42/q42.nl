@@ -5,6 +5,7 @@
     "HTML5-History-API": {},
     "gravatar": {},
     "marked": {},
-    "iron-router": {}
+    "iron-router": {},
+    "nprogress": {}
   }
 }

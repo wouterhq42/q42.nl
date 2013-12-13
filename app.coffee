@@ -9,11 +9,15 @@ if Meteor.isClient
     page = subpage if subpage
     page = page.split("#")[0].split("?")[0] if page
     Session.set "page", page
+    NProgress.start()
 
   Router.before ->
     lang = Session.get "lang"
     @render (if lang is "en" then "en_header" else "header"), to: "header"
     @render (if lang is "en" then "en_footer" else "footer"), to: "footer"
+
+  Router.after ->
+    NProgress.done()
 
   Router.map ->
 
@@ -24,13 +28,17 @@ if Meteor.isClient
         @render (if lang is "en" then "en_home" else "home")
 
     @route "blog",
-      path: "/blog/:page?/:pageNum?"
+      path: "/blog/:page?/:pageNumOrTagName?"
       waitOn: ->
         [
-          Meteor.subscribe("blogpostIndex", @params.pageNum * 1, Session.get("blogtag"))
-          Meteor.subscribe("pagesByTag", Session.get("blogtag") or "")
+          Meteor.subscribe("blogpostIndex", @params.pageNumOrTagName * 1, @params.pageNumOrTagName)
+          Meteor.subscribe("pagesByTag", @params.pageNumOrTagName or "")
         ]
       data: ->
+        if @params.page is null and not @params.page in ["page", "tagged"]
+          NProgress.done()
+          return null
+
         posts = blogpostIndex.find {}, sort: date: -1
         if posts.count() > 0 then Meteor.call "checkTumblr"
 
@@ -38,7 +46,7 @@ if Meteor.isClient
         pages = if item then item.count else 1
         items = []
         if pages isnt 1
-          page = @params.pageNum*1 or 1
+          page = @params.pageNumOrTagName*1 or 1
           if page > 1
             items.push label: "nieuwer", page: page - 1
 
