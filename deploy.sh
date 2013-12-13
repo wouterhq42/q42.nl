@@ -18,9 +18,9 @@ echo
 # Move the /public folder out of the Meteor folder before deploying
 # So that the upload size is dramatically smaller (since we already pushed it to the CDN)
 echo "Excluding public folder from deploy..."
-rm -rf $TEMPDIR/q42nl-deploy-public
-mkdir $TEMPDIR/q42nl-deploy-public
-mv public $TEMPDIR/q42nl-deploy-public
+rm -rf $TMPDIR/q42nl-deploy-public
+mkdir $TMPDIR/q42nl-deploy-public
+mv public $TMPDIR/q42nl-deploy-public
 echo
 
 # Deploy the site to two different Meteor domains
@@ -34,6 +34,6 @@ meteor deploy q42.com < password.txt
 
 # Put back the public folder
 echo "Finishing..."
-mv $TEMPDIR/q42nl-deploy-public public
+mv $TMPDIR/q42nl-deploy-public public
 
 echo "Done."
