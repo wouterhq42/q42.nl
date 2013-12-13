@@ -118,7 +118,7 @@ function syntaxHighlight() {
 
 function getPictureURL(user) {
   if (!user || !user.services)
-    return "/images/employees/anonymous.jpg";
+    return "http://static.q42.nl/images/employees/anonymous.jpg";
   var services = user.services;
   if (services.twitter)
     return services.twitter.profile_image_url;
@@ -128,5 +128,5 @@ function getPictureURL(user) {
     return "https://graph.facebook.com/" + services.facebook.id + "/picture";
   if (services.github)
     return Gravatar.imageUrl(services.github.email || "");
-  return "/images/employees/anonymous.jpg";
+  return "http://static.q42.nl/images/employees/anonymous.jpg";
 }
