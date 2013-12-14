@@ -96,9 +96,6 @@ Template.en_comment.mdtext = Template.comment.mdtext = function() {
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {
   return this.width == width ? options.fn(this) : "";
 });
-Handlebars.registerHelper("debug", function(obj) {
-  // console.log(obj)
-});
 Handlebars.registerHelper("typeIs", function(type) {
   return this.type == type;
 })
