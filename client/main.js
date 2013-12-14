@@ -2,7 +2,6 @@ Meteor.startup(function () {
   $(window).bind("resize", resize);
   $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
-  $(window).bind("scroll", bounceBack);
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
@@ -34,8 +33,6 @@ Meteor.startup(function () {
   });
 
   marked.setOptions({ breaks: true });
-
-  //Backbone.history.start({pushState: true});
 });
 
 var isPhantom = /phantom/i.test(navigator.userAgent);
@@ -48,7 +45,7 @@ Template.body.rendered = function() {
   if ($("body>section.show")[0])
     return;
 
-  if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
+  if (!Session.equals("page", "") && !Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
   reattachBehavior();
@@ -65,7 +62,8 @@ Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
     var href = evt.target.getAttribute("href");
     if (_.contains(href, ".")) return;
-    //_Router.loadPage(href);
+    // TODO: fix this dirty hack (only happens when clicking the q42 logo)
+    if (href == "") href = "/";
     Router.go(href);
     window.scrollTo(0,0);
     evt.preventDefault();
@@ -172,10 +170,7 @@ var widgetsTimeout = null;
 function reattachBehavior() {
   resize();
   resizeShowreel();
-
-  setReadmoreBouncers();
   homepageShowreel();
-  bounceBack();
 
   if (!isPhantom) {
 
