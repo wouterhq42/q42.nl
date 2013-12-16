@@ -73,6 +73,7 @@ Template.body.events({
 
 $Template({
   error404: {
+    isEnglish: function() { return Session.equals("lang", "en"); },
     url: function() {
       return document.location.pathname;
     }
