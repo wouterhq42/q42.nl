@@ -26,39 +26,57 @@ if Meteor.isClient
       action: -> @render (if Session.equals("lang", "en") then "en_home" else "home")
 
     @route "blog",
-      path: "/blog/:page?/:pageNumOrTagName?"
+      path: "/blog"
       waitOn: ->
         [
-          Meteor.subscribe "blogpostIndex", @params.pageNumOrTagName * 1, @params.pageNumOrTagName
-          Meteor.subscribe "pagesByTag", @params.pageNumOrTagName or ""
+          Meteor.subscribe "blogpostIndex", 1
+          Meteor.subscribe "pagesByTag", ""
           Meteor.subscribe "LatestComments", 10
         ]
       data: ->
-        if @params.page is null and not @params.page in ["page", "tagged"]
-          NProgress.done()
-          return null
-
+        console.log "/blog"
+        Meteor.call "checkTumblr"
         posts = blogpostIndex.find {}, sort: date: -1
-        if posts.count() > 0 then Meteor.call "checkTumblr"
+        return null unless posts.count() > 0
+        return {
+          post:       posts
+          pagination: getPagination 1
+        }
 
-        item = PageCounts.findOne tag: Session.get("blogtag") or ""
-        pages = if item then item.count else 1
-        items = []
-        if pages isnt 1
-          page = @params.pageNumOrTagName*1 or 1
-          if page > 1
-            items.push label: "nieuwer", page: page - 1
+    @route "blog",
+      path: "/blog/page/:pageNum"
+      waitOn: ->
+        [
+          Meteor.subscribe "blogpostIndex", @params.pageNum * 1
+          Meteor.subscribe "pagesByTag", ""
+          Meteor.subscribe "LatestComments", 10
+        ]
+      data: ->
+        Meteor.call "checkTumblr"
+        posts = blogpostIndex.find {}, sort: date: -1
+        return null unless posts.count() > 0
+        return {
+          post:       posts
+          pagination: getPagination @params.pageNum
+        }
 
-          min = Math.max 1, page - 3
-          max = Math.min pages, page + 3
-
-          for i in [min..max]
-            items.push label: i, page: i, active: i is page
-
-          if page < pages
-            items.push label: "ouder", page: page + 1
-
-        return post: posts, pagination: items, tag: @params.pageNumOrTagName
+    @route "blog",
+      path: "/blog/tagged/:tag"
+      waitOn: ->
+        [
+          Meteor.subscribe "blogpostIndex", 1, @params.tag
+          Meteor.subscribe "pagesByTag", @params.tag or ""
+          Meteor.subscribe "LatestComments", 10
+        ]
+      data: ->
+        Meteor.call "checkTumblr"
+        posts = blogpostIndex.find {}, sort: date: -1
+        return null unless posts.count() > 0
+        return {
+          post:       posts
+          pagination: getPagination @params.pageNum
+          tag:        @params.tag
+        }
 
     @route "blogpost",
       path: "/blog/post/:id/:title"
@@ -85,6 +103,31 @@ if Meteor.isClient
         tmpl = (if Session.equals("lang", "en") then "en_" + @params.page else @params.page)
         return null unless Template[tmpl]
         [] # data() needs to return something
+
+  getPagination = (pageNum, tag) ->
+    pageNum = pageNum * 1
+    item = PageCounts.findOne tag: (tag or "")
+    pages = if item then item.count else 1
+    lang = Session.get "lang"
+    older = if lang is "en" then "older" else "ouder"
+    newer = if lang is "en" then "ouder" else "nieuwer"
+    items = []
+
+    if pages isnt 1
+      page = pageNum or 1
+      if page > 1
+        items.push label: newer, page: page - 1
+
+      min = Math.max 1, page - 3
+      max = Math.min pages, page + 3
+
+      for i in [min..max]
+        items.push label: i, page: i, active: i is page
+
+      if page < pages
+        items.push label: older, page: page + 1
+
+    return items
 
 if Meteor.isServer
 
