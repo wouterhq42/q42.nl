@@ -132,7 +132,17 @@ if Meteor.isClient
 if Meteor.isServer
 
   Router.map ->
+    @route "updateLightBar",
+      where: "server"
+      path: "/updateLightbar"
+      action: ->
+        console.log "Route: updateLightBar"
+        @response.writeHead 200, "Access-Control-Allow-Origin": "http://huelandsspoor.nl"
+        console.log "Received request from huelandsspoor. Updating..."
+        updateLightbar()
+
     @route "removeWWW",
+      where: "server"
       path: "*"
       action: ->
         console.log "Route: removeWWW"
@@ -142,10 +152,4 @@ if Meteor.isServer
         if host.indexOf("www") is 0
           @response.writeHead 301, Location: fullUrl.replace("www.", "")
 
-    @route "updateLightBar",
-      path: "/updateLightbar"
-      action: ->
-        console.log "Route: updateLightBar"
-        @response.writeHead 200, "Access-Control-Allow-Origin": "http://huelandsspoor.nl"
-        console.log "Received request from huelandsspoor. Updating..."
-        updateLightbar()
+        @next()
