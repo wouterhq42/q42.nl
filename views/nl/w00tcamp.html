@@ -1,158 +1,476 @@
 <template name="w00tcamp">
-<style>
-body {
-  font-family: monospace;
-  background-image: url(http://3.bp.blogspot.com/-mvmaXN8reK4/UKSGrkaw-kI/AAAAAAAADNs/IiFdSWfVy3o/s1600/white_grid_paper-background_pattern.jpg);
-}
-
-#w00tcamp-header h1 {
-  text-align: center;
-}
-
-.page-w00tcamp #background-video {
-  width: 100%;
-}
-
-.page-w00tcamp #w00tcamp-logo {
-  width: 314px; /*  548 * 457 */
-}
-
-#ticker {
-  color: white;
-  background: linear-gradient(180deg, #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-
-#live-cam {
-  background: black;
-  box-shadow: inset 0 0 20px black;
-  -webkit-filter: grayscale(1);
-}
-#live-cam > div {
-  position: relative;
-}
-
-#current-date-time {
-  position: absolute;
-  bottom: 42px; left: 60px;
-  display: inline-block;
-  padding: 8px;
-  background: rgba(0,0,0,.5);
-  color: #ddd;
-  font: normal 22px monospace;
-  letter-spacing: 1px;
-}
-
-#noise {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 99;
-    -webkit-animation: flicker infinite linear .4s;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAECAYAAADvRz3UAAAAFElEQVQoz2NgUGIwHlA88A4Y6QAAFMQVQYm2DTUAAAAASUVORK5CYII=);
-  }
-
-  #noise:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    -webkit-animation: noise linear infinite 0.01s;
-  }
-
-  .idea-form-input {
-    display: block;
-    width: 400px;
-  }
-
-  @-webkit-keyframes flicker {
-    from { background-position: 0 0; }
-    to { background-position: bottom left; }
-  }
-
-  @-webkit-keyframes noise {
-    from {
-      background-position: 0 0;
-      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAATlBMVEVCQkJGRkZERERNTU09PT1DQ0NBQUFOTk5QUFBAQEBJSUlPT09ISEg8PDxRUVE+Pj5LS0tFRUU5OTlMTEw/Pz87Ozs6Ojo4ODhKSkpHR0eH90zNAAAAGnRSTlNUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFJaql4AAAJnSURBVHgBndZJb+JoEIDhxwabJawhTWf+/4+bTndnIWYx4M+eOuQwl9G0PiGV3pLquQF2QfGvT1IYfXUfdTeYiE2jUoqWQ9a+zjVWPo31li4mWjdbnU6KHnzzrlJnka2zOFJicHMSQIeRAVOtlTL6aOLukkWeda5orE186IxVUsCzWmussZNcAnbRKYusJTMXKcDwdT72tyBmKgdPUszS1iBpMkkZYOxBY+WnkZ3CTSn58BB1tfcu4bujRRbZB2iVJuqATUwKFzcLVdQvpe+SVxuDi3UWmUh6hdKTcxBW7i54lLQmprhGVQoH+yzyGODqZm7kauOXwT7ITNI7eNK6mks+gg/qLFLbeTGzdFKr9EHP6GLfOdo6q/FqYSyZZpGRjaORQqW11SmdTaMXGn3UCL88ByoD3bLI0jWiipmsDV49u8ecqgi0VXo3mLgHXhtnka2LCpVPKxTuSgx6ZwuTqKONF3utafAc8uDs2ZuryvxPfm5ZBHbqry8EvcrRo5/WSo3kwTy2wkDgJovUqoijQmvj1WDrLTBXo+jOSaG3Vjm4WWeRsd7UImapsXKKLcUcCNj65jNwH3zsbqvJIpXSgze1wsbNyG97ycHMURH9wy5IFyCZmmWRv/y0MFY4WAbdaswdg7fOHtXuigBXS4ODeRZZuwUpY3bu5u4uvgVpPCnEkdLIyg+TYKWnLFIHOGtVsfzWS2aWAUSPdLG11k5OUXTKLDJXKX161KK3CDjosQnyZu/uFDXxYR69zCJP//Fn/a40qNwtAs4la52rlEUm//OSM9IJ4DcGey9ZZPbHD++Vq9oth/wDdcA67xCZ4U4AAAAASUVORK5CYII=);
-    }
-    to {
-      background-position: bottom left;
-      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAATlBMVEVNTU06Ojo/Pz89PT1SUlJLS0tOTk5CQkJDQ0NISEhQUFBRUVFERERHR0dGRkY5OTlPT088PDxKSkpBQUFJSUk7OztAQEA+Pj5MTExFRUXoP3UCAAAAGnRSTlNUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFJaql4AAAJwSURBVHgBndbbbqPYFgXQwQYM2NgmibtS9f8fd6riuH3HNteWeOjHIzVaQkJzaqwX9paIiExjNEj001uYnujfGcQamdbCHLKUiLSC3tNWq9MINlPdGLxsRI7WUqPHLPKhlk7FVqQWeXrTWqhFchedpUzjYa1VzCJvgsHRp7OFpVZt0FihsdGrdSqviQ26WaTE2lnmpDTqlGqj3tbBys27WOuIdy+vWeSHVuQq2Kg9jIIf/qe0NnqqJ/y3nVGtEM8iQSlxlxg9VRZecleFVuchn/IdLtZq6SySa/VK3AXvaoPS3ocGtV5uEEBvJZtFPpxsnXz6bS0zuFm5qQyOgkpwlbjL1AphFvmpkU7BcaKJXmrlJJe5GeycBBs9npqZpBfs/aV3Vih0Yi+JB3Jna3ednW+pN39mkU83qUStdJqiXCR3VEiNGpm7cloUXGSzSPEfr3E9i+QqX950Oi/vYmeJMNU3hdSXVGJaLLKcRWKVo51R7Lef9irTp/NSiFw1CkGkFek0s8h04G19WRhs3UUeVgqDl8FS72Wp85SIXWYRNoLUwyB3k7sL2PmWaZROShe51m7q5pAPR4W7Xy5GDxsva2e5qzdnhdrCmy+Zp0/tLPJT5KpVOvj0JVGJ8G0hUUsktlp3g9hoNYvElpZTUDhYWYsM9pZqG4UzMk8rZxWGWSQRy2QSo4NWaueP0kKtk1n6ltq6awStbBYJCqmLwS+9gL2No1yn0knxsHZSehk1s0j0f38LMkEnsXDTC1LxLEIqEWsUMt8qiYOV2oe9ylEldTAoLT2ks8iHu1wvchNJVfZS9JZqmdhFsDa4CnrFHPIPIkc2vQLPxhIAAAAASUVORK5CYII=);
-    }
-  }
-</style>
   <section>
     <section>
-      <header class="block-text" id="w00tcamp-header">
-        <h1>
-          <span style="display: none">w00tcamp 2013</span>
-          <img src="http://static.q42.nl/images/w00tcamp/w00tcamp-logo.png" alt="w00tcamp" id="w00tcamp-logo">
-          <br><br>
-          <span style="display: none"> - </span>
-          <div id="countdown">{{{countdown}}}</div>
-        </h1>
-        <p style="text-align:center">Benieuwd naar wat er gemaakt wordt? <a href="http://w00tcamp2013.tumblr.com">Volg het blog!</a></p>
+      <header class="block-text">
+        <h1><b>w00tcamp</b>, twee dagen vol passie</h1>
       </header>
 
-      <div class="block-full" id="live-cam">
-        <div>
-          {{> background_video}}
-        </div>
+      <div>
+        <article class="block-large">
+          <div class="bigText introText">
+            <p>Ieder jaar hebben we twee dagen lang <a href="http://w00tcamp.nl" class="external">w00tcamp</a>. In twee pitchrondes presenteren we onze ideeën aan elkaar, waarna de ideeën die het beste met de groep reageren worden gekozen en teams worden gevormd.<p>
+            <p>Tijdens w00tcamp worden veel leuke dingen bedacht en gebouwd. Op deze pagina hebben we er aantal voor je tentoongesteld.
+            En misschien kom je ze binnenkort nog wel eens tegen als echt spel of product!</p>
+          </div>
+          <div class="block-small subcontent">
+            <h2>Zie ook</h2>
+            <ul>
+              <li><a class="external" href="http://w00tcamp2013.tumblr.com">w00tcamp 2013 blog</a></li>
+              <li><a class="external" href="http://w00tcamp.tumblr.com/">w00tcamp 2012 blog</a></li>
+              <li><a class="external" href="http://w00tcamp2011.tumblr.com">w00tcamp 2011 blog</a></li>
+            </ul>
+          </div>
+        </article>
       </div>
 
-      <div class="block-large">
-        <div class="bigText introText">
-          <p>Ieder jaar voeren we bij Q42 twee dagen lang experimenten uit in de vorm van een hackathon. In twee pitchrondes presenteren we onze idee&euml;n aan elkaar, waarna de idee&euml;n die het beste met de groep reageren worden gekozen en teams worden gevormd. Ieder jaar proberen we ook een uniek thema aan w00tcamp te geven. Dit jaar is het thema <b>science</b>, vorig jaar was het <b>piraten</b>.
-          Je kunt op de w00tcampsite van <a href="/w00tcamp/2012">vorig jaar</a> zien wat we zoal bedenken.</p>
 
-          <h2>Datum</h2>
-          <p>w00tcamp vindt plaats in Den Haag en loopt van vrijdag 8 november om 09:00 tot zaterdag 9 november om 17:00.</p>
+      <section id="catquest">
+        <article class="block-large">
+          <div class="figure">
+            <figcaption class="body">
+              <h2>Filther.io</h2>
+              <h3>De zoekmachine voor NSFW plaatjes waar de SFW plaatjes uitgefiltherd zijn.</h3>
+              <p>Winnaar van w00tcamp 2013! Een “verbeterde” image search. Dus uitgaande van de NSFW plaatjes waar de SFW plaatjes uitgefilterd zijn. Google Search voor images, maar dan “beter”! ;D <p>
+              Kijken er kinderen mee op je scherm? Stuur ze dan nu maar even weg.</p>
+              <p><a href="http://www.filther.io" class="external">Zijn ze weg? Ok, klik dan maar verder.</a></p>
+            </div>
+            <div class="visual">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/filther2.jpg" alt="" />
+                <p>Filthy!</p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
 
-          <h2>Projecten</h2>
-          <ul>
-            <li>Magic The Gathering</li>
-            <li>PAMela</li>
-            <li>SuperSlideGlijbaanCam</li>
-            <li>TV Watchlist</li>
-            <li>FindMe</li>
-            <li>iPhone Cover Shirts</li>
-            <li>Gangsters of Banger City</li>
-            <li>Oculus Unrift</li>
-            <li>Inverted Safe Search</li>
-            <li>Meth Cook Simulator</li>
-            <li>NXT Lego Sumo Arena</li>
-            <li>Qlockwise</li>
-            <li>A.S.S.H.O.L.E.</li>
-          </ul>
-        </div>
-        <div class="block-small subcontent">
-          <h2>Zie ook</h2>
-          <ul>
-            <li><a class="external" href="http://w00tcamp2013.tumblr.com">w00tcamp 2013 blog</a></li>
-            <li><a href="/w00tcamp/2012">w00tcamp 2012 uitslagen</a></li>
-            <li><a class="external" href="http://w00tcamp.nl">w00tcamp 2012 blog</a></li>
-            <li><a class="external" href="http://w00tcamp2011.tumblr.com">w00tcamp 2011 blog</a></li>
-          </ul>
-        </div>
-      </div>
+      <section>
+        <section class="block-large">
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/oculus.jpg" alt=""/>
+                <p>Not your average ordinary superhero...</p>
+              </a>
+              <figcaption class="body">
+                <h2>Oculus Unrift</h2>
+                <h3>Zelf Terminator spelen</h3>
+                <p>Wat gebeurt er als je twee camera's op een Oculus Rift vastbindt en eroverheen een HUD projecteert? Precies ja.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/overhere.jpg" alt=""/>
+                <p>Huh? Waar?</p>
+              </a>
+              <figcaption class="body">
+                <h2>Overhere</h2>
+                <h3>Eenvoudig je locatie delen!</h3>
+                <p>Een webservice waarmee je super eenvoudig je locatie kan delen. Je hebt geen aparte app nodig, je kunt simpelweg een linkje delen via SMS, Whatsapp, email etc.</p>
+                <p><a href="http://www.overhere.io" class="external">Waar zit je dan?</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/magic.jpg" alt=""/>
+                <p>Ziet er nog eens vet uit ook...</p>
+              </a>
+              <figcaption class="body">
+                <h2>Magic the Gathering client</h2>
+                <h3>Hopelijk wordt dit ook een Bitcoin exchange</h3>
+                <p>Een online spelomgeving, een client, om tegen elkaar te Mááágiccen. Omdat al bestaande Magic-clients uhm ‘niet zo goed’ zijn...</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
 
+      <section id="carrrds">
+        <article class="block-large right">
+          <div class="figure">
+            <figcaption class="body">
+              <h2>Super Slide Qam!</h2>
+              <h3>De webcam voor de glijbaan van het Q42-kantoor in Amsterdam.</h3>
+              <p>Als je in een pretpark in een achtbaan gaat, wordt er vaak een foto van je gemaakt. Zo'n systeem wilden wij ook hebben, maar dan voor de glijbaan op ons kantoor in Amsterdam. <p>
+                Zo'n systeem kost vast duizenden euro's, maar met wat hardware hebben wij het voor ongeveer 100 euro voor elkaar gekregen.</p>
+                 <p><a href="http://www.superslideqam.nl" class="external">Check de website.</a></p>
+            </div>
+            <div class="visual">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/superslidecam.jpg" alt="" />
+                <p>Yieeehaaaa!</p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <section class="block-large">
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/methcook.jpg" alt=""/>
+                <p>Hallo?</p>
+              </a>
+              <figcaption class="body">
+                <h2>Meth Cook Simulator</h2>
+                <h3>Maak de puurste Crystal Meth zonder het lab op te blazen</h3>
+                <p>OK, je hebt een Oculus Rift en twee dagen om te maken wat je maar wil. Wat ga je dan maken? Een Meth Cook Simulator zoals in Breaking Bad, natuurlijk! Met behulp van de Razer Hydra om je handen ook in het spel te kunnen laten terugkomen.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/pamela.jpg" alt=""/>
+                <p>PAMela regelt het voor je...</p>
+              </a>
+              <figcaption class="body">
+                <h2>PAMela</h2>
+                <h3>De presence awareness machine die weet waar je bent en jou verwent met allerlei extra’s</h3>
+                <p>Als ze weet dat je binnen bent zet ze jouw favoriete muziek in de playlist op de Sonos en zet ze de lampen aan in de kleuren die jij mooi vindt.</p>
+                <p><a href="https://pamela.q42.net" class="external">Check de website!</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="/images/w00tcamp/asshole.jpg" alt=""/>
+                <p>Up... And down...</p>
+              </a>
+              <figcaption class="body">
+                <h2>A.S.S.H.O.L.E.</h2>
+                <h3>Camper. iPhone. Bluetooth. Arduino. Pneumatische shizzle.</h3>
+                <p>Een app die je camper kan levelen. Leg je iPhone op de vloer van je camper en met een druk op de knop wordt je camper waterpas gezet. Dat kan op een gentle manier (lekker smoooooth), maar ook op de YOLO manier (the bumpy way).</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+       <section id="catquest">
+        <article class="block-large">
+          <div class="figure">
+            <figcaption class="body">
+              <h2>Huelands Spoor</h2>
+              <h3>Vanaf Den Haag HS met de lampen van Q spelen</h3>
+              <p>Winnaar van w00tcamp 2012! Philips Hue lampen die door ons hele pand hangen zijn bestuurbaar via een web interface of door een telefoonnummer te bellen. Probeer het zelf maar: 085 888 1942.</p>
+              <p><a href="http://huelandsspoor.nl" class="external">Zet je de lichten naar je favoriete kleur?</a></p>
+            </div>
+            <div class="visual">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/huelandsspoor.jpg" alt="Disqo-time!" />
+=======
+                <img src="/images/w00tcamp/huelandsspoor.jpg" alt="" />
+>>>>>>> matthijs
+                <p>Disqo-time!</p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <section class="block-large">
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+                <img src="http://static.q42.nl/images/w00tcamp/cookview.jpg" alt=""/>
+                <p>Rob that recipe, yarrr!</p>
+              </a>
+              <figcaption class="body">
+                <h2>Recipe Pirate</h2>
+                <h3>Rob that recipe, yarrr!</h3>
+                <p>Jat een recept van een willekeurig receptensite en tover het om naar een leesbare, scanbare versie die je tijdens het koken kunt gebruiken.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/tixi.jpg" alt="Open de poorten met de juiste getallen"/>
+=======
+                <img src="/images/w00tcamp/tixi.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Open de poorten met de juiste getallen</p>
+              </a>
+              <figcaption class="body">
+                <h2>Tixi</h2>
+                <h3>Word een meestrixi van getallixi met Tixi!</h3>
+                <p>Leer op een leuke manier rekenen met deze web-based game waarin je als tovenaar muntdiertjes ("tixi's") verzamelt om puzzels op te lossen.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/skyroads.jpg" alt="Groene tegels boosten, rode ontploffen"/>
+=======
+                <img src="/images/w00tcamp/skyroads.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Groene tegels boosten, rode ontploffen</p>
+              </a>
+              <figcaption class="body">
+                <h2>Skyroads</h2>
+                <h3>Net zo verslavend als toen je 10 jaar oud was</h3>
+                <p>Web-based remake van de original waarin je in een simpele 3d omgeving racet over kubussen die in de ruimte hangen. Met level editor!</p>
+                <p><a href="http://skyroads.azurewebsites.net/" class="external">Nou okay, een leveltje dan!</a></p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section id="carrrds">
+        <article class="block-large right">
+          <div class="figure">
+            <figcaption class="body">
+              <h2>Castle of Madness!</h2>
+              <h3>Wil heel graag voor de Wii U worden gemaakt</h3>
+              <p>Vier spelers banen zich een weg door een dungeon en één speler werkt ze tegen door de kasteel zelf te zijn en monsters, vallen, en magische effecten op de groep los te laten. Klinkt leuk, toch?</p>
+            </div>
+            <div class="visual">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/castle-of-madness.jpg" alt="Ik pak z'n linker drie ogen, jij z'n rechter drie!" />
+=======
+                <img src="/images/w00tcamp/castle-of-madness.jpg" alt="" />
+>>>>>>> matthijs
+                <p>Ik pak z'n linker drie ogen, jij z'n rechter drie!</p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <section class="block-large">
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/straightshot.jpg" alt="Waar is Christiaan mee bezig?"/>
+=======
+                <img src="/images/w00tcamp/straightshot.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Waar is Christiaan mee bezig?</p>
+              </a>
+              <figcaption class="body">
+                <h2>Straightshot</h2>
+                <h3>Superfast screenshot sharing</h3>
+                <p>Makkelijk laten zien waar je aan werkt aan je collega's is niet zo makkelijk. Straightshot maakt het simpel door je ieder half uur te vragen een veeg over je beeldscherm te maken.</p>
+                <p><a href="http://straightshot.meteor.com/" class="external">Installeer de app op je mac</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/touchtable.jpg" alt="Benodigd: beamer, tafel zaag, ..."/>
+=======
+                <img src="/images/w00tcamp/touchtable.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Benodigd: beamer, tafel zaag, ...</p>
+              </a>
+              <figcaption class="body">
+                <h2>w00table</h2>
+                <h3>Home-made Microsoft Surface kloon</h3>
+                <p>Die originele Surface was helemaal niet zo indrukwekkend. Hadden we ook zelf kunnen bouwen met wat Ikea spullen, een beamer, een EyeToy, een PC en een spiegel!</p>
+                <p><a href="https://vimeo.com/54355508" class="external">Zie de w00table in actie (Vimeo)</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/fuq42.jpg" alt="Try to cheat death!"/>
+=======
+                <img src="/images/w00tcamp/fuq42.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Try to cheat death!</p>
+              </a>
+              <figcaption class="body">
+                <h2>FUQ42</h2>
+                <h3>Een w00tcamp project zonder Q'ers!</h3>
+                <p>Het doel: een spel maken zonder te programmeren. Want programmeren is overrated. Het resultaat: euhh... dat laten we aan jou over.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section id="sarien">
+        <article class="block-large">
+          <div class="figure">
+            <figcaption class="body">
+              <h2>Tyrian</h2>
+              <h3>Voor Windows Phone!</h3>
+              <p>Hoever kom je als je twee Q'ers twee dagen lang aan een retro top-down shooter op Windows Phone laat werken in C#? Nou, zo ver dus.</p>
+            </div>
+            <div class="visual">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/tyrian.jpg" alt="ikwillum ikwillum ikwillum!" />
+=======
+                <img src="/images/w00tcamp/tyrian.jpg" alt="" />
+>>>>>>> matthijs
+                <p>ikwillum ikwillum ikwillum!</p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <section class="block-large">
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/zien.jpg" alt="Wat als je deuteranomalie hebt?"/>
+=======
+                <img src="/images/w00tcamp/zien.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Wat als je deuteranomalie hebt?</p>
+              </a>
+              <figcaption class="body">
+                <h2>Zien</h2>
+                <h3>Inzicht in hoe mensen met visuele beperkingen zien</h3>
+                <p>Heb je je ooit afgevraagd hoe de wereld eruit ziet voor iemand met staar? Of iemand die kleurenblind is? Met Zien kom je daarachter!</p>
+                <p><a href="https://itunes.apple.com/nl/app/bartimeus-zien-app/id485627958?mt=8" class="external">Installeer de Zien iPhone app</a></p>
+                <p><a href="https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn" class="external">Of installeer de Chrome extensie</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/carrrds.jpg" alt="Off to win l00t!"/>
+=======
+                <img src="/images/w00tcamp/carrrds.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Off to win l00t!</p>
+              </a>
+              <figcaption class="body">
+                <h2>Carrrds</h2>
+                <h3>Het kaartspel van Q42 Games, maar dan digitaal</h3>
+                <p><a href="http://q42games.com/post/31456832291/designing-a-pirate-themed-card-game" class="external">Een kaartspel voor kinderen</a> over piraten, schatkaarten en muiterij! Kan niet misgaan.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/histree.jpg" alt="Waar was ik ookalweer?"/>
+=======
+                <img src="/images/w00tcamp/histree.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Waar was ik ookalweer?</p>
+              </a>
+              <figcaption class="body">
+                <h2>Histree</h2>
+                <h3>Gestructureerd navigeren door je browser history</h3>
+                <p>Je browser history zou beter kunnen. Wat als je klikpaden zou hebben op basis van wanneer je bijv. een nieuw tab opent? Histree doet dat in de vorm van een Google Chrome extensie.</p>
+                <p><a href="https://chrome.google.com/webstore/detail/histree/lngppkkhjifheiegfeloipgaeomjfgbf" class="external">Installeer de chrome extensie</a></p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section id="sarien">
+        <article class="block-large">
+          <div class="figure">
+            <figcaption class="body">
+              <h2>Camperrr</h2>
+              <h3>Diapresentaties 2.0</h3>
+              <p>Terug van vakantie en je wilt enthousiast vertellen over al die mooie foto's die je gemaakt hebt, maar je kunt je niet herinneren wáár je ze nou gemaakt had.
+                Argh! Met Camperrr heb je dat probleem nooit meer, want nu kun je je route vastleggen op een kaart en bij iedere locatie foto's uploaden. En dan de presentatie geven. Probleem opgelost!</p>
+              <p><a href="http://www.camperrr.com" class="external">http://www.camperrr.com</a></p>
+            </div>
+            <div class="visual">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/camper.jpg" alt="Kijk mam, daar was ik!" />
+=======
+                <img src="/images/w00tcamp/camper.jpg" alt="" />
+>>>>>>> matthijs
+                <p>Kijk mam, daar was ik!</p>
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+
+      <section>
+        <section class="block-large">
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/tinytravel.jpg" alt="Hoe wil jij je vakantie zoeken?"/>
+=======
+                <img src="/images/w00tcamp/tinytravel.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Hoe wil jij je vakantie zoeken?</p>
+              </a>
+              <figcaption class="body">
+                <h2>Tiny Travel</h2>
+                <h3>Vakantiewebsites opnieuw uitgedacht</h3>
+                <p>Vakantiewebsites zijn in het algemeen nogal achterhaald, dus dan is er natuurlijk alle ruimte om er opnieuw mee aan de slag te gaan. Tiny Travel is een concept van hoe dat dan zou kunnen.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/w00tcamp/gipf.jpg" alt="Schaak mat! Uhhh verkeerde spel..."/>
+=======
+                <img src="/images/w00tcamp/gipf.jpg" alt=""/>
+>>>>>>> matthijs
+                <p>Schaak mat! Uhhh verkeerde spel...</p>
+              </a>
+              <figcaption class="body">
+                <h2>Gipf</h2>
+                <h3>Een abstract strategisch bordspel</h3>
+                <p>Iedere zichzelf-respecterende nerd zit bij eerste introductie aan Gipf natuurlijk meteen te denken aan de benodigde datastructuur en algoritmiek. En dan krijg je dit.</p>
+              </div>
+            </div>
+          </article>
+          <article class="block-small">
+            <div class="figure">
+              <a class="visual caption">
+<<<<<<< HEAD
+                <img src="http://static.q42.nl/images/soundmatch.png" alt="Hey DJ, turn it up!"/>
+=======
+                <img src="/images/soundmatch.png" alt=""/>
+>>>>>>> matthijs
+                <p>Hey DJ, turn it up!<p>
+              </a>
+              <figcaption class="body">
+                <h2>Soundmatch Spotify app</h2>
+                <h3>Je Last.fm recommendations als playlist! Alweer!</h3>
+                <p>Winnaar van w00tcamp 2009, Soundmatch, is terug voor de volgende ronde. Nu als Spotify app. En ja hoor, het is ze weer gelukt om er iets vets van te maken! Coming soon to a Spotify near you.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
     </section>
   </section>
-</template>
-
-<template name="background_video">
-  <div id="noise"></div>
-  <video id="background-video" src="http://static.q42.nl/video/security-cam-bw.m4v" autoplay="autoplay" loop="loop" />
-  {{> video_overlay}}
-</template>
-
-<template name="video_overlay">
-  <div id="video-overlay">
-    <div id="current-date-time">{{currentDateTime}}</div>
-  </div>
 </template>
