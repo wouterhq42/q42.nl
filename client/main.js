@@ -61,9 +61,7 @@ Template.body.defaultNav = function() {
 Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
     var href = evt.target.getAttribute("href");
-    if (_.contains(href, ".")) return;
-    // TODO: fix this dirty hack (only happens when clicking the q42 logo)
-    if (href == "") href = "/";
+    if (!href || _.contains(href, ".")) return;
     Router.go(href);
     window.scrollTo(0,0);
     evt.preventDefault();

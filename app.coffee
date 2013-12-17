@@ -5,10 +5,11 @@ if Meteor.isClient
     notFoundTemplate: "error404"
 
   Router.load ->
-    [page, subpage] = window.location.href.replace(/http(s?):\/\//, "").split("/").slice(1)
+    [page, subpage] = @path.split("/").slice(1)
     page = subpage if subpage
     page = page.split("#")[0].split("?")[0] if page
     Session.set "page", page
+
     NProgress.start()
 
   Router.before ->
@@ -34,7 +35,6 @@ if Meteor.isClient
           Meteor.subscribe "LatestComments", 10
         ]
       data: ->
-        console.log "/blog"
         Meteor.call "checkTumblr"
         posts = blogpostIndex.find {}, sort: date: -1
         return null unless posts.count() > 0
