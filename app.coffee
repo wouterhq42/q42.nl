@@ -8,6 +8,8 @@ if Meteor.isClient
     [page, subpage] = @path.split("/").slice(1)
     page = subpage if subpage
     page = page.split("#")[0].split("?")[0] if page
+    unless page
+      page = ""
     Session.set "page", page
 
     NProgress.start()
