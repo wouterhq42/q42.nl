@@ -186,8 +186,16 @@ function reattachBehavior() {
 
     Meteor.clearTimeout(widgetsTimeout);
     widgetsTimeout = Meteor.setTimeout(function() {
-      $("body>section").addClass("show");
-      $("#homecontent").addClass("show");
+      $section = $("body > section");
+      $homecontent = $("#homecontent");
+
+      $section.addClass("show");
+      $homecontent.addClass("show");
+
+      Meteor.setTimeout(function() {
+        $section.addClass("show-complete");
+        $homecontent.addClass("show-complete")
+      }, 600);
 
       (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
