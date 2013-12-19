@@ -39,7 +39,7 @@ Q42Router = Backbone.Router.extend
     @checkFragmentId()
 
   wootcamp: ->
-    window.location.href = window.location.href.replace "wootcamp", "w00tcamp" 
+    window.location.href = window.location.href.replace "wootcamp", "w00tcamp"
 
   blog: (page, tag) ->
     Session.set "blogpage", 1 * page or 0
@@ -66,7 +66,7 @@ Q42Router = Backbone.Router.extend
         , 100
       else
         Meteor.setTimeout ->
-          Router.checkFragmentId()
+          _Router.checkFragmentId()
         , 1000
 
-@Router = new Q42Router
+#@_Router = new Q42Router

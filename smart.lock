@@ -6,7 +6,9 @@
       "font-awesome": {},
       "HTML5-History-API": {},
       "gravatar": {},
-      "marked": {}
+      "marked": {},
+      "iron-router": {},
+      "nprogress": {}
     },
     "packages": {
       "router": {
@@ -16,8 +18,8 @@
       },
       "font-awesome": {
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
-        "tag": "v3.2.1",
-        "commit": "38bdfff72dfb8857b272f9a9b056045d6a015489"
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
       },
       "HTML5-History-API": {
         "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
@@ -34,20 +36,30 @@
         "tag": "v0.2.9",
         "commit": "6485d6f03841501f81176e34ab375840473aa714"
       },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.6.1",
+        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+      },
+      "nprogress": {
+        "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
+        "tag": "v0.0.3",
+        "commit": "ffd1c5dd400af64121197f4e637a215c4b6b1fc7"
+      },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
         "tag": "v1.3.5",
         "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
       },
       "crypto-md5": {
-        "git": "https://github.com/tmeasday/meteor-crypto-md5.git",
-        "tag": "v0.0.2",
-        "commit": "a943bea4cffeac9a14c2825dfe57d32b9d677e6f"
+        "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
+        "tag": "v3.1.2.2",
+        "commit": "75bbb3eeace302122d3554a6212a6fe92553fa18"
       },
       "crypto-base": {
-        "git": "https://github.com/tmeasday/meteor-crypto-base.git",
-        "tag": "v0.0.3",
-        "commit": "fdc0b7b3d24e2e31c5c95beddafe890ffbaafd42"
+        "git": "https://github.com/oortcloud/meteor-crypto-base.git",
+        "tag": "v3.1.2.1",
+        "commit": "5df8d82a0595553415bbfae2930c6ecbeece5794"
       }
     }
   }

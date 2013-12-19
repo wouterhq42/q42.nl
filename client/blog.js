@@ -1,56 +1,11 @@
-var blogpostFull = new Meteor.Collection("blogpostFull");
-var blogpostIndex = new Meteor.Collection("blogpostIndex");
-var LatestComments = new Meteor.Collection("LatestComments");
+window.blogpostFull = new Meteor.Collection("blogpostFull");
+window.blogpostIndex = new Meteor.Collection("blogpostIndex");
+window.LatestComments = new Meteor.Collection("LatestComments");
 
-Deps.autorun(function() {
-  Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
-  Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
-  Meteor.subscribe("pagesByTag", Session.get("blogtag") || "");
-  Meteor.subscribe("blogComments", Session.get("blogpostid"));
-  Meteor.subscribe("LatestComments", 10);
-});
-
-Template.en_blog.post = Template.blog.post = function() {
-  var posts = blogpostIndex.find({}, {sort: {date: -1}});
-  if (posts.count() > 0)
-    Meteor.call("checkTumblr");
-  return posts;
-}
 Template.en_blog.rendered = Template.blog.rendered = function() {
   syntaxHighlight();
 }
-Template.en_pageNav.pagination = Template.pageNav.pagination = function() {
-  var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
-  var pages = item ? item.count : 1;
-  if (pages == 1)
-    return [];
 
-  var items = [];
-  var page = Session.get("blogpage") || 1;
-  if (page > 1)
-    items.push({ label: "nieuwer", page: page - 1 })
-
-  var min = Math.max(1, page - 3);
-  var max = Math.min(pages, page + 3);
-
-  for (var i = min; i <= max; i++)
-    items.push({ label: i, page: i, active: i == page });
-
-  if (page < pages)
-    items.push({ label: "ouder", page: page + 1 });
-
-  return items;
-}
-Template.en_blog.tag = Template.blog.tag = function() {
-  return Session.get("blogtag");
-}
-
-Template.en_blogpost.post = Template.blogpost.post = function() {
-  return blogpostFull.findOne();
-}
-Template.en_blogpost._404 = Template.blogpost._404 = function() {
-  return Template.en_error404();
-}
 Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
   (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -63,15 +18,7 @@ Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
 
   syntaxHighlight();
 }
-Template.en_blogpost.comments = Template.blogpost.comments = function() {
-  return BlogComments.find({}, { sort: { date: -1 } });
-}
-Template.en_blogpost.commentsCount = Template.blogpost.commentsCount = function() {
-  return BlogComments.find().count();
-}
-Template.en_blogpost.oneComment = Template.blogpost.oneComment = function() {
-  return BlogComments.find().count() == 1;
-}
+
 Template.en_blogpost.loggedin = Template.blogpost.loggedin = function() {
   return !!Meteor.user();
 }
@@ -148,9 +95,6 @@ Template.en_comment.mdtext = Template.comment.mdtext = function() {
 
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {
   return this.width == width ? options.fn(this) : "";
-});
-Handlebars.registerHelper("debug", function(obj) {
-  // console.log(obj)
 });
 Handlebars.registerHelper("typeIs", function(type) {
   return this.type == type;
