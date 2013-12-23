@@ -44,7 +44,7 @@ Handlebars.registerHelper("isPhantom", function() {
 
 Template.body.rendered = function() {
   // If we've given the main section the show class we're done.
-  if ($("body>section.show")[0])
+  if ($("#page.show")[0])
     return;
 
   if (!Session.equals("page", "") && !Session.equals("page", undefined) && !Session.equals("page", "home"))
