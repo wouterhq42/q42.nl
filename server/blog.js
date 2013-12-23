@@ -61,6 +61,9 @@ Meteor.methods({
   },
   addComment: function(blogpostId, text)
   {
+    if (!text)
+      return;
+
     BlogComments.insert({
       text: text,
       blogpostId: blogpostId,
