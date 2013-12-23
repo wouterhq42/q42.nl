@@ -358,9 +358,12 @@
 </template>
 
 <template name="filter_employees">
-  <span id="filter-colleagues">
+  <div id="filter-colleagues">
     {{#isolate}}
-    <input data-role="filter-qers" list="filter-options" placeholder="Filter de Q'ers..." id="filter-qers-input">
+    <label>
+      Filter de Q'ers
+      <input data-role="filter-qers" list="filter-options" placeholder="Filter de Q'ers... (support ook regex!)" id="filter-qers-input">
+    </label>
     <datalist id="filter-options">
       {{#each list}}
         {{#each items}}
@@ -371,5 +374,5 @@
       {{/each}}
     </datalist>
     {{/isolate}}
-  </span>
+  </div>
 </template>

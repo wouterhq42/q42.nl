@@ -502,13 +502,12 @@ nav ul li a:hover {
 }
 
 #filter-colleagues {
-  float: right;
-  width: 300px;
-  margin-top: -90px;
+  margin: 0 0 30px 0;
 }
 
 #filter-colleagues input {
-  width: 300px;
+  display: block;
+  width: 100%;
   font-size: 16px;
 }
 
