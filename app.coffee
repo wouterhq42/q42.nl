@@ -1,5 +1,13 @@
 if Meteor.isClient
 
+  checkFragmentId = ->
+    if window.location.hash
+      $el = $(window.location.hash)
+      if $el[0]
+        Meteor.setTimeout (-> $el[0].scrollIntoView()), 100
+      else
+        Meteor.setTimeout (-> checkFragmentId()), 1000
+
   Router.configure
     layoutTemplate: "body"
     notFoundTemplate: "error404"
@@ -21,6 +29,7 @@ if Meteor.isClient
 
   Router.after ->
     NProgress.done()
+    checkFragmentId()
 
   Router.map ->
 
