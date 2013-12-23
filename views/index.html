@@ -32,7 +32,7 @@
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Domine|ABeeZee" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Permanent+Marker|Lato|PT+Serif" rel="stylesheet" type="text/css">
   <link href="https://plus.google.com/112933340683830235543" rel="publisher">
   <!--[if lt IE 9]><link href="http://static.q42.nl/iefixes.css" type="text/css" rel="stylesheet"><![endif]-->
 
@@ -48,7 +48,9 @@
     </div>
   {{/if}}
 
-  {{yield}}
+  <div id="page">
+    {{yield}}
+  </div>
 
   {{yield 'footer'}}
 </template>
