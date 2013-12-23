@@ -61,6 +61,9 @@ Meteor.methods({
   },
   addComment: function(blogpostId, text)
   {
+    if (!text)
+      return;
+
     BlogComments.insert({
       text: text,
       blogpostId: blogpostId,
@@ -141,7 +144,7 @@ Meteor.publish("pagesByTag", function (tag) {
   // Observe only returns after the initial added callbacks have
   // run.  Now mark the subscription as ready.
   initializing = false;
-  self.added("PageCounts", uuid, {tag: tag, count: count});
+  self.added("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
   self.ready();
 
   // stop observing the cursor when client unsubs

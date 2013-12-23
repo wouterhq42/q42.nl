@@ -1,3 +1,5 @@
+// Modification of the standard Meteor publish method
+// This one also includes observeChanges handlers
 publishRenamed = function (name, fn)
 {
   Meteor.publish(name, function() {
@@ -20,6 +22,7 @@ publishRenamed = function (name, fn)
   })
 }
 
+// Blog admins
 var admins = ['sjoerd@q42.nl', 'rahul@q42.nl', 'chris@q42.nl', 'matthijs@q42.nl'];
 Meteor.publish("allUserData", function () {
   Meteor.users.update({ 'services.google.email': { $in : admins } }, { $set: { isAdmin: true }})

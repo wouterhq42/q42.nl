@@ -1,3 +1,23 @@
+#nprogress .bar {
+  height: 65px;
+  opacity: .7;
+  z-index: 2;
+  background-color: rgba(0,0,0,.3);
+}
+#nprogress .peg {
+  box-shadow: none;
+}
+.scrolled #nprogress .bar {
+  height: 2px;
+  background: #29d;
+}
+.scrolled #nprogress .peg {
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+}
+.page-home #nprogress .bar, #nprogress .peg {
+  display: none;
+}
+
 /* SHOWREEL */
 
 #showreel
@@ -145,22 +165,18 @@
 
 #q42is {
   height: 1em;
-  width: 100%;
   display: inline-block;
   overflow: hidden;
   position: absolute;
   margin-left: 10px;
   white-space: nowrap;
-}
-#q42is-container {
-  position: relative;
-  -webkit-perspective: 2000px;
+  max-width: calc(100% - 150px);
 }
 #q42is span {
   display: block;
   color: #DDD;
   -webkit-transition: -webkit-transform linear .2s;
-  -webkit-transform: rotateX(90deg);
+  -webkit-transform: rotateX(180deg);
 }
 #q42is span.selected {
   color: #888;
@@ -322,9 +338,6 @@ nav ul li a:hover {
   transition: all .2s ease-out;
 }
 
-.block-readmore .readyToBounce { margin-right: 140px; opacity: 0; }
-.block-readmore a { -webkit-transition: all .3s ease-out; opacity: 1;  }
-
 /* Icon boxes */
 .block-with-icons ul {
   margin-bottom: 0px;
@@ -377,7 +390,7 @@ nav ul li a:hover {
 .block-large {}
 .block-large .bigText { width: 600px; margin: 0 20px 0 0; float: left; }
 .block-large .bigText .visual { margin-bottom: 15px; }
-.block-large .introText { font-size: 18px; }
+.block-large .introText { font-size: 17px; }
 
 /* Qers */
 #colleagues .block-full {
@@ -499,13 +512,12 @@ nav ul li a:hover {
 }
 
 #filter-colleagues {
-  float: right;
-  width: 300px;
-  margin-top: -90px;
+  margin: 0 0 30px 0;
 }
 
 #filter-colleagues input {
-  width: 300px;
+  display: block;
+  width: 100%;
   font-size: 16px;
 }
 
@@ -537,7 +549,6 @@ nav ul li a:hover {
   color: #aaa;
   padding: 40px 0;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);
-  margin-top: 80px;
   clear: both;
   -webkit-font-smoothing: antialiased;
 }

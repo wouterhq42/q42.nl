@@ -1,8 +1,15 @@
 Meteor.startup(function () {
-  $(window).bind('resize', resize);
-  $(window).bind('resize', resizeFBwidget);
+  $(window).bind("resize", resize);
+  $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
-  $(window).bind("scroll", bounceBack);
+  $(window).bind("scroll", function() {
+    if ($(window).scrollTop() > 0)
+      $(document.body).addClass("scrolled");
+    else
+      $(document.body).removeClass("scrolled");
+  })
+
+  Session.setDefault("firstLoad", true);
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
@@ -34,8 +41,6 @@ Meteor.startup(function () {
   });
 
   marked.setOptions({ breaks: true });
-
-  Backbone.history.start({pushState: true});
 });
 
 var isPhantom = /phantom/i.test(navigator.userAgent);
@@ -43,22 +48,12 @@ Handlebars.registerHelper("isPhantom", function() {
   return isPhantom;
 });
 
-Template.body.content = function() {
-  var lang = Session.get("lang") == "en" ? "en_" : "";
-  var page = Session.get("page") || "home";
-
-  // if the template for the current language doesn't exist,
-  // fall back to Dutch version or show a 404
-  var template = Template[lang + page] || Template[page] || Template[lang + "error404"];
-
-  return template();
-}
 Template.body.rendered = function() {
   // If we've given the main section the show class we're done.
-  if ($("body>section.show")[0])
+  if ($("#page.show")[0])
     return;
 
-  if (!Session.equals("page", undefined) && !Session.equals("page", "home"))
+  if (!Session.equals("page", "") && !Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
   reattachBehavior();
@@ -66,36 +61,26 @@ Template.body.rendered = function() {
   updateLightbar();
 }
 
-Template.body.viewRendersHeader = function() {
+Template.body.defaultNav = function() {
   var page = Session.get("page") || "home";
-  return page == "home";
-}
-
-Template.body.header = function() {
-  var lang = Session.get("lang") == "en" ? "en_" : "";
-  var template = Template[lang + "header"];
-  return template();
-}
-
-Template.body.footer = function() {
-  var lang = Session.get("lang") == "en" ? "en_" : "";
-  var template = Template[lang + "footer"];
-  return template();
+  return page != "home";
 }
 
 Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
     var href = evt.target.getAttribute("href");
-    if (_.contains(href, ".")) return;
-    Router.loadPage(href);
+    if (!href || _.contains(href, ".")) return;
+    Router.go(href);
     window.scrollTo(0,0);
     evt.preventDefault();
+    Session.set("firstLoad", false);
     return false;
   }
 });
 
 $Template({
   error404: {
+    isEnglish: function() { return Session.equals("lang", "en"); },
     url: function() {
       return document.location.pathname;
     }
@@ -193,10 +178,7 @@ var widgetsTimeout = null;
 function reattachBehavior() {
   resize();
   resizeShowreel();
-
-  setReadmoreBouncers();
   homepageShowreel();
-  bounceBack();
 
   if (!isPhantom) {
 
@@ -213,8 +195,8 @@ function reattachBehavior() {
 
     Meteor.clearTimeout(widgetsTimeout);
     widgetsTimeout = Meteor.setTimeout(function() {
-      $("body>section").addClass("show");
-      $("#homecontent").addClass("show");
+      //if (Session.equals("firstLoad", true))
+        $("#page").addClass("show");
 
       (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];

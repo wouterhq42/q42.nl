@@ -30,10 +30,7 @@ koffieteller = function () {
 
   // make variation random between 0 - 20
   var mt = new MersenneTwister(seed); // to get a consistent random int for everyone on the same day
-
   var randomizedTotalCups = qers * averageCupsPerQer - variation + (Math.round(variation * mt.random()) * 2);
-  //console.log("mt: ", randomVariation, randomizedTotalCups);
-  // vrijdag was random 17 en random totaal 143
 
   var coffeeCounter = 0;
   var workdayFinished = false;
