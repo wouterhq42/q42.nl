@@ -29,7 +29,9 @@ Template.en_blogpost.picture = Template.blogpost.picture = function() {
 var templateBlogPostEvents = {
   "click #addComment": function()
   {
-    Meteor.call("addComment", Session.get("blogpostid"), $("#comment")[0].value);
+    var comm = $("#comment")[0].value;
+    if (comm)
+      Meteor.call("addComment", Session.get("blogpostid"), comm);
     $("#comment")[0].value = "";
   },
   "click .edit-link": function(evt)
