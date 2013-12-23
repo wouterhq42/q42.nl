@@ -7,6 +7,13 @@
 #nprogress .peg {
   box-shadow: none;
 }
+.scrolled #nprogress .bar {
+  height: 2px;
+  background: #29d;
+}
+.scrolled #nprogress .peg {
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+}
 
 /* SHOWREEL */
 

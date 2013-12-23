@@ -2,6 +2,12 @@ Meteor.startup(function () {
   $(window).bind("resize", resize);
   $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
+  $(window).bind("scroll", function() {
+    if ($(window).scrollTop() > 0)
+      $(document.body).addClass("scrolled");
+    else
+      $(document.body).removeClass("scrolled");
+  })
 
   Session.setDefault("firstLoad", true);
 
