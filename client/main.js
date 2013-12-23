@@ -3,6 +3,8 @@ Meteor.startup(function () {
   $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
 
+  Session.setDefault("firstLoad", true);
+
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
   moment.lang(lang);
@@ -65,6 +67,7 @@ Template.body.events({
     Router.go(href);
     window.scrollTo(0,0);
     evt.preventDefault();
+    Session.set("firstLoad", false);
     return false;
   }
 });
@@ -186,16 +189,8 @@ function reattachBehavior() {
 
     Meteor.clearTimeout(widgetsTimeout);
     widgetsTimeout = Meteor.setTimeout(function() {
-      $section = $("body > section");
-      $homecontent = $("#homecontent");
-
-      $section.addClass("show");
-      $homecontent.addClass("show");
-
-      Meteor.setTimeout(function() {
-        $section.addClass("show-complete");
-        $homecontent.addClass("show-complete")
-      }, 600);
+      //if (Session.equals("firstLoad", true))
+        $("#page").addClass("show");
 
       (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
