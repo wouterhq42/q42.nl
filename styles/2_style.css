@@ -101,6 +101,7 @@ body {
   opacity: 0;
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,.4);
+  padding-bottom: 80px;
   -webkit-transform-origin: center top;
   -moz-transform-origin: center top;
   -ms-transform-origin: center top;
