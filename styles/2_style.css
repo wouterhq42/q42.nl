@@ -101,11 +101,6 @@ body {
   opacity: 0;
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,.4);
-  -webkit-transition: linear .3s;
-  -moz-transition: linear .3s;
-  -ms-transition: linear .3s;
-  -o-transition: linear .3s;
-  transition: linear .3s;
   -webkit-transform-origin: center top;
   -moz-transform-origin: center top;
   -ms-transform-origin: center top;
