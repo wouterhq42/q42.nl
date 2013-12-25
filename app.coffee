@@ -95,7 +95,7 @@ if Meteor.isClient
         }
 
     @route "blogpost",
-      path: "/blog/post/:id/:title"
+      path: "/blog/post/:id?/:title?"
       before: -> Session.set "blogpostid", @params.id * 1
       waitOn: -> [
         Meteor.subscribe "blogpostIndex", 1
