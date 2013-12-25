@@ -1,12 +1,14 @@
 if Meteor.isClient
 
-  checkFragmentId = ->
+  setScrollPosition = ->
     if window.location.hash
       $el = $(window.location.hash)
       if $el[0]
         Meteor.setTimeout (-> $el[0].scrollIntoView()), 100
       else
-        Meteor.setTimeout (-> checkFragmentId()), 1000
+        Meteor.setTimeout (-> setScrollPosition()), 1000
+    else
+      window.scrollTo 0,0
 
   Router.configure
     layoutTemplate: "body"
@@ -20,7 +22,7 @@ if Meteor.isClient
       page = ""
     Session.set "page", page
 
-    $(document.body).removeClass(c) for c in $(document.body)[0].classList when c.indexOf("page-") is 0
+    $(document.body).removeClass(c) for c in $(document.body)[0].classList when c?.indexOf("page-") is 0
     $(document.body).addClass "page-" + (if page then page else "home")
 
     NProgress.start()
@@ -32,7 +34,7 @@ if Meteor.isClient
 
   Router.after ->
     NProgress.done()
-    checkFragmentId()
+    setScrollPosition()
 
   Router.map ->
 

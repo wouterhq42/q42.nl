@@ -195,8 +195,7 @@ function reattachBehavior() {
 
     Meteor.clearTimeout(widgetsTimeout);
     widgetsTimeout = Meteor.setTimeout(function() {
-      //if (Session.equals("firstLoad", true))
-        $("#page").addClass("show");
+      $("#page").addClass("show");
 
       (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
