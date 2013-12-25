@@ -34,6 +34,6 @@ meteor deploy q42.com < password.txt
 
 # Put back the public folder
 echo "Finishing..."
-mv $TMPDIR/q42nl-deploy-public .
+mv $TMPDIR/q42nl-deploy-public/* .
 
 echo "Done."
