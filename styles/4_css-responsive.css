@@ -34,7 +34,7 @@
   .block-large > .figure > .body > h2 { font-size: 30px; }
   /*.block-small h2 { font-size: 18px; }*/
 
-  body > section,
+  #page > section,
   #footer > section { width: 620px; }
 
   .block-large .visual { width: 300px; }
@@ -102,7 +102,7 @@
 
   #header { margin-bottom: 0;}
 
-  body > section,
+  #page > section,
   #footer > section,
   #footer .block-small,
   #footer .block-small .body,
@@ -251,7 +251,7 @@
   .block-large .bigText,
   .block-large .block-small .visual { width: 100%; }
 
-  body > section,
+  #page > section,
   #footer > section { width: 100%; }
   .readmore { margin-right: 10px; }
 
