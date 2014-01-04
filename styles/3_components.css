@@ -298,28 +298,25 @@ nav ul li a:hover {
 }
 
 /* VISUAL */
-
-.block-small .figure { float: left; }
-
- a.caption,
+a.caption,
 .visual.caption, .visual.caption p, .visual.caption img
 { text-decoration: none; }
 
 .visual.caption {
-  position: relative;
   overflow: hidden;
 }
 .visual.caption:hover {
-  -webkit-box-shadow: 0 0 8px 0 black;
-  -moz-box-shadow: 0 0 8px 0 black;
   box-shadow: 0 0 8px 0 black;
 }
-.visual.caption:hover img {
-  margin-top: -15px;
-  margin-bottom: 15px;
+.visual.caption:hover img, .visual.caption:hover video {
+  -webkit-transform: translateY(-15px);
+  -moz-transform: translateY(-15px);
+  -o-transform: translateY(-15px);
+  transform: translateY(-15px);
 }
 .visual.caption p {
   position: absolute;
+  z-index: 999;
   margin: 0;
   padding: 4px 12px;
   width: 100%;
@@ -329,9 +326,12 @@ nav ul li a:hover {
   text-decoration: none;
 }
 .visual.caption:hover p {
-  margin-top: -25px;
+  -webkit-transform: translateY(-25px);
+  -moz-transform: translateY(-25px);
+  -o-transform: translateY(-25px);
+  transform: translateY(-25px);
 }
-.visual.caption, .visual.caption > p, .visual.caption > img {
+.visual.caption, .visual.caption p, .visual.caption img, .visual.caption video {
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
@@ -600,16 +600,16 @@ nav ul li a:hover {
 #footer p span span {
   display: inline;
 }
-#footer a.visual.caption {
+#footer .visual.caption {
   display: block;
   margin-bottom: 1em;
 }
-#footer a.visual.caption:hover {
+#footer .visual.caption:hover {
   -webkit-box-shadow: 0 0 8px 0 white;
   -moz-box-shadow: 0 0 8px 0 white;
   box-shadow: 0 0 8px 0 white;
 }
-#footer a.visual.caption:hover p {
+#footer .visual.caption:hover p {
   background-color: #FFF;
   color: #232323;
 }

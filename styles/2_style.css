@@ -108,7 +108,7 @@ body {
   -o-transform-origin: center top;
   transform-origin: center top;
 }
-#page > section {
+.container {
   width: 940px;
   min-height: 300px;
   margin: 0 auto;
@@ -276,7 +276,7 @@ article h1,
   text-align: left;
 }
 article h2,
-.block-large > .figure > .body > h2
+.block-large > .body h2
 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.04em;
@@ -286,20 +286,15 @@ article h2,
 }
 .blog article h2,
 .comments h2,
-.blog .block-large > .figure > .body > h2 {
+.blog .block-large > .body h2 {
   font: normal 1.4em Lato,Georgia,Times,serif;
   letter-spacing: -1px;
 }
-.block-large > .figure > .body > h3 {
+.block-large > .body h3 {
   font: 14px/1.5 Lato, Georgia, Times, serif;
   padding: 0px;
   margin-top: -18px;
   color: #888;
-}
-.block-large .figure {
-  margin: 0;
-  padding: 0;
-  border: none;
 }
 
 .block-small h3 {
@@ -334,9 +329,7 @@ article h2,
 }
 
 .block-readmore {
-  background-color: white;
-  margin-top: -20px;
-  padding: 0px 0px 16px;
+  clear: both;
   text-align: right;
 }
 
@@ -356,8 +349,8 @@ article h2,
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
-
 .block-small .visual {
+  float: none;
   position: relative;
   width: 300px;
   overflow: hidden;
