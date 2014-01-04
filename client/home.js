@@ -43,12 +43,20 @@ homepageShowreel = function () {
 
   $(window).bind("keyup", function keyup(evt) {
     $("#showreel-stage").addClass("transitioningByClick");
-    var nr = parseInt($("#indicators .active").attr("data-number"));
+    $active = $("#indicators .active");
+    var total = $("#indicators span");
+    var nr = parseInt($active.attr("data-number"));
     if (!nr) nr = 0;
-    if (evt.which == 39)
-      gotoShowreelItem(nr + 1, true);
-    if (evt.which == 37)
-      gotoShowreelItem(nr - 1, true);
+    if (evt.which == 39) {
+      var next = nr + 1;
+      if (next > total) next = 0;
+      gotoShowreelItem(next, true);
+    }
+    if (evt.which == 37) {
+      var prev = nr - 1;
+      if (prev < 0) prev = total;
+      gotoShowreelItem(prev, true);
+    }
   });
 
   setup3DShowreel();
@@ -126,17 +134,19 @@ function handleIndicatorClick(e) {
 
 function gotoShowreelItem(nr, click) {
   showreelActiveItem = nr;
-  $("#showreel-stage").addClass('transitioning');
-  var $currentItem = $showreel.find('.active-item');
-  var $nextItem = $showreel.find('.item[data-number="' + nr + '"]');
+
+  var $stage            = $("#showreel-stage");
+  var $shape            = $("#showreel-shape");
+  var $currentItem      = $showreel.find('.active-item');
+  var $nextItem         = $showreel.find('.item[data-number="' + nr + '"]');
   var $currentIndicator = $('#indicators .active');
-  var $nextIndicator = $('#indicators span[data-number="' + nr + '"]');
-  var prevousItemNr = $currentItem.attr("data-number");
+  var $nextIndicator    = $('#indicators span[data-number="' + nr + '"]');
+  var prevousItemNr     = $currentItem.attr("data-number");
 
-  if (prevousItemNr == nr) {
+  if (prevousItemNr == nr)
     return;
-  }
 
+  $stage.addClass('transitioning');
   $currentItem.removeClass('active-item');
   $nextItem.addClass('active-item');
   $currentIndicator.removeClass('active');
@@ -144,33 +154,32 @@ function gotoShowreelItem(nr, click) {
 
   if (showreel3D) {
     if (prevousItemNr == 0 && nr == showreelItemCount - 1) {
-      $("#showreel-shape").removeClass("transition");
-      $("#showreel-shape").css("-webkit-transform", "rotateY(0deg)");
-      $("#showreel-shape").css("-moz-transform", "rotateY(0deg)");
+      $shape.removeClass("transition");
+      $shape.css("-webkit-transform", "rotateY(0deg)");
+      $shape.css("-moz-transform", "rotateY(0deg)");
       requestAnimFrame(function () {
-        $("#showreel-shape").addClass("transition");
+        $shape.addClass("transition");
       });
     }
     if (prevousItemNr == 0 && nr == 1) {
-      $("#showreel-shape").removeClass("transition");
-      $("#showreel-shape").css("-webkit-transform", "rotateY(360deg)");
-      $("#showreel-shape").css("-moz-transform", "rotateY(360deg)");
+      $shape.removeClass("transition");
+      $shape.css("-webkit-transform", "rotateY(360deg)");
+      $shape.css("-moz-transform", "rotateY(360deg)");
       requestAnimFrame(function () {
-        $("#showreel-shape").addClass("transition");
+        $shape.addClass("transition");
       });
     }
 
     var position = 360 - showreelDeg * nr;
-    if (prevousItemNr == showreelItemCount - 1 && nr == 0) {
+    if (prevousItemNr == showreelItemCount - 1 && nr == 0)
       position = 0;
-    }
 
     requestAnimFrame(function () {
-      $("#showreel-shape").css("-webkit-transform", "rotateY(" + position + "deg)");
-      $("#showreel-shape").css("-moz-transform", "rotateY(" + position + "deg)");
-      if (!$('#showreel-stage').hasClass('transitioningBySwipe')) {
-        $("#showreel-stage").css("-webkit-transform", "translateZ(-" + showreelZ * 1.3 + "px)");
-        $("#showreel-stage").css("-moz-transform", "translateZ(-" + showreelZ * 1.3 + "px)");
+      $shape.css("-webkit-transform", "rotateY(" + position + "deg)");
+      $shape.css("-moz-transform", "rotateY(" + position + "deg)");
+      if (!$stage.hasClass('transitioningBySwipe')) {
+        $stage.css("-webkit-transform", "translateZ(-" + showreelZ * 1.3 + "px)");
+        $stage.css("-moz-transform", "translateZ(-" + showreelZ * 1.3 + "px)");
       }
     });
 
