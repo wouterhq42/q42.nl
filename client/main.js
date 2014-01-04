@@ -49,10 +49,6 @@ Handlebars.registerHelper("isPhantom", function() {
 });
 
 Template.body.rendered = function() {
-  // If we've given the main section the show class we're done.
-  if ($("#page.show")[0])
-    return;
-
   if (!Session.equals("page", "") && !Session.equals("page", undefined) && !Session.equals("page", "home"))
     document.title = $(this.find('h1')).text() + " - Q42";
 
@@ -61,10 +57,10 @@ Template.body.rendered = function() {
   updateLightbar();
 }
 
-Template.body.defaultNav = function() {
+Handlebars.registerHelper("defaultNav", function() {
   var page = Session.get("page") || "home";
   return page != "home";
-}
+});
 
 Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
@@ -209,9 +205,16 @@ function reattachBehavior() {
 
       // Twitter
       twttr && twttr.widgets.load();
+
+      // gfycat
+      (function(d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+
     }, 0);
 
   }
-
 
 }
