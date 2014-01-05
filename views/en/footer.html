@@ -1,9 +1,10 @@
 <template name="en_footer">
   <footer>
     <div id="footer">
+
       <section>
-        <section class="block-large">
-          <article class="vcard block-small">
+        <div class="block-large">
+          <div class="vcard block-small">
             <h2>Contact</h2>
             {{#unless isPhantom}}
             <iframe src="http://player.vimeo.com/video/47226129" height="160" frameborder="0"></iframe>
@@ -23,9 +24,9 @@
               <span class="postal-code">1019BW <span class="locality">Amsterdam</span></span>
             </p>
             <p><span class="note kvk">KvK 30164662 in The Hague</span></p>
-          </article>
+          </div>
 
-          <article class="block-small">
+          <div class="block-small">
             <h2>But who are Q42?</h2>
             <a class="visual caption">
               <img src="http://static.q42.nl/images/lukasschietend.jpg" alt=""/>
@@ -33,9 +34,9 @@
             </a>
             <p>Some people call us 'a tech-savvy internet agency'. Others just call us nerds. We call ourselves nerds too, to be honest. We just happen to really love good programming.</p>
             <p>But that's not the whole story. Computers are only interesting when they involve people. So even more than programming, we love programming web apps to not just be useful, but also friendly.</p>
-          </article>
+          </div>
 
-          <article class="block-small">
+          <div class="block-small">
             <h2>Social networking</h2>
             <div id="fb-root"></div>
             <div class="fb-like-box" data-href="http://www.facebook.com/q42bv" data-width="300" data-height="400" data-colorscheme="dark" data-show-faces="true" data-header="false" data-border-color="#444" data-show-border="false"></div>
@@ -48,22 +49,13 @@
               <li><a href="http://vimeo.com/q42"><i class="fa fa-vimeo-square fa-2x"></i><div>Q42 on Vimeo</div></a></li>
             </ul>
             </ul>
-          </article>
-        </section>
+          </div>
+        </div>
+
       </section>
+
       <div id="endtag">&lt;/body&gt;</div>
+
     </div>
   </footer>
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-2714808-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
 </template>
