@@ -539,7 +539,7 @@ a.caption,
   display: block;
 }
 
-#facts section { text-align: center; }
+#facts .body { text-align: center; }
 .counter { font-size: 78px; margin: 0;}
 
 /* FOOTER */
