@@ -303,6 +303,7 @@ a.caption,
 { text-decoration: none; }
 
 .visual.caption {
+  display: block;
   overflow: hidden;
 }
 .visual.caption:hover {
