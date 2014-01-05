@@ -1,5 +1,4 @@
 Meteor.startup(function () {
-  $(window).bind("resize", resize);
   $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
   $(window).bind("scroll", function() {
@@ -174,7 +173,6 @@ Template.header.events(templateHeaderEvents);
 var widgetsTimeout = null;
 
 function reattachBehavior() {
-  resize();
   resizeShowreel();
   homepageShowreel();
 
