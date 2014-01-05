@@ -44,6 +44,7 @@ if Meteor.isClient
 
     @route "blog",
       path: "/blog"
+      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1
@@ -61,6 +62,7 @@ if Meteor.isClient
 
     @route "blog",
       path: "/blog/page/:pageNum"
+      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", @params.pageNum * 1
@@ -78,6 +80,7 @@ if Meteor.isClient
 
     @route "blog",
       path: "/blog/tagged/:tag"
+      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1, @params.tag
@@ -97,6 +100,7 @@ if Meteor.isClient
     @route "blogpost",
       path: "/blog/post/:id?/:title?"
       before: -> Session.set "blogpostid", @params.id * 1
+      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
       waitOn: -> [
         Meteor.subscribe "blogpostIndex", 1
         Meteor.subscribe "blogpostFull", @params.id * 1
