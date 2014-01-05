@@ -44,7 +44,7 @@ var currentQers = [
  { name: "Martijn Laarman", handle:"martijnl"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
- { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/"},
+ { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Matthijs van der Meulen", handle:"matthijs"},
  { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/"},
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
