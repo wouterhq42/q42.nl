@@ -100,7 +100,7 @@ if Meteor.isClient
     @route "blogpost",
       path: "/blog/post/:id?/:title?"
       before: -> Session.set "blogpostid", @params.id * 1
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      action: -> @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
       waitOn: -> [
         Meteor.subscribe "blogpostIndex", 1
         Meteor.subscribe "blogpostFull", @params.id * 1
