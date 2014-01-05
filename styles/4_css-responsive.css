@@ -32,7 +32,6 @@
   }
 
   .block-large > .body > h2 { font-size: 30px; }
-  /*.block-small h2 { font-size: 18px; }*/
 
   .container,
   #footer > section { width: 620px; }
@@ -114,7 +113,7 @@
   .block-large .block-small,
   .block-large .block-small .body,
   .block-large .block-small .visual,
-  .block-large .bigText{ width: 460px; }
+  .block-large .intro { width: 460px; }
   .block-large .body { width: 100%; }
 
   .block-small:nth-of-type(1),
@@ -224,7 +223,7 @@
   .body,
   .block-small > p,
   .block-small > ul,
-  .block-large .bigText > p,
+  .block-large .intro > p,
   #footer h2,
   .big_ass_button
   { padding: 0px 16px; }
@@ -242,7 +241,7 @@
   .block-large .visual,
   .block-large .block-small,
   .block-large .block-small .body,
-  .block-large .bigText,
+  .block-large .intro,
   .block-large .block-small .visual { width: 100%; }
 
   .container,

@@ -271,11 +271,11 @@ footer {
   clear: none;
 }
 
-article h1,
+section h1,
 .block-large h1 {
   text-align: left;
 }
-article h2,
+section h2,
 .block-large > .body h2
 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -323,9 +323,6 @@ article h2,
 }
 .block-large.right .body {
   float: left;
-}
-.block-large .block-small:nth-of-type(1) {
-  clear:both;
 }
 
 .block-readmore {
@@ -394,7 +391,7 @@ span {
   clear: both;
 }
 
-.reblog .bigText {
+.reblog .intro {
   padding: 0 0 0 4em;
   background: url(http://static.q42.nl/images/icon_reblog.jpeg) 1em no-repeat;
 }
@@ -407,17 +404,17 @@ span {
   height: auto;
 }
 
-.blog .bigText img {
+.blog .intro img {
   max-width: 100%;
   border: solid 5px white;
   box-shadow: 0 0 4px rgba(0,0,0,.4);
   margin-left: 2px; /* force the box shadow to be shown since the parent has overflow: hidden */
 }
-.blog .bigText h1 p {
+.blog .intro h1 p {
   margin: 0 0 5px 0;
   line-height: 1;
 }
-.blog .bigText .figure {
+.blog .intro .figure {
   margin-top: 20px;
 }
 

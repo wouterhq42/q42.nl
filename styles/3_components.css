@@ -386,11 +386,13 @@ a.caption,
   text-decoration: none !important;
 }
 
-/* Big text block */
-.block-large {}
-.block-large .bigText { width: 600px; margin: 0 20px 0 0; float: left; }
-.block-large .bigText .visual { margin-bottom: 15px; }
-.block-large .introText { font-size: 17px; }
+.block-large .intro {
+  font-size: 17px;
+  width: 600px;
+  margin: 0 20px 0 0;
+  float: left;
+}
+.block-large .intro .visual { margin-bottom: 15px; }
 
 /* Qers */
 #colleagues .block-full {
