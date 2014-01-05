@@ -123,15 +123,17 @@
     </section>
 
     <section id="colleagues">
-      <div class="block-full">
-        <div class="body">
+      <div class="block-large">
+        <div class="intro">
           <h2>Hallo, wij zijn de Q'ers</h2>
           <h3>Aangenaam kennis te maken.</h3>
-          {{> filter_employees}}
           <ol>
            	{{> employees }}
           </ol>
         </div>
+        <aside class="subcontent block-small">
+          {{> filter_employees}}
+        </aside>
         <div class="clear"></div>
       </div>
     </section>
@@ -339,20 +341,21 @@
 
 <template name="filter_employees">
   <div id="filter-colleagues">
+    <h2>Filter de Q'ers</h2>
     {{#isolate}}
-    <label>
-      Filter de Q'ers
-      <input data-role="filter-qers" list="filter-options" placeholder="Filter de Q'ers... (support ook regex!)" id="filter-qers-input">
-    </label>
-    <datalist id="filter-options">
+    <ul id="filter-options">
       {{#each list}}
+      <li>{{name}}
+        <ul>
         {{#each items}}
-        <option value="{{.}}">{{.}}</option>
+          <li><a href="#">{{.}}</a></li>
         {{/each}}
-        {{else}}
-        <option>No items :(</option>
+        </ul>
+      </li>
       {{/each}}
-    </datalist>
+    </ul>
     {{/isolate}}
+    <h2>Of gebruik regex!</h2>
+    <input data-role="filter-qers" placeholder="/.*/" id="filter-qers-input">
   </div>
 </template>

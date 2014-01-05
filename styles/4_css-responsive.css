@@ -14,9 +14,6 @@
     margin-left: 20px;
     padding-right: 0;
   }
-  #colleagues ol li:nth-of-type(7n) {
-    margin-right: 0;
-  }
 }
 
 
@@ -77,12 +74,6 @@
 
   #facts .block-small { width: 200px; }
   #facts .block-small .body { width: 100%; }
-
-  #filter-colleagues {
-    float: none;
-    margin: 0 0 30px 0;
-    display: block;
-  }
   /* end 940 */
 }
 
@@ -155,8 +146,6 @@
     font: 25px 'Permanent Marker', cursive;
     position: relative;
   }
-  .lights-off #colleagues ol li > .name { color: #fff;}
-  .lights-off #colleagues ol li { border-color: #555;}
 
   #colleagues ol li > .contactData {
     display: block;
@@ -217,7 +206,7 @@
 
   .block-text h1 { font-size: 39px; }
 
-  .lt-480 #header { margin-bottom: 0; }
+  #header { margin-bottom: 0; }
 
   header h1,
   .body,
