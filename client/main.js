@@ -41,6 +41,8 @@ Meteor.startup(function () {
   });
 
   marked.setOptions({ breaks: true });
+
+  Typekit.load();
 });
 
 var isPhantom = /phantom/i.test(navigator.userAgent);
