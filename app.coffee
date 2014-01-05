@@ -113,12 +113,26 @@ if Meteor.isClient
     @route "page",
       path: "/:page"
       before: -> Session.set "page", @params.page
-      action: -> @render (if Session.equals("lang", "en") then "en_" + @params.page else @params.page)
+      action: ->
+        if Session.equals("lang", "en")
+          template = Template["en_" + @params.page]
+          if template
+            return @render "en_" + @params.page
+
+        @render @params.page
       data: ->
         # there should be a nicer way to do this...
-        tmpl = (if Session.equals("lang", "en") then "en_" + @params.page else @params.page)
-        return null unless Template[tmpl]
-        [] # data() needs to return something
+        template = Template[@params.page]
+
+        # fallback to dutch if no english version present
+        if Session.equals("lang", "en")
+          template = Template["en_" + @params.page]
+          unless template
+            template = Template[@params.page]
+
+        return null unless template
+
+        return [] # data() needs to return something
 
   getPagination = (pageNum, tag) ->
     pageNum = pageNum * 1
