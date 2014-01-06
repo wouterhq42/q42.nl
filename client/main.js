@@ -81,13 +81,13 @@ $Template({
       var counter = 0;
 
       (function cycle() {
-        clearTimeout(to);
+        Meteor.clearTimeout(to);
         var lines = 0;
         var now = new Date();
         for (var i = 0; i < numQers; i++) lines += Qers[i].linesWritten(now);
         lines = Math.round(lines);
         counter = Math.max(lines, 0);
-        to = setTimeout(cycle, 1000);
+        to = Meteor.setTimeout(cycle, 1000);
       })();
 
       function Qer() {
