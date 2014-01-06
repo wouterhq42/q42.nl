@@ -1,7 +1,7 @@
 Meteor.startup(function () {
-  $(window).bind("resize", resizeFBwidget);
-  $(window).bind("resize", resizeShowreel);
-  $(window).bind("scroll", _.throttle(function() {
+  $(window).resize(_.debounce(resizeFBwidget, 300));
+  $(window).resize(_.debounce(resizeShowreel, 300));
+  $(window).scroll(_.throttle(function() {
     $(document.body).toggleClass("scrolled", $(window).scrollTop() > 0);
   }, 100));
 
@@ -9,12 +9,12 @@ Meteor.startup(function () {
   Session.setDefault("lang", lang);
   moment.lang(lang);
 
-  setupLights();
-
   Session.setDefault("date", new Date());
   Meteor.setInterval(function() {
     Session.set("date", new Date());
   }, 1000);
+
+  setupLights();
 
   Deps.autorun(function() {
     Meteor.subscribe("allUserData");
@@ -195,6 +195,9 @@ function attachFacebook() {
     js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=535367106516027";
     fjs.parentNode.insertBefore(js, fjs);
   } (document, 'script', 'facebook-jssdk'));
+}
+function resizeFBwidget() {
+  $('.fb_iframe_widget iframe').width('100%');
 }
 function attachTwitter() {
   twttr && twttr.widgets.load();
