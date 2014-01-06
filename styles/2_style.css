@@ -284,10 +284,10 @@ section h2,
 
   color: #232323;
 }
-.blog article h2,
+.blog aside h2,
 .comments h2,
 .blog .block-large > .body h2 {
-  font: normal 1.4em Lato,Georgia,Times,serif;
+  font: normal 1.4em Lato, Georgia, Times, serif;
   letter-spacing: -1px;
 }
 .block-large > .body h3 {
@@ -537,4 +537,9 @@ span {
 #blog-sidebar {
   margin: 0;
   padding-right: 0;
+}
+
+#loading {
+  text-align: center;
+  padding: 100px 0;
 }
