@@ -43,8 +43,10 @@ if Meteor.isClient
       action: -> @render (if Session.equals("lang", "en") then "en_home" else "home")
 
     @route "blog",
+      loadingTemplate: "loading"
       path: "/blog"
       action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      after: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1
@@ -52,17 +54,17 @@ if Meteor.isClient
           Meteor.subscribe "LatestComments", 10
         ]
       data: ->
-        Meteor.call "checkTumblr"
         posts = blogpostIndex.find {}, sort: date: -1
-        return null unless posts.count() > 0
         return {
           post:       posts
           pagination: getPagination 1
         }
 
     @route "blog",
+      loadingTemplate: "loading"
       path: "/blog/page/:pageNum"
       action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      after: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", @params.pageNum * 1
@@ -70,17 +72,17 @@ if Meteor.isClient
           Meteor.subscribe "LatestComments", 10
         ]
       data: ->
-        Meteor.call "checkTumblr"
         posts = blogpostIndex.find {}, sort: date: -1
-        return null unless posts.count() > 0
         return {
           post:       posts
           pagination: getPagination @params.pageNum
         }
 
     @route "blog",
+      loadingTemplate: "loading"
       path: "/blog/tagged/:tag"
       action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      after: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1, @params.tag
@@ -88,7 +90,6 @@ if Meteor.isClient
           Meteor.subscribe "LatestComments", 10
         ]
       data: ->
-        Meteor.call "checkTumblr"
         posts = blogpostIndex.find {}, sort: date: -1
         return null unless posts.count() > 0
         return {
@@ -98,6 +99,7 @@ if Meteor.isClient
         }
 
     @route "blogpost",
+      loadingTemplate: "loading"
       path: "/blog/post/:id?/:title?"
       before: -> Session.set "blogpostid", @params.id * 1
       action: -> @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
