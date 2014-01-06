@@ -1,5 +1,7 @@
 Template.body.rendered = ->
-  if not Session.equals("page", "") and not Session.equals("page", undefined) and not Session.equals("page", "home")
+  if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
+    document.title = "Q42"
+  else
     document.title = $(this.find('h1')).text() + " - Q42"
   reattachBehavior()
   updateLightbar()
