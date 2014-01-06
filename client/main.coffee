@@ -24,6 +24,8 @@ Meteor.startup ->
 
   Typekit.load()
 
+  $.ajaxSetup cache: yes
+
 setupLights = ->
   Session.setDefault "toggleLights", false
   Session.setDefault "lightsColor", "#000000"
