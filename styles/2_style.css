@@ -91,6 +91,10 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   line-height: 17px;
 }
 
+.gfyitem {
+  height: 160px;
+}
+
 /* default screen size: 320 + 320 + 300 = 3 columns*/
 body {
   -webkit-perspective: 2000px;
