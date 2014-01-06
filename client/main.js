@@ -1,27 +1,15 @@
 Meteor.startup(function () {
   $(window).bind("resize", resizeFBwidget);
   $(window).bind("resize", resizeShowreel);
-  $(window).bind("scroll", function() {
-    if ($(window).scrollTop() > 0)
-      $(document.body).addClass("scrolled");
-    else
-      $(document.body).removeClass("scrolled");
-  })
+  $(window).bind("scroll", _.throttle(function() {
+    $(document.body).toggleClass("scrolled", $(window).scrollTop() > 0);
+  }, 100));
 
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
   moment.lang(lang);
 
-  // http://stackoverflow.com/questions/8278670/how-to-check-if-a-html5-input-is-supported
-  var supportsInputTypeColor = (function() {
-    var i = document.createElement("input");
-    i.setAttribute("type", "color");
-    return i.type !== "text";
-  })();
-  Session.setDefault("supportsInputTypeColor", supportsInputTypeColor);
-
-  Session.setDefault("toggleLights", false);
-  Session.setDefault("lightsColor", "#000000");
+  setupLights();
 
   Session.setDefault("date", new Date());
   Meteor.setInterval(function() {
@@ -29,37 +17,43 @@ Meteor.startup(function () {
   }, 1000);
 
   Deps.autorun(function() {
-    var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
-    $(document.body).toggleClass("lights-off", turnOnLights);
-  });
-
-  Deps.autorun(function() {
     Meteor.subscribe("allUserData");
   });
 
-  marked.setOptions({ breaks: true });
-
   Typekit.load();
 });
+
+var setupLights = function() {
+  Session.setDefault("supportsInputTypeColor", (function() {
+    // http://stackoverflow.com/a/8278718/16308
+    var i = document.createElement("input");
+    i.setAttribute("type", "color");
+    return i.type !== "text";
+  })());
+  Session.setDefault("toggleLights", false);
+  Session.setDefault("lightsColor", "#000000");
+  Deps.autorun(function() {
+    var turnOnLights = Session.get("toggleLights") != (Session.get("date").getHours() > 20 || Session.get("date").getHours() < 7);
+    $(document.body).toggleClass("lights-off", turnOnLights);
+  });
+}
 
 var isPhantom = /phantom/i.test(navigator.userAgent);
 Handlebars.registerHelper("isPhantom", function() {
   return isPhantom;
 });
 
-Template.body.rendered = function() {
-  if (!Session.equals("page", "") && !Session.equals("page", undefined) && !Session.equals("page", "home"))
-    document.title = $(this.find('h1')).text() + " - Q42";
-
-  reattachBehavior();
-
-  updateLightbar();
-}
-
 Handlebars.registerHelper("defaultNav", function() {
   var page = Session.get("page") || "home";
   return page != "home";
 });
+
+Template.body.rendered = function() {
+  if (!Session.equals("page", "") && !Session.equals("page", undefined) && !Session.equals("page", "home"))
+    document.title = $(this.find('h1')).text() + " - Q42";
+  reattachBehavior();
+  updateLightbar();
+};
 
 Template.body.events({
   "click a[href^='/']": function handleLinkClick(evt) {
@@ -165,53 +159,50 @@ var templateHeaderEvents = {
 Template.en_header.events(templateHeaderEvents);
 Template.header.events(templateHeaderEvents);
 
-
-
 var widgetsTimeout = null;
 
 function reattachBehavior() {
   resizeShowreel();
   homepageShowreel();
+  $("#page").addClass("show");
 
   if (!isPhantom) {
-
-    if (!window._gaq) {
-      window._gaq = [];
-      _gaq.push(['_setAccount', 'UA-2714808-1']);
-      _gaq.push(['_trackPageview']);
-      (function () {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
-
-    Meteor.clearTimeout(widgetsTimeout);
-    widgetsTimeout = Meteor.setTimeout(function() {
-      $("#page").addClass("show");
-
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=535367106516027";
-        fjs.parentNode.insertBefore(js, fjs);
-      } (document, 'script', 'facebook-jssdk'));
-
-      resizeFBwidget();
-
-      // Twitter
-      twttr && twttr.widgets.load();
-
-      // gfycat
-      (function(d, t) {
-        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
-        s.parentNode.insertBefore(g, s);
-      }(document, 'script'));
-
-    }, 0);
-
+    attachGoogleAnalytics();
+    attachFacebook();
+    attachTwitter();
+    attachGfycat();
+    resizeFBwidget();
   }
+}
 
+function attachGoogleAnalytics() {
+  if (!window._gaq) {
+    window._gaq = [];
+    _gaq.push(['_setAccount', 'UA-2714808-1']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+}
+function attachFacebook() {
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=535367106516027";
+    fjs.parentNode.insertBefore(js, fjs);
+  } (document, 'script', 'facebook-jssdk'));
+}
+function attachTwitter() {
+  twttr && twttr.widgets.load();
+}
+function attachGfycat() {
+  (function(d, t) {
+    var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    g.src = 'http://assets.gfycat.com/js/gfyajax-0.517d.js';
+    s.parentNode.insertBefore(g, s);
+  }(document, 'script'));
 }

@@ -17,7 +17,6 @@ accounts-facebook
 accounts-twitter
 accounts-github
 gravatar
-marked
 coffeescript
 standard-app-packages
 crypto-base
