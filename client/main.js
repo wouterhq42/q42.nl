@@ -200,7 +200,7 @@ function resizeFBwidget() {
   $('.fb_iframe_widget iframe').width('100%');
 }
 function attachTwitter() {
-  twttr && twttr.widgets.load();
+  twttr && twttr.widgets && twttr.widgets.load();
 }
 function attachGfycat() {
   (function(d, t) {
