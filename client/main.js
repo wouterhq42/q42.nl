@@ -8,8 +8,6 @@ Meteor.startup(function () {
       $(document.body).removeClass("scrolled");
   })
 
-  Session.setDefault("firstLoad", true);
-
   var lang = _.last(window.location.hostname.split(".")) == "com" ? "en" : "nl";
   Session.setDefault("lang", lang);
   moment.lang(lang);
@@ -70,7 +68,6 @@ Template.body.events({
     Router.go(href);
     window.scrollTo(0,0);
     evt.preventDefault();
-    Session.set("firstLoad", false);
     return false;
   }
 });
