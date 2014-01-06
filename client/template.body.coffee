@@ -3,6 +3,9 @@ Template.body.rendered = ->
     document.title = "Q42"
   else
     document.title = $(this.find('h1')).text() + " - Q42"
+
+  $("#og-title").attr "content", document.title
+
   reattachBehavior()
   updateLightbar()
 
