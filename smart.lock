@@ -8,7 +8,8 @@
       "gravatar": {},
       "marked": {},
       "iron-router": {},
-      "nprogress": {}
+      "nprogress": {},
+      "moment": {}
     },
     "packages": {
       "router": {
@@ -45,6 +46,11 @@
         "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
         "tag": "v0.0.3",
         "commit": "ffd1c5dd400af64121197f4e637a215c4b6b1fc7"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.2.1",
+        "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
