@@ -1,10 +1,7 @@
 {
   "packages": {
-    "router": {},
     "font-awesome": {},
-    "HTML5-History-API": {},
     "gravatar": {},
-    "marked": {},
     "iron-router": {},
     "nprogress": {},
     "moment": {}
