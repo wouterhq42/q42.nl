@@ -6,7 +6,8 @@
       "gravatar": {},
       "iron-router": {},
       "nprogress": {},
-      "moment": {}
+      "moment": {},
+      "marked": {}
     },
     "packages": {
       "font-awesome": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.2.1",
         "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+      },
+      "marked": {
+        "git": "https://github.com/chuangbo/meteor-marked.git",
+        "tag": "v0.2.9",
+        "commit": "6485d6f03841501f81176e34ab375840473aa714"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

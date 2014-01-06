@@ -4,6 +4,7 @@
     "gravatar": {},
     "iron-router": {},
     "nprogress": {},
-    "moment": {}
+    "moment": {},
+    "marked": {}
   }
 }

@@ -20,6 +20,8 @@ Meteor.startup ->
 
   Deps.autorun -> Meteor.subscribe("allUserData")
 
+  marked.setOptions breaks: true
+
   Typekit.load()
 
 setupLights = ->
