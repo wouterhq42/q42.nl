@@ -1,9 +1,11 @@
 <template name="footer">
   <footer>
     <div id="footer">
+
       <section>
-        <section class="block-large">
-          <article class="vcard block-small">
+
+        <div class="block-large">
+          <div class="vcard block-small">
             <h2>Contact</h2>
             {{#unless isPhantom}}
             <iframe src="http://player.vimeo.com/video/47226129" height="160" frameborder="0"></iframe>
@@ -23,9 +25,9 @@
               <span class="postal-code">1019BW <span class="locality">Amsterdam</span></span>
             </p>
             <p><span class="note kvk">KvK 30164662 te Den Haag</span></p>
-          </article>
+          </div>
 
-          <article class="block-small">
+          <div class="block-small">
             <h2>Maar wie zijn Q42?</h2>
             <a class="visual caption">
               <img src="http://static.q42.nl/images/lukasschietend.jpg" alt=""/>
@@ -33,11 +35,10 @@
             </a>
             <p>'Een technisch innovatief internetbureau', zeggen sommigen. 'Nerds', zeggen anderen. Wij zelf bijvoorbeeld, als we eerlijk zijn. We houden namelijk heel erg van goed programmeren.</p>
             <p>Maar dat is niet het hele verhaal. Computers zijn pas interessant met mensen erbij. We vinden het daarom nog leuker om zo te programmeren dat een webapplicatie niet alleen nuttig, maar ook vriendelijk is.</p>
-          </article>
+          </div>
 
-          <article class="block-small">
+          <div class="block-small">
             <h2>Sociaal netwerken</h2>
-            <div id="fb-root"></div>
             <div class="fb-like-box" data-href="http://www.facebook.com/q42bv" data-width="300" data-height="400" data-colorscheme="dark" data-show-faces="true" data-header="false" data-border-color="#444" data-show-border="false"></div>
             <ul class="iconList no-text">
               <li><a href="https://twitter.com/q42"><i class="fa fa-twitter fa-2x"></i><div>Q42 op Twitter</div></a></li>
@@ -47,22 +48,13 @@
               <li><a href="http://www.youtube.com/user/Q42TV"><i class="fa fa-youtube fa-2x"></i><div>Q42 op YouTube</div></a></li>
               <li><a href="http://vimeo.com/q42"><i class="fa fa-vimeo-square fa-2x"></i><div>Q42 op Vimeo</div></a></li>
             </ul>
-          </article>
-        </section>
+          </div>
+        </div>
+
       </section>
+
       <div id="endtag">&lt;/body&gt;</div>
+
     </div>
   </footer>
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-2714808-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
 </template>

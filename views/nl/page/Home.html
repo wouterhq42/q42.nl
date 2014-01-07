@@ -1,259 +1,224 @@
 <template name="home">
   <header id="showreel">
-   <div id="showreel-container">
+    <div id="showreel-container">
       <div id="showreel-stage">
         <div id="showreel-shape">
           {{> carrousel_items}}
         </div>
       </div>
     </div>
-
     <div id="indicators"></div>
-
     {{> header}}
-
   </header>
-  <section id="homecontent">
-    <section>
 
-      <!-- NEWS HIGHLIGHTS -->
-      <section class="projectsSection">
-        <div class="block-large">
-          <div class="figure">
-            <div class="body">
-              <h2>Staatsloterij</h2>
-              <h3>De nieuwe website</h3>
-              <p>Op de nieuwe Staatsloterij website kun je nu vrijwel alle producten online kopen. Daarnaast heeft de Staatsloterij de mogelijkheid om flexibel in te spelen op nieuwe ontwikkelingen, campagnes en trekkingen.</p>
-              <p>We ontwikkelden de nieuwe site in samenwerking met Fabrique en het Digital team van de Staatsloterij.</p>
-              <p>De site is tablet first ontwikkeld, maar werkt door het responsive design ook perfect op hele grote schermen en alle gangbare smartphones.</p>
-              <p><a href="http://www.staatsloterij.nl" class="external">Waag eens een gokje</a></p>
-            </div>
-            <a class="visual caption">
-              <img src="http://static.q42.nl/images/staats.jpg?w=600" alt="Jackpot!"/>
-              <p>Jackpot!</p>
-            </a>
+  <div class="container">
+
+    <section>
+      <div class="block-large">
+        <div class="body">
+          <h2>Staatsloterij</h2>
+          <h3>De nieuwe website</h3>
+          <p>Op de nieuwe Staatsloterij website kun je nu vrijwel alle producten online kopen. Daarnaast heeft de Staatsloterij de mogelijkheid om flexibel in te spelen op nieuwe ontwikkelingen, campagnes en trekkingen.</p>
+          <p>We ontwikkelden de nieuwe site in samenwerking met Fabrique en het Digital team van de Staatsloterij.</p>
+          <p>De site is tablet first ontwikkeld, maar werkt door het responsive design ook perfect op hele grote schermen en alle gangbare smartphones.</p>
+          <p><a href="http://www.staatsloterij.nl" class="external">Waag eens een gokje</a></p>
+        </div>
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/staats.jpg" alt="Jackpot!"/>
+          <p>Jackpot!</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="q42is-header" class="block-text">
+      <h1>
+        <div id="q42is-pre">Q42 is </div>
+        <div id="q42is">
+          <div id="q42is-container">
+            <span class="selected">technisch internetbureau</span>
+            <span>happy place voor nerds</span>
+            <span>koffieliefhebbers</span>
+            <span>greatest place to work 2013</span>
+            <span>programmeurs</span>
+            <span>google CP partner of the year</span>
+            <span>iOS-developers</span>
+            <span>beste tosti's van Nederland</span>
+            <span>interaction engineers</span>
+            <span>die gasten in Den Haag</span>
+            <span>die gasten in Amsterdam</span>
+            <span>internetverslaafd</span>
+            <span>creatieve coders</span>
+            <span>Android-developers</span>
+            <span>meedenkende techneuten</span>
+            <span>web ontwikkelaars</span>
           </div>
         </div>
-      </section>
-
-      <section id="q42is-header" class="block-text">
-        <h1>
-          <div id="q42is-pre">Q42 is </div>
-          <div id="q42is">
-            <div id="q42is-container">
-              <span class="selected">technisch internetbureau</span>
-              <span>happy place voor nerds</span>
-              <span>koffieliefhebbers</span>
-              <span>greatest place to work 2013</span>
-              <span>programmeurs</span>
-              <span>google CP partner of the year</span>
-              <span>iOS-developers</span>
-              <span>beste tosti's van Nederland</span>
-              <span>interaction engineers</span>
-              <span>die gasten in Den Haag</span>
-              <span>die gasten in Amsterdam</span>
-              <span>internetverslaafd</span>
-              <span>creatieve coders</span>
-              <span>Android-developers</span>
-              <span>meedenkende techneuten</span>
-              <span>web ontwikkelaars</span>
-            </div>
-          </div>
-        </h1>
-      </section>
-      <div class="block-large block-readmore">
+      </h1>
+      <div class="block-readmore">
         <a href="/over-q42" class="readmore">Meer over Q42</a>
       </div>
-
-      <section>
-        <section class="block-large projectsSection">
-          <div class="block-small">
-            <div class="figure">
-              <a class="visual caption">
-                <img src="http://static.q42.nl/images/handcraft-small.jpg" alt="Handcraft" />
-                <p>Prototyping met HTML is beter dan zonder.</p>
-              </a>
-              <figcaption class="body">
-                <h2>Handcraft</h2>
-                <h3>24 oktober 2013</h3>
-                <p>Met de nieuwe Handcraft kun je nu onbeperkt prototypen en bestanden uploaden en de prijs van een abonnement is verlaagd naar 9 euro per maand.</p>
-                <p>Het is nu ook mogelijk om je prototypes in gewoon HTML te maken en de gehele applicatie heeft een flinke visuele update gekregen.</p>
-                <p><a href="http://handcraft.com" class="external">Probeer Handcraft gratis</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-small">
-            <div class="figure">
-              <a class="visual caption">
-                <img src="http://static.q42.nl/images/rijks.jpg" alt="Rijksmusuem" />
-                <p>"De beste website ooit," aldus Vasilis</p>
-              </a>
-              <figcaption class="body">
-                <h2>Rijksmuseum.nl</h2>
-                <h3>30 oktober 2012</h3>
-                <p>In 2004 hebben wij samen met Fabrique een prijswinnende website voor het Rijks neergezet. Deze was inmiddels echter wel toe aan een verbouwing.</p>
-                <p>De nieuwe Rijksmuseum website is lekker modern: responsive, tablet-first, fijne animaties. Een opvallend onderdeel van de site is Rijksstudio: jouw eigen verzameling, knutselplek en museumshop in één. Met de 125.000 beschikbare kunstwerken in hoge resolutie hoef je je voorlopig niet te vervelen!</p>
-                <p><a href="http://rijksmuseum.nl">Bezoek het Rijksmuseum (.nl)</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-small">
-            <div class="figure">
-              <a class="visual caption">
-                <img src="http://static.q42.nl/images/huesmall.jpg" alt="Lampen voor nerds." />
-                <p>Lampen voor nerds.</p>
-              </a>
-              <figcaption class="body">
-                <h2>Philips Hue</h2>
-                <h3>29 oktober 2012</h3>
-                <p>We houden niet van borstklopperij (oké, dat liegen we, maar laten we doen alsof), maar als je samen met Philips een product maakt met Google technologie en dat wereldwijd exclusief in Apple Stores verkocht wordt, én dat wordt dan op Wired, Mashable, Engadget, Gizmodo, 9to5Mac, The Verge, NU.nl en nog veel meer genoemd, dan mag het wel een keertje, toch? ;-)</p>
-                <p><a href="/blog/post/34827577445/trots-op-philips-hue">Lees verder</a></p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div class="block-large block-readmore">
-          <a href="/blog" class="readmore">Meer nieuws</a>
-        </div>
-
-        <!-- PROJECT HIGHLIGHTS -->
-        <section id="9292">
-          <div class="block-large">
-            <div class="figure">
-              <figcaption class="body">
-                <h2>9292</h2>
-                <h3>De hele mikmak: web &amp; apps</h3>
-                <p>In nauwe samenwerking met Fabrique en 9292 hebben wij <a href="http://9292.nl" class="external">9292.nl</a> omgebouwd van gereedschap naar goede vriend. Daarnaast hebben we de iPhone, Android en Windows Phone apps gebouwd.</p>
-                <p>En er komt nog veel meer mooi spul aan!</p>
-              </div>
-              <div class="visual">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/9292.jpg" alt="'Waar wil je heen?' Existentiële vraag, eigenlijk." />
-                  <p>'Waar wil je heen?' Existentiële vraag, eigenlijk.</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="projectsSection">
-          <section class="block-large">
-            <div class="block-small">
-              <div class="figure">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/schooltas3.jpg" alt="" />
-                  <p>Zaten we zelf nog maar op school. #jaloers</p>
-                </a>
-                <figcaption class="body">
-                  <h2>Schooltas</h2>
-                  <h3>ThiemeMeulenhoff's iPad app</h3>
-                  <p>600 gram is genoeg voor alle schoolboeken. Schooltas van ThiemeMeulenhoff is leerboek, werkboek en schrift in één waardoor leerlingen volledig via de iPad kunnen werken.</p>
-                </div>
-              </div>
-            </div>
-            <div class="block-small">
-              <div class="figure">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/uitapp.jpg" alt="" />
-                  <p>Uitgaand Nederland. In ons hoofd.</p>
-                </a>
-                <figcaption class="body">
-                  <h2>UIT app</h2>
-                  <h3>Voor iPhone en nu ook voor Android</h3>
-                  <p><a href="http://itunes.apple.com/nl/app/uit/id385525154?mt=8" class="external">De Uit app</a> is een onmisbare app voor uitgaand Nederland. Q42 realiseerde deze iPhone app in de korte periode van zes weken samen met Fabrique.</p></div>
-              </div>
-            </div>
-            <div class="block-small">
-              <div class="figure">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/roc2.jpg" alt=""/>
-                  <p>Prachtig gebouw!</p>
-                </a>
-                <figcaption class="body">
-                  <h2>ROC Mondriaan</h2>
-                  <h3>Nieuwe website</h3>
-                  <p>ROC Mondriaan is een Regionaal Opleidingen Centrum met vestigingen in Den Haag, Delft, Leiden en Naaldwijk. Samen met onze vrienden van Fabrique maakten we een moderne, frisse website voor ze!</p>
-                  <p><a href="http://www.rocmondriaan.nl" class="external">Bekijk de website!</a></p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
-        <div class="block-large block-readmore">
-          <a href="/projecten" class="readmore">Meer projecten</a>
-        </div>
-
-        <!-- PRODUCT HIGHLIGHTS -->
-        <section id="handcraft">
-          <div class="block-large">
-            <div class="figure">
-              <figcaption class="body">
-                <h2>Handcraft</h2>
-                <h3>Interactive HTML prototypes</h3>
-                <p>Handcraft is een online editor die voortkomt uit ons geloof in het "design in the browser"-principe. En we vinden het zelf erg handig om mee te prototypen. We kunnen dan lekker makkelijk ons werk delen met collega's, partners en klanten.</p>
-                <p><a href="http://handcraft.com/" class="external">Bekijk Handcraft</a></p>
-              </div>
-              <a class="visual caption">
-                <img src="http://static.q42.nl/images/handcraft.jpg" alt="Handcraft" />
-                <p>Ambachtelijk handwerk FTW!</p>
-              </a>
-            </div>
-          </div>
-        </section>
-        <section class="productSection">
-          <section class="block-large">
-            <div class="block-small">
-              <div class="figure">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/w00tcamp/oculus.jpg" alt=""/>
-                  <p>Oculus Unrift</p>
-                </a>
-                <figcaption class="body">
-                  <h2>w00tcamp</h2>
-                  <h3>Een heel weekend lekker lang nerden</h3>
-                  <p>Ieder jaar komt iederen bij Q42 bij elkaar om twee dagen lang aan een hackathon competitie mee te doen die w00tcamp heet. Dit jaar hebben we het weer gedaan in November. Check de resultaten!</p>
-                  <p><a href="/w00tcamp">w00t w00t!</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="block-small">
-              <div class="figure">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/gamessmall.jpg" alt="Spelen en maken. Digitaal en analoog." />
-                  <p>Spelen en maken. Digitaal en analoog.</p>
-                </a>
-                <figcaption class="body">
-                  <h2>Games</h2>
-                  <h3>Digitaal en analoog</h3>
-                  <p>Peter Pan blijft altijd jong. Q-ers eigenlijk ook. Games spelen zit in ons bloed en als we even de tijd ervoor nemen maken we ook graag spellen.</p>
-                  <p>En om dat creatieve en katalyserende proces gezond in een bedrijf te passen zeggen we voortaan officieel dat we ook "games maken". Een soort pleziertherapie.</p>
-                  <p><a href="/games">Check al onze games.</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="block-small">
-              <div class="figure">
-                <a class="visual caption">
-                  <img src="http://static.q42.nl/images/trello.gif" alt="Geeltje, geeltje aan de wand..." />
-                  <p>Geeltje, geeltje aan de wand...</p>
-                </a>
-                <figcaption class="body">
-                  <h2>Trello Scrum</h2>
-                  <h3>Onmisbare Chrome extension voor Scrummers</h3>
-                  <p>Jasper en Marcel vonden dat het handige <a href="http://trello.com" class="external">Trello</a> iets mistte: story points. Dus hebben ze dat bijgebouwd, als Chrome Extension.</p>
-                  <p><a href="https://chrome.google.com/webstore/detail/jdbcdblgjdpmfninkoogcfpnkjmndgje" class="external">Alsjeblieft, digitale Scrummers.</a></p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <div class="block-large block-readmore">
-            <a href="/producten" class="readmore">Meer producten</a>
-          </div>
-        </section>
-      </section>
     </section>
-  </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/handcraft-small.jpg" alt="Handcraft" />
+          <p>Prototyping met HTML is beter dan zonder.</p>
+        </div>
+        <div class="body">
+          <h2>Handcraft</h2>
+          <h3>24 oktober 2013</h3>
+          <p>Met de nieuwe Handcraft kun je nu onbeperkt prototypen en bestanden uploaden en de prijs van een abonnement is verlaagd naar 9 euro per maand.</p>
+          <p>Het is nu ook mogelijk om je prototypes in gewoon HTML te maken en de gehele applicatie heeft een flinke visuele update gekregen.</p>
+          <p><a href="http://handcraft.com" class="external">Probeer Handcraft gratis</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/rijks.jpg" alt="Rijksmusuem" />
+          <p>"De beste website ooit," aldus Vasilis</p>
+        </div>
+        <div class="body">
+          <h2>Rijksmuseum.nl</h2>
+          <h3>30 oktober 2012</h3>
+          <p>In 2004 hebben wij samen met Fabrique een prijswinnende website voor het Rijks neergezet. Deze was inmiddels echter wel toe aan een verbouwing.</p>
+          <p>De nieuwe Rijksmuseum website is lekker modern: responsive, tablet-first, fijne animaties. Een opvallend onderdeel van de site is Rijksstudio: jouw eigen verzameling, knutselplek en museumshop in één. Met de 125.000 beschikbare kunstwerken in hoge resolutie hoef je je voorlopig niet te vervelen!</p>
+          <p><a href="http://rijksmuseum.nl">Bezoek het Rijksmuseum (.nl)</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/huesmall.jpg" alt="Lampen voor nerds." />
+          <p>Lampen voor nerds.</p>
+        </div>
+        <div class="body">
+          <h2>Philips Hue</h2>
+          <h3>29 oktober 2012</h3>
+          <p>We houden niet van borstklopperij (oké, dat liegen we, maar laten we doen alsof), maar als je samen met Philips een product maakt met Google technologie en dat wereldwijd exclusief in Apple Stores verkocht wordt, én dat wordt dan op Wired, Mashable, Engadget, Gizmodo, 9to5Mac, The Verge, NU.nl en nog veel meer genoemd, dan mag het wel een keertje, toch? ;-)</p>
+          <p><a href="/blog/post/34827577445/trots-op-philips-hue">Lees verder</a></p>
+        </div>
+      </div>
+      <div class="block-readmore">
+        <a href="/blog" class="readmore">Meer nieuws</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="block-large">
+        <div class="body">
+          <h2>9292</h2>
+          <h3>De hele mikmak: web &amp; apps</h3>
+          <p>In nauwe samenwerking met Fabrique en 9292 hebben wij <a href="http://9292.nl" class="external">9292.nl</a> omgebouwd van gereedschap naar goede vriend. Daarnaast hebben we de iPhone, Android en Windows Phone apps gebouwd.</p>
+          <p>En er komt nog veel meer mooi spul aan!</p>
+        </div>
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/9292.jpg" alt="9292" />
+          <p>'Waar wil je heen?' Existentiële vraag, eigenlijk.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/schooltas3.jpg" alt="" />
+          <p>Zaten we zelf nog maar op school. #jaloers</p>
+        </div>
+        <div class="body">
+          <h2>Schooltas</h2>
+          <h3>ThiemeMeulenhoff's iPad app</h3>
+          <p>600 gram is genoeg voor alle schoolboeken. Schooltas van ThiemeMeulenhoff is leerboek, werkboek en schrift in één waardoor leerlingen volledig via de iPad kunnen werken.</p>
+        </div>
+      </div>
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/uitapp.jpg" alt="" />
+          <p>Uitgaand Nederland. In ons hoofd.</p>
+        </div>
+        <div class="body">
+          <h2>UIT app</h2>
+          <h3>Voor iPhone en nu ook voor Android</h3>
+          <p><a href="http://itunes.apple.com/nl/app/uit/id385525154?mt=8" class="external">De Uit app</a> is een onmisbare app voor uitgaand Nederland. Q42 realiseerde deze iPhone app in de korte periode van zes weken samen met Fabrique.</p>
+        </div>
+      </div>
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/roc2.jpg" alt=""/>
+          <p>Prachtig gebouw!</p>
+        </div>
+        <div class="body">
+          <h2>ROC Mondriaan</h2>
+          <h3>Nieuwe website</h3>
+          <p>ROC Mondriaan is een Regionaal Opleidingen Centrum met vestigingen in Den Haag, Delft, Leiden en Naaldwijk. Samen met onze vrienden van Fabrique maakten we een moderne, frisse website voor ze!</p>
+          <p><a href="http://www.rocmondriaan.nl" class="external">Bekijk de website!</a></p>
+        </div>
+      </div>
+      <div class="block-readmore">
+        <a href="/projecten" class="readmore">Meer projecten</a>
+      </div>
+    </section>
+
+    <section id="handcraft">
+      <div class="block-large">
+        <div class="body">
+          <h2>Handcraft</h2>
+          <h3>Interactive HTML prototypes</h3>
+          <p>Handcraft is een online editor die voortkomt uit ons geloof in het "design in the browser"-principe. En we vinden het zelf erg handig om mee te prototypen. We kunnen dan lekker makkelijk ons werk delen met collega's, partners en klanten.</p>
+          <p><a href="http://handcraft.com/" class="external">Bekijk Handcraft</a></p>
+        </div>
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/handcraft.jpg" alt="Handcraft" />
+          <p>Ambachtelijk handwerk FTW!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/w00tcamp/oculus.jpg" alt=""/>
+          <p>Oculus Unrift</p>
+        </div>
+        <div class="body">
+          <h2>w00tcamp</h2>
+          <h3>Een heel weekend lekker lang nerden</h3>
+          <p>Ieder jaar komt iederen bij Q42 bij elkaar om twee dagen lang aan een hackathon competitie mee te doen die w00tcamp heet. Dit jaar hebben we het weer gedaan in November. Check de resultaten!</p>
+          <p><a href="/w00tcamp">w00t w00t!</a></p>
+        </div>
+      </div>
+      <div class="block-small">
+        <div class="visual caption">
+          <img src="http://static.q42.nl/images/gamessmall.jpg" alt="Spelen en maken. Digitaal en analoog." />
+          <p>Spelen en maken. Digitaal en analoog.</p>
+        </div>
+        <div class="body">
+          <h2>Games</h2>
+          <h3>Digitaal en analoog</h3>
+          <p>Peter Pan blijft altijd jong. Q-ers eigenlijk ook. Games spelen zit in ons bloed en als we even de tijd ervoor nemen maken we ook graag spellen.</p>
+          <p>En om dat creatieve en katalyserende proces gezond in een bedrijf te passen zeggen we voortaan officieel dat we ook "games maken". Een soort pleziertherapie.</p>
+          <p><a href="/games">Check al onze games.</a></p>
+        </div>
+      </div>
+      <div class="block-small">
+        <div class="visual caption">
+          <img class="gfyitem" data-id="AngryCookedAdmiralbutterfly" data-controls="false" data-dot="false" alt=""/>
+          <p>Geeltje, geeltje aan de wand...</p>
+        </div>
+        <div class="body">
+          <h2>Trello Scrum</h2>
+          <h3>Onmisbare Chrome extension voor Scrummers</h3>
+          <p>Jasper en Marcel vonden dat het handige <a href="http://trello.com" class="external">Trello</a> iets miste: story points. Dus hebben ze dat bijgebouwd, als Chrome Extension.</p>
+          <p><a href="https://chrome.google.com/webstore/detail/jdbcdblgjdpmfninkoogcfpnkjmndgje" class="external">Alsjeblieft, digitale Scrummers.</a></p>
+        </div>
+      </div>
+      <div class="block-readmore">
+        <a href="/producten" class="readmore">Meer producten</a>
+      </div>
+    </section>
+
+  </div>
 </template>
 
 <template name="carrousel_items">

@@ -1,11 +1,12 @@
 <template name="en_blog">
-  <section class="blog">
+  <div class="container blog">
+
     <header class="block-text"><h1>We<b>blog</b></h1></header>
 
     <div id="blog-posts">
     {{#isolate}}{{#each post}}
-      <article class="block-large {{#if description}}reblog{{/if}}">
-        <div class="bigText">
+      <div class="block-large {{#if description}}reblog{{/if}}">
+        <div class="intro">
           {{#if typeIs "link"}}
             {{#unless description}}
             <!-- link -->
@@ -64,7 +65,7 @@
             </p>
           {{/if}}
         </div>
-      </article>
+      </div>
     {{/each}}{{/isolate}}
     </div>
 
@@ -75,78 +76,73 @@
 </template>
 
 <template name="en_blogpost">
-  {{#if post}}
+  <div class="container blog">
     {{#with post}}
-      <section class="blog">
-        <article class="block-large">
-          <div class="bigText">
-            <div style="width:100%;height:1px"></div>
-            {{#if player}}
-              <h1><b>Video</b></h1>
-              {{> en_postDate}}
-              {{#each player}}
+    <section>
+      <div class="block-large">
+        <div class="intro">
+          {{#if player}}
+            <h1><b>Video</b></h1>
+            {{> en_postDate}}
+            {{#each player}}
+              {{#ifWidthEquals 500}}
+                {{{embed_code}}}
+              {{/ifWidthEquals}}
+            {{/each}}
+            {{{caption}}}
+          {{/if}}
+          {{#if photos}}
+            <h1><b>Photos</b></h1>
+            {{> en_postDate}}
+            {{{caption}}}
+            {{#each photos}}
+              <p><div class="figure">
+              {{#each alt_sizes}}
                 {{#ifWidthEquals 500}}
-                  {{{embed_code}}}
+                  <img src="{{url}}" alt="">
                 {{/ifWidthEquals}}
               {{/each}}
-              {{{caption}}}
-            {{/if}}
-            {{#if photos}}
-              <h1><b>Photos</b></h1>
-              {{> en_postDate}}
-              {{{caption}}}
-              {{#each photos}}
-                <p><div class="figure">
-                {{#each alt_sizes}}
-                  {{#ifWidthEquals 500}}
-                    <img src="{{url}}" alt="">
-                  {{/ifWidthEquals}}
-                {{/each}}
-                  <div class="figcaption">
-                    {{{caption}}}
-                  </div>
-                </div></p>
-              {{/each}}
-            {{/if}}
-            {{#if description}}
-              <h1><b><a href="{{url}}">{{title}}</a></b></h1>
-              {{{description}}}
-            {{/if}}
-            {{#if body}}
-              <h1><b>{{title}}</b></h1>
-              {{> en_postDate}}
-              {{{body}}}
-            {{/if}}
-          </div>
-          {{> en_blogSidebar}}
-        </article>
+                <div class="figcaption">
+                  {{{caption}}}
+                </div>
+              </div></p>
+            {{/each}}
+          {{/if}}
+          {{#if description}}
+            <h1><b><a href="{{url}}">{{title}}</a></b></h1>
+            {{{description}}}
+          {{/if}}
+          {{#if body}}
+            <h1><b>{{title}}</b></h1>
+            {{> en_postDate}}
+            {{{body}}}
+          {{/if}}
+        </div>
+        {{> en_blogSidebar}}
+      </div>
 
-        {{#unless isPhantom}}
-          <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
-            <div class="twitterShare" style="float: left;">
-              <a href="https://twitter.com/share" class="twitter-share-button"
-                data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
-            </div>
+      {{#unless isPhantom}}
+      <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
+        <div class="twitterShare" style="float: left;">
+          <a href="https://twitter.com/share" class="twitter-share-button"
+            data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
+        </div>
 
-            <div class="facebookShare" style="float: left;">
-              <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
-            </div>
-          </div>
-        {{/unless}}
+        <div class="facebookShare" style="float: left;">
+          <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
+        </div>
+      </div>
+      {{/unless}}
 
-        {{> tags}}
+      {{> tags}}
 
-        <section class="comments">
-          <h2>Comments</h2>
-          <p style="margin-left:-50px">Please visit the Dutch version of this article to <a href="http://q42.nl/blog/post/{{id}}/{{slug}}">leave a comment</a>.</p>
-        </section>
-
-      </section>
+    </section>
+    <section class="comments">
+      <h2>Comments</h2>
+      <p style="margin-left:-50px">Please visit the Dutch version of this article to <a href="http://q42.nl/blog/post/{{id}}/{{slug}}">leave a comment</a>.</p>
+    </section>
     {{/with}}
-    {{else}}
-      {{_404}}
-  {{/if}}
-  {{{debug post}}}
+  </div>
 </template>
 
 <template name="en_postDate">
@@ -186,7 +182,7 @@
 </template>
 
 <template name="en_blogSidebar">
-  <div class="block-small subcontent" id="blog-sidebar">
+  <aside class="block-small subcontent" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
     <p>This is the Q42 blog, for which Q'ers write about their work, passion and life at Q42.</p>
     <p>Those same Q'ers are also active on Twitter. We made a list, take a look: <a href="https://twitter.com/q42/q-ers">Q'ers on Twitter</a>.
@@ -199,7 +195,7 @@
     {{/unless}}
     {{> en_otherPosts}}
     {{> en_latestComments}}
-  </div>
+  </aside>
 </template>
 
 <template name="en_pageNav">

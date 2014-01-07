@@ -193,10 +193,10 @@ Template.en_employees.events(employeeEvents);
 
 Template.filter_employees.list = function() {
   var filters = [
-     {name: "Projecten", items: ["Rijksmuseum", "9292", "Staatsloterij", "Schooltas", "Philips Hue", "TADC", "MENDO", "Iamsterdam",
-      "Pepper", "D-reizen", "Greetz", "Malmberg"]}
-    ,{name: "Producten", items: ["Handcraft"]}
-    ,{name: "Games",     items: ["Cat Quest", "Quento", "Carrrrds", "Spaceventure"]}
+    //  {name: "Projecten", items: ["Rijksmuseum", "9292", "Staatsloterij", "Schooltas", "Philips Hue", "TADC", "MENDO", 
+    //   "Greetz", "Malmberg"]}
+    // ,{name: "Producten", items: ["Handcraft"]}
+    // ,{name: "Games",     items: ["Cat Quest", "Quento", "Carrrrds", "Spaceventure"]}
   //  ,{name: "School",    items: ["Universiteit Utrecht", "De Haagse Hogeschool", "Hogeschool Rotterdam", "TU Delft",
   //                               "Universiteit Enschede", "Hogeschool van Amsterdam"]}
     ,{name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "De sjaak", "Oprichter", "Student"]}
@@ -215,6 +215,12 @@ Template.filter_employees.rendered = function() {
 }
 
 Template.filter_employees.events({
+  "click li a": function(evt) {
+    evt.preventDefault();
+    var val = $(evt.target).text();
+    Session.set("employees_filter", val);
+    return false;
+  },
   "keyup [data-role='filter-qers']": function(evt) {
     var val = $(evt.target).val();
     Session.set("employees_filter", val);

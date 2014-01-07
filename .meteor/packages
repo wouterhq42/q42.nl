@@ -6,7 +6,6 @@
 insecure
 preserve-inputs
 spiderable
-backbone
 underscore
 http
 stylus
@@ -17,14 +16,11 @@ accounts-facebook
 accounts-twitter
 accounts-github
 gravatar
-marked
 coffeescript
 standard-app-packages
 crypto-base
 font-awesome
-
-HTML5-History-API
-page-js-ie-support
 crypto-md5
 iron-router
 nprogress
+marked

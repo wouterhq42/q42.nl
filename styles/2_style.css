@@ -91,6 +91,10 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   line-height: 17px;
 }
 
+.gfyitem {
+  height: 160px;
+}
+
 /* default screen size: 320 + 320 + 300 = 3 columns*/
 body {
   -webkit-perspective: 2000px;
@@ -101,13 +105,14 @@ body {
   opacity: 0;
   background: white;
   box-shadow: 0 0 20px rgba(0,0,0,.4);
+  padding-bottom: 80px;
   -webkit-transform-origin: center top;
   -moz-transform-origin: center top;
   -ms-transform-origin: center top;
   -o-transform-origin: center top;
   transform-origin: center top;
 }
-#page > section {
+.container {
   width: 940px;
   min-height: 300px;
   margin: 0 auto;
@@ -270,12 +275,12 @@ footer {
   clear: none;
 }
 
-article h1,
+section h1,
 .block-large h1 {
   text-align: left;
 }
-article h2,
-.block-large > .figure > .body > h2
+section h2,
+.block-large > .body h2
 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.04em;
@@ -283,22 +288,17 @@ article h2,
 
   color: #232323;
 }
-.blog article h2,
+.blog aside h2,
 .comments h2,
-.blog .block-large > .figure > .body > h2 {
-  font: normal 1.4em Lato,Georgia,Times,serif;
+.blog .block-large > .body h2 {
+  font: normal 1.4em Lato, Georgia, Times, serif;
   letter-spacing: -1px;
 }
-.block-large > .figure > .body > h3 {
+.block-large > .body h3 {
   font: 14px/1.5 Lato, Georgia, Times, serif;
   padding: 0px;
   margin-top: -18px;
   color: #888;
-}
-.block-large .figure {
-  margin: 0;
-  padding: 0;
-  border: none;
 }
 
 .block-small h3 {
@@ -328,14 +328,9 @@ article h2,
 .block-large.right .body {
   float: left;
 }
-.block-large .block-small:nth-of-type(1) {
-  clear:both;
-}
 
 .block-readmore {
-  background-color: white;
-  margin-top: -20px;
-  padding: 0px 0px 16px;
+  clear: both;
   text-align: right;
 }
 
@@ -355,8 +350,8 @@ article h2,
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
-
 .block-small .visual {
+  float: none;
   position: relative;
   width: 300px;
   overflow: hidden;
@@ -400,7 +395,7 @@ span {
   clear: both;
 }
 
-.reblog .bigText {
+.reblog .intro {
   padding: 0 0 0 4em;
   background: url(http://static.q42.nl/images/icon_reblog.jpeg) 1em no-repeat;
 }
@@ -413,17 +408,17 @@ span {
   height: auto;
 }
 
-.blog .bigText img {
+.blog .intro img {
   max-width: 100%;
   border: solid 5px white;
   box-shadow: 0 0 4px rgba(0,0,0,.4);
   margin-left: 2px; /* force the box shadow to be shown since the parent has overflow: hidden */
 }
-.blog .bigText h1 p {
+.blog .intro h1 p {
   margin: 0 0 5px 0;
   line-height: 1;
 }
-.blog .bigText .figure {
+.blog .intro .figure {
   margin-top: 20px;
 }
 
@@ -546,4 +541,9 @@ span {
 #blog-sidebar {
   margin: 0;
   padding-right: 0;
+}
+
+#loading {
+  text-align: center;
+  padding: 100px 0;
 }

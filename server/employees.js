@@ -44,6 +44,7 @@ var currentQers = [
  { name: "Martijn Laarman", handle:"martijnl"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
+ { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Matthijs van der Meulen", handle:"matthijs"},
  { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/"},
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
@@ -86,7 +87,7 @@ addLabel("Rijksmuseum",                   "remco jasper jaap martijnl elaine jas
 addLabel("9292",                          "tom mark timd katja korjan johan michiel christiaan sander martijn arian guus");
 addLabel("Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob sjoerd wilbert");
 addLabel("Schooltas",                     "kars martin tims benjamin marcel sander");
-addLabel("Philips Hue",                   "christiaan lukas korjan roelfjan johan arian");
+addLabel("Philips Hue",                   "christiaan lukas korjan roelfjan johan arian timl");
 addLabel("TADC",                          "lukas");
 addLabel("MENDO",                         "chris jeroen elaine");
 addLabel("Iamsterdam",                    "stef timd lukas bob remco");
