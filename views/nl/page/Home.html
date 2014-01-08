@@ -1,13 +1,11 @@
 <template name="home">
-  <header id="showreel">
-    <div id="showreel-container">
-      <div id="showreel-stage">
-        <div id="showreel-shape">
-          {{> carrousel_items}}
-        </div>
+  <header id="carrousel">
+    <div id="indicators"></div>
+    <div id="carrousel-stage">
+      <div id="carrousel-shape">
+        {{> carrousel_items}}
       </div>
     </div>
-    <div id="indicators"></div>
     {{> header}}
   </header>
 

@@ -1,6 +1,9 @@
 window.reattachBehavior = function() {
-  resizeShowreel();
-  homepageShowreel();
+  window.carrousel = new Carrousel();
+  Meteor.setTimeout(function() {
+    carrousel.render();
+  }, 300);
+
   $("#page").addClass("show");
 
   if (!isPhantom) {
@@ -42,7 +45,9 @@ var attachTwitter = function() {
 }
 var attachGfycat = function() {
   $.getScript('http://assets.gfycat.com/js/gfyajax-0.517d.js', function() {
-    gfyCollection.init();
+    try {
+      gfyCollection.init();
+    } catch (e){}
   });
 }
 
