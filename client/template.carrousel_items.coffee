@@ -37,7 +37,7 @@ Carrousel = [
 ]
 
 Template.carrousel_items.item = -> Carrousel
-Template.carrousel_items.pos = -> @pos || "right"
+Template.carrousel_items.pos = -> @pos or "right"
 Template.carrousel_items.url = ->
   if @en_url and Session.equals "lang", "en"
     @en_url
@@ -57,7 +57,5 @@ Template.carrousel_items.bg = ->
 Template.carrousel_items.todaysDate = -> moment().format("YYYY-MM-DD")
 
 Template.carrousel_items.events =
-  "mouseover #quento": ->
-    window.showreelPaused = yes
-  "mouseout #quento": ->
-    window.showreelPaused = no
+  "mouseover #quento": -> window.carrousel?.paused = yes
+  "mouseout #quento": ->  window.carrousel?.paused = no
