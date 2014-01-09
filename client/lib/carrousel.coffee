@@ -85,22 +85,17 @@ class window.Carrousel
     @gotoNext()
 
   gotoNext: ->
-    curr = @carrousel.find ".active-item"
-    next = curr.next('.item')
+    next = @carrousel.find(".active-item").next('.item')
     next = @carrousel.find(".item:first") unless next.length
     @goto next.attr("data-number")
 
   gotoPrev: ->
-    curr = @carrousel.find ".active-item"
-    prev = curr.prev('.item')
+    prev = @carrousel.find(".active-item").prev('.item')
     prev = @carrousel.find(".item:last") unless prev.length
     @goto prev.attr("data-number")
 
   goto: (nr) ->
     curr = @carrousel.find ".active-item"
-    next = @carrousel.find ".item[data-number='#{nr}']"
-    currInd = @indicators.find ".active"
-    nextInd = @indicators.find "span[data-number='#{nr}']"
     prevItemNr = +curr.attr("data-number")
     pos = 360 - @deg * nr
     pos = 0 if prevItemNr is @items.length - 1 and +nr is 0
@@ -109,9 +104,9 @@ class window.Carrousel
 
     @stage.addClass "transitioning"
     curr.removeClass "active-item"
-    next.addClass "active-item"
-    currInd.removeClass "active"
-    nextInd.addClass "active"
+    @carrousel.find(".item[data-number='#{nr}']").addClass "active-item"
+    @indicators.find(".active").removeClass "active"
+    @indicators.find("span[data-number='#{nr}']").addClass "active"
       
     requestAnimFrame =>
       @shape.css
