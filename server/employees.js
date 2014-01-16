@@ -15,6 +15,7 @@ var currentQers = [
  { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364"},
  { name: "Benjamin de Jager", handle:"benjamin"},
  { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352"},
+ { name: "Chris de Jager", handle"chrisj"},
  { name: "Chris Waalberg", handle:"chris" , phone: "070-4452353"},
  { name: "Christiaan Hees", handle:"christiaan"},
  { name: "Coen Bijpost", handle:"coen", phone: "070-4452359", imageAnimated: "coen-gr.jpg"},
@@ -22,6 +23,7 @@ var currentQers = [
  { name: "Elaine Oliver", handle:"elaine"},
  { name: "Frank Raterink", handle:"frank", phone: "070-4452368", web: "http://www.frankraterink.nl"},
  { name: "Gerard Dorst", handle:"gerard"},
+ { name: "Guido Bouman", handle:"guido"},
  { name: "Guus Goossens", handle:"guus"},
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
  { name: "Jaap Taal", handle:"jaap"},
@@ -40,6 +42,7 @@ var currentQers = [
  { name: "Leonard Punt", handle:"leonard"},
  { name: "Lukas van Driel", handle:"lukas", phone: "070-4452366", web: "http://developer.3l.nl/"},
  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/"},
+ { name: "Mark de Jong", handle:"markj" },
  { name: "Mark van Straten", handle:"mark", phone: "070-4452347"},
  { name: "Martijn Laarman", handle:"martijnl"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
@@ -124,6 +127,7 @@ addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas");
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
 addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
 addLabel("Stokoud",                       "stef johan");
+addLabel("Broers",                        "benjamin chrisj");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
 addLabel("Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd");
 addLabel("Rijdt soms op een motor",       "stef jeroen arian tom");
