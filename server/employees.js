@@ -122,7 +122,7 @@ addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jas
 addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 
 // Arbitraire selecties
-addLabel("Speelt nog World of Warcraft",  "rahul christiaan benjamin richard martijn coen");
+addLabel("Speelt nog World of Warcraft",  "rahul christiaan richard martijn coen");
 addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
 addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
