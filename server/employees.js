@@ -44,7 +44,7 @@ var currentQers = [
  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/"},
  { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
  { name: "Mark van Straten", handle:"mark", phone: "070-4452347"},
- { name: "Martijn Laarman", handle:"martijnl"},
+ //{ name: "Martijn Laarman", handle:"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
  { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
@@ -86,7 +86,7 @@ _.each(currentQers, function(e) {
 });
 
 // Projecten
-addLabel("Rijksmuseum",                   "remco jasper jaap martijnl elaine jasperh");
+addLabel("Rijksmuseum",                   "remco jasper jaap elaine jasperh");
 addLabel("9292",                          "tom mark timd katja korjan johan michiel christiaan sander martijn arian guus");
 addLabel("Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob sjoerd wilbert");
 addLabel("Schooltas",                     "kars martin tims benjamin marcel sander");
@@ -103,9 +103,9 @@ addLabel("Malmberg",                      "laurens kamil jeroen bob coen michiel
 addLabel("Handcraft",                     "rahul kars sjoerd remco kamil martin");
 
 // Games
-addLabel("Cat Quest",                     "martin richard benjamin tom sjoerd");
+//addLabel("Cat Quest",                     "martin richard benjamin tom sjoerd");
 addLabel("Quento",                        "martin richard benjamin michiel christiaan guus");
-addLabel("Carrrrds",                      "martin richard benjamin");
+addLabel("Carrrrds",                      "martin richard benjamin rahul");
 addLabel("Spaceventure",                  "martin rahul richard");
 
 // Roles
@@ -118,7 +118,7 @@ addLabel("Oprichter",                     "kars");
 addLabel("Student",                       "alexander herman");
 addLabel("Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil");
 addLabel("Ex-klant",                      "gerard matthijs stef");
-addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark martijnl michiel stef timd");
+addLabel("Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark michiel stef timd");
 addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 
 // Arbitraire selecties
