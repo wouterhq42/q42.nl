@@ -5,6 +5,7 @@
     "iron-router": {},
     "nprogress": {},
     "moment": {},
-    "marked": {}
+    "marked": {},
+    "fast-render": {}
   }
 }
