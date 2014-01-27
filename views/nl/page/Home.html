@@ -1,6 +1,5 @@
 <template name="home">
   <header id="carrousel">
-    <div id="indicators"></div>
     <div id="carrousel-stage">
       <div id="carrousel-shape">
         {{> carrousel_items}}
@@ -8,6 +7,7 @@
     </div>
     {{> header}}
   </header>
+  <div id="indicators"></div>
 
   <div class="container">
 
@@ -65,7 +65,7 @@
         </div>
         <div class="body">
           <h2>Handcraft</h2>
-          <h3>24 oktober 2013</h3>
+          <h3>HTML prototyping</h3>
           <p>Met de nieuwe Handcraft kun je nu onbeperkt prototypen en bestanden uploaden en de prijs van een abonnement is verlaagd naar 9 euro per maand.</p>
           <p>Het is nu ook mogelijk om je prototypes in gewoon HTML te maken en de gehele applicatie heeft een flinke visuele update gekregen.</p>
           <p><a href="http://handcraft.com" class="external">Probeer Handcraft gratis</a></p>
@@ -79,7 +79,7 @@
         </div>
         <div class="body">
           <h2>Rijksmuseum.nl</h2>
-          <h3>30 oktober 2012</h3>
+          <h3>High resolution art</h3>
           <p>In 2004 hebben wij samen met Fabrique een prijswinnende website voor het Rijks neergezet. Deze was inmiddels echter wel toe aan een verbouwing.</p>
           <p>De nieuwe Rijksmuseum website is lekker modern: responsive, tablet-first, fijne animaties. Een opvallend onderdeel van de site is Rijksstudio: jouw eigen verzameling, knutselplek en museumshop in één. Met de 125.000 beschikbare kunstwerken in hoge resolutie hoef je je voorlopig niet te vervelen!</p>
           <p><a href="http://rijksmuseum.nl">Bezoek het Rijksmuseum (.nl)</a></p>
@@ -93,7 +93,7 @@
         </div>
         <div class="body">
           <h2>Philips Hue</h2>
-          <h3>29 oktober 2012</h3>
+          <h3>Bedien je lampen met je smartphone</h3>
           <p>We houden niet van borstklopperij (oké, dat liegen we, maar laten we doen alsof), maar als je samen met Philips een product maakt met Google technologie en dat wereldwijd exclusief in Apple Stores verkocht wordt, én dat wordt dan op Wired, Mashable, Engadget, Gizmodo, 9to5Mac, The Verge, NU.nl en nog veel meer genoemd, dan mag het wel een keertje, toch? ;-)</p>
           <p><a href="/blog/post/34827577445/trots-op-philips-hue">Lees verder</a></p>
         </div>
@@ -225,7 +225,7 @@
       <p class="{{pos}}">{{text}}</p>
     </a>
   {{/each}}
-  <a href="#" class="item" id="quento">
+  <!-- <a href="#" class="item" id="quento">
     <iframe src="http://nrc.quento.nl/#{{todaysDate}}" style="width:100%; height: 100%"></iframe>
-  </a>
+  </a> -->
 </template>
