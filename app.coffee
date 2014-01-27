@@ -148,7 +148,7 @@ if Meteor.isClient
     pages = if item then item.count else 1
     lang = Session.get "lang"
     older = if lang is "en" then "older" else "ouder"
-    newer = if lang is "en" then "ouder" else "nieuwer"
+    newer = if lang is "en" then "newer" else "nieuwer"
     items = []
 
     if pages isnt 1
