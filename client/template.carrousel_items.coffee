@@ -14,13 +14,6 @@ Carrousel = [
     pos: "left"
   }
   {
-    url: "/blog/post/50648443491/fabrique-en-q42-komen-als-grote-winnaars-van-de-dutch"
-    bg: "/images/carrousel/DIA13.jpg"
-    text: "3 DIA awards voor Rijksmuseum en Philips"
-    en_text: "3 DIA awards for Rijksmuseum and Philips"
-    pos: "right"
-  }
-  {
     url: "/blog/post/49503089620/q42-opent-vestiging-in-amsterdam"
     bg: "/images/carrousel/Q020.jpg"
     text: "Q42 opent vestiging in Amsterdam"
