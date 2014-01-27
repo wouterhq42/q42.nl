@@ -1,7 +1,13 @@
 window.reattachBehavior = function() {
-  window.carrousel = new Carrousel();
-  Meteor.setTimeout(function() {
-    carrousel.render();
+  if (!window.headerCarrousel)
+    window.headerCarrousel = new Carrousel();
+  else
+    window.headerCarrousel.init();
+  
+  if (window.carrToh)
+    Meteor.clearTimeout(window.carrToh);
+  window.carrToh = Meteor.setTimeout(function() {
+    headerCarrousel.render();
   }, 300);
 
   $("#page").addClass("show");
