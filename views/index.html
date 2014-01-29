@@ -54,11 +54,9 @@
 <template name="body">
   <div id="fb-root"></div>
 
-  {{#if defaultNav}}
-    <div id="header">
-      {{yield 'header'}}
-    </div>
-  {{/if}}
+  <div id="header">
+    {{yield 'header'}}
+  </div>
 
   <div id="page">
     {{yield}}
