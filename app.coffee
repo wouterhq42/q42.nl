@@ -109,12 +109,14 @@ if Meteor.isClient
         Meteor.subscribe "blogComments", @params.id * 1
         Meteor.subscribe "LatestComments", 10
       ]
-      data: -> {
-        post:           blogpostFull.findOne()
-        comments:       BlogComments.find({}, sort: date: -1)
-        commentsCount:  BlogComments.find().count()
-        oneComment:     BlogComments.find().count() is 1
-      }
+      data: -> 
+        return null unless blogpostFull.findOne()
+        return {
+          post:           blogpostFull.findOne()
+          comments:       BlogComments.find({}, sort: date: -1)
+          commentsCount:  BlogComments.find().count()
+          oneComment:     BlogComments.find().count() is 1
+        }
 
     @route "page",
       path: "/:page"
@@ -146,7 +148,7 @@ if Meteor.isClient
     pages = if item then item.count else 1
     lang = Session.get "lang"
     older = if lang is "en" then "older" else "ouder"
-    newer = if lang is "en" then "ouder" else "nieuwer"
+    newer = if lang is "en" then "newer" else "nieuwer"
     items = []
 
     if pages isnt 1

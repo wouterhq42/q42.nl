@@ -1,7 +1,7 @@
 @media all and (max-width: 1024px) {
   /* Links always have an underline, because there is no hover state. */
   a, a:visited, a:hover { text-decoration: underline; }
-  #showreel { height: 460px; position: relative; }
+  #carrousel { height: 460px; position: relative; }
 
   .noShowreel nav { position: absolute; }
 }
@@ -20,9 +20,9 @@
 
 @media all and (max-width: 940px) {
 
-  #showreel { height: 310px; }
+  #carrousel { height: 310px; }
   .block-text h1,
-  #showreel .item p { font-size: 2.84em; }
+  #carrousel .item p { font-size: 2.84em; }
 
   .blog h1 {
     font-size: 2em;
@@ -81,9 +81,9 @@
 
 @media all and (max-width: 620px) {
 
-  #showreel { height: 200px; }
+  #carrousel { height: 200px; }
   .block-text h1,
-  #showreel .item p { font-size: 37px; }
+  #carrousel .item p { font-size: 37px; }
 
   #q42is-header h1 { font-size: 3em;}
 
@@ -188,8 +188,8 @@
 
 
 @media all and (max-width: 480px) {
-  #showreel { height: 170px; }
-  #showreel .item p { font-size: 24px; bottom: 53px; right: 10px; }
+  #carrousel { height: 170px; }
+  #carrousel .item p { font-size: 24px; bottom: 53px; right: 10px; }
 
   .block-large h2 {
     padding-left: 0;
@@ -237,10 +237,10 @@
   #footer > section { width: 100%; }
   .readmore { margin-right: 10px; }
 
-  #showreel h1, #header h1 { margin-left: auto; left: 0px; top: 33px; }
-  #showreel ol, #header ol { bottom: auto; top: 20px; }
-  #showreel li, #header li { display: block; }
-  #showreel .left, #header .left { float: none; }
+  #carrousel h1, #header h1 { margin-left: auto; left: 0px; top: 33px; }
+  #carrousel ol, #header ol { bottom: auto; top: 20px; }
+  #carrousel li, #header li { display: block; }
+  #carrousel .left, #header .left { float: none; }
 
   #footer section,
   #footer .block-small,
