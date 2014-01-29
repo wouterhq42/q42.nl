@@ -282,8 +282,7 @@ section h1,
 section h2,
 .block-large > .body h2
 {
-  font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.04em;
+  font: normal 40px Lato, Georgia, Times, serif;
   margin: 0 0 20px 0;
 
   color: #232323;

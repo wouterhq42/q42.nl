@@ -135,7 +135,7 @@
   -moz-transition-property: opacity, -moz-transform;
   -moz-transition-duration: 0.5s;
 }
-#indicators span:hover, 
+#indicators span:hover,
 #indicators .active {
   opacity: 1;
   -webkit-transform: scale(1.2);
@@ -778,42 +778,42 @@ background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), 
   margin-left: -13px;
 }
 
-#homepage-intro {
+.intro-outro {
   text-align: center;
 }
-#homepage-intro img {
+.intro-outro img {
   width: 100px;
 }
-#homepage-intro h1 {
+.intro-outro h1 {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 3em;
   text-align: center;
   margin-bottom: 0;
 }
-#homepage-intro p {
+.intro-outro p {
   font-size: 1.3em;
   margin: 1em;
 }
-#homepage-intro ul {
+.intro-outro ul {
   list-style: none;
   margin: 0 auto; padding: 0;
   width: 650px;
 }
-#homepage-intro ul:after {
+.intro-outro ul:after {
   content: ".";
   color: transparent;
   clear: both;
   display: block;
 }
-#homepage-intro li {
+.intro-outro li {
   float: left;
   width: 150px;
   margin: 0 1em 0 0;
 }
-#homepage-intro li:last-child {
+.intro-outro li:last-child {
   margin: 0;
 }
-#homepage-intro li img {
+.intro-outro li img {
   display: block;
   width: 150px;
   margin: 0 0 10px 0;
