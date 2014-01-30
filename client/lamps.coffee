@@ -16,16 +16,16 @@ NUM_LIGHTS = 29
 		$header = $("#header")
 		$grad = $("#header-bg-gradient")
 
-		$header.css "background", "-webkit-linear-gradient(left, #{lights})"
-		$header.css "background", "-moz-linear-gradient(left, #{lights})"
-		$grad.css "opacity", 0
-		Meteor.setTimeout ->
-			$grad.css
-				background: "-webkit-linear-gradient(left, #{lights})"
-				background: "-moz-linear-gradient(left, #{lights})"
-				opacity: 1
-			Session.set "lightsColor", lights[0]
-		, 400
+		# $header.css "background", "-webkit-linear-gradient(left, #{lights})"
+		# $header.css "background", "-moz-linear-gradient(left, #{lights})"
+		# $grad.css "opacity", 0
+		# Meteor.setTimeout ->
+		# 	$grad.css
+		# 		background: "-webkit-linear-gradient(left, #{lights})"
+		# 		background: "-moz-linear-gradient(left, #{lights})"
+		# 		opacity: 1
+		# 	Session.set "lightsColor", lights[0]
+		# , 400
 
 Meteor.startup ->
 	Deps.autorun ->

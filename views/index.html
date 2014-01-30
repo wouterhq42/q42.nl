@@ -54,13 +54,14 @@
 <template name="body">
   <div id="fb-root"></div>
 
-  <div id="header">
-    {{yield 'header'}}
-  </div>
-
   <div id="page">
+    <div id="header">
+      {{yield 'header'}}
+    </div>
+    
     {{yield}}
+
+    {{yield 'footer'}}
   </div>
 
-  {{yield 'footer'}}
 </template>
