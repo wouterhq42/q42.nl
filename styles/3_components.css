@@ -242,10 +242,10 @@ nav .pos {
   margin: 0 auto;
   width: 940px;
   height: 70px;
-  border-bottom: solid 1px #444;
+  border-bottom: solid 1px #ccc;
 }
 
-.lights-off #page {  
+.lights-off #page {
   background-image: url(data:image/jpeg;base64,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);
 }
 
@@ -287,9 +287,9 @@ nav ul li.right {
 nav ul li a,
 nav ul li a:visited
 {
-  color: #FFF;
+  color: #000;
   text-decoration: none;
-  border: solid 2px rgba(255,255,255,.5);
+  border: solid 2px #8CD600;
   padding: 4px 10px;
   border-radius: 20px;
   -webkit-font-smoothing: antialiased;
@@ -300,9 +300,9 @@ nav ul li a:visited
   transition: linear .2s;
 }
 nav ul li a:hover {
-  color: #fff;
+  color: #444;
   text-decoration: none;
-  border-color: white;
+  border-color: #aef822;
 }
 
 /* VISUAL */
@@ -575,36 +575,25 @@ a.caption,
 #footer {
   width: 100%;
   min-height: 400px;
-  /*background: #232323;*/
-  color: #aaa;
   padding: 40px 0;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, .8);
   clear: both;
   -webkit-font-smoothing: antialiased;
 }
 #footer p {
   font-size: 14px;
-}
-#footer .external {
-  background: url(http://static.q42.nl/images/external_link_icon_green.png) no-repeat center right;
-  padding-right: 18px;
+  color: #666;
 }
 #footer .social {
-  margin:0; padding:0;
+  margin: 0; padding: 0;
 }
 #footer .social li {
-  margin:0; padding:0;
+  margin: 0; padding:0;
   list-style: none;
   float:left;
-}
-#footer .social li img {
-  width:90px;
-  cursor:pointer;
 }
 #footer > section {
   width: 940px;
   margin: 0 auto;
-  overflow: auto;
 }
 #footer > section > h1 {
   font: 80px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -613,13 +602,10 @@ a.caption,
 #footer .block-small {
   border-top: none;
 }
-#footer > section {
-  overflow: visible;
-}
 #footer h2 {
   font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 20px 0;
-  color: #FFF;
+  color: #666;
 }
 #footer .block-large {
   border: none;
@@ -633,22 +619,6 @@ a.caption,
 #footer .visual.caption {
   display: block;
   margin-bottom: 1em;
-}
-#footer .visual.caption:hover {
-  -webkit-box-shadow: 0 0 8px 0 white;
-  -moz-box-shadow: 0 0 8px 0 white;
-  box-shadow: 0 0 8px 0 white;
-}
-#footer .visual.caption:hover p {
-  background-color: #FFF;
-  color: #232323;
-}
-#footer a {
-  color:#88c546;
-  text-decoration: none;
-}
-#footer a:hover {
-  text-decoration: underline;
 }
 
 #footer .iconList {
@@ -666,8 +636,8 @@ a.caption,
 
 #footer #endtag {
   font: 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #fff;
   font-size: 40px;
+  color: #666;
   text-align: center;
 }
 
