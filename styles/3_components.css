@@ -14,9 +14,6 @@
 .scrolled #nprogress .peg {
   box-shadow: 0 0 10px #29d, 0 0 5px #29d;
 }
-.page-home #nprogress .bar, #nprogress .peg {
-  display: none;
-}
 
 #carrousel {
   background-color: #000;
@@ -176,11 +173,8 @@
 
 /* NAVIGATION */
 
-nav {
-  width: 100%;
-  height: 95px;
-}
 #header nav, #carrousel nav {
+  width: 100%;
   z-index: 44;
   position: absolute;
   bottom: 0;
@@ -226,7 +220,7 @@ nav {
 #logo {
   margin: 0;
   float: left;
-  line-height: 65px;
+  line-height: 60px;
 }
 #logo a {
   display: block;
@@ -235,13 +229,13 @@ nav {
   height: 53px;
 }
 
-nav, nav ul { height: 65px; line-height: 70px; }
+nav, nav ul { height: 65px; }
 
 nav .pos {
   position: relative;
   margin: 0 auto;
   width: 940px;
-  height: 70px;
+  height: 100%;
   border-bottom: solid 1px #ccc;
 }
 
@@ -285,7 +279,7 @@ nav ul li a:visited
 {
   color: #000;
   text-decoration: none;
-  border: solid 2px #8CD600;
+  border: solid 2px rgba(0,0,0,.5);
   padding: 4px 10px;
   border-radius: 20px;
   -webkit-font-smoothing: antialiased;
