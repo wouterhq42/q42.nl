@@ -125,7 +125,7 @@ addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 addLabel("Speelt nog World of Warcraft",  "rahul christiaan richard martijn coen");
 addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
-addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
+addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil jasperh")
 addLabel("Stokoud",                       "stef johan");
 addLabel("Broers",                        "benjamin chrisj");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
