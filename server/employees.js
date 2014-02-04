@@ -29,7 +29,7 @@ var currentQers = [
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jaap Mengers", handle: "jaapm"},
  //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},
- { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
+ { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "jasperhzw.png", imageAnimated: "jasperhgif.gif", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
  //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},
