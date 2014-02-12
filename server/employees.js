@@ -55,6 +55,7 @@ var currentQers = [
  { name: "Richard Lems", handle:"richard"},
  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl"},
  { name: "Sander de Vos", handle:"sander", phone: "070-4452354"},
+ { name: "Sanjay Sheombar", handle:"sanjay"},
  { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/"},
  { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351"},
  { name: "Suzanne Waalberg", handle:"suzanne"},
