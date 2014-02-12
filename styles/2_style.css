@@ -18,6 +18,7 @@ body {
 
 p, ol, ul {
   line-height: 1.5em;
+  margin: 1.5em 0;
 }
 
 iframe {
@@ -354,6 +355,9 @@ section h2,
   position: relative;
   width: 300px;
   overflow: hidden;
+}
+.block-small .visual img {
+  width: 300px; height: 160px;
 }
 
 .block-small:nth-of-type(1),
