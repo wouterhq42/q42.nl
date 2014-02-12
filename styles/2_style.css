@@ -92,6 +92,15 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   line-height: 17px;
 }
 
+a.button {
+  padding: .6em 1em;
+  background: #009aff;
+  color: white;
+  border-radius: 10px;
+  box-shadow: inset 0 -2px 0 rgba(255,255,255,.5);
+  line-height: 5em;
+}
+
 .gfyitem {
   height: 160px;
 }
