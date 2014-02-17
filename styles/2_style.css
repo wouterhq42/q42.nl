@@ -93,12 +93,17 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 }
 
 a.button {
-  padding: .6em 1em;
-  background: #009aff;
-  color: white;
-  border-radius: 10px;
-  box-shadow: inset 0 -2px 0 rgba(255,255,255,.5);
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: .4em .8em;
+  border-radius: 20px;
   line-height: 5em;
+  text-decoration: none;
+  border: solid 1px #ccc;
+}
+a.button:hover {
+  color: white;
+  border-color: #8cd600;
+  background-color: #8cd600;
 }
 
 .gfyitem {
@@ -559,3 +564,16 @@ span {
   text-align: center;
   padding: 100px 0;
 }
+
+#home-employees {
+  width: 80%;
+  margin: 0 auto;
+  height: 192px; /* 4 rows of 48 pixel high images */
+}
+
+#home-employees img {
+  border-radius: 50%;
+  width: 48px; height: 48px;
+}
+
+

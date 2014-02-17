@@ -4,8 +4,14 @@
 
     <section class="block-full intro-outro">
       <!-- <img src="http://static.q42.nl/images/q42-logo.svg" alt="Q42"> -->
-      <h1>Wij zijn jouw CTO.</h1>
-      <p>Met 50 van de beste nerds in Nederland waarborgen wij jouw technische strategie. We zijn je sparringspartner en je geweten en door tegelijk idealistisch en pragmatisch te zijn, helpen wij jou de beste technische keuzes te maken.</p>
+      <h1>Hallo! Wij zijn Q42.</h1>
+      <div id="home-employees">
+      {{#each employees}}
+        <img src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="">
+      {{/each}}
+      </div>
+      <p>Met {{num_employees}} van de beste nerds in Nederland waarborgen wij jouw technische strategie.<br>We zijn je sparringspartner en je geweten en door tegelijk idealistisch en pragmatisch te zijn, helpen wij jou de beste technische keuzes te maken.</p>
+      <p>Hoe doen we dat? Nou, zo:</p>
     </section>
 
     <section class="block-large">
@@ -52,7 +58,7 @@
     <section class="intro-outro block-full">
       <p>Wij zijn jouw technische en soms strategische partner. Samen met jou strijden wij voor de eindgebruiker. We zijn geen aannemer: bij ons vind je alleen slimme techneuten die zich thuis voelen op het Internet en een sterke mening hebben over hoe dingen moeten werken.</p>
       <p>&mdash;</p>
-      <p>Klinkt serieus! ;-) En dat zijn we ook. Maar we zijn ook eigenlijk grote kinderen. Zo vinden we het heerlijk om onze eigen producten, experimentjes en zelfs games te bedenken. En we hebben een eigen lab, Area 42, waarvanuit we samenwerken met iedereen die een briljant idee heeft.</p>
+      <p>Klinkt serieus! ;-) En dat zijn we ook. Maar we zijn ook eigenlijk grote kinderen. Zo vinden we het heerlijk om onze eigen producten, experimentjes en games te bedenken. En we hebben een eigen uitvinderij, Area 42, waarvanuit we samenwerken met iedereen die een briljant idee heeft.</p>
       <p><a href="/diensten" class="button">Ook een briljant idee?</a></p>
     </section>
 
@@ -78,7 +84,7 @@
         <div class="body">
           <h2>Philips Hue</h2>
           <h3>Bedien je lampen met je smartphone</h3>
-          <p>Samen met Philips de toekomst van lampen uitvinden als Internet of Things product, dat op Google App Engine laten draaien, en het vervolgens in de Apple Store verkopen. Dat is Philips Hue.</p>
+          <p>Samen met Philips de toekomst van lampen uitvinden als Internet of Things product, dat op Google App Engine laten draaien, en het vervolgens in de Apple Store verkopen. Dat is Hue.</p>
           <p><a href="/blog/post/34827577445/trots-op-philips-hue">Lees verder</a></p>
         </div>
       </div>
@@ -91,7 +97,7 @@
         <div class="body">
           <h2>w00tcamp</h2>
           <h3>Een heel weekend lekker lang nerden</h3>
-          <p>Ieder jaar komt iederen bij Q42 bij elkaar om twee dagen lang aan een hackathon competitie mee te doen die w00tcamp heet. Dit jaar hebben we het weer gedaan in November. Check de resultaten!</p>
+          <p>Ieder jaar komt iedereen bij Q42 bij elkaar om twee dagen lang aan een hackathon competitie mee te doen die w00tcamp heet. Dit jaar hebben we het weer gedaan in November. Check de resultaten!</p>
           <p><a href="/w00tcamp">w00t w00t!</a></p>
         </div>
       </div>
@@ -107,7 +113,7 @@
         <p><a href="http://www.staatsloterij.nl" class="external">Waag eens een gokje</a></p>
       </div>
       <div class="visual caption">
-        <img src="http://static.q42.nl/images/staats.jpg" alt="Jackpot!"/>
+        <img src="http://static.q42.nl/images/projecten/staatsloterij.jpg" alt="Jackpot!"/>
         <p>Jackpot!</p>
       </div>
     </section>
@@ -133,7 +139,7 @@
         <div class="body">
           <h2>Games</h2>
           <h3>Digitaal en analoog</h3>
-          <p>Peter Pan blijft altijd jong. Q-ers eigenlijk ook. Games spelen zit in ons bloed en als we even de tijd ervoor nemen maken we ook graag spellen. Een soort pleziertherapie.</p>
+          <p>Peter Pan blijft altijd jong. Q-ers eigenlijk ook. Games spelen zit in ons bloed en als dus maken we ook graag onze eigen spellen. Een soort pleziertherapie.</p>
           <p><a href="/games">Check al onze games.</a></p>
         </div>
       </div>
@@ -155,7 +161,7 @@
       <p>We bestaan sinds 2000. Dat is ondertussen al 14 jaar! Zo hebben we aardig wat meegemaakt. Dat geeft ons de nodige ervaring en inzichten om goed doordachte keuzes te maken. Idealistisch als het nodig is en pragmatisch als de deadline gehaald moet worden.</p>
       <p>&mdash;</p>
       <p>Ons grootste trots zijn de Q'ers: onze 50+ werknemers waarmee we samen het Internet beter willen maken en een kras op de planeet achter willen laten. Door onze focus op een "happy place voor nerds" zijn wonnen we in 2012 de Great Place to Work award.</p>
-      <p><a href="/over-q42" class="button">Leer ons allemaal kennen &raquo;</a></p>
+      <p><a href="/over-q42" class="button">Leer ons allemaal kennen</a></p>
     </section>
 
     <section class="block-large">
@@ -214,10 +220,9 @@
       <p>Kom je ook met ons samenwerken?</p>
 
       <ul>
-        <li><a href="/diensten#project"><img src="http://placehold.it/150x120" alt="">Ik zoek een technische partner</a></li>
-        <li><a href="/diensten#ixe"><img src="http://placehold.it/150x120" alt="">Ik heb een interactie expert nodig</a></li>
-        <li><a href="/diensten#jumpstart"><img src="http://placehold.it/150x120" alt="">Ik wil sparren over een wild idee</a></li>
-        <li><a href="/diensten#strategie"><img src="http://placehold.it/150x120" alt="">Ik zit vast in m'n strategie. Help!</a></li>
+        <li><a href="/diensten#project"><img src="/images/technischepartner.jpg" alt="">Ik zoek een technische partner</a></li>
+        <li><a href="/diensten#jumpstart"><img src="/images/sparren.jpg" alt="">Ik wil sparren over een wild idee</a></li>
+        <li><a href="/diensten#strategie"><img src="/images/vaststrategie.jpg" alt="">Ik zit vast in m'n strategie. Help!</a></li>
       </ul>
     </section>
 

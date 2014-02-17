@@ -284,16 +284,12 @@ nav ul li a:visited
   border-radius: 20px;
   letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
-  -webkit-transition: linear .2s;
-  -moz-transition: linear .2s;
-  -ms-transition: linear .2s;
-  -o-transition: linear .2s;
-  transition: linear .2s;
 }
 nav ul li a:hover {
-  color: #444;
   text-decoration: none;
-  border-color: #aef822;
+  color: white;
+  border-color: #8CD600;
+  background-color: #8CD600;
 }
 
 /* VISUAL */
@@ -572,7 +568,6 @@ a.caption,
 }
 #footer p {
   font-size: 14px;
-  color: #666;
 }
 #footer .social {
   margin: 0; padding: 0;
@@ -766,7 +761,6 @@ background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), 
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 3em;
   text-align: center;
-  margin-bottom: 0;
 }
 .intro-outro p {
   font-size: 1.3em;
@@ -775,7 +769,7 @@ background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), 
 .intro-outro ul {
   list-style: none;
   margin: 0 auto; padding: 0;
-  width: 650px;
+  width: 485px;
 }
 .intro-outro ul:after {
   content: ".";

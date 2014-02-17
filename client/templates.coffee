@@ -1,5 +1,9 @@
 $Template
 
+  home:
+    employees: -> Employees.find()
+    num_employees: -> Employees.find().count()
+
   error404:
     isEnglish: -> Session.equals("lang", "en")
     url: -> document.location.pathname
