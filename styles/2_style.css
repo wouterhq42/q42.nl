@@ -94,7 +94,7 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 
 a.button {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding: .2em .8em .4em .8em;
+  padding: .3em .8em .4em .8em;
   border-radius: 20px;
   line-height: 5em;
   text-decoration: none;
@@ -568,7 +568,7 @@ span {
 #home-employees {
   width: 80%;
   margin: 3em auto;
-  height: 192px; /* 4 rows of 48 pixel high images */
+  height: 208px; /* 4 rows of 48 pixel high images + 8*2px margin */
 }
 
 #home-employees img {
