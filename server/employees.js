@@ -29,7 +29,7 @@ var currentQers = [
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jaap Mengers", handle: "jaapm"},
  //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},
- { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
+ { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
  //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},
@@ -53,8 +53,10 @@ var currentQers = [
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
  { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/"},
  { name: "Richard Lems", handle:"richard"},
+ { name: "Roan Hageman", handle:"roan"},
  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl"},
  { name: "Sander de Vos", handle:"sander", phone: "070-4452354"},
+ { name: "Sanjay Sheombar", handle:"sanjay"},
  { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/"},
  { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351"},
  { name: "Suzanne Waalberg", handle:"suzanne"},
@@ -125,7 +127,7 @@ addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 addLabel("Speelt nog World of Warcraft",  "rahul christiaan richard martijn coen");
 addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
-addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
+addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil jasperh")
 addLabel("Stokoud",                       "stef johan");
 addLabel("Broers",                        "benjamin chrisj");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
