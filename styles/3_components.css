@@ -562,7 +562,6 @@ background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), 
   font-size: 1.3em;
   margin: 1em;
 }
-.intro-outro p:last-child { margin-bottom: 0; }
 .intro-outro ul {
   list-style: none;
   margin: 0 auto; padding: 0;
