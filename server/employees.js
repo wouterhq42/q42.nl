@@ -28,10 +28,8 @@ var currentQers = [
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jaap Mengers", handle: "jaapm"},
- //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},
- { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
+ { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
- //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},
  { name: "Johan Huijkman", handle:"johan", phone: "070-4452379"},
  { name: "Kamil Afsar", handle:"kamil", phone: "070-4452357"},
@@ -44,7 +42,6 @@ var currentQers = [
  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/"},
  { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
  { name: "Mark van Straten", handle:"mark", phone: "070-4452347"},
- //{ name: "Martijn Laarman", handle:"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
  { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
@@ -53,8 +50,10 @@ var currentQers = [
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
  { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/"},
  { name: "Richard Lems", handle:"richard"},
+ { name: "Roan Hageman", handle:"roan", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl"},
  { name: "Sander de Vos", handle:"sander", phone: "070-4452354"},
+ { name: "Sanjay Sheombar", handle:"sanjay", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
  { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/"},
  { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351"},
  { name: "Suzanne Waalberg", handle:"suzanne"},
@@ -79,7 +78,7 @@ _.each(currentQers, function(e) {
   else {
     if (qer.floorplan)
       e.floorplan = qer.floorplan;
- 
+
     Employees.update({handle: e.handle}, e, {set: e});
     updates++;
   }
@@ -125,7 +124,7 @@ addLabel("Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne");
 addLabel("Speelt nog World of Warcraft",  "rahul christiaan richard martijn coen");
 addLabel("Weet wat Spiffy is",            "bob tim martin remco martijn lukas"); // LOL!
 addLabel("Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan");
-addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil")
+addLabel("Heeft een baard",               "rahul richard martijn arian coen christiaan kamil jasperh")
 addLabel("Stokoud",                       "stef johan");
 addLabel("Broers",                        "benjamin chrisj");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
