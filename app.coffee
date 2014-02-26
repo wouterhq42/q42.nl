@@ -179,6 +179,13 @@ if Meteor.isServer
         console.log "Received request from huelandsspoor. Updating..."
         updateLightbar()
 
+    @route "redirectAdventures",
+      where: "server"
+      path: "/adventures"
+      action: ->
+        console.log "Route: redirectAdventures"
+        @response.writeHead 302, Location: "http://adventures.handcraft.com"
+
     @route "removeWWW",
       where: "server"
       path: "*"
@@ -191,9 +198,3 @@ if Meteor.isServer
           @response.writeHead 301, Location: fullUrl.replace("www.", "")
 
         @next()
-
-    @route "redirectAdventures",
-      where: "server"
-      path: "/adventures"
-      action: ->
-        @response.writeHead 302, Location: "http://adventures.handcraft.com"
