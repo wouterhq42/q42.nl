@@ -109,7 +109,7 @@ if Meteor.isClient
         Meteor.subscribe "blogComments", @params.id * 1
         Meteor.subscribe "LatestComments", 10
       ]
-      data: -> 
+      data: ->
         return null unless blogpostFull.findOne()
         return {
           post:           blogpostFull.findOne()
@@ -191,3 +191,9 @@ if Meteor.isServer
           @response.writeHead 301, Location: fullUrl.replace("www.", "")
 
         @next()
+
+    @route "redirect_adventures"
+      where: "server"
+      path: "/adventures"
+      action: ->
+        @response.writeHead 302, Location: "http://q42.com/adventures"
