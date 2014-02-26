@@ -82,7 +82,6 @@ nav ul li a:visited
 }
 nav ul li a:hover {
   text-decoration: none;
-  color: white;
   border-color: #8CD600;
   -webkit-transition: ease-in-out border-color .2s;
 }
