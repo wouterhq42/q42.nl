@@ -7,7 +7,8 @@
       "iron-router": {},
       "nprogress": {},
       "moment": {},
-      "marked": {}
+      "marked": {},
+      "fast-render": {}
     },
     "packages": {
       "font-awesome": {
@@ -22,8 +23,8 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.1",
-        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+        "tag": "v0.6.2",
+        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
       },
       "nprogress": {
         "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
@@ -39,6 +40,11 @@
         "git": "https://github.com/chuangbo/meteor-marked.git",
         "tag": "v0.2.9",
         "commit": "6485d6f03841501f81176e34ab375840473aa714"
+      },
+      "fast-render": {
+        "git": "https://github.com/arunoda/meteor-fast-render.git",
+        "tag": "v0.1.0",
+        "commit": "a69048381dd86cf30f621024c8ae4c2d298efdaf"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

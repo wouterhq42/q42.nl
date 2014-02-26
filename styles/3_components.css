@@ -18,57 +18,36 @@
   display: none;
 }
 
-/* SHOWREEL */
-
-#showreel
-{
+#carrousel {
   background-color: #000;
   position: relative;
   height: 630px;
   width: 100%;
   overflow: hidden;
-  z-index: 10;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px -20px 70px 40px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px -20px 70px 40px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px -20px 70px 40px;
-}
-#showreel-container {
-  width: 100%;
-  height: 100%;
   -webkit-perspective: 2000;
   -moz-perspective: 2000px;
   perspective: 2000px;
 }
-#showreel-stage {
+#carrousel-stage, #carrousel-shape {
+  position: relative;
   width: 100%;
   height: 100%;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-#showreel-stage.transition {
+#carrousel-stage.transition {
   -webkit-transition: -webkit-transform 1s ease-in-out;
   -moz-transition: -moz-transform 1s ease-in-out;
   transition: transform 1s ease-in-out;
 }
-#showreel-shape {
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-#showreel-shape.transition {
+#carrousel-shape.transition {
   -webkit-transition: -webkit-transform 2s ease-in-out;
   -moz-transition: -moz-transform 2s ease-in-out;
   transition: transform 2s ease-in-out;
 }
-#showreel .item {
-  -webkit-transition: opacity 2s ease-in-out;
-  -moz-transition: opacity 2s ease-in-out;
-  transition: opacity 2s ease-in-out;
+#carrousel .item {
   display: block;
   position: absolute;
   width: 100%;
@@ -77,25 +56,28 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
-  z-index: 42;
   opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 2s ease-in-out;
+  -moz-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
 }
-#showreel-stage.transition.transitioningBySwipe #showreel-shape.transition,
-#showreel-stage.transition.transitioningBySwipe .item {
+#carrousel-stage.transition.transitioningBySwipe #carrousel-shape.transition,
+#carrousel-stage.transition.transitioningBySwipe .item {
   -webkit-transition-duration: 0.5s !important;
   -moz-transition-duration: 0.5s !important;
   transition-duration: 0.5s !important;
 }
-#showreel-stage.transitioningByClick .item,
-#showreel-stage.transitioningByDoubleSwipe .item {
+#carrousel-stage.transitioningByClick .item,
+#carrousel-stage.transitioningByDoubleSwipe .item {
   opacity: 1;
 }
-#showreel .active-item {
-  z-index: 43;
+#carrousel .active-item {
   opacity: 1;
+  pointer-events: all;
 }
 
-#showreel .item p {
+#carrousel .item p {
   opacity: 1;
   position: absolute;
   top: 40px;
@@ -110,45 +92,54 @@
   text-shadow: 0px 1px 1px rgba(0,0,0,.6);
   -webkit-font-smoothing: antialiased;
 }
-#showreel .item p.left {
+#carrousel .item p.left {
   left: 5%;
   text-align: left;
 }
 
-#showreel .active-item p {
+#carrousel .active-item p {
   opacity: 1;
 }
 
-#showreel-stage a {
+#carrousel-stage a {
   text-decoration: none;
 }
 
-#showreel #indicators {
-  opacity: 0;
+#indicators {
   position: absolute;
-  top: 20px;
+  z-index: 999;
+  top: 0;
+  opacity: 0;
+  padding: 20px;
   width: 100%;
   text-align: center;
-  color: #FFF;
-  z-index: 45;
-
-  font-size: 142%;
-  letter-spacing: 3px;
-
-  text-shadow: 0 0 3px #000;
   cursor: pointer;
+  -webkit-transition: opacity linear .5s;
+  -webkit-transition-delay: .5s;
+  -moz-transition: opacity linear .5s;
+  -moz-transition-delay: .5s;
 }
-#showreel #indicators span {
-  opacity: 0.4;
-  -webkit-transition-property: opacity;
-  -webkit-transition-duration: 0.5s;
-  -webkit-transition-delay: 0.2s;
-  -moz-transition-property: opacity;
-  -moz-transition-duration: 0.5s;
-  -moz-transition-delay: 0.2s;
-}
-#showreel #indicators .active {
+#indicators.visible {
   opacity: 1;
+}
+#indicators span {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  opacity: 0.4;
+  font-size: 142%;
+  color: #FFF;
+  text-shadow: 0 0 3px #000;
+  -webkit-transition-property: opacity, -webkit-transform;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-property: opacity, -moz-transform;
+  -moz-transition-duration: 0.5s;
+}
+#indicators span:hover, 
+#indicators .active {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
 }
 
 
@@ -190,7 +181,7 @@ nav {
   height: 95px;
   font: 2.7em bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-#header nav, #showreel nav {
+#header nav, #carrousel nav {
   z-index: 44;
   position: absolute;
   bottom: 0;
@@ -217,7 +208,7 @@ nav {
   -moz-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
 }
-#showreel #header-bg-gradient {
+#carrousel #header-bg-gradient {
   display: none;
 }
 

@@ -2,7 +2,6 @@
 
 Meteor.startup ->
   $(window).resize _.debounce(resizeFBwidget, 300)
-  $(window).resize _.debounce(resizeShowreel, 300)
   $(window).scroll _.throttle ->
     $(document.body).toggleClass "scrolled", $(window).scrollTop() > 0
   , 100

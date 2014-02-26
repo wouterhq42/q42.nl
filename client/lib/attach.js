@@ -1,6 +1,15 @@
 window.reattachBehavior = function() {
-  resizeShowreel();
-  homepageShowreel();
+  if (!window.headerCarrousel)
+    window.headerCarrousel = new Carrousel();
+  else
+    window.headerCarrousel.init();
+  
+  if (window.carrToh)
+    Meteor.clearTimeout(window.carrToh);
+  window.carrToh = Meteor.setTimeout(function() {
+    headerCarrousel.render();
+  }, 300);
+
   $("#page").addClass("show");
 
   if (!isPhantom) {
@@ -42,7 +51,9 @@ var attachTwitter = function() {
 }
 var attachGfycat = function() {
   $.getScript('http://assets.gfycat.com/js/gfyajax-0.517d.js', function() {
-    gfyCollection.init();
+    try {
+      gfyCollection.init();
+    } catch (e){}
   });
 }
 
