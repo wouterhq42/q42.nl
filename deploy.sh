@@ -27,10 +27,10 @@ echo
 # because that's the way we make sure we have an English and a Dutch website :-)
 echo "Deploying to q42.nl..."
 echo
-meteor deploy q42.nl < password.txt
+meteor deploy q42.nl
 echo "Deploying to q42.com..."
 echo
-meteor deploy q42.com < password.txt
+meteor deploy q42.com
 
 # Put back the public folder
 echo "Finishing..."
