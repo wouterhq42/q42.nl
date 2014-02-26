@@ -192,8 +192,8 @@ if Meteor.isServer
 
         @next()
 
-    @route "redirect_adventures"
+    @route "redirectAdventures",
       where: "server"
       path: "/adventures"
       action: ->
-        @response.writeHead 302, Location: "http://q42.com/adventures"
+        @response.writeHead 302, Location: "http://adventures.handcraft.com"
