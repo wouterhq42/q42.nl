@@ -64,7 +64,7 @@ Since you need to deploy to two separate sites (q42.nl and q42.com), there's a s
 
 	./deploy.sh
 
-Deploying is protected by a password which you should place in `password.txt` in the root followed by a newline.
+Only authenticated users can deploy using Meteor's developer accounts system.
 
 # Contributing
 
