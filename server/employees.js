@@ -28,10 +28,8 @@ var currentQers = [
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jaap Mengers", handle: "jaapm"},
- //{ name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl"},
  { name: "Jasper Kaizer", handle:"jasper"},
- //{ name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},
  { name: "Johan Huijkman", handle:"johan", phone: "070-4452379"},
  { name: "Kamil Afsar", handle:"kamil", phone: "070-4452357"},
@@ -44,10 +42,9 @@ var currentQers = [
  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/"},
  { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
  { name: "Mark van Straten", handle:"mark", phone: "070-4452347"},
- //{ name: "Martijn Laarman", handle:"},
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
- { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
+ { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/"},
  { name: "Matthijs van der Meulen", handle:"matthijs"},
  { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/"},
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
@@ -63,8 +60,7 @@ var currentQers = [
  { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim"},
  { name: "Tim van Deursen", handle:"timd", phone: "070-4452361"},
  { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/"},
- { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"},
- { name: "Wilbert Mekenkamp", handle:"wilbert"}
+ { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"}
 ];
 
 var inserts = 0, updates = 0;
@@ -81,7 +77,7 @@ _.each(currentQers, function(e) {
   else {
     if (qer.floorplan)
       e.floorplan = qer.floorplan;
- 
+
     Employees.update({handle: e.handle}, e, {set: e});
     updates++;
   }
