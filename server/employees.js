@@ -66,7 +66,7 @@ var currentQers = [
 var inserts = 0, updates = 0;
 _.each(currentQers, function(e) {
   e.labels = [];
-  e.floorplan = {x:0, y:0};
+  e.floorplan = {x:0, y:0, location: "q070"};
 
   var qer = Employees.findOne({handle: e.handle});
 
@@ -171,8 +171,8 @@ Meteor.methods({
   addQer: function(record) {
     Employees.insert(record);
   },
-  updatePosition: function(id, x, y) {
+  updatePosition: function(id, x, y, loc) {
     // used by floorplan.meteor.com app
-    Employees.update(id, { $set: { "floorplan.x": x, "floorplan.y": y } });
+    Employees.update(id, { $set: { "floorplan.x": x, "floorplan.y": y, "floorplan.location": loc } });
   }
 });
