@@ -1,5 +1,12 @@
 Carrousel = [
   {
+    url: "http://numolition.nl"
+    bg: "/images/carrousel/numolition.png"
+    text: ""
+    en_text: ""
+    pos: "right"
+  }
+  {
     url: "http://handcraft.com"
     bg: "/images/carrousel/handcraft.jpg"
     text: "De nieuwe Handcraft is er"

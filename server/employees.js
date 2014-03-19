@@ -53,21 +53,24 @@ var currentQers = [
  { name: "Roan Hageman", handle:"roan", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl"},
  { name: "Sander de Vos", handle:"sander", phone: "070-4452354"},
- { name: "Sanjay Sheombar", handle:"sanjay", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
+ { name: "Sanjay Sheombar", handle:"sanjay"},
  { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/"},
  { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351"},
  { name: "Suzanne Waalberg", handle:"suzanne"},
  { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim"},
  { name: "Tim van Deursen", handle:"timd", phone: "070-4452361"},
  { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/"},
- { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"},
- { name: "Wilbert Mekenkamp", handle:"wilbert"}
+ { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/"}
 ];
 
 var inserts = 0, updates = 0;
 _.each(currentQers, function(e) {
   e.labels = [];
-  e.floorplan = {x:0, y:0};
+  e.floorplan = {
+    q070: {x: 0, y: 0},
+    q020bg: {x: 0, y: 0},
+    q020boven: {x: 0, y: 0}
+  };
 
   var qer = Employees.findOne({handle: e.handle});
 
@@ -76,7 +79,9 @@ _.each(currentQers, function(e) {
     inserts++;
   }
   else {
-    if (qer.floorplan)
+    if (qer.floorplan.x)
+      qer.floorplan = e.floorplan;
+    else if (qer.floorplan)
       e.floorplan = qer.floorplan;
 
     Employees.update({handle: e.handle}, e, {set: e});
@@ -172,8 +177,12 @@ Meteor.methods({
   addQer: function(record) {
     Employees.insert(record);
   },
-  updatePosition: function(id, x, y) {
+  updatePosition: function(id, x, y, loc) {
     // used by floorplan.meteor.com app
-    Employees.update(id, { $set: { "floorplan.x": x, "floorplan.y": y } });
+    var obj = {};
+    obj["floorplan." + loc] = {};
+    obj["floorplan." + loc].x = x;
+    obj["floorplan." + loc].y = y;
+    Employees.update(id, { $set: obj });
   }
 });
