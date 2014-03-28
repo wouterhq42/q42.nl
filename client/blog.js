@@ -95,12 +95,12 @@ Template.en_comment.mdtext = Template.comment.mdtext = function() {
   return marked(this.text);
 }
 
-Handlebars.registerHelper("ifWidthEquals", function(width, options) {
-  return this.width == width ? options.fn(this) : "";
-});
-Handlebars.registerHelper("typeIs", function(type) {
+Template.en_blogpost.widthEquals = Template.blogpost.widthEquals = function(width) {
+  return this.width == width;
+}
+Template.en_blogpost.typeIs = Template.blogpost.typeIs = function(type) {
   return this.type == type;
-})
+};
 
 function syntaxHighlight() {
   var a = false;

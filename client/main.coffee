@@ -40,7 +40,7 @@ setupLights = ->
     turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
     $(document.body).toggleClass "lights-off", turnOnLights
 
-Handlebars.registerHelper "isPhantom", -> isPhantom
-Handlebars.registerHelper "defaultNav", ->
+Template.body.isPhantom = -> isPhantom
+Template.body.defaultNav = ->
   page = Session.get("page") or "home";
   page isnt "home"

@@ -30,21 +30,21 @@ $Template({
   }
 });
 
-Handlebars.registerHelper('avatar_static', function() {
+Template.employees.avatar_static = function() {
   return this.imageStatic || this.handle + "zw.jpg";
-});
-Handlebars.registerHelper('avatar_animated', function() {
+};
+Template.employees.avatar_animated = function() {
   return this.imageAnimated || this.handle + "gif.gif";
-});
+};
 
-Handlebars.registerHelper('firstname', function() {
+Template.employees.firstname = function() {
   if (!this.name)
     return "droid";
   return this.name.split(" ")[0];
-});
-Handlebars.registerHelper('email', function() {
+};
+Template.employees.email = function() {
   return this.email || this.handle;
-});
+};
 
 /**************/
 /* Dutch only */
@@ -193,7 +193,7 @@ Template.en_employees.events(employeeEvents);
 
 Template.filter_employees.list = function() {
   var filters = [
-    //  {name: "Projecten", items: ["Rijksmuseum", "9292", "Staatsloterij", "Schooltas", "Philips Hue", "TADC", "MENDO", 
+    //  {name: "Projecten", items: ["Rijksmuseum", "9292", "Staatsloterij", "Schooltas", "Philips Hue", "TADC", "MENDO",
     //   "Greetz", "Malmberg"]}
     // ,{name: "Producten", items: ["Handcraft"]}
     // ,{name: "Games",     items: ["Cat Quest", "Quento", "Carrrrds", "Spaceventure"]}

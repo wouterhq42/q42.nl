@@ -14,7 +14,7 @@ if Meteor.isClient
     layoutTemplate: "body"
     notFoundTemplate: "error404"
 
-  Router.load ->
+  Router.onRun ->
     [page, subpage] = @path.split("/").slice(1)
     page = subpage if subpage
     page = page.split("#")[0].split("?")[0] if page
@@ -27,12 +27,12 @@ if Meteor.isClient
 
     NProgress.start()
 
-  Router.before ->
+  Router.onBeforeAction ->
     lang = Session.get "lang"
     @render (if lang is "en" then "en_header" else "header"), to: "header"
     @render (if lang is "en" then "en_footer" else "footer"), to: "footer"
 
-  Router.after ->
+  Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
 
@@ -46,7 +46,7 @@ if Meteor.isClient
       loadingTemplate: "loading"
       path: "/blog"
       action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
-      after: -> Meteor.call "checkTumblr"
+      onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1
@@ -64,7 +64,7 @@ if Meteor.isClient
       loadingTemplate: "loading"
       path: "/blog/page/:pageNum"
       action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
-      after: -> Meteor.call "checkTumblr"
+      onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", @params.pageNum * 1
@@ -82,7 +82,7 @@ if Meteor.isClient
       loadingTemplate: "loading"
       path: "/blog/tagged/:tag"
       action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
-      after: -> Meteor.call "checkTumblr"
+      onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1, @params.tag
@@ -101,7 +101,7 @@ if Meteor.isClient
     @route "blogpost",
       loadingTemplate: "loading"
       path: "/blog/post/:id?/:title?"
-      before: -> Session.set "blogpostid", @params.id * 1
+      onBeforeAction: -> Session.set "blogpostid", @params.id * 1
       action: -> @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
       waitOn: -> [
         Meteor.subscribe "blogpostIndex", 1
@@ -120,7 +120,7 @@ if Meteor.isClient
 
     @route "page",
       path: "/:page"
-      before: -> Session.set "page", @params.page
+      onBeforeAction: -> Session.set "page", @params.page
       action: ->
         if Session.equals("lang", "en")
           template = Template["en_" + @params.page]

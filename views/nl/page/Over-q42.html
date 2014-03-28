@@ -342,7 +342,6 @@
 <template name="filter_employees">
   <div id="filter-colleagues">
     <h2>Filter de Q'ers</h2>
-    {{#isolate}}
     <ul id="filter-options">
       {{#each list}}
       <li>{{name}}
@@ -354,7 +353,6 @@
       </li>
       {{/each}}
     </ul>
-    {{/isolate}}
     <h2>Of gebruik regex!</h2>
     <input data-role="filter-qers" placeholder="/.*/" id="filter-qers-input">
   </div>

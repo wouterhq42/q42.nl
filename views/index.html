@@ -56,12 +56,12 @@
 
   <div id="page">
     <div id="header">
-      {{yield 'header'}}
+      {{> yield region="header"}}
     </div>
-    
-    {{yield}}
 
-    {{yield 'footer'}}
+    {{> yield}}
+
+    {{> yield region="footer"}}
   </div>
 
 </template>
