@@ -1,14 +1,4 @@
 window.reattachBehavior = function() {
-  if (!window.headerCarrousel)
-    window.headerCarrousel = new Carrousel();
-  else
-    window.headerCarrousel.init();
-  
-  if (window.carrToh)
-    Meteor.clearTimeout(window.carrToh);
-  window.carrToh = Meteor.setTimeout(function() {
-    headerCarrousel.render();
-  }, 300);
 
   $("#page").addClass("show");
 
