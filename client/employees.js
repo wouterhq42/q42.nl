@@ -30,12 +30,12 @@ $Template({
   }
 });
 
-Template.employees.avatar_static = function() {
-  return this.imageStatic || this.handle + "zw.jpg";
-};
-Template.employees.avatar_animated = function() {
-  return this.imageAnimated || this.handle + "gif.gif";
-};
+UI.registerHelper('avatar_static', function() {
+  return this.imageStatic || this.handle + ".jpg";
+});
+UI.registerHelper('avatar_animated', function() {
+  return this.imageAnimated || this.handle + ".gif";
+});
 
 Template.employees.firstname = function() {
   if (!this.name)

@@ -40,7 +40,8 @@ setupLights = ->
     turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
     $(document.body).toggleClass "lights-off", turnOnLights
 
-Template.body.isPhantom = -> isPhantom
-Template.body.defaultNav = ->
-  page = Session.get("page") or "home";
-  page isnt "home"
+UI.registerHelper "title", (title) ->
+  titleHtml = title.replace("#", "<b>").replace("#", "</b>")
+  title = title.replace /#/g, ""
+  document.title = "#{title} - Q42"
+  titleHtml

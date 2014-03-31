@@ -14,18 +14,7 @@ if Meteor.isClient
     layoutTemplate: "body"
     notFoundTemplate: "error404"
 
-  Router.onRun ->
-    [page, subpage] = @path.split("/").slice(1)
-    page = subpage if subpage
-    page = page.split("#")[0].split("?")[0] if page
-    unless page
-      page = ""
-    Session.set "page", page
-
-    $(document.body).removeClass(c) for c in $(document.body)[0].classList when c?.indexOf("page-") is 0
-    $(document.body).addClass "page-" + (if page then page else "home")
-
-    NProgress.start()
+  Router.onRun -> NProgress.start()
 
   Router.onBeforeAction ->
     lang = Session.get "lang"
@@ -35,6 +24,12 @@ if Meteor.isClient
   Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
+
+  setTitle = ->
+    if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
+      document.title = "Q42"
+    else
+      document.title = $('h1').text() + " - Q42"
 
   Router.map ->
 

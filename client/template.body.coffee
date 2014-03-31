@@ -1,11 +1,6 @@
 Template.body.rendered = ->
-  if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
-    document.title = "Q42"
-  else
-    document.title = $(this.find('h1')).text() + " - Q42"
-
   $("#og-title").attr "content", document.title
-
+  
   reattachBehavior()
   updateLightbar()
 
@@ -17,3 +12,8 @@ Template.body.events
     window.scrollTo(0,0)
     evt.preventDefault()
     return false
+
+Template.body.isPhantom = -> isPhantom
+Template.body.defaultNav = ->
+  page = Session.get("page") or "home"
+  page isnt "home"
