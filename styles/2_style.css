@@ -4,7 +4,7 @@
   -moz-box-sizing: border-box;
 }
 html, body {
-  width: 100%;
+  width: 100%; min-height: 100%;
   font: 16px "PT Serif", Georgia, Times, serif;
   -webkit-transition: ease-in-out background-color .3s;
   -moz-transition: ease-in-out background-color .3s;
@@ -12,8 +12,7 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  background: #eee -webkit-linear-gradient(top, #ccc, #fff);
-  box-shadow: inset 0 0 20px #ccc;
+  background: #eee;
 }
 
 p, ol, ul {
@@ -576,5 +575,3 @@ span {
   width: 48px; height: 48px;
   margin: 2px;
 }
-
-
