@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 insecure
-spiderable
 underscore
 http
 stylus
@@ -23,3 +22,4 @@ crypto-md5
 iron-router
 nprogress
 marked
+spiderable-404

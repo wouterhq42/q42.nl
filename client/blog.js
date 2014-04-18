@@ -95,7 +95,8 @@ Template.en_comment.mdtext = Template.comment.mdtext = function() {
   return marked(this.text);
 }
 
-Template.en_blogpost.widthEquals = Template.blogpost.widthEquals = function(width) {
+Template.en_blogpost.widthEquals = Template.blogpost.widthEquals =
+Template.en_blog.widthEquals = Template.blog.widthEquals = function(width) {
   return this.width == width;
 }
 Template.en_blogpost.typeIs = Template.blogpost.typeIs = function(type) {

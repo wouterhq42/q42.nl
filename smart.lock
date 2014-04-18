@@ -8,7 +8,8 @@
       "nprogress": {},
       "moment": {},
       "marked": {},
-      "fast-render": {}
+      "fast-render": {},
+      "spiderable-404": {}
     },
     "packages": {
       "font-awesome": {
@@ -28,8 +29,8 @@
       },
       "nprogress": {
         "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
-        "tag": "v0.0.3",
-        "commit": "ffd1c5dd400af64121197f4e637a215c4b6b1fc7"
+        "tag": "v0.0.4",
+        "commit": "8333206b751a24fac1fbd1b03fa37621bcefe50c"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
@@ -43,8 +44,13 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.1.23",
-        "commit": "933b9d8992f1c7004f9993b1b15dffe3bac672f3"
+        "tag": "v0.1.26",
+        "commit": "bfabe15c5acfbdec7c3a815b956bb49c41421ab2"
+      },
+      "spiderable-404": {
+        "git": "https://github.com/wojas/spiderable-404.git",
+        "tag": "v0.6.6.1",
+        "commit": "04013254e4cf1e6d38ac5e78d48a33e5ddf554b2"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

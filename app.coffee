@@ -24,6 +24,7 @@ if Meteor.isClient
   Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
+    setTitle()
 
   setTitle = ->
     if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
@@ -117,12 +118,14 @@ if Meteor.isClient
       path: "/:page"
       onBeforeAction: -> Session.set "page", @params.page
       action: ->
+        template = Template[@params.page]
         if Session.equals("lang", "en")
           template = Template["en_" + @params.page]
           if template
             return @render "en_" + @params.page
 
-        @render @params.page
+        if template
+          @render @params.page
       data: ->
         # there should be a nicer way to do this...
         template = Template[@params.page]
@@ -133,9 +136,16 @@ if Meteor.isClient
           unless template
             template = Template[@params.page]
 
-        return null unless template
+        if not template
+          Spiderable.httpStatusCode = 404
+          @render "error404"
 
-        return [] # data() needs to return something
+    @route "404",
+      path: "*"
+      onBeforeAction: ->
+        Spiderable.httpStatusCode = 404
+      action: ->
+        @render "error404"
 
   getPagination = (pageNum, tag) ->
     pageNum = pageNum * 1
