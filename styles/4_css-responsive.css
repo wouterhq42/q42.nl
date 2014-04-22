@@ -186,6 +186,8 @@
   .big_ass_button
   { padding: 0px 16px; }
 
+  .block-large .intro { float: none; }
+
   .block-small > ul, #blog-sidebar ul {
     padding-left: 40px;
   }
@@ -206,12 +208,50 @@
   #footer > section { width: 100%; }
   .readmore { margin-right: 10px; }
 
-  #header li { font-size: 11px; margin: 0 5px 0 0;}
+  #header { height: 110px;}
   #header li:last-child { margin: 0; }
-  #header nav ul { width: 325px; }
-  #logo { margin-left: 15px; }
   #logo img { width: 46px; height: 70px;}
-  #lang-switch span + span { display: none; }
+  #mobile-menu-icon {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 1em; left: 1em;
+    color: white;
+  }
+  #header ul {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 6;
+    -webkit-transform: translateX(-100%);
+    width: 150px;
+    -webkit-transition: ease-in-out -webkit-transform .2s;
+  }
+  body.show-mobile-menu {
+    overflow-x: hidden;
+  }
+  body.show-mobile-menu #page {
+    -webkit-transform: translateX(150px);
+  }
+  #header li {
+    display: block;
+    margin: 0;
+    line-height: 25px;
+  }
+  #header li a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-shadow: none;
+    border-bottom: solid 1px #ccc;
+  }
+  #header li a:hover {
+    background-color: #fff;
+    color: #555;
+  }
+  #header li a:active {
+    background: -webkit-linear-gradient(top, #ccc, #eee);
+    color: #555;
+  }
 
   #footer section,
   #footer .block-small,

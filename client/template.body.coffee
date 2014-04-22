@@ -27,6 +27,6 @@ Template.body.events
 Template.body.lightsColor = -> Session.get("lightsColor")
 Template.body.supportsInputTypeColor = -> Session.equals("supportsInputTypeColor", yes)
 Template.body.isPhantom = -> isPhantom
-Template.body.defaultNav = ->
-  page = Session.get("page") or "home"
-  page isnt "home"
+
+UI.body.events
+  "click body": -> $("body").removeClass "show-mobile-menu"

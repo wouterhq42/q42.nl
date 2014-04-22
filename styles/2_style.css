@@ -125,6 +125,7 @@ body {
   -ms-transform-origin: center top;
   -o-transform-origin: center top;
   transform-origin: center top;
+  -webkit-transition: ease-in-out -webkit-transform .3s;
 }
 .container {
   width: 940px;
@@ -313,6 +314,7 @@ section h2,
   margin-top: -18px;
   color: #888;
 }
+.block-large > .body p:last-child { margin-bottom: 1.5em; }
 
 .block-small h3 {
   font: 14px/1.5 Lato, Georgia, Times, serif;
@@ -363,6 +365,7 @@ section h2,
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
+.block-small:first-child h2 { margin-top: 0; }
 .block-small .visual {
   float: none;
   position: relative;
