@@ -27,7 +27,8 @@ Meteor.startup ->
 
 setupLights = ->
   Session.setDefault "toggleLights", false
-  Session.setDefault "lightsColor", "#000000"
+  Session.setDefault "lightsColor", null
+  Session.setDefault "showBgNumber", 1
 
   Session.setDefault("supportsInputTypeColor", (->
     # http://stackoverflow.com/a/8278718/16308

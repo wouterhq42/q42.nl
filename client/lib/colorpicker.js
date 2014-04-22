@@ -20,7 +20,8 @@ Template.colorpicker.events({
 
 Template.colorpicker.rendered = function() {
   var color = Session.get("lightsColor");
-  readColor(color);
+  if (color)
+    readColor(color);
 }
 
 var currentColor = { v: 1, r: 1, g: 1, b: 1 };

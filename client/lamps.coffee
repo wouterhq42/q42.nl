@@ -2,32 +2,38 @@ Lights = new Meteor.Collection "lights"
 NUM_LIGHTS = 29
 
 @updateLightbar = ->
-	lights = _.map Lights.find().fetch(), (doc) -> "#" + doc.hex
-	lights = [
-		lights[9]  or "#9fc" # area42 corner
-		lights[0]  or "#c9f" # stef's office
-		lights[4]  or "#f66" # rijksmuseum team
-		lights[23] or "#cf9" # cynthia's desk
-		lights[26] or "#9cf" # hue team office
-		lights[14] or "#9cf" # kitchen
-	]
+  lights = _.map Lights.find().fetch(), (doc) -> "#" + doc.hex
+  lights = [
+    lights[9]  or "#99ffcc" # area42 corner
+    #lights[0]  or "#cc99ff" # stef's office
+    lights[4]  or "#ff6666" # rijksmuseum team
+    lights[23] or "#ccff99" # cynthia's desk
+    lights[26] or "#99ccff" # hue team office
+    lights[14] or "#99ccff" # kitchen
+  ]
 
-	if Lights.find().count() is NUM_LIGHTS
-		$header = $("#header")
-		$grad = $("#header-bg-gradient")
+  diff = -80
 
-		# $header.css "background", "-webkit-linear-gradient(left, #{lights})"
-		# $header.css "background", "-moz-linear-gradient(left, #{lights})"
-		# $grad.css "opacity", 0
-		# Meteor.setTimeout ->
-		# 	$grad.css
-		# 		background: "-webkit-linear-gradient(left, #{lights})"
-		# 		background: "-moz-linear-gradient(left, #{lights})"
-		# 		opacity: 1
-		# 	Session.set "lightsColor", lights[0]
-		# , 400
+  color = (Session.get("lightsColor") or lights[0]).replace("#", "")
+
+  num = parseInt(color, 16)
+  r = Math.max(0, Math.min(255, (num >> 16) + diff))
+  b = Math.max(0, Math.min(((num >> 8) & 0x00ff) + diff + 155))
+  g = Math.max(0, Math.min(255, (num & 0x0000ff) + diff + 150))
+  res = String("000000" + (g | (b << 8) | (r << 16)).toString(16)).slice(-6)
+
+  showBgNumber = if Session.equals("showBgNumber", 1) then 2 else 1
+  $("#backgrounds").removeClass("showBg1 showBg2")
+  $("#bg#{showBgNumber}").css "background-image",
+    """-webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
+       -webkit-linear-gradient(108deg,##{res},##{color} 90%)"""
+
+  Meteor.setTimeout ->
+    $("#backgrounds").addClass "showBg#{showBgNumber}"
+    Session.set("showBgNumber", showBgNumber)
+  , 100
 
 Meteor.startup ->
-	Deps.autorun ->
-		Meteor.subscribe "lights"
-		updateLightbar()
+  Deps.autorun ->
+    Meteor.subscribe "lights"
+    #updateLightbar()

@@ -57,6 +57,18 @@
   <div id="page">
     <div id="header">
       {{> yield region="header"}}
+      <div id="hue" class="right">
+        {{#if supportsInputTypeColor}}
+          <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+        {{else}}
+          <div id="lights-color"></div>
+        {{/if}}
+        {{> colorpicker}}
+      </div>
+      <div id="backgrounds">
+        <div id="bg1"></div>
+        <div id="bg2"></div>
+      </div>
     </div>
 
     {{> yield}}
