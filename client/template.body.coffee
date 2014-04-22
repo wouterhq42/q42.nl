@@ -24,6 +24,7 @@ Template.body.events
         Session.set("lightsColor", "#" + color)
         updateLightbar()
 
+Template.body.lightsColor = -> Session.get("lightsColor")
 Template.body.supportsInputTypeColor = -> Session.equals("supportsInputTypeColor", yes)
 Template.body.isPhantom = -> isPhantom
 Template.body.defaultNav = ->
