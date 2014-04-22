@@ -12,6 +12,7 @@ if Meteor.isClient
 
   Router.configure
     layoutTemplate: "body"
+    loadingTemplate: "loading"
     notFoundTemplate: "error404"
 
   Router.onRun ->
@@ -27,11 +28,14 @@ if Meteor.isClient
     setScrollPosition()
     Meteor.setTimeout setTitle, 200
 
+    reattachBehavior()
+
   setTitle = ->
     if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
       document.title = "Q42"
     else
       document.title = $('h1').text() + " - Q42"
+    $("#og-title").attr "content", document.title
 
   Router.map ->
 

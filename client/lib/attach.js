@@ -27,10 +27,7 @@ var initCalled = false;
 var attachFacebook = function() {
   $.getScript('//connect.facebook.net/nl_NL/all.js', function(){
     if (!initCalled)
-      FB.init({
-        appId: '535367106516027',
-        xfbml: true
-      });
+      FB.init({ appId: '535367106516027', xfbml: true });
     else
       FB.XFBML.parse();
     initCalled = true;
