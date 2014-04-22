@@ -17,16 +17,16 @@ NUM_LIGHTS = 29
   color = (Session.get("lightsColor") or lights[0]).replace("#", "")
 
   num = parseInt(color, 16)
-  r = Math.max(0, Math.min(255, (num >> 16) + diff))
-  b = Math.max(0, Math.min(((num >> 8) & 0x00ff) + diff + 155))
-  g = Math.max(0, Math.min(255, (num & 0x0000ff) + diff + 150))
+  r = Math.max(0, Math.min(255, (num >> 16) + diff + 50))
+  b = Math.max(0, Math.min(255, ((num >> 8) & 0x00ff) + diff - 50))
+  g = Math.max(0, Math.min(255, (num & 0x0000ff) + diff - 100))
   res = String("000000" + (g | (b << 8) | (r << 16)).toString(16)).slice(-6)
 
   showBgNumber = if Session.equals("showBgNumber", 1) then 2 else 1
   $("#backgrounds").removeClass("showBg1 showBg2")
   $("#bg#{showBgNumber}").css "background-image",
-    """-webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
-       -webkit-linear-gradient(108deg,##{res},##{color} 90%)"""
+    """radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
+       linear-gradient(108deg,##{res},##{color} 90%)"""
 
   Meteor.setTimeout ->
     $("#backgrounds").addClass "showBg#{showBgNumber}"
