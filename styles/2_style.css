@@ -19,6 +19,8 @@ p, ol, ul {
   line-height: 1.5em;
   margin: 1.5em 0;
 }
+body p:first-child { margin-top: 0;}
+body p:last-child { margin-bottom: 0;}
 
 iframe {
   border: none;
@@ -95,14 +97,12 @@ a.button {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: .3em .8em .4em .8em;
   border-radius: 20px;
-  line-height: 5em;
+  line-height: 3em;
   text-decoration: none;
   border: solid 1px #ccc;
 }
 a.button:hover {
-  color: white;
   border-color: #8cd600;
-  background-color: #8cd600;
 }
 
 .gfyitem {
