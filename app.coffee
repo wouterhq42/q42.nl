@@ -14,7 +14,8 @@ if Meteor.isClient
     layoutTemplate: "body"
     notFoundTemplate: "error404"
 
-  Router.onRun -> NProgress.start()
+  Router.onRun ->
+    NProgress.start()
 
   Router.onBeforeAction ->
     lang = Session.get "lang"
@@ -24,7 +25,7 @@ if Meteor.isClient
   Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
-    setTitle()
+    Meteor.setTimeout setTitle, 200
 
   setTitle = ->
     if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)

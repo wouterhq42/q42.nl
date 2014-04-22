@@ -39,9 +39,3 @@ setupLights = ->
   Deps.autorun ->
     turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
     $(document.body).toggleClass "lights-off", turnOnLights
-
-UI.registerHelper "pageTitle", (title) ->
-  titleHtml = title.replace("#", "<b>").replace("#", "</b>")
-  title = title.replace /#/g, ""
-  document.title = "#{title} - Q42"
-  titleHtml
