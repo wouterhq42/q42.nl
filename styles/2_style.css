@@ -365,7 +365,6 @@ section h2,
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
-.block-small:first-child h2 { margin-top: 0; }
 .block-small .visual {
   float: none;
   position: relative;

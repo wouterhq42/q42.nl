@@ -471,7 +471,7 @@ nav#pageNav ul:nth-of-type(1) {
 #hue {
   position: absolute;
   top: 1em; right: 1em;
-  z-index: 3;
+  z-index: 6;
 }
 #lights-color {
   border: none;
@@ -492,6 +492,9 @@ nav#pageNav ul:nth-of-type(1) {
 }
 #lights-color:hover {
   opacity: .7;
+}
+#lights-color:active {
+  -webkit-transform: scale(0.9);
 }
 #lights-color::-webkit-color-swatch-wrapper {
   display: none;
