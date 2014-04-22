@@ -31,6 +31,7 @@ NUM_LIGHTS = 29
   Meteor.setTimeout ->
     $("#backgrounds").addClass "showBg#{showBgNumber}"
     Session.set("showBgNumber", showBgNumber)
+    Session.set("lightsColor", "#" + color)
   , 100
 
 Meteor.startup ->
