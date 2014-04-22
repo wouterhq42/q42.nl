@@ -157,6 +157,9 @@
 
   #facts .block-small { width: 100%; }
 
+  .intro-outro ul { width: 450px;}
+  .intro-outro li { margin: 0;}
+
   /* end 620 */
 }
 
@@ -223,6 +226,8 @@
 
   .intro-outro h1 { font-size: 2em; }
   .intro-outro p { font-size: 1em; }
+  .intro-outro ul { width: 150px; }
+  .intro-outro li { float: none; margin-bottom: 1em;}
 
 }
 /* end 480 */
