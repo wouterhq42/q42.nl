@@ -16,8 +16,10 @@ $Template
 
   header:
     lightsColor: -> Session.get("lightsColor")
-    supportsInputTypeColor: -> Session.get("supportsInputTypeColor")
+    supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
     supportsSVG: -> !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect
+
+    rendered: -> updateLightbar()
 
   regelsCode:
     regelsCode: ->
