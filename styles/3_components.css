@@ -1,4 +1,5 @@
 /* NAVIGATION */
+#nprogress .spinner { display: none; }
 
 #header {
   width: 100%;
