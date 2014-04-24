@@ -1,5 +1,6 @@
 Template.body.rendered = ->
   reattachBehavior()
+  FastClick.attach document.body
 
 Template.body.events
   "click a[href^='/']": (evt) ->

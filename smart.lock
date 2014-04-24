@@ -9,7 +9,8 @@
       "moment": {},
       "marked": {},
       "fast-render": {},
-      "spiderable-404": {}
+      "spiderable-404": {},
+      "fastclick": {}
     },
     "packages": {
       "font-awesome": {
@@ -24,8 +25,8 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.0",
-        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "nprogress": {
         "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
@@ -44,13 +45,18 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.1.26",
-        "commit": "bfabe15c5acfbdec7c3a815b956bb49c41421ab2"
+        "tag": "v0.2.3",
+        "commit": "d56bd4a4d222bf176241cd6e756aa349cb24c260"
       },
       "spiderable-404": {
         "git": "https://github.com/wojas/spiderable-404.git",
         "tag": "v0.6.6.1",
         "commit": "04013254e4cf1e6d38ac5e78d48a33e5ddf554b2"
+      },
+      "fastclick": {
+        "git": "https://github.com/percolatestudio/meteor-fastclick",
+        "tag": "v0.6.7",
+        "commit": "fcb3bfd34d9f6874e626b4e24e8f54107938db41"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
@@ -59,8 +65,8 @@
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.2",
-        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       },
       "crypto-base": {
         "git": "https://github.com/oortcloud/meteor-crypto-base.git",

@@ -7,6 +7,7 @@
     "moment": {},
     "marked": {},
     "fast-render": {},
-    "spiderable-404": {}
+    "spiderable-404": {},
+    "fastclick": {}
   }
 }
