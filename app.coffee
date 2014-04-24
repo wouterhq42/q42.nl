@@ -30,6 +30,13 @@ if Meteor.isClient
 
     reattachBehavior()
 
+    Meteor.setTimeout ->
+      pathname = "/" + window.location.pathname.split("/")[1]
+      $("#header a").removeClass "selected"
+      unless pathname is "/"
+        $("#header a[href^='#{pathname}']").addClass "selected"
+    , 200
+
   setTitle = ->
     if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
       document.title = "Q42"
