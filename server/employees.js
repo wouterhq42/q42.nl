@@ -135,7 +135,7 @@ addLabel("Broers",                        "benjamin chrisj");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
 addLabel("Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd");
 addLabel("Rijdt soms op een motor",       "stef jeroen arian tom");
-addLabel("Wordt binnenkort aangenomen door Microsoft", "michiel");
+addLabel("Gaat binnenkort naar Microsoft", "michiel");
 addLabel("Vroeger stewardess geweest",    "cynthia");
 addLabel("Heeft bij Fabrique gewerkt",    "sander");
 addLabel("Verdient minder dan Jasper",    _.without(allQers, "jasper"));
