@@ -1,7 +1,8 @@
 templateHeaderEvents =
   "click #mobile-menu-icon": (evt) -> $("body").toggleClass "show-mobile-menu"
-  "focus li a": -> $("body").addClass "show-mobile-menu"
-  "click ul li a": -> $("body").removeClass "show-mobile-menu"
+  "focus li a":                    -> $("body").addClass "show-mobile-menu"
+  "click li a":                    -> $("body").removeClass "show-mobile-menu"
+
 
   "click #lights-color": ->
     if not Session.get("supportsInputTypeColor")
