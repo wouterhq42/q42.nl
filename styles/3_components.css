@@ -1,7 +1,7 @@
 /* NAVIGATION */
 #nprogress .spinner { display: none; }
 
-#header {
+#header, #footer h2 {
   width: 100%;
   position: relative;
   margin: 0 auto;
@@ -378,9 +378,15 @@ a.caption,
   border-top: none;
 }
 #footer h2 {
-  font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 20px 0;
-  color: #666;
+  text-align: center;
+  color: #eee;
+  text-shadow: 0 1px rgba(0,0,0,.3);
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
 }
 #footer .block-large {
   border: none;
