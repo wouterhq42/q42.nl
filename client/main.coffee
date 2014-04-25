@@ -21,8 +21,6 @@ Meteor.startup ->
 
   marked.setOptions breaks: true
 
-  Typekit.load()
-
   $.ajaxSetup cache: yes
 
 setupLights = ->
