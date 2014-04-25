@@ -255,6 +255,13 @@
     background: -webkit-linear-gradient(top, #ccc, #eee);
     color: #555;
   }
+  .lights-off #header li a:hover {
+    background-color: #444;
+    color: #ddd;
+  }
+  .lights-off #header li a {
+    border-bottom-color: #444;
+  }
 
   #footer section,
   #footer .block-small,
