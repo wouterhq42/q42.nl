@@ -463,6 +463,10 @@ span {
 #loading {
   text-align: center;
   padding: 100px 0;
+  position: fixed;
+  top: 185px; left: 0; right: 0; bottom: 0;
+  z-index: 99999;
+  background: #fff;
 }
 
 #home-employees {

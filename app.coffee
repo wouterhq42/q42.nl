@@ -26,9 +26,8 @@ if Meteor.isClient
   Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
-    Meteor.setTimeout setTitle, 200
-
     reattachBehavior()
+    Meteor.setTimeout setTitle, 0
 
   setTitle = ->
     if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
@@ -44,9 +43,12 @@ if Meteor.isClient
       action: -> @render (if Session.equals("lang", "en") then "en_home" else "home")
 
     @route "blog",
-      loadingTemplate: "loading"
       path: "/blog"
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      action: ->
+        if @ready()
+          @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+        else
+          @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
@@ -62,9 +64,12 @@ if Meteor.isClient
         }
 
     @route "blog",
-      loadingTemplate: "loading"
       path: "/blog/page/:pageNum"
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      action: ->
+        if @ready()
+          @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+        else
+          @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
@@ -80,9 +85,12 @@ if Meteor.isClient
         }
 
     @route "blog",
-      loadingTemplate: "loading"
       path: "/blog/tagged/:tag"
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+      action: ->
+        if @ready()
+          @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+        else
+          @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
@@ -100,10 +108,13 @@ if Meteor.isClient
         }
 
     @route "blogpost",
-      loadingTemplate: "loading"
       path: "/blog/post/:id?/:title?"
       onBeforeAction: -> Session.set "blogpostid", @params.id * 1
-      action: -> @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
+      action: ->
+        if @ready()
+          @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
+        else
+          @render "loading"
       waitOn: -> [
         Meteor.subscribe "blogpostIndex", 1
         Meteor.subscribe "blogpostFull", @params.id * 1
