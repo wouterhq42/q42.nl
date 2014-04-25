@@ -26,7 +26,7 @@ if Meteor.isClient
   Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
-    reattachBehavior()
+    Meteor.setTimeout reattachBehavior, 0
     Meteor.setTimeout setTitle, 0
 
   setTitle = ->
