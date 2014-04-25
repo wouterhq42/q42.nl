@@ -168,6 +168,10 @@
 
 @media all and (max-width: 480px) {
 
+  body {
+    background: #eee;
+  }
+
   .block-large h2 {
     padding-left: 0;
   }

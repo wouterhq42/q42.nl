@@ -114,7 +114,6 @@ body {
   -webkit-perspective: 2000px;
   -moz-perspective: 2000px;
   perspective: 2000px;
-  background: #eee;
 }
 #page {
   background: white;
