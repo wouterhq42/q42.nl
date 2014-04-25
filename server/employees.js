@@ -166,7 +166,7 @@ var deletes = Math.max(0, employeeCountBefore - employeeCountAfter);
 console.log("Employee update complete. Inserts: " + inserts + ". Updates: " + updates + ". Deletes: " + deletes);
 
 Meteor.publish("employees", function () {
-  return Employees.find({}, { sort : { name: 1 } });
+  return Employees.find({}, { sort: { name: 1 } });
 });
 
 Meteor.publish("employeeHandles", function () {
@@ -174,9 +174,6 @@ Meteor.publish("employeeHandles", function () {
 });
 
 Meteor.methods({
-  addQer: function(record) {
-    Employees.insert(record);
-  },
   updatePosition: function(id, x, y, loc) {
     // used by floorplan.meteor.com app
     var obj = {};
