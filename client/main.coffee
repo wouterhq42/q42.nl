@@ -6,7 +6,7 @@ Meteor.startup ->
     $(document.body).toggleClass "scrolled", $(window).scrollTop() > 0
   , 100
 
-  lang = if _.last(window.location.hostname.split(".")) is "com" then "en" else "nl"
+  lang = if window.location.hostname is "q42.com" then "en" else "nl"
   Session.setDefault "lang", lang
   moment.lang lang
 
