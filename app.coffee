@@ -33,7 +33,7 @@ if Meteor.isClient
     if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
       document.title = "Q42"
     else
-      document.title = $('h1').text() + " - Q42"
+      document.title = $('h1').first().text() + " - Q42"
     $("#og-title").attr "content", document.title
 
   Router.map ->
