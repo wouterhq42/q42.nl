@@ -15,7 +15,6 @@ templateHeaderEvents =
         $.get("/updateLightbar")
         $(evt.target).attr("value", "#" + color).css("background-color", "#" + color)
         Session.set("lightsColor", "#" + color)
-        updateLightbar()
 
 Template.en_header.events templateHeaderEvents
 Template.header.events templateHeaderEvents

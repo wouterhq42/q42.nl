@@ -30,9 +30,11 @@
       <div id="lights-explanation">Control the Philips Hue lights in our office with this color picker!</div>
       {{> colorpicker}}
     </div>
-    <div id="backgrounds">
-      <div id="bg1"></div>
-      <div id="bg2"></div>
+    <div id="backgrounds" class="showBg{{showBgNumber}}">
+      {{#each color}}
+        <div class="bg" style="background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
+       linear-gradient(108deg,#{{col2}},#{{col1}} 90%)"></div>
+      {{/each}}
     </div>
   </nav>
 </template>

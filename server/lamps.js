@@ -1,17 +1,18 @@
-var Lights = new Meteor.Collection("lights");
-
 updateLightbar = function () {
   console.log("Asking huelandsspoor for light data...")
   Meteor.http.get("http://huelandsspoor.nl/api/lamps/getlamps", function(err, result) {
-    _.each(Lights.find().fetch(), function(doc) { Lights.remove({_id: doc._id}); });
-    _.map(JSON.parse(result.content), function(item) {
-      if (item.ColorHex)
-        Lights.insert({hex: item.ColorHex});
-    });
-    console.log("Received", Lights.find().count(), "lights");
+    var arr = JSON.parse(result.content);
+    if (arr && arr[0])
+      Lights.insert({hex: arr[0].ColorHex, date: new Date()});
   });
 }
 
 Meteor.publish("lights", function() {
-  return Lights.find();
+  return Lights.find({}, {sort: {date: -1}, limit: 5});
+});
+
+Meteor.methods({
+  cleanupLights: function() {
+    Lights.remove({});
+  }
 });

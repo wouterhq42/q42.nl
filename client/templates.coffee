@@ -17,8 +17,19 @@ $Template
     lightsColor: -> Session.get("lightsColor")
     supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
     supportsSVG: -> !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect
+    color: -> Lights.find({}, {sort: {date: 1}})
+    col1: -> @hex
+    col2: ->
+      num = parseInt(@hex, 16)
+      r = num >> 16
+      g = num & 0x0000ff
+      b = (num >> 8) & 0x00ff
 
-    rendered: -> updateLightbar()
+      r1 = g * .7
+      g1 = b * .7
+      b1 = r * .7
+
+      String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
 
   regelsCode:
     regelsCode: ->

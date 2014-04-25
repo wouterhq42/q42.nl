@@ -17,7 +17,8 @@ Meteor.startup ->
 
   setupLights()
 
-  Deps.autorun -> Meteor.subscribe("allUserData")
+  Meteor.subscribe "allUserData"
+  Meteor.subscribe "lights"
 
   marked.setOptions breaks: true
 
@@ -25,7 +26,7 @@ Meteor.startup ->
 
 setupLights = ->
   Session.setDefault "toggleLights", false
-  Session.setDefault "lightsColor", null
+  Session.setDefault "lightsColor", Lights.findOne()?.hex or "#8cd600"
   Session.setDefault "showBgNumber", 1
 
   Session.setDefault("supportsInputTypeColor", (->
