@@ -1,12 +1,8 @@
 window.reattachBehavior = function() {
-
-  $("#page").addClass("show");
-
   if (!isPhantom) {
     attachGoogleAnalytics();
     attachFacebook();
     attachTwitter();
-    attachGfycat();
     resizeFBwidget();
   }
 }
@@ -35,13 +31,6 @@ var attachFacebook = function() {
 }
 var attachTwitter = function() {
   twttr && twttr.widgets && twttr.widgets.load();
-}
-var attachGfycat = function() {
-  $.getScript('http://assets.gfycat.com/js/gfyajax-0.517d.js', function() {
-    try {
-      gfyCollection.init();
-    } catch (e){}
-  });
 }
 
 window.resizeFBwidget = function() {

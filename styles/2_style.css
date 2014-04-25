@@ -116,25 +116,14 @@ body {
   perspective: 2000px;
 }
 #page {
-  opacity: 0;
   background: white;
   padding-bottom: 80px;
-  -webkit-transform-origin: center top;
-  -moz-transform-origin: center top;
-  -ms-transform-origin: center top;
-  -o-transform-origin: center top;
-  transform-origin: center top;
-  -webkit-transition: ease-in-out -webkit-transform .3s;
 }
 .container {
   width: 940px;
   min-height: 300px;
   margin: 0 auto;
 }
-#page.show {
-  opacity: 1;
-}
-
 .visual img {
   width: 100%;
 }
