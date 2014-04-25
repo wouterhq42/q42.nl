@@ -1,7 +1,6 @@
 $Template
 
   home:
-    employees: -> Employees.find()
     num_employees: -> Employees.find().count()
 
   error404:
