@@ -20,8 +20,6 @@ Meteor.startup ->
   Meteor.subscribe "allUserData"
   Meteor.subscribe "lights"
 
-  marked.setOptions breaks: true
-
   $.ajaxSetup cache: yes
 
 setupLights = ->
