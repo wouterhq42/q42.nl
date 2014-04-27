@@ -1,5 +1,7 @@
 if Meteor.isClient
 
+  getTemplate = (name) -> if Session.equals("lang", "en") then "en_#{name}" else name
+
   setScrollPosition = ->
     if window.location.hash
       $el = $(window.location.hash)
@@ -20,8 +22,8 @@ if Meteor.isClient
 
   Router.onBeforeAction ->
     lang = Session.get "lang"
-    @render (if lang is "en" then "en_header" else "header"), to: "header"
-    @render (if lang is "en" then "en_footer" else "footer"), to: "footer"
+    @render getTemplate("header"), to: "header"
+    @render getTemplate("footer"), to: "footer"
 
   Router.onAfterAction ->
     NProgress.done()
@@ -40,13 +42,13 @@ if Meteor.isClient
 
     @route "home",
       path: "/"
-      action: -> @render (if Session.equals("lang", "en") then "en_home" else "home")
+      action: -> @render getTemplate("home")
 
     @route "blog",
       path: "/blog"
       action: ->
         if @ready()
-          @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+          @render getTemplate("blog")
         else
           @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
@@ -67,7 +69,7 @@ if Meteor.isClient
       path: "/blog/page/:pageNum"
       action: ->
         if @ready()
-          @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+          @render getTemplate("blog")
         else
           @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
@@ -88,7 +90,7 @@ if Meteor.isClient
       path: "/blog/tagged/:tag"
       action: ->
         if @ready()
-          @render (if Session.equals("lang", "en") then "en_blog" else "blog")
+          @render getTemplate("blog")
         else
           @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
@@ -112,7 +114,7 @@ if Meteor.isClient
       onBeforeAction: -> Session.set "blogpostid", @params.id * 1
       action: ->
         if @ready()
-          @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
+          @render getTemplate("blogpost")
         else
           @render "loading"
       waitOn: -> [
