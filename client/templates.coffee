@@ -6,6 +6,8 @@ $Template
   error404:
     isEnglish: -> Session.equals("lang", "en")
     url: -> document.location.pathname
+  nl_error404:
+    url: -> document.location.pathname
 
   numQers:
     numQers: -> Employees.find().count()
