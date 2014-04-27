@@ -147,7 +147,7 @@ footer {
 
 .block-text h1,
 .blog h1 {
-  font: normal 2.84em Lato, Georgia, Times, serif;
+  font: normal 2.84em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
   margin: 20px 0;
   color: #888;
@@ -188,7 +188,7 @@ section h1,
 section h2,
 .block-large > .body h2
 {
-  font: normal 40px Lato, Georgia, Times, serif;
+  font: normal 40px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 20px 0;
   letter-spacing: -1px;
   color: #232323;
@@ -196,11 +196,11 @@ section h2,
 .blog aside h2,
 .comments h2,
 .blog .block-large > .body h2 {
-  font: normal 1.4em Lato, Georgia, Times, serif;
+  font: normal 1.4em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
 .block-large > .body h3 {
-  font: 14px/1.5 Lato, Georgia, Times, serif;
+  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
   margin-top: -18px;
   color: #888;
@@ -208,7 +208,7 @@ section h2,
 .block-large > .body p:last-child { margin-bottom: 1.5em; }
 
 .block-small h3 {
-  font: 14px/1.5 Lato, Georgia, Times, serif;
+  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
   margin-top: 3px;
   color: #888;
@@ -252,7 +252,7 @@ section h2,
   overflow: hidden;
 }
 .block-small h2 {
-  font: normal 25px Lato, Georgia, Times, serif;
+  font: normal 25px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
