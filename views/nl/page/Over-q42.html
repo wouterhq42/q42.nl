@@ -304,9 +304,9 @@
     <a href="tel:{{phone}}">{{phone}}</a>
     {{/if}}
   </span>
-  <img class="zw" data-src="http://static.q42.nl/images/employees/{{avatar_static}}" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
+  <img class="bw" data-src="http://static.q42.nl/images/employees/{{avatar_static}}" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
   <div class="polaroid">
-    <img class="color" data-src="http://static.q42.nl/images/employees/{{avatar_animated}}" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
+    <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
     <h3>{{name}}</h3>
     <p class="contactData">
       <span class="email">
@@ -318,19 +318,13 @@
       {{#if web}}
       <span class="website"><a href="{{web}}">website</a></span>
       {{/if}}
+      <div class="closePolaroid"></div>
     </p>
   </div>
 </li>
 {{else}}
 <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
 {{/each}}
-{{#if desjaak}}
-  <li class="no-results">
-    {{desjaakName}} is momenteel De Sjaak. Gefeliciteerd {{desjaakName}}!
-    <br><br>
-    <a class="button" href="mailto:{{desjaakHandle}}@q42.nl?subject=Je+bent+de+sjaak!+Gefeliciteerd.">Feliciteer ook {{desjaakName}} met deze eer!</a>
-  </li>
-{{/if}}
 </template>
 
 <template name="filter_employees">

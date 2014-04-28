@@ -117,7 +117,6 @@ addLabel("Projectleider",                 "jasper korjan timd gerard laurens tim
 addLabel("Software Engineer",             _.without(allQers, "stef", "cynthia", "suzanne"));
 addLabel("Interaction Engineer",          "rahul elaine johan roelfjan frank");
 addLabel("Q'er",                          allQers);
-addLabel("De sjaak",                      [allQers[_.random(0, allQers.length)]]);
 addLabel("Oprichter",                     "kars");
 addLabel("Student",                       "alexander herman");
 addLabel("Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil");
