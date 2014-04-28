@@ -18,8 +18,8 @@ Meteor.startup ->
 
     # work day - increment
     else if hour >= 8 and hour <= 18 and day isnt 6 and day isnt 7
-      newCount = currentCount + ~~(Math.random() * 3)
+      newCount = currentCount + ~~(Math.random() * 4.2) # average a cup of coffee every 4.2 minutes
 
     first = CoffeeCounter.findOne()
     CoffeeCounter.update first._id, $set: count: newCount
-  , 1000 * 60
+  , 1000 * 60 # update the counter every minute
