@@ -186,9 +186,7 @@
   .body,
   .block-small > p,
   .block-small > ul,
-  .block-large .intro > p,
-  #footer h2,
-  .big_ass_button
+  .block-large .intro > p
   { padding: 0px 16px; }
 
   .block-large .intro { float: none; }
