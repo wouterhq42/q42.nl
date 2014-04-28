@@ -13,7 +13,7 @@ $Template
     numQers: -> Employees.find().count()
 
   koppenKoffie:
-    koppenKoffie: -> koffieteller()
+    koppenKoffie: -> CoffeeCounter.findOne()?.count or 0
 
   header:
     lightsColor: -> Session.get("lightsColor")

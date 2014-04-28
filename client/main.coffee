@@ -19,6 +19,7 @@ Meteor.startup ->
 
   Meteor.subscribe "allUserData"
   Meteor.subscribe "lights"
+  Meteor.subscribe "coffeeCounter"
 
   $.ajaxSetup cache: yes
 
