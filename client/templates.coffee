@@ -27,9 +27,9 @@ $Template
       g = num & 0x0000ff
       b = (num >> 8) & 0x00ff
 
-      r1 = g * .7
-      g1 = b * .7
-      b1 = r * .7
+      r1 = r * .5
+      g1 = g
+      b1 = b * .3
 
       String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
 
