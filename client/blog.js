@@ -91,16 +91,14 @@ Template.en_comment.ownsComment = Template.comment.ownsComment = function() {
 Template.en_comment.datediff = Template.comment.datediff = function() {
   return moment.duration(moment(Session.get("date")).diff(this.date)).humanize();
 }
-Template.en_comment.mdtext = Template.comment.mdtext = function() {
-  return marked(this.text);
-}
 
-Handlebars.registerHelper("ifWidthEquals", function(width, options) {
-  return this.width == width ? options.fn(this) : "";
-});
-Handlebars.registerHelper("typeIs", function(type) {
+Template.en_blogpost.widthEquals = Template.blogpost.widthEquals =
+Template.en_blog.widthEquals = Template.blog.widthEquals = function(width) {
+  return this.width == width;
+}
+Template.en_blogpost.typeIs = Template.blogpost.typeIs = function(type) {
   return this.type == type;
-})
+};
 
 function syntaxHighlight() {
   var a = false;

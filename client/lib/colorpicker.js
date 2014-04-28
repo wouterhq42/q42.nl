@@ -13,6 +13,7 @@ Template.colorpicker.events({
       $.get("http://huelandsspoor.nl/api/lamps/setcolor?color=" + color.replace("#", ""), function() {
         $.get("/updateLightbar");
         $("#lights-color").attr("value", "#" + color).css("background-color", "#" + color);
+        Session.set("lightsColor", "#" + color)
       });
     }
   }
@@ -20,7 +21,8 @@ Template.colorpicker.events({
 
 Template.colorpicker.rendered = function() {
   var color = Session.get("lightsColor");
-  readColor(color);
+  if (color)
+    readColor(color);
 }
 
 var currentColor = { v: 1, r: 1, g: 1, b: 1 };

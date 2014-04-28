@@ -21,6 +21,7 @@ var currentQers = [
  { name: "Coen Bijpost", handle:"coen", phone: "070-4452359", imageAnimated: "coen-gr.jpg"},
  { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" },
  { name: "Elaine Oliver", handle:"elaine"},
+ { name: "Erik van der Veen", handle: "erik", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Frank Raterink", handle:"frank", phone: "070-4452368", web: "http://www.frankraterink.nl"},
  { name: "Gerard Dorst", handle:"gerard"},
  { name: "Guido Bouman", handle:"guido", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
@@ -45,7 +46,6 @@ var currentQers = [
  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl"},
  { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/"},
  { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/"},
- { name: "Matthijs van der Meulen", handle:"matthijs"},
  { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/"},
  { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362"},
  { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/"},
@@ -118,7 +118,6 @@ addLabel("Projectleider",                 "jasper korjan timd gerard laurens tim
 addLabel("Software Engineer",             _.without(allQers, "stef", "cynthia", "suzanne"));
 addLabel("Interaction Engineer",          "rahul elaine johan roelfjan frank");
 addLabel("Q'er",                          allQers);
-addLabel("De sjaak",                      [allQers[_.random(0, allQers.length)]]);
 addLabel("Oprichter",                     "kars");
 addLabel("Student",                       "alexander herman");
 addLabel("Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil");
@@ -136,7 +135,7 @@ addLabel("Broers",                        "benjamin chrisj");
 addLabel("Tatoeage",                      "chris jeroen jasperh elaine marcel");
 addLabel("Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd");
 addLabel("Rijdt soms op een motor",       "stef jeroen arian tom");
-addLabel("Wordt binnenkort aangenomen door Microsoft", "michiel");
+addLabel("Gaat binnenkort naar Microsoft", "michiel");
 addLabel("Vroeger stewardess geweest",    "cynthia");
 addLabel("Heeft bij Fabrique gewerkt",    "sander");
 addLabel("Verdient minder dan Jasper",    _.without(allQers, "jasper"));
@@ -167,7 +166,7 @@ var deletes = Math.max(0, employeeCountBefore - employeeCountAfter);
 console.log("Employee update complete. Inserts: " + inserts + ". Updates: " + updates + ". Deletes: " + deletes);
 
 Meteor.publish("employees", function () {
-  return Employees.find({}, { sort : { name: 1 } });
+  return Employees.find({}, { sort: { name: 1 } });
 });
 
 Meteor.publish("employeeHandles", function () {
@@ -175,9 +174,6 @@ Meteor.publish("employeeHandles", function () {
 });
 
 Meteor.methods({
-  addQer: function(record) {
-    Employees.insert(record);
-  },
   updatePosition: function(id, x, y, loc) {
     // used by floorplan.meteor.com app
     var obj = {};

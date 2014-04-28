@@ -23,7 +23,7 @@ publishRenamed = function (name, fn)
 }
 
 // Blog admins
-var admins = ['sjoerd@q42.nl', 'rahul@q42.nl', 'chris@q42.nl', 'matthijs@q42.nl'];
+var admins = ['sjoerd@q42.nl', 'rahul@q42.nl', 'chris@q42.nl'];
 Meteor.publish("allUserData", function () {
   Meteor.users.update({ 'services.google.email': { $in : admins } }, { $set: { isAdmin: true }})
   return Meteor.users.find({}, {fields: {
@@ -37,3 +37,32 @@ Meteor.publish("allUserData", function () {
     'services.twitter.profile_image_url': 1
   }});
 });
+
+FastRender.route("/blog", function() {
+  this.subscribe("blogpostIndex", 1)
+  this.subscribe("pagesByTag", "")
+  this.subscribe("LatestComments", 10)
+})
+
+FastRender.route("/blog/page/:pageNum", function(params) {
+  this.subscribe("blogpostIndex", params.pageNum * 1)
+  this.subscribe("pagesByTag", "")
+  this.subscribe("LatestComments", 10)
+})
+
+FastRender.route("/blog/tagged/:tag", function(params) {
+  this.subscribe("blogpostIndex", 1, params.tag)
+  this.subscribe("pagesByTag", params.tag || "")
+  this.subscribe("LatestComments", 10)
+});
+
+FastRender.route("/blog/post/:id?/:title?", function(params) {
+  this.subscribe('blogpostFull', 1 * params.id);
+  this.subscribe("blogpostIndex", 1)
+  this.subscribe("blogComments", 1 * params.id);
+  this.subscribe("LatestComments", 10)
+})
+
+FastRender.route("/over-q42", function(params) {
+  this.subscribe("employees");
+})

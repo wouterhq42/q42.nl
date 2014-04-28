@@ -1,5 +1,7 @@
 if Meteor.isClient
 
+  getTemplate = (name) -> if Session.equals("lang", "en") then "en_#{name}" else name
+
   setScrollPosition = ->
     if window.location.hash
       $el = $(window.location.hash)
@@ -12,41 +14,45 @@ if Meteor.isClient
 
   Router.configure
     layoutTemplate: "body"
+    loadingTemplate: "loading"
     notFoundTemplate: "error404"
 
-  Router.load ->
-    [page, subpage] = @path.split("/").slice(1)
-    page = subpage if subpage
-    page = page.split("#")[0].split("?")[0] if page
-    unless page
-      page = ""
-    Session.set "page", page
-
-    $(document.body).removeClass(c) for c in $(document.body)[0].classList when c?.indexOf("page-") is 0
-    $(document.body).addClass "page-" + (if page then page else "home")
-
+  Router.onRun ->
     NProgress.start()
 
-  Router.before ->
+  Router.onBeforeAction ->
     lang = Session.get "lang"
-    @render (if lang is "en" then "en_header" else "header"), to: "header"
-    @render (if lang is "en" then "en_footer" else "footer"), to: "footer"
+    @render getTemplate("header"), to: "header"
+    @render getTemplate("footer"), to: "footer"
 
-  Router.after ->
+  Router.onAfterAction ->
     NProgress.done()
     setScrollPosition()
+    Meteor.setTimeout reattachBehavior, 0
+    Meteor.setTimeout setTitle, 0
+
+  setTitle = ->
+    if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
+      document.title = "Q42"
+    else
+      document.title = $('h1').first().text() + " - Q42"
+    $("#og-title").attr "content", document.title
 
   Router.map ->
 
     @route "home",
       path: "/"
-      action: -> @render (if Session.equals("lang", "en") then "en_home" else "home")
+      onBeforeAction: -> Session.set("page", "home")
+      action: -> @render getTemplate("home")
 
     @route "blog",
-      loadingTemplate: "loading"
       path: "/blog"
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
-      after: -> Meteor.call "checkTumblr"
+      action: ->
+        if @ready()
+          @render getTemplate("blog")
+        else
+          @render "loading"
+      onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1
@@ -61,10 +67,13 @@ if Meteor.isClient
         }
 
     @route "blog",
-      loadingTemplate: "loading"
       path: "/blog/page/:pageNum"
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
-      after: -> Meteor.call "checkTumblr"
+      action: ->
+        if @ready()
+          @render getTemplate("blog")
+        else
+          @render "loading"
+      onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", @params.pageNum * 1
@@ -79,10 +88,13 @@ if Meteor.isClient
         }
 
     @route "blog",
-      loadingTemplate: "loading"
       path: "/blog/tagged/:tag"
-      action: -> @render (if Session.equals("lang", "en") then "en_blog" else "blog")
-      after: -> Meteor.call "checkTumblr"
+      action: ->
+        if @ready()
+          @render getTemplate("blog")
+        else
+          @render "loading"
+      onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
           Meteor.subscribe "blogpostIndex", 1, @params.tag
@@ -99,10 +111,13 @@ if Meteor.isClient
         }
 
     @route "blogpost",
-      loadingTemplate: "loading"
       path: "/blog/post/:id?/:title?"
-      before: -> Session.set "blogpostid", @params.id * 1
-      action: -> @render (if Session.equals("lang", "en") then "en_blogpost" else "blogpost")
+      onBeforeAction: -> Session.set "blogpostid", @params.id * 1
+      action: ->
+        if @ready()
+          @render getTemplate("blogpost")
+        else
+          @render "loading"
       waitOn: -> [
         Meteor.subscribe "blogpostIndex", 1
         Meteor.subscribe "blogpostFull", @params.id * 1
@@ -120,14 +135,16 @@ if Meteor.isClient
 
     @route "page",
       path: "/:page"
-      before: -> Session.set "page", @params.page
+      onBeforeAction: -> Session.set "page", @params.page
       action: ->
+        template = Template[@params.page]
         if Session.equals("lang", "en")
           template = Template["en_" + @params.page]
           if template
             return @render "en_" + @params.page
 
-        @render @params.page
+        if template
+          @render @params.page
       data: ->
         # there should be a nicer way to do this...
         template = Template[@params.page]
@@ -138,9 +155,16 @@ if Meteor.isClient
           unless template
             template = Template[@params.page]
 
-        return null unless template
+        if not template
+          Spiderable.httpStatusCode = 404
+          @render "error404"
 
-        return [] # data() needs to return something
+    @route "404",
+      path: "*"
+      onBeforeAction: ->
+        Spiderable.httpStatusCode = 404
+      action: ->
+        @render "error404"
 
   getPagination = (pageNum, tag) ->
     pageNum = pageNum * 1
@@ -166,35 +190,3 @@ if Meteor.isClient
         items.push label: older, page: page + 1
 
     return items
-
-if Meteor.isServer
-
-  Router.map ->
-    @route "updateLightBar",
-      where: "server"
-      path: "/updateLightbar"
-      action: ->
-        console.log "Route: updateLightBar"
-        @response.writeHead 200, "Access-Control-Allow-Origin": "http://huelandsspoor.nl"
-        console.log "Received request from huelandsspoor. Updating..."
-        updateLightbar()
-
-    @route "redirectAdventures",
-      where: "server"
-      path: "/adventures"
-      action: ->
-        console.log "Route: redirectAdventures"
-        @response.writeHead 302, Location: "http://adventures.handcraft.com"
-
-    @route "removeWWW",
-      where: "server"
-      path: "*"
-      action: ->
-        console.log "Route: removeWWW"
-        host = @request.headers.host
-        fullUrl = "http://#{host}#{@request.url}"
-
-        if host.indexOf("www") is 0
-          @response.writeHead 301, Location: fullUrl.replace("www.", "")
-
-        @next()
