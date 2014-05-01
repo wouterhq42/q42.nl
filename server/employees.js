@@ -58,6 +58,7 @@ var currentQers = [
  { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/"},
  { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351"},
  { name: "Suzanne Waalberg", handle:"suzanne"},
+ { name: "Ted de Koning", handle:"ted"},
  { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim"},
  { name: "Tim van Deursen", handle:"timd", phone: "070-4452361"},
  { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/"},
