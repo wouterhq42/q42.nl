@@ -8,6 +8,8 @@
     "marked": {},
     "fast-render": {},
     "spiderable-404": {},
-    "fastclick": {}
+    "fastclick": {},
+    "apm": {},
+    "find-faster": {}
   }
 }
