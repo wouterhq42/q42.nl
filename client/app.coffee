@@ -50,6 +50,7 @@ Router.map ->
         @render getTemplate("blog")
       else
         @render "loading"
+    onBeforeAction: -> Session.set "page", "blog"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
@@ -71,6 +72,7 @@ Router.map ->
         @render getTemplate("blog")
       else
         @render "loading"
+    onBeforeAction: -> Session.set "page", "blog"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
@@ -92,6 +94,7 @@ Router.map ->
         @render getTemplate("blog")
       else
         @render "loading"
+    onBeforeAction: -> Session.set "page", "blog"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
@@ -110,7 +113,9 @@ Router.map ->
 
   @route "blogpost",
     path: "/blog/post/:id?/:title?"
-    onBeforeAction: -> Session.set "blogpostid", @params.id * 1
+    onBeforeAction: ->
+      Session.set "page", "blog"
+      Session.set "blogpostid", @params.id * 1
     action: ->
       if @ready()
         @render getTemplate("blogpost")
@@ -160,6 +165,7 @@ Router.map ->
   @route "404",
     path: "*"
     onBeforeAction: ->
+      Session.set "page", "404"
       Spiderable.httpStatusCode = 404
     action: ->
       @render "error404"
