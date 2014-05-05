@@ -17,9 +17,10 @@ Meteor.startup ->
       newCount = 0
 
     # work day - increment
-    else if hour >= 8 and hour <= 18 and day isnt 6 and day isnt 7
-      newCount = currentCount + (if ~~(Math.random() * 4.2) is 4 then 1 else 0)
+    else if hour >= 8 and hour <= 18 and day isnt 5 and day isnt 6
+      newCount = currentCount + (if ~~(Math.random() * 42) > 30 then 1 else 0)
 
     first = CoffeeCounter.findOne()
+    console.log "Update coffee counter... #{newCount}"
     CoffeeCounter.update first._id, $set: count: newCount
   , 1000 * 60 # update the counter every minute
