@@ -139,6 +139,9 @@ Template.filter_employees.list = function() {
   ]
   return filters;
 }
+Template.filter_employees.selected = function(filter) {
+  return Session.equals("employees_filter", filter) ? "selected" : "";
+}
 
 Template.filter_employees.rendered = function() {
   $("#filter-colleagues select").val(Session.get("employees_filter"));

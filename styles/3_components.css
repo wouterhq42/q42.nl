@@ -315,13 +315,15 @@ a.caption,
   background: #ddd;
   border-radius: 15px;
   font-size: smaller;
+  border: solid 1px transparent;
 }
 #filter-options > li ul li a:hover {
   text-decoration: none;
   background-color: #eee;
 }
-#filter-options > li ul li a:active {
-  background-color: #ccc;
+#filter-options > li ul li a.selected {
+  background-color: transparent;
+  border-color: #1d78b4;
 }
 
 .polaroid h3 {
