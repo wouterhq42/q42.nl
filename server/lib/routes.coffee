@@ -19,7 +19,7 @@ Router.map ->
     where: "server"
     path: "*"
     action: ->
-      console.log "Route: removeWWW"
+      console.log "Route: removeWWW (@request.url)"
       host = @request.headers.host
       fullUrl = "http://#{host}#{@request.url}"
 
