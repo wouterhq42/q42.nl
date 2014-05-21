@@ -17,8 +17,8 @@
     "packages": {
       "font-awesome": {
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
-        "tag": "v4.0.3",
-        "commit": "61e9361384347547ae144f8228faa4deffda23db"
+        "tag": "v4.1.0",
+        "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
       },
       "gravatar": {
         "git": "https://github.com/tmeasday/meteor-gravatar.git",
@@ -47,8 +47,8 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.4",
-        "commit": "160a64bd61792f53a7c8848c5e979a953be13564"
+        "tag": "v0.2.5",
+        "commit": "93e2fb334e55fbe9b5ebb2a2e65964018658f43e"
       },
       "spiderable-404": {
         "git": "https://github.com/wojas/spiderable-404.git",
@@ -62,13 +62,13 @@
       },
       "apm": {
         "git": "https://github.com/arunoda/meteor-apm-client.git",
-        "tag": "v1.2.5",
-        "commit": "c4552ec9c2d011604729af42d66d8c896aaa77d4"
+        "tag": "v1.4.1",
+        "commit": "51e1fd890bea6e9b7b55e501f0abf8124fd1a611"
       },
       "find-faster": {
         "git": "https://github.com/arunoda/meteor-find-faster.git",
-        "tag": "v0.1.0",
-        "commit": "647a1e360204c59bcb92f88720b2415c885708f1"
+        "tag": "v0.1.3",
+        "commit": "b821858e34692aa89782a06c32a88b735b2885ab"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

@@ -1,6 +1,6 @@
 #nprogress .spinner { display: none; }
 
-#header, #footer h2 {
+#header {
   width: 100%;
   position: relative;
   margin: 0 auto;
@@ -18,17 +18,68 @@ nav .pos {
   margin: 0 auto;
   height: 100%;
   z-index: 4;
-  padding-top: 20px;
+  padding: 50px 0;
 }
 
-#mobile-menu-icon { display: none; }
+#mobile-menu-icon {
+  display: block;
+  position: absolute;
+  z-index: 5;
+  top: 1em; left: 1em;
+  color: white;
+  cursor: pointer;
+}
+#mobile-menu-icon:hover { color: #ffc;}
+#mobile-menu-icon:active { -webkit-transform: scale(0.9);}
+#header ul {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 6;
+  -webkit-transform: translateX(-100%);
+  width: 150px;
+  -webkit-transition: ease-in-out -webkit-transform .2s;
+}
+body.show-mobile-menu {
+  overflow-x: hidden;
+}
+body.show-mobile-menu #page {
+  -webkit-transform: translateX(150px);
+}
+#header li {
+  display: block;
+  margin: 0;
+  line-height: 25px;
+}
+#header li a {
+  display: block;
+  padding: 10px;
+  color: #000;
+  text-shadow: none;
+  border-bottom: solid 1px #ccc;
+  text-align: left;
+}
+#header li a:hover {
+  background-color: #fff;
+  color: #555;
+}
+#header li a:active {
+  background: -webkit-linear-gradient(top, #ccc, #eee);
+  color: #555;
+}
+.lights-off #header li a:hover {
+  background-color: #444;
+  color: #ddd;
+}
+.lights-off #header li a {
+  border-bottom-color: #444;
+}
 
 #logo {
   text-align: center;
   margin: 0 auto;
 }
 #logo img {
-  height: 100px;
+  height: 150px;
 }
 
 nav ul {
@@ -89,9 +140,6 @@ a.caption,
 .visual.caption {
   display: block;
   overflow: hidden;
-}
-.visual.caption:hover {
-  box-shadow: 0 0 8px 0 black;
 }
 .visual.caption:hover img, .visual.caption:hover video {
   -webkit-transform: translateY(-15px);
@@ -351,7 +399,11 @@ a.caption,
   width: 100%;
   min-height: 400px;
   padding: 40px 0;
+  margin-top: 40px;
   clear: both;
+  background: #222;
+  color: #eee;
+  -webkit-font-smoothing: antialiased;
 }
 #footer p {
   font-size: 14px;
@@ -371,16 +423,16 @@ a.caption,
 #footer .block-small {
   border-top: none;
 }
+#footer a {
+  color: #9ef;
+  text-decoration: underline;
+}
 #footer h2 {
   margin: 0 0 20px 0;
-  text-align: center;
   color: #eee;
-  text-shadow: 0 1px rgba(0,0,0,.3);
-  padding: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 18px;
-  -webkit-font-smoothing: antialiased;
 }
 #footer .block-large {
   border: none;
@@ -391,15 +443,18 @@ a.caption,
 #footer p span span {
   display: inline;
 }
+#footer .visual img {
+  width: 100%;
+  height: auto;
+}
 #footer .visual.caption {
   display: block;
   margin-bottom: 1em;
 }
 
 #footer .iconList {
-  margin-left: -20px;
+  padding: 0;
 }
-
 #footer .iconList .listIcon {
   padding: 5px 0px 7px 0px;
 }

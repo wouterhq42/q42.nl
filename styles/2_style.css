@@ -106,6 +106,8 @@ a.button:hover {
 }
 
 #page {
+  box-shadow: -2px 0 20px rgba(0,0,0,.2);
+  background: white;
   -webkit-transition: ease-in-out .2s;
   -moz-transition: ease-in-out .2s;
   transition: ease-in-out .2s;
@@ -152,12 +154,18 @@ a.button:hover {
 
 .block-large {
   border-bottom: solid #ccc 1px;
-  padding: 40px 0;
+  padding: 80px 0;
   clear: both;
 }
 .blog .block-large {
   clear: none;
+  padding: 40px 0;
 }
+.block-large.block-no-padding-after {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.block-large.block-no-padding-after + .block-large { padding-top: 40px; }
 
 section h1,
 .block-large h1 {
