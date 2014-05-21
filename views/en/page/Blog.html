@@ -4,7 +4,7 @@
     <header class="block-text"><h1>We<b>blog</b></h1></header>
 
     <div id="blog-posts">
-    {{#isolate}}{{#each post}}
+    {{#each post}}
       <div class="block-large {{#if description}}reblog{{/if}}">
         <div class="intro">
           {{#if typeIs "link"}}
@@ -17,9 +17,9 @@
           {{#if player}}
           <!-- video -->
             {{#each player}}
-              {{#ifWidthEquals 500}}
+              {{#if widthEquals 500}}
                 {{{embed_code}}}
-              {{/ifWidthEquals}}
+              {{/if}}
             {{/each}}
             {{{caption}}}
             {{> en_postDate}}
@@ -30,10 +30,10 @@
           {{#if photos}}
           <!-- image(s) -->
             <div class="figure">
-            {{#each photos.0.alt_sizes}}
-              {{#ifWidthEquals 500}}
+            {{#each photos.[0].alt_sizes}}
+              {{#if widthEquals 500}}
                 <img src="{{url}}" alt="">
-              {{/ifWidthEquals}}
+              {{/if}}
             {{/each}}
               <div class="figcaption">
                 {{{caption}}}
@@ -66,13 +66,13 @@
           {{/if}}
         </div>
       </div>
-    {{/each}}{{/isolate}}
+    {{/each}}
     </div>
 
     {{> en_blogSidebar}}
     {{> en_pageNav}}
 
-  </section>
+  </div>
 </template>
 
 <template name="en_blogpost">
@@ -85,9 +85,9 @@
             <h1><b>Video</b></h1>
             {{> en_postDate}}
             {{#each player}}
-              {{#ifWidthEquals 500}}
+              {{#if widthEquals 500}}
                 {{{embed_code}}}
-              {{/ifWidthEquals}}
+              {{/if}}
             {{/each}}
             {{{caption}}}
           {{/if}}
@@ -95,13 +95,11 @@
             <h1><b>Photos</b></h1>
             {{> en_postDate}}
             {{{caption}}}
-            {{#each photos}}
+            {{#each photos.[0].alt_sizes}}
               <p><div class="figure">
-              {{#each alt_sizes}}
-                {{#ifWidthEquals 500}}
+                {{#if widthEquals 500}}
                   <img src="{{url}}" alt="">
-                {{/ifWidthEquals}}
-              {{/each}}
+                {{/if}}
                 <div class="figcaption">
                   {{{caption}}}
                 </div>
@@ -129,7 +127,7 @@
         </div>
 
         <div class="facebookShare" style="float: left;">
-          <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
+          <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
         </div>
       </div>
       {{/unless}}
@@ -188,11 +186,6 @@
     <p>Those same Q'ers are also active on Twitter. We made a list, take a look: <a href="https://twitter.com/q42/q-ers">Q'ers on Twitter</a>.
     And you can of course follow us at <a href="http://twitter.com/q42">@q42</a>.</p>
     <p>Some posts on our blog are in Dutch. We recommend Google Translate for those.</p>
-    {{#unless isPhantom}}
-      <p>
-        <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
-      </p>
-    {{/unless}}
     {{> en_otherPosts}}
     {{> en_latestComments}}
   </aside>
@@ -217,7 +210,7 @@
       <img src="{{picture}}">
       <span class="login-image" id="login-buttons-image-{{service}}"></span>
       <span class="name">{{userName}}</span>
-      {{#isolate}}<span class="meta"> - {{datediff}} ago</span>{{/isolate}}
+      <span class="meta"> - {{datediff}} ago</span>
       {{#if ownsComment}}
         <span class="meta"> -
           <a href="#" class="edit-link">edit</a>
@@ -225,7 +218,7 @@
         </span>
       {{/if}}
     </div>
-    <div class="text">{{{mdtext}}}</div>
+    <div class="text">{{text}}</div>
     {{#if ownsComment}}<textarea class="edit-area">{{text}}</textarea>{{/if}}
   </li>
 </template>

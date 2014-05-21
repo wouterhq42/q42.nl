@@ -1,30 +1,40 @@
 <template name="en_header">
-  <div id="header-bg-gradient"></div>
   <nav>
     <div class="pos">
+      <div id="mobile-menu-icon"><i class="fa fa-bars fa-2x"></i></div>
+      <div id="logo">
+        <a href="/">
+          {{#if supportsSVG}}
+            <img src="http://static.q42.nl/images/q42-logo.svg" />
+          {{else}}
+            <img src="http://static.q42.nl/images/q42-logo.png" />
+          {{/if}}
+        </a>
+      </div>
       <ul>
-        <li id="logo">
-          <a href="/">
-            {{#if supportsSVG}}
-              <img src="http://static.q42.nl/images/q42-logo.svg" />
-            {{else}}
-              <img src="http://static.q42.nl/images/q42-logo.png" />
-            {{/if}}
-          </a>
-        </li>
         <li><a href="/projects">Projects</a></li>
         <li><a href="/products">Products</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/about-q42">About Q42</a></li>
-        <li class="right">
-          {{#if supportsInputTypeColor}}
-            <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
-          {{else}}
-            <div id="lights-color" style="background-color: {{lightsColor}}"></div>
-          {{/if}}
-          {{> colorpicker}}
+        <li id="lang-switch">
+          <a href="http://q42.com">Dutch</a>
         </li>
       </ul>
+    </div>
+    <div id="hue">
+      {{#if supportsInputTypeColor}}
+        <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+      {{else}}
+        <div id="lights-color"></div>
+      {{/if}}
+      <div id="lights-explanation">Control the Philips Hue lights in our office with this color picker!</div>
+      {{> colorpicker}}
+    </div>
+    <div id="backgrounds">
+      {{#each color}}
+        <div class="bg" style="background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
+       linear-gradient(108deg,#{{col2}},#{{col1}} 90%)"></div>
+      {{/each}}
     </div>
   </nav>
 </template>

@@ -4,7 +4,7 @@
   -moz-box-sizing: border-box;
 }
 html, body {
-  width: 100%;
+  width: 100%; min-height: 100%;
   font: 16px "PT Serif", Georgia, Times, serif;
   -webkit-transition: ease-in-out background-color .3s;
   -moz-transition: ease-in-out background-color .3s;
@@ -12,13 +12,15 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  background: #eee -webkit-linear-gradient(top, #ccc, #fff);
-  box-shadow: inset 0 0 20px #ccc;
+  background: #fff;
 }
 
 p, ol, ul {
   line-height: 1.5em;
+  margin: 1.5em 0;
 }
+body p:first-child { margin-top: 0;}
+body p:last-child { margin-bottom: 0;}
 
 iframe {
   border: none;
@@ -54,7 +56,7 @@ textarea {
   box-shadow: inset 0 1px 2px rgba(0,0,0,.1)
 }
 
-a, a:visited { color: #1D78B4; text-decoration: none; }
+a { color: #1D78B4; text-decoration: none; }
 a:hover { color: #1D78B4; text-decoration: underline; }
 .external {
   background: url(http://static.q42.nl/images/external_link_icon.png) no-repeat center right;
@@ -91,146 +93,32 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   line-height: 17px;
 }
 
-.gfyitem {
-  height: 160px;
+a.button {
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: .3em .8em .4em .8em;
+  border-radius: 20px;
+  line-height: 3em;
+  text-decoration: none;
+  border: solid 1px #ccc;
+}
+a.button:hover {
+  border-color: #8cd600;
 }
 
-/* default screen size: 320 + 320 + 300 = 3 columns*/
-body {
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
-  perspective: 2000px;
-}
 #page {
-  opacity: 0;
+  box-shadow: -2px 0 20px rgba(0,0,0,.2);
   background: white;
-  box-shadow: 0 0 20px rgba(0,0,0,.4);
-  padding-bottom: 80px;
-  -webkit-transform-origin: center top;
-  -moz-transform-origin: center top;
-  -ms-transform-origin: center top;
-  -o-transform-origin: center top;
-  transform-origin: center top;
+  -webkit-transition: ease-in-out .2s;
+  -moz-transition: ease-in-out .2s;
+  transition: ease-in-out .2s;
 }
 .container {
   width: 940px;
-  min-height: 300px;
   margin: 0 auto;
 }
-#page.show {
-  opacity: 1;
-  -webkit-animation: bounceIn .4s ease-in;
-  -moz-animation: bounceIn .4s ease-in;
-  -ms-animation: bounceIn .4s ease-in;
-  -o-animation: bounceIn .4s ease-in;
-  animation: bounceIn .4s ease-in;
-}
-@-webkit-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale(.9) rotateX(3deg);
-  } 50% {
-    opacity: 1;
-    -webkit-transform: scale(1.01) rotateX(2deg);
-  }
-
-  70% {
-    opacity: 1;
-    -webkit-transform: scale(.98) rotateX(1deg);
-  }
-
-  100% {
-    opacity: 1;
-    -webkit-transform: scale(1) rotateX(0);
-  }
-}
-@-moz-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -moz-transform: scale(.9) rotateX(3deg);
-  } 50% {
-    opacity: 1;
-    -moz-transform: scale(1.01) rotateX(2deg);
-  }
-
-  70% {
-    opacity: 1;
-    -moz-transform: scale(.98) rotateX(1deg);
-  }
-
-  100% {
-    opacity: 1;
-    -moz-transform: scale(1) rotateX(0);
-  }
-}
-@-ms-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -ms-transform: scale(.9) rotateX(3deg);
-  } 50% {
-    opacity: 1;
-    -ms-transform: scale(1.01) rotateX(2deg);
-  }
-
-  70% {
-    opacity: 1;
-    -ms-transform: scale(.98) rotateX(1deg);
-  }
-
-  100% {
-    opacity: 1;
-    -ms-transform: scale(1) rotateX(0);
-  }
-}
-@-o-keyframes bounceIn {
-  0% {
-    opacity: 0;
-    -o-transform: scale(.9) rotateX(3deg);
-  } 50% {
-    opacity: 1;
-    -o-transform: scale(1.01) rotateX(2deg);
-  }
-
-  70% {
-    opacity: 1;
-    -o-transform: scale(.98) rotateX(1deg);
-  }
-
-  100% {
-    opacity: 1;
-    -o-transform: scale(1) rotateX(0);
-  }
-}
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(.9) rotateX(3deg);
-  } 50% {
-    opacity: 1;
-    transform: scale(1.01) rotateX(2deg);
-  }
-
-  70% {
-    opacity: 1;
-    transform: scale(.98) rotateX(1deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) rotateX(0);
-  }
-}
-
 .visual img {
   width: 100%;
 }
-
-/* footer */
-footer {
-  clear: both;
-}
-
-/* end footer */
 
 /* block-text */
 .block-text {
@@ -241,7 +129,7 @@ footer {
 
 .block-text h1,
 .blog h1 {
-  font: normal 2.84em Lato, Georgia, Times, serif;
+  font: normal 2.84em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
   margin: 20px 0;
   color: #888;
@@ -262,18 +150,22 @@ footer {
   border-bottom: solid #ccc 1px;
   padding: 40px 0;
   clear: both;
-  /*overflow: hidden;*/
 }
 
 .block-large {
   border-bottom: solid #ccc 1px;
-  padding: 40px 0;
+  padding: 80px 0;
   clear: both;
-  /*overflow: hidden;*/
 }
 .blog .block-large {
   clear: none;
+  padding: 40px 0;
 }
+.block-large.block-no-padding-after {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.block-large.block-no-padding-after + .block-large { padding-top: 40px; }
 
 section h1,
 .block-large h1 {
@@ -282,27 +174,27 @@ section h1,
 section h2,
 .block-large > .body h2
 {
-  font: normal 40px bebas-neue, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0.04em;
+  font: normal 40px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 20px 0;
-
+  letter-spacing: -1px;
   color: #232323;
 }
 .blog aside h2,
 .comments h2,
 .blog .block-large > .body h2 {
-  font: normal 1.4em Lato, Georgia, Times, serif;
+  font: normal 1.4em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
 .block-large > .body h3 {
-  font: 14px/1.5 Lato, Georgia, Times, serif;
+  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
   margin-top: -18px;
   color: #888;
 }
+.block-large > .body p:last-child { margin-bottom: 1.5em; }
 
 .block-small h3 {
-  font: 14px/1.5 Lato, Georgia, Times, serif;
+  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
   margin-top: 3px;
   color: #888;
@@ -346,7 +238,7 @@ section h2,
   overflow: hidden;
 }
 .block-small h2 {
-  font: normal 25px Lato, Georgia, Times, serif;
+  font: normal 25px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
@@ -355,6 +247,9 @@ section h2,
   position: relative;
   width: 300px;
   overflow: hidden;
+}
+.block-small .visual img {
+  width: 300px; height: 160px;
 }
 
 .block-small:nth-of-type(1),
@@ -373,7 +268,6 @@ section h2,
 }
 
 ul {
-  padding: 0px 0px 0px 20px;
   list-style-type: square;
   line-height: 24px;
 }
@@ -539,11 +433,14 @@ span {
 }
 
 #blog-sidebar {
-  margin: 0;
   padding-right: 0;
 }
 
 #loading {
   text-align: center;
   padding: 100px 0;
+  position: fixed;
+  top: 185px; left: 0; right: 0; bottom: 0;
+  z-index: 99999;
+  background: #fff;
 }

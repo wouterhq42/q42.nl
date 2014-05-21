@@ -1,19 +1,37 @@
 $Template
 
+  home:
+    num_employees: -> Employees.find().count()
+
   error404:
     isEnglish: -> Session.equals("lang", "en")
+    url: -> document.location.pathname
+  nl_error404:
     url: -> document.location.pathname
 
   numQers:
     numQers: -> Employees.find().count()
 
   koppenKoffie:
-    koppenKoffie: -> koffieteller()
+    koppenKoffie: -> CoffeeCounter.findOne()?.count or 0
 
   header:
     lightsColor: -> Session.get("lightsColor")
-    supportsInputTypeColor: -> Session.get("supportsInputTypeColor")
+    supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
     supportsSVG: -> !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect
+    color: -> Lights.find({}, {sort: {date: 1}})
+    col1: -> @hex
+    col2: ->
+      num = parseInt(@hex, 16)
+      r = num >> 16
+      g = num & 0x0000ff
+      b = (num >> 8) & 0x00ff
+
+      r1 = r * .5
+      g1 = g
+      b1 = b * .3
+
+      String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
 
   regelsCode:
     regelsCode: ->

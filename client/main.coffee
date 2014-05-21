@@ -6,7 +6,7 @@ Meteor.startup ->
     $(document.body).toggleClass "scrolled", $(window).scrollTop() > 0
   , 100
 
-  lang = if _.last(window.location.hostname.split(".")) is "com" then "en" else "nl"
+  lang = if window.location.hostname is "q42.com" then "en" else "nl"
   Session.setDefault "lang", lang
   moment.lang lang
 
@@ -17,17 +17,16 @@ Meteor.startup ->
 
   setupLights()
 
-  Deps.autorun -> Meteor.subscribe("allUserData")
-
-  marked.setOptions breaks: true
-
-  Typekit.load()
+  Meteor.subscribe "allUserData"
+  Meteor.subscribe "lights"
+  Meteor.subscribe "coffeeCounter"
 
   $.ajaxSetup cache: yes
 
 setupLights = ->
   Session.setDefault "toggleLights", false
-  Session.setDefault "lightsColor", "#000000"
+  Session.setDefault "lightsColor", Lights.findOne()?.hex or "#8cd600"
+  Session.setDefault "showBgNumber", 1
 
   Session.setDefault("supportsInputTypeColor", (->
     # http://stackoverflow.com/a/8278718/16308
@@ -40,7 +39,5 @@ setupLights = ->
     turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
     $(document.body).toggleClass "lights-off", turnOnLights
 
-Handlebars.registerHelper "isPhantom", -> isPhantom
-Handlebars.registerHelper "defaultNav", ->
-  page = Session.get("page") or "home";
-  page isnt "home"
+UI.body.events
+  "click body": -> $("body").removeClass "show-mobile-menu"

@@ -32,9 +32,9 @@
               <li><i class="fa fa-twitter fa-2x"></i><div>Tweet at us: <a href="http://www.twitter.com/q42" title="Q42 op Twitter" class="external">Twitter</a></div></li>
               <li><i class="fa fa-thumbs-up fa-2x"></i><div>Like us: <a href="http://facebook.com/q42bv" title="Q42 op Facebook" class="external">Facebook</a></div></li>
               <li><i class="fa fa-google-plus fa-2x"></i><div>+1 us: <a href="http://plus.google.com/112933340683830235543" title="Q42 op Google+" class="external">Google+</a></div></li>
-              <li><i class="fa fa-linkedin fa-2x"></i><div>Follow us: <a href="http://www.linkedin.com/company/q42" title="Q42 op LinkedIn" class="external">LinkedIn</a>
+              <li><i class="fa fa-linkedin fa-2x"></i><div>Follow us: <a href="http://www.linkedin.com/company/q42" title="Q42 op LinkedIn" class="external">LinkedIn</a></div></li>
             </ul>
-          </div >
+          </div>
         </div>
 
         <div class="block-small block-with-icons">
@@ -100,7 +100,11 @@
       <div class="block-large">
         <div id="denhaag" class="block-small">
           <div class="visual caption">
+            {{#unless isPhantom}}
+            <iframe src="http://player.vimeo.com/video/47226129" height="160" frameborder="0"></iframe>
+            {{else}}
             <img src="http://static.q42.nl/images/q42hq.jpg" alt=""/>
+            {{/unless}}
             <p>The clubhouse.</p>
           </div>
           <div class="body">
@@ -246,16 +250,6 @@
           <div class="body">
             <h2>Fabrique</h2>
             <p>We've been smitted with <a href="http://www.fabrique.nl/">Fabrique</a> for years. Together we've made a lot of great stuff like Rijksmuseum.nl, the 9292 website and apps, D-reizen.nl and much more.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <a class="visual caption" href="http://elasticsearch.org">
-            <img src="http://static.q42.nl/images/partner-elasticsearch.png" alt="Elasticsearch"/>
-            <p>Wow, Elasticsearch is fast!</p>
-          </a>
-          <div class="body">
-            <h2>Elasticsearch</h2>
-            <p>We enjoy solving complex problems with <a href="http://www.elasticsearch.org/">Elasticsearch</a>. Like with the Rijksmuseum. In fact, we enjoy it so much we decided to become partners.</p>
           </div>
         </div>
         <div class="block-small">

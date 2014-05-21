@@ -1,8 +1,13 @@
 Meteor.startup(function() {
   Session.setDefault("employees_filter", "Q'er");
-});
-Deps.autorun(function() {
   Meteor.subscribe("employees");
+});
+
+UI.registerHelper('avatar_static', function() {
+  return this.imageStatic || this.handle + ".jpg";
+});
+UI.registerHelper('avatar_animated', function() {
+  return this.imageAnimated || this.handle + ".gif";
 });
 
 /**********************/
@@ -26,24 +31,16 @@ $Template({
       }
       else
         return Employees.find({}, {sort: {name: 1}});
+    },
+    firstname: function() {
+      if (!this.name)
+        return "droid";
+      return this.name.split(" ")[0];
+    },
+    email: function() {
+      return this.email || this.handle;
     }
   }
-});
-
-Handlebars.registerHelper('avatar_static', function() {
-  return this.imageStatic || this.handle + "zw.jpg";
-});
-Handlebars.registerHelper('avatar_animated', function() {
-  return this.imageAnimated || this.handle + "gif.gif";
-});
-
-Handlebars.registerHelper('firstname', function() {
-  if (!this.name)
-    return "droid";
-  return this.name.split(" ")[0];
-});
-Handlebars.registerHelper('email', function() {
-  return this.email || this.handle;
 });
 
 /**************/
@@ -51,16 +48,6 @@ Handlebars.registerHelper('email', function() {
 /**************/
 Template.employees.filter = function() {
   return Session.get("employees_filter");
-}
-
-Template.employees.desjaak = function() {
-  return Session.equals("employees_filter", "De sjaak");
-}
-Template.employees.desjaakName = function() {
-  return Employees.findOne({labels: {$in: ["De sjaak"]}}).name.split(" ")[0];
-}
-Template.employees.desjaakHandle = function() {
-  return Employees.findOne({labels: {$in: ["De sjaak"]}}).handle;
 }
 
 
@@ -74,34 +61,10 @@ var isTouchEnabled = false;
 $(window).one("touchstart",  function (e) { isTouchEnabled = true; });
 
 var Polaroid = function ($li) {
-
   var $polaroid = $li.find(".polaroid");
-  var $picture = $li.find(".color");
-  var $zw = $li.find(".zw");
 
-  function swapGif() {
-    var animatedGif = $picture.data("src");
-    var colorSrc = $picture.attr("src");
-    if (animatedGif != colorSrc)
-      $picture.attr("src", animatedGif);
-  }
-  function swapGifMobile() {
-    var animatedGif = $picture.data("src");
-    var zwSrc = $zw.attr("src");
-    if (animatedGif != zwSrc)
-      $zw.attr("src", animatedGif);
-  }
-  function swapGifMobileBackToZw() {
-    var animatedGif = $picture.data("src");
-    var zwSrc = $zw.attr("src");
-    var zwDataSrc = $zw.data("src");
-    if (animatedGif == zwSrc)
-      $zw.attr("src", zwDataSrc);
-  }
   function rotatePolaroid() {
-    var randomRotation = Math.floor(Math.random() * 21) - 10;
-    var rotateValue = 'scale(1.0) rotateZ(' + randomRotation + 'deg)';
-
+    var rotateValue = 'scale(1.0) rotateZ(' + (Math.floor(Math.random() * 21) - 10) + 'deg)';
     $polaroid.css({
       '-webkit-transform': rotateValue,
       '-moz-transform': rotateValue,
@@ -117,53 +80,27 @@ var Polaroid = function ($li) {
     var windowWidth = $(window).width();
     if (windowWidth > mobileMaxWidth)
       $li.addClass('hover');
-    else
-      swapGifMobile();
 
     $polaroid.css('z-index', ++zIndex);
-    $polaroidLists.find('.closePolaroid').remove();
     if (isTouchEnabled) {
-      var $closebutton = $('<div class="closePolaroid" />');
-      $closebutton.click(hide);
-      $polaroid.append($closebutton);
+      $('.closePolaroid').click(hide);
     }
   }
   function show(el) {
-    swapGif();
     rotatePolaroid();
     intitializeHover(el);
   }
   function hide(el) {
     var $li = $(el);
     $li.removeClass('hover').removeClass('openedByHover');
-    $li.find('.closePolaroid').remove();
   }
   return {
     show: show,
-    hide: hide,
-    swapGifMobileBackToZw : swapGifMobileBackToZw
+    hide: hide
   }
 }
 
-function onWindowResize() {
-  var windowWidth = $(window).width();
-
-  //make sure we hide all open polaroid if the window size changed
-  if (windowWidth <= mobileMaxWidth)
-    hideAllPolaroids();
-  else
-    swapAllMobileHoversBackToBlackAndWhite();
-}
-function swapAllMobileHoversBackToBlackAndWhite() {
-  _.each(polaroids, function (p) { p.swapGifMobileBackToZw(); });
-}
-function hideAllPolaroids(){
-  _.each(polaroids, function (p) { p.hide(); });
-}
-
 function showPolaroid(el) {
-  var windowWidth = $(window).width();
-
   var $li = $(el);
   var name = $li.find(".color").attr("alt");
   polaroids[name] = polaroids[name] || new Polaroid($li);
@@ -175,7 +112,6 @@ function hidePolaroid(el) {
   polaroids[name] = polaroids[name] || new Polaroid($li);
   polaroids[name].hide(el);
 }
-
 
 var employeeEvents = {
   "mouseenter li": function(evt) {
@@ -193,21 +129,18 @@ Template.en_employees.events(employeeEvents);
 
 Template.filter_employees.list = function() {
   var filters = [
-    //  {name: "Projecten", items: ["Rijksmuseum", "9292", "Staatsloterij", "Schooltas", "Philips Hue", "TADC", "MENDO", 
-    //   "Greetz", "Malmberg"]}
-    // ,{name: "Producten", items: ["Handcraft"]}
-    // ,{name: "Games",     items: ["Cat Quest", "Quento", "Carrrrds", "Spaceventure"]}
-  //  ,{name: "School",    items: ["Universiteit Utrecht", "De Haagse Hogeschool", "Hogeschool Rotterdam", "TU Delft",
-  //                               "Universiteit Enschede", "Hogeschool van Amsterdam"]}
-    ,{name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "De sjaak", "Oprichter", "Student"]}
-    ,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is",
+    {name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "Oprichter", "Student"]}
+   ,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is",
       "Team Wintersport", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",
-      "Rijdt soms op een motor", "Wordt binnenkort aangenomen door Microsoft", "Vroeger stewardess geweest",
+      "Rijdt soms op een motor", "Gaat binnenkort naar Microsoft", "Vroeger stewardess geweest",
       "Heeft bij Fabrique gewerkt", "Verdient minder dan Jasper", "Google IO alumni",
       "WWDC kaartje kwijtgeraakt", "Heeft Max Raabe live gezien", "Schoenmaat 42", "IQ boven de 200", "Blessure tijdens werktijd",
       "Ex-stagiair", "Ex-klant", "Ex-concullega", "Ex-ex-q'er", "Kan stiekem best goed programmeren", "Nerf gun owner"]}
   ]
   return filters;
+}
+Template.filter_employees.selected = function(filter) {
+  return Session.equals("employees_filter", filter) ? "selected" : "";
 }
 
 Template.filter_employees.rendered = function() {

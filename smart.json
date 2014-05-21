@@ -6,6 +6,10 @@
     "nprogress": {},
     "moment": {},
     "marked": {},
-    "fast-render": {}
+    "fast-render": {},
+    "spiderable-404": {},
+    "fastclick": {},
+    "apm": {},
+    "find-faster": {}
   }
 }
