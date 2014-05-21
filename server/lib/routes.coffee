@@ -15,6 +15,14 @@ Router.map ->
       console.log "Route: redirectAdventures"
       @response.writeHead 302, Location: "http://adventures.handcraft.com"
 
+  # Redirect ancient color blindness simulator links to our more recent SEE extension
+  @route "colorBlindnessSimulator",
+    where: "server"
+    path: "/demos/colorblindnesssimulator"
+    action: ->
+      console.log "Route: colorBlindnessSimulator"
+      @response.writeHead 302, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
+
   @route "removeWWW",
     where: "server"
     path: "*"
