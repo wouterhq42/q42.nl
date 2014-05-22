@@ -4,6 +4,10 @@
     attachFacebook()
     attachTwitter()
     resizeFBwidget()
+    attachUnveil()
+
+attachUnveil = ->
+  $("img").unveil(300)
 
 attachGoogleAnalytics = ->
   unless window._gaq
