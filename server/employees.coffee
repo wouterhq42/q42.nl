@@ -62,6 +62,7 @@ currentQers = [
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" }
   { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
+  { name: "Tomas Harkema", handle:"tomas", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
 ]
 
 inserts = 0
@@ -88,39 +89,39 @@ _.each currentQers, (e) ->
     updates++
 
 # Projecten
-addLabel "Rijksmuseum",                   "remco jasper jaap elaine jasperh"
-addLabel "9292",                          "tom mark timd katja korjan johan michiel christiaan sander martijn arian guus"
-addLabel "Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob sjoerd wilbert"
-addLabel "Schooltas",                     "kars martin tims benjamin marcel sander"
-addLabel "Philips Hue",                   "christiaan lukas korjan roelfjan johan arian timl"
-addLabel "TADC",                          "lukas"
-addLabel "MENDO",                         "chris jeroen elaine"
-addLabel "Iamsterdam",                    "stef timd lukas bob remco"
-addLabel "Pepper",                        "bas gerard timd katja johan elaine remco tom"
-addLabel "D-reizen",                      "jaap mark sander martin remco chris tims bob wilbert"
-addLabel "Greetz",                        "martin arian roelfjan marcel timd"
-addLabel "Malmberg",                      "laurens kamil jeroen bob coen michiel martin marcel jasper"
-
-# Products
-addLabel "Handcraft",                     "rahul kars sjoerd remco kamil martin"
-
-# Games
-addLabel "Quento",                        "martin richard benjamin michiel christiaan guus"
-addLabel "Carrrrds",                      "martin richard benjamin rahul"
-addLabel "Spaceventure",                  "martin rahul richard"
-addLabel "Numolition",                    "martin benjamin richard kars"
+# addLabel "Rijksmuseum",                   "remco jasper jaap elaine jasperh"
+# addLabel "9292",                          "tom mark timd katja korjan johan michiel christiaan sander martijn arian guus"
+# addLabel "Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob sjoerd wilbert"
+# addLabel "Schooltas",                     "kars martin tims benjamin marcel sander"
+# addLabel "Philips Hue",                   "christiaan lukas korjan roelfjan johan arian timl"
+# addLabel "TADC",                          "lukas"
+# addLabel "MENDO",                         "chris jeroen elaine"
+# addLabel "Iamsterdam",                    "stef timd lukas bob remco"
+# addLabel "Pepper",                        "bas gerard timd katja johan elaine remco tom"
+# addLabel "D-reizen",                      "jaap mark sander martin remco chris tims bob wilbert"
+# addLabel "Greetz",                        "martin arian roelfjan marcel timd"
+# addLabel "Malmberg",                      "laurens kamil jeroen bob coen michiel martin marcel jasper"
+#
+# # Products
+# addLabel "Handcraft",                     "rahul kars sjoerd remco kamil martin"
+#
+# # Games
+# addLabel "Quento",                        "martin richard benjamin michiel christiaan guus"
+# addLabel "Carrrrds",                      "martin richard benjamin rahul"
+# addLabel "Spaceventure",                  "martin rahul richard"
+# addLabel "Numolition",                    "martin benjamin richard kars"
 
 # Roles
-addLabel "Projectleider",                 "jasper korjan timd gerard laurens tims"
+addLabel "Projectleider",                 "jasper korjan timd gerard laurens"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"
-addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank"
+addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "alexander herman"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil"
-addLabel "Ex-klant",                      "gerard matthijs stef"
-addLabel "Ex-concullega",                 "arjen sander bas coen jaap jasper jasperh johan roelfjan marcel mark michiel stef timd"
-addLabel "Ex-ex-q'er",                    "sjoerd laurens wilbert suzanne"
+addLabel "Ex-klant",                      "gerard stef taco"
+addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco"
+addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
 # Arbitraire selecties
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard martijn coen"
@@ -128,7 +129,7 @@ addLabel "Weet wat Spiffy is",            "bob tim martin remco martijn lukas" #
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan"
 addLabel "Heeft een baard",               "rahul richard martijn arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
-addLabel "Broers",                        "benjamin chrisj"
+addLabel "Broers",                        "benjamin chrisj tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel"
 addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom"
@@ -138,10 +139,10 @@ addLabel "Heeft bij Fabrique gewerkt",    "sander"
 addLabel "Verdient minder dan Jasper",    _.without allHandles, "jasper"
 addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian"
 addLabel "WWDC kaartje kwijtgeraakt",     "tims"
-addLabel "Heeft Max Raabe live gezien",   "kars martin wilbert laurens bob"
+addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob"
 addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mark"
 addLabel "IQ boven de 200",               "sjoerd"
-addLabel "Blessure tijdens werktijd",     "rahul matthijs"
+addLabel "Blessure tijdens werktijd",     "rahul"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best goed programmeren",     "chris"
 
