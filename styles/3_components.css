@@ -39,14 +39,23 @@ nav .pos {
   top: 0; left: 0;
   z-index: 6;
   -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
   width: 150px;
   -webkit-transition: ease-in-out -webkit-transform .2s;
+  -moz-transition: ease-in-out -moz-transform .2s;
+  -ms-transition: ease-in-out -ms-transform .2s;
+  transition: ease-in-out transform .2s;
 }
 body.show-mobile-menu {
   overflow-x: hidden;
 }
 body.show-mobile-menu #page {
   -webkit-transform: translateX(150px);
+  -moz-transform: translateX(150px);
+  -ms-transform: translateX(150px);
+  transform: translateX(150px);
 }
 #header li {
   display: block;
@@ -288,8 +297,6 @@ a.caption,
   background-color: #fff;
   z-index: 9;
   padding: 10px;
-  -webkit-box-shadow: 0px 4px 13px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0px 4px 13px rgba(0,0,0,0.4);
   box-shadow: 0px 4px 13px rgba(0,0,0,0.4);
 }
 
