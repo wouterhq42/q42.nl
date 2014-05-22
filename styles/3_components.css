@@ -5,10 +5,13 @@
   position: relative;
   margin: 0 auto;
   background-image: -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 90%);
-  /*background-color: rgb(205,255,105);
-  box-shadow: rgba(0, 0, 0, 0.15) 0px -20px 70px 40px;*/
+  background-image: -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#26d0ce,#1a2980 90%);
+  background-image: -ms-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-ms-linear-gradient(108deg,#26d0ce,#1a2980 90%);
+  background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%);
+  background-color: rgb(39, 127, 168);
   -webkit-transition: ease-in-out .3s;
   -moz-transition: ease-in-out .3s;
+  -ms-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
   -webkit-font-smoothing: antialiased;
 }
