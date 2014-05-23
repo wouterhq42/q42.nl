@@ -130,7 +130,6 @@
       <div class="block-large">
         <div class="intro">
           <h2>Hallo, wij zijn de Q'ers</h2>
-          <h3>Aangenaam kennis te maken.</h3>
           <ol>
            	{{> employees }}
           </ol>
@@ -329,15 +328,9 @@
   <div id="filter-colleagues">
     <h2>Filter de Q'ers</h2>
     <ul id="filter-options">
-      {{#each list}}
-      <li>{{name}}
-        <ul>
-        {{#each items}}
-          <li><a href="#" class="{{selected this}}">{{.}}</a></li>
-        {{/each}}
-        </ul>
-      </li>
-      {{/each}}
+      {{#each list}}{{#each items}}
+        <li><a href="#" class="{{selected this}}">{{.}}</a></li>
+      {{/each}}{{/each}}
     </ul>
     <h2>Of gebruik regex!</h2>
     <input data-role="filter-qers" placeholder="/.*/" id="filter-qers-input">
