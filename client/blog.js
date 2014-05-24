@@ -7,15 +7,6 @@ Template.en_blog.rendered = Template.blog.rendered = function() {
 }
 
 Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.async = true;
-    js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=535367106516027";
-    fjs.parentNode.insertBefore(js, fjs);
-  } (document, 'script', 'facebook-jssdk'));
-
   syntaxHighlight();
 }
 
