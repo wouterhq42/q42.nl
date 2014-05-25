@@ -18,7 +18,7 @@ Meteor.startup ->
       newCount = 0
 
     # work day - increment
-    else if hour >= 8 and hour <= 18 and day isnt 5 and day isnt 6
+    else if hour >= 8 and hour <= 18 and day isnt 6 and day isnt 0
       newCount = currentCount + (if ~~(Math.random() * 42) > 30 then 1 else 0)
 
     if newCount isnt currentCount
