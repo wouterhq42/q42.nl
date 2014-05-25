@@ -19,7 +19,6 @@ iron-router
 nprogress
 spiderable-404
 fast-render
-fastclick
 moment
 apm
 meteor
