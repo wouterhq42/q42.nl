@@ -41,7 +41,6 @@ currentQers = [
   { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/" }
   { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
-  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl" }
   { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/" }
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/" }
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/" }
@@ -145,6 +144,7 @@ addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best goed programmeren",     "chris"
+addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd"
 
 Employees.allow
   insert: -> false
