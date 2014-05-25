@@ -301,9 +301,17 @@
     <a href="tel:{{phone}}">{{phone}}</a>
     {{/if}}
   </span>
-  <img class="bw" data-src="http://static.q42.nl/images/employees/{{avatar_static}}" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
+  <img class="bw" data-src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
   <div class="polaroid">
-    <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
+    {{#if canPlayWebM}}
+      {{#if hasPhoto}}
+        <video src="/video/employees/{{handle}}.webm" class="color" alt="{{name}}" autoplay loop></video>
+        {{else}}
+        <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
+      {{/if}}
+      {{else}}
+      <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
+    {{/if}}
     <h3>{{name}}</h3>
     <p class="contactData">
       <span class="email">
