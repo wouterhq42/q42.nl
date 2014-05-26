@@ -24,23 +24,23 @@ echo "--- Deploying to q42.nl..."
 echo "--- Excluding EN templates..."
 rm -rf $TMPDIR/q42nl-deploy-EN
 mkdir $TMPDIR/q42nl-deploy-EN
-mv views/en $TMP/q42nl-deploy-EN
+mv views/en $TMPDIR/q42nl-deploy-EN
 echo
 meteor deploy q42.nl
 echo "--- Done deploying to q42.nl. Refresh your browser!"
 echo "--- Restoring EN templates..."
-mv $TMPDIR/q42nl-deploy-EN/* .
+mv $TMPDIR/q42nl-deploy-EN/* views
 
 echo "--- Deploying to q42.com..."
 echo "--- Excluding NL templates..."
 rm -rf $TMPDIR/q42nl-deploy-NL
 mkdir $TMPDIR/q42nl-deploy-NL
-mv views/nl $TMP/q42nl-deploy-NL
+mv views/nl $TMPDIR/q42nl-deploy-NL
 echo
 meteor deploy q42.com
 echo "--- Done deploying to q42.com. Refresh your browser!"
 echo "--- Restoring NL templates..."
-mv $TMPDIR/q42nl-deploy-NL/* .
+mv $TMPDIR/q42nl-deploy-NL/* views
 
 # Put back the public folder
 echo "--- Restoring public folder..."
