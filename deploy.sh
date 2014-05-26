@@ -21,26 +21,26 @@ echo
 # Deploy the site to two different Meteor domains so we have an English and a Dutch website :-)
 # Also, don't deploy the templates of the EN site to the NL site and vice versa
 echo "--- Deploying to q42.nl..."
-# echo "--- Excluding EN templates..."
-# rm -rf $TMPDIR/q42nl-deploy-EN
-# mkdir $TMPDIR/q42nl-deploy-EN
-# mv views/en $TMP/q42nl-deploy-EN
-# echo
+echo "--- Excluding EN templates..."
+rm -rf $TMPDIR/q42nl-deploy-EN
+mkdir $TMPDIR/q42nl-deploy-EN
+mv views/en $TMP/q42nl-deploy-EN
+echo
 meteor deploy q42.nl
 echo "--- Done deploying to q42.nl. Refresh your browser!"
-# echo "--- Restoring EN templates..."
-# mv $TMPDIR/q42nl-deploy-EN/* .
+echo "--- Restoring EN templates..."
+mv $TMPDIR/q42nl-deploy-EN/* .
 
 echo "--- Deploying to q42.com..."
-# echo "--- Excluding NL templates..."
-# rm -rf $TMPDIR/q42nl-deploy-NL
-# mkdir $TMPDIR/q42nl-deploy-NL
-# mv views/en $TMP/q42nl-deploy-NL
-# echo
+echo "--- Excluding NL templates..."
+rm -rf $TMPDIR/q42nl-deploy-NL
+mkdir $TMPDIR/q42nl-deploy-NL
+mv views/nl $TMP/q42nl-deploy-NL
+echo
 meteor deploy q42.com
 echo "--- Done deploying to q42.com. Refresh your browser!"
-# echo "--- Restoring NL templates..."
-# mv $TMPDIR/q42nl-deploy-NL/* .
+echo "--- Restoring NL templates..."
+mv $TMPDIR/q42nl-deploy-NL/* .
 
 # Put back the public folder
 echo "--- Restoring public folder..."
