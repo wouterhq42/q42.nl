@@ -22,22 +22,8 @@
   overflow: hidden;
   pointer-events: none;
 }
-
 .particle {
   position: absolute;
-}
-.particle.glow {
-  -webkit-animation: glow infinite alternate linear 2s 14s;
-  -moz-animation: glow infinite alternate linear 2s 14s;
-}
-
-@-webkit-keyframes glow {
-  from { opacity: 1; }
-  to { opacity: 0.6; }
-}
-@-moz-keyframes glow {
-  from { opacity: 1; }
-  to { opacity: 0.6; }
 }
 
 nav .pos {
