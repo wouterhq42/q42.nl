@@ -194,6 +194,10 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   line-height: 0;
   height: 0;
 }
+.container > .block-large:last-child {
+  border: none;
+
+}
 
 .block-large.block-no-padding-after {
   padding-bottom: 0;
@@ -220,13 +224,6 @@ section h2,
   color: #888;
 }
 .block-large > .body p:last-child { margin-bottom: 1.5em; }
-
-.block-small h3 {
-  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding: 0px;
-  margin-top: 3px;
-  color: #888;
-}
 
 .block-large .visual {
   position: relative;
@@ -276,6 +273,12 @@ section h2,
   font: normal 25px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 20px 0 0 0;
   letter-spacing: -1px;
+}
+.block-small h3 {
+  font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin-top: 3px;
+  color: #888;
 }
 .block-small .visual {
   float: none;
