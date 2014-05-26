@@ -6,7 +6,7 @@
 }
 html, body {
   width: 100%; min-height: 100%;
-  font: 16px "PT Serif", Georgia, Times, serif;
+  font: 16px Lora, Georgia, Times, serif;
   -webkit-transition: ease-in-out background-color .3s;
   -moz-transition: ease-in-out background-color .3s;
 }
@@ -25,7 +25,6 @@ p:last-child { margin-bottom: 0;}
 
 ul {
   list-style-type: square;
-  line-height: 24px;
 }
 span {
   -webkit-transition: all .3s ease-out;
@@ -207,6 +206,9 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   font-size: 3em;
   text-align: center;
   margin: 0;
+}
+.intro-outro h1 + p {
+  color: #555;
 }
 
 .block-large {
