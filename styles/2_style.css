@@ -311,6 +311,7 @@ section h2,
   background: #fff;
 }
 
+#nprogress .bar { background-color: #c00; }
 #nprogress .spinner { display: none; }
 
 
