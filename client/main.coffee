@@ -2,13 +2,6 @@
 
 Meteor.startup ->
   $(window).resize _.debounce(resizeFBwidget, 300)
-  $(window).scroll _.throttle ->
-    $(document.body).toggleClass "scrolled", $(window).scrollTop() > 0
-  , 100
-
-  Meteor.setInterval ->
-    $("img").unveil(300)
-  , 1000
 
   lang = if window.location.hostname is "q42.com" then "en" else "nl"
   Session.setDefault "lang", lang

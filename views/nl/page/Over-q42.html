@@ -130,7 +130,6 @@
       <div class="block-large">
         <div class="intro">
           <h2>Hallo, wij zijn de Q'ers</h2>
-          <h3>Aangenaam kennis te maken.</h3>
           <ol>
            	{{> employees }}
           </ol>
@@ -293,36 +292,44 @@
 </template>
 
 <template name="employees">
-{{#each employee}}
-<li>
-  <span class="name">{{firstname}}</span>
-  <span class="contactData">
-    <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-    {{#if phone}}
-    <a href="tel:{{phone}}">{{phone}}</a>
-    {{/if}}
-  </span>
-  <img class="bw" data-src="http://static.q42.nl/images/employees/{{avatar_static}}" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
-  <div class="polaroid">
-    <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
-    <h3>{{name}}</h3>
-    <p class="contactData">
-      <span class="email">
-        <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-      </span>
+  {{#each employee}}
+  <li>
+    <span class="name">{{firstname}}</span>
+    <span class="contactData">
+      <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
       {{#if phone}}
-      <span class="phonenumber">{{phone}}</span>
+      <a href="tel:{{phone}}">{{phone}}</a>
       {{/if}}
-      {{#if web}}
-      <span class="website"><a href="{{web}}">website</a></span>
+    </span>
+    <img class="bw" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
+    <div class="polaroid">
+      {{#if canPlayWebM}}
+        {{#if hasPhoto}}
+          <video src="http://static.q42.nl/video/employees/{{handle}}.webm" class="color" alt="{{name}}" autoplay loop></video>
+          {{else}}
+          <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
+        {{/if}}
+        {{else}}
+        <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
       {{/if}}
-      <div class="closePolaroid"></div>
-    </p>
-  </div>
-</li>
-{{else}}
-<li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
-{{/each}}
+      <h3>{{name}}</h3>
+      <p class="contactData">
+        <span class="email">
+          <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+        </span>
+        {{#if phone}}
+        <span class="phonenumber">{{phone}}</span>
+        {{/if}}
+        {{#if web}}
+        <span class="website"><a href="{{web}}">website</a></span>
+        {{/if}}
+        <div class="closePolaroid"></div>
+      </p>
+    </div>
+  </li>
+  {{else}}
+  <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
+  {{/each}}
 </template>
 
 <template name="filter_employees">
@@ -330,13 +337,7 @@
     <h2>Filter de Q'ers</h2>
     <ul id="filter-options">
       {{#each list}}
-      <li>{{name}}
-        <ul>
-        {{#each items}}
-          <li><a href="#" class="{{selected this}}">{{.}}</a></li>
-        {{/each}}
-        </ul>
-      </li>
+        <li><a href="#" class="{{selected this}}">{{.}}</a></li>
       {{/each}}
     </ul>
     <h2>Of gebruik regex!</h2>

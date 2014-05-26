@@ -1,0 +1,178 @@
+
+#blog-posts {
+  min-height: 300px;
+  float: left;
+}
+#blog-posts h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.post-date {
+  color: #888;
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.block-tags {
+  float: right;
+  width: 45%;
+  font-size: smaller;
+}
+
+.reblog .intro {
+  padding: 0 0 0 4em;
+  background: url(http://static.q42.nl/images/icon_reblog.jpeg) 1em no-repeat;
+}
+
+#blog-posts .block-large {
+  clear: none;
+  padding: 40px 0;
+}
+
+#blog-posts .intro img {
+  max-width: 100%;
+  border: solid 5px white;
+  box-shadow: 0 0 4px rgba(0,0,0,.4);
+  margin-left: 2px; /* force the box shadow to be shown since the parent has overflow: hidden */
+}
+#blog-posts .intro h1 p {
+  margin: 0 0 5px 0;
+  line-height: 1;
+}
+#blog-posts .intro .figure {
+  margin-top: 20px;
+}
+
+#blog-posts .block-readmore {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.blog aside h2,
+.comments h2,
+.blog .block-large > .body h2 {
+  font: normal 1.4em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: -1px;
+}
+
+.comments {
+  clear: both;
+  padding: 0 0 40px 50px;
+}
+.comments h2:first-child {
+  margin-left: -50px;
+}
+.comments .commentbox {
+  position: relative;
+}
+.comments textarea {
+  width: 100%;
+}
+.comments > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.comments > ul > li {
+  margin: 0.5em 0 0 0;
+  padding: 0.5em 0 0 0;
+  list-style: none;
+  border-top: 1px solid #eee;
+}
+.comments .user {
+  position: relative;
+}
+.comments .user img, .comments .commentbox img {
+  width: 40px;
+  position: absolute;
+  left: -50px;
+  top: 2px;
+  border-radius: 4px;
+}
+.comments .user .login-image {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+}
+.comments .meta {
+  color: #999;
+  font-size: smaller;
+}
+.comments .edit-area,
+.comments .save-link {
+  display: none;
+}
+.comments li.edit-mode .edit-area {
+  display: block;
+}
+.comments li.edit-mode .save-link {
+  display: inline;
+}
+.comments li.edit-mode .text,
+.comments li.edit-mode .edit-link {
+  display: none;
+}
+
+#latestComments ul {
+  overflow: hidden;
+}
+#latestComments li div {
+  white-space: nowrap;
+}
+
+.socialShare {
+  float: left;
+  width: 50%;
+  margin: 10px 0 40px;
+  height: 50px;
+}
+
+#pageNav {
+  background: none;
+  text-align: center;
+  margin-top: 15px;
+}
+
+nav#pageNav ul:nth-of-type(1) {
+  width: 100%;
+}
+
+#pageNav ul li {
+  margin: 0 40px 0 0;
+}
+
+#pageNav ul li a {
+  color: #1D78B4;
+  text-shadow: none;
+}
+
+#pageNav .active {
+  border-bottom: 5px solid #ccc;
+}
+.blog #pageNav ul {
+  display: inline-block;
+}
+.blog #pageNav {
+  clear: both;
+}
+
+.tags {
+  padding: 0px;
+  list-style-type: none;
+  margin-top: 12px;
+}
+.tags li {
+  display: block; float: left;
+}
+.tags li a {
+  float: left;
+}
+.tags li:after {
+  content: "\002C\00a0";
+}
+.tags li:last-child:after {
+  content: "";
+}

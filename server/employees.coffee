@@ -41,7 +41,6 @@ currentQers = [
   { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/" }
   { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
-  { name: "Martijn van Steenbergen", handle:"martijn", phone: "070-4452342", web: "http://martijn.van.steenbergen.nl" }
   { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/" }
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/" }
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/" }
@@ -132,19 +131,20 @@ addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel"
 addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd"
-addLabel "Rijdt soms op een motor",       "stef jeroen arian tom"
+addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh"
 addLabel "Gaat binnenkort naar Microsoft", "michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
 addLabel "Heeft bij Fabrique gewerkt",    "sander"
 addLabel "Verdient minder dan Jasper",    _.without allHandles, "jasper"
 addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian"
 addLabel "WWDC kaartje kwijtgeraakt",     "tims"
-addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob"
+addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob lukas"
 addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mark"
 addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best goed programmeren",     "chris"
+addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd"
 
 Employees.allow
   insert: -> false

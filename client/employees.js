@@ -3,6 +3,11 @@ Meteor.startup(function() {
   Meteor.subscribe("employees");
 });
 
+UI.registerHelper('canPlayWebM', function() {
+  // https://raw.githubusercontent.com/phiggins42/has.js/master/detect/video.js#video-webm
+  var video = document.createElement('video');
+  return "probably" === video.canPlayType('video/webm; codecs="vp8, vorbis"');
+});
 UI.registerHelper('avatar_static', function() {
   return this.imageStatic || this.handle + ".jpg";
 });
@@ -39,6 +44,9 @@ $Template({
     },
     email: function() {
       return this.email || this.handle;
+    },
+    hasPhoto: function() {
+      return !this.imageStatic && !this.imageAnimated;
     }
   }
 });
@@ -64,7 +72,7 @@ var Polaroid = function ($li) {
   var $polaroid = $li.find(".polaroid");
 
   function rotatePolaroid() {
-    var rotateValue = 'scale(1.0) rotateZ(' + (Math.floor(Math.random() * 21) - 10) + 'deg)';
+    var rotateValue = 'translate(-30px, -30px) scale(1.0) rotateZ(' + (Math.floor(Math.random() * 21) - 10) + 'deg)';
     $polaroid.css({
       '-webkit-transform': rotateValue,
       '-moz-transform': rotateValue,
@@ -113,31 +121,24 @@ function hidePolaroid(el) {
   polaroids[name].hide(el);
 }
 
-var employeeEvents = {
-  "mouseenter li": function(evt) {
-    showPolaroid(evt.target);
-  },
-  "click li": function(evt) {
-    showPolaroid(evt.target);
-  },
-  "mouseleave li": function(evt) {
-    hidePolaroid(evt.target);
+$Template({
+  employees: {
+    events: {
+      "mouseenter li": function(evt) {
+        showPolaroid(evt.target);
+      },
+      "click li": function(evt) {
+        showPolaroid(evt.target);
+      },
+      "mouseleave li": function(evt) {
+        hidePolaroid(evt.target);
+      }
+    }
   }
-};
-Template.employees.events(employeeEvents);
-Template.en_employees.events(employeeEvents);
+});
 
 Template.filter_employees.list = function() {
-  var filters = [
-    {name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "Oprichter", "Student"]}
-   ,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is",
-      "Team Wintersport", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",
-      "Rijdt soms op een motor", "Gaat binnenkort naar Microsoft", "Vroeger stewardess geweest",
-      "Heeft bij Fabrique gewerkt", "Verdient minder dan Jasper", "Google IO alumni", "Broers",
-      "WWDC kaartje kwijtgeraakt", "Heeft Max Raabe live gezien", "Schoenmaat 42", "IQ boven de 200", "Blessure tijdens werktijd",
-      "Ex-stagiair", "Ex-klant", "Ex-concullega", "Ex-ex-q'er", "Kan stiekem best goed programmeren", "Nerf gun owner"]}
-  ]
-  return filters;
+  return _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort();
 }
 Template.filter_employees.selected = function(filter) {
   return Session.equals("employees_filter", filter) ? "selected" : "";
