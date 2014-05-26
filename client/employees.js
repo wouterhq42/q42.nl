@@ -72,7 +72,7 @@ var Polaroid = function ($li) {
   var $polaroid = $li.find(".polaroid");
 
   function rotatePolaroid() {
-    var rotateValue = 'scale(1.0) rotateZ(' + (Math.floor(Math.random() * 21) - 10) + 'deg)';
+    var rotateValue = 'translate(-30px, -30px) scale(1.0) rotateZ(' + (Math.floor(Math.random() * 21) - 10) + 'deg)';
     $polaroid.css({
       '-webkit-transform': rotateValue,
       '-moz-transform': rotateValue,
