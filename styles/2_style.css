@@ -150,8 +150,6 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   font: normal 2.84em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
   margin: 20px 0;
-  color: #888;
-  text-align: left;
 }
 
 .block-text h1 b {
@@ -296,9 +294,8 @@ section h2,
 }
 
 .subcontent {
-  padding: 15px;
+  padding: 20px;
   color: #888;
-  line-height: 24px;
 }
 
 .subcontent h2:first-child {
