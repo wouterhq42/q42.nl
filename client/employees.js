@@ -121,19 +121,21 @@ function hidePolaroid(el) {
   polaroids[name].hide(el);
 }
 
-var employeeEvents = {
-  "mouseenter li": function(evt) {
-    showPolaroid(evt.target);
-  },
-  "click li": function(evt) {
-    showPolaroid(evt.target);
-  },
-  "mouseleave li": function(evt) {
-    hidePolaroid(evt.target);
+$Template({
+  employees: {
+    events: {
+      "mouseenter li": function(evt) {
+        showPolaroid(evt.target);
+      },
+      "click li": function(evt) {
+        showPolaroid(evt.target);
+      },
+      "mouseleave li": function(evt) {
+        hidePolaroid(evt.target);
+      }
+    }
   }
-};
-Template.employees.events(employeeEvents);
-Template.en_employees.events(employeeEvents);
+});
 
 Template.filter_employees.list = function() {
   return _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort();
