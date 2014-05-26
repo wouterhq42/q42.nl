@@ -22,21 +22,21 @@
         </li>
       </ul>
     </div>
-    <div id="hue">
-      {{#if supportsInputTypeColor}}
-        <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
-      {{else}}
-        <div id="lights-color"></div>
-      {{/if}}
-      <div id="lights-explanation">Bestuur de Philips Hue lichten bij ons op kantoor met deze colorpicker!</div>
-      {{> colorpicker}}
-    </div>
-    <div id="particles"></div>
-    <div id="backgrounds">
-      {{#each color}}
-        <div class="bg" style="background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
-       linear-gradient(108deg,#{{col2}},#{{col1}} 90%)"></div>
-      {{/each}}
-    </div>
   </nav>
+  <div id="hue">
+    {{#if supportsInputTypeColor}}
+      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+    {{else}}
+      <div id="lights-color"></div>
+    {{/if}}
+    <div id="lights-explanation">Bestuur de Philips Hue lichten bij ons op kantoor met deze colorpicker!</div>
+    {{> colorpicker}}
+  </div>
+  <div id="particles"></div>
+  <div id="backgrounds">
+    {{#each color}}
+      <div class="bg" style="background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
+     linear-gradient(108deg,#{{col2}},#{{col1}} 90%)"></div>
+    {{/each}}
+  </div>
 </template>
