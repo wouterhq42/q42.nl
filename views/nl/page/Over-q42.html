@@ -292,44 +292,44 @@
 </template>
 
 <template name="employees">
-{{#each employee}}
-<li>
-  <span class="name">{{firstname}}</span>
-  <span class="contactData">
-    <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-    {{#if phone}}
-    <a href="tel:{{phone}}">{{phone}}</a>
-    {{/if}}
-  </span>
-  <img class="bw" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
-  <div class="polaroid">
-    {{#if canPlayWebM}}
-      {{#if hasPhoto}}
-        <video src="/video/employees/{{handle}}.webm" class="color" alt="{{name}}" autoplay loop></video>
+  {{#each employee}}
+  <li>
+    <span class="name">{{firstname}}</span>
+    <span class="contactData">
+      <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+      {{#if phone}}
+      <a href="tel:{{phone}}">{{phone}}</a>
+      {{/if}}
+    </span>
+    <img class="bw" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
+    <div class="polaroid">
+      {{#if canPlayWebM}}
+        {{#if hasPhoto}}
+          <video src="http://static.q42.nl/video/employees/{{handle}}.webm" class="color" alt="{{name}}" autoplay loop></video>
+          {{else}}
+          <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
+        {{/if}}
         {{else}}
         <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
       {{/if}}
-      {{else}}
-      <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
-    {{/if}}
-    <h3>{{name}}</h3>
-    <p class="contactData">
-      <span class="email">
-        <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-      </span>
-      {{#if phone}}
-      <span class="phonenumber">{{phone}}</span>
-      {{/if}}
-      {{#if web}}
-      <span class="website"><a href="{{web}}">website</a></span>
-      {{/if}}
-      <div class="closePolaroid"></div>
-    </p>
-  </div>
-</li>
-{{else}}
-<li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
-{{/each}}
+      <h3>{{name}}</h3>
+      <p class="contactData">
+        <span class="email">
+          <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+        </span>
+        {{#if phone}}
+        <span class="phonenumber">{{phone}}</span>
+        {{/if}}
+        {{#if web}}
+        <span class="website"><a href="{{web}}">website</a></span>
+        {{/if}}
+        <div class="closePolaroid"></div>
+      </p>
+    </div>
+  </li>
+  {{else}}
+  <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
+  {{/each}}
 </template>
 
 <template name="filter_employees">
