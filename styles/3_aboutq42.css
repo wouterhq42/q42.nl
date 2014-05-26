@@ -72,6 +72,7 @@
 
 #colleagues ol .hover { overflow: visible; }
 #colleagues ol .polaroid {
+  pointer-events: none;
   position: absolute;
   background-color: #fff;
   z-index: 9;
@@ -85,6 +86,7 @@
 }
 
 #colleagues ol .hover .polaroid {
+  pointer-events: all;
   opacity: 1;
   -webkit-transform: scale(1.0) rotate(-5deg);
   -webkit-transform-origin: center center;
