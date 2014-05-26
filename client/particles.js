@@ -18,7 +18,7 @@ Template.header.rendered = function() {
     $particle.addClass("particle");
     $particle.attr("id", "particle" + i);
 
-    var delay = ~~(Math.random()*4) + "s";
+    var delay = ~~(Math.random() * 4) + "s";
     var duration = between(10, 60) + "s";
 
     $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" ease-in-out infinite alternate");
@@ -34,7 +34,7 @@ Template.header.rendered = function() {
     $particle.css("padding", ~~(Math.random()*20) + "px");
     $particle.css("borderRadius", between(10, 20) + "px");
 
-    var x = ~~(Math.random() * $(window).width());
+    var x = ~~((Math.random()*2-1) * $(window).width());
     var y = rp();
     var z = -rp();
     var rx = rr();
@@ -51,8 +51,8 @@ Template.header.rendered = function() {
     var rdx = between(5, 20);
     rdx = Math.random() < 0.5 ? rdx : -rdx;
 
-    var from = "-webkit-transform: translate(-50%, -50%) translate3d("+x+"px, "+y+"px, "+z+"px) rotateX("+rx+"deg) rotateY("+ry+"deg) rotateZ("+rz+"deg) scale(1); opacity: 1;";
-    var to = "-webkit-transform: translate(-50%, -50%) translate3d("+(x+dx)+"px, "+(y+dx)+"px, "+(z+dx)+"px) rotateX("+(rx+rdx)+"deg) rotateY("+(ry+rdx)+"deg) rotateZ("+(rz+rdx)+"deg) scale(1); opacity: 0";
+    var from = "-webkit-transform: translate3d("+x+"px, "+y+"px, "+z+"px) rotateX("+rx+"deg) rotateY("+ry+"deg) rotateZ("+rz+"deg) scale(1); opacity: 1;";
+    var to = "-webkit-transform: translate3d("+(x+dx)+"px, "+(y+dx)+"px, "+(z+dx)+"px) rotateX("+(rx+rdx)+"deg) rotateY("+(ry+rdx)+"deg) rotateZ("+(rz+rdx)+"deg) scale(1); opacity: 0";
     var wka = "\n@-webkit-keyframes float-particle"+i+" { from {" + from + "} to {" + to + "} }";
 
     $style.html($style.html() + wka);
@@ -62,7 +62,7 @@ Template.header.rendered = function() {
   $style.attr('type', 'text/css');
   $style.html("");
 
-  var numparticles = 42;
+  var numparticles = 100;
   generateparticles(numparticles);
 
 };
