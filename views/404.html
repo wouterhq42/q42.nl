@@ -1,45 +1,10 @@
 <template name="error404">
-  {{#if isEnglish}}
-    {{> en_error404}}
-  {{else}}
-    {{> nl_error404}}
-  {{/if}}
-</template>
-
-<template name="nl_error404">
   <div class="container">
-    <header class="block-text">
-      <h1>Don't <b>panic!</b></h1>
-    </header>
-
-    <section>
-      <div class="block-large">
-        <div class="intro">
-          <h2>But I stiiiiiill haven't foooouuuund, what I'm lookin foooooor...</h2>
-          <p>Daar schiet jij natuurlijk niets mee op. Maar je hebt nu wel lekker de rest van de dag U2 in je hoofd. Geniet ervan!</p>
-
-          <p>Of misschien vind je hier wat je zoekt: <a href="/blog/tagged{{url}}">/blog/tagged{{url}}</a></p>
-        </div>
-      </div>
-    </section>
-  </div>
-</template>
-
-<template name="en_error404">
-  <div class="container">
-    <header class="block-text">
-      <h1>Don't <b>panic!</b></h1>
-    </header>
-
-    <section>
-      <div class="block-large">
-        <div class="intro">
-          <h2>But I stiiiiiill haven't foooouuuund, what I'm lookin foooooor...</h2>
-          <p>That doesn't help you at all, of course. But at least you'll have U2 stuck in your head for the day. Enjoy!</p>
-
-          <p>Or perhaps you'll find what you're looking for here: <a href="/blog/tagged{{url}}">/blog/tagged{{url}}</a></p>
-        </div>
-      </div>
-    </section>
+    <div id="not-found">
+      <h1>Don't panic!</h1>
+      <p><img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-prn1/t31.0-8/10293711_10152154483061984_3799413084551919052_o.jpg"></p>
+      <p>You've encountered a 404. Just stay still and DON'T MOVE. Don't even move the mouse cursor. Just stay calm and wait for help to arrive. Whatever you do, don't panic. You'll be okay.</p>
+      <p><a href="http://24hoursofcantina.com/">I'm on fire aaaaargghhhh</a></p>
+    </div>
   </div>
 </template>

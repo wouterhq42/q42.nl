@@ -89,7 +89,37 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   margin: 0 auto;
 }
 
-
+#not-found {
+  text-align: center;
+  background: #d33;
+  color: white;
+  border: solid 20px white;
+  box-shadow: 0 0 4px rgba(0,0,0,.4);
+  margin: 40px 0; padding: 80px;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  -webkit-animation: .3s flash infinite ease-in-out alternate;
+}
+@-webkit-keyframes flash {
+  from { -webkit-filter: invert(100%);}
+  to { }
+}
+#not-found h1 {
+  font-size: 72px;
+  margin: 0;
+}
+#not-found img {
+  width: 100%;
+}
+#not-found p {
+  font-size: 24px;
+}
+#not-found a {
+  border: solid 1px white;
+  border-radius: 25px;
+  padding: 5px 15px;
+  color: white;
+}
 
 .clear {
   clear: both;
