@@ -39,8 +39,9 @@ attachFacebook = ->
     initCalled = true
 
 attachTwitter = ->
-  $.getScript '//platform.twitter.com/widgets.js', ->
-    twttr?.widgets?.load()
+  if window.location.href.match("/blog")
+    $.getScript '//platform.twitter.com/widgets.js', ->
+      twttr?.widgets?.load()
 
 @resizeFBwidget = ->
   $('.fb_iframe_widget iframe').width('100%')
