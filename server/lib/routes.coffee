@@ -22,6 +22,12 @@ Router.map ->
     action: ->
       console.log "Route: colorBlindnessSimulator"
       @response.writeHead 302, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
+  @route "contrastCheck",
+    where: "server"
+    path: "/demos/contrastcheck"
+    action: ->
+      console.log "Route: contrastCheck"
+      @response.writeHead 302, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
 
   @route "removeWWW",
     where: "server"
