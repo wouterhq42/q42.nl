@@ -62,7 +62,7 @@ $Template({
   },
   postDate: {
     prettyDate: function() {
-      return moment(this.date).format('dddd D MMMM YYYY')
+      return moment(new Date(this.date)).format('dddd D MMMM YYYY')
     }
   },
   otherPosts: {
