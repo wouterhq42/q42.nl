@@ -20,7 +20,6 @@ nprogress
 spiderable-404
 fast-render
 moment
-apm
 meteor
 webapp
 deps
@@ -35,3 +34,4 @@ ejson
 crypto-base
 crypto-md5
 random
+kadira
