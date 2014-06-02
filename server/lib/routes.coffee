@@ -1,3 +1,6 @@
+HTTP_REDIRECT_TEMPORARY = 301
+HTTP_REDIRECT_PERMANENT = 302
+
 Router.map ->
   @route "updateLightBar",
     where: "server"
@@ -13,7 +16,14 @@ Router.map ->
     path: "/adventures"
     action: ->
       console.log "Route: redirectAdventures"
-      @response.writeHead 302, Location: "http://adventures.handcraft.com"
+      @response.writeHead HTTP_REDIRECT_TEMPORARY, Location: "http://adventures.handcraft.com"
+
+  @route "redirectVacatures",
+    where: "server"
+    path: "/vacatures"
+    action: ->
+      console.log "Route: redirectVacatures"
+      @response.writeHead HTTP_REDIRECT_TEMPORARY, Location: "http://q42.nl/blog/tagged/vacature"
 
   # Redirect ancient color blindness simulator links to our more recent SEE extension
   @route "colorBlindnessSimulator",
@@ -21,13 +31,13 @@ Router.map ->
     path: "/demos/colorblindnesssimulator"
     action: ->
       console.log "Route: colorBlindnessSimulator"
-      @response.writeHead 302, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
+      @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
   @route "contrastCheck",
     where: "server"
     path: "/demos/contrastcheck"
     action: ->
       console.log "Route: contrastCheck"
-      @response.writeHead 302, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
+      @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
 
   @route "removeWWW",
     where: "server"
@@ -38,6 +48,6 @@ Router.map ->
       fullUrl = "http://#{host}#{@request.url}"
 
       if host.indexOf("www") is 0
-        @response.writeHead 301, Location: fullUrl.replace("www.", "")
+        @response.writeHead HTTP_REDIRECT_PERMANENT, Location: fullUrl.replace("www.", "")
 
       @next()

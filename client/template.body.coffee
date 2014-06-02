@@ -5,10 +5,8 @@ Template.body.rendered = ->
 Template.body.events
   "click a[href^='/']": (evt) ->
     href = evt.target.getAttribute("href")
-    return if not href or _.contains(href, ".")
-    Router.go(href)
-    window.scrollTo(0,0)
-    evt.preventDefault()
-    return false
+    if $(evt.target).data().ignore?
+      evt.preventDefault()
+      window.location.href = href
 
 Template.body.isPhantom = -> isPhantom
