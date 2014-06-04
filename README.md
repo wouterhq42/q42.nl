@@ -73,6 +73,10 @@ navigate to that file and edit it! A really fast way to clean up spelling mistak
 load the repository on Github and use its built-in editor to edit files. Github will automatically fork the project for you
 and submit a pull request. Yay!
 
+# Credits
+
+We use the reblog icon by Yo Szczepanska from the Noun Project: http://thenounproject.com/term/reblog/7116/ (CC BY 3.0).
+
 # License?
 
 There is no license. This is the code for our website, copyright Q42. You can browse the source and learn from our mishaps,
