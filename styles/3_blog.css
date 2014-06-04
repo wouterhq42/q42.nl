@@ -53,7 +53,8 @@
 
 .blog aside h2,
 .comments h2,
-.blog .block-large > .body h2 {
+.blog .block-large > .body h2,
+.blog .intro p strong:only-child {
   font: normal 1.4em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
