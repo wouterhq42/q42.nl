@@ -1,8 +1,6 @@
 <template name="en_blog">
   <div class="container blog">
 
-    <header class="block-text"><h1>Weblog</h1></header>
-
     <div id="blog-posts">
     {{#each post}}
       <div class="block-large {{#if description}}reblog{{/if}}">
@@ -54,6 +52,9 @@
           {{#if description}}
           <!-- reblog -->
             <h1><a href="{{url}}">{{title}}</a></h1>
+            {{#if typeIs "link"}}
+              <p>{{{description}}}</p>
+            {{/if}}
           {{/if}}
           {{#if intro}}
           <!-- text post -->

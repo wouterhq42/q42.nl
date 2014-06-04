@@ -331,10 +331,6 @@ section h2,
   color: #888;
 }
 
-.subcontent h2:first-child {
-  margin: 0px;
-}
-
 #loading {
   text-align: center;
   padding: 100px 0;

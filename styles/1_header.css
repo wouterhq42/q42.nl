@@ -60,7 +60,7 @@ nav ul li {
   text-transform: uppercase;
 }
 /* hide Home link */
-nav ul li:first-child { display: none; }
+#header nav ul li:first-child { display: none; }
 nav ul li:last-child { margin: 0; }
 
 #lights-toggle a {
