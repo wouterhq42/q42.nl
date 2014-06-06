@@ -73,8 +73,8 @@
       },
       "kadira": {
         "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.1.1",
-        "commit": "d15bb5299c898d2534b9f0d3ab07daf266a8928a"
+        "tag": "v2.1.4",
+        "commit": "c564bcd390af097af890a18ee4d4df7bdbc659dc"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
