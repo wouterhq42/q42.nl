@@ -9,6 +9,9 @@ $Template({
     },
     widthEquals: function(width) {
       return this.width == width;
+    },
+    typeIs: function(type) {
+      return this.type == type;
     }
   },
   blogpost: {
@@ -62,7 +65,7 @@ $Template({
   },
   postDate: {
     prettyDate: function() {
-      return moment(this.date).format('dddd D MMMM YYYY')
+      return moment(new Date(this.date)).format('dddd D MMMM YYYY')
     }
   },
   otherPosts: {

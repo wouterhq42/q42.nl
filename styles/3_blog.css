@@ -21,8 +21,9 @@
 }
 
 .reblog .intro {
-  padding: 0 0 0 4em;
-  background: url(http://static.q42.nl/images/icon_reblog.jpeg) 1em no-repeat;
+  padding: 0 0 0 3em;
+  background: url(http://static.q42.nl/images/reblog.svg) 0 no-repeat;
+  background-size: 24px;
 }
 
 #blog-posts .block-large {
@@ -52,7 +53,8 @@
 
 .blog aside h2,
 .comments h2,
-.blog .block-large > .body h2 {
+.blog .block-large > .body h2,
+.blog .intro p strong:only-child {
   font: normal 1.4em Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
@@ -131,32 +133,23 @@
 }
 
 #pageNav {
+  clear: both;
   background: none;
   text-align: center;
-  margin-top: 15px;
+  margin: 40px 0;
 }
 
-nav#pageNav ul:nth-of-type(1) {
-  width: 100%;
-}
-
-#pageNav ul li {
-  margin: 0 40px 0 0;
-}
-
-#pageNav ul li a {
+#pageNav a {
   color: #1D78B4;
   text-shadow: none;
+  padding: 10px;
 }
 
-#pageNav .active {
+#pageNav a:hover, #pageNav .active {
   border-bottom: 5px solid #ccc;
 }
-.blog #pageNav ul {
+#pageNav ul {
   display: inline-block;
-}
-.blog #pageNav {
-  clear: both;
 }
 
 .tags {

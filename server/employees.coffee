@@ -47,8 +47,8 @@ currentQers = [
   { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362" }
   { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/" }
   { name: "Richard Lems", handle:"richard" }
-  { name: "Roan Hageman", handle:"roan", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
-  { name: "Rob Lokhorst", handle:"rob", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Roan Hageman", handle:"roan" }
+  { name: "Rob Lokhorst", handle:"rob" }
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" }
   { name: "Sander de Vos", handle:"sander", phone: "070-4452354" }
   { name: "Sanjay Sheombar", handle:"sanjay" }
@@ -56,7 +56,7 @@ currentQers = [
   { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351" }
   { name: "Suzanne Waalberg", handle:"suzanne" }
   { name: "Taco Ekkel", handle: "taco", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
-  { name: "Ted de Koning", handle:"ted", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Ted de Koning", handle:"ted" }
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" }
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" }
   { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/" }

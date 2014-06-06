@@ -4,9 +4,7 @@ echo "------ Begin Q42.nl and Q42.com deploy! ------"
 
 # Publish all assets to the CDN rather than serving them from meteor.com
 echo "--- Publishing assets to CDN..."
-cd public
-gsutil -m cp -R * gs://static.q42.nl || exit 1
-cd ..
+gsutil -m rsync -r -d public gs://static.q42.nl || exit 1
 echo "--- Done with CDN."
 echo
 

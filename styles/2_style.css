@@ -208,13 +208,17 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   margin: 0;
 }
 .intro-outro h1 + p {
-  color: #555;
+  color: #777;
 }
 
 .block-large {
   border-bottom: solid #ccc 1px;
   padding: 80px 0;
   clear: both;
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
 }
 .block-large:after {
   content: ".";
@@ -226,7 +230,6 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 }
 .container > .block-large:last-child {
   border: none;
-
 }
 
 .block-large.block-no-padding-after {
@@ -261,10 +264,23 @@ section h2,
   margin: 0 20px 0 0;
   float: left;
 }
+.block-large > div.visual {
+  -webkit-transform: rotateY(10deg);
+  -moz-transform: rotateY(10deg);
+  -ms-transform: rotateY(10deg);
+  transform: rotateY(10deg);
+}
 
 .block-large.right .visual {
   margin: 0 0 0 20px;
   float: right;
+}
+
+.block-large.right > div.visual {
+  -webkit-transform: rotateY(-10deg);
+  -moz-transform: rotateY(-10deg);
+  -ms-transform: rotateY(-10deg);
+  transform: rotateY(-10deg);
 }
 
 .block-large .body {
@@ -304,6 +320,7 @@ section h2,
   margin: 20px 0 0 0;
   letter-spacing: -1px;
 }
+.block-small h2 a { color: black;}
 .block-small h3 {
   font: 14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0px;
@@ -328,10 +345,6 @@ section h2,
 .subcontent {
   padding: 20px;
   color: #888;
-}
-
-.subcontent h2:first-child {
-  margin: 0px;
 }
 
 #loading {

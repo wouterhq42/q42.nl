@@ -1,5 +1,5 @@
 @reattachBehavior = ->
-  unless isPhantom
+  unless /phantom/i.test navigator.userAgent
     attachGoogleAnalytics()
     attachFacebook()
     attachTwitter()

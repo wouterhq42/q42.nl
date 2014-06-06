@@ -292,15 +292,9 @@
     </span>
     <img class="zw" src="http://static.q42.nl/images/employees/{{avatar_static}}" width="108" alt="{{name}}">
     <div class="polaroid">
-      {{#if canPlayWebM}}
-        {{#if hasPhoto}}
-          <video src="http://static.q42.nl/video/employees/{{handle}}.webm" class="color" alt="{{name}}" autoplay loop></video>
-          {{else}}
-          <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
-        {{/if}}
-        {{else}}
+      <video src="http://static.q42.nl/video/employees/{{handle}}.webm" autoplay loop poster="http://static.q42.nl/images/employees/{{avatar_static}}">
         <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
-      {{/if}}
+      </video>
       <h3>{{name}}</h3>
       <p class="contactData">
         <span class="email">

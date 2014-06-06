@@ -3,11 +3,6 @@ Meteor.startup(function() {
   Meteor.subscribe("employees");
 });
 
-UI.registerHelper('canPlayWebM', function() {
-  // https://raw.githubusercontent.com/phiggins42/has.js/master/detect/video.js#video-webm
-  var video = document.createElement('video');
-  return "probably" === video.canPlayType('video/webm; codecs="vp8, vorbis"');
-});
 UI.registerHelper('avatar_static', function() {
   return this.imageStatic || this.handle + ".jpg";
 });
@@ -45,18 +40,11 @@ $Template({
     email: function() {
       return this.email || this.handle;
     },
-    hasPhoto: function() {
-      return !this.imageStatic && !this.imageAnimated;
+    filter: function() {
+      return Session.get("employees_filter");
     }
   }
 });
-
-/**************/
-/* Dutch only */
-/**************/
-Template.employees.filter = function() {
-  return Session.get("employees_filter");
-}
 
 
 
