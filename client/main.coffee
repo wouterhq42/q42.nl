@@ -1,5 +1,3 @@
-@isPhantom = /phantom/i.test navigator.userAgent
-
 Meteor.startup ->
   $(window).resize _.debounce(resizeFBwidget, 300)
 
