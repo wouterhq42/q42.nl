@@ -1,4 +1,4 @@
-Template.header.rendered = function() {
+Template.header.rendered = Template.en_header.rendered = function() {
   function c(n) { if (!n) n = 255; return ~~(Math.random() * n); }
   function rgba(r, g, b, a) { return "rgba("+r+","+g+","+b+","+a+")"; }
   function rc(n, a) { return rgba(c(n), c(n), c(n), a); }
