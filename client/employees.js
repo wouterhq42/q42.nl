@@ -39,16 +39,12 @@ $Template({
     },
     email: function() {
       return this.email || this.handle;
+    },
+    filter: function() {
+      return Session.get("employees_filter");
     }
   }
 });
-
-/**************/
-/* Dutch only */
-/**************/
-Template.employees.filter = function() {
-  return Session.get("employees_filter");
-}
 
 
 
