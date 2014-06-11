@@ -76,7 +76,7 @@ var Polaroid = function ($li) {
   function intitializeHover(el) {
     var $li = $(el);
     var $polaroidLists = $('#colleagues .polaroid').parent("li");
-    $polaroidLists.removeClass('hover').removeClass('openedByHover');
+    $polaroidLists.removeClass('hover');
     var windowWidth = $(window).width();
     if (windowWidth > mobileMaxWidth)
       $li.addClass('hover');
@@ -92,7 +92,7 @@ var Polaroid = function ($li) {
   }
   function hide(el) {
     var $li = $(el);
-    $li.removeClass('hover').removeClass('openedByHover');
+    $li.removeClass('hover');
   }
   return {
     show: show,
