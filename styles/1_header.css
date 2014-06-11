@@ -18,9 +18,10 @@
   position: absolute;
   top: 0;
   width: 100%; height: 254px;
-  z-index: 999;
+  z-index: 2;
   overflow: hidden;
   pointer-events: none;
+  opacity: .2;
 }
 .particle {
   position: absolute;
@@ -42,8 +43,8 @@ nav .pos {
   text-align: center;
   margin: 0 auto;
 }
-#logo img {
-  height: 150px;
+#logo object, #logo img {
+  height: 180px;
 }
 
 nav ul {

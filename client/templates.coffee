@@ -18,7 +18,6 @@ $Template
   header:
     lightsColor: -> Session.get("lightsColor")
     supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
-    supportsSVG: -> !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect
     color: -> Lights.find({}, {sort: {date: 1}})
     col1: -> @hex
     col2: ->
