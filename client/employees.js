@@ -42,6 +42,10 @@ $Template({
     },
     filter: function() {
       return Session.get("employees_filter");
+    },
+    supportsWebm: function() {
+      var video = document.createElement("video");
+      return video.canPlayType("video/webm") == "probably";
     }
   }
 });
