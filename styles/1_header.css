@@ -43,8 +43,12 @@ nav .pos {
   text-align: center;
   margin: 0 auto;
 }
+#logo a {
+  display: inline-block;
+}
 #logo object, #logo img {
   height: 180px;
+  pointer-events: none;
 }
 
 nav ul {
