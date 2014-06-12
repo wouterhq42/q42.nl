@@ -1,6 +1,10 @@
 <template name="en_blog">
   <div class="container blog">
 
+    <div class="block-text">
+      <h1>Blog</h1>
+    </div>
+
     <div id="blog-posts">
     {{#each post}}
       <div class="block-large {{#if description}}reblog{{/if}}">
@@ -181,7 +185,7 @@
 </template>
 
 <template name="en_blogSidebar">
-  <aside class="block-small subcontent" id="blog-sidebar">
+  <aside class="block-small subcontent subcontent-last" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
     <p>This is the Q42 blog, for which Q'ers write about their work, passion and life at Q42.</p>
     <p>Those same Q'ers are also active on Twitter. We made a list, take a look: <a href="https://twitter.com/q42/q-ers">Q'ers on Twitter</a>.

@@ -6,7 +6,7 @@
 
 
 @media all and (min-width: 941px) {
-  .subcontent:last-child {
+  .subcontent:last-child, #blog-posts + .subcontent-last {
     margin-right: 0;
     margin-left: 20px;
     padding-right: 0;
