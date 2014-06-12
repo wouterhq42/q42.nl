@@ -65,19 +65,12 @@
       </div>
     </section>
 
-    <section class="block-large block-no-padding-after">
-      <div class="body">
-        <h2>Staatsloterij</h2>
-        <h3>De nieuwe prijswinnende website</h3>
-        <p>Op de nieuwe Staatsloterij website kun je nu vrijwel alle producten online kopen.</p>
-        <p>We ontwikkelden de nieuwe site in samenwerking met Fabrique en het Digital team van de Staatsloterij.</p>
-        <p>De site is tablet first ontwikkeld, maar werkt door het responsive design ook perfect op hele grote schermen en alle gangbare smartphones.</p>
-        <p><a href="http://www.staatsloterij.nl" class="external">Waag eens een gokje</a></p>
-      </div>
-      <div class="visual caption">
-        <img data-src="http://static.q42.nl/images/projecten/staatsloterij.jpg" alt=""/>
-        <p>Jackpot!</p>
-      </div>
+    {{> _project name="Staatsloterij" size="large"}}
+
+    <section class="block-large">
+      {{> _project name="Rijksmuseum" size="small"}}
+      {{> _project name="Philips Hue" size="small"}}
+      {{> _project name="Schooltas"   size="small"}}
     </section>
 
     <section class="block-large">
@@ -168,4 +161,29 @@
     </section>
 
   </div>
+</template>
+
+<template name="_project">
+  {{#with project}}
+    <section class="block-{{../size}} block-no-padding-after">
+      {{#if sizeEquals ../size "small"}}
+      <div class="visual caption">
+        <img data-src="http://static.q42.nl/{{image}}" alt="">
+        <p>{{imageTitle}}</p>
+      </div>
+      {{/if}}
+      <div class="body">
+        <h2>{{name}}</h2>
+        <h3>{{subtitle}}</h3>
+        {{{html}}}
+        <p><a href="{{url}}" class="external">{{linkTitle}}</a></p>
+      </div>
+      {{#if sizeEquals ../size "large"}}
+      <div class="visual caption">
+        <img data-src="http://static.q42.nl/{{image}}" alt="">
+        <p>{{imageTitle}}</p>
+      </div>
+      {{/if}}
+    </section>
+  {{/with}}
 </template>

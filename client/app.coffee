@@ -42,6 +42,10 @@ Router.map ->
     path: "/"
     onBeforeAction: -> Session.set("page", "home")
     action: -> @render getTemplate("home")
+    waitOn: ->
+      [
+        SubsManager.subscribe "content"
+      ]
 
   @route "blog",
     path: "/blog"
