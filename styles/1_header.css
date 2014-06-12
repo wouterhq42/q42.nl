@@ -21,7 +21,7 @@
   z-index: 2;
   overflow: hidden;
   pointer-events: none;
-  opacity: .2;
+  opacity: .25;
 }
 .particle {
   position: absolute;

@@ -23,9 +23,9 @@ $Template({
         var delay = ~~(Math.random() * 4) + "s";
         var duration = between(10, 60) + "s";
 
-        $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" ease-in-out infinite alternate");
+        $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" cubic-bezier(0.175, 0.885, 0.320, 1.275) infinite alternate");
 
-        var dim = ~~(Math.random() * 5);
+        var dim = ~~(Math.random() * 150);
         $particle.css("width", dim + "px");
         $particle.css("height", dim + "px");
 
@@ -34,7 +34,8 @@ $Template({
 
         $particle.css("boxShadow", "0 0 " + ~~(Math.random()*20) + "px " + color);
         $particle.css("padding", ~~(Math.random()*20) + "px");
-        $particle.css("borderRadius", between(10, 20) + "px");
+        $particle.css("borderRadius", "50%");
+        $particle.css("-webkit-filter", "blur(" + between(10,25) + "px)");
 
         var x = ~~((Math.random()*2-1) * $(window).width());
         var y = rp();
