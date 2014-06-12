@@ -23,7 +23,7 @@ $Template({
         var delay = ~~(Math.random() * 4) + "s";
         var duration = between(10, 60) + "s";
 
-        $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" cubic-bezier(0.175, 0.885, 0.320, 1.275) infinite alternate");
+        $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" ease-in-out infinite alternate");
 
         var dim = ~~(Math.random() * 150);
         $particle.css("width", dim + "px");
