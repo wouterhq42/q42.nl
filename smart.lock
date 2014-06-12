@@ -13,7 +13,8 @@
       "fastclick": {},
       "apm": {},
       "find-faster": {},
-      "kadira": {}
+      "kadira": {},
+      "subs-manager": {}
     },
     "packages": {
       "font-awesome": {
@@ -48,8 +49,8 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.5",
-        "commit": "93e2fb334e55fbe9b5ebb2a2e65964018658f43e"
+        "tag": "v0.2.8",
+        "commit": "149984b1aff3a5642a270aff9bd9006872c8302e"
       },
       "spiderable-404": {
         "git": "https://github.com/wojas/spiderable-404.git",
@@ -63,8 +64,8 @@
       },
       "apm": {
         "git": "https://github.com/arunoda/meteor-apm-client.git",
-        "tag": "v1.4.4",
-        "commit": "36f2f9775178621e9798d14c99baf24c06cc43c0"
+        "tag": "v1.4.6",
+        "commit": "5a185029dd65816c27f988bccedbb77785eab6dc"
       },
       "find-faster": {
         "git": "https://github.com/arunoda/meteor-find-faster.git",
@@ -73,8 +74,13 @@
       },
       "kadira": {
         "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.1.4",
-        "commit": "c564bcd390af097af890a18ee4d4df7bdbc659dc"
+        "tag": "v2.2.0",
+        "commit": "0f0f6b90a80f2be3980154977fe19f84cc535cf8"
+      },
+      "subs-manager": {
+        "git": "https://github.com/meteorhacks/subs-manager.git",
+        "tag": "v1.0.0",
+        "commit": "e01b87ac004ef114f882a73549ba38f64709649e"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",

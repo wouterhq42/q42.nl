@@ -54,9 +54,9 @@ Router.map ->
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
-        Meteor.subscribe "blogpostIndex", 1
-        Meteor.subscribe "pagesByTag", ""
-        Meteor.subscribe "LatestComments", 10
+        SubsManager.subscribe "blogpostIndex", 1
+        SubsManager.subscribe "pagesByTag", ""
+        SubsManager.subscribe "LatestComments", 10
       ]
     data: ->
       posts = blogpostIndex.find {}, sort: date: -1
@@ -76,9 +76,9 @@ Router.map ->
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
-        Meteor.subscribe "blogpostIndex", @params.pageNum * 1
-        Meteor.subscribe "pagesByTag", ""
-        Meteor.subscribe "LatestComments", 10
+        SubsManager.subscribe "blogpostIndex", @params.pageNum * 1
+        SubsManager.subscribe "pagesByTag", ""
+        SubsManager.subscribe "LatestComments", 10
       ]
     data: ->
       posts = blogpostIndex.find {}, sort: date: -1
@@ -98,9 +98,9 @@ Router.map ->
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
-        Meteor.subscribe "blogpostIndex", 1, @params.tag
         Meteor.subscribe "pagesByTag", @params.tag or ""
-        Meteor.subscribe "LatestComments", 10
+        SubsManager.subscribe "blogpostIndex", 1, @params.tag
+        SubsManager.subscribe "LatestComments", 10
       ]
     data: ->
       posts = blogpostIndex.find {}, sort: date: -1
@@ -122,10 +122,10 @@ Router.map ->
       else
         @render "loading"
     waitOn: -> [
-      Meteor.subscribe "blogpostIndex", 1
       Meteor.subscribe "blogpostFull", @params.id * 1
       Meteor.subscribe "blogComments", @params.id * 1
-      Meteor.subscribe "LatestComments", 10
+      SubsManager.subscribe "blogpostIndex", 1
+      SubsManager.subscribe "LatestComments", 10
     ]
     data: ->
       return null unless blogpostFull.findOne()

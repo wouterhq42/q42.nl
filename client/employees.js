@@ -1,6 +1,6 @@
 Meteor.startup(function() {
   Session.setDefault("employees_filter", "Q'er");
-  Meteor.subscribe("employees");
+  SubsManager.subscribe("employees");
 });
 
 UI.registerHelper('avatar_static', function() {
