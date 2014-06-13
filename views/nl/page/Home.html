@@ -173,10 +173,10 @@
       </div>
       {{/if}}
       <div class="body">
-        <h2>{{name}}</h2>
-        <h3>{{subtitle}}</h3>
-        {{{html}}}
-        <p><a href="{{url}}" class="external">{{linkTitle}}</a></p>
+        <h2>{{> editable field="name" value=name}}</h2>
+        <h3>{{> editable field="subtitle" value=subtitle}}</h3>
+        {{> editable field="html" value=html}}
+        <p><a href="{{url}}" class="external">{{> editable field="linkTitle" value=linkTitle}}</a></p>
       </div>
       {{#if sizeEquals ../size "large"}}
       <div class="visual caption">
@@ -186,4 +186,8 @@
       {{/if}}
     </section>
   {{/with}}
+</template>
+
+<template name="editable">
+  <div contenteditable data-field="{{field}}" data-id="{{../_id}}">{{{value}}}</div>
 </template>

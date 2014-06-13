@@ -1,6 +1,9 @@
 
 Meteor.publish "content", -> Content.find()
 
+Content.allow
+  update: -> yes
+
 Meteor.startup ->
   Content.remove({})
   if Content.find().count() is 0
