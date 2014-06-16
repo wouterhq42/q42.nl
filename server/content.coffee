@@ -4,6 +4,13 @@ Meteor.publish "content", -> Content.find()
 Content.allow
   update: -> yes
 
+Meteor.methods
+  "updateContent": (id, field, value) ->
+    return unless @userId
+    changeObj = {}
+    changeObj[field] = value
+    Content.update id, $set: changeObj
+
 Meteor.startup ->
   Content.remove({})
   if Content.find().count() is 0

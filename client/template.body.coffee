@@ -16,23 +16,16 @@ Template.body.isPhantom = -> /phantom/i.test navigator.userAgent
 Template._project.project = ->
   project = Content.findOne()
 
-done = no
 Template.editable.events
   "input": (evt) ->
-    unless done
-      evt.preventDefault()
-      done = yes
-      return false
-
     $el = $(evt.target)
     return unless $el
 
     value = $el.html()
     field = $el.attr("data-field")
     id = $el.attr("data-id")
-    changeObj = {}
-    changeObj[field] = value
-    Content.update id, $set: changeObj
+
+    Meteor.call "updateContent", id, field, value
 
     return false
 
