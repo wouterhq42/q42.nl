@@ -35,7 +35,12 @@ $Template({
         $particle.css("boxShadow", "0 0 " + ~~(Math.random()*20) + "px " + color);
         $particle.css("padding", ~~(Math.random()*20) + "px");
         $particle.css("borderRadius", "50%");
-        $particle.css("-webkit-filter", "blur(" + between(10,25) + "px)");
+
+        var blur = "blur(" + between(10,25) + "px)";
+        $particle.css("-webkit-filter", blur);
+        $particle.css("-moz-filter", blur);
+        $particle.css("-ms-filter", blur);
+        $particle.css("filter", blur);
 
         var x = ~~((Math.random()*2-1) * $(window).width());
         var y = rp();
@@ -44,8 +49,11 @@ $Template({
         var ry = rr();
         var rz = rr();
 
-        $particle.css("-webkit-transform", "translateX(" + x + "px) translateY(" + y + "px) translateZ(" + z +
-          "px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) rotateZ(" + rz + "deg)");
+        var transform = "translateX(" + x + "px) translateY(" + y + "px) translateZ(" + z + "px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) rotateZ(" + rz + "deg)";
+        $particle.css("-webkit-transform", transform);
+        $particle.css("-moz-transform", transform);
+        $particle.css("-ms-transform", transform);
+        $particle.css("transform", transform);
         $("#particles").append($particle);
 
         var dx = between(40, 100);
