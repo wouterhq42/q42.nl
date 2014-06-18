@@ -65,47 +65,12 @@
       </div>
     </section>
 
-    {{> _project name="Staatsloterij" size="large"}}
+    {{> block id="staatsloterij" size="large"}}
 
     <section class="block-large">
-      <div class="block-small">
-        <div class="visual caption">
-          <img data-src="http://static.q42.nl/images/rijks.jpg" alt="Rijksmuseum" />
-          <p>"De beste website ooit," aldus Vasilis</p>
-        </div>
-        <div class="body">
-          <h2>Rijksmuseum.nl</h2>
-          <h3>High resolution art</h3>
-          <p>Responsive, tablet-first, fijne animaties: de nieuwe Rijksmuseum website. Een opvallend onderdeel van de site is Rijksstudio: jouw eigen verzameling, knutselplek en museumshop in één.</p>
-          <p><a href="http://rijksmuseum.nl">Bezoek het Rijksmuseum (.nl)</a></p>
-        </div>
-      </div>
-
-      <div class="block-small">
-        <div class="visual caption">
-          <img data-src="http://static.q42.nl/images/huesmall.jpg" alt="" />
-          <p>Lampen voor nerds.</p>
-        </div>
-        <div class="body">
-          <h2>Philips Hue</h2>
-          <h3>Bedien je lampen met je smartphone</h3>
-          <p>Samen met Philips de toekomst van lampen uitvinden als Internet of Things product, dat op Google App Engine laten draaien, en het vervolgens in de Apple Store verkopen. Dat is Hue.</p>
-          <p><a href="/blog/post/34827577445/trots-op-philips-hue">Lees verder</a></p>
-        </div>
-      </div>
-
-      <div class="block-small">
-        <div class="visual caption">
-          <img data-src="http://static.q42.nl/images/schooltas3.jpg" alt="" />
-          <p>Zaten we zelf nog maar op school. #jaloers</p>
-        </div>
-        <div class="body">
-          <h2>Schooltas</h2>
-          <h3>ThiemeMeulenhoff's iPad app</h3>
-          <p>600 gram is genoeg voor alle schoolboeken. Schooltas van ThiemeMeulenhoff is leerboek, werkboek en schrift in één waardoor leerlingen volledig via de iPad kunnen werken.</p>
-          <p><a href="http://schooltas.net" class="external">Meer over Schooltas</a></p>
-        </div>
-      </div>
+      {{> block id="rijksmuseum" size="small"}}
+      {{> block id="hue" size="small"}}
+      {{> block id="schooltas" size="small"}}
     </section>
 
     <section class="block-large intro-outro">
@@ -157,12 +122,12 @@
   </div>
 </template>
 
-<template name="_project">
-  {{#with project}}
+<template name="block">
+  {{#with block id}}
     <section class="block-{{../size}} block-no-padding-after">
       {{#if sizeEquals ../size "small"}}
       <div class="visual caption">
-        <img data-src="http://static.q42.nl/{{image}}" alt="">
+        <img src="http://static.q42.nl/{{image}}" alt="">
         <p>{{imageTitle}}</p>
       </div>
       {{/if}}
@@ -170,11 +135,11 @@
         <h2>{{> editable field="name" value=name}}</h2>
         <h3>{{> editable field="subtitle" value=subtitle}}</h3>
         {{> editable field="html" value=html}}
-        <p><a href="{{url}}" class="external">{{> editable field="linkTitle" value=linkTitle}}</a></p>
+        <p><a class="external">{{> editable field="linkTitle" value=linkTitle}}</a> ({{> editable field="url" value=url}})</p>
       </div>
       {{#if sizeEquals ../size "large"}}
       <div class="visual caption">
-        <img data-src="http://static.q42.nl/{{image}}" alt="">
+        <img src="http://static.q42.nl/{{image}}" alt="">
         <p>{{imageTitle}}</p>
       </div>
       {{/if}}
@@ -183,5 +148,9 @@
 </template>
 
 <template name="editable">
-  <div contenteditable data-field="{{field}}" data-id="{{../_id}}">{{{value}}}</div>
+  {{#if currentUser}}
+    <div contenteditable data-field="{{field}}" data-id="{{../_id}}">{{{value}}}</div>
+  {{else}}
+    {{{value}}}
+  {{/if}}
 </template>

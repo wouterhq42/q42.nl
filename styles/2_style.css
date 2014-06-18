@@ -73,6 +73,9 @@ textarea {
 a { color: #1D78B4; text-decoration: none; }
 a:hover { color: #1D78B4; text-decoration: underline; }
 
+div[contenteditable] {
+  display: inline-block;
+}
 
 
 

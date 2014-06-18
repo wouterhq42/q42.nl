@@ -13,8 +13,8 @@ Template.body.isPhantom = -> /phantom/i.test navigator.userAgent
 
 
 
-Template._project.project = ->
-  project = Content.findOne()
+Template.block.block = (id) -> Content.findOne(id: id, lang: Session.get("lang"))
+Template.block.sizeEquals = (size1, size2) -> size1 is size2
 
 Template.editable.events
   "input": (evt) ->
@@ -28,5 +28,3 @@ Template.editable.events
     Meteor.call "updateContent", id, field, value
 
     return false
-
-Template._project.sizeEquals = (size1, size2) -> size1 is size2
