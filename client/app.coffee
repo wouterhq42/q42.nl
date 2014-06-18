@@ -152,6 +152,10 @@ Router.map ->
 
       if template
         @render @params.page
+    waitOn: ->
+      [
+        SubsManager.subscribe "content"
+      ]
     data: ->
       # there should be a nicer way to do this...
       template = Template[@params.page]

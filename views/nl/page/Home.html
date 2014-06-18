@@ -79,44 +79,9 @@
     </section>
 
     <section class="block-large">
-      <div class="block-small">
-        <div class="visual caption">
-          <img data-src="http://static.q42.nl/images/w00tcamp/oculus.jpg" alt=""/>
-          <p>Oculus Unrift</p>
-        </div>
-        <div class="body">
-          <h2>w00tcamp</h2>
-          <h3>Een heel weekend lekker lang nerden</h3>
-          <p>Ieder jaar komt iedereen bij Q42 bij elkaar om twee dagen lang aan een hackathon competitie mee te doen die w00tcamp heet. Dit jaar hebben we het weer gedaan in November.</p>
-          <p><a href="/w00tcamp">Bekijk de resultaten!</a></p>
-        </div>
-      </div>
-
-      <div class="block-small">
-        <div class="visual caption">
-          <img data-src="http://static.q42.nl/images/gamessmall.jpg" alt="" />
-          <p>Spelen en maken. Digitaal en analoog.</p>
-        </div>
-        <div class="body">
-          <h2>Games</h2>
-          <h3>Digitaal en analoog</h3>
-          <p>Peter Pan blijft altijd jong. Q-ers eigenlijk ook. Games spelen zit in ons bloed en dus maken we ook graag onze eigen spellen. Een soort pleziertherapie.</p>
-          <p><a href="/games">Check al onze games.</a></p>
-        </div>
-      </div>
-
-      <div class="block-small">
-        <div class="visual caption">
-          <img data-src="http://static.q42.nl/images/handcraft-small.jpg" alt="Handcraft" />
-          <p>Prototyping met HTML is beter dan zonder.</p>
-        </div>
-        <div class="body">
-          <h2>Handcraft</h2>
-          <h3>HTML prototyping</h3>
-          <p>Met Handcraft maak je in de browser prototypes door gewoon code te schrijven. Onbeperkte file uploads, makkelijk je werk delen, en een supergelikte interface.</p>
-          <p><a href="http://handcraft.com" class="external">Probeer Handcraft gratis</a></p>
-        </div>
-      </div>
+      {{> block id="w00tcamp" size="small"}}
+      {{> block id="games" size="small"}}
+      {{> block id="handcraft" size="small"}}
     </section>
 
   </div>
@@ -124,7 +89,7 @@
 
 <template name="block">
   {{#with block id}}
-    <section class="block-{{../size}} block-no-padding-after">
+    <section class="block-{{../size}} {{../position}}">
       {{#if sizeEquals ../size "small"}}
       <div class="visual caption">
         <img src="http://static.q42.nl/{{image}}" alt="">
@@ -134,8 +99,12 @@
       <div class="body">
         <h2>{{> editable field="name" value=name}}</h2>
         <h3>{{> editable field="subtitle" value=subtitle}}</h3>
-        {{> editable field="html" value=html}}
-        <p><a class="external">{{> editable field="linkTitle" value=linkTitle}}</a> ({{> editable field="url" value=url}})</p>
+        {{#if sizeEquals ../size "large"}}
+          {{> editable field="body" value=body}}
+        {{else}}
+          {{> editable field="intro" value=intro}}
+        {{/if}}
+        <p><a class="external">{{> editable field="linkTitle" value=linkTitle}}</a> {{> editable field="url" value=url}}</p>
       </div>
       {{#if sizeEquals ../size "large"}}
       <div class="visual caption">
@@ -144,6 +113,12 @@
       </div>
       {{/if}}
     </section>
+  {{/with}}
+</template>
+
+<template name="content">
+  {{#with content id}}
+    {{> editable field="body" value=body}}
   {{/with}}
 </template>
 

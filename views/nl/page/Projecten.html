@@ -8,7 +8,7 @@
     <section>
       <div class="block-large">
         <div class="intro">
-          <p>Wij houden erg van samen mooie internetdingen maken. Om verschillende redenen. Omdat we van internetdingen houden, of het nou webapplicaties of mobiele apps zijn. Omdat we graag uitgedaagd worden en de grenzen opzoeken van wat technisch mogelijk is. Omdat we enthousiast worden van opdrachtgevers met passie voor hun vak. Omdat we het geweldig vinden om gebruikers blij te maken met mooi spul dat niet alleen nuttig, maar ook vriendelijk is. En omdat we zo trots zijn op alle mooie dingen die we al gebouwd hebben.</p>
+          {{> content id="projects-intro"}}
         </div>
         <aside class="block-small subcontent">
           <h2>Zie ook</h2>
@@ -20,55 +20,9 @@
       </div>
     </section>
 
-    <section>
-      <div class="block-large right">
-        <div class="body">
-          <h2>Staatsloterij</h2>
-          <h3>De nieuwe website</h3>
-          <p>Op de nieuwe Staatsloterij website kun je nu vrijwel alle producten online kopen. Daarnaast heeft de Staatsloterij de mogelijkheid om flexibel in te spelen op nieuwe ontwikkelingen, campagnes en trekkingen.</p>
-          <p>We ontwikkelden de nieuwe site in samenwerking met Fabrique en het Digital team van de Staatsloterij.</p>
-          <p>De site is tablet first ontwikkeld, maar werkt door het responsive design ook perfect op hele grote schermen en alle gangbare smartphones.</p>
-          <p><a href="http://www.staatsloterij.nl" class="external">Waag eens een gokje</a></p>
-        </div>
-        <div class="visual caption">
-          <img src="http://static.q42.nl/images/projecten/staatsloterij.jpg" alt=""/>
-          <p>Jackpot!</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="block-large">
-        <div class="body">
-          <h2>Philips Hue</h2>
-          <h3>Lampen voor nerds</h3>
-          <p>Philips had een cunning plan: Iets met gekleurde lampen, iPhone apps, prototyping, een portal plus campagnesite en of wij met ze op avontuur wilden gaan.</p>
-          <p>Hoe zeg je nee tegen zo'n voorstel?</p>
-          <p>Onze derde samenwerking met Philips werd een van de meest fantastische projecten die een club techneuten zich wensen kan. We bouwden de eerste prototypes tegen een emulator, waarna de portal en de promotiesite volgden in Google App Engine. En nu liggen de lampen in Apple Stores!</p>
-          <p><a href="http://meethue.com" class="external">Lees meer over Hue</a></p>
-        </div>
-        <div class="visual caption">
-          <img src="http://static.q42.nl/images/hue-Starter-Pack.jpg" alt=""/>
-          <p>Hue-hoo!</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="block-large right">
-        <div class="body">
-          <h2>Rijksmuseum</h2>
-          <h3>Anno 2012</h3>
-          <p>In 2004 hebben wij samen met Fabrique een prijswinnende website voor het Rijks neergezet. Deze was inmiddels echter wel toe aan een verbouwing.</p>
-          <p>De nieuwe Rijksmuseum website is lekker modern: responsive, tablet-first, fijne animaties. Een opvallend onderdeel van de site is Rijksstudio: jouw eigen verzameling, knutselplek en museumshop in één. Met de 125.000 beschikbare kunstwerken in hoge resolutie hoef je je voorlopig niet te vervelen!</p>
-          <p><a href="http://www.rijksmuseum.nl" class="external">Bezoek het Rijksmuseum (.nl)</a></p>
-        </div>
-        <div class="visual caption">
-          <img src="http://static.q42.nl/images/rijks.jpg?w=600" alt=""/>
-          <p>Ook de site is echte kunst.</p>
-        </div>
-      </div>
-    </section>
+    {{> block id="staatsloterij" size="large" position="right"}}
+    {{> block id="hue" size="large"}}
+    {{> block id="rijksmuseum" size="large" position="right"}}
 
     <section>
       <div class="block-large">
