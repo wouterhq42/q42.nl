@@ -97,14 +97,36 @@
       </div>
       {{/if}}
       <div class="body">
-        <h2>{{> editable field="name" value=name}}</h2>
+        <h2>
+          {{#if ../titleOnly}}
+            {{#if currentUser}}
+              <a>{{> editable field="name" value=name}}</a>
+              {{> editable field="url" value=url}}
+            {{else}}
+              <a href="{{url}}" class="external">
+                {{> editable field="name" value=name}}
+              </a>
+            {{/if}}
+          {{else}}
+            {{> editable field="name" value=name}}
+          {{/if}}
+        </h2>
         <h3>{{> editable field="subtitle" value=subtitle}}</h3>
-        {{#if sizeEquals ../size "large"}}
-          {{> editable field="body" value=body}}
-        {{else}}
-          {{> editable field="intro" value=intro}}
-        {{/if}}
-        <p><a class="external">{{> editable field="linkTitle" value=linkTitle}}</a> {{> editable field="url" value=url}}</p>
+        {{#unless ../titleOnly}}
+          {{#if sizeEquals ../size "large"}}
+            {{> editable field="body" value=body}}
+          {{else}}
+            {{> editable field="intro" value=intro}}
+          {{/if}}
+          <p>
+            {{#if currentUser}}
+              <a>{{> editable field="linkTitle" value=linkTitle}}</a>
+              {{> editable field="url" value=url}}
+            {{else}}
+            <a href="{{url}}" class="external">{{> editable field="linkTitle" value=linkTitle}}</a>
+            {{/if}}
+          </p>
+        {{/unless}}
       </div>
       {{#if sizeEquals ../size "large"}}
       <div class="visual caption">
