@@ -28,10 +28,10 @@ attachFacebook = ->
   scrollHandler = ->
     if $(document).height() - $(window).scrollTop() < 1200
       $("#facebookLikeBox").append('<div class="fb-like-box" data-href="https://www.facebook.com/q42bv" data-width="300" data-height="400" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>')
-      FB.init appId: '535367106516027', xfbml: true
+      FB.init appId: '535367106516027', xfbml: true, version: 'v2.0'
       $(window).unbind "scroll", scrollHandler
       Meteor.setTimeout (-> $("#facebookLikeBox").addClass "visible"), 1500
-  $.getScript '//connect.facebook.net/nl_NL/all.js', ->
+  $.getScript '//connect.facebook.net/en_US/sdk.js', ->
     unless initCalled
       $(window).bind "scroll", scrollHandler
     else

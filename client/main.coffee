@@ -12,9 +12,9 @@ Meteor.startup ->
 
   setupLights()
 
-  Meteor.subscribe "allUserData"
-  Meteor.subscribe "lights"
-  Meteor.subscribe "coffeeCounter"
+  SubsManager.subscribe "allUserData"
+  SubsManager.subscribe "lights"
+  SubsManager.subscribe "coffeeCounter"
 
   $.ajaxSetup cache: yes
 

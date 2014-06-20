@@ -303,9 +303,11 @@
     </span>
     <img class="bw" src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
     <div class="polaroid">
-      <video src="http://static.q42.nl/video/employees/{{handle}}.webm" autoplay loop poster="http://static.q42.nl/images/employees/{{avatar_static}}">
+      {{#if supportsWebm}}
+        <video src="http://static.q42.nl/video/employees/{{handle}}.webm" autoplay loop poster="http://static.q42.nl/images/employees/{{avatar_static}}"></video>
+      {{else}}
         <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
-      </video>
+      {{/if}}
       <h3>{{name}}</h3>
       <p class="contactData">
         <span class="email">

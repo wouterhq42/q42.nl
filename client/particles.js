@@ -25,7 +25,7 @@ $Template({
 
         $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" ease-in-out infinite alternate");
 
-        var dim = ~~(Math.random() * 5);
+        var dim = ~~(Math.random() * 150);
         $particle.css("width", dim + "px");
         $particle.css("height", dim + "px");
 
@@ -34,27 +34,34 @@ $Template({
 
         $particle.css("boxShadow", "0 0 " + ~~(Math.random()*20) + "px " + color);
         $particle.css("padding", ~~(Math.random()*20) + "px");
-        $particle.css("borderRadius", between(10, 20) + "px");
+        $particle.css("borderRadius", "50%");
+
+        var blur = "blur(" + between(10,25) + "px)";
+        $particle.css("-webkit-filter", blur);
+        $particle.css("-moz-filter", blur);
+        $particle.css("-ms-filter", blur);
+        $particle.css("filter", blur);
 
         var x = ~~((Math.random()*2-1) * $(window).width());
         var y = rp();
         var z = -rp();
-        var rx = rr();
-        var ry = rr();
-        var rz = rr();
 
-        $particle.css("-webkit-transform", "translateX(" + x + "px) translateY(" + y + "px) translateZ(" + z +
-          "px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) rotateZ(" + rz + "deg)");
+        var transform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
+        $particle.css("-webkit-transform", transform);
+        $particle.css("-moz-transform", transform);
+        $particle.css("-ms-transform", transform);
+        $particle.css("transform", transform);
         $("#particles").append($particle);
 
-        var dx = between(40, 100);
+        var dx = between(200, 500);
         dx = Math.random() < 0.5 ? dx : -dx;
+        var dy = between(200, 500);
+        dy = Math.random() < 0.5 ? dy : -dy;
+        var dz = between(200, 500);
+        dz = Math.random() < 0.5 ? dz : -dz;
 
-        var rdx = between(5, 20);
-        rdx = Math.random() < 0.5 ? rdx : -rdx;
-
-        var from = "-webkit-transform: translate3d("+x+"px, "+y+"px, "+z+"px) rotateX("+rx+"deg) rotateY("+ry+"deg) rotateZ("+rz+"deg) scale(1); opacity: 1;";
-        var to = "-webkit-transform: translate3d("+(x+dx)+"px, "+(y+dx)+"px, "+(z+dx)+"px) rotateX("+(rx+rdx)+"deg) rotateY("+(ry+rdx)+"deg) rotateZ("+(rz+rdx)+"deg) scale(1); opacity: 0";
+        var from = "-webkit-transform: translate3d("+x+"px, "+y+"px, "+z+"px) scale(1); opacity: 1;";
+        var to = "-webkit-transform: translate3d("+(x+dx)+"px, "+(y+dy)+"px, "+(z+dz)+"px) scale(1); opacity: 0";
         var wka = "\n@-webkit-keyframes float-particle"+i+" { from {" + from + "} to {" + to + "} }";
 
         $style.html($style.html() + wka);

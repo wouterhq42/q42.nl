@@ -65,7 +65,8 @@ $Template({
   },
   postDate: {
     prettyDate: function() {
-      return moment(new Date(this.date)).format('dddd D MMMM YYYY')
+      var date = this.date.replace(" GMT", "").split(" ").join("T") + "Z";
+      return moment(new Date(date)).format('dddd D MMMM YYYY')
     }
   },
   otherPosts: {
