@@ -16,7 +16,7 @@ $Template({
       }
 
       function generateparticle(i) {
-        var $particle = $("<div/>")
+        var $particle = $("<div/>");
         $particle.addClass("particle");
         $particle.attr("id", "particle" + i);
 
@@ -31,16 +31,6 @@ $Template({
 
         var color = rc(0, .8);
         $particle.css("backgroundColor", color);
-
-        $particle.css("boxShadow", "0 0 " + ~~(Math.random()*20) + "px " + color);
-        $particle.css("padding", ~~(Math.random()*20) + "px");
-        $particle.css("borderRadius", "50%");
-
-        var blur = "blur(" + between(10,25) + "px)";
-        $particle.css("-webkit-filter", blur);
-        $particle.css("-moz-filter", blur);
-        $particle.css("-ms-filter", blur);
-        $particle.css("filter", blur);
 
         var x = ~~((Math.random()*2-1) * $(window).width());
         var y = rp();
@@ -60,8 +50,8 @@ $Template({
         var dz = between(200, 500);
         dz = Math.random() < 0.5 ? dz : -dz;
 
-        var from = "-webkit-transform: translate3d("+x+"px, "+y+"px, "+z+"px) scale(1); opacity: 1;";
-        var to = "-webkit-transform: translate3d("+(x+dx)+"px, "+(y+dy)+"px, "+(z+dz)+"px) scale(1); opacity: 0";
+        var from = "-webkit-transform: translate3d("+x+"px, "+y+"px, "+z+"px); opacity: 1;";
+        var to = "-webkit-transform: translate3d("+(x+dx)+"px, "+(y+dy)+"px, "+(z+dz)+"px); opacity: 0";
         var wka = "\n@-webkit-keyframes float-particle"+i+" { from {" + from + "} to {" + to + "} }";
 
         $style.html($style.html() + wka);
@@ -71,7 +61,7 @@ $Template({
       $style.attr('type', 'text/css');
       $style.html("");
 
-      var numparticles = 100;
+      var numparticles = 42;
       generateparticles(numparticles);
 
     }

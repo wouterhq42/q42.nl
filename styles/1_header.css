@@ -26,9 +26,14 @@
   overflow: hidden;
   pointer-events: none;
   opacity: .25;
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
 }
 .particle {
   position: absolute;
+  border-radius: 50%;
 }
 
 nav .pos {
