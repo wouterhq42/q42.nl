@@ -401,6 +401,7 @@ a.caption,
   -moz-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
   transition: all .2s ease-out;
+  width: 100%;
 }
 
 /* Icon boxes */
