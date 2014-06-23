@@ -67,7 +67,7 @@
 
 @media all and (max-width: 620px) {
 
-  .block-large { padding: 40px 0; }
+  .block-large { padding: 20px 0; }
 
   .block-text h1 { font-size: 37px; }
 
@@ -107,7 +107,7 @@
   .block-with-icons:nth-of-type(3) { padding-bottom: 0px; }
 
   p:first-child { margin-top: 1.5em; }
-  p:last-child { margin-bottom: 1.5em; }
+  .block-small p:last-child { margin-bottom: 1.5em; }
   .block-small:nth-of-type(3), #footer .block-small:nth-of-type(3) {
     padding-top: 0;
   }
@@ -119,20 +119,22 @@
     margin-right: 0px;
   }
 
-  #colleagues ol li {
+  .qer {
     float: none;
     width: 100%;
     height: 60px;
     margin: 0 0 6px 0;
     padding-bottom: 65px;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #ccc;
   }
 
-  #colleagues ol li > img {
+  .qer img {
     width: 60px;
     height: 60px;
+    position: absolute;
+    top: 0; left: 0;
   }
-  #colleagues ol li > .name {
+  .qer .name {
     margin-left: 70px;
     color: #000;
     text-shadow: none;
@@ -142,11 +144,7 @@
     position: relative;
   }
 
-  #colleagues ol li > .contactData {
-    display: block;
-  }
-
-  #colleagues ol li .contactData {
+  .qer .contactData {
     position: relative;
     display: block;
     margin: 0px 0 0 79px;
@@ -160,9 +158,9 @@
 
   .subcontent {
     width: 100%;
-    border-top: solid #CCC 1px;
-    margin: 40px 0px 0px;
-    padding: 40px 0px 0px;
+    border-top: none;
+    margin: 0;
+    padding: 0;
   }
 
   .subcontent h2 {
