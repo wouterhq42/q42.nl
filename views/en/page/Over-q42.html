@@ -282,6 +282,11 @@
 
 <template name="en_employees">
   {{#each employee}}
+    {{> en_employee}}
+  {{/each}}
+</template>
+
+<template name="en_employee">
   <li class="qer">
   <span class="name">{{firstname}}</span>
     <span class="contactData">
@@ -312,6 +317,4 @@
       </p>
     </div>
   </li>
-
-  {{/each}}
 </template>

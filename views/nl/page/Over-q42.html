@@ -293,6 +293,13 @@
 
 <template name="employees">
   {{#each employee}}
+    {{> employee}}
+  {{else}}
+  <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
+  {{/each}}
+</template>
+
+<template name="employee">
   <li class="qer">
     <span class="name">{{firstname}}</span>
     <span class="contactData">
@@ -323,9 +330,6 @@
       </p>
     </div>
   </li>
-  {{else}}
-  <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
-  {{/each}}
 </template>
 
 <template name="filter_employees">
