@@ -258,6 +258,7 @@
   }
 
   #header, #particles { height: 110px;}
+  #particles { display: none; }
   #header li:last-child { margin: 0; }
   #logo img, #logo object { height: 80px;}
 
