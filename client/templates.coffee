@@ -68,3 +68,6 @@ $Template
       )()
 
       return counter
+
+  io:
+    employee: -> Employees.find {handle: $in: "kars stef taco lukas guus".split(" ")}, sort: handle: 1
