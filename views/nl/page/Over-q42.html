@@ -130,7 +130,7 @@
       <div class="block-large">
         <div class="intro">
           <h2>Hallo, wij zijn de Q'ers</h2>
-          <ol>
+          <ol class="qers">
            	{{> employees }}
           </ol>
         </div>
@@ -293,7 +293,7 @@
 
 <template name="employees">
   {{#each employee}}
-  <li>
+  <li class="qer">
     <span class="name">{{firstname}}</span>
     <span class="contactData">
       <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>

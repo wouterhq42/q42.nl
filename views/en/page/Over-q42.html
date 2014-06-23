@@ -131,7 +131,7 @@
         <div class="body">
           <h2>Hello, we're the Q'ers</h2>
           <h3>Nice to meet you.</h3>
-          <ol>
+          <ol class="qers">
            	{{> en_employees }}
           </ol>
         </div>
@@ -282,7 +282,7 @@
 
 <template name="en_employees">
   {{#each employee}}
-  <li>
+  <li class="qer">
   <span class="name">{{firstname}}</span>
     <span class="contactData">
       <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
