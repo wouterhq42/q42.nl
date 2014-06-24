@@ -305,6 +305,7 @@ section h2,
 .block-small h2 {
   font-size: 25px;
   padding-top: 20px;
+  margin: 0;
 }
 .block-small h2 a { color: black;}
 .block-small h3 {
