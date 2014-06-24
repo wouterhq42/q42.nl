@@ -33,7 +33,7 @@ $Template({
         return Employees.find({}, {sort: {name: 1}});
     }
   },
-  employee: {
+  _employee: {
     firstname: function() {
       if (!this.name)
         return "droid";
