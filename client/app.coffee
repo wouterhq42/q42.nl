@@ -140,11 +140,9 @@ Router.map ->
     path: "/:page"
     onBeforeAction: -> Session.set "page", @params.page
     action: ->
-      template = Template[@params.page]
       if Session.equals("lang", "en") and Template["en_" + @params.page]
         return @render "en_" + @params.page
-
-      if template
+      else if Template[@params.page]
         @render @params.page
       else
         Spiderable.httpStatusCode = 404
