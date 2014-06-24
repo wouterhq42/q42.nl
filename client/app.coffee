@@ -141,7 +141,6 @@ Router.map ->
     onBeforeAction: -> Session.set "page", @params.page
     action: ->
       template = Template[@params.page]
-      console.log "found template", @params.page, template
       if Session.equals("lang", "en") and Template["en_" + @params.page]
         return @render "en_" + @params.page
 
