@@ -123,6 +123,7 @@
     float: none;
     width: 100%;
     height: auto;
+    padding-left: 70px;
   }
 
   .qer img {
@@ -132,10 +133,9 @@
     top: 0; left: 0;
   }
   .qer .name {
-    margin-left: 70px;
     color: #000;
     text-shadow: none;
-    top: 0px;
+    top: 0; left: 0;
     background: none;
     font: 25px 'Permanent Marker', cursive;
     position: relative;
@@ -144,7 +144,6 @@
   .qer .contactData {
     position: relative;
     display: block;
-    margin: 0px 0 0 79px;
     font-size: 12px;
   }
 
@@ -308,6 +307,11 @@
   .intro-outro li { float: none; margin-bottom: 1em;}
 
   #colleagues .intro + aside { display: none; }
+
+  .qer {
+    padding-left: 86px;
+  }
+  .qer img { left: 16px;}
 
 }
 /* end 480 */
