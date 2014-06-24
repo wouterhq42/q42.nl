@@ -89,7 +89,7 @@ _.each currentQers, (e) ->
 
 # Projecten
 # addLabel "Rijksmuseum",                   "remco jasper jaap elaine jasperh"
-# addLabel "9292",                          "tom mark timd katja korjan johan michiel christiaan sander martijn arian guus"
+# addLabel "9292",                          "tom mark timd katja korjan johan michiel christiaan sander arian guus"
 # addLabel "Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob sjoerd wilbert"
 # addLabel "Schooltas",                     "kars martin tims benjamin marcel sander"
 # addLabel "Philips Hue",                   "christiaan lukas korjan roelfjan johan arian timl"
@@ -123,10 +123,10 @@ addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasp
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
 # Arbitraire selecties
-addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard martijn coen"
-addLabel "Weet wat Spiffy is",            "bob tim martin remco martijn lukas" # LOL!
+addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen"
+addLabel "Weet wat Spiffy is",            "bob tim martin remco lukas" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan"
-addLabel "Heeft een baard",               "rahul richard martijn arian coen christiaan kamil jasperh"
+addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel"
@@ -136,7 +136,7 @@ addLabel "Gaat binnenkort naar Microsoft", "michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
 addLabel "Heeft bij Fabrique gewerkt",    "sander"
 addLabel "Verdient minder dan Jasper",    _.without allHandles, "jasper"
-addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian"
+addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian guus stef lukas taco"
 addLabel "WWDC kaartje kwijtgeraakt",     "tims"
 addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob lukas"
 addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mark"
