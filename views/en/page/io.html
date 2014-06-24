@@ -1,0 +1,30 @@
+<template name="en_io">
+	<div class="container">
+
+    <header class="block-text">
+      <h1>Q42 at Google I/O 2014</h1>
+    </header>
+
+    <section class="block-large">
+      <div class="intro">
+        <p>Q42 is at Google I/O! We're in the <a href="https://www.google.com/events/io/sandbox">Sandbox</a> together with Philips to demo our work on the <a href="http://meethue.com">Philips Hue</a> smart lightbulbs. Stop by for a chat if you're at the conference!</p>
+        <ol class="qers">
+        	{{#each employee}}
+        		{{> en_employee}}
+        	{{/each}}
+        </ol>
+      </div>
+      <aside class="block-small subcontent">
+        <h2>See also</h2>
+        <ul>
+          <li><a href="http://twitter.com/q42">Follow Q42 on Twitter</a></li>
+          <li><a href="http://facebook.com/q42bv">Like Q42 on Facebook</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="block-large">
+      <iframe allowTransparency="true" src="https://www.google.com/events/io/gadget/iframe.html?feed=true&fh=300&video=true&w=420&h=301" style="width:100%;height:760px"></iframe>
+    </section>
+   </div>
+</template>

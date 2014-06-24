@@ -264,23 +264,10 @@ section h2,
   margin: 0 20px 0 0;
   float: left;
 }
-.block-large > div.visual {
-  -webkit-transform: rotateY(10deg);
-  -moz-transform: rotateY(10deg);
-  -ms-transform: rotateY(10deg);
-  transform: rotateY(10deg);
-}
 
 .block-large.right .visual {
   margin: 0 0 0 20px;
   float: right;
-}
-
-.block-large.right > div.visual {
-  -webkit-transform: rotateY(-10deg);
-  -moz-transform: rotateY(-10deg);
-  -ms-transform: rotateY(-10deg);
-  transform: rotateY(-10deg);
 }
 
 .block-large .body {
@@ -316,9 +303,9 @@ section h2,
   overflow: hidden;
 }
 .block-small h2 {
-  font: normal 25px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 20px 0 0 0;
-  letter-spacing: -1px;
+  font-size: 25px;
+  padding-top: 20px;
+  margin: 0;
 }
 .block-small h2 a { color: black;}
 .block-small h3 {

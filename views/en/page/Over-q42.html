@@ -13,9 +13,9 @@
         <aside class="block-small subcontent">
           <h2>See also</h2>
           <ul>
-            <li><a href="/interaction-engineering">Interaction engineering</a> (Dutch)</li>
-            <li><a href="/gereedschapskist">Our toolbox</a> (Dutch)</li>
-            <li><a href="/systeembeheersysteem">Our system management system</a> (Dutch)</li>
+            <li><a href="http://q42.nl/interaction-engineering">Interaction engineering</a> (Dutch)</li>
+            <li><a href="http://q42.nl/gereedschapskist">Our toolbox</a> (Dutch)</li>
+            <li><a href="http://q42.nl/systeembeheersysteem">Our system management system</a> (Dutch)</li>
           </ul>
         </aside>
       </div>
@@ -131,7 +131,7 @@
         <div class="body">
           <h2>Hello, we're the Q'ers</h2>
           <h3>Nice to meet you.</h3>
-          <ol>
+          <ol class="qers">
            	{{> en_employees }}
           </ol>
         </div>
@@ -282,7 +282,12 @@
 
 <template name="en_employees">
   {{#each employee}}
-  <li>
+    {{> en_employee}}
+  {{/each}}
+</template>
+
+<template name="en_employee">
+  <li class="qer">
   <span class="name">{{firstname}}</span>
     <span class="contactData">
       <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
@@ -308,9 +313,8 @@
         {{#if web}}
         <span class="website"><a href="{{web}}">website</a></span>
         {{/if}}
+        <div class="closePolaroid"></div>
       </p>
     </div>
   </li>
-
-  {{/each}}
 </template>
