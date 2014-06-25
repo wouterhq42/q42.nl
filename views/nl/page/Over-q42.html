@@ -293,13 +293,13 @@
 
 <template name="employees">
   {{#each employee}}
-    {{> employee}}
+    {{> _employee}}
   {{else}}
   <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
   {{/each}}
 </template>
 
-<template name="employee">
+<template name="_employee">
   <li class="qer">
     <span class="name">{{firstname}}</span>
     <span class="contactData">

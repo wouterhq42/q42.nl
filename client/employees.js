@@ -33,7 +33,7 @@ $Template({
         return Employees.find({}, {sort: {name: 1}});
     }
   },
-  employee: {
+  _employee: {
     firstname: function() {
       if (!this.name)
         return "droid";
@@ -116,7 +116,7 @@ function hidePolaroid(el) {
 }
 
 $Template({
-  employee: {
+  _employee: {
     events: {
       "mouseenter li": function(evt) {
         showPolaroid(evt.target);
