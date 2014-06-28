@@ -17,14 +17,7 @@ Router.map ->
     action: ->
       console.log "Route: redirectAdventures"
       @response.writeHead HTTP_REDIRECT_TEMPORARY, Location: "http://adventures.handcraft.com"
-
-  @route "redirectVacatures",
-    where: "server"
-    path: "/vacatures"
-    action: ->
-      console.log "Route: redirectVacatures"
-      @response.writeHead HTTP_REDIRECT_TEMPORARY, Location: "http://q42.nl/blog/tagged/vacature"
-
+      
   # Redirect ancient color blindness simulator links to our more recent SEE extension
   @route "colorBlindnessSimulator",
     where: "server"

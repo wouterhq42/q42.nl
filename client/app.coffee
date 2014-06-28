@@ -136,6 +136,59 @@ Router.map ->
         oneComment:     BlogComments.find().count() is 1
       }
 
+  @route "vacatures",
+    path: "/vacatures"
+    action: ->
+      if @ready()
+        @render getTemplate("vacatures")
+      else
+        @render "loading"
+    onBeforeAction: -> Session.set "page", "vacatures"
+    onAfterAction: -> Meteor.call "checkTumblr"
+    waitOn: ->
+      [
+        Meteor.subscribe "pagesByTag", "vacature"
+        SubsManager.subscribe "blogpostIndex", 1, "vacature"
+        SubsManager.subscribe "LatestComments", 10
+      ]
+    data: ->
+      posts = blogpostIndex.find {}, sort: date: -1
+      return null unless posts.count() > 0
+      return {
+        post:       posts
+        pagination: getPagination 1
+        tag:        "vacature"
+      }
+
+  @route "io",
+    path: "/io"
+    action: ->
+      if Session.equals("lang", "nl")
+        Spiderable.httpStatusCode = 404
+        @render "error404"
+        return
+
+      if @ready()
+        @render getTemplate("io")
+      else
+        @render "loading"
+    onBeforeAction: -> Session.set "page", "io"
+    onAfterAction: -> Meteor.call "checkTumblr"
+    waitOn: ->
+      [
+        Meteor.subscribe "pagesByTag", "io"
+        SubsManager.subscribe "blogpostIndex", 1, "io"
+        SubsManager.subscribe "LatestComments", 10
+      ]
+    data: ->
+      posts = blogpostIndex.find {}, sort: date: -1
+      return null unless posts.count() > 0
+      return {
+        post:       posts
+        pagination: getPagination 1
+        tag:        "io"
+      }
+
   @route "page",
     path: "/:page"
     onBeforeAction: -> Session.set "page", @params.page
