@@ -1,0 +1,39 @@
+<template name="vacatures">
+	<div class="container blog">
+
+    <header class="block-text">
+      <h1>Vacatures</h1>
+    </header>
+
+		<section>
+      <div class="block-large">
+        <div class="intro">
+          <p>We zijn altijd op zoek naar knappe koppen van elk pluimage. Of je nu front-ender, back-ender,
+          	interaction engineer of gewoon overal van bent, je bent altijd van harte welkom om een mailtje te sturen!</p>
+          <p>Bekijk hieronder onze huidige vacatures. Is de lijst leeg? Never fear, bookmark deze pagina gewoon, want over een poosje hebben we vast wel weer iemand nodig!</p>
+        </div>
+        <aside class="block-small subcontent">
+          <h2>Zie ook</h2>
+          <ul>
+          	<li><a href="/over-q42">Over Q42</a></li>
+            <li><a href="/interaction-engineering">Interaction engineering</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div id="blog-posts">
+    {{#each post}}
+      <div class="block-large">
+	      <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
+	      {{> en_postDate}}
+	      {{{intro}}}
+	      <p class="block-readmore">
+	        <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
+	      </p>
+	    </div>
+    {{/each}}
+  	</div>
+
+	</div>
+</template>
