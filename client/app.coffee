@@ -160,6 +160,30 @@ Router.map ->
         tag:        "vacature"
       }
 
+  @route "io",
+    path: "/io"
+    action: ->
+      if @ready()
+        @render getTemplate("en_io")
+      else
+        @render "loading"
+    onBeforeAction: -> Session.set "page", "io"
+    onAfterAction: -> Meteor.call "checkTumblr"
+    waitOn: ->
+      [
+        Meteor.subscribe "pagesByTag", "io"
+        SubsManager.subscribe "blogpostIndex", 1, "io"
+        SubsManager.subscribe "LatestComments", 10
+      ]
+    data: ->
+      posts = blogpostIndex.find {}, sort: date: -1
+      return null unless posts.count() > 0
+      return {
+        post:       posts
+        pagination: getPagination 1
+        tag:        "io"
+      }
+
   @route "page",
     path: "/:page"
     onBeforeAction: -> Session.set "page", @params.page
