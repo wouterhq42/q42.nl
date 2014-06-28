@@ -1,5 +1,5 @@
 <template name="en_io">
-	<div class="container">
+	<div class="container blog">
 
     <header class="block-text">
       <h1>Q42 at Google I/O 2014</h1>
@@ -23,8 +23,18 @@
       </aside>
     </section>
 
-    <section class="block-large">
-      <iframe allowTransparency="true" src="https://www.google.com/events/io/gadget/iframe.html?feed=true&fh=300&video=true&w=420&h=301" style="width:100%;height:760px"></iframe>
-    </section>
+    <div id="blog-posts">
+    {{#each post}}
+      <div class="block-large">
+        <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
+        {{> en_postDate}}
+        {{{intro}}}
+        <p class="block-readmore">
+          <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
+        </p>
+      </div>
+    {{/each}}
+    </div>
+    
    </div>
 </template>
