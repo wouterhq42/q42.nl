@@ -163,8 +163,13 @@ Router.map ->
   @route "io",
     path: "/io"
     action: ->
+      if Session.equals("lang", "nl")
+        Spiderable.httpStatusCode = 404
+        @render "error404"
+        return
+
       if @ready()
-        @render getTemplate("en_io")
+        @render getTemplate("io")
       else
         @render "loading"
     onBeforeAction: -> Session.set "page", "io"
