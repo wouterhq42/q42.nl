@@ -1,7 +1,7 @@
 Meteor.startup ->
   $(window).resize _.debounce(resizeFBwidget, 300)
 
-  lang = if window.location.hostname is "q42.nl" then "nl" else "en"
+  lang = if window.location.hostname is "q42.com" then "en" else "nl"
   Session.setDefault "lang", lang
   moment.lang lang
 
@@ -32,7 +32,7 @@ setupLights = ->
 
   Deps.autorun ->
     turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
-    $(document.body).toggleClass "lights-off", turnOnLights
+    # $(document.body).toggleClass "lights-off", turnOnLights
 
 UI.body.events
   "click body": -> $("body").removeClass "show-mobile-menu"
