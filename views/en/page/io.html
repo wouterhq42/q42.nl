@@ -7,18 +7,31 @@
 
     <section class="block-large">
       <div class="intro">
-        <p>Q42 is at Google I/O! We're in the <a href="https://www.google.com/events/io/sandbox">Sandbox</a> together with Philips to demo our work on the <a href="http://meethue.com">Philips Hue</a> smart lightbulbs. Stop by for a chat if you're at the conference!</p>
-        <ol class="qers">
-        	{{#each employee}}
-        		{{> en_employee}}
-        	{{/each}}
-        </ol>
+        <a class="visual caption">
+          <img src="/images/wear.png" />
+          <p>The world's first home automation app for Android wear</p>
+        </a>
+
+        <p>Q42 was at <a href="https://www.google.com/events/io">Google I/O</a>, Google's annual developer conference in San Francisco on June 25th and 26th.
+        We were part of the <a href="https://www.google.com/events/io/sandbox">sandbox</a> together with our friends from Philips, to answer developer questions about Hue, connected devices and the Internet of Things.</p>
+
+        <p>The result: we had a ton of visitors, Larry Page loved our booth, and we launched one of the very first Android Wear apps, which got featured at the main Android Wear presentation. We met a gazillion awesome fellow nerds and other inspiring people, learned cutting edge stuff at sessions and workshops, got interviewed, and had a lot of fun.</p>
+
+        <p>Read more:</p>
+        <ul>
+          <!--<li>Hue Control, the world's first home automation app for Android Wear</li>-->
+          <!--<li>Our Q42/Philips booth at the Google Cloud Platform area</li>-->
+          <li><a href="/blog/post/90118275133/android-wear-w00h00-new-toys">Building Android Wear apps: a developer viewpoint</a></li>
+          <li><a href="https://www.youtube.com/watch?feature=player_detailpage&amp;v=sha_w3_5c2c#t=250">Hue Control at the Android Wear session at Google I/O [video]</a></li>
+        </ul>
+
       </div>
       <aside class="block-small subcontent">
-        <h2>See also</h2>
+        <h2>Full coverage</h2>
         <ul>
-          <li><a href="http://twitter.com/q42">Follow Q42 on Twitter</a></li>
-          <li><a href="http://facebook.com/q42bv">Like Q42 on Facebook</a></li>
+          {{#each post}}
+          <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
+          {{/each}}
         </ul>
       </aside>
     </section>
