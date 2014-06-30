@@ -124,7 +124,7 @@ Router.map ->
     waitOn: -> [
       Meteor.subscribe "blogpostFull", @params.id * 1
       Meteor.subscribe "blogComments", @params.id * 1
-      SubsManager.subscribe "blogpostIndex", 1
+      Meteor.subscribe "blogpostIndex", 1
       SubsManager.subscribe "LatestComments", 10
     ]
     data: ->
