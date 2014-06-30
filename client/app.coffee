@@ -34,7 +34,14 @@ setTitle = ->
     document.title = "Q42"
   else
     document.title = $('h1').first().text() + " - Q42"
-  $("#og-title").attr "content", document.title
+
+  $("meta[property='og:title']").attr "content", document.title
+  $("meta[property='og:url']").attr "content", window.location.href
+  $("meta[property='og:image']").attr "content", $( ".intro img:first-of-type").attr("src")
+
+  desc = $(".intro p:not(.post-date)").first().text()
+  desc = $("p:first-of-type").first() unless desc
+  $("meta[property='og:description']").attr "content", desc
 
 Router.map ->
 
@@ -124,7 +131,7 @@ Router.map ->
     waitOn: -> [
       Meteor.subscribe "blogpostFull", @params.id * 1
       Meteor.subscribe "blogComments", @params.id * 1
-      SubsManager.subscribe "blogpostIndex", 1
+      Meteor.subscribe "blogpostIndex", 1
       SubsManager.subscribe "LatestComments", 10
     ]
     data: ->
@@ -139,10 +146,16 @@ Router.map ->
   @route "vacatures",
     path: "/vacatures"
     action: ->
+      if Session.equals("lang", "en")
+        Spiderable.httpStatusCode = 404
+        @render "error404"
+        return
+
       if @ready()
         @render getTemplate("vacatures")
       else
         @render "loading"
+
     onBeforeAction: -> Session.set "page", "vacatures"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
