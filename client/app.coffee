@@ -34,7 +34,9 @@ setTitle = ->
     document.title = "Q42"
   else
     document.title = $('h1').first().text() + " - Q42"
-  $("#og-title").attr "content", document.title
+  $("meta[property='og:title']").attr "content", document.title
+  $("meta[property='og:description']").attr "content", $(document.body).find(".intro p:first-of-type").text()
+  $("meta[property='og:image']").attr "content", $(document.body).find(".intro img:first-of-type").attr("src")
 
 Router.map ->
 
