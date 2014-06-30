@@ -117,14 +117,14 @@ addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank gui
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "alexander herman"
-addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja tim tims kamil"
+addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
 # Arbitraire selecties
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen"
-addLabel "Weet wat Spiffy is",            "bob tim martin remco lukas" # LOL!
+addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan"
 addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
