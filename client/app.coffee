@@ -139,10 +139,16 @@ Router.map ->
   @route "vacatures",
     path: "/vacatures"
     action: ->
+      if Session.equals("lang", "en")
+        Spiderable.httpStatusCode = 404
+        @render "error404"
+        return
+
       if @ready()
         @render getTemplate("vacatures")
       else
         @render "loading"
+
     onBeforeAction: -> Session.set "page", "vacatures"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
