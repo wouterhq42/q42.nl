@@ -144,14 +144,6 @@ a:hover { color: #1D78B4; text-decoration: underline; }
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
 }
-.readmore:hover {
-  background-color: #1D78B4;
-  color: white;
-  text-decoration: none;
-  transition: all .2s ease-out;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-}
 .readmore:before { content: "";}
 .readmore:after {
   content: " »";
@@ -360,12 +352,6 @@ a.caption,
   display: block;
   overflow: hidden;
 }
-.visual.caption:hover img, .visual.caption:hover video {
-  -webkit-transform: translateY(-15px);
-  -moz-transform: translateY(-15px);
-  -o-transform: translateY(-15px);
-  transform: translateY(-15px);
-}
 .visual.caption p {
   position: absolute;
   z-index: 999;
@@ -376,18 +362,6 @@ a.caption,
   color: #FFF;
   font-size: 80%;
   text-decoration: none;
-}
-.visual.caption:hover p {
-  -webkit-transform: translateY(-25px);
-  -moz-transform: translateY(-25px);
-  -o-transform: translateY(-25px);
-  transform: translateY(-25px);
-}
-.visual.caption, .visual.caption p, .visual.caption img, .visual.caption video {
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
 }
 
 /* Icon boxes */
