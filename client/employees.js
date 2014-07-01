@@ -33,7 +33,7 @@ $Template({
         return Employees.find({}, {sort: {name: 1}});
     }
   },
-  _employee: {
+  employeeView: {
     firstname: function() {
       if (!this.name)
         return "droid";
@@ -75,7 +75,7 @@ var Polaroid = function ($li) {
       'transform': rotateValue
     });
   }
-  function intitializeHover(el) {
+  function initializeHover(el) {
     var $li = $(el);
     var $polaroidLists = $('#colleagues .polaroid').parent("li");
     $polaroidLists.removeClass('hover');
@@ -90,7 +90,7 @@ var Polaroid = function ($li) {
   }
   function show(el) {
     rotatePolaroid();
-    intitializeHover(el);
+    initializeHover(el);
   }
   function hide(el) {
     var $li = $(el);
