@@ -39,15 +39,17 @@
     <div id="blog-posts">
     {{#each post}}
       <div class="block-large">
-        <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
-        {{> en_postDate}}
-        {{{intro}}}
-        <p class="block-readmore">
-          <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
-        </p>
+        <div class="intro">
+          <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
+          {{> en_postDate}}
+          {{{intro}}}
+          <p class="block-readmore">
+            <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
+          </p>
+        </div>
       </div>
     {{/each}}
     </div>
-    
+
    </div>
 </template>

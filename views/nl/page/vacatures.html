@@ -9,7 +9,7 @@
       <div class="block-large">
         <div class="intro">
           <p>We zijn altijd op zoek naar knappe koppen van elk pluimage. Of je nu front-ender, back-ender,
-          	interaction engineer of gewoon overal van bent, je bent altijd van harte welkom om een mailtje te sturen!</p>
+          	interaction engineer of gewoon overal van bent, je bent altijd van harte welkom om een mailtje te sturen naar Chris (<a href="mailto:chris@q42.nl">chris@q42.nl</a>).</p>
           <p>Bekijk hieronder onze huidige vacatures. Is de lijst leeg? Never fear, bookmark deze pagina gewoon, want over een poosje hebben we vast wel weer iemand nodig!</p>
         </div>
         <aside class="block-small subcontent">
@@ -25,12 +25,14 @@
     <div id="blog-posts">
     {{#each post}}
       <div class="block-large">
-	      <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
-	      {{> postDate}}
-	      {{{intro}}}
-	      <p class="block-readmore">
-	        <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
-	      </p>
+        <div class="intro">
+  	      <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
+  	      {{> postDate}}
+  	      {{{intro}}}
+  	      <p class="block-readmore">
+  	        <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
+  	      </p>
+        </div>
 	    </div>
     {{/each}}
   	</div>
