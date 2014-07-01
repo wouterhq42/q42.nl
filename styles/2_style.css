@@ -381,6 +381,13 @@ a.caption,
   padding: 0;
 }
 
+.iconList:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
 .iconList li {
   overflow: hidden;
   padding: 5px 0 19px 0px;
