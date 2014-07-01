@@ -296,6 +296,9 @@
   .block-large .intro { float: none; }
   .block-with-icons h2 { padding: 0px; }
   .block-large h2 { padding-left: 0; }
+  section h2, .block-large > .body h2 {
+    margin-top: 20px;
+  }
 
   .block-small > ul, #blog-sidebar ul {
     padding-left: 40px;
