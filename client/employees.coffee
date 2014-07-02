@@ -103,7 +103,7 @@ Template.filter_employees.events
   "click li a": (evt) ->
     evt.preventDefault()
     val = $(evt.target).text()
-    Session.get("employees_filter", val)
+    Session.set("employees_filter", val)
     false
   "keyup [data-role='filter-qers']": (evt) ->
     val = $(evt.target).val()
