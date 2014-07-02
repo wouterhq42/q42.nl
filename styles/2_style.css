@@ -137,17 +137,6 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 }
 
 .readmore {
-  padding: 0px 0px 2px 5px;
-  transition: all .2s ease-out;
-  display: inline-block;
-  height: 21px;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-}
-.readmore:hover {
-  background-color: #1D78B4;
-  color: white;
-  text-decoration: none;
   transition: all .2s ease-out;
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
@@ -155,14 +144,8 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 .readmore:before { content: "";}
 .readmore:after {
   content: " »";
-  background-color: #1D78B4;
-  color: white;
   margin-left: 6px;
-  padding: 0px 4px 0px 5px;
-  font-size: 23px;
-  height: 21px;
   display: inline-block;
-  line-height: 17px;
 }
 
 
@@ -360,12 +343,6 @@ a.caption,
   display: block;
   overflow: hidden;
 }
-.visual.caption:hover img, .visual.caption:hover video {
-  -webkit-transform: translateY(-15px);
-  -moz-transform: translateY(-15px);
-  -o-transform: translateY(-15px);
-  transform: translateY(-15px);
-}
 .visual.caption p {
   position: absolute;
   z-index: 999;
@@ -376,18 +353,6 @@ a.caption,
   color: #FFF;
   font-size: 80%;
   text-decoration: none;
-}
-.visual.caption:hover p {
-  -webkit-transform: translateY(-25px);
-  -moz-transform: translateY(-25px);
-  -o-transform: translateY(-25px);
-  transform: translateY(-25px);
-}
-.visual.caption, .visual.caption p, .visual.caption img, .visual.caption video {
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
 }
 
 /* Icon boxes */
@@ -405,6 +370,13 @@ a.caption,
 
 .block-with-icons .iconList {
   padding: 0;
+}
+
+.iconList:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
 }
 
 .iconList li {

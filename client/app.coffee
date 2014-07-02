@@ -61,8 +61,8 @@ Router.map ->
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
-        SubsManager.subscribe "blogpostIndex", 1
-        SubsManager.subscribe "pagesByTag", ""
+        Meteor.subscribe "blogpostIndex", 1
+        Meteor.subscribe "pagesByTag", ""
         SubsManager.subscribe "LatestComments", 10
       ]
     data: ->
@@ -83,7 +83,7 @@ Router.map ->
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
-        SubsManager.subscribe "blogpostIndex", @params.pageNum * 1
+        Meteor.subscribe "blogpostIndex", @params.pageNum * 1
         SubsManager.subscribe "pagesByTag", ""
         SubsManager.subscribe "LatestComments", 10
       ]

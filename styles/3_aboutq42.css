@@ -5,15 +5,20 @@
 .qers {
   margin: 0;
   padding: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 .qer {
   width: 108px;
   height: 108px;
   list-style: none;
-  float: left;
   position: relative;
-  margin: 0px 10px 10px 0;
+  margin: 0px 9px 9px 0;
 }
 
 .qer.no-results {

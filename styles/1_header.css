@@ -12,10 +12,6 @@
   -ms-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
   -webkit-font-smoothing: antialiased;
-  -webkit-perspective: 2000px;
-  -moz-perspective: 2000px;
-  -ms-perspective: 2000px;
-  perspective: 2000px;
 }
 
 #particles {
@@ -30,6 +26,10 @@
   -moz-filter: blur(10px);
   -ms-filter: blur(10px);
   filter: blur(10px);
+  -webkit-perspective: 2000px;
+  -moz-perspective: 2000px;
+  -ms-perspective: 2000px;
+  perspective: 2000px;
 }
 .particle {
   position: absolute;

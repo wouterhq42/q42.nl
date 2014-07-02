@@ -22,8 +22,12 @@ $Template({
 
         var delay = ~~(Math.random() * 4) + "s";
         var duration = between(10, 60) + "s";
+        var animationValue = "float-particle"+i+" "+duration+" "+delay+" ease-in-out infinite alternate";
 
-        $particle.css("-webkit-animation", "float-particle"+i+" "+duration+" "+delay+" ease-in-out infinite alternate");
+        _.each(["webkit", "moz", "ms", "o"], function(type) {
+          $particle.css("-" + type + "-animation", animationValue);
+        });
+        $particle.css("animation", animationValue);
 
         var dim = ~~(Math.random() * 150);
         $particle.css("width", dim + "px");
@@ -37,9 +41,9 @@ $Template({
         var z = -rp();
 
         var transform = "translate3d(" + x + "px, " + y + "px, " + z + "px)";
-        $particle.css("-webkit-transform", transform);
-        $particle.css("-moz-transform", transform);
-        $particle.css("-ms-transform", transform);
+        _.each(["webkit", "moz", "ms", "o"], function(type) {
+          $particle.css("-" + type + "-transform", transform);
+        });
         $particle.css("transform", transform);
         $("#particles").append($particle);
 
@@ -50,11 +54,17 @@ $Template({
         var dz = between(200, 500);
         dz = Math.random() < 0.5 ? dz : -dz;
 
-        var from = "-webkit-transform: translate3d("+x+"px, "+y+"px, "+z+"px); opacity: 1;";
-        var to = "-webkit-transform: translate3d("+(x+dx)+"px, "+(y+dy)+"px, "+(z+dz)+"px); opacity: 0";
-        var wka = "\n@-webkit-keyframes float-particle"+i+" { from {" + from + "} to {" + to + "} }";
+        var anim = "";
+        var keyframes = "";
+        _.each(["webkit", "moz", "ms", "o"], function(type) {
+          var from = "-" + type + "-transform: translate3d("+x+"px, "+y+"px, "+z+"px); opacity: 1;";
+          var to = "-" + type + "-transform: translate3d("+(x+dx)+"px, "+(y+dy)+"px, "+(z+dz)+"px); opacity: 0";
+          keyframes = "keyframes float-particle"+i+" { from {" + from + "} to {" + to + "} }";
+          anim += "\n@-" + type + "-" + keyframes;
+        });
+        anim += "\n@" + keyframes;
 
-        $style.html($style.html() + wka);
+        $style.html($style.html() + anim);
       }
 
       var $style = $("<style/>");
