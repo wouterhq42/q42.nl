@@ -20,7 +20,7 @@ currentQers = [
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
   { name: "Elaine Oliver", handle:"elaine" }
   { name: "Erik van der Veen", handle: "erik", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
-  { name: "Frank Raterink", handle:"frank", phone: "070-4452368", web: "http://www.frankraterink.nl" }
+  { name: "Frank van den Hoogen", handle:"frank", phone: "070-4452368", web: "http://www.frankvdhoogen.nl" }
   { name: "Gerard Dorst", handle:"gerard" }
   { name: "Guido Bouman", handle:"guido", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Guus Goossens", handle:"guus" }
