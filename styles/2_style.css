@@ -137,24 +137,15 @@ a:hover { color: #1D78B4; text-decoration: underline; }
 }
 
 .readmore {
-  padding: 0px 0px 2px 5px;
   transition: all .2s ease-out;
-  display: inline-block;
-  height: 21px;
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
 }
 .readmore:before { content: "";}
 .readmore:after {
   content: " »";
-  background-color: #1D78B4;
-  color: white;
   margin-left: 6px;
-  padding: 0px 4px 0px 5px;
-  font-size: 23px;
-  height: 21px;
   display: inline-block;
-  line-height: 17px;
 }
 
 
