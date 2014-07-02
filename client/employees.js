@@ -116,7 +116,7 @@ function hidePolaroid(el) {
 }
 
 $Template({
-  _employee: {
+  employeeView: {
     events: {
       "mouseenter li": function(evt) {
         showPolaroid(evt.target);
