@@ -31,7 +31,7 @@
   padding: 40px 0;
 }
 
-#blog-posts .intro img {
+.blog .intro img {
   max-width: 100%;
   border: solid 5px white;
   box-shadow: 0 0 4px rgba(0,0,0,.4);
@@ -51,6 +51,7 @@
   padding: 0;
 }
 
+.blog h2,
 .blog aside h2,
 .comments h2,
 .blog .block-large > .body h2,
