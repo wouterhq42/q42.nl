@@ -44,6 +44,10 @@
 
 @media all and (max-width: 940px) {
 
+  #loading {
+    top: 258px;
+  }
+
   nav .pos { padding: 15px 0; }
   nav ul { display: block; }
 
@@ -217,6 +221,11 @@
 
   body {
     background: #eee;
+  }
+
+
+  #loading {
+    top: 114px;
   }
 
   #mobile-menu-icon {
