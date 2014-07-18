@@ -1,0 +1,139 @@
+@import "0_variables.styl"
+
+.post-date
+  color #888
+  margin-top 0
+  font-size 14px
+
+.socialShare
+  width 50%
+  margin 10px 0 40px
+  height 50px
+
+.block-tags
+  font-size smaller
+
+.reblog
+  .intro
+    padding 0 0 0 3em
+    background url(http://static.q42.nl/images/reblog.svg) 0 no-repeat
+    background-size 24px
+
+.blog
+  displayFlex()
+
+  .blog-posts, .blog-post
+    flex 2
+    margin-right 40px
+
+  h1
+    margin 0
+
+  .blog-item
+    padding 40px 0
+    border-bottom solid 1px #ccc
+    &:first-child
+      padding-top 0
+    &:last-child
+      border-bottom none
+
+    h1
+      font-size 2em
+
+  .blog-post
+    h2
+      font-size 2em
+
+  img
+    max-width 95%
+    border solid 5px white
+    box-shadow 0 0 4px rgba(0,0,0,.4)
+    margin-left 2px
+
+.comments
+  clear both
+  padding 0 0 40px 50px
+  h2
+    &:first-child
+      margin-left -50px
+  .commentbox
+    position relative
+  textarea
+    width 100%
+  & > ul
+    margin 0
+    padding 0
+    list-style none
+    & > li
+      margin 0.5em 0 0 0
+      padding 0.5em 0 0 0
+      list-style none
+      border-top 1px solid #eee
+  .user
+    position relative
+    .login-image
+      display inline-block
+      width 16px
+      height 16px
+      vertical-align -2px
+  .meta
+    color #999
+    font-size smaller
+  li
+    &.edit-mode
+      .edit-area
+        display block
+      .save-link
+        display inline
+
+.comments .user img, .comments .commentbox img
+  width 40px
+  position absolute
+  left -50px
+  top 2px
+  border-radius 4px
+
+.comments .edit-area,
+.comments .save-link
+  display none
+
+.comments li.edit-mode .text,
+.comments li.edit-mode .edit-link
+  display none
+
+#latestComments
+  ul
+    overflow hidden
+  li
+    div
+      white-space nowrap
+
+#pageNav
+  displayFlex()
+  justifyContent center
+  margin 40px 0
+  a
+    color #1D78B4
+    text-shadow none
+    padding 10px
+    &:hover
+      background #eee
+
+  .active
+    border-bottom 5px solid #ccc
+
+.tags
+  padding 0px
+  list-style-type none
+  margin-top 12px
+  li
+    display block
+    float left
+    a
+      float left
+    &:after
+      content "\002C\00a0"
+    &:last-child
+      &:after
+        content ""
+
