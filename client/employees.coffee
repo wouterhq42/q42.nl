@@ -33,7 +33,7 @@ $Template
     filter: -> Session.get("employees_filter")
     supportsWebm: ->
       video = document.createElement('video')
-      video.canPlayType("video/webm") is "probably"
+      video.canPlayType('video/webm; codecs="vp8, vorbis"') is "probably"
 
 zIndex = 1000
 polaroids = {}
