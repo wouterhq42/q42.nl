@@ -1,5 +1,5 @@
 <template name="en_io">
-	<div class="container blog">
+	<div class="container">
 
     <header class="block-text">
       <h1>Q42 at Google I/O 2014</h1>
@@ -36,10 +36,10 @@
       </aside>
     </section>
 
-    <div id="blog-posts">
-    {{#each post}}
-      <div class="block-large">
-        <div class="intro">
+    <div class="blog block-large">
+      <div class="blog-posts">
+      {{#each post}}
+        <div class="blog-item">
           <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
           {{> en_postDate}}
           {{{intro}}}
@@ -47,8 +47,8 @@
             <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
           </p>
         </div>
+      {{/each}}
       </div>
-    {{/each}}
     </div>
 
    </div>

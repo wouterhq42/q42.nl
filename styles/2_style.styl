@@ -113,9 +113,6 @@ a
     font-size 72px
     margin 0
 
-.clear
-  clear both
-
 .hidden
   display none !important
   visibility hidden
@@ -156,7 +153,6 @@ a
   position relative
   border-bottom solid #ccc 1px
   padding 80px 0
-  clear both
 
 .intro-outro
   display block
@@ -186,9 +182,13 @@ a
     flex 2
     margin-right 20px
 
+    h2
+      margin-bottom 0
+      & + h3
+        margin-top 0
+
     h3
       font 14px/1.5 titleFont
-      margin-top -18px
       color #777
     p
       &:last-child
@@ -226,7 +226,6 @@ section h2,
   letter-spacing -1px
 
 .block-readmore
-  clear both
   text-align right
 
 // http://stackoverflow.com/questions/8720931/can-css-detect-the-number-of-children-an-element-has

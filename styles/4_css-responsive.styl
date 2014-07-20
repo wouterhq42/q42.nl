@@ -40,158 +40,110 @@
 
 @media all and (max-width: 940px)
 
-  .block-large > .body > h2 { font-size: 30px; }
-
-  .container,
-  #footer > section { width: 620px; }
-
-  .block-large .visual { width: 300px; }
-  .block-small:nth-of-type(2) { margin-right: 0 }
-
-  .block-large .intro
-    margin-bottom 20px
-
-  #facts .block-small { width: 200px; }
-  #facts .block-small .body { width: 100%; }
+  .container, #footer > section
+    width 620px
 
   .block-large
     flexWrap wrap
+    .intro
+      margin-bottom 20px
 
   .block-small
     min-width 300px
+    &:nth-of-type(2)
+      margin-right 0
     &:nth-child(3):last-child
       margin-top 40px
 
 
-@media all and (max-width: 620px) {
 
-  .block-large { padding: 20px 0; }
 
-  .block-text h1 { font-size: 37px; }
 
-  section h2,
-  .block-large > .body h2 {
-    margin: 20px 0;
-  }
+@media all and (max-width: 620px)
+
+  .block-large, .block-full
+    padding 20px 0
+    display block
+
+    &.right .body
+      margin-left 0
 
   .container,
   #footer > section,
   #footer .block-small,
   #footer .block-small .body,
   #footer .block-small .visual { width: 460px; }
-  #footer .block-small:nth-of-type(3) { width: 460px; padding-top: 0;}
 
-  .block-large .visual { width: 300px; }
-
-  .block-large .body,
   .block-large .visual,
   .block-large .block-small,
   .block-large .block-small .body,
   .block-large .block-small .visual,
-  .block-large .intro { width: 460px; }
-  .block-large .body { width: 100%; }
-  .container .block-large > div.visual {
-    -webkit-transform: rotateY(0);
-    -moz-transform: rotateY(0);
-    -ms-transform: rotateY(0);
-    transform: rotateY(0);
-  }
+  .block-large .intro,
+  .block-large .body
+    width 100%
+    max-width 100% !important
 
-  .block-small:nth-of-type(1),
-  .block-small:nth-of-type(2) { margin-right: 0 }
-  .block-small { float: none; }
-  .block-small .visual img { width: 100%; height: auto; }
-  .block-small:first-child h2 { margin-top: 0; }
+  .block-small
+    margin-right 0
+    &:not(:first-child)
+      margin-top 20px
+    .visual img 
+      width 100%
+      height auto
 
-  .block-with-icons:nth-of-type(3) { padding-bottom: 0px; }
+  .intro-outro
+    padding 40px 0
 
-  p:first-child { margin-top: 1.5em; }
-  .block-small p:last-child { margin-bottom: 1.5em; }
-  .block-small:nth-of-type(3), #footer .block-small:nth-of-type(3),
-  .block-large.block-no-padding-after + .block-large {
-    padding-top: 0;
-  }
+  .qer
+    width 100%
+    height auto
+    padding-left 70px
+    margin-right 0
 
-  .block-full {
-    border: none;
-  }
+    img
+      width 60px
+      height 60px
+      position absolute
+      top 0
+      left 0
 
-  #colleagues {
-    margin-right: 0px;
-  }
+    .polaroid
+      display none
 
-  .qer {
-    width: 100%;
-    height: auto;
-    padding-left: 70px;
-  }
+    .name
+      color #000
+      text-shadow none
+      top 0
+      left 0
+      background none
+      font 20px 'Permanent Marker', cursive
+      position relative
 
-  .qer img {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    top: 0; left: 0;
-  }
-  .qer .name {
-    color: #000;
-    text-shadow: none;
-    top: 0; left: 0;
-    background: none;
-    font: 25px 'Permanent Marker', cursive;
-    position: relative;
-  }
-
-  .qer .contactData {
-    position: relative;
-    display: block;
-    font-size: 12px;
-  }
+    .contactData
+      position relative
+      display block
+      font-size 12px
 
   .visual iframe, #blog-posts iframe { width: 100%; }
 
-  .fb_iframe_widget,
-  .fb_iframe_widget > span,
-  .fb-comments iframe[style],
-  .fb-comments iframe {width: 100% !important;}
-
-  .subcontent {
-    width: 100%;
-    border-top: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .subcontent h2 {
-    float: none;
-  }
-
-  .subcontent p,
-  .subcontent ul {
-    float: none;
-    width: auto;
-  }
-
-  #facts .block-small { width: 100%; }
-
-  .intro-outro { padding: 40px 0; }
-  .intro-outro ul { width: 450px;}
-  .intro-outro li { margin: 0;}
-
-  /* end 620 */
-}
+  .fb_iframe_widget, .fb_iframe_widget > span, .fb-comments iframe
+    width 100% !important
 
 
 
-@media all and (max-width: 480px) {
-
-  body {
-    background: #eee;
-  }
 
 
-  #loading {
-    top: 114px;
-  }
+
+@media all and (max-width: 480px)
+
+  html, body
+    font-size 14px
+
+  body
+    background #eee
+
+  #loading
+    top 84px
 
   #mobile-menu-icon {
     display: block;
@@ -217,6 +169,7 @@
     -moz-transition: ease-in-out -moz-transform .2s;
     -ms-transition: ease-in-out -ms-transform .2s;
     transition: ease-in-out transform .2s;
+    flexDirection column
   }
   /* show Home link */
   header ul li:first-child { display: block; }
@@ -262,25 +215,14 @@
   #header li:last-child { margin: 0; }
   #logo img, #logo object { height: 80px;}
 
-  header h1,
-  .body,
-  .block-small > p,
-  .block-small > ul,
-  .block-large .intro
-  { padding: 0px 16px; }
+  .container, #footer > section 
+    width 440px
 
-  .block-large { padding: 0; }
-  .block-text h1 { font-size: 39px; }
-  .block-large .intro { float: none; }
+  .block-small > ul, #blog-sidebar ul
+    padding-left 40px
 
-  .block-large h2 { padding-left: 0; }
-  section h2, .block-large > .body h2 {
-    margin-top: 20px;
-  }
-
-  .block-small > ul, #blog-sidebar ul {
-    padding-left: 40px;
-  }
+  .block-text
+    padding 0
 
   body section,
   .block-large .body,
@@ -288,42 +230,23 @@
   .block-large .block-small,
   .block-large .block-small .body,
   .block-large .intro,
-  .block-large .block-small .visual { width: 100%; }
+  .block-large .block-small .visual
+    width auto
+    margin-right 0
 
-  .blog .block-text h1, .subcontent h2, .socialShare {
-    padding: 0 16px;
-  }
+  .blog .blog-posts, .blog .blog-post
+    margin-right 0
 
-  .container,
-  #footer > section { width: 100%; }
-  .readmore { margin-right: 10px; }
+  .blog .blog-item
+    padding 20px 0
+    h1
+      font-size 1.5em
+    img, iframe
+      max-width 100%
+  .blog-post h1
+    font-size 2em
 
-  #footer section,
-  #footer .block-small,
-  #footer .block-small .body,
-  #footer .block-small .visual { width: 100%; }
-  #footer .block-small:nth-of-type(3) { width: 100%; padding-top: 0;}
-  #footer > section > h1 { font-size: 40px; }
-  #footer h2  { padding-left: 16px; }
-  #facebookLikeBox { margin: 16px;}
-  #footer .iconList { margin: 16px; }
-
-  #blog-posts { float: none;}
-  #blog-posts img { max-width: 100%;}
-  #blog-posts h1 { font-size: 1.5em;}
-  .blog .comments { padding: 0 16px 40px 66px; }
-
-
-  .intro-outro h1 { font-size: 2em; }
-  .intro-outro p { font-size: 1em; }
-  .intro-outro ul { width: 150px; }
-  .intro-outro li { float: none; margin-bottom: 1em;}
+  .intro-outro h1
+    font-size 2em
 
   #colleagues .intro + aside { display: none; }
-
-  .qer {
-    padding-left: 70px;
-  }
-
-}
-/* end 480 */
