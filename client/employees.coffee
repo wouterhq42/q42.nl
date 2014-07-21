@@ -48,7 +48,6 @@ Polaroid = ($li) ->
     _.each ["webkit", "moz", "ms", "o"], (type) ->
       $polaroid.css "-#{type}-transform", rotateValue
     $polaroid.css "transform", rotateValue
-    console.log $polaroid
 
   initHover = (el) ->
     $li = $(el)
