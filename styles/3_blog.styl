@@ -21,6 +21,7 @@
 
 .blog
   displayFlex()
+  justifyContent space-between
 
   .blog-posts, .blog-post
     flex 2
@@ -94,19 +95,21 @@
   border-radius 4px
 
 .comments .edit-area,
-.comments .save-link
-  display none
-
+.comments .save-link,
 .comments li.edit-mode .text,
 .comments li.edit-mode .edit-link
   display none
 
 #latestComments
-  ul
-    overflow hidden
+  overflow hidden
+  // to prevent bullets from being hidden
+  list-style-position inside
+  padding-left 24px
   li
     div
       white-space nowrap
+      overflow-x hidden
+      text-overflow ellipsis
 
 #pageNav
   displayFlex()
@@ -123,17 +126,9 @@
     border-bottom 5px solid #ccc
 
 .tags
-  padding 0px
+  padding 0
   list-style-type none
+  display flex
   margin-top 12px
   li
-    display block
-    float left
-    a
-      float left
-    &:after
-      content "\002C\00a0"
-    &:last-child
-      &:after
-        content ""
-
+    margin-left 4px
