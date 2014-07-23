@@ -1,5 +1,5 @@
 <template name="vacatures">
-	<div class="container blog">
+	<div class="container">
 
     <header class="block-text">
       <h1>Vacatures</h1>
@@ -22,10 +22,10 @@
       </div>
     </section>
 
-    <div id="blog-posts">
-    {{#each post}}
-      <div class="block-large">
-        <div class="intro">
+    <div class="blog block-large">
+      <div class="blog-posts">
+      {{#each post}}
+        <div class="blog-item">
   	      <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
   	      {{> postDate}}
   	      {{{intro}}}
@@ -33,8 +33,8 @@
   	        <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
   	      </p>
         </div>
-	    </div>
-    {{/each}}
+      {{/each}}
+      </div>
   	</div>
 
 	</div>

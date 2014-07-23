@@ -1,5 +1,4 @@
-
-
+@import "0_variables.styl"
 
 /* lights color picker */
 #hue {
@@ -15,8 +14,7 @@
   vertical-align: middle;
   cursor: pointer;
   text-indent: -900px;
-  -webkit-transition: ease-in-out opacity .3s;
-  -moz-transition: ease-in-out opacity .3s;
+  transition: ease-in-out opacity .3s;
 
   /* experimental Chrome/Firefox gradient that looks like a color picker */
   background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), rgba(0,255,255,0)),
@@ -28,7 +26,7 @@
   opacity: .7;
 }
 #lights-color:active {
-  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #lights-color::-webkit-color-swatch-wrapper {
   display: none;
@@ -48,7 +46,7 @@
   padding: 5px 15px;
   background: rgba(0,0,0,.4);
   border-radius: 15px;
-  -webkit-transition: linear .2s;
+  transition: linear .2s;
   opacity: 0;
   pointer-events: none;
 }

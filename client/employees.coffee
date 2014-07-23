@@ -73,13 +73,13 @@ Polaroid = ($li) ->
 
 showPolaroid = (el) ->
   $li = $(el)
-  name = $li.find(".color").attr("alt")
+  name = $li.find("img").attr("alt")
   polaroids[name] = polaroids[name] or new Polaroid($li)
   polaroids[name].show(el)
 
 hidePolaroid = (el) ->
   $li = $(el)
-  name = $li.find(".color").attr("alt")
+  name = $li.find("img").attr("alt")
   polaroids[name] = polaroids[name] or new Polaroid($li)
   polaroids[name].hide(el)
 

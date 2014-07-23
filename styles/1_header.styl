@@ -1,0 +1,94 @@
+@import "0_variables.styl"
+
+#header
+  width 100%
+  position relative
+  margin 0 auto
+  background-image -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-image -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-image -ms-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-ms-linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-color rgb(39, 127, 168)
+  transition ease-in-out .3s
+  -webkit-font-smoothing antialiased
+
+#particles
+  position absolute
+  top 0
+  width 100%
+  height 100%
+  z-index 2
+  overflow hidden
+  pointer-events none
+  opacity .25
+  -webkit-filter blur(10px)
+  -moz-filter blur(10px)
+  -ms-filter blur(10px)
+  filter blur(10px)
+  -webkit-perspective 2000px
+  -moz-perspective 2000px
+  -ms-perspective 2000px
+  perspective 2000px
+
+.particle
+  position absolute
+  border-radius 50%
+
+nav
+  .pos
+    displayFlex()
+    flexDirection column
+    alignItems center
+    position relative
+    height 100%
+    z-index 4
+    padding 10px 0
+  ul
+    displayFlex()
+    justifyContent center
+    margin 20px 0
+    padding 0
+    li
+      display inline-block
+      margin 0 10px
+      font bold .8em titleFont
+      text-transform uppercase
+      a
+        color #fff
+        text-shadow 0 1px rgba(0,0,0,.3)
+        text-decoration none
+        letter-spacing 1px
+        -webkit-font-smoothing antialiased
+      &:first-child
+        display none
+
+#mobile-menu-icon
+  display none
+
+#logo
+  a
+    display inline-block
+
+#logo object, #logo img
+  height 180px
+  pointer-events none
+
+#lights-toggle
+  a
+    font-size 22px
+    display inline-block
+    vertical-align middle
+    background rgba(0,0,0,.7)
+    height 30px
+    line-height 150%
+    border-radius 10px
+    &:hover
+      text-decoration none
+      color #ff9
+      background-color rgba(255,255,150,.4)
+
+nav ul li a:hover, nav ul li a.selected
+  color #fff
+  text-decoration none
+  border-bottom solid 1px rgba(255,255,255,.8)
+
