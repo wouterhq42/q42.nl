@@ -116,13 +116,31 @@ body
 
 @media (max-width 620px)
 
+  .block-small
+    min-width inherit
+
   .container .block-large > .body + .visual
     margin 64px 0 0 0
 
-  .container .block-large.right
-    margin-left inherit
+  .container .block-large.right .body
+    margin-left -32px
     margin-right inherit
 
   .container aside.subcontent
     margin-top inherit
     width inherit
+
+@media (max-width 480px)
+
+  .container .block-large .body
+    width 100%
+
+
+
+
+
+
+
+
+
+
