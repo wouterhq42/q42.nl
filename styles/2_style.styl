@@ -97,7 +97,6 @@ a
   box-shadow 0 0 4px rgba(0,0,0,.4)
   margin 40px 0
   padding 80px
-  font-family titleFont
   text-transform uppercase
   -webkit-animation .3s flash infinite ease-in-out alternate
   img
@@ -145,8 +144,8 @@ a
 
 .block-text h1,
 .blog h1
-  font normal 2.5em titleFont
-  letter-spacing -1px
+  font-weight normal
+  font-size 2.5em
   margin 20px 0
 
 .block-full
@@ -165,7 +164,7 @@ a
     text-align center
     margin 0
     & + p
-      color #777
+      color rgba(0,0,0,.5)
 
 .block-large
   border-bottom solid #ccc 1px
@@ -188,8 +187,8 @@ a
         margin-top 0
 
     h3
-      font 14px/1.5 titleFont
-      color #777
+      font normal 14px/1.5 bodyFont
+      color rgba(0,0,0,.5)
     p
       &:last-child
         margin-bottom 1.5em
@@ -221,9 +220,9 @@ section h1,
 
 section h2,
 .block-large > .body h2
-  font normal 40px titleFont
+  font-weight normal
+  font-size 40px
   margin-top 0
-  letter-spacing -1px
 
 .block-readmore
   text-align right
@@ -247,10 +246,9 @@ section h2,
     a
       color black
   h3
-    font 14px/1.5 titleFont
-    padding 0
+    font normal 14px/1.5 bodyFont
     margin-top 0
-    color #777
+    color rgba(0,0,0,.5)
   .visual
     position relative
     width 300px
@@ -261,7 +259,7 @@ section h2,
 
 .subcontent
   padding 20px
-  color #777
+  color rgba(0,0,0,.5)
   h2
     padding-top 0
 
@@ -298,6 +296,7 @@ section h2,
       color #FFF
       font-size 80%
       text-decoration none
+      -webkit-font-smoothing antialiased
 
 a.caption,
 .visual.caption, .visual.caption p, .visual.caption img
