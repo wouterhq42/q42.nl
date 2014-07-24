@@ -10,7 +10,7 @@
   background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%)
   background-color rgb(39, 127, 168)
   transition ease-in-out .3s
-  -webkit-font-smoothing antialiased
+  fontSmoothing antialiased
 
 #particles
   position absolute
@@ -21,13 +21,7 @@
   overflow hidden
   pointer-events none
   opacity .25
-  -webkit-filter blur(10px)
-  -moz-filter blur(10px)
-  -ms-filter blur(10px)
   filter blur(10px)
-  -webkit-perspective 2000px
-  -moz-perspective 2000px
-  -ms-perspective 2000px
   perspective 2000px
 
 .particle
@@ -58,7 +52,7 @@ nav
         text-shadow 0 1px rgba(0,0,0,.3)
         text-decoration none
         letter-spacing 1px
-        -webkit-font-smoothing antialiased
+        fontSmoothing antialiased
       &:first-child
         display none
 

@@ -3,8 +3,7 @@
 html, body
   width 100%
   min-height 100%
-  -webkit-transition ease-in-out background-color .3s
-  -moz-transition ease-in-out background-color .3s
+  transition ease-in-out background-color .3s
 
 body
   font 16px bodyFont
@@ -29,8 +28,7 @@ ul
   list-style-type square
 
 span
-  -webkit-transition all .3s ease-out
-  -moz-transition all .3s ease-out
+  transition all .3s ease-out
 
 img
   vertical-align middle
@@ -78,8 +76,6 @@ a
 #page
   box-shadow -2px 0 20px rgba(0,0,0,.2)
   background white
-  -webkit-transition ease-in-out .2s
-  -moz-transition ease-in-out .2s
   transition ease-in-out .2s
 
 .container
@@ -98,7 +94,7 @@ a
   margin 40px 0
   padding 80px
   text-transform uppercase
-  -webkit-animation .3s flash infinite ease-in-out alternate
+  animation .3s flash infinite ease-in-out alternate
   img
     width 100%
   p
@@ -125,8 +121,6 @@ a
 
 .readmore
   transition all .2s ease-out
-  -webkit-transition all .2s ease-out
-  -moz-transition all .2s ease-out
   &:before
     content ""
   &:after
@@ -207,7 +201,7 @@ a
       flex 3
 
   .intro
-    width 600px
+    flex 5
     margin 0 20px 0 0
     h3
       font-weight normal
@@ -240,15 +234,13 @@ section h2,
     padding 0
 
   h2
-    font-size 26px
-    padding-top 20px
-    margin 0
     a
       color black
   h3
     font normal 14px/1.5 bodyFont
     margin-top 0
     color rgba(0,0,0,.5)
+
   .visual
     position relative
     width 300px
@@ -256,8 +248,11 @@ section h2,
     img
       width 300px
       height 160px
+    & + .body h2
+      padding-top 20px
 
 .subcontent
+  flex 2
   padding 20px
   color rgba(0,0,0,.5)
   h2
@@ -296,7 +291,7 @@ section h2,
       color #FFF
       font-size 80%
       text-decoration none
-      -webkit-font-smoothing antialiased
+      fontSmoothing antialiased
 
 a.caption,
 .visual.caption, .visual.caption p, .visual.caption img
@@ -339,7 +334,3 @@ a.caption,
         text-decoration none !important
 
 
-
-@-webkit-keyframes flash
-  from
-    -webkit-filter unquote("invert(100%)")
