@@ -94,7 +94,7 @@ Template.filter_employees.list = ->
   _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
 
 Template.filter_employees.selected = (filter) ->
-  if Session.equals("employees", filter) then "selected" else ""
+  if Session.equals("employees_filter", filter) then "selected" else ""
 
 Template.filter_employees.rendered = ->
   $("#filter-colleagues select").val(Session.get("employees_filter"))
