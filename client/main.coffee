@@ -1,7 +1,7 @@
 Meteor.startup ->
   $(window).resize _.debounce(resizeFBwidget, 300)
 
-  lang = if window.location.hostname is "q42.nl" then "nl" else "en"
+  lang = if window.location.hostname is "q42.com" then "en" else "nl"
   Session.setDefault "lang", lang
   moment.lang lang
 
