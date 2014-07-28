@@ -137,7 +137,7 @@
 
       <div class="blog">
         {{#unless isPhantom}}
-        <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
+        <div class="socialShare">
           <div class="twitterShare" style="float: left;">
             <a href="https://twitter.com/share" class="twitter-share-button"
               data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
@@ -157,14 +157,20 @@
     <section class="comments">
       <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
       <div class="commentbox">
-        <img src="{{picture}}">
-        <textarea id="comment" placeholder="Reageer..."></textarea>
-        {{#unless loggedin}}
-        <button id="addComment" disabled>Reageer</button>
-        {{else}}
-        <button id="addComment">Reageer</button>
-        {{/unless}}
-        als {{> loginButtons}}
+        <div class="input">
+          <img src="{{picture}}">
+          <div class="comment">
+            <textarea id="comment" placeholder="Reageer..."></textarea>
+          </div>
+        </div>
+        <div class="submit">
+          {{#unless loggedin}}
+          <button id="addComment" disabled>Reageer</button>
+          {{else}}
+          <button id="addComment">Reageer</button>
+          {{/unless}}
+          als {{> loginButtons}}
+        </div>
       </div>
       <ul>
         {{#each comments}}
