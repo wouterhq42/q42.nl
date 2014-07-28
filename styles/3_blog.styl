@@ -12,10 +12,8 @@
   font-size smaller
 
 .reblog
-  .intro
-    padding 0 0 0 3em
-    background url(http://static.q42.nl/images/reblog.svg) 0 no-repeat
-    background-size 24px
+  background url('http://static.q42.nl/images/reblog.svg') right 16px no-repeat
+  background-size 24px
 
 .blog
   displayFlex()
@@ -110,10 +108,26 @@
       padding 1rem 0 0 0
       border-top 1px solid #d7d7d7
       displayFlex()
+      .profile
+        displayFlex()
+        img
+          margin-right 4px
+          min-width 40px
+        .name-date
+          font-size 14px
+          line-height 1rem
+          display flex
+          flex-direction column
+          justify-content center
+          overflow hidden
+          text-overflow ellipsis
+          .meta
+            display block
 
   .user
     flex 1
     margin-right 16px
+    min-width 160px
     .login-image
       display inline-block
       width 16px
@@ -160,13 +174,14 @@
 #pageNav
   displayFlex()
   justifyContent center
-  margin 40px 0
+  margin 32px 0
   a
     color #1D78B4
     text-shadow none
+    border none
     padding 10px
     &:hover
-      background #eee
+      background #d7d7d7
 
   .active
     border-bottom 5px solid #ccc

@@ -249,16 +249,22 @@
 <template name="comment">
   <li id="comment{{_id}}">
     <div class="user {{service}}-service">
-      <img src="{{picture}}">
-      <span class="login-image" id="login-buttons-image-{{service}}"></span>
-      <span class="name">{{userName}}</span>
-      <span class="meta"> - {{datediff}} geleden</span>
+      <div class="profile">
+        <img src="{{picture}}" alt="">
+        <div class="name-date">
+          <!-- <span class="login-image" id="login-buttons-image-{{service}}"></span> -->
+          <span class="name">{{userName}}</span>
+          <span class="meta">{{datediff}} geleden</span>
+        </div>
+      </div>
       {{#if ownsComment}}
-        <span class="meta"> -
+      <div class="controls">
+        <span class="meta">
           <a href="#" class="edit-link">wijzig</a>
           <a href="#" class="save-link">opslaan</a>
           - <a href="#" class="delete-link">verwijderen</a>
         </span>
+      </div>
       {{/if}}
     </div>
     <div class="text">{{text}}</div>
