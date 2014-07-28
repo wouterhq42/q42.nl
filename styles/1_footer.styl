@@ -1,39 +1,54 @@
 @import "0_variables.styl"
 
 #footer
-  padding 32px 0
+  padding 16px 0
   background #222
   color #eee
   fontSmoothing antialiased
+
+  section
+    width 940px
+    margin 0 auto
+
   p
     font-size .9rem
     span
       display block
       span
         display inline
-  & > section
-    width 940px
-    margin 0 auto
+
   a
     color #88c546
     text-decoration underline
+
   h2
     font-family bodyFont
     text-transform uppercase
     letter-spacing 1px
     font-size 18px
+
   .block-large
-    padding 0
-  .visual
-    img
-      width 100%
-      height auto
+    padding 32px 0
+
   .iconList
     padding 0
+    a
+      displayFlex()
+      alignItems center
+      color #eee
+      text-decoration none
+      &:hover
+        color #88c546
 
 #facebookLikeBox
+  overflow hidden
   opacity 0
   transition ease-in-out .2s
+  & > div:nth-child(1)
+    min-height (160 + 42)px
+    margin-top -42px
+  & > div:nth-child(2)
+    margin-top 30px
   &.visible
     opacity 1
 
