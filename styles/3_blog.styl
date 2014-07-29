@@ -11,6 +11,16 @@
 .block-tags
   font-size smaller
 
+  .tags
+    padding 0
+    list-style-type none
+    displayFlex()
+    justifyContent flex-end
+    flexWrap wrap
+    margin 0
+    li
+      margin-left 4px
+
 .reblog
   background url('http://static.q42.nl/images/reblog.svg') right 16px no-repeat
   background-size 24px
@@ -185,13 +195,3 @@
 
   .active
     border-bottom 5px solid #ccc
-
-.tags
-  padding 0
-  list-style-type none
-  displayFlex()
-  justifyContent flex-end
-  flexWrap wrap
-  margin 0
-  li
-    margin-left 4px
