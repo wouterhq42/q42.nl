@@ -11,7 +11,6 @@
       "fast-render": {},
       "spiderable-404": {},
       "fastclick": {},
-      "apm": {},
       "find-faster": {},
       "kadira": {},
       "subs-manager": {}
@@ -29,13 +28,13 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.1",
-        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+        "tag": "v0.8.0",
+        "commit": "e38588cb4ddc841de83f03be135d65607dfe98ba"
       },
       "nprogress": {
         "git": "https://github.com/zhouzhuojie/meteor-nprogress.git",
-        "tag": "v0.0.4",
-        "commit": "8333206b751a24fac1fbd1b03fa37621bcefe50c"
+        "tag": "v0.0.5",
+        "commit": "bb88a057166e0f1386ab8bc0a1e080b48aa59159"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
@@ -44,8 +43,8 @@
       },
       "marked": {
         "git": "https://github.com/chuangbo/meteor-marked.git",
-        "tag": "v0.3.2",
-        "commit": "850f63135cdeb05344c420bd586fd8af9cab75df"
+        "tag": "v0.3.3",
+        "commit": "a0966771f9108835755368d0879429675d7e0db4"
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
@@ -62,11 +61,6 @@
         "tag": "v0.6.7",
         "commit": "fcb3bfd34d9f6874e626b4e24e8f54107938db41"
       },
-      "apm": {
-        "git": "https://github.com/arunoda/meteor-apm-client.git",
-        "tag": "v1.4.6",
-        "commit": "5a185029dd65816c27f988bccedbb77785eab6dc"
-      },
       "find-faster": {
         "git": "https://github.com/arunoda/meteor-find-faster.git",
         "tag": "v0.1.3",
@@ -74,28 +68,43 @@
       },
       "kadira": {
         "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.4.3",
-        "commit": "6b8fd8cf89304fecef2c4a2fd3b390ab9c314a10"
+        "tag": "v2.4.9",
+        "commit": "8bb902989917522822a0897117672ae858c23427"
       },
       "subs-manager": {
         "git": "https://github.com/meteorhacks/subs-manager.git",
-        "tag": "v1.0.0",
-        "commit": "e01b87ac004ef114f882a73549ba38f64709649e"
+        "tag": "v1.0.1",
+        "commit": "38317052d1601002d4dff537e4e0f61d1aa36e6d"
       },
       "crypto-md5": {
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
         "tag": "v3.1.2.2",
         "commit": "75bbb3eeace302122d3554a6212a6fe92553fa18"
       },
-      "blaze-layout": {
-        "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.4",
-        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      "iron-layout": {
+        "git": "https://github.com/EventedMind/iron-layout.git",
+        "tag": "v0.2.0",
+        "commit": "4a2d53e35ba036b0c189c7ceca34be494d4c6c97"
       },
       "crypto-base": {
         "git": "https://github.com/oortcloud/meteor-crypto-base.git",
         "tag": "v3.1.2.1",
         "commit": "5df8d82a0595553415bbfae2930c6ecbeece5794"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.5",
+        "commit": "273e3ab7d005d91a1a59c71bd224533b4dae2fbd"
+      },
+      "iron-core": {
+        "git": "https://github.com/EventedMind/iron-core.git",
+        "tag": "v0.2.0",
+        "commit": "0e48b5dc50d03f01025b7b900fb5ce2f13d52cad"
+      },
+      "iron-dynamic-template": {
+        "git": "https://github.com/EventedMind/iron-dynamic-template.git",
+        "tag": "v0.2.1",
+        "commit": "4dd1185c4d9d616c9abdb3f33e4a7d5a88db7e18"
       }
     }
   }
