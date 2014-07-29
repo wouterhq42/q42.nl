@@ -1,0 +1,125 @@
+@import "0_variables.styl"
+
+#colleagues .block-full
+  overflow visible
+
+.qers
+  margin 0
+  padding 0
+  displayFlex()
+  flexFlow row wrap
+
+  .qer
+    width 108px
+    height 108px
+    list-style none
+    position relative
+    margin 0px 9px 9px 0
+
+    &.no-results
+      display block
+      clear left
+      width auto
+      height auto
+      margin 0
+      text-align center
+      padding 30px 0
+      background-color #999
+
+    &.hover
+      overflow visible
+      .polaroid
+        pointer-events all
+        opacity 1
+        transform scale(1.0) rotate(-5deg)
+        transformOrigin center center
+        .contactData
+          display block
+
+    .name
+      font bold 12px bodyFont
+      z-index 1
+      position absolute
+      bottom 3px
+      left 3px
+      color black
+      padding 0 3px
+      color white
+      text-shadow 0 1px 1px rgba(0,0,0,.5)
+      text-transform uppercase
+      background-color rgba(0,0,0,.3)
+      fontSmoothing antialiased
+
+    .contactData
+      display none
+
+    img
+      width 108px
+      height 108px
+
+  .polaroid
+    pointer-events none
+    position absolute
+    top 0
+    left 0
+    background-color #fff
+    z-index 9
+    padding 10px
+    box-shadow 0px 4px 13px rgba(0,0,0,0.4)
+    opacity 0
+    transform scale(0.71) rotate(0deg)
+    transition linear .05s all
+
+    img, video
+      width 150px
+      height 150px
+
+    h3
+      font 16px/1.3em 'Permanent Marker', cursive
+      margin 0
+      text-align center
+
+    .contactData
+      margin 0
+      font-size 14px
+
+    .contactData span
+      text-align center
+      display block
+
+    .closePolaroid
+      width 30px
+      height 30px
+      background url('http://static.q42.nl/images/closebox.png') no-repeat
+      position absolute
+      top -16px
+      right -16px
+
+#facts
+  .body
+    text-align center
+  .counter
+    font-size 78px
+
+#filter-colleagues
+  input
+    font-size 16px
+
+  #filter-options
+    li
+      display inline-block
+
+      a
+        padding 0 6px 1px 6px
+        background #eee
+        border-radius 15px
+        font-size smaller
+        border solid 1px transparent
+
+        &:hover
+          text-decoration none
+          background-color #eee
+
+        &.selected
+          background-color transparent
+          border-color #1d78b4

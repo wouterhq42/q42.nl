@@ -13,16 +13,16 @@ currentQers = [
   { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
-  { name: "Chris de Jager", handle: "chrisj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Chris de Jager", handle: "chrisj" }
   { name: "Chris Waalberg", handle:"chris" , phone: "070-4452353" }
   { name: "Christiaan Hees", handle:"christiaan" }
   { name: "Coen Bijpost", handle:"coen", phone: "070-4452359", imageAnimated: "coen-gr.jpg" }
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
   { name: "Elaine Oliver", handle:"elaine" }
-  { name: "Erik van der Veen", handle: "erik", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Erik van der Veen", handle: "erik" }
   { name: "Frank van den Hoogen", handle:"frank", phone: "070-4452368", web: "http://www.frankvdhoogen.nl" }
   { name: "Gerard Dorst", handle:"gerard" }
-  { name: "Guido Bouman", handle:"guido", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
   { name: "Jaap Taal", handle:"jaap" }
@@ -51,17 +51,16 @@ currentQers = [
   { name: "Rob Lokhorst", handle:"rob" }
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" }
   { name: "Sander de Vos", handle:"sander", phone: "070-4452354" }
-  { name: "Sanjay Sheombar", handle:"sanjay" }
   { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/" }
   { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351" }
   { name: "Suzanne Waalberg", handle:"suzanne" }
-  { name: "Taco Ekkel", handle: "taco", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Taco Ekkel", handle: "taco" }
   { name: "Ted de Koning", handle:"ted" }
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" }
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" }
   { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
-  { name: "Tomas Harkema", handle:"tomas", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Tomas Harkema", handle:"tomas" }
 ]
 
 inserts = 0

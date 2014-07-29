@@ -1,5 +1,4 @@
-
-
+@import "0_variables.styl"
 
 /* lights color picker */
 #hue {
@@ -15,8 +14,8 @@
   vertical-align: middle;
   cursor: pointer;
   text-indent: -900px;
-  -webkit-transition: ease-in-out opacity .3s;
-  -moz-transition: ease-in-out opacity .3s;
+  transition: ease-in-out opacity .3s;
+  padding 0
 
   /* experimental Chrome/Firefox gradient that looks like a color picker */
   background: radial-gradient(circle closest-corner at 0% 50%, rgba(0,255,255,1), rgba(0,255,255,0)),
@@ -28,7 +27,7 @@
   opacity: .7;
 }
 #lights-color:active {
-  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 #lights-color::-webkit-color-swatch-wrapper {
   display: none;
@@ -40,7 +39,7 @@
   position: absolute;
   top: .25em;
   right: 4em;
-  font: 12px Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size 12px
   color: white;
   text-shadow: 0 1px rgba(0,0,0,.3);
   text-align: right;
@@ -48,7 +47,7 @@
   padding: 5px 15px;
   background: rgba(0,0,0,.4);
   border-radius: 15px;
-  -webkit-transition: linear .2s;
+  transition: linear .2s;
   opacity: 0;
   pointer-events: none;
 }
@@ -66,12 +65,8 @@
   position: absolute;
   width: 100%; height: 100%;
   top: 0; left: 0;
-  -webkit-animation: ease-in-out fadeIn 3s;
-  -webkit-animation-fill-mode: forwards;
-}
-@-webkit-keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  animation: ease-in-out fadeIn 3s;
+  animationFillMode: forwards;
 }
 
 #colorpicker {
@@ -86,10 +81,7 @@
   border-top-right-radius: 2px;
   box-shadow: 0 4px 4px rgba(0,0,0,.4);
 }
-#colorpicker svg {
-  display: block;
-}
-.show-colorpicker #colorpicker {
+#colorpicker svg, .show-colorpicker #colorpicker {
   display: block;
 }
 

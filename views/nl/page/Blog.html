@@ -1,14 +1,14 @@
 <template name="blog">
-  <div class="container blog">
+  <div class="container">
 
     <div class="block-text">
       <h1>Hallo? Met het blog van Q42?</h1>
     </div>
 
-    <div id="blog-posts">
-    {{#each post}}
-      <div class="block-large {{#if description}}reblog{{/if}}">
-        <div class="intro">
+    <div class="blog block-large">
+      <div class="blog-posts">
+      {{#each post}}
+        <div class="blog-item {{#if description}}reblog{{/if}}">
           {{#if typeIs "link"}}
             {{#unless description}}
             <!-- link -->
@@ -70,14 +70,13 @@
             </p>
           {{/if}}
         </div>
+        {{/each}}
       </div>
-    {{/each}}
+      {{> blogSidebar}}
     </div>
 
-    {{> blogSidebar}}
-
     <nav id="pageNav">
-      <ul class="clearfix">
+      <ul>
         {{#each pagination}}
           <li>
             {{#if active}}
@@ -94,11 +93,12 @@
 </template>
 
 <template name="blogpost">
-  <div class="container blog">
+  <div class="container">
     {{#with post}}
     <section>
-      <div class="block-large">
-        <div class="intro">
+
+      <div class="blog block-large">
+        <div class="blog-post">
           {{#if player}}
             <h1>Filmpje</h1>
             {{> postDate}}
@@ -137,34 +137,42 @@
         {{> blogSidebar}}
       </div>
 
-      {{#unless isPhantom}}
-      <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
-        <div class="twitterShare" style="float: left;">
-          <a href="https://twitter.com/share" class="twitter-share-button"
-            data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
-        </div>
+      <div class="blog">
+        {{#unless isPhantom}}
+        <div class="socialShare">
+          <div class="twitterShare" style="float: left;">
+            <a href="https://twitter.com/share" class="twitter-share-button"
+              data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
+          </div>
 
-        <div class="facebookShare" style="float: left;">
-          <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <div class="facebookShare" style="float: left;">
+            <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          </div>
         </div>
+        {{/unless}}
+
+        {{> tags}}
       </div>
-      {{/unless}}
-
-      {{> tags}}
 
     </section>
     {{/with}}
     <section class="comments">
       <h2>{{commentsCount}} reactie{{#unless oneComment}}s{{/unless}}</h2>
       <div class="commentbox">
-        <img src="{{picture}}">
-        <textarea id="comment" placeholder="Reageer..."></textarea>
-        {{#unless loggedin}}
-        <button id="addComment" disabled>Reageer</button>
-        {{else}}
-        <button id="addComment">Reageer</button>
-        {{/unless}}
-        als {{> loginButtons}}
+        <div class="input">
+          <img src="{{picture}}">
+          <div class="comment">
+            <textarea id="comment" placeholder="Reageer..."></textarea>
+          </div>
+        </div>
+        <div class="submit">
+          {{#unless loggedin}}
+          <button id="addComment" disabled>Reageer</button>
+          {{else}}
+          <button id="addComment">Reageer</button>
+          {{/unless}}
+          als {{> loginButtons}}
+        </div>
       </div>
       <ul>
         {{#each comments}}
@@ -241,16 +249,22 @@
 <template name="comment">
   <li id="comment{{_id}}">
     <div class="user {{service}}-service">
-      <img src="{{picture}}">
-      <span class="login-image" id="login-buttons-image-{{service}}"></span>
-      <span class="name">{{userName}}</span>
-      <span class="meta"> - {{datediff}} geleden</span>
+      <div class="profile">
+        <img src="{{picture}}" alt="">
+        <div class="name-date">
+          <!-- <span class="login-image" id="login-buttons-image-{{service}}"></span> -->
+          <span class="name">{{userName}}</span>
+          <span class="meta">{{datediff}} geleden</span>
+        </div>
+      </div>
       {{#if ownsComment}}
-        <span class="meta"> -
+      <div class="controls">
+        <span class="meta">
           <a href="#" class="edit-link">wijzig</a>
           <a href="#" class="save-link">opslaan</a>
           - <a href="#" class="delete-link">verwijderen</a>
         </span>
+      </div>
       {{/if}}
     </div>
     <div class="text">{{text}}</div>

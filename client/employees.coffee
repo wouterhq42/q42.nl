@@ -33,7 +33,7 @@ $Template
     filter: -> Session.get("employees_filter")
     supportsWebm: ->
       video = document.createElement('video')
-      video.canPlayType("video/webm") is "probably"
+      video.canPlayType('video/webm; codecs="vp8, vorbis"') is "probably"
 
 zIndex = 1000
 polaroids = {}
@@ -73,13 +73,13 @@ Polaroid = ($li) ->
 
 showPolaroid = (el) ->
   $li = $(el)
-  name = $li.find(".color").attr("alt")
+  name = $li.find("img").attr("alt")
   polaroids[name] = polaroids[name] or new Polaroid($li)
   polaroids[name].show(el)
 
 hidePolaroid = (el) ->
   $li = $(el)
-  name = $li.find(".color").attr("alt")
+  name = $li.find("img").attr("alt")
   polaroids[name] = polaroids[name] or new Polaroid($li)
   polaroids[name].hide(el)
 
@@ -94,7 +94,7 @@ Template.filter_employees.list = ->
   _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
 
 Template.filter_employees.selected = (filter) ->
-  if Session.equals("employees", filter) then "selected" else ""
+  if Session.equals("employees_filter", filter) then "selected" else ""
 
 Template.filter_employees.rendered = ->
   $("#filter-colleagues select").val(Session.get("employees_filter"))

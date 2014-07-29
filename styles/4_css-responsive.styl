@@ -1,0 +1,235 @@
+@import "0_variables.styl"
+
+@media all and (max-width: 1024px) {
+  /* Links always have an underline, because there is no hover state. */
+  a, a:visited, a:hover { text-decoration: underline; }
+}
+
+
+
+
+@media all and (min-width: 941px)
+  .readmore:hover
+    background-color #1D78B4
+    color white
+    text-decoration none
+    transition all .2s ease-out
+  .visual.caption:hover img, .visual.caption:hover video
+    transform translateY(-15px)
+
+  .visual.caption:hover p
+    transform translateY(-25px)
+
+  .visual.caption, .visual.caption p, .visual.caption img, .visual.caption video
+    transition all .2s ease-out
+
+
+
+
+@media all and (max-width: 940px)
+
+  .container, #footer > section
+    width 620px
+
+  .block-large
+    flexWrap wrap
+    .intro
+      margin-bottom 20px
+
+  .block-small
+    min-width 300px
+    &:nth-of-type(2)
+      margin-right 0
+    &:nth-child(3):last-child
+      margin-top 40px
+
+
+
+
+
+@media all and (max-width: 620px)
+
+  .block-large, .block-full
+    padding 20px 0
+    display block
+
+    &.right .body
+      margin-left 0
+
+  .container,
+  #footer > section,
+  #footer .block-small,
+  #footer .block-small .body,
+  #footer .block-small .visual { width: 460px; }
+
+  .block-large .visual,
+  .block-large .block-small,
+  .block-large .block-small .body,
+  .block-large .block-small .visual,
+  .block-large .intro,
+  .block-large .body
+    width 100%
+    max-width 100% !important
+
+  .container .blog.block-large
+    margin-top 32px
+    .blog-posts, .blog-post
+      margin-right 0
+
+  .block-small
+    margin-right 0
+    &:not(:first-child)
+      margin-top 20px
+    .visual img 
+      width 100%
+      height auto
+
+  .intro-outro
+    padding 40px 0
+
+  .qers
+    .qer
+      width 100%
+      height auto
+      padding-left 70px
+      margin-right 0
+
+      img
+        width 60px
+        height 60px
+        position absolute
+        top 0
+        left 0
+
+      .polaroid
+        display none
+
+      .name
+        color #000
+        text-shadow none
+        top 0
+        left 0
+        background none
+        font 20px 'Permanent Marker', cursive
+        position relative
+
+      .contactData
+        position relative
+        display block
+        font-size 12px
+
+  .visual iframe, .blog-item iframe { width: 100%; }
+
+  .fb_iframe_widget, .fb_iframe_widget > span, .fb-comments iframe
+    width 100% !important
+
+
+
+
+
+
+@media all and (max-width: 480px)
+
+  html, body
+    font-size 14px
+
+  body
+    background #eee
+    &.show-mobile-menu
+      overflow-x hidden
+      #page
+        transform translateX(150px)
+
+  .container, #footer > section 
+    width 90%
+    min-width 300px
+
+  #loading
+    top 115px
+
+  #mobile-menu-icon
+    display block
+    position absolute
+    z-index 5
+    top 1em
+    left 1em
+    color white
+    cursor pointer
+    &:hover
+      color #ffc
+    &:active
+      transform scale(0.9)
+
+  #header 
+    ul
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 6;
+      width: 150px;
+      margin-top: 0;
+      transform translateX(-100%)
+      transition ease-in-out -webkit-transform .2s
+      flexDirection column
+      li:first-child
+        display block
+    li
+      display block
+      margin 0
+      line-height 25px
+      a
+        display block
+        padding 10px
+        color #000
+        text-shadow none
+        border-bottom solid 1px #ccc
+        text-align left
+        &:hover
+          background-color #fff
+          color #555
+        &:active
+          background -webkit-linear-gradient(top, #ccc, #eee)
+          color #555
+
+  .lights-off #header li a:hover {
+    background-color: #444;
+    color: #ddd;
+  }
+  .lights-off #header li a {
+    border-bottom-color: #444;
+  }
+
+  #particles { display: none; }
+  #logo img, #logo object { height: 80px;}
+
+  .block-small > ul, #blog-sidebar ul
+    padding-left 40px
+
+  .block-text
+    padding 0
+
+  body section,
+  .block-large .body,
+  .block-large .visual,
+  .block-large .block-small,
+  .block-large .block-small .body,
+  .block-large .intro,
+  .block-large .block-small .visual
+    width auto
+    margin-right 0
+
+  .blog .blog-posts, .blog .blog-post
+    margin-right 0
+
+  .blog .blog-item
+    padding 20px 0
+    h1
+      font-size 1.5em
+    img, iframe
+      max-width 100%
+  .blog-post h1
+    font-size 2em
+
+  #colleagues .intro + aside { display: none; }
+
+  .qer
+    height 70px

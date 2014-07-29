@@ -1,14 +1,14 @@
 <template name="en_blog">
-  <div class="container blog">
+  <div class="container">
 
     <div class="block-text">
       <h1>Blog</h1>
     </div>
 
-    <div id="blog-posts">
-    {{#each post}}
-      <div class="block-large {{#if description}}reblog{{/if}}">
-        <div class="intro">
+    <div class="blog block-large">
+      <div class="blog-posts">
+      {{#each post}}
+        <div class="blog-item {{#if description}}reblog{{/if}}">
           {{#if typeIs "link"}}
             {{#unless description}}
             <!-- link -->
@@ -70,22 +70,23 @@
             </p>
           {{/if}}
         </div>
+      {{/each}}
       </div>
-    {{/each}}
+      {{> en_blogSidebar}}
     </div>
 
-    {{> en_blogSidebar}}
     {{> en_pageNav}}
 
   </div>
 </template>
 
 <template name="en_blogpost">
-  <div class="container blog">
+  <div class="container">
     {{#with post}}
     <section>
-      <div class="block-large">
-        <div class="intro">
+
+      <div class="blog block-large">
+        <div class="blog-post">
           {{#if player}}
             <h1>Video</h1>
             {{> en_postDate}}
@@ -124,25 +125,27 @@
         {{> en_blogSidebar}}
       </div>
 
-      {{#unless isPhantom}}
-      <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
-        <div class="twitterShare" style="float: left;">
-          <a href="https://twitter.com/share" class="twitter-share-button"
-            data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
-        </div>
+      <div class="blog">
+        {{#unless isPhantom}}
+        <div class="socialShare">
+          <div class="twitterShare" style="float: left;">
+            <a href="https://twitter.com/share" class="twitter-share-button"
+              data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42" data-text="{{title}}">Tweet</a>
+          </div>
 
-        <div class="facebookShare" style="float: left;">
-          <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <div class="facebookShare" style="float: left;">
+            <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          </div>
         </div>
+        {{/unless}}
+
+        {{> en_tags}}
       </div>
-      {{/unless}}
-
-      {{> en_tags}}
 
     </section>
     <section class="comments">
       <h2>Comments</h2>
-      <p style="margin-left:-50px">Please visit the Dutch version of this article to <a href="http://q42.nl/blog/post/{{id}}/{{slug}}">leave a comment</a>.</p>
+      <p>Please visit the Dutch version of this article to <a href="http://q42.nl/blog/post/{{id}}/{{slug}}">leave a comment</a>.</p>
     </section>
     {{/with}}
   </div>
@@ -198,7 +201,7 @@
 
 <template name="en_pageNav">
   <nav id="pageNav">
-    <ul class="clearfix">
+    <ul>
       {{#each pagination}}
         <li>
           <a href="/blog{{#if tag}}/tagged/{{tag}}{{/if}}/page/{{page}}"
