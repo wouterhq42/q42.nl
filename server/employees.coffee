@@ -115,7 +115,7 @@ addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia
 addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
-addLabel "Student",                       "alexander herman"
+addLabel "Student",                       "alexander herman tomas"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco"
@@ -128,7 +128,7 @@ addLabel "Team Wintersport",              "lukas bob chris mark jeroen kamil kat
 addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
-addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel"
+addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
 addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh"
 addLabel "Gaat binnenkort naar Microsoft", "michiel"
