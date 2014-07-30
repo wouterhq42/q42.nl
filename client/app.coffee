@@ -37,9 +37,9 @@ setTitle = ->
 
   $("meta[property='og:title']").attr "content", document.title
   $("meta[property='og:url']").attr "content", window.location.href
-  $("meta[property='og:image']").attr "content", $( ".intro img:first-of-type").attr("src")
+  $("meta[property='og:image']").attr "content", $( ".block-large img:first-of-type").attr("src")
 
-  desc = $(".intro p:not(.post-date)").first().text()
+  desc = $(".blog-post p:not(.post-date)").first().text()
   desc = $("p:first-of-type").first() unless desc
   $("meta[property='og:description']").attr "content", desc
 
