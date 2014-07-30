@@ -143,6 +143,36 @@ Router.map ->
         oneComment:     BlogComments.find().count() is 1
       }
 
+  @route "meteor",
+    path: "/meteor"
+    action: ->
+      if Session.equals("lang", "nl")
+        Spiderable.httpStatusCode = 404
+        @render "error404"
+        return
+
+      if @ready()
+        @render getTemplate("meteor")
+      else
+        @render "loading"
+
+    onBeforeAction: -> Session.set "page", "meteor"
+    onAfterAction: -> Meteor.call "checkTumblr"
+    waitOn: ->
+      [
+        Meteor.subscribe "pagesByTag", "meteor"
+        SubsManager.subscribe "blogpostIndex", 1, "meteor"
+        SubsManager.subscribe "LatestComments", 10
+      ]
+    data: ->
+      posts = blogpostIndex.find {}, sort: date: -1
+      return null unless posts.count() > 0
+      return {
+        post:       posts
+        pagination: getPagination 1
+        tag:        "meteor"
+      }
+
   @route "vacatures",
     path: "/vacatures"
     action: ->
