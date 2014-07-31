@@ -95,6 +95,9 @@ $Template({
     },
     datediff: function() {
       return moment.duration(moment(Session.get("date")).diff(this.date)).humanize();
+    },
+    textAsHTML: function() {
+      return this.text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>");
     }
   }
 });

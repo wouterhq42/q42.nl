@@ -1,0 +1,145 @@
+<template name="en_meteor">
+	<div class="container">
+
+    <header class="block-text">
+      <h1>Q42 &amp; Meteor</h1>
+    </header>
+
+    <section class="block-large">
+      <div class="intro">
+        <a class="visual caption">
+          <img src="http://static.q42.nl/images/meteor-cube42.jpg" alt="">
+          <p>Cube 42, a game built in CSS with Meteor</p>
+        </a>
+
+        <p>At Q42 we love <a href="http://meteor.com">Meteor</a>. In fact, we were early adopters of the platform in 2012 when we ported this website from .NET to Meteor, and our employee Rahul became a recognized "Meteor Captain" when he started <a href="http://meetup.com/meteor-haag">organising Meteor meetups</a> at our office in The Hague.</p>
+
+        <p>Since then, we've continued exploring and it's become one of our go-to platforms for internal apps. We've even started pitching projects to run on Meteor, although it often comes down to finding the right client and project to match the capabilities of Meteor's real-time nature.</p>
+
+        <p>We'll keep investing in Meteor as it grows and we learn more about it. In the meantime, check out an overview of the projects we've done so far.</p>
+
+        <p>Interested in talking to us about a Meteor project? Get in touch with <a href="mailto:chris@q42.nl">Chris</a> or <a href="mailto:rahul@q42.nl">Rahul</a>.</p>
+
+      </div>
+      <aside class="block-small subcontent">
+        <h2>Blog posts about Meteor</h2>
+        <ul>
+          {{#each post}}{{#if title}}
+          <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
+          {{/if}}{{/each}}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-q42nl.jpg" alt="">
+          <p>Insert recursion joke here</p>
+        </div>
+        <div class="body">
+          <h2>Q42.nl</h2>
+          <p>Yo dawg, this site was built with Meteor! We've <a href="http://github.com/q42/q42.nl">open-sourced it on Github</a> and host it on the meteor.com servers.</p>
+          <p><a href="http://q42.nl">Q42.nl on Meteor</a> | <a href="http://github.com/q42/q42.nl" class="external">Code on Github</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-cube42.jpg" alt="">
+          <p>Can you get to level 4-2?</p>
+        </div>
+        <div class="body">
+          <h2>Cube 42</h2>
+          <p>An experimental puzzle game using Meteor for server-side logic and accounts and CSS for the rendering. Try it out and see if you can crack it!</p>
+          <p><a href="http://cube42.nl" class="external">Play Cube 42</a> | <a href="https://github.com/q42/cube42" class="external">Code on Github</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-livelearn.jpg" alt="">
+          <p>Real-time teaching with Meteor!</p>
+        </div>
+        <div class="body">
+          <h2>Livelearn Prototype</h2>
+          <p>Top secret prototype for an in-classroom education app. We spent a week prototyping and came out with a great result that was functional enough to use for market research.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-bedenktijdjes.jpg" alt="">
+          <p>Time to think</p>
+        </div>
+        <div class="body">
+          <h2>Bedenktijdjes</h2>
+          <p>Our internal app for submitting and voting on talks and workshops. In use for over a year and still going strong!</p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-worldcup.jpg" alt="">
+          <p>Real-time penalty-taking</p>
+        </div>
+        <div class="body">
+          <h2>World Cup Betting Pool</h2>
+          <p>The World Cup betting pool at Q42 ran on paper, but of course Meteor is a much better use case for this kind of thing, so Rahul implemented (most of) the logic.</p>
+          <p><a href="http://worldcup2014.meteor.com">See the (defunct) app</a> | <a href="http://github.com/primigenus/worldcup2014" class="external">Code on Github</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-taxielectric.jpg" alt="">
+          <p>Upgrading cabs to be more like Uber</p>
+        </div>
+        <div class="body">
+          <h2>Electric Taxi prototype</h2>
+          <p>Live data streamed from taxis driving around Amsterdam to a server and displayed in an Android app for the driver and rider to view and use. Super-quick development thanks to Meteor.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-incomiiing.jpg" alt="">
+          <p>Your base is under attack</p>
+        </div>
+        <div class="body">
+          <h2>Incomiiing</h2>
+          <p>We track incoming leads and projects with our own custom-built app, built with Meteor. Because that was the fastest option.</p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-cursors.jpg" alt="">
+          <p>Beautifully blended CSS gradients</p>
+        </div>
+        <div class="body">
+          <h2>Meteor 102 - Cursors</h2>
+          <p>A demo for newbie Meteor students who can use this repository to learn about real-time multi-user environments.</p>
+          <p><a href="http://cursors.meteor.com" class="external">Try it (get lots of clients!)</a> | <a href="http://github.com/primigenus/cursors" class="external">Code on Github</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/meteor-universe.png" alt="">
+          <p>Prepare to have your mind blown</p>
+        </div>
+        <div class="body">
+          <h2>Meteor 101 - Basics</h2>
+          <p>A basic demo of Meteor often used by Rahul at colleges, universities and other places where a quick live coding session is effective.</p>
+          <p><a href="http://github.com/primigenus/meteor-demo" class="external">Code on Github</a></p>
+        </div>
+      </div>
+    </section>
+
+   </div>
+</template>

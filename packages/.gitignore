@@ -29,3 +29,6 @@ subs-manager
 /kadira
 /subs-manager
 /blaze-layout
+iron-layout
+iron-core
+iron-dynamic-template

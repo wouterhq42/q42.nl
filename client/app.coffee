@@ -19,6 +19,11 @@ Router.onRun ->
   NProgress.start()
 
 Router.onBeforeAction ->
+  SubsManager.subscribe "allUserData"
+  SubsManager.subscribe "lights"
+  SubsManager.subscribe "coffeeCounter"
+  SubsManager.subscribe "employees"
+  
   lang = Session.get "lang"
   @render getTemplate("header"), to: "header"
   @render getTemplate("footer"), to: "footer"
@@ -37,9 +42,9 @@ setTitle = ->
 
   $("meta[property='og:title']").attr "content", document.title
   $("meta[property='og:url']").attr "content", window.location.href
-  $("meta[property='og:image']").attr "content", $( ".intro img:first-of-type").attr("src")
+  $("meta[property='og:image']").attr "content", $( ".block-large img:first-of-type").attr("src")
 
-  desc = $(".intro p:not(.post-date)").first().text()
+  desc = $(".blog-post p:not(.post-date)").first().text()
   desc = $("p:first-of-type").first() unless desc
   $("meta[property='og:description']").attr "content", desc
 
@@ -143,6 +148,36 @@ Router.map ->
         oneComment:     BlogComments.find().count() is 1
       }
 
+  @route "meteor",
+    path: "/meteor"
+    action: ->
+      if Session.equals("lang", "nl")
+        Spiderable.httpStatusCode = 404
+        @render "error404"
+        return
+
+      if @ready()
+        @render getTemplate("meteor")
+      else
+        @render "loading"
+
+    onBeforeAction: -> Session.set "page", "meteor"
+    onAfterAction: -> Meteor.call "checkTumblr"
+    waitOn: ->
+      [
+        Meteor.subscribe "pagesByTag", "meteor"
+        SubsManager.subscribe "blogpostIndex", 1, "meteor"
+        SubsManager.subscribe "LatestComments", 10
+      ]
+    data: ->
+      posts = blogpostIndex.find {}, sort: date: -1
+      return null unless posts.count() > 0
+      return {
+        post:       posts
+        pagination: getPagination 1
+        tag:        "meteor"
+      }
+
   @route "vacatures",
     path: "/vacatures"
     action: ->
@@ -185,6 +220,7 @@ Router.map ->
         @render getTemplate("io")
       else
         @render "loading"
+        
     onBeforeAction: -> Session.set "page", "io"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
