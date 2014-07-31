@@ -1,6 +1,3 @@
-Meteor.startup ->
-  Session.setDefault "employees_filter", "Q'er"
-  SubsManager.subscribe "employees"
 
 UI.registerHelper "avatar_static",   -> @imageStatic or @handle + ".jpg"
 UI.registerHelper "avatar_animated", -> @imageAnimated or @handle + ".gif"

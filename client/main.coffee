@@ -12,9 +12,7 @@ Meteor.startup ->
 
   setupLights()
 
-  SubsManager.subscribe "allUserData"
-  SubsManager.subscribe "lights"
-  SubsManager.subscribe "coffeeCounter"
+  Session.setDefault "employees_filter", "Q'er"
 
   $.ajaxSetup cache: yes
 

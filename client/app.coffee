@@ -19,6 +19,11 @@ Router.onRun ->
   NProgress.start()
 
 Router.onBeforeAction ->
+  SubsManager.subscribe "allUserData"
+  SubsManager.subscribe "lights"
+  SubsManager.subscribe "coffeeCounter"
+  SubsManager.subscribe "employees"
+  
   lang = Session.get "lang"
   @render getTemplate("header"), to: "header"
   @render getTemplate("footer"), to: "footer"
@@ -215,6 +220,7 @@ Router.map ->
         @render getTemplate("io")
       else
         @render "loading"
+        
     onBeforeAction: -> Session.set "page", "io"
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
