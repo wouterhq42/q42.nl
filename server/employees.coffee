@@ -43,7 +43,7 @@ currentQers = [
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
   { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/" }
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/" }
-  { name: "Meindert Hart", handle: "meindert" }
+  { name: "Meindert Hart", handle: "meindert", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/" }
   { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362" }
   { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/" }
