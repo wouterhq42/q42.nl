@@ -68,8 +68,8 @@
       },
       "kadira": {
         "git": "https://github.com/meteorhacks/kadira.git",
-        "tag": "v2.4.9",
-        "commit": "8bb902989917522822a0897117672ae858c23427"
+        "tag": "v2.4.10",
+        "commit": "036c85cea98369a55cf3a5c46463dffe755dadbd"
       },
       "subs-manager": {
         "git": "https://github.com/meteorhacks/subs-manager.git",
