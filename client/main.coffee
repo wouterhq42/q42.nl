@@ -17,7 +17,6 @@ Meteor.startup ->
   $.ajaxSetup cache: yes
 
   window.easterEgg = new Konami ->
-    console.log "hi"
     $iframe = $("<iframe>")
     $iframe.attr "id", "game"
     $iframe.attr "src", "http://static.q42.nl/marioheader/marioworld.html"
