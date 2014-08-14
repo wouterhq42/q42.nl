@@ -93,9 +93,6 @@ Template.filter_employees.list = ->
 Template.filter_employees.selected = (filter) ->
   if Session.equals("employees_filter", filter) then "selected" else ""
 
-Template.filter_employees.rendered = ->
-  $("#filter-colleagues select").val(Session.get("employees_filter"))
-
 Template.filter_employees.events
   "click li a": (evt) ->
     evt.preventDefault()

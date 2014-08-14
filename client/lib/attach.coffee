@@ -26,7 +26,7 @@ attachGoogleAnalytics = ->
     m.parentNode.insertBefore a, m
     return
   ) window, document, "script", "//www.google-analytics.com/analytics.js", "ga"
-  ga "create", "UA-XXXXXX-XX", "example.com"
+  ga "create", "UA-2714808-1", "auto"
   ga "require", "displayfeatures"
   ga "send", "pageview"
 

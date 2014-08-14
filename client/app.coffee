@@ -45,10 +45,41 @@ setTitle = ->
   $("meta[property='og:image']").attr "content", $( ".block-large img:first-of-type").attr("src")
 
   desc = $(".blog-post p:not(.post-date)").first().text()
-  desc = $("p:first-of-type").first() unless desc
+  desc = $("p:first-of-type").first().text() unless desc
   $("meta[property='og:description']").attr "content", desc
 
 Router.map ->
+
+  customPageWithBlogTags = (obj) =>
+    @route obj.routeName,
+      path: obj.path
+      action: ->
+        unless Session.equals("lang", obj.lang)
+          Spiderable.httpStatusCode = 404
+          @render "error404"
+          return
+
+        if @ready()
+          @render getTemplate(obj.routeName)
+        else
+          @render "loading"
+
+      onBeforeAction: -> Session.set "page", obj.routeName
+      onAfterAction: -> Meteor.call "checkTumblr"
+      waitOn: ->
+        [
+          Meteor.subscribe "pagesByTag", obj.tags[0]
+          SubsManager.subscribe "blogpostIndex", 1, obj.tags[0]
+          SubsManager.subscribe "LatestComments", 10
+        ]
+      data: ->
+        posts = blogpostIndex.find {}, sort: date: -1
+        return null unless posts.count() > 0
+        return {
+          post:       posts
+          pagination: getPagination 1
+          tag:        obj.routeName
+        }
 
   @route "home",
     path: "/"
@@ -148,95 +179,23 @@ Router.map ->
         oneComment:     BlogComments.find().count() is 1
       }
 
-  @route "meteor",
+  customPageWithBlogTags
+    routeName: "meteor"
     path: "/meteor"
-    action: ->
-      if Session.equals("lang", "nl")
-        Spiderable.httpStatusCode = 404
-        @render "error404"
-        return
+    tags: ["meteor"]
+    lang: "en"
 
-      if @ready()
-        @render getTemplate("meteor")
-      else
-        @render "loading"
-
-    onBeforeAction: -> Session.set "page", "meteor"
-    onAfterAction: -> Meteor.call "checkTumblr"
-    waitOn: ->
-      [
-        Meteor.subscribe "pagesByTag", "meteor"
-        SubsManager.subscribe "blogpostIndex", 1, "meteor"
-        SubsManager.subscribe "LatestComments", 10
-      ]
-    data: ->
-      posts = blogpostIndex.find {}, sort: date: -1
-      return null unless posts.count() > 0
-      return {
-        post:       posts
-        pagination: getPagination 1
-        tag:        "meteor"
-      }
-
-  @route "vacatures",
+  customPageWithBlogTags
+    routeName: "vacatures"
     path: "/vacatures"
-    action: ->
-      if Session.equals("lang", "en")
-        Spiderable.httpStatusCode = 404
-        @render "error404"
-        return
+    tags: ["vacature"]
+    lang: "nl"
 
-      if @ready()
-        @render getTemplate("vacatures")
-      else
-        @render "loading"
-
-    onBeforeAction: -> Session.set "page", "vacatures"
-    onAfterAction: -> Meteor.call "checkTumblr"
-    waitOn: ->
-      [
-        Meteor.subscribe "pagesByTag", "vacature"
-        SubsManager.subscribe "blogpostIndex", 1, "vacature"
-        SubsManager.subscribe "LatestComments", 10
-      ]
-    data: ->
-      posts = blogpostIndex.find {}, sort: date: -1
-      return null unless posts.count() > 0
-      return {
-        post:       posts
-        pagination: getPagination 1
-        tag:        "vacature"
-      }
-
-  @route "io",
+  customPageWithBlogTags
+    routeName: "io"
     path: "/io"
-    action: ->
-      if Session.equals("lang", "nl")
-        Spiderable.httpStatusCode = 404
-        @render "error404"
-        return
-
-      if @ready()
-        @render getTemplate("io")
-      else
-        @render "loading"
-        
-    onBeforeAction: -> Session.set "page", "io"
-    onAfterAction: -> Meteor.call "checkTumblr"
-    waitOn: ->
-      [
-        Meteor.subscribe "pagesByTag", "io"
-        SubsManager.subscribe "blogpostIndex", 1, "io"
-        SubsManager.subscribe "LatestComments", 10
-      ]
-    data: ->
-      posts = blogpostIndex.find {}, sort: date: -1
-      return null unless posts.count() > 0
-      return {
-        post:       posts
-        pagination: getPagination 1
-        tag:        "io"
-      }
+    tags: ["io"]
+    lang: "en"
 
   @route "page",
     path: "/:page"
