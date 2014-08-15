@@ -83,9 +83,9 @@ hidePolaroid = (el) ->
 $Template
   employeeView:
     events:
-      "mouseenter li": (evt) -> showPolaroid(evt.target)
-      "click li":      (evt) -> showPolaroid(evt.target)
-      "mouseleave li": (evt) -> hidePolaroid(evt.target)
+      "mouseenter .qer": (evt) -> showPolaroid(evt.target)
+      "click .qer":      (evt) -> showPolaroid(evt.target)
+      "mouseleave .qer": (evt) -> hidePolaroid(evt.target)
 
 Template.filter_employees.list = ->
   _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
