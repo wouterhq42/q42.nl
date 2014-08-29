@@ -39,3 +39,5 @@ iron-dynamic-template
 /crypto-base
 /iron-core
 /iron-dynamic-template
+zones
+inject-initial

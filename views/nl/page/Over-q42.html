@@ -293,14 +293,14 @@
 
 <template name="employees">
   {{#each employee}}
-    {{> employeeView}}
+    <li class="qer">{{> employeeView}}</li>
   {{else}}
   <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
   {{/each}}
 </template>
 
 <template name="employeeView">
-  <li class="qer">
+  <div class="qer">
     <span class="name">{{firstname}}</span>
     <span class="contactData">
       <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
@@ -329,7 +329,7 @@
         <div class="closePolaroid"></div>
       </p>
     </div>
-  </li>
+  </div>
 </template>
 
 <template name="filter_employees">
