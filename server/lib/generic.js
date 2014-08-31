@@ -38,6 +38,10 @@ Meteor.publish("allUserData", function () {
   }});
 });
 
+FastRender.route("/", function() {
+  this.subscribe("employeeCount");
+});
+
 FastRender.route("/blog", function() {
   this.subscribe("blogpostIndex", 1)
   this.subscribe("pagesByTag", "")
@@ -65,4 +69,14 @@ FastRender.route("/blog/post/:id?/:title?", function(params) {
 
 FastRender.route("/over-q42", function(params) {
   this.subscribe("employees");
+})
+
+FastRender.route("/vacatures", function(params) {
+  this.subscribe("blogpostIndex", "vacature");
+})
+FastRender.route("/meteor", function(params) {
+  this.subscribe("blogpostIndex", "meteor");
+})
+FastRender.route("/io", function(params) {
+  this.subscribe("blogpostIndex", "io");
 })
