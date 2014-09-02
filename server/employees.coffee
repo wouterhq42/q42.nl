@@ -63,6 +63,7 @@ currentQers = [
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" }
   { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
+  { name: "Tomas Harkema", handle:"tomas" }
 ]
 
 inserts = 0
