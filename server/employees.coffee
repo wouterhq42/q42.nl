@@ -113,7 +113,7 @@ _.each currentQers, (e) ->
 # addLabel "Numolition",                    "martin benjamin richard kars"
 
 # Roles
-addLabel "Projectleider",                 "jasper korjan timd gerard laurens"
+addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"
 addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
@@ -126,8 +126,8 @@ addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
 # Arbitraire selecties
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen"
-addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas" # LOL!
-addLabel "Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan"
+addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
+addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
 addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
