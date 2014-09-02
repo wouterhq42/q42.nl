@@ -26,6 +26,7 @@ currentQers = [
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
+  { name: "Hidde Statema", handle:"hidde", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
   { name: "Jaap Taal", handle:"jaap" }
   { name: "Jaap Mengers", handle: "jaapm" }
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" }
