@@ -90,8 +90,10 @@ pre.prettyprint {
   padding: 10px;
   overflow-x: hidden;
 }
-pre.prettyprint code {
+*:not(pre) > code {
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important;
+  font-size: .9rem;
+  background-color: #ECECE6;
 }
 
 pre code span:first-child {
