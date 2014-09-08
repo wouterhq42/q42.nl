@@ -88,7 +88,7 @@ pre.prettyprint {
   font-size: 14px;
   line-height: 1.2;
   padding: 10px;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 *:not(pre) > code {
   font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace !important;
