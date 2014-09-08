@@ -11,6 +11,7 @@ currentQers = [
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
   { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
+  { name: "Bart Kiers", handle: "bart", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris de Jager", handle: "chrisj" }
@@ -25,6 +26,7 @@ currentQers = [
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
+  { name: "Hidde Statema", handle:"hidde", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
   { name: "Jaap Taal", handle:"jaap" }
   { name: "Jaap Mengers", handle: "jaapm" }
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" }
@@ -111,7 +113,7 @@ _.each currentQers, (e) ->
 # addLabel "Numolition",                    "martin benjamin richard kars"
 
 # Roles
-addLabel "Projectleider",                 "jasper korjan timd gerard laurens"
+addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"
 addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
@@ -124,8 +126,8 @@ addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
 # Arbitraire selecties
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen"
-addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas" # LOL!
-addLabel "Team Wintersport",              "lukas bob chris mark jeroen kamil katja stef roelfjan"
+addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
+addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
 addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
@@ -159,6 +161,7 @@ deletes = Math.max 0, employeeCountBefore - employeeCountAfter
 console.log "Employee update complete. Inserts: #{inserts}. Updates: #{updates}. Deletes: #{deletes}"
 
 Meteor.publish "employees", -> Employees.find()
+Meteor.publish "employeeCount", -> Employees.find({}, fields: _id: 1)
 
 Meteor.methods
   updatePosition: (id, x, y, loc) ->
