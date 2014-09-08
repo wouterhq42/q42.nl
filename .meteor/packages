@@ -15,7 +15,6 @@ accounts-github
 tmeasday:gravatar@0.0.4
 coffeescript
 natestrauser:font-awesome@4.1.0
-cmather:iron-router@0.8.2
 mrt:nprogress@0.0.5
 meteorhacks:fast-render@1.0.0
 mrt:moment@2.8.1
@@ -37,4 +36,4 @@ check
 meteorhacks:kadira
 meteorhacks:subs-manager
 spiderable
-
+iron:router
