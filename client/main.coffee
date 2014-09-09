@@ -11,12 +11,16 @@ Meteor.startup ->
   , 1000
 
   setupLights()
+  setupEasterEgg()
 
   Session.setDefault "employees_filter", "Q'er"
 
   $.ajaxSetup cache: yes
 
+setupEasterEgg = ->
+  easterEgged = no
   window.easterEgg = new Konami ->
+    return if easterEgged
     $iframe = $("<iframe>")
     $iframe.attr "id", "game"
     $iframe.attr "src", "http://static.q42.nl/marioheader/marioworld.html"
@@ -25,6 +29,7 @@ Meteor.startup ->
     $iframe.attr "style", "border:none;height:100%;width:100%;position:absolute;top:0;"
     $("#headergame").append $iframe
     $iframe.focus()
+    easterEgged = yes
 
 setupLights = ->
   Session.setDefault "toggleLights", false
