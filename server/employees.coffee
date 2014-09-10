@@ -89,29 +89,6 @@ _.each currentQers, (e) ->
     Employees.update {handle: e.handle}, e
     updates++
 
-# Projecten
-# addLabel "Rijksmuseum",                   "remco jasper jaap elaine jasperh"
-# addLabel "9292",                          "tom mark timd katja korjan johan michiel christiaan sander arian guus"
-# addLabel "Staatsloterij",                 "timd arjen gerard leonard bas kars martin katja elaine bob sjoerd wilbert"
-# addLabel "Schooltas",                     "kars martin tims benjamin marcel sander"
-# addLabel "Philips Hue",                   "christiaan lukas korjan roelfjan johan arian timl"
-# addLabel "TADC",                          "lukas"
-# addLabel "MENDO",                         "chris jeroen elaine"
-# addLabel "Iamsterdam",                    "stef timd lukas bob remco"
-# addLabel "Pepper",                        "bas gerard timd katja johan elaine remco tom"
-# addLabel "D-reizen",                      "jaap mark sander martin remco chris tims bob wilbert"
-# addLabel "Greetz",                        "martin arian roelfjan marcel timd"
-# addLabel "Malmberg",                      "laurens kamil jeroen bob coen michiel martin marcel jasper"
-#
-# # Products
-# addLabel "Handcraft",                     "rahul kars sjoerd remco kamil martin"
-#
-# # Games
-# addLabel "Quento",                        "martin richard benjamin michiel christiaan guus"
-# addLabel "Carrrrds",                      "martin richard benjamin rahul"
-# addLabel "Spaceventure",                  "martin rahul richard"
-# addLabel "Numolition",                    "martin benjamin richard kars"
-
 # Roles
 addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"

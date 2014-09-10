@@ -11,7 +11,7 @@ setScrollPosition = ->
     window.scrollTo 0,0
 
 Router.configure
-  layoutTemplate: "body"
+  layoutTemplate: "main"
   loadingTemplate: "loading"
   notFoundTemplate: "error404"
 

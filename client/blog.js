@@ -106,9 +106,9 @@ function syntaxHighlight() {
   var a = false;
 
   $('code').each(function() {
-    if (!$(this).parent().hasClass('prettyprint')) {
-      $(this).wrap('<pre class="prettyprint" />');
-      a = true;
+    if (!$(this).parent().hasClass('prettyprint') && $(this).parent().is("pre")) {
+      $(this).parent().addClass("prettyprint");
+      a = true; 
     }
   });
 
