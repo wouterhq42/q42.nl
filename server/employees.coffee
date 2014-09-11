@@ -10,8 +10,8 @@ currentQers = [
   { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
-  { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
   { name: "Bart Kiers", handle: "bart", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
+  { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris de Jager", handle: "chrisj" }
@@ -63,6 +63,7 @@ currentQers = [
   { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
   { name: "Tomas Harkema", handle:"tomas" }
+  { name: "Wouter van Drunen", handle: "wouter", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
 ]
 
 inserts = 0
@@ -97,7 +98,7 @@ addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "alexander herman tomas"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
-addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco"
+addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
 # Arbitraire selecties
