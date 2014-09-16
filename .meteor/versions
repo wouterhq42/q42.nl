@@ -29,7 +29,7 @@ geojson-utils@1.0.0
 github@1.1.0
 google@1.1.0
 html-tools@1.0.0
-htmljs@1.0.0-cordova1
+htmljs@1.0.1
 http@1.0.5
 id-map@1.0.0
 iron:core@0.3.4
@@ -41,11 +41,11 @@ json@1.0.0
 less@1.0.8
 livedata@1.0.9
 localstorage@1.0.0
-logging@1.0.2-cordova2
+logging@1.0.3
 meteor@1.1.0
-meteorhacks:fast-render@1.1.1
-meteorhacks:kadira-binary-deps@1.0.0
-meteorhacks:kadira@2.5.2
+meteorhacks:fast-render@1.1.0
+meteorhacks:kadira-binary-deps@1.0.1
+meteorhacks:kadira@2.8.1
 meteorhacks:subs-manager@1.1.0
 minifiers@1.1.0
 minimongo@1.0.3
@@ -64,7 +64,7 @@ reactive-dict@1.0.2
 reactive-var@1.0.1
 reload@1.1.0
 retry@1.0.0
-routepolicy@1.0.0-cordova1
+routepolicy@1.0.1
 service-configuration@1.0.1
 session@1.0.1
 spacebars-compiler@1.0.2
@@ -80,5 +80,5 @@ twitter@1.1.0
 ui@1.0.2
 underscore@1.0.0
 url@1.0.0
-webapp-hashing@1.0.0-cordova1
+webapp-hashing@1.0.0
 webapp@1.1.1
