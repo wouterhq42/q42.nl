@@ -11,20 +11,13 @@ Meteor.startup ->
   , 1000
 
   setupLights()
+  
+  new Konami -> Session.set("headerGameActive", yes)
 
   Session.setDefault "employees_filter", "Q'er"
+  Session.setDefault "headerGameActive", no
 
   $.ajaxSetup cache: yes
-
-  window.easterEgg = new Konami ->
-    $iframe = $("<iframe>")
-    $iframe.attr "id", "game"
-    $iframe.attr "src", "http://static.q42.nl/marioheader/marioworld.html"
-    $iframe.attr "allowtransparency", "true"
-    $iframe.attr "autofocus", "true"
-    $iframe.attr "style", "border:none;height:100%;width:100%;position:absolute;top:0;"
-    $("#headergame").append $iframe
-    $iframe.focus()
 
 setupLights = ->
   Session.setDefault "toggleLights", false
@@ -42,5 +35,5 @@ setupLights = ->
   #   turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
   #   $(document.body).toggleClass "lights-off", turnOnLights
 
-UI.body.events
+Template.body.events
   "click body": -> $("body").removeClass "show-mobile-menu"

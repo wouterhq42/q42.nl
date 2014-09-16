@@ -16,6 +16,7 @@ $Template
     koppenKoffie: -> CoffeeCounter.findOne()?.count or 0
 
   header:
+    headerGameActive: -> Session.equals "headerGameActive", yes
     lightsColor: -> Session.get("lightsColor")
     supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
     color: -> Lights.find({}, {sort: {date: 1}})

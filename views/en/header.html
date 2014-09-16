@@ -1,6 +1,10 @@
 <template name="en_header">
 
-  <div id="headergame"></div>
+  <div id="headergame">
+    {{#if headerGameActive}}
+      {{> headergame}}
+    {{/if}}
+  </div>
 
   <nav>
     <div class="pos">
