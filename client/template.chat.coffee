@@ -9,6 +9,9 @@ Template.chat.events
 	"click button": (evt) ->
 		return unless Meteor.user()
 
-		msg = $(Template.instance().find("input")).val()
+		$input = $(Template.instance().find("input"))
+		msg = $input.val()
 
-		Meteor.call "addChatMessage", msg, Meteor.userId(), window.location.href
+		Meteor.call "addChatMessage", msg, Meteor.userId(), window.location.href, ->
+			$input.val("")
+			$input.focus()
