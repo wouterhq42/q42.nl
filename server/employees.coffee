@@ -123,7 +123,7 @@ addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul guus"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best goed programmeren",     "chris"
-addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd"
+addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
 
 Employees.allow
   insert: -> false
