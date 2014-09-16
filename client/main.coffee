@@ -35,5 +35,5 @@ setupLights = ->
   #   turnOnLights = Session.get("toggleLights") isnt (Session.get("date").getHours() > 20 or Session.get("date").getHours() < 7)
   #   $(document.body).toggleClass "lights-off", turnOnLights
 
-UI.body.events
+Template.body.events
   "click body": -> $("body").removeClass "show-mobile-menu"
