@@ -1,0 +1,18 @@
+<template name="chat">
+  <div id="chat">
+  	<h1>Je berichten worden naar onze <a href="http://slack.com">Slack</a> channel gestuurd!</h1>
+  	<ul>
+  	{{#each message}}
+  		<li><span class="user">{{user}}:</span> {{msg}}</li>
+  	{{/each}}
+  	</ul>
+  	<div id="chat-input">
+  	{{#if currentUser}}
+    	<p><input type="text"><button>Versturen</button></p>
+  	{{else}}
+  		<p>Log in om te chatten:</p>
+  		{{> loginButtons}}
+  	{{/if}}
+  	</div>
+  </div>
+</template>
