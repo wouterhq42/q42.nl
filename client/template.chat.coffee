@@ -15,3 +15,7 @@ Template.chat.events
 		Meteor.call "addChatMessage", msg, Meteor.userId(), window.location.href, ->
 			$input.val("")
 			$input.focus()
+
+Template.chat.rendered = ->
+	$input = $(Template.instance().find("input"))
+	$input.focus()

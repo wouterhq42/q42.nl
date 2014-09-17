@@ -1,5 +1,18 @@
 @import "0_variables.styl"
 
+#chat-toggle
+  position absolute
+  top 3.2rem
+  right 1rem
+  z-index 6
+  border-radius 50%
+  width 32px
+  height 32px
+  text-align center
+  cursor pointer
+  background #fff url(http://static.q42.nl/images/slacklogo.png) center no-repeat
+  background-size 24px
+
 #chat
   position fixed
   top 0
@@ -10,20 +23,34 @@
   z-index 999
   height 100vh
   box-sizing border-box
-  padding 16px
+  displayFlex()
+  flexDirection column
+  justifyContent space-between
+  animation slideInChat ease .2s
+  animationFillMode forwards
+  transform translateX(-100%)
 
-  h1
-    margin 8px
-    font-size 24px
+  &.hiding
+    animation slideOutChat ease .2s
 
-  #chat-input
-    position absolute
-    bottom 0
-    left 0
-    width 100%
+  .title
+    background #fff url(http://static.q42.nl/images/slacklogo.png) 16px center no-repeat
+    background-size 64px
+    padding 8px 0 8px 96px
+    border-bottom solid 2px #ddd
+    h1
+      margin 8px
+      font-size 16px
+
+  .flex-stretch
+    flex 1
+
+  .flex-end
     padding 16px
+    box-sizing border-box
     displayFlex()
     justifyContent space-between
+    border-top solid 2px #ddd
 
     input
       font-size 16px
@@ -41,3 +68,11 @@
 
     .user
       font-weight bold
+
+@keyframes slideInChat
+  to
+    transform translateX(0)
+
+@keyframes slideOutChat
+  to
+    transform translateX(-100%)
