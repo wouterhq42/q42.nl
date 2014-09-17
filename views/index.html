@@ -59,7 +59,9 @@
 
     {{> yield region="footer"}}
 
-    {{> chat}}
+    {{#if openChat}}
+      {{> chat}}
+    {{/if}}
   </div>
 
 </template>

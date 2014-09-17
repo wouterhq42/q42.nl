@@ -15,6 +15,9 @@ templateHeaderEvents =
         $(evt.target).attr("value", "#" + color).css("background-color", "#" + color)
         Session.set("lightsColor", "#" + color)
 
+  "click #chat-toggle": (evt) ->
+    Session.set "openChat", not Session.get("openChat")
+
 $Template
   header:
     events: templateHeaderEvents

@@ -10,3 +10,5 @@ Template.body.events
       window.location.href = href
 
 Template.body.isPhantom = -> /phantom/i.test navigator.userAgent
+
+Template.main.openChat = -> Session.equals "openChat", yes
