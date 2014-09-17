@@ -15,7 +15,6 @@ Meteor.methods
 					icon_emoji: ":earth_africa:"
 				)
 		}, (err, res) ->
-			console.log "response from slack", err, res
 			return if err or res?.content isnt 'ok'
 			ChatMessages.insert userId: user._id, msg: msg, date: new Date()
 
@@ -24,7 +23,7 @@ Router.map ->
 		where: "server"
 		path: "/api/chat"
 		action: ->
-			return unless @request.params.token
-			msg = @request.params.text
-			user = @request.params.user_name
+			return unless @request.body.token
+			msg = @request.body.text.replace("@qsitebot ", "")
+			user = @request.body.user_name
 			ChatMessages.insert userId: null, username: user, msg: msg, date: new Date()
