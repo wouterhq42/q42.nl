@@ -39,7 +39,7 @@ currentQers = [
   { name: "Laurens van den Oever", handle:"laurens" }
   { name: "Leonard Punt", handle:"leonard" }
   { name: "Lukas van Driel", handle:"lukas", phone: "070-4452366", web: "http://developer.3l.nl/" }
-  { name: "Marcel Duin", handle:"marcel", imageAnimated: "marcel-gr.jpg", web: "http://webglmarcel.q42.net/" }
+  { name: "Marcel Duin", handle:"marcel", web: "http://webglmarcel.q42.net/" }
   { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
   { name: "Martin Kool", handle:"martin", phone: "070-4452362", web: "http://martinkool.com/" }
@@ -122,7 +122,7 @@ addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul guus"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best goed programmeren",     "chris"
-addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd"
+addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
 
 Employees.allow
   insert: -> false
