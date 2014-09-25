@@ -7,7 +7,6 @@ addLabel = (label, handles) ->
 allHandles = _.pluck Employees.find().fetch(), "handle"
 
 currentQers = [
-  { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
   { name: "Bart Kiers", handle: "bart", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
@@ -95,7 +94,7 @@ addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia
 addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
-addLabel "Student",                       "alexander herman tomas"
+addLabel "Student",                       "herman tomas"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
