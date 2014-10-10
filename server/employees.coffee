@@ -108,7 +108,7 @@ addLabel "Heeft een baard",               "rahul richard arian coen christiaan k
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
-addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd"
+addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
 addLabel "Gaat binnenkort naar Microsoft", "michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
