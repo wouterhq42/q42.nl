@@ -15,6 +15,8 @@ Meteor.methods
 					icon_emoji: ":earth_africa:"
 				)
 		}, (err, res) ->
+			if err
+				console.log err
 			return if err or res?.content isnt 'ok'
 			ChatMessages.insert userId: user._id, msg: msg, date: new Date()
 
