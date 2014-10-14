@@ -4,7 +4,7 @@ Meteor.startup ->
 
   Meteor.publish "coffeeCounter", -> CoffeeCounter.find()
 
-  Meteor.setInterval ->
+  updateCoffeeCounter = ->
     date = new Date()
     day = date.getDay()
     hour = date.getHours()
@@ -26,4 +26,7 @@ Meteor.startup ->
       console.log "Update coffee counter... #{newCount}"
       CoffeeCounter.update first._id, $set: count: newCount
 
-  , 1000 * 60 # update the counter every minute
+    # update the counter every minute
+    Meteor.setTimeout updateCoffeeCounter, 1000 * 60
+  
+  updateCoffeeCounter()

@@ -87,11 +87,9 @@ $Template
       "click .qer":      (evt) -> showPolaroid(evt.target)
       "mouseleave .qer": (evt) -> hidePolaroid(evt.target)
 
-Template.filter_employees.list = ->
-  _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
-
-Template.filter_employees.selected = (filter) ->
-  if Session.equals("employees_filter", filter) then "selected" else ""
+Template.filter_employees.helpers
+  list: -> _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
+  selected: (filter) -> if Session.equals("employees_filter", filter) then "selected" else ""
 
 Template.filter_employees.events
   "click li a": (evt) ->
