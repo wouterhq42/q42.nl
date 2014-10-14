@@ -9,4 +9,5 @@ Template.body.events
       evt.preventDefault()
       window.location.href = href
 
-Template.body.isPhantom = -> /phantom/i.test navigator.userAgent
+Template.body.helpers
+	isPhantom: -> /phantom/i.test navigator.userAgent
