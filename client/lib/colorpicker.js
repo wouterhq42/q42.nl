@@ -1,7 +1,9 @@
 
-Template.colorpicker.enable = function() {
-  return !Session.get("supportsInputTypeColor");
-}
+Template.colorpicker.helpers({
+  enable: function() {
+    return !Session.get("supportsInputTypeColor");
+  }
+});
 
 Template.colorpicker.events({
   "click #colorwheel": function(evt) {

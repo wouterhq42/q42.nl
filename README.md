@@ -21,14 +21,6 @@ The hard bit since the repo is around ~100MB
 
 Visit http://win.meteor.com/ for instructions on how to get Meteor running on Windows.
 
-### Install the Meteorite package manager
-
-	sudo npm install -g meteorite
-
-### Install packages locally
-
-	mrt install
-
 ### Add a tumblr API key
 
 Create a file in the server/lib directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
@@ -39,13 +31,13 @@ This is required for the blog to not explode (even though you won't actually be 
 
 ### Set up the CDN
 
-We are now serving all assets from a Google Cloud Storage bucket. To set this up on your machine you're going to need the `gsutil` command line utility. Info on how to get this running and other details you might be interested in are found here:
+We serve assets from a Google Cloud Storage bucket. To set this up on your machine you're going to need the `gsutil` command line utility. Info on how to get this running and other details you might be interested in are found here:
 
 https://developers.google.com/storage/docs/gsutil_install
 
-The `gsutil` command is used by the `deploy.sh` script when deploying the site. It will publish all the assets to the CDN for you automatically! Unfortunately, to be able to do this you need to have write access to the bucket. Which you probably don't have. So you won't be able to deploy the site. If this happens, just get in touch with Rahul (http://github.com/primigenus) and he can add you to the list.
+The `gsutil` command is used by the `deploy.sh` script when deploying the site. It will publish all the assets to the CDN for you automatically! Unfortunately, to be able to do this you need to have write access to the bucket.
 
-Now that assets are served from the CDN, Meteor's `/public` folder is only useful for local development. From now on we'll be referencing all assets via `http://static.q42.nl`, so no more `<img src="/mypicture.jpg">`! To get things working nicely in local dev, you'll need to add `http://static.q42.nl` to your `hosts` file:
+As a result of serving assets from the CDN, Meteor's `/public` folder is only useful for local development. All assets are referenced via `http://static.q42.nl` rather than something like `<img src="/mypicture.jpg">`! To get things working nicely in local dev, you'll need to add `http://static.q42.nl` to your `hosts` file:
 
 	127.0.0.1 static.q42.nl
 
@@ -69,9 +61,7 @@ Only authenticated users can deploy using Meteor's developer accounts system.
 # Contributing
 
 Content for the site is located in the /views folder as regular .html files, so if you want to edit some content, just
-navigate to that file and edit it! A really fast way to clean up spelling mistakes and similar small problems is to just
-load the repository on Github and use its built-in editor to edit files. Github will automatically fork the project for you
-and submit a pull request. Yay!
+navigate to that file and edit it! A really fast way to clean up spelling mistakes and similar small problems is to just load the repository on Github and use its built-in editor to edit files. Github will automatically fork the project for you and submit a pull request. Yay!
 
 # Credits
 

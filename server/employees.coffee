@@ -7,7 +7,6 @@ addLabel = (label, handles) ->
 allHandles = _.pluck Employees.find().fetch(), "handle"
 
 currentQers = [
-  { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
   { name: "Bart Kiers", handle: "bart", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
@@ -15,7 +14,7 @@ currentQers = [
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris de Jager", handle: "chrisj" }
-  { name: "Chris Waalberg", handle:"chris" , phone: "070-4452353" }
+  { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
   { name: "Coen Bijpost", handle:"coen", phone: "070-4452359", imageAnimated: "coen-gr.jpg" }
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
@@ -95,7 +94,7 @@ addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia
 addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
-addLabel "Student",                       "alexander herman tomas"
+addLabel "Student",                       "herman tomas"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
@@ -109,7 +108,7 @@ addLabel "Heeft een baard",               "rahul richard arian coen christiaan k
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
-addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd"
+addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
 addLabel "Gaat binnenkort naar Microsoft", "michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
