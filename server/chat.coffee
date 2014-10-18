@@ -1,11 +1,18 @@
 Meteor.publish "chat", -> ChatMessages.find({}, {sort: {date: 1}, limit: 20})
 
+Meteor.methods
+	setupChatConfig: (token) ->
+		ChatConfig.insert token: token
+
 ChatMessages.allow
 	insert: (userId, doc) ->
 		return false unless userId
 
+		token = ChatConfig.findOne()?.token
+		return unless token
+
 		path = doc.path
-		url = "https://q42.slack.com/services/hooks/incoming-webhook?token=#{SLACK_WEBHOOK_TOKEN}"
+		url = "https://q42.slack.com/services/hooks/incoming-webhook?token=#{token}"
 		pathWithoutHttp = path.replace("http://", "")
 		user = Meteor.users.findOne(userId)
 
