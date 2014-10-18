@@ -6,10 +6,11 @@ Meteor.methods
 
 ChatMessages.allow
 	insert: (userId, doc) ->
-		return false unless userId
+		return no unless userId
+		return no unless doc?.msg
 
 		token = ChatConfig.findOne()?.token
-		return unless token
+		return no unless token
 
 		path = doc.path
 		url = "https://q42.slack.com/services/hooks/incoming-webhook?token=#{token}"

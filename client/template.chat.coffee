@@ -12,6 +12,8 @@ sendChatMessage = ->
 	$input = $(Template.instance().find("input"))
 	msg = $input.val()
 
+	return unless msg
+
 	ChatMessages.insert userId: Meteor.userId(), msg: msg, date: new Date(), path: window.location.href
 
 	$input.val("")
