@@ -18,6 +18,5 @@ templateHeaderEvents =
   "click #chat-toggle": (evt) ->
     Session.set "openChat", not Session.get("openChat")
 
-$Template
-  header:
-    events: templateHeaderEvents
+Template.header.events = templateHeaderEvents
+Template.header_en?.events = templateHeaderEvents
