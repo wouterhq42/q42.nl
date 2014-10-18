@@ -9,6 +9,8 @@ Template.body.events
       evt.preventDefault()
       window.location.href = href
 
-Template.body.isPhantom = -> /phantom/i.test navigator.userAgent
+Template.body.helpers
+	isPhantom: -> /phantom/i.test navigator.userAgent
 
-Template.main.openChat = -> Session.equals "openChat", yes
+Template.main.helpers
+	openChat: -> Session.equals "openChat", yes
