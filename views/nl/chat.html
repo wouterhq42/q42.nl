@@ -1,6 +1,6 @@
 <template name="chat">
   <div id="chat">
-    <div class="title"><h1>Je berichten worden naar onze <a href="http://slack.com">Slack</a> channel gestuurd!</h1></div>
+    <div class="title"><h1>Je berichten worden naar andere bezoekers van q42.nl en onze <a href="http://slack.com">Slack</a> channel gestuurd!</h1></div>
     <div class="flex-stretch">
       <ul>
       {{#each message}}
@@ -10,7 +10,7 @@
     </div>
     <div class="flex-end">
       {{#if currentUser}}
-        <p><input type="text"><button>Versturen</button></p>
+        <input type="text"><button>Versturen</button>
       {{else}}
       <p>Log in om te chatten:</p>
         {{> loginButtons}}

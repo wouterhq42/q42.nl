@@ -2,7 +2,7 @@
 
 #chat-toggle
   position absolute
-  top 3.2rem
+  top 4rem
   right 1rem
   z-index 6
   border-radius 50%
@@ -17,7 +17,7 @@
   position fixed
   top 0
   left 0
-  width 300px
+  width 80%
   background #eee
   border-right solid 2px #ddd
   z-index 999
@@ -55,6 +55,24 @@
     input
       font-size 16px
       padding 4px 8px
+      border none
+      flex 1
+
+    button
+      cursor pointer
+      border none
+      padding 8px
+      color white
+      background #0E8FF5
+      font-size 14px
+      font-weight bold
+      fontSmoothing antialiased
+      &:hover, &:focus
+        background-color #0E8FF5 + #333
+      &:active
+        background-color #0E8FF5 - #333
+        
+      
 
   ul
     list-style none
