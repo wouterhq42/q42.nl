@@ -17,13 +17,11 @@ ChatMessages.allow
 		pathWithoutHttp = path.replace("http://", "")
 		user = Meteor.users.findOne(userId)
 
-		says = if _.contains(path, "q42.com") then "says" else "zegt"
-
 		try
 			res = HTTP.post url, {
 				params:
 					payload: JSON.stringify(
-						text: ["#{user.profile.name} (<#{path}|#{pathWithoutHttp}>) #{says}:", doc.msg].join("\n")
+						text: ["#{user.profile.name} (<#{path}|#{pathWithoutHttp}>) zegt:", doc.msg].join("\n")
 						icon_emoji: ":earth_africa:"
 					)
 			}
