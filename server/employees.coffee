@@ -36,6 +36,7 @@ currentQers = [
   { name: "Kars Veling", handle:"kars", phone: "070-4452350" }
   { name: "Katja Hollaar", handle:"katja" }
   { name: "Korjan van Wieringen", handle:"korjan" }
+  { name: "Kristin Rieping", handle:"kristin" }
   { name: "Laurens van den Oever", handle:"laurens" }
   { name: "Leonard Punt", handle:"leonard" }
   { name: "Lukas van Driel", handle:"lukas", phone: "070-4452366", web: "http://developer.3l.nl/" }
