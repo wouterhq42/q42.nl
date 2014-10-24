@@ -17,7 +17,7 @@ ChatMessages.allow
 		pathWithoutHttp = path.replace("http://", "")
 		user = Meteor.users.findOne(userId)
 
-		says = if Session.equals("lang", "en") then "says" else "zegt"
+		says = if _.contains(path, "q42.com") then "says" else "zegt"
 
 		try
 			res = HTTP.post url, {
