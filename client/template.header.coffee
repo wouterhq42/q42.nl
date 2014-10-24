@@ -19,4 +19,4 @@ templateHeaderEvents =
     Session.set "openChat", not Session.get("openChat")
 
 Template.header.events = templateHeaderEvents
-Template.header_en?.events = templateHeaderEvents
+Template.en_header?.events = templateHeaderEvents

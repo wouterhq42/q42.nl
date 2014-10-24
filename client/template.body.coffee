@@ -14,3 +14,4 @@ Template.body.helpers
 
 Template.main.helpers
 	openChat: -> Session.equals "openChat", yes
+	chat: -> if Session.equals("lang", "en") then "en_chat" else "chat"
