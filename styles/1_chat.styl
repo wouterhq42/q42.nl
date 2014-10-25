@@ -34,16 +34,21 @@
     animation slideOutChat ease .2s
 
   .title
+    displayFlex()
     background #fff url(http://static.q42.nl/images/slacklogo.png) 16px center no-repeat
     background-size 64px
-    padding 8px 0 8px 96px
+    padding 8px 16px 8px 96px
     border-bottom solid 2px #ddd
     h1
       margin 8px
       font-size 16px
+    .close
+      text-decoration none
+      font-size 24px
 
   .flex-stretch
     flex 1
+    overflow-y scroll
 
   .flex-end
     padding 16px

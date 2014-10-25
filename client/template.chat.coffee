@@ -21,6 +21,9 @@ sendChatMessage = ->
 	$input.focus()
 
 events =
+	"click .close": (evt) ->
+		evt.preventDefault()
+		Session.set("openChat", no)
 	"click button": -> sendChatMessage()
 	"keyup input": (evt) -> if evt.which is 13 then sendChatMessage()
 Template.chat.events events
