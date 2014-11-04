@@ -217,7 +217,6 @@ Router.map ->
       Session.set "page", @params.page
       @next()
     action: ->
-      console.log "action", @params
       if Session.equals("lang", "en") and Template["en_" + @params.page]
         return @render "en_" + @params.page
       else if Template[@params.page]
