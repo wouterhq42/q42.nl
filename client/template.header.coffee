@@ -15,6 +15,5 @@ templateHeaderEvents =
         $(evt.target).attr("value", "#" + color).css("background-color", "#" + color)
         Session.set("lightsColor", "#" + color)
 
-$Template
-  header:
-    events: templateHeaderEvents
+Template.header.events templateHeaderEvents
+Template.en_header?.events templateHeaderEvents
