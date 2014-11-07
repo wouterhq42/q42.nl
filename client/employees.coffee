@@ -80,17 +80,18 @@ hidePolaroid = (el) ->
   polaroids[name] = polaroids[name] or new Polaroid($li)
   polaroids[name].hide(el)
 
-$Template
-  employeeView:
-    events:
-      "mouseenter .qer": (evt) -> showPolaroid(evt.target)
-      "click .qer":      (evt) -> showPolaroid(evt.target)
-      "mouseleave .qer": (evt) -> hidePolaroid(evt.target)
+events = 
+  "mouseenter .qer": (evt) -> showPolaroid(evt.target)
+  "click .qer":      (evt) -> showPolaroid(evt.target)
+  "mouseleave .qer": (evt) -> hidePolaroid(evt.target)
+Template.en_employeeView?.events events
+Template.employeeView.events events
 
 Template.filter_employees.helpers
   list: -> _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
   selected: (filter) -> if Session.equals("employees_filter", filter) then "selected" else ""
 
+# Dutch only
 Template.filter_employees.events
   "click li a": (evt) ->
     evt.preventDefault()

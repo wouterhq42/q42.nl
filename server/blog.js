@@ -1,7 +1,7 @@
 const BLOGPOSTS_PER_PAGE = 12;
 var lastTumblrCheck;
 
-var Posts = new Meteor.Collection("Posts");
+var Posts = new Mongo.Collection("Posts");
 
 Meteor.methods({
   checkTumblr: function()

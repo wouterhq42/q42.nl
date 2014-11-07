@@ -1,6 +1,6 @@
-window.blogpostFull = new Meteor.Collection("blogpostFull");
-window.blogpostIndex = new Meteor.Collection("blogpostIndex");
-window.LatestComments = new Meteor.Collection("LatestComments");
+window.blogpostFull = new Mongo.Collection("blogpostFull");
+window.blogpostIndex = new Mongo.Collection("blogpostIndex");
+window.LatestComments = new Mongo.Collection("LatestComments");
 
 $Template({
   blog: {
