@@ -11,6 +11,16 @@ Router.map ->
       console.log "Received request from huelandsspoor. Updating..."
       updateLightbar()
 
+  @route "redirectMeteor",
+    where: "server"
+    path: "/meteor"
+    action: ->
+      console.log "Route: meteor"
+      if _.contains @request.url, "q42.nl"
+        @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/meteor"
+      
+      @next()
+
   @route "redirectAdventures",
     where: "server"
     path: "/adventures"
