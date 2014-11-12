@@ -8,6 +8,9 @@ templateHeaderEvents =
     else
       Session.set "lang", "en"
 
+  "click #chat-toggle": (evt) ->
+    Session.set "openChat", not Session.get("openChat")
+
   "click #lights-color": ->
     if not Session.get("supportsInputTypeColor")
       $(document.body).toggleClass("show-colorpicker")

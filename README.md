@@ -29,6 +29,10 @@ Create a file in the server/lib directory called `tumblr_api_key.js` that declar
 
 This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
 
+### Set up the Slack chat integration
+
+In order to get this working you need to call a Meteor method named `setupChatConfig` and pass it your incoming and outgoing webhook tokens from Slack. Or you can not do this, and then nothing will change except that the chat won't work.
+
 ### Set up the CDN
 
 We serve assets from a Google Cloud Storage bucket. To set this up on your machine you're going to need the `gsutil` command line utility. Info on how to get this running and other details you might be interested in are found here:

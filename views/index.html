@@ -58,6 +58,10 @@
     {{> yield}}
 
     {{> yield region="footer"}}
+
+    {{#if openChat}}
+      {{> Template.dynamic template=chat}}
+    {{/if}}
   </div>
 
 </template>
