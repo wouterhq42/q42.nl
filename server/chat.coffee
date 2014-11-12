@@ -4,8 +4,9 @@ Meteor.publish "chat", -> ChatMessages.find({}, {sort: {date: 1}, limit: 20})
 
 Meteor.methods
   setupChatConfig: (incomingToken, outgoingToken) ->
-    ChatConfig.remove({})
-    ChatConfig.insert incomingToken: incomingToken, outgoingToken: outgoingToken
+    if incomingToken and outgoingToken
+      ChatConfig.remove({})
+      ChatConfig.insert incomingToken: incomingToken, outgoingToken: outgoingToken
 
 ChatMessages.allow
   insert: (userId, doc) ->
