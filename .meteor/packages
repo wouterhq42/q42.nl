@@ -20,8 +20,8 @@ spacebars
 templating
 jquery
 ejson
-crypto-base
-crypto-md5
+tmeasday:crypto-base
+tmeasday:crypto-md5
 random
 check
 spiderable
@@ -37,4 +37,3 @@ mrt:nprogress
 natestrauser:font-awesome
 tmeasday:gravatar
 meteorhacks:fast-render
-
