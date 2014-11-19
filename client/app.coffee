@@ -53,6 +53,13 @@ setTitle = ->
 
 Router.map ->
 
+  # temp fix: waitOn seems to break spiderable
+  @oldRoute = @route
+  @route = (name, obj) =>
+    if /phantom/i.test navigator.userAgent
+      delete obj.waitOn
+    @oldRoute(name, obj)
+
   customPageWithBlogTags = (obj) =>
     @route obj.routeName,
       path: obj.path
