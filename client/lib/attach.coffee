@@ -28,6 +28,7 @@ attachGoogleAnalytics = ->
   ) window, document, "script", "//www.google-analytics.com/analytics.js", "ga"
   ga "create", "UA-2714808-1", "auto"
   ga "require", "displayfeatures"
+  ga "require", "linkid", "linkid.js"
   ga "send", "pageview"
 
 initCalled = false
