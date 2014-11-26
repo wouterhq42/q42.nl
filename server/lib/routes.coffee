@@ -19,6 +19,8 @@ Router.route "redirectMeteor",
     if _.contains @request.url, "q42.nl"
       @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/meteor"
       @response.end()
+    else
+      @next()
 
 Router.route "redirectAdventures",
   where: "server"
@@ -27,7 +29,7 @@ Router.route "redirectAdventures",
     console.log "Route: redirectAdventures"
     @response.writeHead HTTP_REDIRECT_TEMPORARY, Location: "http://adventures.handcraft.com"
     @response.end()
-    
+
 # Redirect ancient color blindness simulator links to our more recent SEE extension
 Router.route "colorBlindnessSimulator",
   where: "server"
