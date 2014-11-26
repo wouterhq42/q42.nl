@@ -1,6 +1,6 @@
 // Modification of the standard Meteor publish method
 // This one also includes observeChanges handlers
-publishRenamed = function (name, fn)
+publishWithObserveChanges = function (name, fn)
 {
   Meteor.publish(name, function() {
     var self = this;
