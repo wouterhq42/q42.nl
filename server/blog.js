@@ -109,7 +109,11 @@ publishWithObserveChanges("blogpostIndex", function (page, tag) {
     limit: BLOGPOSTS_PER_PAGE,
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
-    fields: { body: false }
+    fields: {
+      body: false, blog_name: false, post_url: false, state: false,
+      format: false, reblog_key: false, short_url: false,
+      highlighted: false, note_count: false, prettyDate: false
+    }
   });
 });
 
