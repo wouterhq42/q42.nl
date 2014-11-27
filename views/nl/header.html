@@ -26,6 +26,9 @@
         <li id="lang-switch">
           <a href="http://q42.com">English</a>
         </li>
+        {{#if dev}}
+          <li id="toggle-lang"><a href="#">Toggle</a></li>
+        {{/if}}
       </ul>
     </div>
   </nav>
@@ -38,6 +41,7 @@
     <div id="lights-explanation">Bestuur de Philips Hue lichten bij ons op kantoor met deze colorpicker!</div>
     {{> colorpicker}}
   </div>
+  <!-- <div id="chat-toggle"></div> -->
   <div id="particles"></div>
   <div id="backgrounds">
     {{#each color}}

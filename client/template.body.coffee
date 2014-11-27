@@ -11,3 +11,7 @@ Template.body.events
 
 Template.body.helpers
 	isPhantom: -> /phantom/i.test navigator.userAgent
+
+Template.main.helpers
+	openChat: -> Session.equals "openChat", yes
+	chat: -> if Session.equals("lang", "en") then "en_chat" else "chat"

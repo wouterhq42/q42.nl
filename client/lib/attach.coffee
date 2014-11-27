@@ -28,6 +28,7 @@ attachGoogleAnalytics = ->
   ) window, document, "script", "//www.google-analytics.com/analytics.js", "ga"
   ga "create", "UA-2714808-1", "auto"
   ga "require", "displayfeatures"
+  ga "require", "linkid", "linkid.js"
   ga "send", "pageview"
 
 initCalled = false
@@ -41,7 +42,7 @@ attachFacebook = ->
       FB.init appId: '535367106516027', xfbml: true, version: 'v2.1'
       $(window).unbind "scroll", scrollHandler
       Meteor.setTimeout (-> $("#facebookLikeBox").addClass "visible"), 1500
-  $.getScript '//connect.facebook.net/en_US/sdk.js', ->
+  $.getScript '//connect.facebook.net/en_US/all.js', ->
     unless initCalled
       $(window).bind "scroll", scrollHandler
     else

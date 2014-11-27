@@ -4,9 +4,6 @@ window.LatestComments = new Mongo.Collection("LatestComments");
 
 $Template({
   blog: {
-    rendered: function() {
-      syntaxHighlight();
-    },
     widthEquals: function(width) {
       return this.width == width;
     },
@@ -15,9 +12,6 @@ $Template({
     }
   },
   blogpost: {
-    rendered: function() {
-      syntaxHighlight();
-    },
     loggedin: function() {
       return !!Meteor.user();
     },
@@ -102,18 +96,24 @@ $Template({
   }
 });
 
-function syntaxHighlight() {
+var syntaxHighlight = function() {
   var a = false;
 
   $('code').each(function() {
     if (!$(this).parent().hasClass('prettyprint') && $(this).parent().is("pre")) {
       $(this).parent().addClass("prettyprint");
-      a = true; 
+      a = true;
     }
   });
 
   if (a) prettyPrint();
 }
+
+Template.blog.rendered = Template.blogpost.rendered = syntaxHighlight;
+if (Template.en_blog)
+  Template.en_blog.rendered = syntaxHighlight;
+if (Template.en_blogpost)
+  Template.en_blogpost.rendered = syntaxHighlight;
 
 function getPictureURL(user) {
   if (!user || !user.services)
