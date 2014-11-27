@@ -16,12 +16,10 @@ Router.configure
   notFoundTemplate: "error404"
 
 Router.onRun ->
-  console.log "Router.onRun"
   NProgress.start()
   @next()
 
 Router.onBeforeAction ->
-  console.log "Router.onBeforeAction"
   SubsManager.subscribe "lights"
   SubsManager.subscribe "coffeeCounter"
   SubsManager.subscribe "employees"
@@ -29,7 +27,6 @@ Router.onBeforeAction ->
   @next()
 
 Router.onAfterAction ->
-  console.log "Router.onAfterAction"
   NProgress.done()
   setScrollPosition()
   Meteor.setTimeout reattachBehavior, 0
