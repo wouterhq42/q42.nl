@@ -24,7 +24,7 @@ Router.onBeforeAction ->
   SubsManager.subscribe "lights"
   SubsManager.subscribe "coffeeCounter"
   SubsManager.subscribe "employees"
-  
+
   lang = Session.get "lang"
   @render getTemplate("header"), to: "header"
   @render getTemplate("footer"), to: "footer"
@@ -197,6 +197,12 @@ Router.map ->
     routeName: "meteor"
     path: "/meteor"
     tags: ["meteor"]
+    lang: "en"
+
+  customPageWithBlogTags
+    routeName: "swift"
+    path: "/swift"
+    tags: ["swift"]
     lang: "en"
 
   customPageWithBlogTags
