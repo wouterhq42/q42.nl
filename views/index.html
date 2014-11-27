@@ -52,12 +52,12 @@
 
   <div id="page">
     <div id="header">
-      {{> yield region="header"}}
+      {{> Template.dynamic template=header}}
     </div>
 
     {{> yield}}
 
-    {{> yield region="footer"}}
+    {{> Template.dynamic template=footer}}
 
     {{#if openChat}}
       {{> Template.dynamic template=chat}}
