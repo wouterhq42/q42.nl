@@ -20,15 +20,10 @@ Router.onRun ->
   @next()
 
 Router.onBeforeAction ->
-  SubsManager.subscribe "allUserData"
   SubsManager.subscribe "lights"
   SubsManager.subscribe "coffeeCounter"
   SubsManager.subscribe "employees"
-  
-  lang = Session.get "lang"
-  @render getTemplate("header"), to: "header"
-  @render getTemplate("footer"), to: "footer"
-
+  SubsManager.subscribe "allUserData"
   @next()
 
 Router.onAfterAction ->
@@ -61,8 +56,10 @@ Router.map ->
     @oldRoute(name, obj)
 
   customPageWithBlogTags = (obj) =>
-    @route obj.routeName,
-      path: obj.path
+    @route obj.path,
+      onBeforeAction: ->
+        Session.set "page", obj.routeName
+        @next()
       action: ->
         unless Session.equals("lang", obj.lang)
           Spiderable.httpStatusCode = 404
@@ -73,10 +70,6 @@ Router.map ->
           @render getTemplate(obj.routeName)
         else
           @render "loading"
-
-      onBeforeAction: ->
-        Session.set "page", obj.routeName
-        @next()
       onAfterAction: -> Meteor.call "checkTumblr"
       waitOn: ->
         [
@@ -93,23 +86,21 @@ Router.map ->
           tag:        obj.routeName
         }
 
-  @route "home",
-    path: "/"
+  @route "/",
     onBeforeAction: ->
       Session.set("page", "home")
       @next()
     action: -> @render getTemplate("home")
 
-  @route "blog",
-    path: "/blog"
+  @route "/blog",
+    onBeforeAction: ->
+      Session.set "page", "blog"
+      @next()
     action: ->
       if @ready()
         @render getTemplate("blog")
       else
         @render "loading"
-    onBeforeAction: ->
-      Session.set "page", "blog"
-      @next()
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
@@ -124,16 +115,15 @@ Router.map ->
         pagination: getPagination 1
       }
 
-  @route "blog-page",
-    path: "/blog/page/:pageNum"
+  @route "/blog/page/:pageNum",
+    onBeforeAction: ->
+      Session.set "page", "blog"
+      @next()
     action: ->
       if @ready()
         @render getTemplate("blog")
       else
         @render "loading"
-    onBeforeAction: ->
-      Session.set "page", "blog"
-      @next()
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
@@ -148,16 +138,15 @@ Router.map ->
         pagination: getPagination @params.pageNum
       }
 
-  @route "blog-tag",
-    path: "/blog/tagged/:tag"
+  @route "/blog/tagged/:tag",
+    onBeforeAction: ->
+      Session.set "page", "blog"
+      @next()
     action: ->
       if @ready()
         @render getTemplate("blog")
       else
         @render "loading"
-    onBeforeAction: ->
-      Session.set "page", "blog"
-      @next()
     onAfterAction: -> Meteor.call "checkTumblr"
     waitOn: ->
       [
@@ -174,8 +163,7 @@ Router.map ->
         tag:        @params.tag
       }
 
-  @route "blogpost",
-    path: "/blog/post/:id?/:title?"
+  @route "/blog/post/:id?/:title?",
     onBeforeAction: ->
       Session.set "page", "blog"
       Session.set "blogpostid", @params.id * 1
@@ -218,8 +206,7 @@ Router.map ->
     tags: ["io"]
     lang: "en"
 
-  @route "page",
-    path: "/:page"
+  @route "/:page",
     onBeforeAction: ->
       Session.set "page", @params.page
       @next()
@@ -234,12 +221,11 @@ Router.map ->
 
   @route "404",
     path: "/(.*)"
+    template: "error404"
     onBeforeAction: ->
       Session.set "page", "404"
       Spiderable.httpStatusCode = 404
       @next()
-    action: ->
-      @render "error404"
 
 getPagination = (pageNum, tag) ->
   pageNum = pageNum * 1

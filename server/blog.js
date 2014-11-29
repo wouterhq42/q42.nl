@@ -102,22 +102,26 @@ function commentSecurityFilter(_id) {
   return Meteor.user().isAdmin ? { _id: _id } : { _id: _id, userId: Meteor.userId() };
 }
 
-publishRenamed("blogpostIndex", function (page, tag) {
+publishWithObserveChanges("blogpostIndex", function (page, tag) {
   page = page || 1;
   var filter = tag ? { tags: tag } : {};
   return Posts.find(filter, {
     limit: BLOGPOSTS_PER_PAGE,
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
-    fields: { body: false }
+    fields: {
+      body: false, blog_name: false, post_url: false, state: false,
+      format: false, reblog_key: false, short_url: false,
+      highlighted: false, note_count: false, prettyDate: false
+    }
   });
 });
 
-publishRenamed("blogpostFull", function (id) {
+publishWithObserveChanges("blogpostFull", function (id) {
   return Posts.find({ id: id });
 });
 
-publishRenamed("LatestComments", function(limit) {
+publishWithObserveChanges("LatestComments", function(limit) {
   return BlogComments.find({}, { sort: { date: -1 }, limit: limit })
 });
 
