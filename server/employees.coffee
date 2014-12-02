@@ -136,8 +136,11 @@ deletes = Math.max 0, employeeCountBefore - employeeCountAfter
 
 console.log "Employee update complete. Inserts: #{inserts}. Updates: #{updates}. Deletes: #{deletes}"
 
+Meteor.startup ->
+  EmployeeCount.update EmployeeCount.findOne()._id, {$set: count: employeeCountAfter}, upsert: yes
+
 Meteor.publish "employees", -> Employees.find()
-Meteor.publish "employeeCount", -> Employees.find({}, fields: _id: 1)
+Meteor.publish "employeeCount", -> EmployeeCount.find()
 
 Meteor.methods
   updatePosition: (id, x, y, loc) ->
