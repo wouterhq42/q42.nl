@@ -110,12 +110,25 @@ publishWithObserveChanges("blogpostIndex", function (page, tag) {
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      body: false, blog_name: false, post_url: false, state: false,
-      format: false, reblog_key: false, short_url: false,
-      highlighted: false, note_count: false, prettyDate: false
+      body: 0, blog_name: 0, post_url: 0, state: 0,
+      format: 0, reblog_key: 0, short_url: 0,
+      highlighted: 0, note_count: 0, prettyDate: 0
     }
   });
 });
+
+publishWithObserveChanges("blogpostTitles", function(page, tag) {
+  page = page || 1;
+  var filter = tag ? { tags: tag } : {};
+  return Posts.find(filter, {
+    limit: BLOGPOSTS_PER_PAGE,
+    skip: (page - 1) * BLOGPOSTS_PER_PAGE,
+    sort: { timestamp: -1 },
+    fields: {
+      title: 1, slug: 1, id: 1
+    }
+  });
+})
 
 publishWithObserveChanges("blogpostFull", function (id) {
   return Posts.find({ id: id });

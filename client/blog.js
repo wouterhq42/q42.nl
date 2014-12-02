@@ -1,4 +1,5 @@
 window.blogpostFull = new Mongo.Collection("blogpostFull");
+window.blogpostTitles = new Mongo.Collection("blogpostTitles");
 window.blogpostIndex = new Mongo.Collection("blogpostIndex");
 window.LatestComments = new Mongo.Collection("LatestComments");
 
