@@ -3,6 +3,7 @@ Template.body.rendered = ->
   FastClick.attach document.body
 
 Template.body.events
+  "click body": -> $("body").removeClass "show-mobile-menu"
   "click a[href^='/']": (evt) ->
     href = evt.target.getAttribute("href")
     if $(evt.target).data().ignore?
