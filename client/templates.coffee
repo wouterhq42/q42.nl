@@ -1,7 +1,7 @@
 $Template
 
   home:
-    num_employees: -> EmployeeCount.findOne().count
+    num_employees: -> EmployeeCount.findOne()?.count
 
   error404:
     isEnglish: -> Session.equals("lang", "en")
