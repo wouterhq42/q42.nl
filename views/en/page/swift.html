@@ -12,7 +12,7 @@
           <p>:help - I need an adult!</p>
         </a>
         <p>
-          A considerable portion of the Q-ers is in one way or another involved with iOS development. Another not necessarily overlapping but similar sized portion of the Q-ers is passionate about Functional Programming. So it's fair to say that we've been pretty excited ever since Swift was introduced at WWDC this year.
+          A considerable portion of the Q-ers is in one way or another involved with iOS development. Another not necessarily overlapping but similar sized portion of the Q-ers is passionate about Functional Programming. So it's fair to say that we've been pretty excited ever since Swift was introduced at WWDC 2014.
         </p>
         <p>
           We've been playing around with Swift a lot, which led to a bunch of interesting and not-so-interesting libraries, code snippets and thoughts. The (hopefully) interesting part is at your disposal here. Fork the code, play around with it and share your thoughts!
@@ -39,7 +39,7 @@
         </div>
         <div class="body">
           <h2>Swift JsonGen</h2>
-          <p>Use a Node.js to generate Json decoders based on Swift structs. You follow?</p>
+          <p>Automatically generate JSON parsers based on Swift structs. No need to write JSON parsers by hand!</p>
           <p><a href="https://github.com/tomlokhorst/swift-json-gen" class="external">Code on Github</a></p>
         </div>
       </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="body">
           <h2>SegueManager</h2>
-          <p>SegueManager makes it easier to perform segues with closures. No longer split your code into two parts when performing the segue and inside of prepareForSegue.</p>
+          <p>SegueManager makes it easier to perform segues with closures. No longer split your code into two parts when performing the segue and inside of <code>prepareForSegue</code>.</p>
           <a href="https://gist.github.com/tomlokhorst/6ed40e0e00cd2989a282" class="external">Code on Github</a>
         </div>
       </div>
@@ -77,7 +77,7 @@
         </div>
         <div class="body">
           <h2>CancellationToken</h2>
-          <p>A "cancellation token" is a little object that can be passed around to one or more asynchronous tasks. This token can be used to indicate a user is no longer interested in the result of an asynchronous task. The Swift CancellationToken is modelled after its <a href="http://msdn.microsoft.com/en-us/library/dd997364(v=vs.110).aspx" class="external">.NET counterpart</a>. </p>
+          <p>A CancellationToken is an object that can be passed to asynchronous tasks to send cancellations. By using a CancellationToken the code for creating, and the code for cancelling an asynchronous task, can be separate from each other.</p>
           <a href="https://github.com/tomlokhorst/swift-cancellationtoken" class="external">Code on Github</a>
         </div>
       </div>
@@ -89,7 +89,11 @@
         </div>
         <div class="body">
           <h2>Optional+Unwrap.swift</h2>
-          <p>Unwrap multiple optionals at once:<br/> > if let (firstName, lastName) = unwrap(optionalFirstName, optionalLastName)</p>
+          <p>Unwrap multiple optionals at once:</p>
+<code><pre>
+if let (first, last) =
+  unwrap(optFirst, optLast) {
+}</pre></code>
           <a href="https://gist.github.com/tomlokhorst/f9a826bf24d16cb5f6a3" class="external">Code on Github</a>
         </div>
       </div>
