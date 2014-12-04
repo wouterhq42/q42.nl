@@ -1,5 +1,19 @@
 HTTP_REDIRECT_TEMPORARY = 301
 HTTP_REDIRECT_PERMANENT = 302
+redirectNlToCom = (name, path) ->
+  Router.route "redirect_#{name}",
+    where: "server"
+    path: path
+    action: ->
+      console.log "Route: #{path}"
+      if _.contains @request.headers.host, "q42.nl"
+        @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.nl#{path}"
+        @response.end()
+      else
+        @next()
+
+redirectNlToCom "meteor", "/meteor"
+redirectNlToCom "swift", "/swift"
 
 Router.route "updateLightBar",
   where: "server"
@@ -10,28 +24,6 @@ Router.route "updateLightBar",
     console.log "Received request from huelandsspoor. Updating..."
     updateLightbar()
     @response.end()
-
-Router.route "redirectMeteor",
-  where: "server"
-  path: "/meteor"
-  action: ->
-    console.log "Route: meteor"
-    if _.contains @request.url, "q42.nl"
-      @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/meteor"
-      @response.end()
-    else
-      @next()
-
-Router.route "redirectSwift",
-  where: "server"
-  path: "/swift"
-  action: ->
-    console.log "Route: swift"
-    if _.contains @request.url, "q42.nl"
-      @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/swift"
-      @response.end()
-    else
-      @next()
 
 Router.route "redirectAdventures",
   where: "server"
