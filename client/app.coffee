@@ -195,6 +195,12 @@ Router.map ->
     lang: "en"
 
   customPageWithBlogTags
+    routeName: "swift"
+    path: "/swift"
+    tags: ["swift"]
+    lang: "en"
+
+  customPageWithBlogTags
     routeName: "vacatures"
     path: "/vacatures"
     tags: ["vacature"]

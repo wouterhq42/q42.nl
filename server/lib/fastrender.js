@@ -15,14 +15,14 @@ FastRender.route("/blog/page/:pageNum", function(params) {
 })
 
 FastRender.route("/blog/tagged/:tag", function(params) {
-  this.subscribe("blogpostIndex", 1, params.tag)
+  this.subscribe("blogpostTitles", 1, params.tag)
   this.subscribe("pagesByTag", params.tag || "")
   this.subscribe("LatestComments", 10)
 });
 
 FastRender.route("/blog/post/:id?/:title?", function(params) {
   this.subscribe('blogpostFull', 1 * params.id);
-  this.subscribe("blogpostIndex", 1)
+  this.subscribe("blogpostTitles", 1);
   this.subscribe("blogComments", 1 * params.id);
   this.subscribe("LatestComments", 10)
 })
@@ -32,14 +32,14 @@ FastRender.route("/over-q42", function(params) {
 })
 
 FastRender.route("/vacatures", function(params) {
-  this.subscribe("blogpostIndex", "vacature");
+  this.subscribe("blogpostTitles", "vacature");
 })
 FastRender.route("/meteor", function(params) {
-  this.subscribe("blogpostIndex", "meteor");
+  this.subscribe("blogpostTitles", "meteor");
 })
 FastRender.route("/io", function(params) {
-  this.subscribe("blogpostIndex", "io");
+  this.subscribe("blogpostTitles", "io");
 })
 FastRender.route("/iot", function(params) {
-  this.subscribe("blogpostIndex", "iot");
+  this.subscribe("blogpostTitles", "iot");
 })
