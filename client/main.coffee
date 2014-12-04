@@ -12,11 +12,8 @@ Meteor.startup ->
 
   setupLights()
 
-  new Konami -> Session.set("headerGameActive", yes)
-
   Session.setDefault "openChat", no
   Session.setDefault "employees_filter", "Q'er"
-  Session.setDefault "headerGameActive", no
 
   $.ajaxSetup cache: yes
 
