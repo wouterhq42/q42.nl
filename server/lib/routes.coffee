@@ -7,7 +7,7 @@ redirectNlToCom = (name, path) ->
     action: ->
       console.log "Route: #{path}"
       if _.contains @request.headers.host, "q42.nl"
-        @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.nl#{path}"
+        @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com#{path}"
         @response.end()
       else
         @next()
