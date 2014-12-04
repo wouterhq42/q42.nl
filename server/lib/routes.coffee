@@ -22,6 +22,17 @@ Router.route "redirectMeteor",
     else
       @next()
 
+Router.route "redirectSwift",
+  where: "server"
+  path: "/swift"
+  action: ->
+    console.log "Route: swift"
+    if _.contains @request.url, "q42.nl"
+      @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/swift"
+      @response.end()
+    else
+      @next()
+
 Router.route "redirectAdventures",
   where: "server"
   path: "/adventures"
