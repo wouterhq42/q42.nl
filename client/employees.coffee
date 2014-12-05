@@ -1,6 +1,6 @@
 
-UI.registerHelper "avatar_static",   -> @imageStatic or @handle + ".jpg"
-UI.registerHelper "avatar_animated", -> @imageAnimated or @handle + ".gif"
+Template.registerHelper "avatar_static",   -> @imageStatic or @handle + ".jpg"
+Template.registerHelper "avatar_animated", -> @imageAnimated or @handle + ".gif"
 
 $Template
   employees:
@@ -80,7 +80,7 @@ hidePolaroid = (el) ->
   polaroids[name] = polaroids[name] or new Polaroid($li)
   polaroids[name].hide(el)
 
-events = 
+events =
   "mouseenter .qer": (evt) -> showPolaroid(evt.target)
   "click .qer":      (evt) -> showPolaroid(evt.target)
   "mouseleave .qer": (evt) -> hidePolaroid(evt.target)
