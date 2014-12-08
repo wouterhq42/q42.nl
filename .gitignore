@@ -1,1 +1,6 @@
+# Site specific
 tumblr_api_key.js
+
+# Generic
+.DS_Store
+.swp
