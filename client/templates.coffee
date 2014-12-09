@@ -17,8 +17,6 @@ $Template
 
   header:
     headerGameActive: -> Session.equals "headerGameActive", yes
-    lightsColor: -> Session.get("lightsColor")
-    supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
     dev: -> window.location.href.indexOf("localhost") > -1
     color: -> Lights.find({}, {sort: {date: 1}})
     col1: -> @hex

@@ -5,3 +5,27 @@
   </div>
   {{/if}}
 </template>
+
+<template name="headerlights">
+  <div id="hue">
+    {{#if supportsInputTypeColor}}
+      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+    {{else}}
+      <div id="lights-color"></div>
+    {{/if}}
+    <div id="lights-explanation">Bestuur de Philips Hue lichten bij ons op kantoor met deze colorpicker!</div>
+    {{> colorpicker}}
+  </div>
+</template>
+
+<template name="en_headerlights">
+  <div id="hue">
+    {{#if supportsInputTypeColor}}
+    <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+    {{else}}
+    <div id="lights-color"></div>
+    {{/if}}
+    <div id="lights-explanation">Control the Philips Hue lights in our office with this color picker!</div>
+    {{> colorpicker}}
+  </div>
+</template>
