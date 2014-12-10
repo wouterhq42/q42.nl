@@ -33,18 +33,14 @@ attachGoogleAnalytics = ->
 
 initCalled = false
 attachFacebook = ->
-  scrollHandler = ->
-    if $(document).height() - $(window).scrollTop() < 1200
+  $.getScript '//connect.facebook.net/en_US/all.js', ->
+    unless initCalled
       $("#facebookLikeBox").append('<div class="fb-facepile" data-href="https://www.facebook.com/q42bv" data-max-rows="3" data-colorscheme="dark" data-size="large" data-show-count="true"></div>')
 
       $("#facebookLikeBox").append('<div class="fb-like" data-href="https://facebook.com/q42bv" data-width="300" data-layout="standard" data-action="like" data-colorscheme="dark" data-show-faces="false" data-share="true"></div>')
 
       FB.init appId: '535367106516027', xfbml: true, version: 'v2.1'
-      $(window).unbind "scroll", scrollHandler
       Meteor.setTimeout (-> $("#facebookLikeBox").addClass "visible"), 1500
-  $.getScript '//connect.facebook.net/en_US/all.js', ->
-    unless initCalled
-      $(window).bind "scroll", scrollHandler
     else
       FB.XFBML.parse()
     initCalled = true
