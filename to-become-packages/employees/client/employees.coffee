@@ -54,6 +54,9 @@ Polaroid = ($li) ->
     if windowWidth > mobileMaxWidth
       $li.addClass "hover"
 
+    $video = $polaroid.find("video")
+    $video[0]?.play()
+
     $polaroid.css "z-index", ++zIndex
 
   show = (el) ->
@@ -62,8 +65,10 @@ Polaroid = ($li) ->
   hide = (el) ->
     $li = $(el)
     $li.removeClass "hover"
+    $video = $polaroid.find("video")
+    $video[0]?.pause()
 
-  {
+  return {
     show: show
     hide: hide
   }
