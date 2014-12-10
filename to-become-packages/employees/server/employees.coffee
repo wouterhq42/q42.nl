@@ -101,13 +101,13 @@ addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
-# Arbitraire selecties
-addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen"
+# Arbitrary selections
+addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
 addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
-addLabel "Broers",                        "benjamin chrisj tom rob"
+addLabel "Broers",                        "tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
 addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
@@ -122,8 +122,9 @@ addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mar
 addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul guus"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
-addLabel "Kan stiekem best goed programmeren",     "chris"
-addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
+addLabel "Kan stiekem best programmeren",     "chris"
+addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
+addLabel "Emigrant",                      "rahul"
 
 Employees.allow
   insert: -> false
