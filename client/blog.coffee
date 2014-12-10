@@ -3,16 +3,14 @@
 @blogpostIndex = new Mongo.Collection "blogpostIndex"
 @LatestComments = new Mongo.Collection "LatestComments"
 
+Template.registerHelper "widthEquals", (width) -> @width is width
+Template.registerHelper "typeIs", (type) -> @type is type
+
 $Template
-  blog:
-    widthEquals: (width) -> @width is width
-    typeIs: (type) -> @type is type
 
   blogpost:
     loggedin: -> !!Meteor.user()
     picture: -> getPictureURL Meteor.user()
-    widthEquals: (width) -> @width is width
-    typeIs: (type) -> @type is type
 
   postDate:
     prettyDate: ->
@@ -21,7 +19,10 @@ $Template
 
   otherPosts:
     post: ->
-      blogpostIndex.find({id: {$ne: Session.get('blogpostid')}, title: {$exists: true}}, {limit: 12}).fetch()
+      blogpostIndex.find({
+        id: {$ne: Session.get('blogpostid')},
+        title: {$exists: true}
+      }, {limit: 12}).fetch()
 
   latestComments:
     comment: ->
@@ -37,7 +38,7 @@ $Template
         return p
 
     picture: ->
-      getPictureURL(Meteor.users.findOne(_id: @userId))
+      getPictureURL Meteor.users.findOne(_id: @userId)
 
     ownsComment: ->
       Meteor.userId() is @userId or Meteor.user() and Meteor.user().isAdmin
