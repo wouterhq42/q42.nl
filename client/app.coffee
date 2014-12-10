@@ -91,6 +91,10 @@ Router.map ->
       Session.set("page", "home")
       @next()
     action: -> @render getTemplate("home")
+    waitOn: ->
+      [
+        Meteor.subscribe "employeeCount"
+      ]
 
   @route "/blog",
     onBeforeAction: ->
