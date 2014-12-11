@@ -121,7 +121,7 @@ Meteor.startup ->
   Session.setDefault("mapRendered", no)
   Session.setDefault("currentGeo", null)
 
-Template["over-q42"].rendered = Template["en_about-q42"]?.rendered = ->
+mapRendered = ->
   navigator.geolocation.getCurrentPosition (geo) ->
     geocoder = new google.maps.Geocoder()
     latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
@@ -136,6 +136,9 @@ Template["over-q42"].rendered = Template["en_about-q42"]?.rendered = ->
     Session.set("mapRendered", yes)
   else
     initMap()
+
+Template["over-q42"].rendered = mapRendered
+Template["en_about-q42"]?.rendered = mapRendered
 
 Template.map.helpers
   usQer: -> Employees.find handle: "rahul"
