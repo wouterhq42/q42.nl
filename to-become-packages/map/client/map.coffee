@@ -55,13 +55,6 @@
       webUrl: "http://q42.#{tld}"
 
   $("#maps").on "click", ".get-directions", ->
-    navigator.geolocation.getCurrentPosition (geo) ->
-      geocoder = new google.maps.Geocoder()
-      latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
-      geocoder.geocode {latLng: latlng}, (res, status) ->
-        if status is google.maps.GeocoderStatus.OK
-          Session.set("currentGeo", res[0])
-
     id = $(this).attr("id").replace("to-", "")
     if id is "q020"
       setDirections "nl", {lat: 52.375273, lng: 4.930484}
@@ -117,10 +110,18 @@
 
 Meteor.startup ->
   Session.setDefault("mapRendered", no)
+  Session.setDefault("currentGeo", null)
 
 Template["over-q42"].rendered = Template["en_about-q42"]?.rendered = ->
+  navigator.geolocation.getCurrentPosition (geo) ->
+    geocoder = new google.maps.Geocoder()
+    latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
+    geocoder.geocode {latLng: latlng}, (res, status) ->
+      if status is google.maps.GeocoderStatus.OK
+        Session.set("currentGeo", res[0])
+
   unless Session.equals "mapRendered", yes
-    key = "AIzaSyBHGH8clbD6HLlwHLgNmNUgTyMa_U6gcdU"
+    key = "AIzaSyCvAL7yv2v-bVICrxQoPX8UzJ3Mm0QIOLo"
     url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
     $.getScript(url)
     Session.set("mapRendered", yes)
