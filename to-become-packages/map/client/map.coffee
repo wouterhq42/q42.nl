@@ -1,15 +1,18 @@
 @initMap = ->
+  styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
   mapNL = new google.maps.Map $("#map-nl")[0], {
     center: new google.maps.LatLng(52.2298672,4.6431694)
     zoom: 9
     mapTypeControl: no
     streetViewControl: no
+    styles: styles
   }
   mapUS = new google.maps.Map $("#map-us")[0], {
     center: new google.maps.LatLng(37.553001,-122.2672957)
     zoom: 9
     mapTypeControl: no
     streetViewControl: no
+    styles: styles
   }
   directionsService = new google.maps.DirectionsService()
   directionsDisplayNL = new google.maps.DirectionsRenderer()
