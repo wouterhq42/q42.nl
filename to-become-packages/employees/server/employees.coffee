@@ -15,10 +15,8 @@ currentQers = [
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
-  { name: "Coen Bijpost", handle:"coen", phone: "070-4452359", imageAnimated: "coen-gr.jpg" }
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
   { name: "Elaine Oliver", handle:"elaine" }
-  { name: "Erik van der Veen", handle: "erik" }
   { name: "Frank van den Hoogen", handle:"frank", phone: "070-4452368", web: "http://www.frankvdhoogen.nl" }
   { name: "Gerard Dorst", handle:"gerard" }
   { name: "Guido Bouman", handle:"guido" }
