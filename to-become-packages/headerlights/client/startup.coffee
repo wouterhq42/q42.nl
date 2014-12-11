@@ -9,3 +9,7 @@ Meteor.startup ->
     i.setAttribute "type", "color"
     i.type isnt "text"
   )())
+
+Router.onBeforeAction ->
+  SubsManager.subscribe "lights"
+  @next()

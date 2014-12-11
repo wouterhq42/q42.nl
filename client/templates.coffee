@@ -3,12 +3,6 @@ $Template
   home:
     num_employees: -> EmployeeCount.findOne()?.count
 
-  error404:
-    isEnglish: -> Session.equals("lang", "en")
-    url: -> document.location.pathname
-  nl_error404:
-    url: -> document.location.pathname
-
   numQers:
     numQers: -> Employees.find().count()
 
@@ -17,8 +11,6 @@ $Template
 
   header:
     headerGameActive: -> Session.equals "headerGameActive", yes
-    lightsColor: -> Session.get("lightsColor")
-    supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)
     dev: -> window.location.href.indexOf("localhost") > -1
     color: -> Lights.find({}, {sort: {date: 1}})
     col1: -> @hex

@@ -8,7 +8,7 @@
 
   <nav>
     <div class="pos">
-      <div id="mobile-menu-icon"><i class="fa fa-bars fa-2x"></i></div>
+      <div id="mobile-menu-icon">menu</div>
       <div id="logo">
         <a href="/">
           <object data="http://static.q42.nl/images/q42-logo-white.svg" type="image/svg+xml">
@@ -31,17 +31,9 @@
       </ul>
     </div>
   </nav>
-  <div id="hue">
-    {{#if supportsInputTypeColor}}
-      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
-    {{else}}
-      <div id="lights-color"></div>
-    {{/if}}
-    <div id="lights-explanation">Control the Philips Hue lights in our office with this color picker!</div>
-    {{> colorpicker}}
-  </div>
+  {{> en_headerlights}}
   <!-- <div id="chat-toggle"></div> -->
-  <div id="particles"></div>
+  {{> particles}}
   <div id="backgrounds">
     {{#each color}}
       <div class="bg" style="background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),

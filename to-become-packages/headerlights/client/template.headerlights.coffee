@@ -11,5 +11,9 @@ templateHeaderEvents =
         $(evt.target).attr("value", "#" + color).css("background-color", "#" + color)
         Session.set("lightsColor", "#" + color)
 
-Template.header.events templateHeaderEvents
-Template.en_header?.events templateHeaderEvents
+$Events "headerlights", templateHeaderEvents
+
+$Template
+  headerlights:
+    lightsColor: -> Session.get("lightsColor")
+    supportsInputTypeColor: -> Session.equals("supportsInputTypeColor", yes)

@@ -1,4 +1,9 @@
 
+Router.onBeforeAction ->
+  SubsManager.subscribe "employees"
+  SubsManager.subscribe "allUserData"
+  @next()
+
 Template.registerHelper "avatar_static",   -> @imageStatic or @handle + ".jpg"
 Template.registerHelper "avatar_animated", -> @imageAnimated or @handle + ".gif"
 
@@ -54,6 +59,9 @@ Polaroid = ($li) ->
     if windowWidth > mobileMaxWidth
       $li.addClass "hover"
 
+    $video = $polaroid.find("video")
+    $video[0]?.play()
+
     $polaroid.css "z-index", ++zIndex
 
   show = (el) ->
@@ -62,8 +70,10 @@ Polaroid = ($li) ->
   hide = (el) ->
     $li = $(el)
     $li.removeClass "hover"
+    $video = $polaroid.find("video")
+    $video[0]?.pause()
 
-  {
+  return {
     show: show
     hide: hide
   }

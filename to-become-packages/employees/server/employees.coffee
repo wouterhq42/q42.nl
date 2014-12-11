@@ -15,16 +15,15 @@ currentQers = [
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
-  { name: "Coen Bijpost", handle:"coen", phone: "070-4452359", imageAnimated: "coen-gr.jpg" }
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
   { name: "Elaine Oliver", handle:"elaine" }
-  { name: "Erik van der Veen", handle: "erik" }
   { name: "Frank van den Hoogen", handle:"frank", phone: "070-4452368", web: "http://www.frankvdhoogen.nl" }
   { name: "Gerard Dorst", handle:"gerard" }
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
   { name: "Hidde Statema", handle:"hidde", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
+  { name: "Ineke Scheffers", handle:"ineke", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Jaap Taal", handle:"jaap" }
   { name: "Jaap Mengers", handle: "jaapm" }
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" }
@@ -97,18 +96,18 @@ addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "herman tomas"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
-addLabel "Ex-concullega",                 "arjen sander bas coen guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
+addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 
-# Arbitraire selecties
-addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard coen"
+# Arbitrary selections
+addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
-addLabel "Heeft een baard",               "rahul richard arian coen christiaan kamil jasperh"
+addLabel "Heeft een baard",               "rahul richard arian christiaan kamil jasperh"
 addLabel "Stokoud",                       "stef johan"
-addLabel "Broers",                        "benjamin chrisj tom rob"
+addLabel "Broers",                        "tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
-addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
+addLabel "Voortgeplant",                  "martin chris mark kars bas cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
 addLabel "Gaat binnenkort naar Microsoft", "michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
@@ -121,8 +120,9 @@ addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mar
 addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul guus"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
-addLabel "Kan stiekem best goed programmeren",     "chris"
-addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
+addLabel "Kan stiekem best programmeren",     "chris"
+addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
+addLabel "Emigrant",                      "rahul"
 
 Employees.allow
   insert: -> false

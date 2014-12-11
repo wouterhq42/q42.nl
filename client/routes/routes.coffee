@@ -1,15 +1,3 @@
-getTemplate = (name) -> if Session.equals("lang", "en") then "en_#{name}" else name
-
-setScrollPosition = ->
-  if window.location.hash
-    $el = $(window.location.hash)
-    if $el[0]
-      Meteor.setTimeout (-> $el[0].scrollIntoView()), 100
-    else
-      Meteor.setTimeout (-> setScrollPosition()), 1000
-  else
-    window.scrollTo 0,0
-
 Router.configure
   layoutTemplate: "main"
   loadingTemplate: "loading"
@@ -20,31 +8,14 @@ Router.onRun ->
   @next()
 
 Router.onBeforeAction ->
-  SubsManager.subscribe "lights"
   SubsManager.subscribe "coffeeCounter"
-  SubsManager.subscribe "employees"
-  SubsManager.subscribe "allUserData"
   @next()
 
 Router.onAfterAction ->
   NProgress.done()
-  setScrollPosition()
+  Utils.setScrollPosition()
   Meteor.setTimeout reattachBehavior, 0
-  Meteor.setTimeout setTitle, 0
-
-setTitle = ->
-  if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
-    document.title = "Q42"
-  else
-    document.title = $('h1').first().text() + " - Q42"
-
-  $("meta[property='og:title']").attr "content", document.title
-  $("meta[property='og:url']").attr "content", window.location.href
-  $("meta[property='og:image']").attr "content", $( ".block-large img:first-of-type").attr("src")
-
-  desc = $(".blog-post p:not(.post-date)").first().text()
-  desc = $("p:first-of-type").first().text() unless desc
-  $("meta[property='og:description']").attr "content", desc
+  Meteor.setTimeout Utils.setTitleAndMeta, 0
 
 Router.map ->
 
@@ -55,42 +26,15 @@ Router.map ->
       delete obj.waitOn
     @oldRoute(name, obj)
 
-  customPageWithBlogTags = (obj) =>
-    @route obj.path,
-      onBeforeAction: ->
-        Session.set "page", obj.routeName
-        @next()
-      action: ->
-        unless Session.equals("lang", obj.lang)
-          Spiderable.httpStatusCode = 404
-          @render "error404"
-          return
-
-        if @ready()
-          @render getTemplate(obj.routeName)
-        else
-          @render "loading"
-      onAfterAction: -> Meteor.call "checkTumblr"
-      waitOn: ->
-        [
-          Meteor.subscribe "pagesByTag", obj.tags[0]
-          SubsManager.subscribe "blogpostIndex", 1, obj.tags[0]
-          SubsManager.subscribe "LatestComments", 10
-        ]
-      data: ->
-        posts = blogpostIndex.find {}, sort: date: -1
-        return null unless posts.count() > 0
-        return {
-          post:       posts
-          pagination: getPagination 1
-          tag:        obj.routeName
-        }
-
   @route "/",
     onBeforeAction: ->
       Session.set("page", "home")
       @next()
-    action: -> @render getTemplate("home")
+    action: -> @render Utils.getTemplate("home")
+    waitOn: ->
+      [
+        Meteor.subscribe "employeeCount"
+      ]
 
   @route "/blog",
     onBeforeAction: ->
@@ -98,7 +42,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render getTemplate("blog")
+        @render Utils.getTemplate("blog")
       else
         @render "loading"
     onAfterAction: -> Meteor.call "checkTumblr"
@@ -112,7 +56,7 @@ Router.map ->
       posts = blogpostIndex.find {}, sort: date: -1
       return {
         post:       posts
-        pagination: getPagination 1
+        pagination: Utils.getPagination 1
       }
 
   @route "/blog/page/:pageNum",
@@ -121,7 +65,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render getTemplate("blog")
+        @render Utils.getTemplate("blog")
       else
         @render "loading"
     onAfterAction: -> Meteor.call "checkTumblr"
@@ -135,7 +79,7 @@ Router.map ->
       posts = blogpostIndex.find {}, sort: date: -1
       return {
         post:       posts
-        pagination: getPagination @params.pageNum
+        pagination: Utils.getPagination @params.pageNum
       }
 
   @route "/blog/tagged/:tag",
@@ -144,7 +88,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render getTemplate("blog")
+        @render Utils.getTemplate("blog")
       else
         @render "loading"
     onAfterAction: -> Meteor.call "checkTumblr"
@@ -159,7 +103,7 @@ Router.map ->
       return null unless posts.count() > 0
       return {
         post:       posts
-        pagination: getPagination @params.pageNum
+        pagination: Utils.getPagination @params.pageNum
         tag:        @params.tag
       }
 
@@ -170,7 +114,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render getTemplate("blogpost")
+        @render Utils.getTemplate("blogpost")
       else
         @render "loading"
     waitOn: -> [
@@ -188,29 +132,11 @@ Router.map ->
         oneComment:     BlogComments.find().count() is 1
       }
 
-  customPageWithBlogTags
-    routeName: "meteor"
-    path: "/meteor"
-    tags: ["meteor"]
-    lang: "en"
+  ### custom pages go here ###
 
-  customPageWithBlogTags
-    routeName: "swift"
-    path: "/swift"
-    tags: ["swift"]
-    lang: "en"
+  customBlogPages this
 
-  customPageWithBlogTags
-    routeName: "vacatures"
-    path: "/vacatures"
-    tags: ["vacature"]
-    lang: "nl"
-
-  customPageWithBlogTags
-    routeName: "io"
-    path: "/io"
-    tags: ["io"]
-    lang: "en"
+  ### custom pages go here ###
 
   @route "/:page",
     onBeforeAction: ->
@@ -232,28 +158,3 @@ Router.map ->
       Session.set "page", "404"
       Spiderable.httpStatusCode = 404
       @next()
-
-getPagination = (pageNum, tag) ->
-  pageNum = pageNum * 1
-  item = PageCounts.findOne tag: (tag or "")
-  pages = if item then item.count else 1
-  lang = Session.get "lang"
-  older = if lang is "en" then "older" else "ouder"
-  newer = if lang is "en" then "newer" else "nieuwer"
-  items = []
-
-  if pages isnt 1
-    page = pageNum or 1
-    if page > 1
-      items.push label: newer, page: page - 1
-
-    min = Math.max 1, page - 3
-    max = Math.min pages, page + 3
-
-    for i in [min..max]
-      items.push label: i, page: i, active: i is page
-
-    if page < pages
-      items.push label: older, page: page + 1
-
-  return items

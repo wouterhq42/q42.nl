@@ -22,50 +22,20 @@
     </section>
 
     <section id="contact">
+      {{> map}}
       <div class="block-large">
         <div class="block-small block-with-icons">
           <div class="body">
             <h2>Social networking</h2>
             <ul class="iconList">
-              <li><i class="fa fa-phone fa-2x"></i><div>Call us: +31 70 445 23 42</div></li>
-              <li><i class="fa fa-envelope fa-2x"></i><div>Email us: <a href="mailto:info@q42.nl" title="mail Q42">info@q42.nl</a></div></li>
-              <li><i class="fa fa-twitter fa-2x"></i><div>Tweet at us: <a href="http://www.twitter.com/q42" title="Q42 op Twitter" class="external">Twitter</a></div></li>
-              <li><i class="fa fa-thumbs-up fa-2x"></i><div>Like us: <a href="http://facebook.com/q42bv" title="Q42 op Facebook" class="external">Facebook</a></div></li>
-              <li><i class="fa fa-google-plus fa-2x"></i><div>+1 us: <a href="http://plus.google.com/112933340683830235543" title="Q42 op Google+" class="external">Google+</a></div></li>
-              <li><i class="fa fa-linkedin fa-2x"></i><div>Follow us: <a href="http://www.linkedin.com/company/q42" title="Q42 op LinkedIn" class="external">LinkedIn</a></div></li>
+              <li><i class="fa fa-phone-square fa-2x"></i><div>Call us: +31 70 445 23 42</div></li>
+              <li><i class="fa fa-envelope-square fa-2x"></i><div><a href="mailto:info@q42.nl">Email us</a></div></li>
+              <li><i class="fa fa-twitter-square fa-2x"></i><div><a href="http://www.twitter.com/q42">Tweet at us</a></div></li>
+              <li><i class="fa fa-google-plus-square fa-2x"></i><div><a href="http://plus.google.com/112933340683830235543">+1 us</a></div></li>
+              <li><i class="fa fa-linkedin-square fa-2x"></i><div><a href="http://www.linkedin.com/company/q42">Follow us</a></div></li>
+              <li><i class="fa fa-thumbs-o-up fa-2x"></i><div><a href="http://facebook.com/q42bv">Like us</a></div></li>
             </ul>
           </div>
-        </div>
-
-        <div class="block-small block-with-icons">
-          <address class="vcard body">
-            <h2>Offices</h2>
-            <span class="fn hidden">Q42</span>
-            <ul class="iconList">
-              <li class="adr">
-                <i class="fa fa-thumb-tack fa-2x"></i>
-                <div>
-                  <span class="street-address">Waldorpstraat 17F</span><br>
-                  <span class="postal-code">2521CA</span>&#160;<span class="locality">The Hague</span>
-                </div>
-              </li>
-              <li class="adr">
-                <i class="fa fa-thumb-tack fa-2x"></i>
-                <div>
-                  <span class="street-address">Oostelijke Handelskade 749</span><br>
-                  <span class="postal-code">1019BW</span>&#160;<span class="locality">Amsterdam</span>
-                </div>
-              </li>
-              <li class="adr">
-                <i class="fa fa-thumb-tack fa-2x"></i>
-                <div>
-                  <span class="street-address">1045A Linda Vista Ave</span><br>
-                  <span class="locality">Mountain View</span>, <span class="postal-code">94043</span>, USA
-                </div>
-              </li>
-              <li class="note"><i class="fa fa-dollar fa-2x"></i><div>KvK 30164662 in The Hague</div></li>
-            </ul>
-          </address>
         </div>
 
         <div class="block-small block-with-icons">
@@ -114,6 +84,12 @@
           </div>
           <div class="body">
             <h2>The Hague</h2>
+            <address class="vcard body">
+              <p class="adr">
+                <span class="street-address">Waldorpstraat 17F</span><br>
+                <span class="postal-code">2521CA</span>&#160;<span class="locality">The Hague</span>
+              </p>
+            </address>
             <p>Right next to Holland Spoor you'll find our base (which are belong to us). Since 2006. Wave if you're in the train. And don't forget to use our free WiFi, or mess around with the Philips Hue lights!</p>
             <p><i class="fa fa-phone"></i> Call Q42 HQ: 070-4452342</p>
           </div>
@@ -125,6 +101,12 @@
           </div>
           <div class="body">
             <h2>Amsterdam</h2>
+            <address class="vcard body">
+              <p class="adr">
+                <span class="street-address">Oostelijke Handelskade 749</span><br>
+                <span class="postal-code">1019BW</span>&#160;<span class="locality">Amsterdam</span>
+              </p>
+            </address>
             <p>The plan was to bring Q closer to the Q'ers. In the meantime, those of us in the Hague are getting pretty jealous, since we have both a slide <em>and</em> a secret room in our Amsterdam office.</p>
           </div>
         </div>
@@ -135,6 +117,12 @@
           </div>
           <div class="body">
             <h2>Mountain View</h2>
+            <address class="vcard body">
+              <p class="adr">
+                <span class="street-address">1045A Linda Vista Ave</span><br>
+                <span class="locality">Mountain View</span>, <span class="postal-code">94043</span>, USA
+              </p>
+            </address>
             <p>Our newest office in Mountain View, south of San Francisco, is only a stone's throw from the Googleplex and Computer History Museum, and in the middle of Silicon Valley. Just the way we like it.</p>
           </div>
         </div>
@@ -312,7 +300,7 @@
     <img class="zw" src="http://static.q42.nl/images/employees/{{avatar_static}}" width="108" alt="{{name}}">
     <div class="polaroid">
       {{#if supportsWebm}}
-        <video src="http://static.q42.nl/video/employees/{{handle}}.webm" autoplay loop poster="http://static.q42.nl/images/employees/{{avatar_static}}"></video>
+        <video src="http://static.q42.nl/video/employees/{{handle}}.webm" loop poster="http://static.q42.nl/images/employees/{{avatar_static}}"></video>
       {{else}}
         <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
       {{/if}}
