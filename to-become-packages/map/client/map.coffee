@@ -71,8 +71,10 @@
   }
   q020Marker.setMap mapNL
   q020InfoWindow = new google.maps.InfoWindow {
+    maxWidth: 250
     content: """
       Q42 Amsterdam<br><br>
+      #{$("#map-nl-qers").html()}<br><br>
       <span class="get-directions" id="to-q020">#{getDirections}</span>
     """
   }
@@ -86,8 +88,10 @@
   }
   q070Marker.setMap mapNL
   q070InfoWindow = new google.maps.InfoWindow {
+    maxWidth: 250
     content: """
       Q42 #{denHaag}<br><br>
+      #{$("#map-nl-qers").html()}<br><br>
       <span class="get-directions" id="to-q070">#{getDirections}</span>
     """
   }
@@ -101,8 +105,10 @@
   }
   QSAMarker.setMap mapUS
   QSAInfoWindow = new google.maps.InfoWindow {
+    maxWidth: 250
     content: """
       Q42 Mountain View<br><br>
+      #{$("#map-us-qers").html()}<br><br>
       <span class="get-directions" id="to-qsa">#{getDirections}</span>
     """
   }
@@ -127,3 +133,7 @@ Template["over-q42"].rendered = Template["en_about-q42"]?.rendered = ->
     Session.set("mapRendered", yes)
   else
     initMap()
+
+Template.map.helpers
+  usQer: -> Employees.find handle: "rahul"
+  nlQer: -> Employees.find handle: $ne: "rahul"
