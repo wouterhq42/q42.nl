@@ -115,8 +115,14 @@
   }
   QSAMarker.addListener "click", -> QSAInfoWindow.open mapUS, QSAMarker
 
+Meteor.startup ->
+  Session.setDefault("mapRendered", no)
 
 Template["over-q42"].rendered = Template["en_about-q42"]?.rendered = ->
-  key = "AIzaSyBHGH8clbD6HLlwHLgNmNUgTyMa_U6gcdU"
-  url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
-  $.getScript(url)
+  unless Session.equals "mapRendered", yes
+    key = "AIzaSyBHGH8clbD6HLlwHLgNmNUgTyMa_U6gcdU"
+    url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
+    $.getScript(url)
+    Session.set("mapRendered", yes)
+  else
+    initMap()
