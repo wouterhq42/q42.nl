@@ -1,4 +1,9 @@
 
+Router.onBeforeAction ->
+  SubsManager.subscribe "employees"
+  SubsManager.subscribe "allUserData"
+  @next()
+
 Template.registerHelper "avatar_static",   -> @imageStatic or @handle + ".jpg"
 Template.registerHelper "avatar_animated", -> @imageAnimated or @handle + ".gif"
 
