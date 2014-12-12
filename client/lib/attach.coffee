@@ -40,7 +40,7 @@ attachFacebook = ->
     if initCalled
       FB.XFBML.parse()
     else
-      FB.init appId: '535367106516027', xfbml: true, version: 'v2.1'
+      FB.init appId: '226130564064804', xfbml: true, version: 'v2.2'
       initCalled = yes
 
 attachTwitter = ->
