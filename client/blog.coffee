@@ -9,7 +9,6 @@ Template.registerHelper "typeIs", (type) -> @type is type
 $Template
 
   blogpost:
-    loggedin: -> !!Meteor.user()
     picture: -> getPictureURL Meteor.user()
 
   postDate:
