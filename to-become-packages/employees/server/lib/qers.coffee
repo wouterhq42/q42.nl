@@ -1,7 +1,7 @@
 @currentQers = [
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
-  { name: "Bart Kiers", handle: "bart", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
+  { name: "Bart Kiers", handle: "bart" }
   { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
@@ -14,7 +14,7 @@
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
-  { name: "Hidde Statema", handle:"hidde", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"}
+  { name: "Hidde Statema", handle:"hidde" }
   { name: "Ineke Scheffers", handle:"ineke", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Jaap Taal", handle:"jaap" }
   { name: "Jaap Mengers", handle: "jaapm" }
