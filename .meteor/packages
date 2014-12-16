@@ -33,7 +33,6 @@ iron:router
 meteorhacks:kadira
 meteorhacks:subs-manager
 mrt:moment
-mrt:nprogress
 natestrauser:font-awesome
 tmeasday:gravatar
 meteorhacks:fast-render
