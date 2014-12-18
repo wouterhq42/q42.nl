@@ -14,15 +14,22 @@
     color white
     text-decoration none
     transition all .2s ease-out
+
   .visual.caption:hover img, .visual.caption:hover video
-    transform translateY(-15px)
+    transform translateY(-4px) rotateX(25deg) scale(0.95)
+    transform-origin bottom
 
   .visual.caption:hover p
-    transform translateY(-25px)
+    transform translateY(-25px) rotateX(0deg)
 
   .visual.caption, .visual.caption p, .visual.caption img, .visual.caption video
     transition all .2s ease-out
 
+  .visual.caption
+    perspective 2000px
+
+  .visual.caption p
+    transform rotateX(-90deg)
 
 
 
@@ -203,7 +210,7 @@
   }
 
   #particles { display: none; }
-  #logo img, #logo object { height: 80px;}
+  .q42-logo img, .q42-logo object { height: 80px;}
 
   .block-small > ul, #blog-sidebar ul
     padding-left 40px

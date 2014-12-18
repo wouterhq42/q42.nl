@@ -5,6 +5,7 @@ headerRendered = ->
   rp = -> ~~((Math.random() * 2 - 1) * 250)
   rr = -> ~~((Math.random() * 2 - 1) * 20)
   between = (a,b) -> Math.max(a, ~~(Math.random()*b))
+  windowWidth = $(window).width()
 
   generateparticles = (numparticles) ->
     $particles = $(".particle")
@@ -25,16 +26,19 @@ headerRendered = ->
     _.each types, (type) -> $particle.css "-#{type}-animation", animationValue
     $particle.css "animation", animationValue
 
-    dim = ~~(Math.random() * 150)
+    dim = ~~(Math.random() * 750)
     $particle.css "width", "#{dim}px"
     $particle.css "height", "#{dim}px"
 
-    color = rc 0, .8
+    color = rc 0, .5
     $particle.css "backgroundColor", color
 
-    x = ~~((Math.random() * 2 - 1) * $(window).width())
+    radius = between 0, 100
+    $particle.css "borderRadius", radius
+
+    x = ~~((Math.random() * 2 - 1) * windowWidth)
     y = rp()
-    z = -rp()
+    z = rp()
 
     transform = "translate3d(#{x}px, #{y}px, #{z}px)"
     _.each types, (type) -> $particle.css "-#{type}-transform", transform
@@ -44,9 +48,9 @@ headerRendered = ->
 
     dx = between 200, 500
     dx = if Math.random() < 0.5 then dx else -dx
-    dy = between 200, 500
+    dy = between 50, 265
     dy = if Math.random() < 0.5 then dy else -dy
-    dz = between 200, 500
+    dz = between 500, 2500
     dz = if Math.random() < 0.5 then dz else -dz
 
     anim = ""

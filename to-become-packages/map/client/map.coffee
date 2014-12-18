@@ -1,4 +1,11 @@
 @initMap = ->
+  navigator.geolocation.getCurrentPosition (geo) ->
+    geocoder = new google.maps.Geocoder()
+    latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
+    geocoder.geocode {latLng: latlng}, (res, status) ->
+      if status is google.maps.GeocoderStatus.OK
+        Session.set("currentGeo", res[0])
+
   styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
   mapNL = new google.maps.Map $("#map-nl")[0], {
     center: new google.maps.LatLng(52.2298672,4.6431694)
@@ -6,6 +13,7 @@
     mapTypeControl: no
     streetViewControl: no
     styles: styles
+    scrollwheel: false
   }
   mapUS = new google.maps.Map $("#map-us")[0], {
     center: new google.maps.LatLng(37.553001,-122.2672957)
@@ -13,12 +21,21 @@
     mapTypeControl: no
     streetViewControl: no
     styles: styles
+    scrollwheel: false
   }
   directionsService = new google.maps.DirectionsService()
   directionsDisplayNL = new google.maps.DirectionsRenderer()
   directionsDisplayNL.setMap mapNL
   directionsDisplayUS = new google.maps.DirectionsRenderer()
   directionsDisplayUS.setMap mapUS
+
+  for map in [mapNL, mapUS]
+    do (map) ->
+      google.maps.event.addListener map, "click", ->
+        map.setOptions { scrollwheel: true }
+
+      google.maps.event.addListener map, "mouseout", ->
+        map.setOptions { scrollwheel: false }
 
   setDirections = (nlUs, dest) ->
     return unless Session.get("currentGeo")
@@ -122,13 +139,6 @@ Meteor.startup ->
   Session.setDefault("currentGeo", null)
 
 mapRendered = ->
-  navigator.geolocation.getCurrentPosition (geo) ->
-    geocoder = new google.maps.Geocoder()
-    latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
-    geocoder.geocode {latLng: latlng}, (res, status) ->
-      if status is google.maps.GeocoderStatus.OK
-        Session.set("currentGeo", res[0])
-
   unless Session.equals "mapRendered", yes
     key = "AIzaSyCvAL7yv2v-bVICrxQoPX8UzJ3Mm0QIOLo"
     url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
@@ -137,8 +147,7 @@ mapRendered = ->
   else
     initMap()
 
-Template["over-q42"].rendered = mapRendered
-Template["en_about-q42"]?.rendered = mapRendered
+Template.map.rendered = mapRendered
 
 Template.map.helpers
   usQer: -> Employees.find handle: "rahul"

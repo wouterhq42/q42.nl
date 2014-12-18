@@ -7,26 +7,27 @@
       <a href="tel:{{phone}}">{{phone}}</a>
       {{/if}}
     </span>
-    <img src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
-    <div class="polaroid">
-      {{#if supportsWebm}}
-      <video src="http://static.q42.nl/video/employees/{{handle}}.webm" loop poster="http://static.q42.nl/images/employees/{{avatar_static}}"></video>
-      {{else}}
-      <img class="color" src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
-      {{/if}}
-      <h3>{{name}}</h3>
-      <p class="contactData">
-        <span class="email">
-          <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
-        </span>
-        {{#if phone}}
-        <span class="phonenumber">{{phone}}</span>
-        {{/if}}
-        {{#if web}}
-        <span class="website"><a href="{{web}}">website</a></span>
-        {{/if}}
-        <div class="closePolaroid"></div>
-      </p>
-    </div>
+    <img data-src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{name}}">
+    {{#if showPolaroid}}
+      {{> polaroid}}
+    {{/if}}
   </li>
+</template>
+
+<template name="polaroid">
+  <div class="polaroid">
+    {{#if supportsWebm}}
+    <video src="http://static.q42.nl/video/employees/{{handle}}.webm" loop
+           poster="http://static.q42.nl/images/employees/{{avatar_static}}"></video>
+    {{else}}
+    <img src="http://static.q42.nl/images/employees/{{avatar_animated}}" alt="{{name}}">
+    {{/if}}
+    <h3>{{name}}</h3>
+    <p class="contactData">
+      <span class="email"><a href="mailto:{{email}}@q42.nl">{{email}}@q42.nl</a></span>
+      {{#if phone}}<span class="phonenumber">{{phone}}</span>{{/if}}
+      {{#if web}}<span class="website"><a href="{{web}}">website</a></span>{{/if}}
+      <div class="closePolaroid"></div>
+    </p>
+  </div>
 </template>

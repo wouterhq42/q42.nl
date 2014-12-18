@@ -4,7 +4,6 @@ Router.configure
   notFoundTemplate: "error404"
 
 Router.onRun ->
-  NProgress.start()
   @next()
 
 Router.onBeforeAction ->
@@ -12,7 +11,6 @@ Router.onBeforeAction ->
   @next()
 
 Router.onAfterAction ->
-  NProgress.done()
   Utils.setScrollPosition()
   Meteor.setTimeout reattachBehavior, 0
   Meteor.setTimeout Utils.setTitleAndMeta, 0

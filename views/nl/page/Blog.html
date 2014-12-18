@@ -166,11 +166,11 @@
           </div>
         </div>
         <div class="submit">
-          {{#unless loggedin}}
-          <button id="addComment" disabled>Reageer</button>
-          {{else}}
+          {{#if currentUser}}
           <button id="addComment">Reageer</button>
-          {{/unless}}
+          {{else}}
+          <button id="addComment" disabled>Reageer</button>
+          {{/if}}
           als {{> loginButtons}}
         </div>
       </div>

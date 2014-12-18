@@ -15,7 +15,6 @@ body
   background white
 
 h1, h2, h3
-  font-weight normal
   font-family titleFont
 
 p, ol, ul
@@ -100,14 +99,9 @@ a
 .block-text
   padding 40px 0
   border-bottom solid #ccc 1px
-  h1
-    b
-      color #232323
-      font-weight normal
 
 .block-text h1,
 .blog h1
-  font-weight normal
   font-size 2.5rem
   margin 20px 0
 
@@ -137,7 +131,7 @@ a
       padding-top 40px
 
   & > .body
-    flex 2
+    doFlex 2
     margin-right 20px
 
     h2
@@ -153,20 +147,20 @@ a
         margin-bottom 1.5rem
 
   .visual
-    flex 3
+    doFlex 3
     position relative
 
   &.right
     .body
-      flex 2
+      doFlex 2
       order 2
       margin-right 0
       margin-left 20px
     .visual
-      flex 3
+      doFlex 3
 
   .intro
-    flex 5
+    doFlex 5
     margin 0 32px 0 0
     h3
       font-weight normal
@@ -179,7 +173,6 @@ section h1,
 
 section h2,
 .block-large > .body h2
-  font-weight normal
   font-size 40px
   margin-top 0
 
@@ -192,7 +185,7 @@ section h2,
   max-width 33.3333%
 
 .block-small
-  flex 1
+  doFlex 1
   margin 0 20px 0 0
   &:last-child
     margin-right 0
@@ -218,10 +211,13 @@ section h2,
       margin-bottom 0
 
 .subcontent
-  flex 2
+  doFlex 2
   padding 20px
   color rgba(0,0,0,.5)
+  font-family serifTitleFont
   h2
+    font-family serifTitleFont
+    font-weight normal
     padding-top 0
 
 #loading
@@ -237,12 +233,6 @@ section h2,
   img
     width 128px
     animation fadeIn ease .2s
-
-#nprogress
-  .bar
-    background-color #c00
-  .spinner
-    display none
 
 .visual
   img, iframe
@@ -282,7 +272,7 @@ a.caption,
     displayFlex()
     alignItems center
     overflow hidden
-    padding 0 0 16px 0px
+    padding 0 0 8px 0px
     list-style-type none
     i
       min-width 40px
@@ -300,3 +290,13 @@ a.caption,
       &:hover
         color #88c546 !important
         text-decoration none !important
+
+
+.q42-logo
+  a
+    display inline-block
+
+  object, img
+    width 129px
+    height 180px
+    pointer-events none
