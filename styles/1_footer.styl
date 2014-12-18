@@ -30,16 +30,25 @@
   .block-large
     padding 32px 0
 
-  .iconList
-    padding 0
+  .intro-outro
+    border-bottom none
+
+    p
+      font-size .8rem
+      color rgba(255,255,255,.7)
+
     a
-      displayFlex()
-      alignItems center
-      transition color .3s ease
-      color #eee
       text-decoration none
+      color rgba(255,255,255,.7)
+      line-height 2.5rem
+      &:not(:last-child)
+        margin 0 1rem 0 0
       &:hover
-        color #88c546
+        color white
+        text-decoration underline
+
+    .fa
+      vertical-align middle
 
 #facebookLikeBox
   overflow hidden
