@@ -24,17 +24,7 @@
       margin 0
       text-align center
       padding 30px 0
-      background-color #999
-
-    &.hover
-      overflow visible
-      .polaroid
-        pointer-events all
-        opacity 1
-        transform scale(1.0) rotate(-5deg)
-        transformOrigin center center
-        .contactData
-          display block
+      background-color #999display block
 
     .name
       font bold 12px bodyFont
@@ -57,43 +47,42 @@
       width 108px
       height 108px
 
-  .polaroid
-    pointer-events none
-    position absolute
-    top 0
-    left 0
-    background-color #fff
-    z-index 9
-    padding 10px
-    box-shadow 0px 4px 13px rgba(0,0,0,0.4)
-    opacity 0
-    transform scale(0.71) rotate(0deg)
-    transition linear .05s all
-
-    img, video
-      width 150px
-      height 150px
-
-    h3
-      font 16px/1.3em 'Permanent Marker', cursive
-      margin 0
-      text-align center
-
-    .contactData
-      margin 0
-      font-size 14px
-
-    .contactData span
-      text-align center
-      display block
-
-    .closePolaroid
-      width 30px
-      height 30px
-      background url('http://static.q42.nl/images/closebox.png') no-repeat
+    .polaroid
       position absolute
-      top -16px
-      right -16px
+      top 0
+      left 0
+      background-color #fff
+      z-index 9
+      padding 10px
+      box-shadow 0px 2px 3px rgba(0,0,0,0.3)
+      animation fadeIn ease .1s
+      animationFillMode forwards
+
+      img, video
+        width 150px
+        height 150px
+
+      h3
+        font 16px/1.3em 'Permanent Marker', cursive
+        margin 0
+        text-align center
+
+      .contactData
+        display block
+        margin 0
+        font-size 14px
+
+      .contactData span
+        text-align center
+        display block
+
+      .closePolaroid
+        width 30px
+        height 30px
+        background url('http://static.q42.nl/images/closebox.png') no-repeat
+        position absolute
+        top -16px
+        right -16px
 
 #facts
   .body

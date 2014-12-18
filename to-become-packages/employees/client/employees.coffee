@@ -27,76 +27,57 @@ Template.employees.helpers
 Template.en_employees?.helpers
   employee: -> Employees.find()
 
+
+
+
 Template.employeeView.helpers
   firstname: ->
     return "droid" unless @name
     @name.split(" ")[0]
-
-  email: ->
-    @email or @handle
+  email: -> @email or @handle
   filter: -> Session.get("employees_filter")
+
+Template.employeeView.events
+  "mouseenter .qer, click .qer": (evt) ->
+    Session.set "renderPolaroid#{@_id}", yes
+  "mouseleave .qer": (evt) ->
+    Session.set "renderPolaroid#{@_id}", no
+
+Template.employeeView.helpers
+  showPolaroid: -> Session.equals "renderPolaroid#{@_id}", yes
+
+
+
+
+Template.polaroid.rendered  = ->
+  @autorun =>
+    unless Session.equals "renderPolaroid#{Template.currentData()._id}"
+      $polaroid = @$(".polaroid")
+      rotate = (Math.floor(Math.random() * 21) - 10)
+      rotateValue = "translate(-30px, -30px) rotateZ(#{rotate}deg)"
+      _.each ["webkit", "moz", "ms", "o"], (type) ->
+        $polaroid.css "-#{type}-transform", rotateValue
+      $polaroid.css "transform", rotateValue
+
+      @find("video")?.play()
+
+Template.polaroid.destroyed = ->
+  @find("video")?.pause()
+
+Template.polaroid.helpers
+  email: -> @email or @handle
   supportsWebm: ->
     video = document.createElement('video')
     video.canPlayType('video/webm; codecs="vp8, vorbis"') is "probably"
 
-zIndex = 1000
-polaroids = {}
-mobileMaxWidth = 620
+Template.polaroid.events
+  "click .closePolaroid": (evt) ->
+    Session.set "renderPolaroid#{Template.currentData()._id}", no
+    # prevent the mouseenter listener on employeeView from firing
+    evt.stopPropagation()
 
-Polaroid = ($li) ->
-  $polaroid = $li.find ".polaroid"
 
-  rotatePolaroid = ->
-    rotate = (Math.floor(Math.random() * 21) - 10)
-    rotateValue = "translate(-30px, -30px) scale(1.0) rotateZ(#{rotate}deg)"
-    _.each ["webkit", "moz", "ms", "o"], (type) ->
-      $polaroid.css "-#{type}-transform", rotateValue
-    $polaroid.css "transform", rotateValue
 
-  initHover = (el) ->
-    $li = $(el)
-    $polaroidLists = $("#colleagues .polaroid").parent("li")
-    $polaroidLists.removeClass "hover"
-    windowWidth = $(window).width()
-    if windowWidth > mobileMaxWidth
-      $li.addClass "hover"
-
-    $video = $polaroid.find("video")
-    $video[0]?.play()
-
-    $polaroid.css "z-index", ++zIndex
-
-  show = (el) ->
-    rotatePolaroid()
-    initHover(el)
-  hide = (el) ->
-    $li = $(el)
-    $li.removeClass "hover"
-    $video = $polaroid.find("video")
-    $video[0]?.pause()
-
-  return {
-    show: show
-    hide: hide
-  }
-
-showPolaroid = (el) ->
-  $li = $(el)
-  name = $li.find("img").attr("alt")
-  polaroids[name] = polaroids[name] or new Polaroid($li)
-  polaroids[name].show(el)
-
-hidePolaroid = (el) ->
-  $li = $(el)
-  name = $li.find("img").attr("alt")
-  polaroids[name] = polaroids[name] or new Polaroid($li)
-  polaroids[name].hide(el)
-
-events =
-  "mouseenter .qer": (evt) -> showPolaroid(evt.target)
-  "click .qer":      (evt) -> showPolaroid(evt.target)
-  "mouseleave .qer": (evt) -> hidePolaroid(evt.target)
-Template.employeeView.events events
 
 Template.filter_employees.helpers
   list: -> _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort()
