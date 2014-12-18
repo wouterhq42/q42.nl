@@ -13,6 +13,7 @@
     mapTypeControl: no
     streetViewControl: no
     styles: styles
+    scrollwheel: false
   }
   mapUS = new google.maps.Map $("#map-us")[0], {
     center: new google.maps.LatLng(37.553001,-122.2672957)
@@ -20,12 +21,21 @@
     mapTypeControl: no
     streetViewControl: no
     styles: styles
+    scrollwheel: false
   }
   directionsService = new google.maps.DirectionsService()
   directionsDisplayNL = new google.maps.DirectionsRenderer()
   directionsDisplayNL.setMap mapNL
   directionsDisplayUS = new google.maps.DirectionsRenderer()
   directionsDisplayUS.setMap mapUS
+
+  for map in [mapNL, mapUS]
+    do (map) ->
+      google.maps.event.addListener map, "click", ->
+        map.setOptions { scrollwheel: true }
+
+      google.maps.event.addListener map, "mouseout", ->
+        map.setOptions { scrollwheel: false }
 
   setDirections = (nlUs, dest) ->
     return unless Session.get("currentGeo")
