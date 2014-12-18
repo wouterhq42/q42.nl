@@ -5,7 +5,7 @@
     geocoder.geocode {latLng: latlng}, (res, status) ->
       if status is google.maps.GeocoderStatus.OK
         Session.set("currentGeo", res[0])
-        
+
   styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
   mapNL = new google.maps.Map $("#map-nl")[0], {
     center: new google.maps.LatLng(52.2298672,4.6431694)
@@ -147,8 +147,7 @@ mapRendered = ->
   else
     initMap()
 
-Template["over-q42"].rendered = mapRendered
-Template["en_about-q42"]?.rendered = mapRendered
+Template.map.rendered = mapRendered
 
 Template.map.helpers
   usQer: -> Employees.find handle: "rahul"
