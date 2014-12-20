@@ -1,6 +1,5 @@
 
 Router.onBeforeAction ->
-  SubsManager.subscribe "employees"
   SubsManager.subscribe "allUserData"
   @next()
 
