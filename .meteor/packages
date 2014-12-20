@@ -20,8 +20,6 @@ spacebars
 templating
 jquery
 ejson
-tmeasday:crypto-base
-tmeasday:crypto-md5
 random
 check
 spiderable
@@ -30,9 +28,12 @@ ddp
 mongo
 blaze
 iron:router
-meteorhacks:kadira
 meteorhacks:subs-manager
-mrt:moment
 natestrauser:font-awesome
-tmeasday:gravatar
+meteorhacks:kadira
 meteorhacks:fast-render
+momentjs:moment
+jparker:gravatar
+jparker:crypto-md5
+jparker:crypto-core
+
