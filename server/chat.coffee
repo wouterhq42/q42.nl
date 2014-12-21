@@ -57,7 +57,7 @@ Router.map ->
     action: ->
       console.log "Route: /api/chat"
       console.log "request.body:", JSON.stringify(@request.body)
-      return unless @request.body.token is ChatConfig.findOne()?.outgoingToken
+      return unless @request.body?.token is ChatConfig.findOne()?.outgoingToken
       msg = @request.body.text.replace("@q42nl ", "").replace("@q42com ", "")
       user = @request.body.user_name
       ChatMessages.insert userId: null, username: user, msg: msg, date: new Date(), path: "/api/chat"
