@@ -140,6 +140,11 @@ Router.map ->
     onBeforeAction: ->
       Session.set "page", @params.page
       @next()
+    waitOn: ->
+      if @params.page is "over-q42" or @params.page is "about-q42"
+        [SubsManager.subscribe "employees"]
+      else
+        []
     action: ->
       if Session.equals("lang", "en") and Template["en_" + @params.page]
         return @render "en_" + @params.page

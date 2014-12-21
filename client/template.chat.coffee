@@ -1,11 +1,15 @@
 
 Meteor.startup ->
   Meteor.subscribe "chat"
+  Session.setDefault "openChat", no
 
 $Template
   chat:
-    message: -> ChatMessages.find()
-    user: -> Meteor.users.findOne(@userId)?.profile.name or "onbekend"
+    message: -> ChatMessages.find({}, {sort: date: 1})
+    user: -> Meteor.users.findOne(@userId)?.profile?.name or @username or "Unknown"
+
+ChatMessages.after.insert ->
+  $("#chat .flex-stretch").scrollTop(99999)
 
 sendChatMessage = ->
   return unless Meteor.user()
@@ -29,23 +33,8 @@ events =
 Template.chat.events events
 Template.en_chat?.events events
 
-Template.en_chat?.rendered = Template.chat.rendered = ->
+chatRendered = ->
   $input = $(Template.instance().find("input"))
   $input.focus()
-
-  # OFFSCREEN_CLASS = 'off-screen'
-  # TRANSITION_EVENTS = 'webkitTransitionEnd oTransitionEnd transitionEnd msTransitionEnd transitionend'
-
-  # hooks = 
-  #   insertElement: (node, next) ->
-  #     $(node).addClass(OFFSCREEN_CLASS).insertBefore(next)
-  #     Tracker.afterFlush ->
-  #       $(node).width() # force draw
-  #       $(node).removeClass OFFSCREEN_CLASS
-  #   removeElement: (node) ->
-  #     $(node).addClass(OFFSCREEN_CLASS).on TRANSITION_EVENTS, -> $(node).remove()
-  #   moveElement: (node, next) ->
-  #     hooks.removeElement node
-  #     hooks.insertElement node, next
-
-  # $("#page")[0]._uihooks = hooks
+Template.en_chat?.rendered = chatRendered
+Template.chat.rendered = chatRendered
