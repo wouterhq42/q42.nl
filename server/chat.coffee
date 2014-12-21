@@ -20,7 +20,7 @@ Meteor.methods
       ChatConfig.insert incomingToken: incomingToken, outgoingToken: outgoingToken
 
   setupChatDefaults: (lang) ->
-    return unless @userId and Meteor.users.findOne(@userId).isAdmin
+    return unless Meteor.users.findOne(@userId)?.isAdmin
     ChatMessages.remove({})
     ChatMessages.insert
       userId: @userId
