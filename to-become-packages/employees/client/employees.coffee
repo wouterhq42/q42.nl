@@ -1,3 +1,5 @@
+Meteor.startup ->
+  Session.setDefault "employees_filter", "Q'er"
 
 Router.onBeforeAction ->
   SubsManager.subscribe "allUserData"
