@@ -4,9 +4,25 @@ Meteor.publish "chat", -> ChatMessages.find({}, {sort: {date: 1}, limit: 20})
 
 Meteor.methods
   setupChatConfig: (incomingToken, outgoingToken) ->
+    ###
+      - Incoming token is found on the incoming webhook page under
+      "Integration Settings" -> "Webhook URL" -> fragment after last /
+
+      - Outgoing token is found on the outgoing webhook page under
+      "Integration Settings" -> "Token"
+    ###
     if incomingToken and outgoingToken
       ChatConfig.remove({})
       ChatConfig.insert incomingToken: incomingToken, outgoingToken: outgoingToken
+
+  setupChatDefaults: (lang) ->
+    return unless @userId and Meteor.users.findOne(@userId).isAdmin
+    ChatMessages.remove({})
+    ChatMessages.insert
+      userId: @userId
+      msg: if lang is "nl" then "Hoi! Alles goed?" else "Hello! How are you?"
+      date: new Date()
+      path: null
 
 ChatMessages.allow
   insert: (userId, doc) ->
@@ -41,7 +57,7 @@ Router.map ->
     action: ->
       console.log "Route: /api/chat"
       console.log "request.body:", JSON.stringify(@request.body)
-      return unless @request.body.token? is ChatConfig.findOne()?.outgoingToken
+      return unless @request.body.token is ChatConfig.findOne()?.outgoingToken
       msg = @request.body.text.replace("@q42nl ", "").replace("@q42com ", "")
       user = @request.body.user_name
       ChatMessages.insert userId: null, username: user, msg: msg, date: new Date(), path: "/api/chat"
