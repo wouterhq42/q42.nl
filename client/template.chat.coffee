@@ -5,12 +5,11 @@ Meteor.startup ->
 
 $Template
   chat:
-    message: -> ChatMessages.find()
+    message: -> ChatMessages.find({}, {sort: date: 1})
     user: -> Meteor.users.findOne(@userId)?.profile.name or @username or "Unknown"
 
 ChatMessages.after.insert ->
-  $chat = $("#chat .flex-stretch")
-  $chat[0]?.scrollTop = $chat[0]?.scrollHeight
+  $("#chat .flex-stretch").scrollTop(99999)
 
 sendChatMessage = ->
   return unless Meteor.user()

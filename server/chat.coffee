@@ -1,12 +1,9 @@
 ChatConfig = new Mongo.Collection("chatconfig")
 
 Meteor.publish "chat", ->
-  count = ChatMessages.find().count()
-  limit = 20
   ChatMessages.find {}, {
-    sort: { date: 1 },
-    skip: Math.max 0, count - limit
-    limit: limit
+    sort: { date: -1 },
+    limit: 20
   }
 
 Meteor.methods
