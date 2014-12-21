@@ -1,6 +1,13 @@
 ChatConfig = new Mongo.Collection("chatconfig")
 
-Meteor.publish "chat", -> ChatMessages.find({}, {sort: {date: 1}, limit: 20})
+Meteor.publish "chat", ->
+  count = ChatMessages.find().count()
+  limit = 20
+  ChatMessages.find {}, {
+    sort: { date: 1 },
+    skip: Math.max 0, count - limit
+    limit: limit
+  }
 
 Meteor.methods
   setupChatConfig: (incomingToken, outgoingToken) ->
@@ -59,6 +66,6 @@ Router.map ->
       console.log "request.body:", JSON.stringify(@request.body)
       return unless @request.body?.token is ChatConfig.findOne()?.outgoingToken
       msg = @request.body.text.replace("@q42nl ", "").replace("@q42com ", "")
-      user = @request.body.user_name
+      user = @request.body.user_name + " (Q42)"
       ChatMessages.insert userId: null, username: user, msg: msg, date: new Date(), path: "/api/chat"
       @response.end()
