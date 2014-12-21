@@ -3,11 +3,7 @@
   attachGoogleAnalytics()
   attachFacebook()
   attachTwitter()
-  resizeFBwidget()
   attachUnveil()
-
-@resizeFBwidget = ->
-  $('.fb_iframe_widget iframe').width('100%')
 
 attachUnveil = ->
   $("img").unveil(300)
