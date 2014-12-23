@@ -29,7 +29,6 @@ mongo
 blaze
 iron:router
 meteorhacks:subs-manager
-natestrauser:font-awesome
 meteorhacks:kadira
 meteorhacks:fast-render
 momentjs:moment
