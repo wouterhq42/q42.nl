@@ -7,7 +7,7 @@ Router.onRun ->
   @next()
 
 Router.onBeforeAction ->
-  SubsManager.subscribe "coffeeCounter"
+  SubsManager.subscribe "allUserData"
   @next()
 
 Router.onAfterAction ->
@@ -141,8 +141,11 @@ Router.map ->
       Session.set "page", @params.page
       @next()
     waitOn: ->
-      if @params.page is "over-q42" or @params.page is "about-q42"
-        [SubsManager.subscribe "employees"]
+      if @params.page in ["over-q42", "about-q42"]
+        [
+          SubsManager.subscribe("employees")
+          SubsManager.subscribe("coffeeCounter")
+        ]
       else
         []
     action: ->
