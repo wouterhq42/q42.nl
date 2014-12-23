@@ -28,6 +28,7 @@ Meteor.publish("allUserData", function () {
   Meteor.users.update({ 'services.google.email': { $in : admins } }, { $set: { isAdmin: true }})
   return Meteor.users.find({}, {fields: {
     'isAdmin': 1,
+    'profile': 1,
     'services.github.id': 1,
     'services.github.email': 1,
     'services.facebook': 1,
