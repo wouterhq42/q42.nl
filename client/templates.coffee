@@ -10,6 +10,7 @@ $Template
     koppenKoffie: -> CoffeeCounter.findOne()?.count or 0
 
   header:
+    fullscreenIcon: -> if Session.equals("fullscreen", yes) then "compress" else "expand"
     headerGameActive: -> Session.equals "headerGameActive", yes
     dev: -> window.location.href.indexOf("localhost") > -1
     color: -> Lights.find({}, {sort: {date: 1}})
