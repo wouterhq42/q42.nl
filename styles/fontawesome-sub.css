@@ -32,5 +32,7 @@
 .fa-slack:before { content: '\e80b'; } /* '' */
 .fa-phone-square:before { content: '\e80c'; } /* '' */
 .fa-thumbs-up:before { content: '\e80d'; } /* '' */
+.fa-expand:before { content: '\e80e'; } /* '' */
+.fa-compress:before { content: '\e80f'; } /* '' */
 
 .fa-2x:before { font-size: 2em; }
