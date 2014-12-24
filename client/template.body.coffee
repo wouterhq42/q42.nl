@@ -1,6 +1,5 @@
 Template.body.rendered = ->
   reattachBehavior()
-  FastClick.attach document.body
 
 Template.body.events
   "click body": -> $("body").removeClass "show-mobile-menu"
