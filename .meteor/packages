@@ -3,7 +3,7 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-underscore
+
 http
 stylus
 accounts-ui
@@ -13,20 +13,7 @@ accounts-facebook
 accounts-twitter
 accounts-github
 coffeescript
-meteor
-webapp
-session
-spacebars
-templating
-jquery
-ejson
-random
-check
 spiderable
-tracker
-ddp
-mongo
-blaze
 iron:router
 meteorhacks:subs-manager
 meteorhacks:kadira
@@ -35,5 +22,5 @@ momentjs:moment
 jparker:gravatar
 jparker:crypto-md5
 jparker:crypto-core
-
 matb33:collection-hooks
+meteor-platform
