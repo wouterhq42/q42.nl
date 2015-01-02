@@ -1,10 +1,6 @@
 Meteor.startup ->
   Session.setDefault "employees_filter", "Q'er"
 
-Router.onBeforeAction ->
-  SubsManager.subscribe "allUserData"
-  @next()
-
 Template.registerHelper "avatar_static",   -> @imageStatic or @handle + ".jpg"
 Template.registerHelper "avatar_animated", -> @imageAnimated or @handle + ".gif"
 

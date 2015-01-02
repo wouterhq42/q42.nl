@@ -29,7 +29,12 @@ FastRender.route("/blog/post/:id?/:title?", function(params) {
 
 FastRender.route("/over-q42", function(params) {
   this.subscribe("employees");
-})
+  this.subscribe("coffeeCounter");
+});
+FastRender.route("/about-q42", function(params) {
+  this.subscribe("employees");
+  this.subscribe("coffeeCounter");
+});
 
 FastRender.route("/vacatures", function(params) {
   this.subscribe("blogpostTitles", "vacature");

@@ -89,3 +89,22 @@ nav
 
 #header #mobile-menu-icon
   pointer-events all
+
+#toggle-fullscreen
+  position absolute
+  top 7rem
+  right 1rem
+  z-index 6
+  border-radius 50%
+  width 32px
+  height 32px
+  line-height 32px
+  text-align center
+  cursor pointer
+  background white
+
+.fullscreen #header
+  displayFlex()
+  flexDirection column
+  justifyContent center
+  transition height ease .25s
