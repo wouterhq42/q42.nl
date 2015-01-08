@@ -16,6 +16,7 @@
     <div id="lights-explanation">Bestuur de Philips Hue lichten bij ons op kantoor met deze colorpicker!</div>
     {{> colorpicker}}
   </div>
+  {{> backgrounds}}
 </template>
 
 <template name="en_headerlights">
@@ -27,5 +28,15 @@
     {{/if}}
     <div id="lights-explanation">Control the Philips Hue lights in our office with this color picker!</div>
     {{> colorpicker}}
+  </div>
+  {{> backgrounds}}
+</template>
+
+<template name="backgrounds">
+  <div id="backgrounds">
+    {{#each color}}
+    <div class="bg" style="background-image: radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),
+    linear-gradient(108deg,#{{col2}},#{{col1}} 90%)"></div>
+    {{/each}}
   </div>
 </template>
