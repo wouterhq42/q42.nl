@@ -7,7 +7,7 @@ Meteor.publish("allUserData", function () {
     'profile': 1,
     'services.github.id': 1,
     'services.github.email': 1,
-    'services.facebook': 1,
+    'services.facebook.id': 1,
     'services.google.id': 1,
     'services.google.picture': 1,
     'services.twitter.id': 1,
