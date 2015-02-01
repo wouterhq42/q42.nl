@@ -68,7 +68,7 @@ headerRendered = ->
   $style.attr "type", "text/css"
   $style.html("")
 
-  numparticles = 42
+  numparticles = 5
   generateparticles numparticles
 
 
