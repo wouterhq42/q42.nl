@@ -1,7 +1,6 @@
 @import "0_variables.styl"
 
 #footer
-  padding 16px 0
   background #222
   color #eee
   fontSmoothing antialiased
@@ -12,26 +11,35 @@
 
   p
     font-size .9rem
-    span
-      display block
-      span
-        display inline
 
   a
     color #88c546
-    text-decoration underline
 
-  h2
+  h2, h3
     font-family bodyFont
     text-transform uppercase
     letter-spacing 1px
     font-size 18px
+
+  h3
+    color white
+    font-size 12px
+    margin 0
+
+  ul
+    list-style none
+    margin 0
+    padding 0
+    li
+      margin 0 0 .3rem 0
 
   .block-large
     padding 32px 0
 
   .intro-outro
     border-bottom none
+    padding 2rem 0
+    border-top solid 1px rgba(255,255,255,.3)
 
     p
       font-size .8rem
@@ -40,7 +48,6 @@
     a
       text-decoration none
       color rgba(255,255,255,.7)
-      line-height 2.5rem
       white-space nowrap
       &:not(:last-child)
         margin 0 1rem 0 0
@@ -50,16 +57,26 @@
     .fa
       vertical-align middle
 
+    .contain
+      displayFlex()
+      width 80%
+      margin 0 auto
+
+      .address
+        flex 1
+        h2
+          margin -2.6rem 0 2rem 0
+          text-shadow 0 0 2px black
+        img
+          border-radius 50%
+          width 64px
+          height 64px
+
+    p .note.kvk
+      color rgba(255,255,255,.3)
+
+
   .q42-logo
     object, img
       width 50px
       height 70px
-
-#facebookLikeBox
-  overflow hidden
-  .fb-facepile
-    min-width 100%
-    min-height 160px
-    margin-top -26px
-  .fb-like
-    margin-top 30px
