@@ -50,3 +50,17 @@ Router.route "removeWWW",
     if host.indexOf("www") is 0
       @response.writeHead HTTP_REDIRECT_PERMANENT, Location: fullUrl.replace("www.", "")
       @response.end()
+
+
+Meteor.methods
+  queryCMS: (page) ->
+    result = HTTP.get "http://10.42.16.239:49931/page", 
+      params:
+        url: "/" + page
+    result.data
+  queryCMSPreview: (page, previewToken) ->
+    result = HTTP.get "http://10.42.16.239:49931/page", 
+      params:
+        url: "/" + page
+        previewToken: previewToken
+    result.data

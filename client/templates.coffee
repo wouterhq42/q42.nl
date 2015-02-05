@@ -12,6 +12,9 @@ $Template
   header:
     headerGameActive: -> Session.equals "headerGameActive", yes
     dev: -> window.location.href.indexOf("localhost") > -1
+  
+  cms:
+    templateFromType: -> "cms_" + @Type
 
   regelsCode:
     regelsCode: ->

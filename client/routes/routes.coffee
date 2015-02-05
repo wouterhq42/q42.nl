@@ -154,8 +154,15 @@ Router.map ->
       else if Template[@params.page]
         @render @params.page
       else
-        Spiderable.httpStatusCode = 404
-        @render "error404"
+        methodName = if @params.query.previewToken then "queryCMSPreview" else "queryCMS"
+        Meteor.call methodName, @params.page, @params.query.previewToken, (error, content) =>
+          if !error
+            Session.set "content", content
+            @render Utils.getTemplate("cms"),
+              data: -> content
+          else
+            Spiderable.httpStatusCode = 404
+            @render "error404"
 
   @route "404",
     path: "/(.*)"

@@ -1,0 +1,22 @@
+<template name="cms">
+  <div class="container">
+    <header class="block-text"><h1>{{Title}}</h1></header>
+    {{#each Components}}
+      <section>
+        {{> Template.dynamic template=templateFromType }}
+      </section>
+    {{/each}}
+  </div>
+</template>
+
+<template name="cms_ContentWhole">
+  {{#with MainBlock}}
+    <div class="block-large">
+      <div class="intro">
+        {{#if Title}}<h3>{{Title}}</h3>{{/if}}
+        {{#if Copy}}<p>{{Copy}}</p>{{/if}}
+      </div>
+    </div>
+  {{/with}}
+</template>
+  
