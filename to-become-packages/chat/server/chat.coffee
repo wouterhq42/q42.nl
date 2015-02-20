@@ -1,4 +1,4 @@
-ChatConfig = new Mongo.Collection("chatconfig")
+@ChatConfig = new Mongo.Collection("chatconfig")
 
 Meteor.publish "chat", ->
   ChatMessages.find {}, {
