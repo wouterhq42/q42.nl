@@ -21,6 +21,7 @@
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" }
   { name: "Jasper Kaizer", handle:"jasper" }
   { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367" }
+  { name: "Jimmy Aupperlee", handle:"jimmy", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Johan Huijkman", handle:"johan", phone: "070-4452379" }
   { name: "Kamil Afsar", handle:"kamil", phone: "070-4452357" }
   { name: "Kars Veling", handle:"kars", phone: "070-4452350" }
