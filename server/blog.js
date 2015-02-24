@@ -71,6 +71,20 @@ Meteor.methods({
       userId: Meteor.userId(),
       date: new Date()
     });
+
+    var token = ChatConfig.findOne().incomingToken;
+    var url = "https://q42.slack.com/services/hooks/incoming-webhook?token=" + token;
+    var blogpostUrl = "http://q42.nl/blog/post/" + blogpostId;
+    var formattedMsg = Meteor.user().profile.name + " comment op het blog (" + blogpostUrl + "):";
+
+    HTTP.post(url, {
+      params: {
+        payload: JSON.stringify({
+          text: [formattedMsg, text].join("\n"),
+          icon_emoji: ":earth_africa:"
+        })
+      }
+    });
   },
   updateComment: function(_id, text)
   {
