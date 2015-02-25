@@ -14,6 +14,7 @@ redirectNlToCom = (name, path) ->
 
 redirectNlToCom "meteor", "/meteor"
 redirectNlToCom "swift", "/swift"
+redirectNlToCom "ixe", "/interaction-engineering"
 
 Router.route "redirectAdventures",
   where: "server"
