@@ -41,12 +41,8 @@ gradient-box()
   &:only-of-type:after
     background radial-gradient(closest-corner, rgba(16,47,70,0) 60%, rgba(16,47,70,0.26)), linear-gradient(108deg, #0e8ff5, #64b7fb 90%)
 
-
 blockquote
-  font-size 1.5rem
   margin 0
-  padding 2rem
-  gradient-box()
 
   &:before
     content: "“"
@@ -57,17 +53,10 @@ blockquote
   p
     font-family serifTitleFont
     padding-left 2.5rem
+    font-size 2rem !important
 
   cite
     font-style normal
-
-  footer
-    text-align right
-    a
-      color rgba(255,255,255,.7)
-      &:hover
-        color rgba(255,255,255,.7)
-        text-decoration underline
 
 .container
   .block-large, .block-full, .block-text

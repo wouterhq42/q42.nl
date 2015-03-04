@@ -16,6 +16,14 @@ redirectNlToCom "meteor", "/meteor"
 redirectNlToCom "swift", "/swift"
 redirectNlToCom "ixe", "/interaction-engineering"
 
+Router.route "redirectAccessibility",
+  where: "server"
+  path: "/accessibility"
+  action: ->
+    console.log "Route: redirectAccessibility"
+    @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/interaction-engineering"
+    @response.end()
+
 Router.route "redirectAdventures",
   where: "server"
   path: "/adventures"
