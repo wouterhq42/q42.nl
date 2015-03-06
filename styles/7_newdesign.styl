@@ -11,6 +11,53 @@ body, #loading
     font-size .9rem
     font-weight 500
 
+gradient-box()
+  position relative
+  z-index 0
+  background-image -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-image -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-image -ms-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-ms-linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%)
+  background-color rgb(39, 127, 168)
+  color white
+  fontSmoothing antialiased
+  box-shadow 0 2px 2px rgba(0,0,0,.18)
+  text-shadow 0 1px 0 rgba(0,0,0,.3)
+  &:after
+    display block
+    content ""
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+    z-index -1
+  &:nth-child(2n):after
+    background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#7f1475,#FF4475 90%)
+  &:nth-child(3n):after
+    background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#2AC1BD,#65CC4B 90%)
+  &:nth-child(5n):after
+    background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#632AC1,#B791F4 90%)
+  &:only-of-type:after
+    background radial-gradient(closest-corner, rgba(16,47,70,0) 60%, rgba(16,47,70,0.26)), linear-gradient(108deg, #0e8ff5, #64b7fb 90%)
+
+blockquote
+  margin 0
+
+  &:before
+    content: "“"
+    font-size 3rem
+    font-family serifTitleFont
+    float left
+
+  p
+    font-family serifTitleFont
+    padding-left 2.5rem
+    font-size 2rem !important
+
+  cite
+    font-style normal
+
 .container
   .block-large, .block-full, .block-text
     border-bottom none
@@ -59,21 +106,17 @@ body, #loading
     margin-left 32px
 
   aside.subcontent
-    background #0E8FF5
-    color white
     padding 32px
     margin-top -64px
-    box-shadow 0 2px 2px rgba(0,0,0,.18)
-    -webkit-font-smoothing antialiased
+    gradient-box()
 
     a
       color white
       opacity .7
 
     ul
-      list-style-position inside
       margin 0
-      padding 0
+      padding 0 0 0 1rem
 
     h2
       margin 1.5rem 0
