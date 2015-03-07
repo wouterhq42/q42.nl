@@ -1,11 +1,4 @@
 @initMap = ->
-  navigator.geolocation.getCurrentPosition (geo) ->
-    geocoder = new google.maps.Geocoder()
-    latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
-    geocoder.geocode {latLng: latlng}, (res, status) ->
-      if status is google.maps.GeocoderStatus.OK
-        Session.set("currentGeo", res[0])
-
   styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
   mapNL = new google.maps.Map $("#map-nl")[0], {
     center: new google.maps.LatLng(52.2298672,4.6431694)
@@ -37,10 +30,17 @@
       google.maps.event.addListener map, "mouseout", ->
         map.setOptions { scrollwheel: false }
 
-  setDirections = (nlUs, dest) ->
-    return unless Session.get("currentGeo")
+  getCurrentGeo = (cont) ->
+    navigator.geolocation.getCurrentPosition (geo) ->
+      geocoder = new google.maps.Geocoder()
+      latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
+      geocoder.geocode {latLng: latlng}, (res, status) ->
+        if status is google.maps.GeocoderStatus.OK
+          cont(res[0])
+
+  setDirections = (nlUs, dest, currentGeo) ->
     request =
-      origin: Session.get("currentGeo").formatted_address
+      origin: currentGeo.formatted_address
       destination: new google.maps.LatLng dest.lat, dest.lng
       travelMode: google.maps.TravelMode.DRIVING
     directionsService.route request, (res, status) ->
@@ -75,13 +75,14 @@
       webUrl: "http://q42.#{tld}"
 
   $("#maps").on "click", ".get-directions", ->
-    id = $(this).attr("id").replace("to-", "")
-    if id is "q020"
-      setDirections "nl", {lat: 52.375273, lng: 4.930484}
-    if id is "q070"
-      setDirections "nl", {lat: 52.069291, lng: 4.323498}
-    if id is "qsa"
-      setDirections "us", {lat: 37.40915, lng: -122.075035}
+    getCurrentGeo (currentGeo)=>
+      id = $(this).attr("id").replace("to-", "")
+      if id is "q020"
+        setDirections "nl", {lat: 52.375273, lng: 4.930484}, currentGeo
+      if id is "q070"
+        setDirections "nl", {lat: 52.069291, lng: 4.323498}, currentGeo
+      if id is "qsa"
+        setDirections "us", {lat: 37.40915, lng: -122.075035}, currentGeo
 
   q020Marker = new google.maps.Marker _.extend markerTemplate, {
     title: "Q42 Amsterdam"
@@ -136,7 +137,6 @@
 
 Meteor.startup ->
   Session.setDefault("mapRendered", no)
-  Session.setDefault("currentGeo", null)
 
 mapRendered = ->
   unless Session.equals "mapRendered", yes
