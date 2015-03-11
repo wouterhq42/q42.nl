@@ -1,7 +1,6 @@
 <template name="map">
   <div class="block-large block-no-padding-after block-no-padding" id="maps">
-    <div id="map-us"></div>
-    <div id="map-nl"></div>
+    <div id="map"></div>
   </div>
   <div id="maps-qers">
     <div id="map-us-qers" class="map-qers">
@@ -12,8 +11,8 @@
     </div>
     <div id="map-nl-qers" class="map-qers">
       {{#each nlQer}}
-      <img src="http://static.q42.nl/images/employees/{{avatar_static}}"
-      alt="{{name}}" class="map-qer">
+        <img src="http://static.q42.nl/images/employees/{{avatar_static}}"
+          alt="{{name}}" class="map-qer">
       {{/each}}
     </div>
   </div>
