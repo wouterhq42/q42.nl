@@ -20,6 +20,7 @@ Template.employees.helpers
 
     else
       return Employees.find()
+  filter: -> Session.get("employees_filter")
 
 Template.en_employees?.helpers
   employee: -> Employees.find()
@@ -32,7 +33,6 @@ Template.employeeView.helpers
     return "droid" unless @name
     @name.split(" ")[0]
   email: -> @email or @handle
-  filter: -> Session.get("employees_filter")
 
 Template.employeeView.events
   "mouseenter .qer, click .qer": (evt) ->
