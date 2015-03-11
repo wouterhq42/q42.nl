@@ -35,7 +35,7 @@ addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia
 addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
-addLabel "Student",                       "herman tomas hidde jimmy"
+addLabel "Student",                       "herman tomas jimmy"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
 addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"

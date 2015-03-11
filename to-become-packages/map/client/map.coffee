@@ -1,54 +1,39 @@
 @initMap = ->
-  navigator.geolocation.getCurrentPosition (geo) ->
-    geocoder = new google.maps.Geocoder()
-    latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
-    geocoder.geocode {latLng: latlng}, (res, status) ->
-      if status is google.maps.GeocoderStatus.OK
-        Session.set("currentGeo", res[0])
-
   styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}]
-  mapNL = new google.maps.Map $("#map-nl")[0], {
-    center: new google.maps.LatLng(52.2298672,4.6431694)
-    zoom: 9
-    mapTypeControl: no
-    streetViewControl: no
-    styles: styles
-    scrollwheel: false
-  }
-  mapUS = new google.maps.Map $("#map-us")[0], {
-    center: new google.maps.LatLng(37.553001,-122.2672957)
-    zoom: 9
+  map = new google.maps.Map $("#map")[0], {
+    center: new google.maps.LatLng(44.7960005,-56.840491)
+    zoom: 3
     mapTypeControl: no
     streetViewControl: no
     styles: styles
     scrollwheel: false
   }
   directionsService = new google.maps.DirectionsService()
-  directionsDisplayNL = new google.maps.DirectionsRenderer()
-  directionsDisplayNL.setMap mapNL
-  directionsDisplayUS = new google.maps.DirectionsRenderer()
-  directionsDisplayUS.setMap mapUS
+  directionsDisplay = new google.maps.DirectionsRenderer()
+  directionsDisplay.setMap map
 
-  for map in [mapNL, mapUS]
-    do (map) ->
-      google.maps.event.addListener map, "click", ->
-        map.setOptions { scrollwheel: true }
+  google.maps.event.addListener map, "click", ->
+    map.setOptions { scrollwheel: true }
 
-      google.maps.event.addListener map, "mouseout", ->
-        map.setOptions { scrollwheel: false }
+  google.maps.event.addListener map, "mouseout", ->
+    map.setOptions { scrollwheel: false }
 
-  setDirections = (nlUs, dest) ->
-    return unless Session.get("currentGeo")
+  getCurrentGeo = (cont) ->
+    navigator.geolocation.getCurrentPosition (geo) ->
+      geocoder = new google.maps.Geocoder()
+      latlng = new google.maps.LatLng geo.coords.latitude, geo.coords.longitude
+      geocoder.geocode {latLng: latlng}, (res, status) ->
+        if status is google.maps.GeocoderStatus.OK
+          cont(res[0])
+
+  setDirections = (nlUs, dest, currentGeo) ->
     request =
-      origin: Session.get("currentGeo").formatted_address
+      origin: currentGeo.formatted_address
       destination: new google.maps.LatLng dest.lat, dest.lng
       travelMode: google.maps.TravelMode.DRIVING
     directionsService.route request, (res, status) ->
       if status is google.maps.DirectionsStatus.OK
-        if nlUs is "nl"
-          directionsDisplayNL.setDirections res
-        else
-          directionsDisplayUS.setDirections res
+        directionsDisplay.setDirections res
       else if status is google.maps.GeocoderStatus.ZERO_RESULTS
         alert "Could not route to your location. :("
       else
@@ -75,13 +60,14 @@
       webUrl: "http://q42.#{tld}"
 
   $("#maps").on "click", ".get-directions", ->
-    id = $(this).attr("id").replace("to-", "")
-    if id is "q020"
-      setDirections "nl", {lat: 52.375273, lng: 4.930484}
-    if id is "q070"
-      setDirections "nl", {lat: 52.069291, lng: 4.323498}
-    if id is "qsa"
-      setDirections "us", {lat: 37.40915, lng: -122.075035}
+    getCurrentGeo (currentGeo) =>
+      id = $(this).attr("id").replace("to-", "")
+      if id is "q020"
+        setDirections "nl", {lat: 52.375273, lng: 4.930484}, currentGeo
+      if id is "q070"
+        setDirections "nl", {lat: 52.069291, lng: 4.323498}, currentGeo
+      if id is "qsa"
+        setDirections "us", {lat: 37.40915, lng: -122.075035}, currentGeo
 
   q020Marker = new google.maps.Marker _.extend markerTemplate, {
     title: "Q42 Amsterdam"
@@ -89,7 +75,7 @@
       placeId: 'ChIJHZ0iUg8JxkcRKOwjwMJmk4k'
       location: {lat: 52.375273, lng: 4.930484}
   }
-  q020Marker.setMap mapNL
+  q020Marker.setMap map
   q020InfoWindow = new google.maps.InfoWindow {
     maxWidth: 250
     content: """
@@ -98,7 +84,7 @@
       <span class="get-directions" id="to-q020">#{getDirections}</span>
     """
   }
-  q020Marker.addListener "click", -> q020InfoWindow.open mapNL, q020Marker
+  q020Marker.addListener "click", -> q020InfoWindow.open map, q020Marker
 
   q070Marker = new google.maps.Marker _.extend markerTemplate, {
     title: "Q42 #{denHaag}"
@@ -106,7 +92,7 @@
       placeId: 'ChIJN5_o2-G2xUcR-H1qGRErYGk'
       location: {lat: 52.069291, lng: 4.323498}
   }
-  q070Marker.setMap mapNL
+  q070Marker.setMap map
   q070InfoWindow = new google.maps.InfoWindow {
     maxWidth: 250
     content: """
@@ -115,7 +101,7 @@
       <span class="get-directions" id="to-q070">#{getDirections}</span>
     """
   }
-  q070Marker.addListener "click", -> q070InfoWindow.open mapNL, q070Marker
+  q070Marker.addListener "click", -> q070InfoWindow.open map, q070Marker
 
   QSAMarker = new google.maps.Marker _.extend markerTemplate, {
     title: "Q42 Mountain View"
@@ -123,7 +109,7 @@
       placeId: 'ChIJ8eAPBU63j4ARP8l2yv4loBc'
       location: {lat: 37.40915, lng: -122.075035}
   }
-  QSAMarker.setMap mapUS
+  QSAMarker.setMap map
   QSAInfoWindow = new google.maps.InfoWindow {
     maxWidth: 250
     content: """
@@ -132,11 +118,10 @@
       <span class="get-directions" id="to-qsa">#{getDirections}</span>
     """
   }
-  QSAMarker.addListener "click", -> QSAInfoWindow.open mapUS, QSAMarker
+  QSAMarker.addListener "click", -> QSAInfoWindow.open map, QSAMarker
 
 Meteor.startup ->
   Session.setDefault("mapRendered", no)
-  Session.setDefault("currentGeo", null)
 
 mapRendered = ->
   unless Session.equals "mapRendered", yes

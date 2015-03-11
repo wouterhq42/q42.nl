@@ -112,7 +112,10 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render Utils.getTemplate("blogpost")
+        if blogpostFull.findOne()
+          @render Utils.getTemplate("blogpost")
+        else
+          @render "error404"
       else
         @render "loading"
     waitOn: -> [

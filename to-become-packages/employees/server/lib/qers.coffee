@@ -14,7 +14,6 @@
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
-  { name: "Hidde Statema", handle:"hidde" }
   { name: "Ineke Scheffers", handle:"ineke" }
   { name: "Jaap Taal", handle:"jaap" }
   { name: "Jaap Mengers", handle: "jaapm" }
