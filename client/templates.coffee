@@ -8,6 +8,9 @@ $Template
 
   koppenKoffie:
     koppenKoffie: -> CoffeeCounter.findOne()?.count or 0
+    
+  toilets:
+    toilet: -> Toilets.find()
 
   header:
     headerGameActive: -> Session.equals "headerGameActive", yes
