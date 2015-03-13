@@ -72,6 +72,14 @@
           </div>
         </div>
 
+        <div class="block-small block-with-icons">
+          <div class="body">
+            <h2>WC bereikbaarheid</h2>
+            <p>Naar Den Haag?</p>
+            {{> toilets}}
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -92,8 +100,7 @@
               </p>
             </address>
             <p>Direct naast Holland Spoor vind je onze base (die belong to us). Al sinds 2006. Zwaai maar even als je in de trein zit. En vergeet niet gebruik te maken van onze gratis WiFi, of even aan de Philips Hue lampen te zitten!</p>
-            <p><i class="fa fa-phone"></i> Bel Q42 HQ: 070-4452342</p>
-            <p>Toiletten: {{> toilets}}</p>
+            <p><i class="fa fa-phone-square"></i> Bel Q42 HQ: 070-4452342</p>
           </div>
         </div>
         <div class="block-small">
@@ -317,10 +324,4 @@
     <h2>Of gebruik regex!</h2>
     <input data-role="filter-qers" placeholder="/.*/" id="filter-qers-input">
   </div>
-</template>
-
-<template name="toilets">
-  {{#each toilet}}
-    <span class="toilet {{state}}" title="{{_id}}"></span>
-  {{/each}}
 </template>
