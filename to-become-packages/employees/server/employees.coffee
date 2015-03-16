@@ -32,7 +32,7 @@ _.each currentQers, (e) ->
 # Roles
 addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"
-addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
+addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "herman tomas jimmy"

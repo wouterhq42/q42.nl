@@ -1,0 +1,10 @@
+<template name="toilets">
+  <ul class="iconList">
+  {{#each toilet}}
+    <li>
+      <span class="toilet {{state}}" title="{{_id}}"></span>
+      <div>{{getState}}</div>
+    </li>
+  {{/each}}
+  </ul>
+</template>
