@@ -45,7 +45,7 @@ addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
-addLabel "Heeft een baard",               "rahul richard arian christiaan kamil jasperh"
+addLabel "Heeft een baard",               "rahul richard arian christiaan kamil jasperh marcel"
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
