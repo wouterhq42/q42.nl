@@ -32,7 +32,7 @@ _.each currentQers, (e) ->
 # Roles
 addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"
-addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido"
+addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "herman tomas jimmy"
@@ -45,7 +45,7 @@ addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
-addLabel "Heeft een baard",               "rahul richard arian christiaan kamil jasperh"
+addLabel "Heeft een baard",               "rahul richard arian christiaan kamil jasperh marcel"
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"

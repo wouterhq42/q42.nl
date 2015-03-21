@@ -148,6 +148,7 @@ Router.map ->
         [
           SubsManager.subscribe("employees")
           SubsManager.subscribe("coffeeCounter")
+          SubsManager.subscribe("toilets")
         ]
       else
         []

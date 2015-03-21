@@ -1,5 +1,39 @@
 @import "0_variables.styl"
 
+.toilet
+  display: inline-block
+  width: 25px
+  height: 18px
+  &::before
+    content: ""
+    position: absolute
+    box-sizing: border-box
+    background: #ddd
+    width: 22px
+    height: 22px
+    margin: 1px
+    border-top: 8px solid white
+    border-left: 8px solid white
+    border-bottom: 8px solid red
+    border-right: 8px solid red
+    border-radius: 100%
+    transition: all 0.3s
+  &::after
+    content: ""
+    display: inline-block
+    position: absolute
+    box-sizing: border-box
+    width: 24px
+    height: 24px
+    border: 2px solid #ddd
+    border-radius: 100%
+    background: linear-gradient(180deg, transparent, transparent 50%, #ddd 50%, #ccc)
+  &.available::before
+    transform: rotate(45deg)
+  &.occupied::before
+    transform: rotate(225deg)
+
+    
 #colleagues .block-full
   overflow visible
 
