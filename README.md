@@ -23,9 +23,11 @@ Visit http://win.meteor.com/ for instructions on how to get Meteor running on Wi
 
 ### Add a tumblr API key
 
-Create a file in the server/lib directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
+Create a `settings.json` file in the private folder containing the correct Tumblr key:
 
-	TUMBLR_KEY = "MY_KEY";
+{
+	"TUMBLR_KEY": "my_tumblr_key"
+}
 
 This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
 
@@ -50,9 +52,7 @@ But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor
 ### cd into checkout and run meteor
 
 	cd q42.nl
-	sudo meteor --port 80
-
-Note that we need to use sudo to get it to bind to port 80.
+	./run.sh
 
 # Deploying
 
