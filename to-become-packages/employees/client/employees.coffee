@@ -1,3 +1,5 @@
+polaroidVisibility = new ReactiveDict
+
 Meteor.startup ->
   Session.setDefault "employees_filter", "Q'er"
 
@@ -36,19 +38,21 @@ Template.employeeView.helpers
 
 Template.employeeView.events
   "mouseenter .qer, click .qer": (evt) ->
-    Session.set "renderPolaroid#{@_id}", yes
+    polaroidVisibility.set @_id, yes
+    # Session.set "renderPolaroid#{@_id}", yes
   "mouseleave .qer": (evt) ->
-    Session.set "renderPolaroid#{@_id}", no
+    polaroidVisibility.set @_id, no
+    # Session.set "renderPolaroid#{@_id}", no
 
 Template.employeeView.helpers
-  showPolaroid: -> Session.equals "renderPolaroid#{@_id}", yes
+  showPolaroid: -> polaroidVisibility.equals @_id, yes
 
 
 
 
-Template.polaroid.rendered  = ->
+Template.polaroid.rendered = ->
   @autorun =>
-    unless Session.equals "renderPolaroid#{Template.currentData()._id}"
+    unless polaroidVisibility.equals Template.currentData()._id
       $polaroid = @$(".polaroid")
       rotate = (Math.floor(Math.random() * 21) - 10)
       rotateValue = "translate(-30px, -30px) rotateZ(#{rotate}deg)"
@@ -69,7 +73,7 @@ Template.polaroid.helpers
 
 Template.polaroid.events
   "click .closePolaroid": (evt) ->
-    Session.set "renderPolaroid#{Template.currentData()._id}", no
+    polaroidVisibility.set Template.currentData()._id, no
     # prevent the mouseenter listener on employeeView from firing
     evt.stopPropagation()
 
