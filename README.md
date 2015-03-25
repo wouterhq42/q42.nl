@@ -52,7 +52,7 @@ But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor
 ### cd into checkout and run meteor
 
 	cd q42.nl
-	./run.sh
+	sudo ./run.sh
 
 # Deploying
 
