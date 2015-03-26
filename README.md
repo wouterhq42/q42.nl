@@ -25,9 +25,9 @@ Visit http://win.meteor.com/ for instructions on how to get Meteor running on Wi
 
 Create a `settings.json` file in the private folder containing the correct Tumblr key:
 
-  {
-	  "TUMBLR_KEY": "my_tumblr_key"
-  }
+        {
+	        "TUMBLR_KEY": "my_tumblr_key"
+        }
 
 This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
 
