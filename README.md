@@ -21,15 +21,17 @@ The hard bit since the repo is around ~100MB
 
 Visit http://win.meteor.com/ for instructions on how to get Meteor running on Windows.
 
-### Add a tumblr API key
+### Add settings you need
 
 Create a `settings.json` file in the private folder containing the correct Tumblr key:
 
-        {
-	        "TUMBLR_KEY": "my_tumblr_key"
-        }
+  {
+    "TUMBLR_KEY": "myTumblrKey",
+		"KADIRA_ACCOUNT_ID": "myKadiraId",
+		"KADIRA_ACCOUNT_KEY": "myKadiraKey"
+  }
 
-This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
+The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
 
 ### Set up the Slack chat integration
 
