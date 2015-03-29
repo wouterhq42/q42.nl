@@ -1,0 +1,1 @@
+@getMeteorSetting = (name) -> Meteor.settings[name] or process.env[name] or METEOR_SETTINGS[name]

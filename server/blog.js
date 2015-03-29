@@ -2,7 +2,7 @@ const BLOGPOSTS_PER_PAGE = 12;
 var lastTumblrCheck;
 
 var Posts = new Mongo.Collection("Posts");
-var TumblrKey = Meteor.settings.TUMBLR_KEY || process.env.TUMBLR_KEY;
+var TumblrKey = getMeteorSetting("TUMBLR_KEY");
 
 Meteor.methods({
   checkTumblr: function()
