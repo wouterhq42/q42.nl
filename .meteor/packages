@@ -16,7 +16,6 @@ coffeescript
 spiderable
 iron:router
 meteorhacks:subs-manager
-meteorhacks:kadira
 meteorhacks:fast-render
 momentjs:moment
 jparker:gravatar
@@ -24,3 +23,8 @@ jparker:crypto-md5
 jparker:crypto-core
 matb33:collection-hooks
 meteor-platform
+meteorhacks:kadira@2.20.1
+msavin:mongol
+babrahams:temple
+msavin:jetsetter
+reactive-dict

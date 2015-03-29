@@ -21,6 +21,7 @@
   { name: "Jasper Kaizer", handle:"jasper" }
   { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367" }
   { name: "Jimmy Aupperlee", handle:"jimmy", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Joel de Nes", handle:"joel", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Johan Huijkman", handle:"johan", phone: "070-4452379" }
   { name: "Kamil Afsar", handle:"kamil", phone: "070-4452357" }
   { name: "Kars Veling", handle:"kars", phone: "070-4452350" }
@@ -48,6 +49,7 @@
   { name: "Suzanne Waalberg", handle:"suzanne" }
   { name: "Taco Ekkel", handle: "taco" }
   { name: "Ted de Koning", handle:"ted" }
+  { name: "Thijs Suijten", handle:"thijs", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" }
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" }
   { name: "Tim van Steenis", handle:"tims", phone: "070-4452369", web:"http://www.vansteenis-photography.nl/" }

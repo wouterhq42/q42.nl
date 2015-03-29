@@ -3,3 +3,7 @@ Template.toilets.helpers
     if Session.equals "lang", "nl"
       return (if @state is "available" then "vrij" else "bezet")
     return @state
+
+$Template
+  toilets:
+    toilet: -> Toilets.find()
