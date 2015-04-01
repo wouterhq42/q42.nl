@@ -1,4 +1,5 @@
 # Site specific
+config/settings.json
 
 # Generic
 .DS_Store

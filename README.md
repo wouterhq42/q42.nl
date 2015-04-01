@@ -9,7 +9,7 @@ don't hesitate to send us a pull request or create an issue. We maintain the sit
 Sounds like it'll be a royal pain in the butt ey? Guess again amigo.
 
 ### Fork and checkout this project
-The hard bit since the repo is around ~100MB
+The hard bit since the repo is around ~220MB
 
 	git clone https://github.com/[YOURUSERNAME]/q42.nl.git
 
@@ -23,7 +23,7 @@ Visit http://win.meteor.com/ for instructions on how to get Meteor running on Wi
 
 ### Add settings you need
 
-Create a `settings.json` file in the private folder containing the correct Tumblr key:
+Create a `config/settings.json` file containing the correct Tumblr and Kadira account information:
 
   {
     "TUMBLR_KEY": "myTumblrKey",
