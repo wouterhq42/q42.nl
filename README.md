@@ -23,7 +23,7 @@ Visit http://win.meteor.com/ for instructions on how to get Meteor running on Wi
 
 ### Add settings you need
 
-Create a `settings.json` file in the private folder containing the correct Tumblr key:
+Create a `config/settings.json` file containing the correct Tumblr and Kadira account information:
 
   {
     "TUMBLR_KEY": "myTumblrKey",
