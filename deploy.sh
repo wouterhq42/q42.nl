@@ -24,7 +24,7 @@ rm -rf $TMPDIR/q42nl-deploy-EN
 mkdir $TMPDIR/q42nl-deploy-EN
 mv views/en $TMPDIR/q42nl-deploy-EN
 echo
-meteor deploy q42.nl
+meteor deploy q42.nl --settings config/settings.json
 echo "--- Done deploying to q42.nl. Refresh your browser!"
 echo "--- Restoring EN templates..."
 mv $TMPDIR/q42nl-deploy-EN/* views
@@ -38,7 +38,7 @@ echo "--- Deploying to q42.com..."
 # mv views/nl $TMPDIR/q42nl-deploy-NL
 # echo
 
-meteor deploy q42.com
+meteor deploy q42.com --settings config/settings.json
 echo "--- Done deploying to q42.com. Refresh your browser!"
 
 # DISABLED - EXCLUDING NL TEMPLATES BREAKS EN SITE
