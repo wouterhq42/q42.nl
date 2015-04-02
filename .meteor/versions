@@ -7,9 +7,10 @@ accounts-twitter@1.0.4
 accounts-ui@1.1.5
 accounts-ui-unstyled@1.1.7
 aldeed:template-extension@3.4.3
+anti:modals@0.4.0
 autoupdate@1.2.1
 babrahams:editable-json@0.3.13
-babrahams:temple@0.0.6
+babrahams:temple@0.0.7
 base64@1.0.3
 binary-heap@1.0.3
 blaze@2.1.1
