@@ -25,6 +25,14 @@ Router.route "redirectAccessibility",
     @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/interaction-engineering"
     @response.end()
 
+Router.route "redirectA11y",
+  where: "server"
+  path: "/a11y"
+  action: ->
+    console.log "Route: redirectA11y"
+    @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/interaction-engineering"
+    @response.end()
+
 Router.route "redirectAdventures",
   where: "server"
   path: "/adventures"
