@@ -9,7 +9,7 @@ don't hesitate to send us a pull request or create an issue. We maintain the sit
 Sounds like it'll be a royal pain in the butt ey? Guess again amigo.
 
 ### Fork and checkout this project
-The hard bit since the repo is around ~100MB
+The hard bit since the repo is around ~220MB
 
 	git clone https://github.com/[YOURUSERNAME]/q42.nl.git
 
@@ -21,13 +21,17 @@ The hard bit since the repo is around ~100MB
 
 Visit http://win.meteor.com/ for instructions on how to get Meteor running on Windows.
 
-### Add a tumblr API key
+### Add settings you need
 
-Create a file in the server/lib directory called `tumblr_api_key.js` that declares the `TUMBLR_KEY` constant:
+Create a `config/settings.json` file containing the correct Tumblr and Kadira account information:
 
-	TUMBLR_KEY = "MY_KEY";
+  {
+    "TUMBLR_KEY": "myTumblrKey",
+		"KADIRA_ACCOUNT_ID": "myKadiraId",
+		"KADIRA_ACCOUNT_KEY": "myKadiraKey"
+  }
 
-This is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key).
+The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
 
 ### Set up the Slack chat integration
 
@@ -50,9 +54,7 @@ But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor
 ### cd into checkout and run meteor
 
 	cd q42.nl
-	sudo meteor --port 80
-
-Note that we need to use sudo to get it to bind to port 80.
+	sudo ./run.sh
 
 # Deploying
 

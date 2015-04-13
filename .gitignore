@@ -1,5 +1,5 @@
 # Site specific
-tumblr_api_key.js
+config/settings.json
 
 # Generic
 .DS_Store

@@ -2,6 +2,7 @@ const BLOGPOSTS_PER_PAGE = 12;
 var lastTumblrCheck;
 
 var Posts = new Mongo.Collection("Posts");
+var TumblrKey = Meteor.settings.TUMBLR_KEY;
 
 Meteor.methods({
   checkTumblr: function()
@@ -13,7 +14,7 @@ Meteor.methods({
     lastTumblrCheck = new Date();
     this.unblock();
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
-      params: { api_key: TUMBLR_KEY, limit: 5 }
+      params: { api_key: TumblrKey, limit: 5 }
     }, function(error, result) {
       var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
       if (result.statusCode == 200 && count)
@@ -40,7 +41,7 @@ Meteor.methods({
       offset = 0;
     }
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
-      params: { api_key: TUMBLR_KEY, limit: 20, offset: offset }
+      params: { api_key: TumblrKey, limit: 20, offset: offset }
     }, function(error, result) {
       var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
       if (result.statusCode == 200 && count)
