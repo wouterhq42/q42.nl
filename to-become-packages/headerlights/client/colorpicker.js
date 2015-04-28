@@ -21,11 +21,11 @@ Template.colorpicker.events({
   }
 });
 
-Template.colorpicker.rendered = function() {
+Template.colorpicker.onRendered(function() {
   var color = Session.get("lightsColor");
   if (color)
     readColor(color);
-}
+});
 
 var currentColor = { v: 1, r: 1, g: 1, b: 1 };
 

@@ -132,7 +132,7 @@ mapRendered = ->
   else
     initMap()
 
-Template.map.rendered = mapRendered
+Template.map.onRendered mapRendered
 
 Template.map.helpers
   usQer: -> Employees.find handle: "rahul"

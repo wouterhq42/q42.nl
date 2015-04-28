@@ -72,5 +72,5 @@ headerRendered = ->
   generateparticles numparticles
 
 
-Template.header.rendered = headerRendered
-Template.en_header?.rendered = headerRendered
+Template.header.onRendered headerRendered
+Template.en_header?.onRendered headerRendered

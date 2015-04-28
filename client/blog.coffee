@@ -83,7 +83,10 @@ syntaxHighlight = ->
 
   prettyPrint() if a
 
-Template.blog.rendered = Template.blogpost.rendered = Template.en_blog?.rendered = Template.en_blogpost?.rendered = syntaxHighlight
+Template.blog.onRendered syntaxHighlight
+Template.blogpost.onRendered syntaxHighlight
+Template.en_blog?.onRendered syntaxHighlight
+Template.en_blogpost?.onRendered syntaxHighlight
 
 getPictureURL = (user) ->
   anon = "http://static.q42.nl/images/employees/anonymous.jpg"
