@@ -7,6 +7,7 @@
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
+  { name: "Corina Maduro", handle:"corina", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
   { name: "Elaine Oliver", handle:"elaine" }
   { name: "Frank van den Hoogen", handle:"frank", phone: "070-4452368", web: "http://www.frankvdhoogen.nl" }
@@ -44,6 +45,7 @@
   { name: "Rob Lokhorst", handle:"rob" }
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" }
   { name: "Sander de Vos", handle:"sander", phone: "070-4452354" }
+  { name: "Silvy van Houdt", handle:"silvy", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/" }
   { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351" }
   { name: "Suzanne Waalberg", handle:"suzanne" }
