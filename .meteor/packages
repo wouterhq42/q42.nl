@@ -23,7 +23,6 @@ jparker:crypto-md5
 jparker:crypto-core
 matb33:collection-hooks
 meteor-platform
-msavin:mongol
-msavin:jetsetter
 reactive-dict
 meteorhacks:kadira
+meteortoys:allthings
