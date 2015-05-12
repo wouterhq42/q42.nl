@@ -73,7 +73,7 @@ Meteor.methods({
       date: new Date()
     });
 
-    var token = ChatConfig.findOne().incomingToken;
+    var token = Meteor.settings.slack.incomingToken;
     var url = "https://q42.slack.com/services/hooks/incoming-webhook?token=" + token;
     var blogpostUrl = "http://q42.nl/blog/post/" + blogpostId;
     var formattedMsg = Meteor.user().profile.name + " comment op het blog (" + blogpostUrl + "):";
