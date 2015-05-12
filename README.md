@@ -58,11 +58,14 @@ But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor
 
 # Deploying
 
+First you need the following prerequisites:
+
+ - The Scalingo CLI, which you can get here: http://cli.scalingo.com/
+ - Git Flow, which you can get here: https://github.com/nvie/gitflow/wiki/Installation
+
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a script which will take care of both commands. Just run:
 
 	./deploy.sh
-
-Only authenticated users can deploy using Meteor's developer accounts system.
 
 # Contributing
 
