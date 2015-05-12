@@ -56,6 +56,7 @@
           {{#if description}}
           <!-- reblog -->
             <h1><a href="{{url}}">{{title}}</a></h1>
+            {{> postDate}}
             {{#if typeIs "link"}}
               <p>{{{description}}}</p>
             {{/if}}
