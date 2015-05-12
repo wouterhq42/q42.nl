@@ -36,5 +36,5 @@ Template.en_chat?.events events
 chatRendered = ->
   $input = $(Template.instance().find("input"))
   $input.focus()
-Template.en_chat?.rendered = chatRendered
-Template.chat.rendered = chatRendered
+Template.en_chat?.onRendered chatRendered
+Template.chat.onRendered chatRendered

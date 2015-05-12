@@ -50,7 +50,7 @@ Template.employeeView.helpers
 
 
 
-Template.polaroid.rendered = ->
+Template.polaroid.onRendered ->
   @autorun =>
     unless polaroidVisibility.equals Template.currentData()._id
       $polaroid = @$(".polaroid")
@@ -62,7 +62,7 @@ Template.polaroid.rendered = ->
 
       @find("video")?.play()
 
-Template.polaroid.destroyed = ->
+Template.polaroid.onDestroyed ->
   @find("video")?.pause()
 
 Template.polaroid.helpers

@@ -1,4 +1,4 @@
-Template.body.rendered = ->
+Template.body.onRendered ->
   reattachBehavior()
 
 Template.body.events
