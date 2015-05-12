@@ -1,6 +1,6 @@
 Meteor.methods({
   resetServiceConfiguration: function()
   {
-    ServiceConfiguration.configurations.remove({});
+    // ServiceConfiguration.configurations.remove({});
   }
 });
