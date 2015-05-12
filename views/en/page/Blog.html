@@ -29,8 +29,8 @@
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
             </p>
           {{/if}}
-          {{#if photos}}
-          <!-- image(s) -->
+          {{#if photos}} {{#unless description}}
+            <!-- image(s) -->
             <div class="figure">
             {{#each photos.[0].alt_sizes}}
               {{#if widthEquals 500}}
@@ -45,7 +45,7 @@
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
             </p>
-          {{/if}}
+          {{/unless}} {{/if}}
           {{#if text}}
           <!-- quote -->
             <h1>"{{{text}}}"</h1>
@@ -59,6 +59,9 @@
             {{#if typeIs "link"}}
               <p>{{{description}}}</p>
             {{/if}}
+            <p class="block-readmore">
+              <a href="{{url}}" class="readmore">Read more</a>
+            </p>
           {{/if}}
           {{#if intro}}
           <!-- text post -->
