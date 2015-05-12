@@ -21,16 +21,14 @@ gsutil -m rsync -r -d public gs://static.q42.nl || exit 1
 echo "--- Done with CDN."
 echo
 
-# meteor deploy q42.nl --settings config/settings.json
+echo "--- Deploying to q42.com..."
+git push scalingo-en master
+echo "--- Done deploying to q42.com. Refresh your browser!"
+echo
+
 echo "--- Deploying to q42.nl..."
 git push scalingo-nl master
 echo "--- Done deploying to q42.nl. Refresh your browser!"
-echo
-
-echo "--- Deploying to q42.com..."
-# meteor deploy q42.com --settings config/settings.json
-git push scalingo-en master
-echo "--- Done deploying to q42.com. Refresh your browser!"
 echo
 
 echo "------ Done. ------"
