@@ -25,32 +25,17 @@ Visit http://win.meteor.com/ for instructions on how to get Meteor running on Wi
 
 Create a `config/settings.json` file containing the correct Tumblr and Kadira account information:
 
-    {
-        "TUMBLR_KEY": "myTumblrKey",
-		    "KADIRA_ACCOUNT_ID": "myKadiraId",
-		    "KADIRA_ACCOUNT_KEY": "myKadiraKey"
-    }
+  {
+    "TUMBLR_KEY": "myTumblrKey",
+		"KADIRA_ACCOUNT_ID": "myKadiraId",
+		"KADIRA_ACCOUNT_KEY": "myKadiraKey"
+  }
 
 The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
 
 ### Set up the Slack chat integration
 
-Again, enter some credentials in `config/settings.json` to get the link to Slack working. Watch out; these tokens are language specific!
-
-    {
-        "slack": {
-            "incomingToken":"slackToken",
-            "outgoingToken":"slackToken"
-        }
-    }
-
-- Incoming token is found on the incoming webhook page under
-  "Integration Settings" -> "Webhook URL" -> fragment after last /
-
-- Outgoing token is found on the outgoing webhook page under
-  "Integration Settings" -> "Token"
-
-Or you can not do this, and then nothing will change except that the chat won't work.
+In order to get this working you need to call a Meteor method named `setupChatConfig` and pass it your incoming and outgoing webhook tokens from Slack. Or you can not do this, and then nothing will change except that the chat won't work.
 
 ### Set up the CDN
 

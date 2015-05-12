@@ -1,3 +1,5 @@
+@ChatConfig = new Mongo.Collection("chatconfig")
+
 Meteor.publish "chat", ->
   ChatMessages.find {}, {
     sort: { date: -1 },
@@ -5,6 +7,18 @@ Meteor.publish "chat", ->
   }
 
 Meteor.methods
+  setupChatConfig: (incomingToken, outgoingToken) ->
+    ###
+      - Incoming token is found on the incoming webhook page under
+      "Integration Settings" -> "Webhook URL" -> fragment after last /
+
+      - Outgoing token is found on the outgoing webhook page under
+      "Integration Settings" -> "Token"
+    ###
+    if incomingToken and outgoingToken
+      ChatConfig.remove({})
+      ChatConfig.insert incomingToken: incomingToken, outgoingToken: outgoingToken
+
   setupChatDefaults: (lang) ->
     return unless Meteor.users.findOne(@userId)?.isAdmin
     ChatMessages.remove({})
@@ -19,7 +33,7 @@ ChatMessages.allow
     return no unless userId
     return no unless doc?.msg
 
-    token = Meteor.settings.slack?.incomingToken
+    token = ChatConfig.findOne()?.incomingToken
     return no unless token
 
     path = doc.path
@@ -47,7 +61,7 @@ Router.map ->
     action: ->
       console.log "Route: /api/chat"
       console.log "request.body:", JSON.stringify(@request.body)
-      return unless @request.body?.token is Meteor.settings.slack?.outgoingToken
+      return unless @request.body?.token is ChatConfig.findOne()?.outgoingToken
       msg = @request.body.text.replace("@q42nl ", "").replace("@q42com ", "")
       user = @request.body.user_name + " (Q42)"
       ChatMessages.insert userId: null, username: user, msg: msg, date: new Date(), path: "/api/chat"
