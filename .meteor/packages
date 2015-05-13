@@ -13,7 +13,6 @@ accounts-facebook
 accounts-twitter
 accounts-github
 coffeescript
-gadicohen:phantomjs
 spiderable
 iron:router
 meteorhacks:subs-manager
