@@ -62,8 +62,14 @@ But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor
 
 First you need the following prerequisites:
 
- - The Scalingo CLI, which you can get here: http://cli.scalingo.com/
  - Git Flow, which you can get here: https://github.com/nvie/gitflow/wiki/Installation
+ - Access to the two environments on http://scalingo.com (q42nlsite and q42comsite). Ask rahul or lukas.
+ - Access to GCS bucket static.q42.nl at https://console.developers.google.com/project/504623166341/storage/browser. Ask rahul or lukas.
+
+Then, add the two Scalingo Git Remotes:
+
+    git remote add scalingo-nl git@scalingo.com:q42nlsite.git
+    git remote add scalingo-en git@scalingo.com:q42comsite.git
 
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a script which will take care of both commands. Just run:
 
