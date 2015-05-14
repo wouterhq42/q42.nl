@@ -21,6 +21,8 @@ gsutil -m rsync -r -d public gs://static.q42.nl || exit 1
 echo "--- Done with CDN."
 echo
 
+# Deploy the site to two different Meteor domains
+# so we have an English and a Dutch website :-)
 echo "--- Deploying to q42.com..."
 git push scalingo-en master
 echo "--- Done deploying to q42.com. Refresh your browser!"

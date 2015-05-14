@@ -13,13 +13,13 @@ The hard bit since the repo is around ~220MB
 
 	git clone https://github.com/[YOURUSERNAME]/q42.nl.git
 
-### Install meteor
+### Install Meteor
+
+On Mac or Linux, run this:
 
 	curl https://install.meteor.com | /bin/sh
 
-### But I have Windows
-
-Visit http://win.meteor.com/ for instructions on how to get Meteor running on Windows.
+On Windows, just go to http://meteor.com/install and download the Windows installer!
 
 ### Add settings you need
 
@@ -27,8 +27,10 @@ Create a `config/settings.json` file containing the correct Tumblr and Kadira ac
 
   {
     "TUMBLR_KEY": "myTumblrKey",
-		"KADIRA_ACCOUNT_ID": "myKadiraId",
-		"KADIRA_ACCOUNT_KEY": "myKadiraKey"
+		"kadira": {
+			"appId": "myKadiraAppId",
+			"appSecret": "myKadiraAppSecret"
+		}
   }
 
 The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
