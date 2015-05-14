@@ -13,13 +13,13 @@ The hard bit since the repo is around ~220MB
 
 	git clone https://github.com/[YOURUSERNAME]/q42.nl.git
 
-### Install meteor
+### Install Meteor
+
+On Mac or Linux, run this:
 
 	curl https://install.meteor.com | /bin/sh
 
-### But I have Windows
-
-Visit http://win.meteor.com/ for instructions on how to get Meteor running on Windows.
+On Windows, just go to http://meteor.com/install and download the Windows installer!
 
 ### Add settings you need
 
@@ -27,8 +27,10 @@ Create a `config/settings.json` file containing the correct Tumblr and Kadira ac
 
   {
     "TUMBLR_KEY": "myTumblrKey",
-		"KADIRA_ACCOUNT_ID": "myKadiraId",
-		"KADIRA_ACCOUNT_KEY": "myKadiraKey"
+		"kadira": {
+			"appId": "myKadiraAppId",
+			"appSecret": "myKadiraAppSecret"
+		}
   }
 
 The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
@@ -58,11 +60,20 @@ But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor
 
 # Deploying
 
+First you need the following prerequisites:
+
+ - Git Flow, which you can get here: https://github.com/nvie/gitflow/wiki/Installation
+ - Access to the two environments on http://scalingo.com (q42nlsite and q42comsite). Ask rahul or lukas.
+ - Access to GCS bucket static.q42.nl at https://console.developers.google.com/project/504623166341/storage/browser. Ask rahul or lukas.
+
+Then, add the two Scalingo Git Remotes:
+
+    git remote add scalingo-nl git@scalingo.com:q42nlsite.git
+    git remote add scalingo-en git@scalingo.com:q42comsite.git
+
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a script which will take care of both commands. Just run:
 
 	./deploy.sh
-
-Only authenticated users can deploy using Meteor's developer accounts system.
 
 # Contributing
 
