@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # first run these two, when you got access to scalingo sites:
-# git remote add scalingo-nl git@scalingo.com:q42nlsite.git
+# git remote add scalingo-nl git@scalingo.com:q42nl-site.git
 # git remote add scalingo-en git@scalingo.com:q42comsite.git
 
-NOW=$(date +"%Y-%m-%d-%H-%M")
+NOW=$(date +"%Y-%m-%d")
 
 echo "------ Begin Q42.nl and Q42.com deploy! ------"
 

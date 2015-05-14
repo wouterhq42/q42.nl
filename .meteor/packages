@@ -13,8 +13,8 @@ accounts-facebook
 accounts-twitter
 accounts-github
 coffeescript
-dfischer:phantomjs
 ongoworks:spiderable
+dfischer:phantomjs
 iron:router
 meteorhacks:subs-manager
 meteorhacks:fast-render
