@@ -1,3 +1,3 @@
 #!/bin/bash
 
-meteor --settings config/settings.json
+meteor --port 80 --settings config/settings.json
