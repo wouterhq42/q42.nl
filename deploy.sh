@@ -33,4 +33,8 @@ git push scalingo-nl master
 echo "--- Done deploying to q42.nl. Refresh your browser!"
 echo
 
+echo "--- Returning to develop branch..."
+git checkout develop
+echo
+
 echo "------ Done. ------"
