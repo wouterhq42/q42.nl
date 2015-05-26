@@ -41,6 +41,7 @@ addLabel "Ex-klant",                      "gerard stef taco"
 addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter corina silvy"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 addLabel "Ex-Fabriquer",                  "sander"
+addLabel "Mr. Sarien.net",                "martin"
 
 # Arbitrary selections
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
@@ -55,7 +56,7 @@ addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jaspe
 addLabel "Gaat binnenkort naar Microsoft","michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
 addLabel "Verdient minder dan Jasper",    _.without allHandles, "jasper"
-addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian guus stef lukas taco"
+addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian guus stef lukas taco wouter"
 addLabel "WWDC kaartje kwijtgeraakt",     "tims"
 addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob lukas"
 addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mark"
