@@ -32,13 +32,13 @@ _.each currentQers, (e) ->
 # Roles
 addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco silvy"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne", "corina", "silvy" ,"ineke"
-addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard"
+addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard bastiaan"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "herman tomas jimmy"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
-addLabel "Ex-klant",                      "gerard stef taco"
-addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter corina silvy"
+addLabel "Ex-klant",                      "gerard stef taco bastiaan"
+addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter corina silvy bastiaan"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 addLabel "Ex-Fabriquer",                  "sander"
 addLabel "Mr. Sarien.net",                "martin"
