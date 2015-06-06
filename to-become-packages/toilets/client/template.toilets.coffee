@@ -1,7 +1,10 @@
 Template.toilets.helpers
   getState: ->
     if Session.equals "lang", "nl"
-      return (if @state is "available" then "vrij" else "bezet")
+      return switch @state
+        when "available" then "vrij"
+        when "occupied" then "bezet"
+        else "vrij"
     return @state
 
 $Template
