@@ -47,7 +47,7 @@ headerRendered = ->
     dx = if Math.random() < 0.5 then dx else -dx
     dy = between 50, 100
     dy = if Math.random() < 0.5 then dy else -dy
-    dz = between 100, 200
+    dz = between 100, 2500
     dz = if Math.random() < 0.5 then dz else -dz
 
     anim = ""
