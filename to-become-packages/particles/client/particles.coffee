@@ -53,7 +53,7 @@ headerRendered = ->
     anim = ""
     keyframes = ""
     from = "transform: translate3d(#{x}px, #{y}px, #{z}px) rotateX(0deg); opacity: 1"
-    to = "transform: translate3d(#{x+dx}px, #{y+dy}px, #{z+dz}px) rotateX(360deg); opacity: 0"
+    to = "transform: translate3d(#{x+dx}px, #{y+dy}px, #{z+dz}px) rotateX(180deg); opacity: 0"
     _.each types, (type) ->
       keyframes = "keyframes float-particle#{i} { from {-#{type}-#{from}} to {-#{type}-#{to}} }"
       anim += "\n@-#{type}-#{keyframes}"
