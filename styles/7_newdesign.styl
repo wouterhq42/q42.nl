@@ -181,6 +181,32 @@ blockquote
   .fn
     display none
 
+@media (min-width 940px)
+
+  .block-large.booklet
+    margin 32px 0
+    background transparent
+    perspective 2000px
+    transition box-shadow ease .2s
+    &:hover
+      box-shadow 0 0 20px rgba(0,0,0,.2)
+
+    .block-small
+      transition transform ease .2s
+      background white
+      &:first-child
+        transform-origin right
+        &:hover
+          box-shadow -10px 0 20px rgba(0,0,0,.1)
+          transform rotateY(15deg)
+      &:last-child
+        transform-origin left
+        &:hover
+          transform rotateY(-15deg)
+          box-shadow 10px 0 20px rgba(0,0,0,.1)
+
+
+
 @media (max-width 940px)
 
   .block-large
