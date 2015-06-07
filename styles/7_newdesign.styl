@@ -58,17 +58,20 @@ blockquote
     font-style normal
 
 .container
-  .block-large, .block-full, .block-text
-    border-bottom none
+  header.block-text
+    text-align center
+    h1
+      display inline-block
+      background #ffd100
+      padding .2rem .5rem
   .block-large
     background #fff
-    padding 32px
+    padding 0
     margin 0 0 16px 0
     box-shadow 0 1px 1px rgba(0,0,0,.18)
     border-radius 3px
     &.block-no-padding-after
       margin-bottom 0
-      border-bottom solid 2px #eee
       border-bottom-left-radius 0
       border-bottom-right-radius 0
       & + .block-large
@@ -81,9 +84,20 @@ blockquote
         border-top-right-radius 0
     &.blog:first-child
       margin-top 64px
+
   .block-full.intro-outro
     blockquote p
       font-size 2rem !important
+
+  .block-small
+    margin 0
+    border-right solid 1px rgba(0,0,0,.1)
+    &:nth-child(3)
+      border-right none
+    & > .body
+      padding 32px
+      h2
+        padding-top 0
 
   .visual
     position relative
@@ -108,20 +122,14 @@ blockquote
     font-size 1.5rem
 
   .block-large > .body
-    margin -32px 32px -32px -32px
+    margin 0
     padding 32px
     background aliceblue
     & + .visual
-      margin -32px
       height 100%
-
-  .block-large.right > .body
-    margin-right -32px
-    margin-left 32px
 
   aside.subcontent
     padding 32px
-    margin-top -64px
     gradient-box()
 
     a
@@ -158,7 +166,7 @@ blockquote
           &:hover
             color white
             background-color rgba(255,255,255,.3)
-            
+
   .censored
     color black
     background black
@@ -183,8 +191,6 @@ blockquote
     .block-small
       &:first-child
         margin-right 0
-      &:not(:first-child)
-        margin-top 32px
 
     .block-large
       .intro
@@ -202,18 +208,8 @@ blockquote
     .block-large > .block-small:first-child:nth-last-child(2), .block-large > .block-small:first-child:nth-last-child(2) ~ div
       max-width inherit
 
-    aside.subcontent
-      margin 32px -32px -32px -32px
-
-    .block-large > .body + .visual
-      margin 64px 0 0 0
-
     .block-large.right .body
       order inherit
-      margin-left -32px
-
-    .block-large > .body
-      margin-right -32px
 
   #footer
     .visual
@@ -229,11 +225,6 @@ blockquote
     margin-top inherit
     width inherit
 
-  .container
-    #colleagues
-      aside
-        margin-right -32px
-
 @media (max-width 480px)
 
   .container .block-large.blog:first-child
@@ -241,6 +232,3 @@ blockquote
 
   .block-small > ul, #blog-sidebar ul
     padding-left 0
-
-  .container .block-large .body
-    width 100%

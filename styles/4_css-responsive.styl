@@ -47,8 +47,6 @@
     min-width 300px
     &:nth-of-type(2)
       margin-right 0
-    &:nth-child(3):last-child
-      margin-top 40px
 
 
 
@@ -71,17 +69,10 @@
 
   .block-large .visual,
   .block-large .block-small,
-  .block-large .block-small .body,
   .block-large .block-small .visual,
   .block-large .intro,
-  .block-large .body
     width 100%
     max-width 100% !important
-
-  .container .blog.block-large
-    margin-top 32px
-    .blog-posts, .blog-post
-      margin-right 0
 
   .block-small
     margin-right 0
@@ -135,7 +126,7 @@
 
 
 
-@media all and (max-width: 480px)
+@media (max-width: 480px)
 
   html, body
     font-size 14px
@@ -153,6 +144,12 @@
 
   #loading
     top 115px
+
+  #not-found
+    padding 32px
+    a
+      border none
+      padding 0
 
   #mobile-menu-icon
     display block
