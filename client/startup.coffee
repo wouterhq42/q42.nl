@@ -9,3 +9,7 @@ Meteor.startup ->
   , 1000
 
   $.ajaxSetup cache: yes
+
+  # see 6_animation.styl#29
+  unless /Firefox/.test navigator.userAgent
+    $("head").append $("<style/>").text(".container > * { opacity: 0 }")
