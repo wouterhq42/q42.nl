@@ -30,16 +30,18 @@ _.each currentQers, (e) ->
     updates++
 
 # Roles
-addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco"
-addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne"
-addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard"
+addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco silvy"
+addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne", "corina", "silvy" ,"ineke"
+addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard bastiaan"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "herman tomas jimmy"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
-addLabel "Ex-klant",                      "gerard stef taco"
-addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter"
+addLabel "Ex-klant",                      "gerard stef taco bastiaan"
+addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter corina silvy bastiaan"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
+addLabel "Ex-Fabriquer",                  "sander"
+addLabel "Mr. Sarien.net",                "martin"
 
 # Arbitrary selections
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
@@ -49,22 +51,23 @@ addLabel "Heeft een baard",               "rahul richard arian christiaan kamil 
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
-addLabel "Voortgeplant",                  "martin chris mark kars bas cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
+addLabel "Voortgeplant",                  "martin chris mark kars bas cynthia gerard jaap jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
-addLabel "Gaat binnenkort naar Microsoft", "michiel"
+addLabel "Gaat binnenkort naar Microsoft","michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
-addLabel "Heeft bij Fabrique gewerkt",    "sander"
 addLabel "Verdient minder dan Jasper",    _.without allHandles, "jasper"
-addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian guus stef lukas taco"
+addLabel "Google IO alumni",              "kars rahul martin jaap mark remco kamil christiaan chris arian guus stef lukas taco wouter"
 addLabel "WWDC kaartje kwijtgeraakt",     "tims"
 addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob lukas"
 addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mark"
 addLabel "IQ boven de 200",               "sjoerd"
 addLabel "Blessure tijdens werktijd",     "rahul guus"
-addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
+addLabel "Nerfgun owner",                 "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best programmeren", "chris"
 addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
 addLabel "Emigrant",                      "rahul"
+addLabel "Girl Code",                     "ineke katja"
+addLabel "Gewerkt met de Two Guys",       "martin rahul richard"
 
 Employees.allow
   insert: -> false

@@ -28,12 +28,12 @@
     border: 2px solid #ddd
     border-radius: 100%
     background: linear-gradient(180deg, transparent, transparent 50%, #ddd 50%, #ccc)
-  &.available::before
+  &.available::before, &.unknown::before
     transform: rotate(45deg)
   &.occupied::before
     transform: rotate(225deg)
 
-    
+
 #colleagues .block-full
   overflow visible
 
@@ -121,22 +121,19 @@
 #filter-colleagues
   input
     font-size 16px
+    border none
+    padding 4px
 
   #filter-options
     li
       display inline-block
 
       a
-        padding 0 6px 1px 6px
-        background #eee
-        border-radius 15px
         font-size smaller
-        border solid 1px transparent
 
         &:hover
           text-decoration none
-          background-color #eee
 
         &.selected
-          background-color transparent
-          border-color #1d78b4
+          text-decoration underline
+          background-color rgba(255,255,255,.3)
