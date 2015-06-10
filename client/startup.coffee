@@ -11,5 +11,5 @@ Meteor.startup ->
   $.ajaxSetup cache: yes
 
   # see 6_animation.styl#29
-  unless /Firefox/.test navigator.userAgent
+  if not /Firefox/.test(navigator.userAgent) and (!(window.ActiveXObject) && "ActiveXObject" in window)
     $("head").append $("<style/>").text(".container > * { opacity: 0 }")
