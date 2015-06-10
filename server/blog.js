@@ -13,7 +13,7 @@ Meteor.methods({
 
     lastTumblrCheck = new Date();
     this.unblock();
-    Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
+    Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 5 }
     }, function(error, result) {
       var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
@@ -40,7 +40,7 @@ Meteor.methods({
       Posts.remove({});
       offset = 0;
     }
-    Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
+    Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 20, offset: offset }
     }, function(error, result) {
       var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
