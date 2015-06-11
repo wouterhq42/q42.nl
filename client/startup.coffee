@@ -12,6 +12,6 @@ Meteor.startup ->
 
   # see 6_animation.styl#29
   isFirefox = /Firefox/.test(navigator.userAgent)
-  isIE11 = !(window.ActiveXObject) and "ActiveXObject" in window
+  isIE11 = not window.ActiveXObject and `"ActiveXObject" in window`
   unless isFirefox or isIE11
     $("head").append $("<style/>").text(".container > * { opacity: 0 }")
