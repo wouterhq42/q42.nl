@@ -123,18 +123,13 @@
   }
   QSAMarker.addListener "click", -> QSAInfoWindow.open map, QSAMarker
 
-Meteor.startup ->
-  Session.setDefault("mapRendered", no)
-
-Template.map.onCreated ->
-  @mapRendered = no
-
+mapRendered = no
 Template.map.onRendered ->
-  unless @mapRendered
+  unless mapRendered
     key = "AIzaSyCvAL7yv2v-bVICrxQoPX8UzJ3Mm0QIOLo"
     url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
     $.getScript(url)
-    @mapRendered = yes
+    mapRendered = yes
   else
     initMap()
 
