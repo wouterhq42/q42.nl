@@ -126,16 +126,17 @@
 Meteor.startup ->
   Session.setDefault("mapRendered", no)
 
-mapRendered = ->
-  unless Session.equals "mapRendered", yes
+Template.map.onCreated ->
+  @mapRendered = no
+
+Template.map.onRendered ->
+  unless @mapRendered
     key = "AIzaSyCvAL7yv2v-bVICrxQoPX8UzJ3Mm0QIOLo"
     url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
     $.getScript(url)
-    Session.set("mapRendered", yes)
+    @mapRendered = yes
   else
     initMap()
-
-Template.map.onRendered mapRendered
 
 Template.map.helpers
   usQer: -> Employees.find handle: "rahul"
