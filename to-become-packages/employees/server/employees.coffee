@@ -68,6 +68,7 @@ addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj 
 addLabel "Emigrant",                      "rahul"
 addLabel "Girl Code",                     "ineke katja"
 addLabel "Gewerkt met de Two Guys",       "martin rahul richard"
+addLabel "Troll",                         "benjamin"
 
 Employees.allow
   insert: -> false
