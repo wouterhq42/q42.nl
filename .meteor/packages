@@ -13,7 +13,8 @@ accounts-facebook
 accounts-twitter
 accounts-github
 coffeescript
-spiderable
+dfischer:phantomjs
+ongoworks:spiderable
 iron:router
 meteorhacks:subs-manager
 meteorhacks:fast-render
@@ -26,3 +27,4 @@ meteor-platform
 reactive-dict
 meteorhacks:kadira
 meteortoys:allthings
+service-configuration

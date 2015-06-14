@@ -29,7 +29,7 @@
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
           {{/if}}
-          {{#if photos}}
+          {{#if photos}} {{#unless description}}
           <!-- image(s) -->
             <div class="figure">
             {{#each photos.[0].alt_sizes}}
@@ -45,7 +45,7 @@
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
-          {{/if}}
+          {{/unless}} {{/if}}
           {{#if text}}
           <!-- quote -->
             <h1>"{{{text}}}"</h1>
@@ -56,9 +56,13 @@
           {{#if description}}
           <!-- reblog -->
             <h1><a href="{{url}}">{{title}}</a></h1>
+            {{> postDate}}
             {{#if typeIs "link"}}
               <p>{{{description}}}</p>
             {{/if}}
+            <p class="block-readmore">
+              <a href="{{url}}" class="readmore">Lees verder</a>
+            </p>
           {{/if}}
           {{#if intro}}
           <!-- text post -->

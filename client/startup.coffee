@@ -1,5 +1,5 @@
 Meteor.startup ->
-  lang = if window.location.hostname is "q42.com" then "en" else "nl"
+  lang = if window.location.hostname is "q42.com" or window.location.hostname is "q42comsite.scalingo.io" then "en" else "nl"
   Session.setDefault "lang", lang
   moment.locale lang
 
