@@ -18,6 +18,9 @@
   google.maps.event.addListener map, "mouseout", ->
     map.setOptions { scrollwheel: false }
 
+  google.maps.event.addListenerOnce map, 'tilesloaded', ->
+    $("#maps").removeClass("loading")
+
   getCurrentGeo = (cont) ->
     navigator.geolocation.getCurrentPosition (geo) ->
       geocoder = new google.maps.Geocoder()
