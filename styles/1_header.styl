@@ -4,10 +4,6 @@
   width 100%
   position relative
   margin 0 auto
-  background-image -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#26d0ce,#1a2980 90%)
-  background-image -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#26d0ce,#1a2980 90%)
-  background-image -ms-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-ms-linear-gradient(108deg,#26d0ce,#1a2980 90%)
-  background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%)
   background-color rgb(39, 127, 168)
   transition ease-in-out .3s
   fontSmoothing antialiased
@@ -59,6 +55,7 @@ nav
         text-decoration none
         letter-spacing 1px
         fontSmoothing antialiased
+        border-bottom none
         &:hover, &.selected
           color #fff
           text-decoration none
@@ -79,6 +76,7 @@ nav
   position relative
   z-index 20
   pointer-events all
+  border-bottom none
 #header .pos
   pointer-events none
 
