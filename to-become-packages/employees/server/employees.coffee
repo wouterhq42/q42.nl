@@ -44,6 +44,7 @@ addLabel "Ex-Fabriquer",                  "sander"
 addLabel "Mr. Sarien.net",                "martin"
 
 # Arbitrary selections
+addLabel "Girl Code",                     "ineke katja kristin"
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
@@ -66,7 +67,6 @@ addLabel "Nerfgun owner",                 "mark chris arian jeroen frank guus ka
 addLabel "Kan stiekem best programmeren", "chris"
 addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
 addLabel "Emigrant",                      "rahul"
-addLabel "Girl Code",                     "ineke katja"
 addLabel "Gewerkt met de Two Guys",       "martin rahul richard"
 addLabel "Troll",                         "benjamin"
 
