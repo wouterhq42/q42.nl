@@ -18,7 +18,7 @@ generateParticles = ->
         .css @getProps("animation", anim)
         .css @getProps("transform", translate3d)
     getProps: (name, value) ->
-      _.object types.map((t) -> "#{t}#{name}"), Array.apply(null, Array(types.length)).map -> value
+      _.object types.map((t) -> "#{t}#{name}"), _.range(types.length).map -> value
 
   generateParticle = (i) ->
     delay = ~~(Math.random() * 4) + "s"
