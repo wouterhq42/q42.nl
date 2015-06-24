@@ -51,7 +51,7 @@ addLabel "Heeft een baard",               "rahul richard arian christiaan kamil 
 addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
-addLabel "Voortgeplant",                  "martin chris mark kars bas cynthia gerard jaap jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart"
+addLabel "Voortgeplant",                  "martin chris mark kars bas cynthia gerard jaap jasper johan korjan michiel remco sander stef suzanne timd laurens taco bart bastiaan"
 addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
 addLabel "Gaat binnenkort naar Microsoft","michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
