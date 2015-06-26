@@ -28,6 +28,7 @@
   { name: "Kamil Afsar", handle:"kamil", phone: "070-4452357" }
   { name: "Kars Veling", handle:"kars", phone: "070-4452350" }
   { name: "Katja Hollaar", handle:"katja" }
+  { name: "Kim van der Veer", handle:"kim", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Korjan van Wieringen", handle:"korjan" }
   { name: "Kristin Rieping", handle:"kristin" }
   { name: "Laurens van den Oever", handle:"laurens" }
