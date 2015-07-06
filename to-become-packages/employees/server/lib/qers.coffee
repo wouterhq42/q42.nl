@@ -6,6 +6,7 @@
   { name: "Bastiaan Terhorst", handle:"bastiaan", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
+  { name: "Bram Stege", handle:"bram", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
   { name: "Corina Maduro", handle:"corina", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
