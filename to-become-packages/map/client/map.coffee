@@ -18,6 +18,9 @@
   google.maps.event.addListener map, "mouseout", ->
     map.setOptions { scrollwheel: false }
 
+  google.maps.event.addListenerOnce map, 'tilesloaded', ->
+    $("#maps").removeClass("loading")
+
   getCurrentGeo = (cont) ->
     navigator.geolocation.getCurrentPosition (geo) ->
       geocoder = new google.maps.Geocoder()
@@ -120,19 +123,15 @@
   }
   QSAMarker.addListener "click", -> QSAInfoWindow.open map, QSAMarker
 
-Meteor.startup ->
-  Session.setDefault("mapRendered", no)
-
-mapRendered = ->
-  unless Session.equals "mapRendered", yes
+mapRendered = no
+Template.map.onRendered ->
+  unless mapRendered
     key = "AIzaSyCvAL7yv2v-bVICrxQoPX8UzJ3Mm0QIOLo"
     url = "https://maps.googleapis.com/maps/api/js?key=#{key}&callback=initMap&signed_in=true"
     $.getScript(url)
-    Session.set("mapRendered", yes)
+    mapRendered = yes
   else
     initMap()
-
-Template.map.onRendered mapRendered
 
 Template.map.helpers
   usQer: -> Employees.find handle: "rahul"

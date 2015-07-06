@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # first run these two, when you got access to scalingo sites:
-# git remote add scalingo-nl git@scalingo.com:q42nlsite.git
+# git remote add scalingo-nl git@scalingo.com:q42nl-site.git
 # git remote add scalingo-en git@scalingo.com:q42comsite.git
 
-NOW=$(date +"%Y-%m-%d-%H-%M")
+NOW=$(date +"%Y-%m-%d")
 
 echo "------ Begin Q42.nl and Q42.com deploy! ------"
 
@@ -31,6 +31,10 @@ echo
 echo "--- Deploying to q42.nl..."
 git push scalingo-nl master
 echo "--- Done deploying to q42.nl. Refresh your browser!"
+echo
+
+echo "--- Returning to develop branch..."
+git checkout develop
 echo
 
 echo "------ Done. ------"

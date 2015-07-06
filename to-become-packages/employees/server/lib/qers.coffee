@@ -3,6 +3,7 @@
   { name: "Arjen van der Ende", handle: "arjen" }
   { name: "Bart Kiers", handle: "bart" }
   { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
+  { name: "Bastiaan Terhorst", handle:"bastiaan", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }

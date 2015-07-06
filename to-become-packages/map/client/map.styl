@@ -1,6 +1,15 @@
 @import "../../../styles/0_variables.styl"
 
-#map
+#maps
+  &.loading
+    background #fff url(http://static.q42.nl/images/pard.gif) center no-repeat
+    #map-loading-container
+      opacity 0
+  #map-loading-container
+    opacity 1
+    transition ease opacity .5s
+
+#map, #map-loading-container
   width 100%
   height 320px
 

@@ -33,9 +33,6 @@ headerRendered = ->
     color = rc 0, .5
     $particle.css "backgroundColor", color
 
-    radius = between 0, 100
-    $particle.css "borderRadius", radius
-
     x = ~~((Math.random() * 2 - 1) * windowWidth)
     y = rp()
     z = rp()
@@ -48,15 +45,15 @@ headerRendered = ->
 
     dx = between 200, 500
     dx = if Math.random() < 0.5 then dx else -dx
-    dy = between 50, 265
+    dy = between 50, 100
     dy = if Math.random() < 0.5 then dy else -dy
-    dz = between 500, 2500
+    dz = between 100, 2500
     dz = if Math.random() < 0.5 then dz else -dz
 
     anim = ""
     keyframes = ""
-    from = "transform: translate3d(#{x}px, #{y}px, #{z}px); opacity: 1"
-    to = "transform: translate3d(#{x+dx}px, #{y+dy}px, #{z+dz}px); opacity: 0"
+    from = "transform: translate3d(#{x}px, #{y}px, #{z}px) rotateX(0deg); opacity: 1"
+    to = "transform: translate3d(#{x+dx}px, #{y+dy}px, #{z+dz}px) rotateX(180deg); opacity: 0"
     _.each types, (type) ->
       keyframes = "keyframes float-particle#{i} { from {-#{type}-#{from}} to {-#{type}-#{to}} }"
       anim += "\n@-#{type}-#{keyframes}"
