@@ -182,15 +182,6 @@
   </ul>
 </template>
 
-<template name="en_latestComments">
-  <h2>Latest comments</h2>
-  <ul id="latestComments">
-    {{#each comment}}
-      <li><div><a href="/blog/post/{{blogpostId}}/#comment{{_id}}">{{text}}</a></div></li>
-    {{/each}}
-  </ul>
-</template>
-
 <template name="en_blogSidebar">
   <aside class="block-small subcontent subcontent-last" id="blog-sidebar">
     <h2><strong>Web</strong>log</h2>
@@ -199,7 +190,6 @@
     And you can of course follow us at <a href="http://twitter.com/q42">@q42</a>.</p>
     <p>Some posts on our blog are in Dutch. We recommend Google Translate for those.</p>
     {{> en_otherPosts}}
-    {{> en_latestComments}}
   </aside>
 </template>
 

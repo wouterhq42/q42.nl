@@ -67,6 +67,7 @@ addLabel "Nerfgun owner",                 "mark chris arian jeroen frank guus ka
 addLabel "Kan stiekem best programmeren", "chris"
 addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
 addLabel "Emigrant",                      "rahul"
+addLabel "Girl Code",                     "ineke katja kristin"
 addLabel "Gewerkt met de Two Guys",       "martin rahul richard"
 addLabel "Troll",                         "benjamin"
 
