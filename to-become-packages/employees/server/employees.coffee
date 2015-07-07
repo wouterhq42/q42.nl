@@ -32,18 +32,20 @@ _.each currentQers, (e) ->
 # Roles
 addLabel "Projectleider",                 "jasper korjan timd gerard laurens meindert taco silvy"
 addLabel "Software Engineer",             _.without allHandles, "stef", "cynthia", "suzanne", "corina", "silvy" ,"ineke"
-addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard bastiaan"
+addLabel "Interaction Engineer",          "rahul elaine johan roelfjan frank guido richard"
 addLabel "Q'er",                          allHandles
 addLabel "Oprichter",                     "kars"
 addLabel "Student",                       "herman tomas jimmy"
 addLabel "Ex-stagiair",                   "jeroen lukas chris bob katja timl tims kamil"
-addLabel "Ex-klant",                      "gerard stef taco bastiaan"
-addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter corina silvy bastiaan"
+addLabel "Ex-klant",                      "gerard stef taco"
+addLabel "Ex-concullega",                 "arjen sander bas guido jaap jasper jasperh johan roelfjan marcel mark mathijs michiel stef timd taco wouter corina silvy"
 addLabel "Ex-ex-q'er",                    "sjoerd laurens suzanne"
 addLabel "Ex-Fabriquer",                  "sander"
 addLabel "Mr. Sarien.net",                "martin"
 
 # Arbitrary selections
+addLabel "Girl Code",                     "ineke katja kristin"
+addLabel "Codeuur",                       "kars lukas johan kim"
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"
@@ -66,7 +68,7 @@ addLabel "Nerfgun owner",                 "mark chris arian jeroen frank guus ka
 addLabel "Kan stiekem best programmeren", "chris"
 addLabel "Namespace collision",           "jaap jaapm jasper jasperh mark markj timl tims timd leonard gerard"
 addLabel "Emigrant",                      "rahul"
-addLabel "Girl Code",                     "ineke katja"
+addLabel "Girl Code",                     "ineke katja kristin"
 addLabel "Gewerkt met de Two Guys",       "martin rahul richard"
 addLabel "Troll",                         "benjamin"
 

@@ -1,9 +1,8 @@
 # Helper to easily construct templates for multiple languages
-@$Template = (templates) ->
-  _.each templates, (values, tmpl) ->
-    Template["en_#{tmpl}"]?.helpers values
-    Template[tmpl]?.helpers values
+@$Template = (templates)  -> _.each templates, (values, tmpl) -> _tmpl("helpers", tmpl, values)
+@$Events = (tmpl, events) -> _tmpl("events", tmpl, events)
+@$OnRendered = (tmpl, fn) -> _tmpl("onRendered", tmpl, fn)
 
-@$Events = (tmpl, events) ->
-  Template["en_#{tmpl}"]?.events events
-  Template[tmpl].events events
+_tmpl = (type, tmpl, obj) ->
+  Template["en_#{tmpl}"]?[type] obj
+  Template[tmpl][type] obj
