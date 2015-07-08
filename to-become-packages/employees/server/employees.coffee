@@ -44,6 +44,8 @@ addLabel "Ex-Fabriquer",                  "sander"
 addLabel "Mr. Sarien.net",                "martin"
 
 # Arbitrary selections
+addLabel "Girl Code",                     "ineke katja kristin"
+addLabel "Codeuur",                       "kars lukas johan kim"
 addLabel "Speelt nog World of Warcraft",  "rahul christiaan richard markj benjamin tims"
 addLabel "Weet wat Spiffy is",            "bob timl martin remco lukas sjoerd kars laurens" # LOL!
 addLabel "Team Wintersport",              "lukas bob chris mark jeroen katja stef roelfjan sjoerd meindert jaapm kars timd guido arjen"

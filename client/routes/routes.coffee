@@ -154,8 +154,8 @@ Router.map ->
         []
     action: ->
       if Session.equals("lang", "en") and Template["en_" + @params.page]
-        return @render "en_" + @params.page
-      else if Template[@params.page]
+        @render "en_" + @params.page
+      else if Session.equals("lang", "nl") and Template[@params.page]
         @render @params.page
       else
         Spiderable.httpStatusCode = 404
