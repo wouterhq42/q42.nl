@@ -1,2 +1,2 @@
 Template.body.onRendered ->
-  reattachBehavior()
+  Meteor.setTimeout reattachBehavior, 100
