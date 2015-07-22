@@ -23,10 +23,9 @@ Meteor.startup ->
       newCount = currentCount + inc
 
     if newCount isnt currentCount
-      console.log "Update coffee counter... #{newCount}"
       CoffeeCounter.update first._id, $set: count: newCount
 
     # update the counter every minute
     Meteor.setTimeout updateCoffeeCounter, 1000 * 60
-  
+
   updateCoffeeCounter()
