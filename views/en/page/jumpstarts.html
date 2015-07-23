@@ -6,252 +6,27 @@
       <img src="http://static.q42.nl/images/jumpstarts/jumpstarts.jpg" alt="" style="max-width:100%">
     </header>
 
-    <section>
-      <div class="block-large">
-        <div class="intro">
-          <p>Jumpstarts are our approach to rapid, iterative prototyping. Because
-            we believe ideas should be tested as quickly as possible - ideally,
-            as you're having them - the jumpstart program allows us to get started
-            helping your company through the ideation and experimentation process
-            quickly. The focus is on building something real and testable.</p>
-          <p>It's also a great opportunity to get to know each other without
-            making a big upfront commitment. Focusing on getting something out
-            in just a week means we get to face some real challenges and decision-making
-            together. That creative pressure, together with working within
-            strict constraints, has proven invaluable.</p>
-          <p>Jumpstarts usually last one or two weeks. We always build something.
-            No endless brainstorming here! And when we feel your product has the
-            power to leave a mark, we may invest in it. Take
-            a look below for the work we're proudest of*.</p>
-          <p>Interested in talking to us about doing a jumpstart?
-            <a href="mailto:sales@q42.nl">Email us</a>!</p>
-          <p><em>* Some jumpstarts are confidential, and cannot be shared here.</em></p>
-        </div>
+    {{#block size='large'}}
+      {{> thing id='jumpstarts-intro'}}
+    {{/block}}
 
-        <aside class="block-small subcontent">
-          <h2>See also</h2>
-          <ul>
-            <li><a href="https://medium.com/@tacoe/jumpstarts-53087b8c6284">Jumpstarts: A new way to start products and ventures</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/interaction-engineering">Interaction Engineering</a></li>
-            <li><a href="/toolbox">Our toolbox</a></li>
-            <li><a href="/meteor">Meteor at Q42</a></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
+    {{#block size='large' align='right'}}
+      {{> thing id='tesloop'}}
+    {{/block}}
 
-    <section class="block-large right">
-      <div class="body">
-        <h2>Tesloop</h2>
-        <p>At a recent Tesla shareholders meeting,
-          <a href="http://motherboard.vice.com/read/this-bus-line-uses-teslas-only-was-founded-by-a-16-year-old">a 16 year old stood up and
-          asked Elon Musk a question</a>: would he be able to use the upcoming
-          driver assistance Autopilot feature in his limo service so that he
-          could put customers in the driver's seat?</p>
-        <p>The teenager turned out to be one of the co-founders of <a href="http://tesloop.com">Tesloop</a>, a startup
-          building a sustainable transport platform that shuttles people between
-          Tesla Superchargers in a Model S. We hooked up with them in Los Angeles
-          and built the first version of their app that went from nothing to
-          in production with Meteor in just four and a half days. The goal? Start booking trips!</p>
-        <p><a href="http://book.tesloop.com">Book a trip in a Model S</a></p>
-      </div>
-      <div class="visual caption">
-        <img data-src="http://static.q42.nl/images/jumpstarts/tesloop.jpg" alt="">
-        <p>The first project we've done that Elon Musk personally knows about</p>
-      </div>
-    </section>
+    {{#threeCols ids='taxi-electric,livelearn,umuntu-media'}}{{/threeCols}}
 
-    <section>
-      <div class="block-large">
-        <div class="block-small">
-          <div class="visual caption">
-  					<img data-src="http://static.q42.nl/images/meteor-taxielectric.jpg" alt="">
-            <p>Upgrading cabs to be more like Uber</p>
-          </div>
-          <div class="body">
-            <h2>Taxi Electric</h2>
-            <p>Build a device into electric cabs driving around Amsterdam that
-              streams out positional data and battery charge status to a webserver.
-              Make an Android app that receives that data and displays it on a map
-              showing where each cab is,
-              allowing passengers and drivers to see the status of their trip in
-              real time. Build a web application that helps hotel desk clerks
-              book trips for customers.</p>
-            <p>Do all this in one week. That's a jumpstart!</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/jumpstarts/lessonup.jpg" alt="">
-            <p>LiveLearn became LessonUp!</p>
-          </div>
-          <div class="body">
-            <h2>LiveLearn</h2>
-            <p>A jumpstart to explore
-            what education could look like if we think beyond books. We built
-            this prototype to explore the space between teachers and their students;
-            what kind of software can bring out new interactions? How does a classroom
-            stand to benefit from technology?</p>
-            <p>Today our answer is LessonUp, a bootstrapped startup focused on evolving
-              education.</p>
-            <p><a href="http://lessonup.io/en">Visit LessonUp</a></p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/jumpstarts/mimispot.jpg" alt="">
-            <p>A gathering place to share stories</p>
-          </div>
-          <div class="body">
-            <h2>Umuntu Media</h2>
-            <p>Explore how a social network for sub-Saharan Africa should work. Take into account
-              low bandwidth constraints in that geographic region, mobile first design,
-              and strong competition from Facebook and the BBC.</p>
-            <p>The result of this prototype eventually evolved into Mimispot,
-              a new venture launched in collaboration with Umuntu
-              to help people in African countries communicate on their own terms.</p>
-            <p><a href="http://mimispot.com">Visit Mimispot</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+    {{#block size='large'}}
+      {{> thing id='game-of-drones'}}
+    {{/block}}
 
-    <section class="block-large">
-      <div class="body">
-        <h2>Game of Drones</h2>
-        <p>Bulletproof, armored drones for racing and drone combat.
-          Who wouldn't want to be involved?</p>
-        <p>We helped Game of Drones build a prototype for
-          their drone controller in preparation of demo day at the
-          <a href="http://highway1.io">Highway1</a> incubator in San Francisco.
-          Turns out, Meteor and iOS are great tools to put something like that
-          together within a week!</p>
-        <p><a href="http://gameofdrones.com">Play the Game of Drones</a></p>
-      </div>
-      <div class="visual caption">
-        <img data-src="http://static.q42.nl/images/jumpstarts/gameofdrones.jpg" alt="">
-        <p>It's a pun. Get it?</p>
-      </div>
-    </section>
+    {{#threeCols ids='swisscom,shell,benbenet'}}{{/threeCols}}
 
-    <!-- <section class="block-full intro-outro">
-      <blockquote>
-        <p>Q42 is the best development team in Europe!</p>
-        <footer>
-          &mdash; <cite>Serge de Warrimont, <a href="http://spinn.coffee">Spinn Coffee</a></cite>
-        </footer>
-      </blockquote>
-    </section> -->
+    {{#block size='large'}}
+      {{> thing id='spinn'}}
+    {{/block}}
 
-    <section>
-      <div class="block-large">
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/jumpstarts/littlethings.jpg" alt="">
-            <p>Just the bare necessities</p>
-          </div>
-          <div class="body">
-            <h2>Swisscom</h2>
-            <p>It's not enough to have an app that helps you keep track of your
-            life goals. It also needs to actually make you happier and more productive.</p>
-            <p>That's the goal we set out with on Monday. By Friday, we had something:
-              Little Things, the app that helps you remember to spend time with your kids,
-              go to the beach, read a book, and do all the other stuff you never seem
-              to get around to.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/secret.png" alt="">
-            <p>Looks like money to me</p>
-          </div>
-          <div class="body">
-            <h2>G<span class="censored">??????????</span>n</h2>
-            <p>A large oil company came to us with a question: how can we give
-              people a great experience that helps them understand our new product?</p>
-            <p>So we built it in a week. It involved a little bit of VR with an
-              Oculus Rift, 3D modeling in Unity, and voice actors from the Internet.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/jumpstarts/benbenet.jpg" alt="">
-            <p>Hacking on satellites</p>
-          </div>
-          <div class="body">
-            <h2>benbenet</h2>
-            <p>Bringing communication and financial services to what is called
-              the Bottom of the Pyramid (BoP): the 2.5 billion people on the
-              world who live on less than two dollars a day.</p>
-            <p>We jumpstarted benbenet's big plan of digital inclusion by
-              building an NFC app that's able to text and make payments on- and
-              offline through satellites. The resultinged prototype is able to
-              do just that and has an intuitive interface even for illiterate
-              people. Proof enough for investors to believe benbenet's plan are
-              very viable and worth investing in. All that in just one week!</p>
-            <p><a href="/blog/post/124664378178/benbenet-jumpstart-connecting-2-5-billion-people">Read more about this jumpstart</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block-large">
-      <div class="body">
-        <h2>Spinn Coffee</h2>
-        <h3>Not just better coffee</h3>
-        <p>What do a 3d printer, an Android smartwatch and Meteor have in common?
-        Answer: Spinn's wifi-enabled coffee maker with touchscreen controls
-        and smartphone-based marketplace! In just one week we put all of this
-        together, presented to Spinn's investors, and landed a round.</p>
-        <p>Thanks to the prototype, Spinn was accepted into the Highway1
-          incubator in San Francisco.</p>
-        <p><a href="http://spinn.coffee">Find out what Spinn is up to</a></p>
-      </div>
-      <div class="visual caption">
-        <img data-src="http://static.q42.nl/images/jumpstarts/spinn.jpg" alt="">
-        <p>Round and round</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="block-large">
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/jumpstarts/nannii.jpg" alt="Nannii">
-            <p>More than meets the eye</p>
-          </div>
-          <div class="body">
-            <h2>Nannii</h2>
-            <p>Parents need a way to find great babysitters, and great babysitters
-            need a way to be found by parents in their area. So that's an opportunity for an iOS app! </p>
-            <p>But first it needed a prototype for user testing, which is what we spent a week working on.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <img data-src="http://static.q42.nl/images/jumpstarts/paper.jpg" alt="Paper">
-            <p>From jumpstart to daily subscribers.</p>
-          </div>
-          <div class="body">
-            <h2>Paper</h2>
-            <p>How would a digital, lightweight and digestible magazine fit in a
-              time of never-ending feeds and notifications?</p>
-            <p>Together with the Dutch newpaper publisher Persgroep we built a
-              complete showcase product in one week to experience "Paper". The
-              jumpstart greenlit production of the final product that is now
-              read by thousands of subscribers on a daily basis.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <p></p>
-          </div>
-          <div class="body">
-          </div>
-        </div>
-      </div>
-    </section>
+    {{#threeCols ids='nannii,paper'}}{{/threeCols}}
 
   </div>
 </template>

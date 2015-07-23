@@ -1,0 +1,37 @@
+<template name="thing">
+  {{{content}}}
+</template>
+
+<template name="block">
+  <div class="block-{{size}}{{#if align}} {{align}}{{/if}}">
+    {{> Template.contentBlock}}
+  </div>
+</template>
+
+<template name="threeCols">
+  <div class="block-large">
+    {{#each things}}
+      <div class="block-small">
+        {{{content}}}
+      </div>
+    {{/each}}
+  </div>
+</template>
+<!--
+<template name="thing">
+  <div class="block-{{size}} {{align}}">
+    {{#with thing}}
+      <div class="body">
+        <h2>{{title}}</h2>
+        <p>{{{content}}}</p>
+        {{#if link}}<p><a href="{{link.href}}" class="external">{{link.text}}</a></p>{{/if}}
+      </div>
+      {{#with image}}
+      <div class="visual {{#if caption}}caption{{/if}}">
+        <img src="http://static.q42.nl{{src}}" alt="">
+        {{#if caption}}<p>{{caption}}</p>{{/if}}
+      </div>
+      {{/with}}
+    {{/with}}
+  </div>
+</template> -->
