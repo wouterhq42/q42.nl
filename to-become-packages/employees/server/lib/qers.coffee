@@ -47,7 +47,7 @@
   { name: "Rob Lokhorst", handle:"rob" }
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" }
   { name: "Sander de Vos", handle:"sander", phone: "070-4452354" }
-  { name: "Silvy van Houdt", handle:"silvy", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Silvy van Houdt", handle:"silvy" }
   { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/" }
   { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351" }
   { name: "Suzanne Waalberg", handle:"suzanne" }
