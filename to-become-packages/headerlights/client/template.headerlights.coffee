@@ -32,17 +32,19 @@ Template.headerlights.helpers
     else
       "explanation"
 
+getColor2FromHex = (hex) ->
+  num = parseInt(hex, 16)
+  r = num >> 16
+  g = num & 0x0000ff
+  b = (num >> 8) & 0x00ff
+
+  r1 = r * .5
+  g1 = g
+  b1 = b * .3
+
+  String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
+
 Template.backgrounds.helpers
   color: -> Lights.find({}, {sort: {date: 1}})
   col1: -> @hex
-  col2: ->
-    num = parseInt(@hex, 16)
-    r = num >> 16
-    g = num & 0x0000ff
-    b = (num >> 8) & 0x00ff
-
-    r1 = r * .5
-    g1 = g
-    b1 = b * .3
-
-    String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
+  col2: -> getColor2FromHex @hex
