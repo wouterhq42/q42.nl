@@ -1,3 +1,7 @@
+FastRender.onAllRoutes(function() {
+  this.subscribe("lights");
+})
+
 FastRender.route("/", function() {
   this.subscribe("employeeCount");
 });
