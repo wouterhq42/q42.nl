@@ -8,7 +8,7 @@
   { name: "Bram Stege", handle:"bram", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
-  { name: "Corina Maduro", handle:"corina", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Corina Maduro", handle:"corina" }
   { name: "Cynthia Wijntje", handle:"cynthia", phone: "070-4452310" }
   { name: "Elaine Oliver", handle:"elaine" }
   { name: "Frank van den Hoogen", handle:"frank", phone: "070-4452368", web: "http://www.frankvdhoogen.nl" }
