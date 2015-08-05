@@ -1,5 +1,5 @@
 <template name="employeeView">
-  <li class="qer">
+  <li class="qer {{#if showPolaroid}}qer-shown{{/if}}">
     <span class="name">{{firstname}}</span>
     <span class="contactData">
       <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
