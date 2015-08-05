@@ -54,17 +54,14 @@ a
   background white
   transition ease-in-out .2s
 
-.container
-  width 940px
-  margin 0 auto
-
 #not-found
+  width 940px
+  margin 40px auto
   text-align center
   background #d33
   color white
   border solid 20px white
   box-shadow 0 0 4px rgba(0,0,0,.4)
-  margin 40px 0
   padding 80px
   text-transform uppercase
   img
@@ -167,9 +164,8 @@ section h1,
 .block-large h1
   text-align left
 
-section h2,
+.block-small > .body h2,
 .block-large > .body h2
-  font-size 40px
   margin-top 0
 
 .block-readmore
@@ -219,13 +215,7 @@ section h2,
 #loading
   text-align center
   padding 100px 0
-  position fixed
-  top 265px
-  left 0
-  right 0
-  bottom 0
-  z-index 99999
-  background #fff
+  height 1000px
   img
     opacity 0
     width 128px
@@ -244,12 +234,12 @@ section h2,
       position absolute
       z-index 999
       margin 0
-      padding 4px 12px
       width 100%
-      background-color #232323
+      padding 4px 8px
       color #FFF
-      font-size 80%
+      font-size .8rem
       font-weight 500
+      background-color #000
       text-decoration none
       fontSmoothing antialiased
 

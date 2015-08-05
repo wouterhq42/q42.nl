@@ -1,10 +1,16 @@
 @import "0_variables.styl"
 
-body, #loading
-  background #eee
+body
+  background-color #eee
+
+#loading
+  background-color transparent
+  height 1000px
 
 #page
+  //  url(http://static.q42.nl/images/bg-circuits.png)
   background transparent
+  background-size 200px
 
 #header
   nav ul li
@@ -61,13 +67,23 @@ blockquote
   header.block-text
     text-align center
     h1
-      display inline-block
-      background #ffd100
-      padding .2rem .5rem
+      color white
+      font-size 4rem
+      fontSmoothing antialiased
+      font-family cursiveTitleFont
+      margin 0
+      b
+        font-weight 400
+        text-shadow 0 1px 0 rgba(0,0,0,.5), 0 0 10px #ffd100
+    h2
+      font-size 3rem
+
   .block-large
+    position relative
+    width 940px
+    margin 0 auto 16px auto
     background #fff
     padding 0
-    margin 0 0 16px 0
     box-shadow 0 1px 1px rgba(0,0,0,.18)
     border-radius 3px
     &.block-no-padding-after
@@ -85,9 +101,58 @@ blockquote
     &.blog:first-child
       margin-top 64px
 
+    & > .body
+      margin 0
+      padding 32px
+      position absolute
+      z-index 99
+      bottom 0
+      left 1rem
+      background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
+      color white
+      width 40%
+      & + .visual
+        height 100%
+      h2
+        font-size 2rem
+        text-align center
+      h3
+        text-align center
+        color rgba(255,255,255,.7)
+        fontSmoothing antialiased
+      a
+        color white
+        border-color rgba(255,255,255,.7)
+        &:hover
+          border-color white
+
+    &.right > .body
+      right 1rem
+      left inherit
+
+  .tagline
+    font-family "Permanent Marker", titleFont
+    transform rotate(-4deg)
+    display inline-block
+    background-color white
+    padding 0 1rem
+    box-shadow 0 2px 4px rgba(0,0,0,.4)
+    color black
+    text-shadow none
+    margin -2rem 0 1rem 0
+
   .block-full.intro-outro
+    width 940px
+    margin 0 auto
+
     blockquote p
       font-size 2rem !important
+    h2
+      font-family cursiveTitleFont
+    &.invert
+      color white
+      fontSmoothing antialiased
+      text-shadow 0 1px 0 rgba(0,0,0,.4)
 
   .block-small
     margin 0
@@ -97,7 +162,20 @@ blockquote
     & > .body
       padding 32px
       h2
-        padding-top 0
+        font-weight 900
+        background-color #222
+        color white
+        fontSmoothing antialiased
+        padding 12px 0
+        text-align center
+        font-size 1.2rem
+        margin -32px -32px 32px -32px
+        a
+          color white
+          font-weight inherit
+      h3
+        font-size 1.2rem
+        color black
 
   .visual
     position relative
@@ -118,15 +196,8 @@ blockquote
       .hover
         opacity 1
 
-  section h2, .block-large > .body h2
+  section h2
     font-size 1.5rem
-
-  .block-large > .body
-    margin 0
-    padding 32px
-    background aliceblue
-    & + .visual
-      height 100%
 
   aside.subcontent
     padding 32px
@@ -187,26 +258,23 @@ blockquote
 @media (min-width 940px)
 
   .block-large.booklet
-    margin 32px 0
+    margin-top 32px
+    margin-bottom 32px
     background transparent
     perspective 2000px
     transition box-shadow ease .2s
-    &:hover
-      box-shadow 0 0 20px rgba(0,0,0,.2)
+    box-shadow 0 0 20px rgba(0,0,0,.2)
 
     .block-small
-      transition transform ease .2s
       background white
       &:first-child
         transform-origin right
-        &:hover
-          box-shadow -10px 0 20px rgba(0,0,0,.1)
-          transform rotateY(15deg)
+        box-shadow -10px 0 20px rgba(0,0,0,.1)
+        transform rotateY(15deg)
       &:last-child
         transform-origin left
-        &:hover
-          transform rotateY(-15deg)
-          box-shadow 10px 0 20px rgba(0,0,0,.1)
+        transform rotateY(-15deg)
+        box-shadow 10px 0 20px rgba(0,0,0,.1)
 
 
 

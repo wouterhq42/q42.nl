@@ -1,39 +1,10 @@
 Template.headerlights.onCreated ->
-  @toggleLights = new ReactiveVar false
-  @lightsColor = new ReactiveVar Lights.findOne()?.hex or "#8cd600"
-  @supportsInputTypeColor = (->
-    # http://stackoverflow.com/a/8278718/16308
-    i = document.createElement "input"
-    i.setAttribute "type", "color"
-    i.type isnt "text"
-  )()
-
-Template.headerlights.events
-  "click #lights-color": (evt, tmpl) ->
-    if not tmpl.supportsInputTypeColor
-      $(document.body).toggleClass("show-colorpicker")
-
-  "input #lights-color": (evt, tmpl) ->
-    color = $(evt.target).val().replace("#", "")
-    return unless color
-    $.get "http://huelandsspoor.nl/api/lamps/setcolor?color=#{color}", ->
-      $.get("/updateLightbar")
-      $(evt.target)
-        .attr("value", "#" + color)
-        .css("background-color", "#" + color)
-      tmpl.lightsColor.set "#" + color
-
-Template.headerlights.helpers
-  lightsColor: -> Template.instance().lightsColor.get()
-  supportsInputTypeColor: -> Template.instance().supportsInputTypeColor is yes
-  explanation: ->
-    if Session.equals("lang", "en")
-      "en_explanation"
-    else
-      "explanation"
+  @lightsColor = new ReactiveVar "#" + (Lights.findOne()?.hex or "8cd600")
+  @autorun =>
+    setLightingStyle @lightsColor.get(), getColor2FromHex @lightsColor.get()
 
 getColor2FromHex = (hex) ->
-  num = parseInt(hex, 16)
+  num = parseInt(hex.replace("#", ""), 16)
   r = num >> 16
   g = num & 0x0000ff
   b = (num >> 8) & 0x00ff
@@ -43,6 +14,56 @@ getColor2FromHex = (hex) ->
   b1 = b * .3
 
   String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
+
+hex2rgba = (hex, op) ->
+  hex = hex.replace '#',''
+  r = parseInt hex.substring(0,2), 16
+  g = parseInt hex.substring(2,4), 16
+  b = parseInt hex.substring(4,6), 16
+  "rgba(#{r},#{g},#{b},#{op/100})"
+
+setLightingStyle = (col1, col2) ->
+  rgba1 = hex2rgba col1, 30
+  rgba2 = hex2rgba col2, 30
+  selector = ".block-small .body > h2"
+  rule = "background-image: linear-gradient(180deg, #{rgba1}, #{rgba2})"
+  document.styleSheets[0].insertRule(
+    "#{selector} {#{rule}}",
+    document.styleSheets[0].cssRules.length
+  )
+
+  rgba1 = hex2rgba col1, 20
+  rgba2 = hex2rgba col2, 20
+  selector = ".container .block-large > .body"
+  g = "radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26))"
+  rule = "background-image: #{g}, linear-gradient(180deg, #{rgba1}, #{rgba2})"
+  rule += ", linear-gradient(0deg, rgba(0,0,0,0.9), rgba(0,0,0,0.5))"
+  console.log rule
+  document.styleSheets[0].insertRule(
+    "#{selector} {#{rule}}",
+    document.styleSheets[0].cssRules.length
+  )
+
+Template.headerlights.events
+  "click #lights-color": (evt, tmpl) ->
+    if not supportsInputTypeColor()
+      $(document.body).toggleClass("show-colorpicker")
+
+  "input #lights-color": (evt, tmpl) ->
+    color = $(evt.target).val().replace("#", "")
+    return unless color
+    $.get "http://huelandsspoor.nl/api/lamps/setcolor?color=#{color}", ->
+      $.get("/updateLightbar")
+      tmpl.lightsColor.set "#" + color
+
+Template.headerlights.helpers
+  lightsColor: -> Template.instance().lightsColor.get()
+  supportsInputTypeColor: -> supportsInputTypeColor()
+  explanation: ->
+    if Session.equals("lang", "en")
+      "en_explanation"
+    else
+      "explanation"
 
 Template.backgrounds.helpers
   color: -> Lights.find({}, {sort: {date: 1}})

@@ -10,3 +10,5 @@ Meteor.startup ->
   isIE11 = not window.ActiveXObject and `"ActiveXObject" in window`
   unless isFirefox or isIE11
     $("head").append $("<style/>").text(".container > * { opacity: 0 }")
+
+  Meteor.setTimeout (-> $("body").addClass("animations")), 300

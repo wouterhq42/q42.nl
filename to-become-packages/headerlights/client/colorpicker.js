@@ -1,7 +1,7 @@
 
 Template.colorpicker.helpers({
   enable: function() {
-    return !Session.get("supportsInputTypeColor");
+    return supportsInputTypeColor();
   }
 });
 
