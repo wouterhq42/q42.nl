@@ -1,12 +1,11 @@
-const BLOGPOSTS_PER_PAGE = 12;
+var BLOGPOSTS_PER_PAGE = 12;
 var lastTumblrCheck;
 
 var Posts = new Mongo.Collection("Posts");
 var TumblrKey = Meteor.settings.TUMBLR_KEY;
 
 Meteor.methods({
-  checkTumblr: function()
-  {
+  checkTumblr: function() {
     // Only check once every minute
     if (new Date() - lastTumblrCheck < 60*1000)
       return;
@@ -17,9 +16,8 @@ Meteor.methods({
       params: { api_key: TumblrKey, limit: 5 }
     }, function(error, result) {
       var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
-      if (result.statusCode == 200 && count)
-      {
-        console.log("Updating " + count + " from Tumblr.")
+      if (result.statusCode == 200 && count) {
+        console.log("Updating " + count + " from Tumblr.");
         for (var i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
       }
@@ -32,8 +30,7 @@ Meteor.methods({
       }
     });
   },
-  reimportTumblr: function(offset)
-  {
+  reimportTumblr: function(offset) {
     this.unblock();
     if (!offset)
     {
@@ -46,7 +43,7 @@ Meteor.methods({
       var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
       if (result.statusCode == 200 && count)
       {
-        console.log("Importing " + count + " from Tumblr.")
+        console.log("Importing " + count + " from Tumblr.");
         for (var i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
         Meteor.call("reimportTumblr", offset + 20);
@@ -60,8 +57,7 @@ Meteor.methods({
       }
     });
   },
-  addComment: function(blogpostId, text)
-  {
+  addComment: function(blogpostId, text) {
     if (!text)
       return;
 
@@ -95,18 +91,21 @@ Meteor.methods({
   {
     BlogComments.remove(commentSecurityFilter(_id));
   }
-})
+});
 
-function upsertPost(post)
-{
+function upsertPost(post) {
   post.prettyDate = post.date.substr(8, 2) + "-" + post.date.substr(5, 2) + "-" + post.date.substr(0, 4);
-  if (post.body)
-  {
+  
+  var employee = Employees.findOne({tumblr: post.post_author});
+  post.authorName = employee ? employee.name : "Q42";
+
+  if (post.body) {
     var pos = post.body.indexOf("<!-- more -->");
     post.intro = pos > -1 ? post.body.substring(0, pos) : post.body;
   }
   if (post.tags)
-    post.tags = post.tags.map(function(s) { return s.toLowerCase() });
+    post.tags = post.tags.map(function(s) { return s.toLowerCase(); });
+
   if (!Posts.findOne({ id: post.id }))
     Posts.insert(post);
   else
@@ -143,14 +142,14 @@ publishWithObserveChanges("blogpostTitles", function(page, tag) {
       title: 1, slug: 1, id: 1
     }
   });
-})
+});
 
 publishWithObserveChanges("blogpostFull", function (id) {
   return Posts.find({ id: id });
 });
 
 publishWithObserveChanges("LatestComments", function(limit) {
-  return BlogComments.find({}, { sort: { date: -1 }, limit: limit })
+  return BlogComments.find({}, { sort: { date: -1 }, limit: limit });
 });
 
 Meteor.publish("pagesByTag", function (tag) {
@@ -189,5 +188,5 @@ Meteor.publish("blogComments", function (blogpostId) {
   return BlogComments.find({ blogpostId: blogpostId });
 });
 
-if (Posts.find().count() == 0)
+if (Posts.find().count() === 0)
   Meteor.call("reimportTumblr");

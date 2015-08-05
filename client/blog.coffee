@@ -15,6 +15,7 @@ $Template
     prettyDate: ->
       date = @date.replace(" GMT", "").split(" ").join("T") + "Z"
       moment(new Date(date)).format("dddd D MMMM YYYY")
+    authorName: -> @authorName or "Q42"
 
   otherPosts:
     post: ->
