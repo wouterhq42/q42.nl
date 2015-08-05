@@ -1,6 +1,6 @@
 Template.headerlights.onCreated ->
   @toggleLights = new ReactiveVar false
-  @lightsColor = new ReactiveVar Lights.findOne()?.hex or "#8cd600"
+  @lightsColor = new ReactiveVar ("#" + Lights.findOne()?.hex) or "#8cd600"
   @supportsInputTypeColor = (->
     # http://stackoverflow.com/a/8278718/16308
     i = document.createElement "input"
