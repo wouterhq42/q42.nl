@@ -56,7 +56,7 @@
           {{#if description}}
           <!-- reblog -->
             <h1><a href="{{url}}">{{title}}</a></h1>
-            {{> postDate}}
+            {{> en_postDate}}
             {{#if typeIs "link"}}
               <p>{{{description}}}</p>
             {{/if}}
@@ -156,7 +156,7 @@
 </template>
 
 <template name="en_postDate">
-  <p class="post-date">Written on <abbr>{{prettyDate}}</abbr></p>
+  <p class="post-date">Written on <abbr>{{prettyDate}}</abbr> by {{authorName}}</p>
 </template>
 
 <template name="en_tags">
