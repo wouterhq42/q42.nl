@@ -1,9 +1,6 @@
 Template.headerlights.onCreated ->
-  @lightsColor = new ReactiveVar("#" + Lights.find({}, {sort: date: 1})
-    .fetch()[0].hex)
-  @autorun =>
-    newColor = "#" + Lights.find({}, {sort: date: 1}).fetch()[0].hex
-    @lightsColor.set newColor
+  @autorun ->
+    newColor = "#" + Lights.find({}, {sort: date: -1}).fetch()[0].hex
     setLightingStyle newColor, getColor2FromHex newColor
 
 getColor2FromHex = (hex) ->
@@ -11,11 +8,9 @@ getColor2FromHex = (hex) ->
   r = num >> 16
   g = num & 0x0000ff
   b = (num >> 8) & 0x00ff
-
   r1 = r * .5
   g1 = g
   b1 = b * .3
-
   String("000000" + (g1 | (b1 << 8) | (r1 << 16)).toString(16)).slice(-6)
 
 hex2rgba = (hex, op) ->
@@ -47,19 +42,20 @@ setLightingStyle = (col1, col2) ->
   )
 
 Template.headerlights.events
-  "click #lights-color": (evt, tmpl) ->
+  "click #lights-color": (evt) ->
     if not supportsInputTypeColor()
       $(document.body).toggleClass("show-colorpicker")
 
-  "input #lights-color": (evt, tmpl) ->
+  # XXX: the input event sometimes doesn't fire the first time you select
+  # a color in the picker in Chrome.
+  "input #lights-color": (evt) ->
     color = $(evt.target).val().replace("#", "")
     return unless color
     $.get "http://huelandsspoor.nl/api/lamps/setcolor?color=#{color}", ->
       $.get("/updateLightbar")
-      tmpl.lightsColor.set "#" + color
 
 Template.headerlights.helpers
-  lightsColor: -> Template.instance().lightsColor.get()
+  lightsColor: -> "#" + Lights.find({}, {sort: {date: -1}}).fetch()[0].hex
   supportsInputTypeColor: -> supportsInputTypeColor()
   explanation: ->
     if Session.equals("lang", "en")
