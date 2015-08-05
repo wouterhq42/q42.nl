@@ -1,7 +1,10 @@
 Template.headerlights.onCreated ->
-  @lightsColor = new ReactiveVar "#" + (Lights.findOne()?.hex or "8cd600")
+  @lightsColor = new ReactiveVar("#" + Lights.find({}, {sort: date: 1})
+    .fetch()[0].hex)
   @autorun =>
-    setLightingStyle @lightsColor.get(), getColor2FromHex @lightsColor.get()
+    newColor = "#" + Lights.find({}, {sort: date: 1}).fetch()[0].hex
+    @lightsColor.set newColor
+    setLightingStyle newColor, getColor2FromHex newColor
 
 getColor2FromHex = (hex) ->
   num = parseInt(hex.replace("#", ""), 16)
@@ -38,7 +41,6 @@ setLightingStyle = (col1, col2) ->
   g = "radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26))"
   rule = "background-image: #{g}, linear-gradient(180deg, #{rgba1}, #{rgba2})"
   rule += ", linear-gradient(0deg, rgba(0,0,0,0.9), rgba(0,0,0,0.5))"
-  console.log rule
   document.styleSheets[0].insertRule(
     "#{selector} {#{rule}}",
     document.styleSheets[0].cssRules.length
