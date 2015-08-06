@@ -66,14 +66,11 @@ blockquote
 .container
   header.block-text
     text-align center
-    width 940px
     margin 0 auto
     h1
       color white
-      font-size 4rem
       fontSmoothing antialiased
       font-family cursiveTitleFont
-      margin 0
       b
         font-weight 400
         text-shadow 0 1px 0 rgba(0,0,0,.5), 0 0 10px #ffd100
@@ -82,7 +79,6 @@ blockquote
 
   .block-large
     position relative
-    width 940px
     margin 0 auto 16px auto
     background #fff
     padding 0
@@ -106,13 +102,8 @@ blockquote
     & > .body
       margin 0
       padding 32px
-      position absolute
-      z-index 99
-      bottom 0
-      left 1rem
       background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
       color white
-      width 40%
       & + .visual
         height 100%
       h2
@@ -144,7 +135,6 @@ blockquote
     margin -2rem 0 1rem 0
 
   .block-full.intro-outro
-    width 940px
     margin 0 auto
 
     blockquote p
@@ -259,6 +249,17 @@ blockquote
 
 @media (min-width 940px)
 
+  .block-text h1
+    font-size 4rem
+    margin 0
+
+  .block-large > .body
+    position absolute
+    width 40%
+    z-index 99
+    bottom 0
+    left 1rem
+
   .block-large.booklet
     margin-top 32px
     margin-bottom 32px
@@ -286,6 +287,7 @@ blockquote
     flexDirection column
 
   .container
+    margin 0 auto
 
     .block-small
       &:first-child

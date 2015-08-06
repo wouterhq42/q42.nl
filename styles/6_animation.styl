@@ -1,38 +1,36 @@
 @import "0_variables.styl"
 
-@media screen and (min-width 941px)
-  .animations
-    #header
-      animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
-      animationFillMode forwards !important
+#header
+  animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
+  animationFillMode forwards !important
 
-    .q42-logo
-      animationFillMode forwards !important
-      animation fadeInUpward 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)
+.q42-logo
+  animationFillMode forwards !important
+  animation fadeInUpward 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)
 
-    .qer
-      opacity 0
-      animationFillMode forwards !important
-      animation fadeIn .25s ease
+.qer
+  opacity 0
+  animationFillMode forwards !important
+  animation fadeIn .25s ease
 
-      for i in (2..64)
-        &:nth-child({i})
-          animationDelay .02s * i
+  for i in (2..64)
+    &:nth-child({i})
+      animationDelay .02s * i
 
-    .container
-      & > *
-        // doesn't work in Firefox, so is manually added
-        // see startup.coffee#13
-        // opacity 0
-        // Per http://stackoverflow.com/a/26393720/16308,
-        // !important is needed here for some reason for the "forwards"
-        // to stick. Seems to have something to do with flexbox.
-        animationFillMode forwards !important
-        animation scaleUp 0.6s cubic-bezier(.34,.91,.62,1.09)
+.container
+  & > *
+    // doesn't work in Firefox, so is manually added
+    // see startup.coffee#13
+    // opacity 0
+    // Per http://stackoverflow.com/a/26393720/16308,
+    // !important is needed here for some reason for the "forwards"
+    // to stick. Seems to have something to do with flexbox.
+    animationFillMode forwards !important
+    animation scaleUp 0.6s cubic-bezier(.34,.91,.62,1.09)
 
-      for i in (2..10)
-        & > *:nth-child({i})
-          animationDelay 0.2s * i
+  for i in (2..10)
+    & > *:nth-child({i})
+      animationDelay 0.2s * i
 
 @-webkit-keyframes fadeIn
   from
