@@ -27,3 +27,4 @@ meteor-platform
 reactive-dict
 meteorhacks:kadira
 service-configuration
+reactive-var

@@ -8,7 +8,7 @@
   { name: "Bram Stege", handle:"bram", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" }
   { name: "Christiaan Hees", handle:"christiaan" }
-  { name: "Corina Maduro", handle:"corina", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Corina Maduro", handle:"corina" }
   { name: "Cynthia Wijntje", handle:"cynthia" }
   { name: "Elaine Oliver", handle:"elaine" }
   { name: "Frank van den Hoogen", handle:"frank", web: "http://www.frankvdhoogen.nl" }
@@ -22,7 +22,7 @@
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" }
   { name: "Jasper Kaizer", handle:"jasper" }
   { name: "Jeroen Gijsman", handle:"jeroen" }
-  { name: "Jimmy Aupperlee", handle:"jimmy", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Jimmy Aupperlee", handle:"jimmy" }
   { name: "Joel de Nes", handle:"joel", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Johan Huijkman", handle:"johan" }
   { name: "Kamil Afsar", handle:"kamil" }
@@ -39,7 +39,7 @@
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
   { name: "Martin Kool", handle:"martin", web: "http://martinkool.com/" }
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/" }
-  { name: "Meindert Hart", handle: "meindert", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Meindert Hart", handle: "meindert" }
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/" }
   { name: "Rahul Choudhury", handle:"rahul", phone: "+1 (650) 564-7742" }
   { name: "Remco Veldkamp", handle:"remco", web: "http://realstuffforabstractpeople.com/" }
