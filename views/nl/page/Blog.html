@@ -13,7 +13,6 @@
             {{#unless description}}
             <!-- link -->
               <h1><a href="{{url}}">{{title}}</a></h1>
-              {{> postDate}}
             {{/unless}}
           {{/if}}
           {{#if player}}
@@ -24,7 +23,6 @@
               {{/if}}
             {{/each}}
             {{{caption}}}
-            {{> postDate}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
@@ -41,7 +39,6 @@
                 {{{caption}}}
               </div>
             </div>
-            {{> postDate}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
             </p>
@@ -56,7 +53,6 @@
           {{#if description}}
           <!-- reblog -->
             <h1><a href="{{url}}">{{title}}</a></h1>
-            {{> postDate}}
             {{#if typeIs "link"}}
               <p>{{{description}}}</p>
             {{/if}}
@@ -67,7 +63,6 @@
           {{#if intro}}
           <!-- text post -->
             <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
-            {{> postDate}}
             {{{intro}}}
             <p class="block-readmore">
               <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Lees verder</a>
@@ -189,7 +184,7 @@
 </template>
 
 <template name="postDate">
-  <p class="post-date">Geschreven op <abbr>{{prettyDate}}</abbr> door {{authorName}}</p>
+  <p class="post-date">{{authorName}} op <abbr>{{prettyDate}}</abbr></p>
 </template>
 
 <template name="tags">
