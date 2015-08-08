@@ -37,22 +37,45 @@
 #colleagues
   z-index 99
   position relative
+  .intro
+    width inherit
+    margin 0
+    doFlex 13
 
-  .block-full
-    overflow visible
+    .qer
+      margin 0 8px 8px 0
+
+  aside
+    margin-right 0
+    doFlex 5
+
+    #filter-options
+      margin inherit
+      padding inherit
+      a
+        opacity 1
+        background-color rgba(255,255,255,.1)
+        &:hover
+          background-color rgba(255,255,255,.3)
+
+.censored
+  color black
+  background black
+  padding 0 4px
 
 .qers
   margin 0
   padding 0
   displayFlex()
   flexFlow row wrap
+  list-style none
 
-  .qer
+  .qer, img
     width 108px
     height 108px
-    list-style none
+
+  .qer
     position relative
-    margin 0px 9px 9px 0
 
     &.no-results
       width auto
@@ -65,10 +88,9 @@
       font bold 12px bodyFont
       z-index 1
       position absolute
-      bottom 3px
-      left 3px
-      color black
-      padding 0 3px
+      bottom 4px
+      left 4px
+      padding 0 4px
       color white
       text-shadow 0 1px 1px rgba(0,0,0,.5)
       text-transform uppercase
@@ -77,10 +99,6 @@
 
     .contactData
       display none
-
-    img
-      width 108px
-      height 108px
 
     .polaroid
       position absolute
@@ -98,7 +116,7 @@
         height 150px
 
       h3
-        font 16px/1.3em 'Permanent Marker', cursive
+        font 16px/1.3rem 'Permanent Marker', cursive
         margin 0
         text-align center
 
@@ -106,18 +124,17 @@
         display block
         margin 0
         font-size 14px
-
-      .contactData span
-        text-align center
-        display block
+        span
+          text-align center
+          display block
 
       .closePolaroid
         width 30px
         height 30px
         background url('http://static.q42.nl/images/closebox.png') no-repeat
         position absolute
-        top -16px
-        right -16px
+        top -12px
+        right -12px
 
 #facts
   .body
@@ -134,13 +151,10 @@
   #filter-options
     li
       display inline-block
-
-      a
-        font-size smaller
-
-        &:hover
-          text-decoration none
-
-        &.selected
-          text-decoration underline
-          background-color rgba(255,255,255,.3)
+    a
+      font-size smaller
+      &:hover
+        text-decoration none
+      &.selected
+        text-decoration underline
+        background-color rgba(255,255,255,.3)

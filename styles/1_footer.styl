@@ -2,12 +2,33 @@
 
 #footer
   background #222
-  color #eee
+  color rgba(255,255,255,.9)
   fontSmoothing antialiased
   font-size .9rem
+  font-weight 400
 
-  section
+  .fn
+    display none
+
+  @media (max-width 940px)
+    .visual
+      width 100%
+
+  .block-large
     margin 0 auto
+    @media all and (min-width: 941px)
+      width 940px
+    @media all and (max-width: 940px)
+      width 620px
+    @media (max-width: 480px)
+      width 90%
+      min-width 300px
+
+  @media all and (max-width: 620px)
+    .block-small,
+    .block-small .body,
+    .block-small .visual
+      width 460px
 
   a
     color #88c546
@@ -17,7 +38,7 @@
   h2, h3
     smallcaps()
     font-size 18px
-
+    margin-top 0
   h3
     color white
     font-size 12px
@@ -27,24 +48,30 @@
     list-style none
     margin 0
     padding 0
-
   li
     margin 0 0 .3rem 0
 
   .note.kvk
     color rgba(255,255,255,.3)
 
-  .block-large
-    padding 32px 0
-
   .q42-logo
     object, img
       width 50px
       height 70px
 
-  .intro-outro
+  .block-large
+    padding 32px 0
+    border-bottom solid 1px rgba(255,255,255,.3)
+
+  .block-small
+    &:not(:last-child)
+      margin-right 20px
+      border-right none
+    & > .body
+      padding 32px 0
+
+  .block-full
     padding 2rem 0
-    border-top solid 1px rgba(255,255,255,.3)
 
     p
       font-size .8rem

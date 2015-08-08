@@ -1,9 +1,9 @@
 @import "0_variables.styl"
 
 .post-date
-  color #888
+  color rgba(0,0,0,.7)
   margin-top 0
-  font-size 14px
+  font-size .9rem
 
 .socialShare
   width 50%
@@ -25,7 +25,7 @@
       margin-left 4px
 
 .reblog
-  background url('http://static.q42.nl/images/reblog.svg') right 16px no-repeat
+  background url('http://static.q42.nl/images/reblog.svg') 95% 16px no-repeat
   background-size 24px
 
 .blog
@@ -39,21 +39,22 @@
 
   h1
     margin 0
+    font-size 2rem
+    a
+      border-bottom none
 
   .blog-item
-    padding 40px 0
+    padding 32px
+    margin 0 -32px
     border-bottom solid 1px #ccc
     &:first-child
       padding-top 0
     &:last-child
       border-bottom none
 
-    h1
-      font-size 2em
-
   .blog-post
     h2
-      font-size 2em
+      font-size 1.3rm
 
   img
     max-width 95%
@@ -65,40 +66,38 @@
   padding 40px 0
   margin 0 auto
 
-  .commentbox
+  .input
+    displayFlex()
 
-    .input
+    .comment
+      margin-left 4px
+      doFlex 99
       displayFlex()
 
-      .comment
-        margin-left 4px
-        doFlex 99
-        displayFlex()
+      textarea
+        doFlex 1
 
-        textarea
-          doFlex 1
+  .submit
+    margin-left 44px
+    font-size .9rem
 
-    .submit
-      margin-left 44px
-      font-size .9rem
+  button
+    cursor pointer
+    color #000
+    text-shadow 0 1px 1px rgba(255, 255, 255, 0.75)
+    margin 2px 0px
+    padding 4px 1rem
+    border-radius 4px
+    border 1px solid #ccc
+    background-image linear-gradient(to bottom, #ffffff, #e6e6e6)
 
-    button
-      cursor pointer
-      color #000
-      text-shadow 0 1px 1px rgba(255, 255, 255, 0.75)
-      margin 2px 0px
-      padding 4px 1rem
-      border-radius 4px
-      border 1px solid #ccc
-      background-image linear-gradient(to bottom, #ffffff, #e6e6e6)
-
-    button:hover, button[disabled]
+    &:hover, &[disabled]
       background-image linear-gradient(to bottom, #f0f0f0, #e6e6e6)
 
-    button:active, button:focus
+    &:active, &:focus
       background-image linear-gradient(to bottom, #e0e0e0, #d6d6d6)
 
-    button[disabled]
+    &[disabled]
       cursor default
       color #999
 
@@ -185,14 +184,17 @@
       text-overflow ellipsis
 
 #pageNav
-  displayFlex()
-  justifyContent center
   margin 32px 0
+  ul
+    displayFlex()
+    justifyContent center
+    list-style none
+    margin 0
+    padding 0
   a
     color #1D78B4
-    text-shadow none
     border none
-    padding 10px
+    padding 16px
     &:hover
       background #d7d7d7
 

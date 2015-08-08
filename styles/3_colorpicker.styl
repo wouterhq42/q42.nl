@@ -1,20 +1,21 @@
 @import "0_variables.styl"
 
-/* lights color picker */
-#hue {
-  position: absolute;
-  top: 1em; right: 1em;
-  z-index: 6;
-}
-#lights-color {
-  border: none;
-  border-radius: 32px;
-  width: 32px; height: 32px;
-  display: inline-block;
-  vertical-align: middle;
-  cursor: pointer;
-  text-indent: -900px;
-  transition: ease-in-out opacity .3s;
+#hue
+  position absolute
+  top 1rem
+  right 1rem
+  z-index 6
+
+#lights-color
+  border none
+  border-radius 50%
+  width 32px
+  height 32px
+  display inline-block
+  vertical-align middle
+  cursor pointer
+  text-indent -900px
+  transition ease opacity .25s
   padding 0
 
   /* experimental Chrome/Firefox gradient that looks like a color picker */
@@ -22,89 +23,95 @@
     radial-gradient(circle closest-corner at 50% 100%, rgba(255,0,255,1), rgba(255,0,255,0)),
     radial-gradient(circle at 0% 100%, rgba(0,0,255,1), rgba(0,0,255,0) 50%, rgba(0,0,255,0)),
     linear-gradient(135deg, #00ff00, #ffff00, #ff0000)
-}
-#lights-color:hover {
-  opacity: .7;
-}
-#lights-color:active {
-  transform: scale(0.9);
-}
-#lights-color::-webkit-color-swatch-wrapper {
-  display: none;
-}
-#lights-color::-webkit-color-swatch {
-  display: none;
-}
-#lights-explanation {
-  position: absolute;
-  top: .25em;
-  right: 4em;
+
+  &:hover
+    opacity .7
+
+  &:active
+    transform scale(0.9)
+
+  &::-webkit-color-swatch-wrapper
+    display none
+
+  &::-webkit-color-swatch
+    display none
+
+  &:hover + #lights-explanation,
+  &:focus + #lights-explanation
+    opacity 1
+
+#lights-explanation
+  position absolute
+  top .25em
+  right 4em
   font-size 12px
-  color: white;
-  text-shadow: 0 1px rgba(0,0,0,.3);
-  text-align: right;
-  width: 200px;
-  padding: 5px 15px;
-  background: rgba(0,0,0,.4);
-  border-radius: 15px;
-  transition: linear .2s;
-  opacity: 0;
-  pointer-events: none;
-}
-#lights-explanation a { color: white; text-decoration: underline;}
-#lights-color:hover + #lights-explanation, #lights-color:focus + #lights-explanation {
-  opacity: 1;
-}
-#backgrounds {
-  position: absolute;
-  width: 100%; height: 100%;
-  top: 0; left: 0; bottom: 0; right: 0;
-}
-#backgrounds div {
-  position: absolute;
-  width: 100%; height: 800px;
-  top: 0; left: 0;
-  animation: ease-in-out fadeIn 1s;
-  animationFillMode: forwards;
-}
+  color white
+  text-shadow 0 1px rgba(0,0,0,.3)
+  text-align right
+  width 200px
+  padding 5px 15px
+  background rgba(0,0,0,.4)
+  border-radius 15px
+  transition linear .2s
+  opacity 0
+  pointer-events none
 
-#colorpicker {
-  display: none;
-  z-index: 99;
-  position: absolute;
-  left: -185px;
-  background: white;
-  padding: 5px;
-  border: solid 2px #ccc;
-  border-radius: 5px;
-  border-top-right-radius: 2px;
-  box-shadow: 0 4px 4px rgba(0,0,0,.4);
-}
-#colorpicker svg, .show-colorpicker #colorpicker {
-  display: block;
-}
+  a
+    color white
+    text-decoration underline
 
-#colorpicker:after, #colorpicker:before {
-  bottom: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
+#backgrounds
+  position absolute
+  width 100%
+  height 100%
+  top 0
+  left 0
+  bottom 0
+  right 0
 
-#colorpicker:after {
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: #ffffff;
-  border-width: 10px;
-  left: 95%;
-  margin-left: -10px;
-}
-#colorpicker:before {
-  border-color: rgba(204, 204, 204, 0);
-  border-bottom-color: #ccc;
-  border-width: 13px;
-  left: 95%;
-  margin-left: -13px;
-}
+  div
+    position absolute
+    width 100%
+    height 800px
+    top 0
+    left 0
+    animation ease-in-out fadeIn 1s
+    animationFillMode forwards
+
+#colorpicker
+  display none
+  z-index 99
+  position absolute
+  left -185px
+  background white
+  padding 5px
+  border solid 2px #ccc
+  border-radius 5px
+  border-top-right-radius 2px
+  box-shadow 0 4px 4px rgba(0,0,0,.4)
+
+  &:after, &:before
+    bottom 100%
+    border solid transparent
+    content " "
+    height 0
+    width 0
+    position absolute
+    pointer-events none
+
+  &:after
+    border-color rgba(255, 255, 255, 0)
+    border-bottom-color #ffffff
+    border-width 10px
+    left 95%
+    margin-left -10px
+
+  &:before
+    border-color rgba(204, 204, 204, 0)
+    border-bottom-color #ccc
+    border-width 13px
+    left 95%
+    margin-left -13px
+
+#colorpicker svg, .show-colorpicker #colorpicker
+  display block

@@ -2,6 +2,9 @@
 
 
 #header
+  animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
+  animationFillMode forwards !important
+
   nav
     displayFlex()
     flexDirection column
@@ -68,16 +71,19 @@
     &:active
       transform scale(0.9)
 
-// OJOO
-#headergame
-  width 100%
-  height 100%
-  position absolute
-  z-index 1
-  top 0
 
-.q42-logo a
-  position relative
-  z-index 20
-  pointer-events all
-  border-bottom none
+.q42-logo
+  animationFillMode forwards !important
+  animation fadeInUpward 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)
+
+  a
+    display inline-block
+    position relative
+    z-index 20
+    pointer-events all
+    border-bottom none
+
+  object, img
+    width 129px
+    height 180px
+    pointer-events none

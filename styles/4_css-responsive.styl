@@ -1,45 +1,22 @@
 @import "0_variables.styl"
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1024px)
   /* Links always have an underline, because there is no hover state. */
-  a, a:visited, a:hover { text-decoration: underline; }
-}
-
-
-
+  a, a:visited, a:hover
+    text-decoration underline
 
 @media all and (min-width: 941px)
-  #footer section, .blog, .comments, #not-found
+  .blog, .comments, #not-found
     width 940px
   .container
     header.block-text
       width 940px
     .block-large
       width 940px
-    .block-full.intro-outro
+    .block-full
       width 940px
 
-  .readmore:hover
-    background-color #1D78B4
-    color white
-    text-decoration none
-    transition all .2s ease-out
-
-  .visual.caption:hover img, .visual.caption:hover video
-    transform scale(1.02)
-
-  .visual.caption:hover p
-    transform translateY(-25px)
-
-  .visual.caption, .visual.caption p, .visual.caption img, .visual.caption video
-    transition all .2s ease-out
-
-
-
 @media all and (max-width: 940px)
-
-  .container, #footer > section
-    width 620px
 
   .block-large
     flexWrap wrap
@@ -57,19 +34,6 @@
 
 @media all and (max-width: 620px)
 
-  .block-large, .block-full
-    padding 20px 0
-    display block
-
-    &.right .body
-      margin-left 0
-
-  .container,
-  #footer > section,
-  #footer .block-small,
-  #footer .block-small .body,
-  #footer .block-small .visual { width: 460px; }
-
   .block-large .visual,
   .block-large .block-small,
   .block-large .block-small .visual,
@@ -84,9 +48,6 @@
     .visual img
       width 100%
       height auto
-
-  .intro-outro
-    padding 40px 0
 
   .qers
     .qer
@@ -141,10 +102,6 @@
       #page
         transform translateX(150px)
 
-  .container, #footer > section
-    width 90%
-    min-width 300px
-
   #loading
     top 115px
 
@@ -158,9 +115,6 @@
 
   .block-small > ul, #blog-sidebar ul
     padding-left 40px
-
-  .block-text
-    padding 0
 
   body section,
   .block-large .body,

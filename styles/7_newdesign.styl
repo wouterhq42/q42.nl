@@ -1,103 +1,47 @@
 @import "0_variables.styl"
 
-body
-  background-color #eee
-
-#loading
-  background-color transparent
-  height 1000px
-
-#page
-  background transparent
-  background-size 200px
-
-gradient-box()
-  position relative
-  z-index 0
-  background-image -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-image -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-image -ms-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-ms-linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-color rgb(39, 127, 168)
-  color white
-  fontSmoothing antialiased
-  box-shadow 0 2px 2px rgba(0,0,0,.18)
-  text-shadow 0 1px 0 rgba(0,0,0,.3)
-  &:after
-    display block
-    content ""
-    position absolute
-    top 0
-    left 0
-    right 0
-    bottom 0
-    z-index -1
-  // &:only-of-type:after
-  //   background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%)
-  // &:nth-child(2n):after
-  //   background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#7f1475,#FF4475 90%)
-  // &:nth-child(3n):after
-  //   background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#2AC1BD,#65CC4B 90%)
-  // &:nth-child(5n):after
-  //   background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#632AC1,#B791F4 90%)
-
-blockquote
-  margin 0
-
-  &:before
-    content: "“"
-    font-size 3rem
-    font-family serifTitleFont
-    float left
-
-  p
-    font-family serifTitleFont
-    padding 0 2.5rem
-
-  cite
-    font-style normal
-
 .container
-  header.block-text
-    text-align center
-    margin 0 auto
-    h1
-      color white
-      fontSmoothing antialiased
-      font-family cursiveTitleFont
-      b
-        font-weight 400
-        text-shadow 0 1px 0 rgba(0,0,0,.5), 0 0 10px #ffd100
-    h2
-      font-size 3rem
 
   .block-large
     position relative
     margin 0 auto 16px auto
     background #fff
-    padding 0
     box-shadow 0 1px 1px rgba(0,0,0,.18)
-    border-radius 3px
     &.block-no-padding-after
       margin-bottom 0
-      border-bottom-left-radius 0
-      border-bottom-right-radius 0
-      & + .block-large
-        border-top-left-radius 0
-        border-top-right-radius 0
     &.block-no-padding
       padding 0
-      & + .block-large
-        border-top-left-radius 0
-        border-top-right-radius 0
     &.blog:first-child
       margin-top 64px
+
+    @media (max-width 940px)
+      flexDirection column
+      .intro
+        margin-right 0
+        width inherit
+      &.blog
+        flexWrap inherit
+        flexDirection column
+      &.right .body
+        order inherit
+
+    @media (max-width 480px)
+      &.blog:first-child
+        margin-top 32px
 
     & > .body
       margin 0
       padding 32px
       background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
       color white
+
+      @media (min-width 940px)
+        position absolute
+        width 40%
+        z-index 99
+        bottom 0
+        left 1rem
+
       & + .visual
         height 100%
       h2
@@ -117,150 +61,11 @@ blockquote
       right 1rem
       left inherit
 
-  .tagline
-    font-family "Permanent Marker", titleFont
-    transform rotate(-4deg)
-    display inline-block
-    background-color white
-    padding 0 1rem
-    box-shadow 0 2px 4px rgba(0,0,0,.4)
-    color black
-    text-shadow none
-    margin -2rem 0 1rem 0
-
-  .block-full.intro-outro
-    margin 0 auto
-
-    blockquote p
-      font-size 2rem !important
-    h2
-      font-family cursiveTitleFont
-    &.invert
-      color white
-      fontSmoothing antialiased
-      text-shadow 0 1px 0 rgba(0,0,0,.4)
-
-  .block-small
-    margin 0
-    border-right solid 1px rgba(0,0,0,.1)
-    &:nth-child(3)
-      border-right none
-    & > .body
-      padding 32px
-      h2
-        font-weight 900
-        background-color #222
-        color white
-        fontSmoothing antialiased
-        padding 12px 0
-        text-align center
-        font-size 1.2rem
-        margin -32px -32px 32px -32px
-        a
-          color white
-          font-weight inherit
-      h3
-        font-size 1.2rem
-        color black
-
-  .visual
-    position relative
-    width 100%
-    img, video, iframe
-      width 100%
-      vertical-align middle
-    img, video
-      height auto
-    .hover
-      position absolute
-      top 0
-      left 0
-      opacity 0
-      z-index 1
-      transition opacity ease .2s
-    &.swap-hover:hover
-      .hover
-        opacity 1
-
-  section h2
-    font-size 1.5rem
-
-  aside.subcontent
-    padding 32px
-    gradient-box()
-
-    a
-      color white
-      opacity .8
-      border-bottom none
-      &:hover
-        border-bottom solid 1px rgba(255,255,255,.7)
-
-    ul
-      margin 0
-      padding 0 0 0 1rem
-
-    h2
-      margin 1.5rem 0
-      &:first-child
-        margin-top 0
-
-  #colleagues
-    .intro
-      width inherit
-      margin 0
-      doFlex 13
-
-      .qer
-        margin 0 8px 8px 0
-
-    aside
-      margin-right 0
-      doFlex 5
-
-      #filter-options
-        margin inherit
-        padding inherit
-        a
-          opacity 1
-          background-color rgba(255,255,255,.1)
-          &:hover
-            background-color rgba(255,255,255,.3)
-
-  .censored
-    color black
-    background black
-    padding 0 4px
-
-  .censored
-    color black
-    background black
-    padding 0 4px
-
-#footer
-  .fn
-    display none
-
 @media (min-width 940px)
-
-  .block-text h1
-    font-size 4rem
-    margin 0
-
-  .block-large > .body
-    position absolute
-    width 40%
-    z-index 99
-    bottom 0
-    left 1rem
-
-  .block-large.booklet
+  .booklet
     margin-top 32px
     margin-bottom 32px
-    background transparent
     perspective 2000px
-    transition box-shadow ease .2s
-    box-shadow 0 0 20px rgba(0,0,0,.2)
 
     .block-small
       background white
@@ -277,38 +82,20 @@ blockquote
 
 @media (max-width 940px)
 
-  .block-large
-    flexDirection column
-
-  .container
-    margin 0 auto
-
-    .block-small
-      &:first-child
-        margin-right 0
-
-    .block-large
-      .intro
-        margin-right 0
-        width inherit
-
-    .block-large.blog
-      flexWrap inherit
-      flexDirection column
-
-    .blog .blog-posts, .blog .blog-post
+  .block-small
+    &:first-child
       margin-right 0
-      max-width 100%
 
-    .block-large > .block-small:first-child:nth-last-child(2), .block-large > .block-small:first-child:nth-last-child(2) ~ div
-      max-width inherit
+  .blog .blog-posts,
+  .blog .blog-post
+    margin-right 0
+    max-width 100%
 
-    .block-large.right .body
-      order inherit
+  .block-large > .block-small:first-child:nth-last-child(2),
+  .block-large > .block-small:first-child:nth-last-child(2) ~ div
+    max-width inherit
 
-  #footer
-    .visual
-      width 100%
+
 
 
 @media (max-width 620px)
@@ -316,14 +103,8 @@ blockquote
   .block-small
     min-width inherit
 
-  .container aside.subcontent
-    margin-top inherit
-    width inherit
-
 @media (max-width 480px)
 
-  .container .block-large.blog:first-child
-    margin-top 32px
-
-  .block-small > ul, #blog-sidebar ul
+  .block-small > ul,
+  #blog-sidebar ul
     padding-left 0
