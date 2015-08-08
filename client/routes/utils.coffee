@@ -39,7 +39,7 @@
       if $el[0]
         Meteor.setTimeout (-> $el[0].scrollIntoView()), 100
       else
-        Meteor.setTimeout (-> setScrollPosition()), 1000
+        Meteor.setTimeout (-> Utils.setScrollPosition()), 1000
     else
       window.scrollTo 0,0
 
