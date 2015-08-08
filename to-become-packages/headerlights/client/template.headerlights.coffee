@@ -1,6 +1,6 @@
 Template.headerlights.onCreated ->
   @autorun ->
-    newColor = "#" + Lights.find({}, {sort: date: -1}).fetch()[0].hex
+    newColor = "#" + Lights.find({}, {sort: date: -1}).fetch()[0]?.hex
     setLightingStyle newColor, getColor2FromHex newColor
 
 getColor2FromHex = (hex) ->
@@ -55,7 +55,7 @@ Template.headerlights.events
       $.get("/updateLightbar")
 
 Template.headerlights.helpers
-  lightsColor: -> "#" + Lights.find({}, {sort: {date: -1}}).fetch()[0].hex
+  lightsColor: -> "#" + Lights.find({}, {sort: {date: -1}}).fetch()[0]?.hex
   supportsInputTypeColor: -> supportsInputTypeColor()
   explanation: ->
     if Session.equals("lang", "en")
