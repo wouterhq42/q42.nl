@@ -30,21 +30,19 @@ $Template
 
 
 Template.comment.onCreated ->
+  @editing = new ReactiveVar no
+  @numRows = new ReactiveVar 3
   @date = new ReactiveVar(new Date)
   Meteor.setInterval (=> @date.set new Date()), 1000
 
 # only on NL site
 Template.comment.helpers
   service: ->
-    user = Meteor.users.findOne( _id: @userId)
-
+    user = Meteor.users.findOne _id: @userId
     return "" unless user
+    p for p of user.services
 
-    for p of user.services
-      return p
-
-  picture: ->
-    getPictureURL Meteor.users.findOne(_id: @userId)
+  picture: -> getPictureURL Meteor.users.findOne(_id: @userId)
 
   ownsComment: ->
     Meteor.userId() is @userId or Meteor.user() and Meteor.user().isAdmin
@@ -56,33 +54,28 @@ Template.comment.helpers
   textAsHTML: ->
     @text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>")
 
+  editing: -> Template.instance().editing.get()
+
+  numRows: -> Template.instance().numRows.get()
+
 # all of these events relate to comments, so only on NL site
 Template.blogpost.events
   "click #addComment": ->
     comm = $("#comment")[0].value
-    if comm
-      Meteor.call "addComment", Session.get("blogpostid"), comm
+    if comm then Meteor.call "addComment", Session.get("blogpostid"), comm
     $("#comment")[0].value = ""
 
-  "click .edit-comment": (evt) ->
-    $comment = $(evt.target).closest "li"
-    $comment.addClass "edit-mode"
-    $comment.find(".edit-area").attr("rows",
-      @text.replace(/[^\n]/g, '').length + 2)
-    evt.preventDefault()
+Template.comment.events
+  "click .edit-comment": (evt, tmpl) -> tmpl.editing.set yes
 
-  "click .save-comment": (evt) ->
-    $comment = $(evt.target).closest "li"
-    $comment.removeClass "edit-mode"
-    Meteor.call "updateComment", @_id, $comment.find(".edit-area")[0].value
-    evt.preventDefault()
+  "click .save-comment": (evt, tmpl) ->
+    tmpl.editing.set no
+    Meteor.call "updateComment", @_id, tmpl.$(".edit-area")[0].value
 
-  "click .delete-comment": (evt) ->
-    Meteor.call "deleteComment", @_id
-    evt.preventDefault()
+  "click .delete-comment": (evt) -> Meteor.call "deleteComment", @_id
 
-  "keyup textarea": (evt) ->
-    evt.target.rows = evt.target.value.replace(/[^\n]/g, '').length + 2
+  "keyup textarea": (evt, tmpl) ->
+    tmpl.numRows.set evt.target.value.replace(/[^\n]/g, '').length + 2
 
 syntaxHighlight = ->
   a = no
@@ -91,7 +84,6 @@ syntaxHighlight = ->
     if not $parent.hasClass("prettyprint") and $parent.is("pre")
       $parent.addClass("prettyprint")
       a = yes
-
   prettyPrint() if a
 
 Template.blog.onRendered syntaxHighlight
@@ -101,15 +93,11 @@ Template.en_blogpost?.onRendered syntaxHighlight
 
 getPictureURL = (user) ->
   anon = "http://static.q42.nl/images/employees/anonymous.jpg"
-  if not user or not user.services
-    return anon
-  services = user.services
-  if services.twitter
-    return services.twitter.profile_image_url
-  if services.google
-    return services.google.picture
-  if services.facebook
-    return "https://graph.facebook.com/#{services.facebook.id}/picture"
-  if services.github
-    return Gravatar.imageUrl(services.github.email or "")
-  return anon
+  s = user.services
+  switch
+    when not user or not user.services then anon
+    when s.twitter then s.twitter.profile_image_url
+    when s.google then s.google.picture
+    when s.facebook then "https://graph.facebook.com/#{s.facebook.id}/picture"
+    when s.github then Gravatar.imageUrl(s.github.email or "")
+    else anon

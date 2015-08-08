@@ -160,11 +160,11 @@
       <div class="commentbox">
         <div class="input">
           <img src="{{picture}}">
-          <div class="comment">
-            <textarea id="comment" placeholder="Reageer..."></textarea>
+          <div class="add-comment">
+            <textarea placeholder="Reageer..."></textarea>
           </div>
         </div>
-        <div class="submit">
+        <div class="submit-comment">
           {{#if currentUser}}
           <button id="addComment">Reageer</button>
           {{else}}
@@ -246,12 +246,11 @@
 </template>
 
 <template name="comment">
-  <li id="comment{{_id}}">
+  <li>
     <div class="user {{service}}-service">
       <div class="profile">
         <img src="{{picture}}" alt="">
         <div class="name-date">
-          <!-- <span class="login-image" id="login-buttons-image-{{service}}"></span> -->
           <span class="name">{{userName}}</span>
           <span class="meta">{{datediff}} geleden</span>
         </div>
@@ -259,14 +258,21 @@
       {{#if ownsComment}}
       <div class="controls">
         <span class="meta">
-          <a href="#" class="edit-comment">wijzig</a>
-          <a href="#" class="save-comment">opslaan</a>
-          - <a href="#" class="delete-comment">verwijderen</a>
+          {{#unless editing}}
+          <span class="edit-comment">wijzig</span>
+          {{else}}
+          <span class="save-comment">opslaan</span>
+          {{/unless}}
+           - <span class="delete-comment">verwijderen</span>
         </span>
       </div>
       {{/if}}
     </div>
-    <div class="text">{{{textAsHTML}}}</div>
-    {{#if ownsComment}}<textarea class="edit-area">{{text}}</textarea>{{/if}}
+    {{#unless editing}}<div class="text">{{{textAsHTML}}}</div>{{/unless}}
+    {{#if ownsComment}}
+      {{#if editing}}
+        <textarea class="edit-area" rows="{{numRows}}">{{text}}</textarea>
+      {{/if}}
+    {{/if}}
   </li>
 </template>
