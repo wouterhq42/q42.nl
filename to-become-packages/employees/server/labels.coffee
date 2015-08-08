@@ -24,7 +24,7 @@ roles =
     "wouter", "corina", "silvy"
   ]
   "Ex-ex-q'er": "sjoerd laurens suzanne"
-  "Ex-Fabriquer": "sander"
+  "Ex-Fabriquer": "sander bram"
   "Mr. Sarien.net": "martin"
 
 # Arbitrary selections
