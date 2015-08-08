@@ -15,7 +15,9 @@ Meteor.methods({
     Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 5 }
     }, function(error, result) {
-      var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
+      var count = result.data && result.data.response &&
+                  result.data.response.posts &&
+                  result.data.response.posts.length;
       if (result.statusCode == 200 && count) {
         console.log("Updating " + count + " from Tumblr.");
         for (var i = 0; i < count; i++)
@@ -32,15 +34,16 @@ Meteor.methods({
   },
   reimportTumblr: function(offset) {
     this.unblock();
-    if (!offset)
-    {
+    if (!offset) {
       Posts.remove({});
       offset = 0;
     }
     Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 20, offset: offset }
     }, function(error, result) {
-      var count = result.data && result.data.response && result.data.response.posts && result.data.response.posts.length;
+      var count = result.data && result.data.response &&
+                  result.data.response.posts &&
+                  result.data.response.posts.length;
       if (result.statusCode == 200 && count)
       {
         console.log("Importing " + count + " from Tumblr.");
@@ -70,9 +73,11 @@ Meteor.methods({
     });
 
     var token = ChatConfig.findOne().incomingToken;
-    var url = "https://q42.slack.com/services/hooks/incoming-webhook?token=" + token;
+    var url = "https://q42.slack.com/services/" +
+              "hooks/incoming-webhook?token=" + token;
     var blogpostUrl = "http://q42.nl/blog/post/" + blogpostId;
-    var formattedMsg = Meteor.user().profile.name + " comment op het blog (" + blogpostUrl + "):";
+    var formattedMsg = Meteor.user().profile.name +
+                       " comment op het blog (" + blogpostUrl + "):";
 
     HTTP.post(url, {
       params: {
@@ -83,19 +88,18 @@ Meteor.methods({
       }
     });
   },
-  updateComment: function(_id, text)
-  {
+  updateComment: function(_id, text) {
     BlogComments.update(commentSecurityFilter(_id), { $set: { text: text } });
   },
-  deleteComment: function(_id)
-  {
+  deleteComment: function(_id) {
     BlogComments.remove(commentSecurityFilter(_id));
   }
 });
 
 function upsertPost(post) {
-  post.prettyDate = post.date.substr(8, 2) + "-" + post.date.substr(5, 2) + "-" + post.date.substr(0, 4);
-  
+  post.prettyDate = post.date.substr(8, 2) + "-" +
+                    post.date.substr(5, 2) + "-" + post.date.substr(0, 4);
+
   var employee = Employees.findOne({tumblr: post.post_author});
   post.authorName = employee ? employee.name : "Q42";
 
@@ -113,7 +117,8 @@ function upsertPost(post) {
 }
 
 function commentSecurityFilter(_id) {
-  return Meteor.user().isAdmin ? { _id: _id } : { _id: _id, userId: Meteor.userId() };
+  return Meteor.user().isAdmin ?
+    { _id: _id } : { _id: _id, userId: Meteor.userId() };
 }
 
 publishWithObserveChanges("blogpostIndex", function (page, tag) {
@@ -163,11 +168,17 @@ Meteor.publish("pagesByTag", function (tag) {
     added: function () {
       count++;
       if (!initializing)
-        self.changed("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
+        self.changed("PageCounts", uuid, {
+          tag: tag,
+          count: Math.ceil(count / BLOGPOSTS_PER_PAGE)
+        });
     },
     removed: function () {
       count--;
-      self.changed("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
+      self.changed("PageCounts", uuid, {
+        tag: tag,
+        count: Math.ceil(count / BLOGPOSTS_PER_PAGE)
+      });
     }
     // don't care about moved or changed
   });
@@ -175,7 +186,10 @@ Meteor.publish("pagesByTag", function (tag) {
   // Observe only returns after the initial added callbacks have
   // run.  Now mark the subscription as ready.
   initializing = false;
-  self.added("PageCounts", uuid, {tag: tag, count: Math.ceil(count / BLOGPOSTS_PER_PAGE)});
+  self.added("PageCounts", uuid, {
+    tag: tag,
+    count: Math.ceil(count / BLOGPOSTS_PER_PAGE)
+  });
   self.ready();
 
   // stop observing the cursor when client unsubs
