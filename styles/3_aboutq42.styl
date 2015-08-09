@@ -7,6 +7,9 @@
       margin-top 0
   aside
     doFlex 5
+  @media (max-width: 480px)
+    .intro + aside
+      display: none
 
 .qers
   margin 0
@@ -19,12 +22,29 @@
     width 108px
     height 108px
 
+  @media (max-width 620px)
+    img
+      width 60px
+      height 60px
+      position absolute
+      top 0
+      left 0
+
   .qer
     position relative
     margin 0 8px 8px 0
     opacity 0
     animationFillMode forwards !important
     animation fadeIn .25s ease
+
+    @media (max-width: 620px)
+      width 100%
+      height auto
+      padding-left 70px
+      margin-right 0
+
+    @media (max-width 480px)
+      height 70px
 
     for i in (2..64)
       &:nth-child({i})
@@ -38,21 +58,31 @@
       z-index 1
 
     .name
-      position absolute
-      bottom 4px
-      left 4px
-      padding 0 4px
-      font-size 12px
-      font-weight 900
-      line-height 1rem
-      color white
-      text-shadow 0 1px 1px rgba(0,0,0,.5)
-      text-transform uppercase
-      background-color rgba(0,0,0,.3)
-      fontSmoothing antialiased
+      @media (min-width 621px)
+        position absolute
+        bottom 4px
+        left 4px
+        padding 0 4px
+        font-size 12px
+        font-weight 900
+        line-height 1rem
+        fontSmoothing antialiased
+        color white
+        text-shadow 0 1px 1px rgba(0,0,0,.5)
+        text-transform uppercase
+        background-color rgba(0,0,0,.3)
+
+      @media (max-width 620px)
+        font 20px 'Permanent Marker', cursive
+        color #000
 
   .contactData
     display none
+
+    @media (max-width 620px)
+      position relative
+      display block
+      font-size 12px
 
   .polaroid
     position absolute
@@ -64,6 +94,9 @@
     box-shadow 0px 2px 3px rgba(0,0,0,0.3)
     animation fadeIn ease .2s
     animationFillMode forwards
+
+    @media (max-width 620px)
+      display none
 
     img, video
       width 150px
@@ -90,7 +123,7 @@
     top -12px
     right -12px
 
-#facts
+.block-facts
   .body
     text-align center
   .counter

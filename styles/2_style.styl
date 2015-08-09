@@ -5,6 +5,12 @@ body
   margin 0
   background-color #eee
 
+  @media (max-width: 480px)
+    &.show-mobile-menu
+      overflow-x hidden
+      #page
+        transform translateX(150px)
+
 p, ol, ul
   line-height 1.5em
   margin 1.5rem 0
@@ -37,8 +43,8 @@ blockquote
     font-family serifTitleFont
     padding 0 2.5rem
 
-  cite
-    font-style normal
+cite
+  font-style normal
 
 a
   color #000
@@ -50,6 +56,7 @@ a
     border-bottom-color #419aff
 
 #page
+  transition transform .2s ease
   box-shadow -2px 0 20px rgba(0,0,0,.2)
 
 #not-found
@@ -61,6 +68,13 @@ a
   box-shadow 0 0 4px rgba(0,0,0,.4)
   padding 80px
   text-transform uppercase
+
+  @media (max-width 480px)
+    padding 32px
+    a
+      border none
+      padding 0
+
   img
     width 100%
   p
@@ -78,6 +92,7 @@ a
   text-align center
   padding 100px 0
   height 1000px
+
   img
     opacity 0
     width 128px
@@ -121,6 +136,9 @@ header
     b
       font-weight 400
       text-shadow 0 1px 0 rgba(0,0,0,.5), 0 0 10px #ffd100
+
+    @media (max-width 480px)
+      font-size 3rem
   h2
     font-size 3rem
 

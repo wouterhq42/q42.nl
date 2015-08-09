@@ -1,144 +1,21 @@
 @import "0_variables.styl"
 
-@media all and (max-width: 1024px)
-  /* Links always have an underline, because there is no hover state. */
-  a, a:visited, a:hover
-    text-decoration underline
-
-@media all and (min-width: 941px)
-  .blog, .comments, #not-found
+@media (min-width: 941px)
+  .blog,
+  .comments,
+  #not-found,
+  header.block-text,
+  .block-large,
+  .block-full
     width 940px
-  .container
-    header.block-text
-      width 940px
-    .block-large
-      width 940px
-    .block-full
-      width 940px
 
-@media all and (max-width: 940px)
+@media (max-width: 620px)
 
-  .block-large
-    flexWrap wrap
-    .intro
-      margin-bottom 20px
-
-  .block-small
-    min-width 300px
-    &:nth-of-type(2)
-      margin-right 0
-
-
-
-
-
-@media all and (max-width: 620px)
-
-  .block-large .visual,
-  .block-large .block-small,
-  .block-large .block-small .visual,
-  .block-large .intro,
+  .visual iframe,
+  .blog-item iframe
     width 100%
-    max-width 100% !important
 
-  .block-small
-    margin-right 0
-    &:not(:first-child)
-      margin-top 20px
-    .visual img
-      width 100%
-      height auto
-
-  .qers
-    .qer
-      width 100%
-      height auto
-      padding-left 70px
-      margin-right 0
-
-      img
-        width 60px
-        height 60px
-        position absolute
-        top 0
-        left 0
-
-      .polaroid
-        display none
-
-      .name
-        color #000
-        text-shadow none
-        top 0
-        left 0
-        background none
-        font 20px 'Permanent Marker', cursive
-        position relative
-
-      .contactData
-        position relative
-        display block
-        font-size 12px
-
-  .visual iframe, .blog-item iframe { width: 100%; }
-
-  .fb_iframe_widget, .fb_iframe_widget > span, .fb-comments iframe
+  .fb_iframe_widget,
+  .fb_iframe_widget > span,
+  .fb-comments iframe
     width 100% !important
-
-
-
-
-
-
-@media (max-width: 480px)
-
-  html, body
-    font-size 14px
-
-  body
-    background #eee
-    &.show-mobile-menu
-      overflow-x hidden
-      #page
-        transform translateX(150px)
-
-  #loading
-    top 115px
-
-  #not-found
-    padding 32px
-    a
-      border none
-      padding 0
-
-  .q42-logo img, .q42-logo object { height: 80px;}
-
-  .block-small > ul, #blog-sidebar ul
-    padding-left 40px
-
-  body section,
-  .block-large .body,
-  .block-large .visual,
-  .block-large .block-small,
-  .block-large .block-small .body,
-  .block-large .intro,
-  .block-large .block-small .visual
-    width auto
-    margin-right 0
-
-  .blog .blog-posts, .blog .blog-post
-    margin-right 0
-
-  .blog .blog-item
-    padding 20px 0
-    h1
-      font-size 1.5em
-    img, iframe
-      max-width 100%
-  .blog-post h1
-    font-size 2em
-
-  #colleagues .intro + aside { display: none; }
-
-  .qer
-    height 70px
