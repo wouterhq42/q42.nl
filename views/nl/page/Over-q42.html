@@ -156,31 +156,29 @@
       </div>
     </section>
 
-    <section id="facts">
-      <div class="block-large">
-        <div class="block-small">
-          <div class="body">
-            <p>Q42 is méér dan de som van</p>
-            {{> numQers}}
-            <p>Q'ers.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="body">
-            <p>Vandaag hebben wij al</p>
-            {{> koppenKoffie}}
-            <p>koppen koffie op.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="body">
-            <p>En</p>
-            {{> regelsCode}}
-            <p>regels code geschreven.</p>
-          </div>
+    <div class="block-large block-facts">
+      <div class="block-small">
+        <div class="body">
+          <p>Q42 is méér dan de som van</p>
+          {{> numQers}}
+          <p>Q'ers.</p>
         </div>
       </div>
-    </section>
+      <div class="block-small">
+        <div class="body">
+          <p>Vandaag hebben wij al</p>
+          {{> numCupsOfCoffee}}
+          <p>koppen koffie op.</p>
+        </div>
+      </div>
+      <div class="block-small">
+        <div class="body">
+          <p>En</p>
+          {{> numLinesOfCode}}
+          <p>regels code geschreven.</p>
+        </div>
+      </div>
+    </div>
 
     <section>
       <div class="block-large">
@@ -274,18 +272,6 @@
     </section>
 
   </div>
-</template>
-
-<template name="regelsCode">
-  <p id="regels-code" class="counter">{{regelsCode}}</p>
-</template>
-
-<template name="numQers">
-  <p class="counter">{{numQers}}</p>
-</template>
-
-<template name="koppenKoffie">
-  <p id="koppen-koffie" class="counter">{{koppenKoffie}}</p>
 </template>
 
 <template name="employees">
