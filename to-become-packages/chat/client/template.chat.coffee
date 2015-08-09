@@ -6,7 +6,8 @@ Meteor.startup ->
 $Template
   chat:
     message: -> ChatMessages.find({}, {sort: date: 1})
-    user: -> Meteor.users.findOne(@userId)?.profile?.name or @username or "Unknown"
+    user: ->
+      Meteor.users.findOne(@userId)?.profile?.name or @username or "Unknown"
 
 ChatMessages.after.insert ->
   $("#chat .flex-stretch").scrollTop(99999)
@@ -19,22 +20,26 @@ sendChatMessage = ->
 
   return unless msg
 
-  ChatMessages.insert userId: Meteor.userId(), msg: msg, date: new Date(), path: window.location.href
+  ChatMessages.insert
+    userId: Meteor.userId(),
+    msg: msg,
+    date: new Date(),
+    path: window.location.href
 
   $input.val("")
-  $input.focus()
+  $input.focus
 
-events =
+$Events "header",
+  "click #chat-toggle": (evt) ->
+    Session.set "openChat", not Session.get("openChat")
+
+$Events "chat",
   "click .close": (evt) ->
     evt.preventDefault()
     Session.set("openChat", no)
   "click button": -> sendChatMessage()
   "keyup input": (evt) -> if evt.which is 13 then sendChatMessage()
-Template.chat.events events
-Template.en_chat?.events events
 
-chatRendered = ->
+$OnRendered "chat", ->
   $input = $(Template.instance().find("input"))
   $input.focus()
-Template.en_chat?.onRendered chatRendered
-Template.chat.onRendered chatRendered
