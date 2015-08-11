@@ -1,6 +1,10 @@
 @import "0_variables.styl"
 
 #colleagues
+  // make sure mouseovers don't get stuck
+  // underneath following section
+  position relative
+  z-index 99
   .intro
     doFlex 13
     h2
