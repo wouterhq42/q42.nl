@@ -43,6 +43,7 @@ setLightingStyle = (col1, col2) ->
 
 Template.headerlights.events
   "click #lights-color": (evt) ->
+    Session.set("backgroundsVisible", yes)
     if not supportsInputTypeColor()
       $(document.body).toggleClass("show-colorpicker")
 

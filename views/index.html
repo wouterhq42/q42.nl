@@ -56,8 +56,9 @@
 <template name="main">
   <div id="fb-root"></div>
 
-  <div id="page">
+  <div id="page" class="{{visible}}">
     {{> backgrounds}}
+    {{> micrio}}
 
     <div id="header">
       {{> Template.dynamic template=header}}

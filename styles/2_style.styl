@@ -59,6 +59,17 @@ a
   transition transform .2s ease
   box-shadow -2px 0 20px rgba(0,0,0,.2)
 
+  &.visible-backgrounds
+    #backgrounds
+      opacity 1
+    #micrio
+      opacity 0
+  &.visible-micrio
+    #micrio
+      opacity 1
+    #backgrounds
+      opacity 0
+
 #not-found
   margin 40px auto
   text-align center
