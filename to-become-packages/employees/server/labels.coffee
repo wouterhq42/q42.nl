@@ -15,7 +15,7 @@ roles =
   "Interaction Engineer": "rahul elaine johan roelfjan frank guido richard"
   "Q'er": allHandles
   "Oprichter": "kars"
-  "Student": "herman tomas jimmy"
+  "Student": "herman tomas jimmy tobias sanderp"
   "Ex-stagiair": "jeroen lukas chris bob katja timl tims kamil"
   "Ex-klant": "gerard stef taco"
   "Ex-concullega": [
@@ -63,7 +63,7 @@ arbitrary =
   "Kan stiekem best programmeren": "chris"
   "Namespace collision": [
     "jaap", "jaapm", "jasper", "jasperh", "mark", "markj", "timl", "tims",
-    "timd", "leonard", "gerard"
+    "timd", "leonard", "gerard", "sander", "sanderp"
   ]
   "Emigrant": "rahul"
   "Gewerkt met de Two Guys": "martin rahul richard"
