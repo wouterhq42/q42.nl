@@ -1,28 +1,16 @@
-Array.prototype.shuffle = function() {
-  var i = this.length, j, temp;
-  if ( i == 0 ) return this;
-  while ( --i ) {
-     j = Math.floor( Math.random() * ( i + 1 ) );
-     temp = this[i];
-     this[i] = this[j];
-     this[j] = temp;
-  }
-  return this;
-}
-
-function Screensaver(container,images,speed) {
+function Screensaver(container, images, speed) {
 	this.images = images;
 	this.container = container;
 	this.instances = new Array(images.length);
 	this.currentIndex = -1;
 	this.speed = speed || 30000;
-};
+}
 
 Screensaver.prototype = {
 	goto: function(index) {
 		index = index % this.images.length;
 
-		if(this.currentIndex == index) return;
+		if (this.currentIndex === index) return;
 
 		var previous = this.instances[this.currentIndex];
 		var current = null;
@@ -33,31 +21,34 @@ Screensaver.prototype = {
 				id: this.images[index].id,
 				width: this.images[index].width,
 				height: this.images[index].height,
-				path: 'http://az736305.vo.msecnd.net/public/',
+				path: "http://az736305.vo.msecnd.net/public/",
 				container: this.container,
 				autoInit: false,
 				hookEvents: false,
-				initType: 'cover'
-			}))).show().then(function(e){
+				initType: "cover"
+			}))).show().then(function(){
 				if(previous) {
-					previous.el.classList.remove('shown');
-					setTimeout(previous.hide.bind(previous),3000);
+					previous.el.classList.remove("shown");
+					setTimeout(previous.hide.bind(previous), 3000);
 				}
 				current.camera.reset();
-				current.el.classList.add('shown');
-				current.camera.easeTo(.4+Math.random()*.2,.4+Math.random()*.2,1,that.speed);
+				current.el.classList.add("shown");
+				current.camera.easeTo(
+          0.4 + Math.random() * 0.2,
+          0.4 + Math.random() * 0.2,
+          1, that.speed);
 				setTimeout(function(){
 					that.next();
-				},that.speed-5000);
+				}, that.speed - 5000);
 			});
 	},
 
 	next: function(){
-		this.goto(this.currentIndex+1);
+		this.goto(this.currentIndex + 1);
 	},
 
 	prev: function(){
-		this.goto(this.currentIndex-1);
+		this.goto(this.currentIndex - 1);
 	}
 
 };
