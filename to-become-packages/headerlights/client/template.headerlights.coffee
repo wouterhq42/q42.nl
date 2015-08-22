@@ -21,25 +21,27 @@ hex2rgba = (hex, op) ->
   "rgba(#{r},#{g},#{b},#{op/100})"
 
 setLightingStyle = (col1, col2) ->
+  addCss = (sel, rule) ->
+    stylesheet = document.styleSheets[0]
+    stylesheet.insertRule "#{sel} {#{rule}}", stylesheet.cssRules.length
+
+  # set small block headers
   rgba1 = hex2rgba col1, 30
   rgba2 = hex2rgba col2, 30
-  selector = ".block-small .body > h2"
   rule = "background-image: linear-gradient(180deg, #{rgba1}, #{rgba2})"
-  document.styleSheets[0].insertRule(
-    "#{selector} {#{rule}}",
-    document.styleSheets[0].cssRules.length
-  )
+  addCss ".block-small .body > h2", rule
 
+  # set large block body backgrounds
   rgba1 = hex2rgba col1, 20
   rgba2 = hex2rgba col2, 20
-  selector = ".container .block-large > .body"
   g = "radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26))"
   rule = "background-image: #{g}, linear-gradient(180deg, #{rgba1}, #{rgba2})"
   rule += ", linear-gradient(0deg, rgba(0,0,0,0.9), rgba(0,0,0,0.5))"
-  document.styleSheets[0].insertRule(
-    "#{selector} {#{rule}}",
-    document.styleSheets[0].cssRules.length
-  )
+  addCss ".container .block-large > .body", rule
+
+  # set page background colour
+  rgba1 = hex2rgba col1, 5
+  addCss "body", "background-color: #{rgba1}"
 
 Template.headerlights.events
   "click #lights-color": (evt) ->
