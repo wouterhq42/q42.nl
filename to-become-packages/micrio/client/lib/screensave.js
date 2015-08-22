@@ -16,31 +16,30 @@ Screensaver.prototype = {
 		var current = null;
 		var that = this;
 		this.currentIndex = index;
-		(current = this.instances[index]
-			|| (this.instances[index] = new Micrio({
-				id: this.images[index].id,
-				width: this.images[index].width,
-				height: this.images[index].height,
-				path: "http://az736305.vo.msecnd.net/public/",
-				container: this.container,
-				autoInit: false,
-				hookEvents: false,
-				initType: "cover"
-			}))).show().then(function(){
-				if(previous) {
-					previous.el.classList.remove("shown");
-					setTimeout(previous.hide.bind(previous), 3000);
-				}
-				current.camera.reset();
-				current.el.classList.add("shown");
-				current.camera.easeTo(
-          0.4 + Math.random() * 0.2,
-          0.4 + Math.random() * 0.2,
-          1, that.speed);
-				setTimeout(function(){
-					that.next();
-				}, that.speed - 5000);
-			});
+		(current = this.instances[index] || (this.instances[index] = new Micrio({
+			id: this.images[index].id,
+			width: this.images[index].width,
+			height: this.images[index].height,
+			path: "http://az736305.vo.msecnd.net/public/",
+			container: this.container,
+			autoInit: false,
+			hookEvents: false,
+			initType: "cover"
+		}))).show().then(function(){
+			if(previous) {
+				previous.el.classList.remove("shown");
+				setTimeout(previous.hide.bind(previous), 3000);
+			}
+			current.camera.reset();
+			current.el.classList.add("shown");
+			current.camera.easeTo(
+				0.4 + Math.random() * 0.2,
+				0.4 + Math.random() * 0.2,
+				1, that.speed);
+			setTimeout(function(){
+				that.next();
+			}, that.speed - 5000);
+		});
 	},
 
 	next: function(){
