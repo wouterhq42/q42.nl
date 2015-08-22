@@ -7,7 +7,7 @@ Template.micrio.helpers
   hidden: -> if Session.equals("backgroundsVisible", yes) then "hidden" else ""
 
 Template.micrio.onRendered ->
-  header = new Screensaver document.getElementById('micrio'), [
+  header = new Screensaver document.getElementById('micrio'), _.shuffle [
     # { id: 'df41b47e-4857-445c-8bde-055b19fe886f', width: 4168, height: 2761 }
     # qlego
     { id: 'a7ba548d-f581-4850-9138-e866a4402bc6', width: 4288, height: 2848 }
