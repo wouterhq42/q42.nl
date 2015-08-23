@@ -59,5 +59,5 @@
   { name: "Tim van Steenis", handle:"tims", web:"http://www.vansteenis-photography.nl/" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
   { name: "Tomas Harkema", handle:"tomas" }
-  { name: "Wouter van Drunen", handle: "wouter", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Wouter van Drunen", handle: "wouter" }
 ]
