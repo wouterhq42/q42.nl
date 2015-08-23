@@ -3,6 +3,8 @@
 #header
   animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
   animationFillMode forwards !important
+  position relative
+  z-index 99
 
   nav
     displayFlex()
@@ -53,6 +55,27 @@
         &:active
           background -webkit-linear-gradient(top, #ccc, #eee)
           color #555
+
+#buttons
+  position absolute
+  top 1rem
+  right 1rem
+  z-index 9
+
+  .button
+    width 32px
+    height 32px
+    overflow hidden
+    border-radius 50%
+    vertical-align middle
+    cursor pointer
+    background-color white
+    transition ease opacity .25s
+    margin-bottom .5rem
+    &:hover
+      opacity .7
+    &:active
+      transform scale(0.9)
 
 #mobile-menu-icon
   display none

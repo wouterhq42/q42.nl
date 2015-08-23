@@ -1,21 +1,8 @@
 @import "0_variables.styl"
 
-#hue
-  position absolute
-  top 1rem
-  right 1rem
-  z-index 6
-
 #lights-color
   border none
-  border-radius 50%
-  width 32px
-  height 32px
-  display inline-block
-  vertical-align middle
-  cursor pointer
   text-indent -900px
-  transition ease opacity .25s
   padding 0
 
   /* experimental Chrome/Firefox gradient that looks like a color picker */
@@ -23,12 +10,6 @@
     radial-gradient(circle closest-corner at 50% 100%, rgba(255,0,255,1), rgba(255,0,255,0)),
     radial-gradient(circle at 0% 100%, rgba(0,0,255,1), rgba(0,0,255,0) 50%, rgba(0,0,255,0)),
     linear-gradient(135deg, #00ff00, #ffff00, #ff0000)
-
-  &:hover
-    opacity .7
-
-  &:active
-    transform scale(0.9)
 
   &::-webkit-color-swatch-wrapper
     display none

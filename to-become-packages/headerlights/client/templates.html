@@ -9,9 +9,9 @@
 <template name="headerlights">
   <div id="hue">
     {{#if supportsInputTypeColor}}
-      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}" class="button">
     {{else}}
-      <div id="lights-color"></div>
+      <div id="lights-color" class="button"></div>
     {{/if}}
     <div id="lights-explanation">{{> Template.dynamic template=explanation}}</div>
     {{> colorpicker}}
