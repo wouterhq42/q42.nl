@@ -23,7 +23,10 @@ hex2rgba = (hex, op) ->
 setLightingStyle = (col1, col2) ->
   addCss = (sel, rule) ->
     stylesheet = document.styleSheets[document.styleSheets.length-1]
-    stylesheet.insertRule "#{sel} {#{rule}}", stylesheet.cssRules.length
+    # use a try/catch here to ignore errors trying
+    # to insert eg. -moz- rules into chrome
+    try
+      stylesheet.insertRule "#{sel} {#{rule}}", stylesheet.cssRules.length
 
   # set small block headers
   rgba1 = hex2rgba col1, 30
