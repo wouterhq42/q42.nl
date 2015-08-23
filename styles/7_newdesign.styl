@@ -2,6 +2,11 @@
 
 .container
 
+  // we need to apply position: relative or the elements
+  // will be hidden beneath the backgrounds in firefox
+  .block-text
+    position relative
+
   .block-large
     position relative
     margin 0 auto 16px auto
@@ -70,11 +75,11 @@
     .block-small
       background white
       &:first-child
-        transform-origin right
+        transformOrigin right
         box-shadow -10px 0 20px rgba(0,0,0,.1)
         transform rotateY(15deg)
       &:last-child
-        transform-origin left
+        transformOrigin left
         transform rotateY(-15deg)
         box-shadow 10px 0 20px rgba(0,0,0,.1)
 
