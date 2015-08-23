@@ -22,7 +22,7 @@ hex2rgba = (hex, op) ->
 
 setLightingStyle = (col1, col2) ->
   addCss = (sel, rule) ->
-    stylesheet = document.styleSheets[0]
+    stylesheet = document.styleSheets[document.styleSheets.length-1]
     stylesheet.insertRule "#{sel} {#{rule}}", stylesheet.cssRules.length
 
   # set small block headers
