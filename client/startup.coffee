@@ -5,7 +5,7 @@ Meteor.startup ->
 
   $.ajaxSetup cache: yes
 
-  # see 6_animation.styl#29
+  # see 6_animation.styl#4
   isFirefox = /Firefox/.test(navigator.userAgent)
   isIE11 = not window.ActiveXObject and `"ActiveXObject" in window`
   unless isFirefox or isIE11
