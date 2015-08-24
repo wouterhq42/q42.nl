@@ -16,7 +16,6 @@ coffeescript
 ongoworks:spiderable
 dfischer:phantomjs
 iron:router
-meteorhacks:subs-manager
 meteorhacks:fast-render
 jparker:gravatar
 jparker:crypto-md5
