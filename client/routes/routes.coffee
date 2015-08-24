@@ -7,7 +7,7 @@ Router.onRun ->
   @next()
 
 Router.onBeforeAction ->
-  SubsManager.subscribe "allUserData"
+  Meteor.subscribe "allUserData"
   @next()
 
 Router.onAfterAction ->
@@ -48,7 +48,7 @@ Router.map ->
       [
         Meteor.subscribe "blogpostIndex", 1
         Meteor.subscribe "pagesByTag", ""
-        SubsManager.subscribe "LatestComments", 10
+        Meteor.subscribe "LatestComments", 10
       ]
     data: ->
       posts = blogpostIndex.find {}, sort: date: -1
@@ -70,8 +70,8 @@ Router.map ->
     waitOn: ->
       [
         Meteor.subscribe "blogpostIndex", @params.pageNum * 1
-        SubsManager.subscribe "pagesByTag", ""
-        SubsManager.subscribe "LatestComments", 10
+        Meteor.subscribe "pagesByTag", ""
+        Meteor.subscribe "LatestComments", 10
       ]
     data: ->
       posts = blogpostIndex.find {}, sort: date: -1
@@ -93,8 +93,8 @@ Router.map ->
     waitOn: ->
       [
         Meteor.subscribe "pagesByTag", @params.tag or ""
-        SubsManager.subscribe "blogpostIndex", 1, @params.tag
-        SubsManager.subscribe "LatestComments", 10
+        Meteor.subscribe "blogpostIndex", 1, @params.tag
+        Meteor.subscribe "LatestComments", 10
       ]
     data: ->
       posts = blogpostIndex.find {}, sort: date: -1
@@ -122,7 +122,7 @@ Router.map ->
       Meteor.subscribe "blogpostFull", @params.id * 1
       Meteor.subscribe "blogComments", @params.id * 1
       Meteor.subscribe "blogpostIndex", 1
-      SubsManager.subscribe "LatestComments", 10
+      Meteor.subscribe "LatestComments", 10
     ]
     data: ->
       return null unless blogpostFull.findOne()
@@ -146,9 +146,9 @@ Router.map ->
     waitOn: ->
       if @params.page in ["over-q42", "about-q42"]
         [
-          SubsManager.subscribe("employees")
-          SubsManager.subscribe("coffeeCounter")
-          SubsManager.subscribe("toilets")
+          Meteor.subscribe("employees")
+          Meteor.subscribe("coffeeCounter")
+          Meteor.subscribe("toilets")
         ]
       else
         []

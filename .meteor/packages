@@ -18,7 +18,6 @@ dfischer:phantomjs
 iron:router
 meteorhacks:subs-manager
 meteorhacks:fast-render
-momentjs:moment
 jparker:gravatar
 jparker:crypto-md5
 jparker:crypto-core

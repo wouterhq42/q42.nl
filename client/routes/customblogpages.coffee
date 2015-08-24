@@ -16,7 +16,7 @@
         else
           @render "loading"
       onAfterAction: -> Meteor.call "checkTumblr"
-      waitOn: -> [SubsManager.subscribe "blogpostIndex", 1, obj.tags[0]]
+      waitOn: -> [Meteor.subscribe "blogpostIndex", 1, obj.tags[0]]
       data: ->
         posts = blogpostIndex.find {}, sort: date: -1
         return null unless posts.count() > 0

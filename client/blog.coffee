@@ -13,8 +13,8 @@ $Template
 
   postDate:
     prettyDate: ->
-      date = @date.replace(" GMT", "").split(" ").join("T") + "Z"
-      moment(new Date(date)).format("dddd D MMMM YYYY")
+      date = new Date(@date.replace(" GMT", "").split(" ").join("T") + "Z")
+      "#{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()}"
     authorName: -> @authorName or "Q42"
 
   otherPosts:
@@ -48,8 +48,8 @@ Template.comment.helpers
     Meteor.userId() is @userId or Meteor.user() and Meteor.user().isAdmin
 
   datediff: ->
-    diff = moment(Template.instance().date.get()).diff(@date)
-    moment.duration(diff).humanize()
+    date = new Date @date
+    "#{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()}"
 
   textAsHTML: ->
     @text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>")

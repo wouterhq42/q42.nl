@@ -1,7 +1,6 @@
 Meteor.startup ->
   lang = if window.location.hostname is "q42.com" then "en" else "nl"
   Session.setDefault "lang", lang
-  moment.locale lang
 
   $.ajaxSetup cache: yes
 
