@@ -28,6 +28,10 @@ $Template
     comment: ->
       LatestComments.find {}, sort: date: -1
 
+Template.blogposts.helpers
+  readmore: ->
+    if Session.equals("lang", "en") then "Read more" else "Lees verder"
+
 
 Template.comment.onCreated ->
   @editing = new ReactiveVar no
