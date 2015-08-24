@@ -3,12 +3,13 @@
   position absolute
   height 100vh
   width 100%
-  background #333
-  // opacity .5
+  opacity .5
   overflow hidden
   top 0
   left 0
   transition opacity .2s ease
+  background transparent none center center no-repeat
+  background-size cover
 
   &.hidden
     opacity 0
@@ -17,10 +18,13 @@
     position absolute
     top 0
     left 0
-    transition opacity 4s ease-in-out
+    transition opacity .2s ease-in-out
     opacity 0
     &.shown
-      opacity .5
+      opacity 1
+
+  &.loaded > .micrio
+    transition-duration 4s
 
 #micrio-button
   background url(http://static.q42.nl/images/micrio.png) no-repeat
