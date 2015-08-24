@@ -21,6 +21,8 @@ Template.micrio.onRendered ->
     { id: '43c17e4b-be7c-4edd-b224-e4cfc33e1a6d', width: 2000, height: 1325 }
     # sketch
     { id: '1c9a85c2-6cab-4a30-ac35-f75ab03d4b5f', width: 4288, height: 2848 }
+    # beach q'ers
+    { id: 'f3d62c26-d934-48ca-9c24-a7f28e544e96', width: 3224, height: 2327 }
     # android
     # { id: '1b94ecd4-ed96-4aa1-a975-ac3d60d538fc', width: 4288, height: 2848 }
     # qers-quitje
