@@ -47,6 +47,7 @@
   { name: "Rob Lokhorst", handle:"rob" }
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" }
   { name: "Sander de Vos", handle:"sander" }
+  { name: "Sander Ploegsma", handle:"sanderp", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Silvy van Houdt", handle:"silvy" }
   { name: "Sjoerd Visscher", handle:"sjoerd", web: "http://w3future.com/" }
   { name: "Stef Brooijmans", handle:"stef", phone: "070-4452351" }
@@ -57,6 +58,7 @@
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" }
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" }
   { name: "Tim van Steenis", handle:"tims", web:"http://www.vansteenis-photography.nl/" }
+  { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
   { name: "Tomas Harkema", handle:"tomas" }
   { name: "Wouter van Drunen", handle: "wouter", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
