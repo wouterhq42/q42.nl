@@ -42,10 +42,7 @@ attachFacebook = ->
       FB.init appId: '226130564064804', xfbml: true, version: 'v2.3'
       initCalled = yes
 
-twitterLoaded = no
 attachTwitter = ->
-  return if twitterLoaded
   if window.location.href.match("/blog")
     $.getScript '//platform.twitter.com/widgets.js', ->
       twttr?.widgets?.load()
-      twitterLoaded = yes
