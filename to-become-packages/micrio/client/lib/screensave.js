@@ -28,45 +28,45 @@ Screensaver.prototype = {
 		this.checkScrollInt = setInterval(this.checkScroll,1000);
 
 		(current = this.instances[index] || (this.instances[index] = new Micrio({
-				id: this.images[index].id,
-				width: this.images[index].width,
-				height: this.images[index].height,
-				container: this.container,
-				autoInit: false,
-				hookEvents: false,
-				initType: 'cover'
-			}))).show().then(function(e){
-				var isFirst = !this.firstOneLoaded;
+			id: this.images[index].id,
+			width: this.images[index].width,
+			height: this.images[index].height,
+			container: this.container,
+			autoInit: false,
+			hookEvents: false,
+			initType: 'cover'
+		}))).show().then(function(e){
+			var isFirst = !this.firstOneLoaded;
 
-				if(that.firstOneLoaded)
-					that.container.classList.add('loaded');
-				that.firstOneLoaded = true;
+			if(that.firstOneLoaded)
+				that.container.classList.add('loaded');
+			that.firstOneLoaded = true;
 
-				if(previous) {
-					previous.el.classList.remove('shown');
-					setTimeout(previous.hide.bind(previous),3000);
-				}
-				current.camera.reset();
-				current.el.classList.add('shown');
-				current.camera.easeTo(
-					0.4 + Math.random() * 0.2,
-					0.4 + Math.random() * 0.2,
-					1,
-					that.speed,
-					undefined,
-					isFirst && Beziers.easeIn
-				);
+			if(previous) {
+				previous.el.classList.remove('shown');
+				setTimeout(previous.hide.bind(previous),3000);
+			}
+			current.camera.reset();
+			current.el.classList.add('shown');
+			current.camera.easeTo(
+				0.4 + Math.random() * 0.2,
+				0.4 + Math.random() * 0.2,
+				1,
+				that.speed,
+				undefined,
+				isFirst && Beziers.easeIn
+			);
 
-				that.aniStartedAt = performance.now();
-				clearTimeout(that._nextTo);
-				that._nextTo = setTimeout(function(){
-				  if(!that.paused) that.next();
-				},that.speed-5000);
-			});
+			that.aniStartedAt = performance.now();
+			clearTimeout(that._nextTo);
+			that._nextTo = setTimeout(function(){
+			  if(!that.paused) that.next();
+			},that.speed-5000);
+		});
 
-			if(!this.firstOneLoaded)
-				this.setBackground();
-			else this.clearBackground();
+		if(!this.firstOneLoaded)
+			this.setBackground();
+		else this.clearBackground();
 	},
 
 	next: function(){
@@ -108,7 +108,7 @@ Screensaver.prototype = {
 	checkScroll: function(){
 		if(!this.instances[this.currentIndex]) return;
 		var offsetY = this.instances[this.currentIndex].camera
-									.getRenderedOffset(this.container).top - 
+									.getRenderedOffset(this.container).top -
 									(window.scrollY || window.pageYOffset);
 		var isInside = offsetY + this.container.offsetHeight > 0;
 		if(!isInside) this.pause();
