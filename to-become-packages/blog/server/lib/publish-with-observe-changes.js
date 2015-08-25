@@ -1,7 +1,6 @@
 // Modification of the standard Meteor publish method
 // This one also includes observeChanges handlers
-publishWithObserveChanges = function (name, fn)
-{
+publishWithObserveChanges = function (name, fn) {
   Meteor.publish(name, function() {
     var self = this;
     var handle = fn.apply(this, arguments).observeChanges({
@@ -19,5 +18,5 @@ publishWithObserveChanges = function (name, fn)
     self.onStop(function () {
       handle.stop();
     });
-  })
-}
+  });
+};
