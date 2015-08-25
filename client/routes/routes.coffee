@@ -3,9 +3,6 @@ Router.configure
   loadingTemplate: "loading"
   notFoundTemplate: "error404"
 
-Router.onRun ->
-  @next()
-
 Router.onBeforeAction ->
   Meteor.subscribe "allUserData"
   @next()
