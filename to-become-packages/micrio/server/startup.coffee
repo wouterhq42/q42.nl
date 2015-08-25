@@ -3,8 +3,6 @@ Meteor.startup ->
 
   if Micrios.find().count() is 0
     _.each [
-      { name: "derp", id: 'df41b47e-4857-445c-8bde-055b19fe886f',
-      width: 4168, height: 2761 }
       { name: "qlego", id: 'a7ba548d-f581-4850-9138-e866a4402bc6',
       width: 4288, height: 2848 }
       { name: "qers-canal", id: '8a872653-53de-489e-8592-2fd3a26828b4',
@@ -15,6 +13,9 @@ Meteor.startup ->
       width: 2048, height: 1365 }
       { name: "qers-beach", id: 'f3d62c26-d934-48ca-9c24-a7f28e544e96',
       width: 3224, height: 2327 }
+
+      # { name: "q070", id: 'df41b47e-4857-445c-8bde-055b19fe886f',
+      # width: 4168, height: 2761 }
       # { name: "electronics", id: '43c17e4b-be7c-4edd-b224-e4cfc33e1a6d',
       # width: 2000, height: 1325 }
       # { name: "sketch", id: '1c9a85c2-6cab-4a30-ac35-f75ab03d4b5f',
