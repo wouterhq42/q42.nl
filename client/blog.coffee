@@ -32,6 +32,12 @@ Template.blogposts.helpers
   readmore: ->
     if Session.equals("lang", "en") then "Read more" else "Lees verder"
 
+# all of these events relate to comments, so only on NL site
+Template.blogpost.events
+  "click #addComment": ->
+    comm = $("#comment")[0].value
+    if comm then Meteor.call "addComment", Session.get("blogpostid"), comm
+    $("#comment")[0].value = ""
 
 Template.comment.onCreated ->
   @editing = new ReactiveVar no
@@ -45,29 +51,16 @@ Template.comment.helpers
     user = Meteor.users.findOne _id: @userId
     return "" unless user
     p for p of user.services
-
   picture: -> getPictureURL Meteor.users.findOne(_id: @userId)
-
   ownsComment: ->
     Meteor.userId() is @userId or Meteor.user() and Meteor.user().isAdmin
-
   datediff: ->
     date = new Date @date
     "#{date.getDate()}/#{date.getMonth()+1}/#{date.getFullYear()}"
-
   textAsHTML: ->
     @text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>")
-
   editing: -> Template.instance().editing.get()
-
   numRows: -> Template.instance().numRows.get()
-
-# all of these events relate to comments, so only on NL site
-Template.blogpost.events
-  "click #addComment": ->
-    comm = $("#comment")[0].value
-    if comm then Meteor.call "addComment", Session.get("blogpostid"), comm
-    $("#comment")[0].value = ""
 
 Template.comment.events
   "click .edit-comment": (evt, tmpl) -> tmpl.editing.set yes
