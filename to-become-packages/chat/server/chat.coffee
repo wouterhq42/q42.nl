@@ -59,20 +59,16 @@ ChatMessages.allow
 
     if res?.content isnt 'ok' then no else yes
 
-Router.map ->
-  @route "chat",
-    where: "server"
+Picker.route "/api/chat", (params, req, res, next) ->
+  console.log "Route: /api/chat"
+  console.log "request.body:", JSON.stringify(req.body)
+  return unless req.body?.token is ChatConfig.findOne()?.outgoingToken
+  msg = req.body.text.replace("@q42nl ", "").replace("@q42com ", "")
+  user = req.body.user_name + " (Q42)"
+  ChatMessages.insert
+    userId: null
+    username: user
+    msg: msg
+    date: new Date()
     path: "/api/chat"
-    action: ->
-      console.log "Route: /api/chat"
-      console.log "request.body:", JSON.stringify(@request.body)
-      return unless @request.body?.token is ChatConfig.findOne()?.outgoingToken
-      msg = @request.body.text.replace("@q42nl ", "").replace("@q42com ", "")
-      user = @request.body.user_name + " (Q42)"
-      ChatMessages.insert
-        userId: null
-        username: user
-        msg: msg
-        date: new Date()
-        path: "/api/chat"
-      @response.end()
+  res.end()

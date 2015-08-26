@@ -1,70 +1,67 @@
 HTTP_REDIRECT_TEMPORARY = 301
 HTTP_REDIRECT_PERMANENT = 302
 redirectNlToCom = (name, path) ->
-  Router.route "redirect_#{name}",
-    where: "server"
-    path: path
-    action: ->
-      console.log "Route: #{path}", @request.headers.host
-      if @request.headers.host is "q42.nl"
-        @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com#{path}"
-        @response.end()
-      else
-        @next()
+  Picker.route path, (params, req, res, next) ->
+    console.log "Route: #{path}", req.headers.host
+    if req.headers.host is "q42.nl"
+      res.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com#{path}"
+      res.end()
+    else
+      next()
 
 redirectNlToCom "meteor", "/meteor"
 redirectNlToCom "swift", "/swift"
 redirectNlToCom "vr", "/vr"
 redirectNlToCom "ixe", "/interaction-engineering"
 
-Router.route "redirectAccessibility",
-  where: "server"
-  path: "/accessibility"
-  action: ->
-    console.log "Route: redirectAccessibility"
-    @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/interaction-engineering"
-    @response.end()
+Picker.route "/accessibility", (params, req, res, next) ->
+  console.log "Route: redirectAccessibility"
+  res.writeHead(
+    HTTP_REDIRECT_PERMANENT,
+    Location: "http://q42.com/interaction-engineering"
+  )
+  res.end()
 
-Router.route "redirectA11y",
-  where: "server"
-  path: "/a11y"
-  action: ->
-    console.log "Route: redirectA11y"
-    @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "http://q42.com/interaction-engineering"
-    @response.end()
+Picker.route "/a11y", (params, req, res, next) ->
+  console.log "Route: redirectA11y"
+  res.writeHead(
+    HTTP_REDIRECT_PERMANENT,
+    Location: "http://q42.com/interaction-engineering"
+  )
+  res.end()
 
-Router.route "redirectAdventures",
-  where: "server"
-  path: "/adventures"
-  action: ->
-    console.log "Route: redirectAdventures"
-    @response.writeHead HTTP_REDIRECT_TEMPORARY, Location: "http://adventures.handcraft.com"
-    @response.end()
+Picker.route "/adventures", (params, req, res, next) ->
+  console.log "Route: redirectAdventures"
+  res.writeHead(
+    HTTP_REDIRECT_TEMPORARY,
+    Location: "http://adventures.handcraft.com"
+  )
+  res.end()
 
-# Redirect ancient color blindness simulator links to our more recent SEE extension
-Router.route "colorBlindnessSimulator",
-  where: "server"
-  path: "/demos/colorblindnesssimulator"
-  action: ->
-    console.log "Route: colorBlindnessSimulator"
-    @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
-    @response.end()
-Router.route "contrastCheck",
-  where: "server"
-  path: "/demos/contrastcheck"
-  action: ->
-    console.log "Route: contrastCheck"
-    @response.writeHead HTTP_REDIRECT_PERMANENT, Location: "https://chrome.google.com/webstore/detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
-    @response.end()
+# Redirect ancient color blindness simulator
+# links to our more recent SEE extension
+Picker.route "/demos/colorblindnesssimulator", (params, req, res, next) ->
+  console.log "Route: colorBlindnessSimulator"
+  res.writeHead(
+    HTTP_REDIRECT_PERMANENT,
+    Location: "https://chrome.google.com/webstore/" +
+              "detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
+  )
+  res.end()
+Picker.route "/demos/contrastcheck", (params, req, res, next) ->
+  console.log "Route: contrastCheck"
+  res.writeHead(
+    HTTP_REDIRECT_PERMANENT,
+    Location: "https://chrome.google.com/webstore/" +
+              "detail/see/dkihcccbkkakkbpikjmpnbamkgbjfdcn"
+  )
+  res.end()
 
-Router.route "removeWWW",
-  where: "server"
-  path: "*"
-  action: ->
-    console.log "Route: removeWWW (#{@request.url})"
-    host = @request.headers.host
-    fullUrl = "http://#{host}#{@request.url}"
+Picker.route "*", (params, req, res, next) ->
+  console.log "Route: removeWWW (#{req.url})"
+  host = req.headers.host
+  fullUrl = "http://#{host}#{req.url}"
 
-    if host.indexOf("www") is 0
-      @response.writeHead HTTP_REDIRECT_PERMANENT, Location: fullUrl.replace("www.", "")
-      @response.end()
+  if host.indexOf("www") is 0
+    res.writeHead HTTP_REDIRECT_PERMANENT, Location: fullUrl.replace("www.", "")
+    res.end()
