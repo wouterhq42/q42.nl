@@ -45,17 +45,35 @@
 
   # set the correct <title> and meta info
   setTitleAndMeta: ->
-    if Session.equals("page", "home") or Session.equals("page", "") or Session.equals("page", undefined)
+    if (
+      Session.equals("page", "home") or
+      Session.equals("page", "") or
+      Session.equals("page", undefined)
+    )
       document.title = "Q42"
     else
       document.title = $('h1').first().text() + " - Q42"
 
     $("meta[property='og:title']").attr "content", document.title
     $("meta[property='og:url']").attr "content", window.location.href
-    $("meta[property='og:image']").attr "content", $( ".block-large img:first-of-type").attr("src")
+    $("meta[property='og:image']").attr(
+      "content",
+      $( ".block-large img:first-of-type").attr("src")
+    )
 
     desc = $(".blog-post p:not(.post-date)").first().text()
     desc = $("p:first-of-type").first().text() unless desc
     $("meta[property='og:description']").attr "content", desc
+
+  getPictureURL: (user) ->
+    anon = "http://static.q42.nl/images/employees/anonymous.jpg"
+    s = user.services
+    switch
+      when not user or not user.services then anon
+      when s.twitter then s.twitter.profile_image_url
+      when s.google then s.google.picture
+      when s.facebook then "https://graph.facebook.com/#{s.facebook.id}/picture"
+      when s.github then Gravatar.imageUrl(s.github.email or "")
+      else anon
 
 }

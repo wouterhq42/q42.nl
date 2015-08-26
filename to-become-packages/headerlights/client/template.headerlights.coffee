@@ -44,7 +44,7 @@ setLightingStyle = (col1, col2) ->
 
   # set page background colour
   rgba1 = hex2rgba col1, 5
-  addCss "body", "background-color: #{rgba1}"
+  addCss "body, .blog-post header", "background-color: #{rgba1}"
 
 Template.headerlights.events
   "click #lights-color": (evt) ->

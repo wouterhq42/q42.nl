@@ -1,0 +1,17 @@
+<template name="otherPosts">
+  <div class="block-large">
+    {{#each post}}
+    <div class="block-small">
+      <div class="visual" style="height:160px;overflow:hidden">
+        <img src="{{firstImage}}" alt="">
+      </div>
+      <div class="body">
+        <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
+        <p><a href="/blog/post/{{id}}/{{slug}}">
+          {{#if langEn}}Read more{{else}}Lees meer{{/if}}
+        </a></p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</template>

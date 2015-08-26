@@ -37,7 +37,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render Utils.getTemplate("blog")
+        @render "blog"
       else
         @render "loading"
     onAfterAction: -> Meteor.call "checkTumblr"
@@ -60,7 +60,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render Utils.getTemplate("blog")
+        @render "blog"
       else
         @render "loading"
     onAfterAction: -> Meteor.call "checkTumblr"
@@ -83,7 +83,7 @@ Router.map ->
       @next()
     action: ->
       if @ready()
-        @render Utils.getTemplate("blog")
+        @render "blog"
       else
         @render "loading"
     onAfterAction: -> Meteor.call "checkTumblr"
@@ -110,7 +110,7 @@ Router.map ->
     action: ->
       if @ready()
         if blogpostFull.findOne()
-          @render Utils.getTemplate("blogpost")
+          @render "blogpost"
         else
           @render "error404"
       else
