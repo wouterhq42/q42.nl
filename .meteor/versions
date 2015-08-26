@@ -45,6 +45,7 @@ jparker:crypto-md5@0.1.1
 jparker:gravatar@0.4.1
 jquery@1.11.3_2
 json@1.0.3
+kadira:blaze-layout@2.0.1
 launch-screen@1.0.2
 less@1.0.14
 livedata@1.0.13
@@ -54,7 +55,6 @@ matb33:collection-hooks@0.7.14
 meteor@1.1.6
 meteor-platform@1.2.2
 meteorhacks:fast-render@2.9.0
-meteorhacks:flow-layout@1.4.2
 meteorhacks:flow-router@1.19.0
 meteorhacks:inject-data@1.4.0
 meteorhacks:kadira@2.23.0

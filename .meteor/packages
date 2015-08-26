@@ -28,4 +28,4 @@ service-configuration
 reactive-var
 meteorhacks:picker
 meteorhacks:flow-router
-meteorhacks:flow-layout
+kadira:blaze-layout
