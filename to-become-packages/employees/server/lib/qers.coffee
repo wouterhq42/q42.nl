@@ -35,7 +35,6 @@
   { name: "Leonard Punt", handle:"leonard" }
   { name: "Lukas van Driel", handle:"lukas", phone: "06-14141544", web: "http://developer.3l.nl/" }
   { name: "Marcel Duin", handle:"marcel", web: "http://webglmarcel.q42.net/" }
-  { name: "Mark de Jong", handle:"markj", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
   { name: "Martin Kool", handle:"martin", web: "http://martinkool.com/" }
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/" }

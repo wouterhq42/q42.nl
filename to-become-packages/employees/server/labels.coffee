@@ -31,7 +31,7 @@ roles =
 arbitrary =
   "Girl Code": "ineke katja kristin"
   "Codeuur": "kars lukas johan kim"
-  "Speelt nog World of Warcraft": "rahul christiaan richard markj benjamin tims"
+  "Speelt nog World of Warcraft": "rahul christiaan richard benjamin tims"
   "Weet wat Spiffy is": "bob timl martin remco lukas sjoerd kars laurens" # LOL!
   "Team Wintersport": [
     "lukas", "bob", "chris", "mark", "jeroen", "katja", "stef", "roelfjan",
@@ -62,7 +62,7 @@ arbitrary =
   "Nerfgun owner": "mark chris arian jeroen frank guus kars benjamin"
   "Kan stiekem best programmeren": "chris"
   "Namespace collision": [
-    "jaap", "jaapm", "jasper", "jasperh", "mark", "markj", "timl", "tims",
+    "jaap", "jaapm", "jasper", "jasperh", "timl", "tims",
     "timd", "leonard", "gerard", "sander", "sanderp"
   ]
   "Emigrant": "rahul"
