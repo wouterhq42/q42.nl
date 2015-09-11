@@ -33,7 +33,7 @@
   { name: "Kristin Rieping", handle:"kristin" }
   { name: "Laurens van den Oever", handle:"laurens" }
   { name: "Leonard Punt", handle:"leonard" }
-  { name: "Lukas van Driel", handle:"lukas", phone: "06-14141544", web: "http://developer.3l.nl/" }
+  { name: "Lukas van Driel", handle:"lukas", phone: "06-14141544", web: "http://developer.3l.nl/", tumblr: "lukasvan3l" }
   { name: "Marcel Duin", handle:"marcel", web: "http://webglmarcel.q42.net/" }
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" }
   { name: "Martin Kool", handle:"martin", web: "http://martinkool.com/" }
