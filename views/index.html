@@ -64,7 +64,11 @@
       {{> Template.dynamic template=header}}
     </div>
 
-    {{> yield}}
+    {{#if subsReady}}
+      {{> Template.dynamic template=body}}
+    {{else}}
+      {{> loading}}
+    {{/if}}
 
     {{> Template.dynamic template=footer}}
 

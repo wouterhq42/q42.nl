@@ -15,8 +15,6 @@ accounts-github
 coffeescript
 ongoworks:spiderable
 dfischer:phantomjs
-iron:router
-meteorhacks:fast-render
 jparker:gravatar
 jparker:crypto-md5
 jparker:crypto-core
@@ -27,5 +25,6 @@ meteorhacks:kadira
 service-configuration
 reactive-var
 meteorhacks:picker
-meteorhacks:flow-router
 kadira:blaze-layout
+kadira:flow-router
+meteorhacks:fast-render

@@ -8,9 +8,9 @@ $Template
   otherPosts:
     post: ->
       blogpostIndex.find({
-        id: {$ne: Session.get('blogpostid')},
-        title: {$exists: true}
-      }, {limit: 3}).fetch()
+        id: $ne: FlowRouter.getParam('blogpostid')
+        title: $exists: true
+      }, limit: 3).fetch()
     firstImage: ->
       if @intro
         @intro.match(/<img src="(.*?)"/)?[1] or ""
@@ -23,6 +23,14 @@ $Template
     comment: ->
       LatestComments.find {}, sort: date: -1
 
+Template.blogpost.helpers
+  post: -> blogpostFull.findOne()
+
 Template.blogposts.helpers
+  post: -> blogpostIndex.find {}, sort: date: -1
   readmore: ->
     if Session.equals("lang", "en") then "Read more" else "Lees verder"
+
+Template.pageNav.helpers
+  pagination: -> Utils.getPagination(FlowRouter.getParam("pageNum") or 1)
+  tag: -> FlowRouter.getParam("tag")

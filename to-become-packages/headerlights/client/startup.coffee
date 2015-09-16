@@ -1,3 +1,3 @@
-Router.onBeforeAction ->
-  Meteor.subscribe "lights"
-  @next()
+# Router.onBeforeAction ->
+#   Meteor.subscribe "lights"
+#   @next()
