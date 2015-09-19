@@ -48,7 +48,6 @@ setLightingStyle = (col1, col2) ->
 
 Template.headerlights.events
   "click #lights-color": (evt) ->
-    Session.set("backgroundsVisible", yes)
     if not supportsInputTypeColor()
       $(document.body).toggleClass("show-colorpicker")
 
@@ -59,15 +58,16 @@ Template.headerlights.events
     return unless color
     $.get "http://huelandsspoor.nl/api/lamps/setcolor?color=#{color}", ->
       $.get("/updateLightbar")
+      Session.set("backgroundsVisible", yes)
 
 Template.headerlights.helpers
   lightsColor: -> "#" + Lights.find({}, {sort: {date: -1}}).fetch()[0]?.hex
   supportsInputTypeColor: -> supportsInputTypeColor()
   explanation: ->
     if Session.equals("lang", "en")
-      "en_explanation"
+      "en_lightsExplanation"
     else
-      "explanation"
+      "lightsExplanation"
 
 Template.backgrounds.helpers
   color: -> Lights.find({}, {sort: {date: 1}})

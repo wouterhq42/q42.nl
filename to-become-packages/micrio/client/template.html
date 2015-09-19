@@ -4,4 +4,14 @@
 
 <template name="micrioButton">
   <div id="micrio-button" class="button"></div>
+  <div id="micrio-explanation" class="explanation">
+    {{> Template.dynamic template=explanation}}
+  </div>
+</template>
+
+<template name="micrioExplanation">
+  Switch terug naar Micrio
+</template>
+<template name="en_micrioExplanation">
+  Switch back to Micrio
 </template>
