@@ -52,8 +52,8 @@ Template.headerlights.events
       $(document.body).toggleClass("show-colorpicker")
 
   # XXX: the input event sometimes doesn't fire the first time you select
-  # a color in the picker in Chrome.
-  "input #lights-color": (evt) ->
+  # a color in the picker in Chrome, so we also attach it to click
+  "click #lights-color, input #lights-color": (evt) ->
     color = $(evt.target).val().replace("#", "")
     return unless color
     $.get "http://huelandsspoor.nl/api/lamps/setcolor?color=#{color}", ->
