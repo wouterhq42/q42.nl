@@ -17,7 +17,9 @@ Meteor.methods
     ###
     if incomingToken and outgoingToken
       ChatConfig.remove({})
-      ChatConfig.insert incomingToken: incomingToken, outgoingToken: outgoingToken
+      ChatConfig.insert
+        incomingToken: incomingToken
+        outgoingToken: outgoingToken
 
   setupChatDefaults: (lang) ->
     return unless Meteor.users.findOne(@userId)?.isAdmin
@@ -45,7 +47,10 @@ ChatMessages.allow
       res = HTTP.post url, {
         params:
           payload: JSON.stringify(
-            text: ["#{user.profile.name} (<#{path}|#{pathWithoutHttp}>) zegt:", doc.msg].join("\n")
+            text: [
+              "#{user.profile.name} (<#{path}|#{pathWithoutHttp}>) zegt:"
+              doc.msg
+            ].join("\n")
             icon_emoji: ":earth_africa:"
           )
       }
@@ -64,5 +69,10 @@ Router.map ->
       return unless @request.body?.token is ChatConfig.findOne()?.outgoingToken
       msg = @request.body.text.replace("@q42nl ", "").replace("@q42com ", "")
       user = @request.body.user_name + " (Q42)"
-      ChatMessages.insert userId: null, username: user, msg: msg, date: new Date(), path: "/api/chat"
+      ChatMessages.insert
+        userId: null
+        username: user
+        msg: msg
+        date: new Date()
+        path: "/api/chat"
       @response.end()

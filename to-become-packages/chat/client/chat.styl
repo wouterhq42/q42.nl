@@ -1,15 +1,6 @@
 @import "../../../styles/0_variables.styl"
 
 #chat-toggle
-  position absolute
-  top 4rem
-  right 1rem
-  z-index 6
-  border-radius 50%
-  width 32px
-  height 32px
-  text-align center
-  cursor pointer
   background #fff url(http://static.q42.nl/images/slacklogo.png) center no-repeat
   background-size 24px
 
@@ -47,6 +38,8 @@
     .close
       text-decoration none
       font-size 24px
+      cursor pointer
+      padding 0 8px
 
   .flex-stretch
     doFlex 1

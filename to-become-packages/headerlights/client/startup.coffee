@@ -1,3 +1,3 @@
 Router.onBeforeAction ->
-  SubsManager.subscribe "lights"
+  Meteor.subscribe "lights"
   @next()

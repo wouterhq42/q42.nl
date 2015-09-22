@@ -60,5 +60,5 @@
   { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" }
   { name: "Tomas Harkema", handle:"tomas" }
-  { name: "Wouter van Drunen", handle: "wouter", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
+  { name: "Wouter van Drunen", handle: "wouter" }
 ]

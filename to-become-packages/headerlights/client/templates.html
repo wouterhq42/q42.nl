@@ -9,19 +9,21 @@
 <template name="headerlights">
   <div id="hue">
     {{#if supportsInputTypeColor}}
-      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}">
+      <input type="color" id="lights-color" value="{{lightsColor}}" style="background-color: {{lightsColor}}" class="button">
     {{else}}
-      <div id="lights-color"></div>
+      <div id="lights-color" class="button"></div>
     {{/if}}
-    <div id="lights-explanation">{{> Template.dynamic template=explanation}}</div>
+    <div id="lights-explanation" class="explanation">
+      {{> Template.dynamic template=explanation}}
+    </div>
     {{> colorpicker}}
   </div>
 </template>
 
-<template name="explanation">
+<template name="lightsExplanation">
   Bestuur de Philips Hue lichten bij ons op kantoor met deze colorpicker!
 </template>
-<template name="en_explanation">
+<template name="en_lightsExplanation">
   Control the Philips Hue lights in our office with this color picker!
 </template>
 
