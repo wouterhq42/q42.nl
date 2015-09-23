@@ -1,103 +1,126 @@
 @import "0_variables.styl"
 
 .post-date
-  color #888
+  color rgba(0,0,0,.7)
   margin-top 0
-  font-size 14px
+  font-size .9rem
 
 .socialShare
   width 50%
+  div
+    margin-right 1rem
 
 .block-tags
   font-size smaller
 
-  .tags
-    padding 0
-    list-style-type none
-    displayFlex()
-    justifyContent flex-end
-    flexWrap wrap
-    margin 0
-    li
-      margin-left 4px
+.tags
+  padding 0
+  list-style-type none
+  displayFlex()
+  justifyContent flex-end
+  flexWrap wrap
+  margin 0
+  li
+    margin-left 4px
 
 .reblog
-  background url('http://static.q42.nl/images/reblog.svg') right 16px no-repeat
+  background url('http://static.q42.nl/images/reblog.svg') 98% 16px no-repeat
   background-size 24px
 
 .blog
   displayFlex()
   justifyContent space-between
-
-  .blog-posts, .blog-post
-    doFlex 5
-    padding 32px
+  margin 0 auto
 
   h1
     margin 0
-
-  .blog-item
-    padding 40px 0
-    border-bottom solid 1px #ccc
-    &:first-child
-      padding-top 0
-    &:last-child
+    font-size 2rem
+    a
       border-bottom none
-
-    h1
-      font-size 2em
-
-  .blog-post
-    h2
-      font-size 2em
+    @media (max-width: 480px)
+      font-size 1.5rem
 
   img
-    max-width 95%
-    border solid 5px white
-    box-shadow 0 0 4px rgba(0,0,0,.4)
-    margin-left 2px
+    max-width 100%
+    box-sizing border-box
+
+  @media (max-width 480px)
+    img, iframe
+      max-width 100%
+
+.blog-posts, .blog-post
+  doFlex 5
+  padding 32px
+  @media (min-width 480px)
+    padding 64px 128px
+
+.blog-post
+  h2
+    font-size 1.3rem
+
+  header
+    background-color #eee
+    margin -32px -32px 0 -32px
+    padding 32px
+    @media (min-width 480px)
+      margin -64px -128px 0 -128px
+      padding 64px 128px
+
+.blog-item
+  padding 32px
+  margin 0 -32px
+  @media (min-width 480px)
+    padding 64px 128px
+    margin 0 -128px
+  border-bottom solid 1px #ccc
+  &:first-child
+    padding-top 0
+  &:last-child
+    border-bottom none
 
 .comments
   padding 40px 0
+  margin 0 auto
+  position relative
+  z-index 1
 
-  .commentbox
+  .input
+    displayFlex()
 
-    .input
-      displayFlex()
+  .add-comment
+    margin-left 4px
+    doFlex 99
+    displayFlex()
 
-      .comment
-        margin-left 4px
-        doFlex 99
-        displayFlex()
+  .submit-comment
+    margin-left 44px
+    font-size .9rem
 
-        textarea
-          doFlex 1
+  .text
+    doFlex 4
 
-    .submit
-      margin-left 44px
-      font-size .9rem
+  button
+    cursor pointer
+    color #000
+    text-shadow 0 1px 1px rgba(255, 255, 255, 0.75)
+    margin 2px 0px
+    padding 4px 1rem
+    border-radius 4px
+    border 1px solid #ccc
+    background-image linear-gradient(to bottom, #ffffff, #e6e6e6)
 
-    button
-      cursor pointer
-      color #000
-      text-shadow 0 1px 1px rgba(255, 255, 255, 0.75)
-      margin 2px 0px
-      padding 4px 1rem
-      border-radius 4px
-      border 1px solid #ccc
-      background-image linear-gradient(to bottom, #ffffff, #e6e6e6)
-
-    button:hover, button[disabled]
+    &:hover, &[disabled]
       background-image linear-gradient(to bottom, #f0f0f0, #e6e6e6)
 
-    button:active, button:focus
+    &:active, &:focus
       background-image linear-gradient(to bottom, #e0e0e0, #d6d6d6)
 
-    button[disabled]
+    &[disabled]
       cursor default
       color #999
 
   textarea
+    doFlex 5
     resize vertical
     margin 0
     padding 0.5rem
@@ -107,89 +130,77 @@
     font-size 1rem
     line-height 1.5rem
     &:focus
-      height 128px
+      min-height 128px
 
-  & > ul
-    margin 0
+  ul
     padding 0
     list-style none
-    & > li
-      margin 1rem 0 0 0
-      padding 1rem 0 0 0
-      border-top 1px solid #d7d7d7
-      displayFlex()
-      .profile
-        displayFlex()
-        img
-          margin-right 4px
-          min-width 40px
-        .name-date
-          font-size 14px
-          line-height 1rem
-          display flex
-          flex-direction column
-          justify-content center
-          overflow hidden
-          text-overflow ellipsis
-          .meta
-            display block
+  li
+    margin 1rem 0 0 0
+    padding 1rem 0 0 0
+    border-top 1px solid #d7d7d7
+    displayFlex()
 
   .user
     doFlex 1
     margin-right 16px
     min-width 160px
-    .login-image
-      display inline-block
-      width 16px
-      height 16px
-      vertical-align -2px
-
-  .text
-    doFlex 4
-
+  .login-image
+    display inline-block
+    width 16px
+    height 16px
+    vertical-align -2px
+  .profile
+    displayFlex()
+    img
+      margin-right 4px
+      min-width 40px
+  .name-date
+    font-size 14px
+    line-height 1rem
+    display flex
+    flex-direction column
+    justify-content center
+    overflow hidden
+    text-overflow ellipsis
   .meta
-    color #999
+    display block
+    color rgba(0,0,0,.7)
     font-size smaller
-
-  li
-    &.edit-mode
-      .edit-area
-        display block
-        doFlex 6
-      .save-link
-        display inline
+    span
+      font-weight 500
+      border-bottom solid 1px rgba(0,0,0,.5)
+      cursor pointer
+      &:hover
+        color rgba(0,0,0,.4)
 
 .comments .user img, .comments .commentbox img
   width 40px
   height 40px
   border-radius 4px
 
-.comments .edit-area,
-.comments .save-link,
-.comments li.edit-mode .text,
-.comments li.edit-mode .edit-link
-  display none
-
 #latestComments
   // to prevent bullets from being hidden when text exceeds width
   list-style-position inside
-  li
-    div
-      white-space nowrap
-      overflow-x hidden
-      text-overflow ellipsis
+  padding-left 0
+  div
+    white-space nowrap
+    overflow-x hidden
+    text-overflow ellipsis
 
 #pageNav
-  displayFlex()
-  justifyContent center
   margin 32px 0
+  ul
+    displayFlex()
+    justifyContent center
+    list-style none
+    margin 0
+    padding 0
   a
     color #1D78B4
-    text-shadow none
     border none
-    padding 10px
+    padding 16px
     &:hover
       background #d7d7d7
-
   .active
     border-bottom 5px solid #ccc

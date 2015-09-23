@@ -1,263 +1,97 @@
 @import "0_variables.styl"
 
-body, #loading
-  background #eee
-
-#page
-  background transparent
-
-#header
-  nav ul li
-    font-size .9rem
-    font-weight 500
-
-gradient-box()
-  position relative
-  z-index 0
-  background-image -webkit-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-webkit-linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-image -moz-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-moz-linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-image -ms-radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),-ms-linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#0e8ff5, #64b7fb 90%)
-  background-color rgb(39, 127, 168)
-  color white
-  fontSmoothing antialiased
-  box-shadow 0 2px 2px rgba(0,0,0,.18)
-  text-shadow 0 1px 0 rgba(0,0,0,.3)
-  &:after
-    display block
-    content ""
-    position absolute
-    top 0
-    left 0
-    right 0
-    bottom 0
-    z-index -1
-  // &:only-of-type:after
-  //   background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)),linear-gradient(108deg,#26d0ce,#1a2980 90%)
-  // &:nth-child(2n):after
-  //   background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#7f1475,#FF4475 90%)
-  // &:nth-child(3n):after
-  //   background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#2AC1BD,#65CC4B 90%)
-  // &:nth-child(5n):after
-  //   background radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(108deg,#632AC1,#B791F4 90%)
-
-blockquote
-  margin 0
-
-  &:before
-    content: "“"
-    font-size 3rem
-    font-family serifTitleFont
-    float left
-
-  p
-    font-family serifTitleFont
-    padding 0 2.5rem
-
-  cite
-    font-style normal
-
 .container
-  header.block-text
-    text-align center
-    h1
-      display inline-block
-      background #ffd100
-      padding .2rem .5rem
+
+  // we need to apply position: relative or the elements
+  // will be hidden beneath the backgrounds in firefox
+  .block-text
+    position relative
+
   .block-large
+    position relative
+    margin 0 auto 16px auto
     background #fff
-    padding 0
-    margin 0 0 16px 0
     box-shadow 0 1px 1px rgba(0,0,0,.18)
-    border-radius 3px
     &.block-no-padding-after
       margin-bottom 0
-      border-bottom-left-radius 0
-      border-bottom-right-radius 0
-      & + .block-large
-        border-top-left-radius 0
-        border-top-right-radius 0
     &.block-no-padding
       padding 0
-      & + .block-large
-        border-top-left-radius 0
-        border-top-right-radius 0
     &.blog:first-child
       margin-top 64px
 
-  .block-full.intro-outro
-    blockquote p
-      font-size 2rem !important
+    @media (max-width 940px)
+      flexDirection column
+      .intro
+        margin-right 0
+        width inherit
+      &.blog
+        flexWrap inherit
+        flexDirection column
+      &.right .body
+        order inherit
 
-  .block-small
-    margin 0
-    border-right solid 1px rgba(0,0,0,.1)
-    &:nth-child(3)
-      border-right none
+    @media (max-width 480px)
+      &.blog:first-child
+        margin-top 32px
+
     & > .body
+      margin 0
       padding 32px
-      h2
-        padding-top 0
-
-  .visual
-    position relative
-    width 100%
-    img, video, iframe
-      width 100%
-      vertical-align middle
-    img, video
-      height auto
-    .hover
-      position absolute
-      top 0
-      left 0
-      opacity 0
-      z-index 1
-      transition opacity ease .2s
-    &.swap-hover:hover
-      .hover
-        opacity 1
-
-  section h2, .block-large > .body h2
-    font-size 1.5rem
-
-  .block-large > .body
-    margin 0
-    padding 32px
-    background aliceblue
-    & + .visual
-      height 100%
-
-  aside.subcontent
-    padding 32px
-    gradient-box()
-
-    a
+      background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
       color white
-      opacity .8
-      border-bottom none
-      &:hover
-        border-bottom solid 1px rgba(255,255,255,.7)
 
-    ul
-      margin 0
-      padding 0 0 0 1rem
+      @media (min-width 940px)
+        position absolute
+        width 40%
+        z-index 99
+        bottom 0
+        left 1rem
 
-    h2
-      margin 1.5rem 0
-      &:first-child
-        margin-top 0
+      & + .visual
+        height 100%
+      h2
+        font-size 2rem
+        text-align center
+      h3
+        text-align center
+        color rgba(255,255,255,.7)
+        fontSmoothing antialiased
+      a
+        color white
+        border-color rgba(255,255,255,.7)
+        &:hover
+          border-color white
 
-  #colleagues
-    .intro
-      width inherit
-      margin 0
-      doFlex 13
-
-      .qer
-        margin 0 8px 8px 0
-
-    aside
-      margin-right 0
-      doFlex 5
-
-      #filter-options
-        margin inherit
-        padding inherit
-        a
-          opacity 1
-          background-color rgba(255,255,255,.1)
-          &:hover
-            background-color rgba(255,255,255,.3)
-
-  .censored
-    color black
-    background black
-    padding 0 4px
-
-  .censored
-    color black
-    background black
-    padding 0 4px
-
-#footer
-  .fn
-    display none
+    &.right > .body
+      right 1rem
+      left inherit
 
 @media (min-width 940px)
-
-  .block-large.booklet
-    margin 32px 0
-    background transparent
+  .booklet
+    margin-top 32px
+    margin-bottom 32px
     perspective 2000px
-    transition box-shadow ease .2s
-    &:hover
-      box-shadow 0 0 20px rgba(0,0,0,.2)
 
     .block-small
-      transition transform ease .2s
       background white
       &:first-child
-        transform-origin right
-        &:hover
-          box-shadow -10px 0 20px rgba(0,0,0,.1)
-          transform rotateY(15deg)
+        transformOrigin right
+        box-shadow -10px 0 20px rgba(0,0,0,.1)
+        transform rotateY(15deg)
       &:last-child
-        transform-origin left
-        &:hover
-          transform rotateY(-15deg)
-          box-shadow 10px 0 20px rgba(0,0,0,.1)
+        transformOrigin left
+        transform rotateY(-15deg)
+        box-shadow 10px 0 20px rgba(0,0,0,.1)
 
 
 
 @media (max-width 940px)
 
-  .block-large
-    flexDirection column
+  .blog .blog-posts,
+  .blog .blog-post
+    margin-right 0
+    max-width 100%
 
-  .container
-
-    .block-small
-      &:first-child
-        margin-right 0
-
-    .block-large
-      .intro
-        margin-right 0
-        width inherit
-
-    .block-large.blog
-      flexWrap inherit
-      flexDirection column
-
-    .blog .blog-posts, .blog .blog-post
-      margin-right 0
-      max-width 100%
-
-    .block-large > .block-small:first-child:nth-last-child(2), .block-large > .block-small:first-child:nth-last-child(2) ~ div
-      max-width inherit
-
-    .block-large.right .body
-      order inherit
-
-  #footer
-    .visual
-      width 100%
-
-
-@media (max-width 620px)
-
-  .block-small
-    min-width inherit
-
-  .container aside.subcontent
-    margin-top inherit
-    width inherit
-
-@media (max-width 480px)
-
-  .container .block-large.blog:first-child
-    margin-top 32px
-
-  .block-small > ul, #blog-sidebar ul
-    padding-left 0
+  .block-large > .block-small:first-child:nth-last-child(2),
+  .block-large > .block-small:first-child:nth-last-child(2) ~ div
+    max-width inherit

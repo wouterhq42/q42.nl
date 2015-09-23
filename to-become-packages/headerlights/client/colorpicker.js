@@ -1,7 +1,7 @@
 
 Template.colorpicker.helpers({
   enable: function() {
-    return !Session.get("supportsInputTypeColor");
+    return supportsInputTypeColor();
   }
 });
 
@@ -11,13 +11,18 @@ Template.colorpicker.events({
     evt.preventDefault();
 
     var color = outputCurrentColor();
-    if (color) {
-      $.get("http://huelandsspoor.nl/api/lamps/setcolor?color=" + color.replace("#", ""), function() {
-        $.get("/updateLightbar");
-        $("#lights-color").attr("value", "#" + color).css("background-color", "#" + color);
-        Session.set("lightsColor", "#" + color)
-      });
-    }
+    if (!color)
+      return;
+
+    var url = "http://huelandsspoor.nl/api/lamps/setcolor?color=";
+    $.get(url + color.replace("#", ""), function() {
+      $.get("/updateLightbar");
+      $("#lights-color")
+        .attr("value", "#" + color)
+        .css("background-color", "#" + color);
+
+      Session.set("lightsColor", "#" + color);
+    });
   }
 });
 
@@ -43,7 +48,7 @@ function setRGB(r, g, b)
 {
   var v = Math.max(r, g, b);
   setValue(v);
-  if (v == 0)
+  if (v === 0)
     setXY(0, 0);
   else
     setColor(r/v, g/v, b/v);
@@ -65,14 +70,14 @@ function setColor(r, g, b)
   //outputCurrentColor();
   var x, y;
   var s = 1 - Math.min(r, g, b);
-  if (s == 0)
+  if (s === 0)
     return setXY(0, 0);
   r = 1 - (1 - r) / s;
   g = 1 - (1 - g) / s;
   b = 1 - (1 - b) / s;
   if (g == 1)
   {
-    if (b == 0)
+    if (b === 0)
     {
       x = r * 2 - 1; y = -1;
     }
@@ -83,7 +88,7 @@ function setColor(r, g, b)
   }
   else if (r == 1)
   {
-    if (b == 0)
+    if (b === 0)
     {
       x = 1; y = 1 - g * 2;
     }
@@ -94,7 +99,7 @@ function setColor(r, g, b)
   }
   else
   {
-    if (r == 0)
+    if (r === 0)
     {
       x = -1; y = 1 - g;
     }

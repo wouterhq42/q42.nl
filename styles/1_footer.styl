@@ -2,15 +2,20 @@
 
 #footer
   background #222
-  color #eee
+  color rgba(255,255,255,.9)
   fontSmoothing antialiased
+  font-size .9rem
+  font-weight 400
 
-  section
-    width 940px
+  .fn
+    display none
+
+  .block-large
     margin 0 auto
-
-  p
-    font-size .9rem
+    @media (min-width 941px)
+      width 940px
+    @media (max-width 620px)
+      flexDirection column
 
   a
     color #88c546
@@ -18,11 +23,9 @@
       border-bottom-color rgba(207, 239, 173, 0.3)
 
   h2, h3
-    font-family bodyFont
-    text-transform uppercase
-    letter-spacing 1px
+    smallcaps()
     font-size 18px
-
+    margin-top 0
   h3
     color white
     font-size 12px
@@ -32,16 +35,34 @@
     list-style none
     margin 0
     padding 0
-    li
-      margin 0 0 .3rem 0
+  li
+    margin 0 0 .3rem 0
+
+  .note.kvk
+    color rgba(255,255,255,.3)
+
+  .q42-logo
+    object, img
+      width 50px
+      height 70px
 
   .block-large
     padding 32px 0
+    border-bottom solid 1px rgba(255,255,255,.3)
+    @media (max-width 940px)
+      width 90%
 
-  .intro-outro
-    border-bottom none
+  .block-small
+    &:not(:last-child)
+      margin-right 20px
+      border-right none
+      @media (max-width 620px)
+        margin-right 0
+    & > .body
+      padding 32px 0
+
+  .block-full
     padding 2rem 0
-    border-top solid 1px rgba(255,255,255,.3)
 
     p
       font-size .8rem
@@ -58,27 +79,3 @@
 
     .fa
       vertical-align middle
-
-    .contain
-      displayFlex()
-      width 80%
-      margin 0 auto
-
-      .address
-        flex 1
-        h2
-          margin -2.6rem 0 2rem 0
-          text-shadow 0 0 2px black
-        img
-          border-radius 50%
-          width 64px
-          height 64px
-
-    p .note.kvk
-      color rgba(255,255,255,.3)
-
-
-  .q42-logo
-    object, img
-      width 50px
-      height 70px

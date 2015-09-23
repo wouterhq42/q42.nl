@@ -1,22 +1,15 @@
 @import "0_variables.styl"
 
-html, body
-  width 100%
-  min-height 100%
-
-html
-  font-size 16px
-
 body
-  font 1rem bodyFont
-  font-weight 300
+  font 300 1rem bodyFont
   margin 0
-  padding 0
-  background white
+  background-color #eee
 
-h1, h2, h3
-  font-family titleFont
-  font-weight 500
+  @media (max-width: 480px)
+    &.show-mobile-menu
+      overflow-x hidden
+      #page
+        transform translateX(150px)
 
 p, ol, ul
   line-height 1.5em
@@ -28,16 +21,29 @@ p
   &:last-child
     margin-bottom 0
 
-ul
-  list-style-type square
-
-img
-  vertical-align middle
-
 iframe
   border none
 
 address
+  font-style normal
+
+figure
+  margin 1.5rem 0
+
+blockquote
+  margin 0
+
+  &:before
+    content: "“"
+    font-size 3rem
+    font-family serifTitleFont
+    float left
+
+  p
+    font-family serifTitleFont
+    padding 0 2.5rem
+
+cite
   font-style normal
 
 a
@@ -50,23 +56,40 @@ a
     border-bottom-color #419aff
 
 #page
+  transition transform .2s ease
   box-shadow -2px 0 20px rgba(0,0,0,.2)
-  background white
-  transition ease-in-out .2s
 
-.container
-  width 940px
-  margin 0 auto
+  &.visible-backgrounds
+    #backgrounds
+      opacity 1
+      background transparent
+    #micrio
+      opacity 0
+  &.visible-micrio
+    #micrio
+      opacity .5
+    #backgrounds
+      opacity 1
+      background #333
+      .bg
+        display none
 
 #not-found
+  margin 40px auto
   text-align center
   background #d33
   color white
   border solid 20px white
   box-shadow 0 0 4px rgba(0,0,0,.4)
-  margin 40px 0
   padding 80px
   text-transform uppercase
+
+  @media (max-width 480px)
+    padding 32px
+    a
+      border none
+      padding 0
+
   img
     width 100%
   p
@@ -80,47 +103,103 @@ a
     font-size 72px
     margin 0
 
-.hidden
-  display none !important
-  visibility hidden
+#loading
+  text-align center
+  padding 100px 0
+  height 1000px
 
-.nowrap
-  white-space nowrap
+  img
+    opacity 0
+    width 128px
+    animation fadeIn ease .2s
+    animationDelay .2s
+    animationFillMode forwards
 
-.readmore
-  transition all .2s ease-out
-  &:before
-    content ""
-  &:after
-    content " »"
-    margin-left 6px
-    display inline-block
+.block-readmore
+  text-align center
+  a
+    border-radius 16px
+    background-color #cef
+    padding .4rem 1rem
+    &:hover
+      background-color #def
+
+.container
+  @media (max-width 940px)
+    margin 0 auto
+    width 620px
+  @media (max-width 620px)
+    width 460px
+  @media (max-width 480px)
+    width 90%
+    min-width 300px
 
 .block-text
   padding 40px 0
-
-.block-text h1,
-.blog h1
-  font-size 2.5rem
   margin 20px 0
+  text-align center
+  margin 0 auto
+  @media (max-width: 480px)
+    padding 0
+  @media all and (max-width: 620px)
+    padding 40px 0
+  h1
+    font 500 3rem titleFont
+    color white
+    margin 0
+    text-transform uppercase
+    fontSmoothing antialiased
+    b
+      font-weight 800
+
+    @media (max-width 480px)
+      font-size 3rem
+  h2
+    font-size 3rem
 
 .block-full
-  position relative
-  padding 80px 0
-
-.intro-outro
   display block
-  text-align center
+  position relative
+  margin 0 auto
   padding 80px 0
+  text-align center
+
+  @media all and (min-width 480px)
+    &:first-child
+      padding-top 0
+
+  @media all and (max-width: 620px)
+    padding 20px 0
+    display block
+
+    &.right .body
+      margin-left 0
+
+  &.invert
+    color white
+    fontSmoothing antialiased
+    text-shadow 0 1px 0 rgba(0,0,0,.4)
+
   p
     font-size 1.3rem
+
   h1
     font-size 3rem
+    font-weight 500
     text-align center
     margin 0
+  h2
+    font-size 1.5rem
+    font-weight 300
+
+  blockquote p
+    font-size 2rem
+
+  .tagline
+    text-transform uppercase
+    font-weight 800
 
 .block-large
-  padding 80px 0
   displayFlex()
 
   &.block-no-padding-after
@@ -128,7 +207,6 @@ a
 
   & > .body
     doFlex 2
-    margin-right 20px
 
     h2
       margin-bottom 0
@@ -144,16 +222,6 @@ a
 
   .visual
     doFlex 3
-    position relative
-
-  &.right
-    .body
-      doFlex 2
-      order 2
-      margin-right 0
-      margin-left 20px
-    .visual
-      doFlex 3
 
   .intro
     doFlex 5
@@ -163,141 +231,122 @@ a
     .visual
       margin-bottom 15px
 
-section h1,
-.block-large h1
-  text-align left
-
-section h2,
 .block-large > .body h2
-  font-size 40px
   margin-top 0
 
-.block-readmore
-  text-align right
-
-// http://stackoverflow.com/questions/8720931/can-css-detect-the-number-of-children-an-element-has
+// http://stackoverflow.com/q/8720931/16308
 .block-large > .block-small:first-child:nth-last-child(2),
 .block-large > .block-small:first-child:nth-last-child(2) ~ div
   max-width 33.3333%
 
 .block-small
   doFlex 1
-  margin 0 20px 0 0
-  &:last-child
-    margin-right 0
-    padding 0
-
+  @media (min-width 620px)
+    &:not(:last-child)
+      border-right solid 1px rgba(0,0,0,.1)
+  & > .body
+    padding 32px
+    h2
+      font-weight 900
+      background-color #222
+      color white
+      fontSmoothing antialiased
+      padding 12px
+      text-align center
+      font-size 1.2rem
+      margin -32px -32px 32px -32px
+      a
+        color white
+        font-weight inherit
   h2
     a
       color black
   h3
-    font normal 14px/1.5 bodyFont
-    margin-top 0
-    color rgba(0,0,0,.5)
-
-  .visual
-    position relative
-    width 300px
-    overflow hidden
-    img
-      width 300px
-      height 160px
-    & + .body h2
-      padding-top 20px
-      margin-bottom 0
+    font-weight 400
+    font-size 1.2rem
+    color black
 
 .subcontent
+  padding 32px
+  gradient-box()
   doFlex 2
-  padding 20px
-  color rgba(0,0,0,.5)
+  color white
   font-family serifTitleFont
   h2
-    font-family serifTitleFont
     font-weight normal
-    padding-top 0
-
-#loading
-  text-align center
-  padding 100px 0
-  position fixed
-  top 265px
-  left 0
-  right 0
-  bottom 0
-  z-index 99999
-  background #fff
-  img
-    opacity 0
-    width 128px
-    animation fadeIn ease .2s
-    animationDelay .2s
-    animationFillMode forwards
+    &:first-child
+      margin-top 0
+  a
+    color white
+    opacity .8
+    border-bottom none
+    &:hover
+      border-bottom solid 1px rgba(255,255,255,.7)
+  ul
+    margin 0
+    padding 0 0 0 1rem
 
 .visual
+  display block
   border-bottom none
-  img, iframe
+  position relative
+  width 100%
+  img, video, iframe
     width 100%
+    vertical-align middle
+  img, video
+    height auto
+  .hover
+    position absolute
+    top 0
+    left 0
+    opacity 0
+    z-index 1
+    transition opacity ease .2s
+  &.swap-hover:hover .hover
+    opacity 1
+
   &.caption
-    display block
     overflow hidden
+
+    @media (min-width 941px)
+      p, img, video
+        transition all .2s ease-out
+      &:hover
+        img, video
+          transform scale(1.02)
+        p
+          transform translateY(-25px)
+
     p
       position absolute
       z-index 999
       margin 0
-      padding 4px 12px
       width 100%
-      background-color #232323
+      padding 4px 8px
       color #FFF
-      font-size 80%
+      font-size .8rem
       font-weight 500
-      text-decoration none
+      background-color #000
       fontSmoothing antialiased
-
-a.caption,
-.visual.caption, .visual.caption p, .visual.caption img
-  text-decoration none
 
 .block-with-icons
   ul
-    margin-bottom 0px
-    li
-      &:last-child
-        padding-bottom 0px
-  h2
-    margin-top 0px
-  .iconList
     padding 0
-
-.iconList
+    margin-bottom 0
   li
     displayFlex()
     alignItems center
-    overflow hidden
-    padding 0 0 8px 0px
-    list-style-type none
+    &:not(:last-child)
+      padding 0 0 8px 0px
     i
       min-width 40px
     div
       margin-left 12px
-  &.no-text
-    displayFlex()
-    justifyContent space-between
-    li
-      div
-        display none
-        padding 0
-    a
-      color inherit !important
-      &:hover
-        color #88c546 !important
-        text-decoration none !important
+  h2
+    margin-top 0
 
-
-.q42-logo
-  a
-    display inline-block
-
-  object, img
-    width 129px
-    height 180px
-    pointer-events none
+.censored
+  color black
+  background black
+  padding 0 4px

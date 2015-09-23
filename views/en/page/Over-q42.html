@@ -121,7 +121,7 @@
         </div>
         <div class="block-small">
           <div class="visual caption">
-            <img src="http://static.q42.nl/images/q42us.jpg" alt="">
+            <img src="http://static.q42.nl/images/qsa1.jpg" alt="">
             <p>Smack dab in the middle of it.</p>
           </div>
           <div class="body">
@@ -140,42 +140,39 @@
     </section>
 
     <section id="colleagues">
-      <div class="block-full">
+      <div class="block-large">
         <div class="intro">
           <h2>Hello, we're the Q'ers</h2>
           <ol class="qers">
            	{{> en_employees }}
           </ol>
         </div>
-        <div class="clear"></div>
       </div>
     </section>
 
-    <section id="facts">
-      <div class="block-large">
-        <div class="block-small">
-          <div class="body">
-            <p>Q42 is more than the sum of</p>
-            {{> en_numQers}}
-            <p>Q'ers.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="body">
-            <p>Today we've already had</p>
-            {{> en_koppenKoffie}}
-            <p>cups of coffee.</p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="body">
-            <p>And written</p>
-            {{> en_regelsCode}}
-            <p>lines of code.</p>
-          </div>
+    <div class="block-large block-facts">
+      <div class="block-small">
+        <div class="body">
+          <p>Q42 is more than the sum of</p>
+          {{> numQers}}
+          <p>Q'ers.</p>
         </div>
       </div>
-    </section>
+      <div class="block-small">
+        <div class="body">
+          <p>Today we've already had</p>
+          {{> numCupsOfCoffee}}
+          <p>cups of coffee.</p>
+        </div>
+      </div>
+      <div class="block-small">
+        <div class="body">
+          <p>And written</p>
+          {{> numLinesOfCode}}
+          <p>lines of code.</p>
+        </div>
+      </div>
+    </div>
 
     <section>
       <div class="block-large">
@@ -264,18 +261,6 @@
     </section>
 
   </div>
-</template>
-
-<template name="en_regelsCode">
-  <p id="regels-code" class="counter">{{regelsCode}}</p>
-</template>
-
-<template name="en_numQers">
-  <p class="counter">{{numQers}}</p>
-</template>
-
-<template name="en_koppenKoffie">
-  <p id="koppen-koffie" class="counter">{{koppenKoffie}}</p>
 </template>
 
 <template name="en_employees">
