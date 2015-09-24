@@ -8,7 +8,9 @@
 attachUnveil = ->
   $("img").unveil(300)
 
+attachedGoogleAnalytics = no
 attachGoogleAnalytics = ->
+  return if attachedGoogleAnalytics
   ((i, s, o, g, r, a, m) ->
     i["GoogleAnalyticsObject"] = r
     i[r] = i[r] or ->
@@ -29,6 +31,7 @@ attachGoogleAnalytics = ->
   ga "require", "displayfeatures"
   ga "require", "linkid", "linkid.js"
   ga "send", "pageview"
+  attachedGoogleAnalytics = yes
 
 initCalled = no
 attachFacebook = ->
