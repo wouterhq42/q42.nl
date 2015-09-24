@@ -5,14 +5,15 @@ Meteor.startup ->
     _.each [
       { name: "qlego", id: 'a7ba548d-f581-4850-9138-e866a4402bc6',
       width: 4288, height: 2848 }
-      { name: "qers-canal", id: '8a872653-53de-489e-8592-2fd3a26828b4',
-      width: 4822, height: 3194 }
       { name: "happyplace-mat", id: '9678448d-c698-4a50-8941-40c9bf47ad4f',
       width: 2048, height: 1365 }
       { name: "girl-code", id: '57b761a3-8b2c-4307-a2d5-9a8b10c36a42',
       width: 2048, height: 1365 }
-      { name: "qers-beach", id: 'f3d62c26-d934-48ca-9c24-a7f28e544e96',
-      width: 3224, height: 2327 }
+
+      # { name: "qers-canal", id: '8a872653-53de-489e-8592-2fd3a26828b4',
+      # width: 4822, height: 3194 }
+      # { name: "qers-beach", id: 'f3d62c26-d934-48ca-9c24-a7f28e544e96',
+      # width: 3224, height: 2327 }
 
       # { name: "q070", id: 'df41b47e-4857-445c-8bde-055b19fe886f',
       # width: 4168, height: 2761 }

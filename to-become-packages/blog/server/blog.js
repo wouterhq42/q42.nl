@@ -129,9 +129,7 @@ publishWithObserveChanges("blogpostIndex", function (page, tag) {
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      body: 0, blog_name: 0, post_url: 0, state: 0,
-      format: 0, reblog_key: 0, short_url: 0,
-      highlighted: 0, note_count: 0, prettyDate: 0
+      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1
     }
   });
 });
@@ -150,7 +148,13 @@ publishWithObserveChanges("blogpostTitles", function(page, tag) {
 });
 
 publishWithObserveChanges("blogpostFull", function (id) {
-  return Posts.find({ id: id });
+  return Posts.find({ id: id }, {
+    fields: {
+      _id: 1, authorName: 1, body: 1,
+      date: 1, id: 1, intro: 1,
+      slug: 1, tags: 1, timestamp: 1, title: 1, type: 1
+    }
+  });
 });
 
 publishWithObserveChanges("LatestComments", function(limit) {

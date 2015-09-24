@@ -3,6 +3,13 @@ Template.micrioButton.events
     Session.set("backgroundsVisible", no)
     $("#micrio").removeClass "hidden"
 
+Template.micrioButton.helpers
+  explanation: ->
+    if Session.equals("lang", "en")
+      "en_micrioExplanation"
+    else
+      "micrioExplanation"
+
 Template.micrio.helpers
   hidden: -> if Session.equals("backgroundsVisible", yes) then "hidden" else ""
 

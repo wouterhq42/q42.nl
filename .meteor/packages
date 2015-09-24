@@ -19,7 +19,6 @@ jparker:gravatar
 jparker:crypto-md5
 jparker:crypto-core
 matb33:collection-hooks
-meteor-platform
 reactive-dict
 meteorhacks:kadira
 service-configuration
@@ -28,3 +27,17 @@ meteorhacks:picker
 kadira:blaze-layout
 kadira:flow-router
 meteorhacks:fast-render
+standard-minifiers
+meteor-base
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+fastclick
