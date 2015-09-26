@@ -22,9 +22,6 @@ renderPage = (templateName) ->
 
 if Meteor.isClient
   Template.registerHelper "subsReady", -> FlowRouter.subsReady()
-  Tracker.autorun ->
-    FlowRouter.watchPathChange()
-    Session.set "page", FlowRouter.current().route?.getParam("page")
 
 # Homepage
 FlowRouter.route "/",
