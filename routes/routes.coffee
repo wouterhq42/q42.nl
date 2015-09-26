@@ -9,7 +9,7 @@ Triggers =
   set404StatusCode: -> Spiderable.httpStatusCode = 404
   setLanguage: ->
     Session.set "lang",
-      unless window.location.hostname is "q42.com" then "en" else "nl"
+      if window.location.hostname is "q42.com" then "en" else "nl"
 
 FlowRouter.triggers.enter [Triggers.setLanguage, Triggers.setupPage]
 
