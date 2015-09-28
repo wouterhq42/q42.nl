@@ -10,6 +10,7 @@
   { name: "Christiaan Hees", handle:"christiaan" }
   { name: "Corina Maduro", handle:"corina" }
   { name: "Cynthia Wijntje", handle:"cynthia" }
+  { name: "Diedra Rater", handle:"diedra", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Elaine Oliver", handle:"elaine" }
   { name: "Frank van den Hoogen", handle:"frank", web: "http://www.frankvdhoogen.nl" }
   { name: "Gerard Dorst", handle:"gerard" }
