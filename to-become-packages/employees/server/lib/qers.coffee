@@ -12,7 +12,7 @@
   { name: "Cynthia Wijntje", handle:"cynthia" }
   { name: "Diedra Rater", handle:"diedra", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Elaine Oliver", handle:"elaine" }
-  { name: "Frank van den Hoogen", handle:"frank", web: "http://www.frankvdhoogen.nl" }
+  { name: "Frank Raterink", handle:"frank", web: "http://www.franklabs.nl" }
   { name: "Gerard Dorst", handle:"gerard" }
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
