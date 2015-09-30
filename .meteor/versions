@@ -50,6 +50,7 @@ jparker:crypto-md5@0.1.1
 jparker:gravatar@0.4.1
 jquery@1.11.4
 kadira:blaze-layout@2.1.0
+kadira:debug@2.2.3
 kadira:flow-router@2.6.2
 less@2.5.0_2
 livedata@1.0.15
