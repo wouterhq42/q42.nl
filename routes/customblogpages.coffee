@@ -21,22 +21,18 @@
     routeName: "meteor"
     path: "/meteor"
     tags: ["meteor"]
-    lang: "en"
 
   customPageWithBlogTags
     routeName: "swift"
     path: "/swift"
     tags: ["swift"]
-    lang: "en"
 
   customPageWithBlogTags
     routeName: "vacatures"
     path: "/vacatures"
     tags: ["vacature"]
-    lang: "nl"
 
   customPageWithBlogTags
     routeName: "io"
     path: "/io"
     tags: ["io"]
-    lang: "en"
