@@ -8,9 +8,9 @@ Template.thing.helpers
 
 
 
-Template.threeCols.onCreated ->
+Template.group.onCreated ->
   @thingIds = Template.currentData().ids.split(",")
   @autorun => @subscribe "things", @thingIds
 
-Template.threeCols.helpers
+Template.group.helpers
   things: -> Things.find(name: $in: Template.instance().thingIds)

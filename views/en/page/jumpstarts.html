@@ -1,32 +1,29 @@
 <template name="en_jumpstarts">
   <div class="container">
 
-    <header class="block-text">
-      <h1 style="display: none">Jumpstarts</h1>
-      <img src="http://static.q42.nl/images/jumpstarts/jumpstarts.png" alt="" style="max-width:100%">
-    </header>
+    {{> thing id='jumpstarts-header'}}
 
     {{#block size='large'}}
       {{> thing id='jumpstarts-intro'}}
     {{/block}}
 
     {{#block size='large' align='right'}}
-      {{> thing id='tesloop'}}
+      {{> thing id='tesloop.block'}}
     {{/block}}
 
-    {{#threeCols ids='taxi-electric,livelearn,umuntu-media'}}{{/threeCols}}
+    {{#group ids='taxi-electric,livelearn,umuntu-media'}}{{/group}}
 
     {{#block size='large'}}
       {{> thing id='game-of-drones'}}
     {{/block}}
 
-    {{#threeCols ids='paper,shell,benbenet'}}{{/threeCols}}
+    {{#group ids='paper,shell,benbenet'}}{{/group}}
 
     {{#block size='large'}}
       {{> thing id='spinn'}}
     {{/block}}
 
-    {{#threeCols ids='nannii,swisscom,bavaria'}}{{/threeCols}}
+    {{#group ids='nannii,swisscom,bavaria'}}{{/group}}
 
   </div>
 </template>
