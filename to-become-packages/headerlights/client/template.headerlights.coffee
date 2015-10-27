@@ -1,4 +1,5 @@
 Template.headerlights.onCreated ->
+  @subscribe "lights"
   @autorun ->
     newColor = "#" + Lights.find({}, {sort: date: -1}).fetch()[0]?.hex
     setLightingStyle newColor, getColor2FromHex newColor

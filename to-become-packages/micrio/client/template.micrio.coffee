@@ -17,4 +17,5 @@ Template.micrio.onCreated -> @subscribe "micrio"
 
 Template.micrio.onRendered ->
   micrioEl = document.getElementById('micrio')
-  new Screensaver(micrioEl, _.shuffle Micrios.find().fetch()).goto 0
+  Tracker.autorun ->
+    new Screensaver(micrioEl, _.shuffle Micrios.find().fetch()).goto 0

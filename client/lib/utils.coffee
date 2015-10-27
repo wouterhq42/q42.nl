@@ -3,7 +3,14 @@
   # return the correct name of the template
   # depending on the current language
   getTemplate: (name) ->
-    if Session.equals("lang", "en") then "en_#{name}" else name
+    if Session.equals("lang", "en") and Template["en_#{name}"]
+      "en_#{name}"
+    else if Session.equals("lang", "en") and !Template["en_#{name}"]
+      "error404"
+    else if Session.equals("lang", "nl") and !Template[name]
+      "error404"
+    else
+      name
 
   # return the pages to be displayed as pagination on the blog
   getPagination: (pageNum, tag) ->
@@ -45,11 +52,8 @@
 
   # set the correct <title> and meta info
   setTitleAndMeta: ->
-    if (
-      Session.equals("page", "home") or
-      Session.equals("page", "") or
-      Session.equals("page", undefined)
-    )
+    routeName = FlowRouter.getRouteName()
+    if routeName is "home" or routeName is undefined
       document.title = "Q42"
     else
       document.title = $('h1').first().text() + " - Q42"
