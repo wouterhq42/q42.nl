@@ -83,22 +83,22 @@ Utils = {
 
   getPictureURL: (user) => {
     const anon = "http://static.q42.nl/images/employees/anonymous.jpg";
-    const s = user.services;
+    const s = user ? user.services : null;
 
     switch (false) {
-      case (!user || !user.services):
+      case !user || !user.services:
         anon;
         break;
-      case s.twitter:
+      case user && s.twitter:
         s.twitter.profile_image_url;
         break;
-      case s.google:
+      case user && s.google:
         s.google.picture;
         break;
-      case s.facebook:
+      case user && s.facebook:
         "https://graph.facebook.com/${s.facebook.id}/picture";
         break;
-      case s.github:
+      case user && s.github:
         Gravatar.imageUrl(s.github.email || "");
         break;
       default:
