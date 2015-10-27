@@ -1,0 +1,43 @@
+<template name="workDetail">
+  <div class="container">
+
+    <header class="block-text">
+      <h1>{{work.name}}</h1>
+      <h2>with {{work.clientName}}</h2>
+    </header>
+
+    <div class="block-large">
+      <div class="intro">
+        {{{work.intro}}}
+      </div>
+      <aside class="block-small subcontent">
+        <h2>About</h2>
+        <ul>
+          {{#with work.properties}}
+          <li>{{prettifyDate date}}</li>
+          <li>
+            {{#each t in tags}}
+              <a href="/work?tag={{t}}">{{t}}</a>
+            {{/each}}
+          </li>
+          <li>
+            {{#each qer in qers}}
+              <img src="http://static.q42.nl/images/employees/{{qer}}.jpg"
+                   alt="" style="width: 120px; height: 120px">
+            {{/each}}
+          </li>
+          {{/with}}
+        </ul>
+      </aside>
+    </div>
+
+    {{#each b in work.blocks}}
+
+      {{#block size=b.size align=b.align}}
+        {{> thing id=b.thingId}}
+      {{/block}}
+
+    {{/each}}
+
+  </div>
+</template>

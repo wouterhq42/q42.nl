@@ -9,7 +9,7 @@ Triggers =
   set404StatusCode: -> Spiderable.httpStatusCode = 404
   setLanguage: ->
     Session.set "lang",
-      if window.location.hostname is "q42.com" then "en" else "nl"
+      if window.location.hostname is "q42.com" then "nl" else "en"
 
 FlowRouter.triggers.enter [Triggers.setLanguage, Triggers.setupPage]
 
@@ -82,11 +82,18 @@ FlowRouter.route "/blog/post/:id/:title?",
 # custom blog pages matching a given tag
 customBlogPages this
 
+
+FlowRouter.route "/work/:slug",
+  name: "work"
+  action: (params) ->
+    renderPage "workDetail"
+  subscriptions: (params) ->
+    @register "work", Meteor.subscribe("work", params.slug)
+
 # Any other page
 FlowRouter.route "/:page",
   name: "page"
   action: (params) ->
-    console.log("route action", params.page)
     renderPage RouteUtils.getTemplate(params.page)
   subscriptions: (params) ->
     if params.page in ["over-q42", "about-q42"]
@@ -99,5 +106,4 @@ FlowRouter.route "/(.*)",
   name: "404"
   triggersEnter: [Triggers.set404StatusCode]
   action: ->
-    console.log("route action /(.*)")
     renderPage "error404"
