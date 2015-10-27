@@ -1,7 +1,7 @@
 // Helper to easily construct templates for multiple languages
 $Template = function(templates) {
   _.each(templates, (values, tmpl) => {
-    _tmpl("helpers", tmpl, values)
+    _tmpl("helpers", tmpl, values);
   });
 };
 $Events = function(tmpl, events) {
