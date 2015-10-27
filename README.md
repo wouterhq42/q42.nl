@@ -21,6 +21,10 @@ On Mac or Linux, run this:
 
 On Windows, just go to http://meteor.com/install and download the Windows installer!
 
+### Configure your editor
+
+Make sure your editor has support for .editorconfig, and .jshintrc.
+
 ### Add settings you need
 
 Create a `config/settings.json` file containing the correct Tumblr and Kadira account information:
