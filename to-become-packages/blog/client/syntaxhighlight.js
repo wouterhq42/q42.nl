@@ -9,7 +9,7 @@ syntaxHighlight = () => {
     }
   });
 
-  if (a) prettyPrint();
+  if (a) return prettyPrint();
 }
 
 Template.blog.onRendered(syntaxHighlight);
