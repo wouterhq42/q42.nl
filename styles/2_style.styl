@@ -102,6 +102,7 @@ a
   background-color colorGreen
 #page
   transition transform .2s ease
+  background white
 
   &.visible-backgrounds
     #backgrounds
@@ -117,8 +118,8 @@ a
       background #333
       .bg
         display none
-  &.isnthome
-    background white
+  &.ishome
+    background none
 
 #not-found
   margin 40px auto
@@ -298,6 +299,16 @@ a
     .visual
       margin-bottom 15px
 
+  .newsitem
+    width 100%
+    text-align left
+    background rgba(1,1,1,0.5)
+    border 5px solid red
+
+    h2
+      font-size 2rem
+      padding 0
+
 .block-large > .body h2
   margin-top 0
 
@@ -305,6 +316,7 @@ a
 .block-large > .block-small:first-child:nth-last-child(2),
 .block-large > .block-small:first-child:nth-last-child(2) ~ div
   max-width 33.3333%
+
 
 .block-small
   doFlex 1
