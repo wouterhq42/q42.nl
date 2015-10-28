@@ -58,12 +58,7 @@ cite
 
 a
   color #000
-  text-decoration none
-  font-weight 500
-  border-bottom solid 1px rgba(0,0,0,.2)
-  &:hover
-    color #419aff
-    border-bottom-color #419aff
+  text-decoration underline
 
 #page:before
   content ''
@@ -83,9 +78,7 @@ a
   height 100vh
   background-color colorGreen
 #page
-  background-color: #eee
   transition transform .2s ease
-  box-shadow -2px 0 20px rgba(0,0,0,.2)
 
   &.visible-backgrounds
     #backgrounds
@@ -206,7 +199,16 @@ a
   &.invert
     color white
     fontSmoothing antialiased
-    text-shadow 0 1px 0 rgba(0,0,0,.4)
+
+  &.hero
+    margin-top 10em
+
+    p
+      font-size 1.3rem
+      font-weight 700
+
+      a
+        color colorGreen
 
   p
     font-size 1.3rem
@@ -222,7 +224,7 @@ a
     font-size: 1rem
     font-weight: bold
     width: 75%
-    
+
     a
       color: colorGreen
       border-bottom: 1px solid colorGreen
@@ -236,8 +238,8 @@ a
     font-weight: 700
     font-style: italic
     text-transform: uppercase
-    font-size: 80px
-    line-height: 70px
+    font-size: 6.5rem
+    line-height: 6rem
 
 .block-large
   displayFlex()
