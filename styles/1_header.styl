@@ -9,7 +9,7 @@
   nav
     displayFlex()
     flexDirection column
-    alignItems center
+    justify-content: center;
     padding 16px 0
     position relative
     z-index 5
@@ -17,10 +17,12 @@
     displayFlex()
     list-style none
     padding 0
+    align-content: center;
+    justify-content: center;
 
     @media (max-width: 480px)
       position absolute
-      top 0
+      top 100px
       width 150px
       margin-top 0
       transform translateX(-100%)
@@ -28,11 +30,13 @@
       flexDirection column
       li:first-child
         display block
+
+  li.q42-logo
+    margin 0 8px;
+    
   li
     font-size .9rem
-    margin 0 8px
-    &:first-child
-      display none
+    margin 50px 8px
 
     @media (max-width: 480px)
       margin 0
