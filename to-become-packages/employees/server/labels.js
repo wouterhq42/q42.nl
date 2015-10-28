@@ -1,4 +1,4 @@
-addLabel = function(label, handles) {
+const addLabel = function(label, handles) {
   handles = _.isString(handles) ? handles.split(" ") : handles;
   for (let handle in handles){
     Employees.update(
@@ -8,10 +8,10 @@ addLabel = function(label, handles) {
   }
 };
 
-allHandles = _.pluck(Employees.find().fetch(), "handle");
+const allHandles = _.pluck(Employees.find().fetch(), "handle");
 
 // Roles
-roles = {
+const roles = {
   "Projectleider": "jasper korjan timd gerard laurens meindert taco silvy",
   "Software Engineer": _.without(
     allHandles,
@@ -34,7 +34,7 @@ roles = {
 };
 
 // Arbitrary selections
-arbitrary = {
+const arbitrary = {
   "Girl Code": "ineke katja kristin",
   "Codeuur": "kars lukas johan kim",
   "Speelt nog World of Warcraft": "rahul christiaan richard benjamin tims",
