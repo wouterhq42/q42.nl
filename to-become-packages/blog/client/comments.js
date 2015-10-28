@@ -15,7 +15,6 @@ Template.comment.onCreated(function() {
   this.editing = new ReactiveVar(false);
   this.numRows = new ReactiveVar(3);
   this.date = new ReactiveVar(new Date);
-  // ****** why is this anonymous function wrapped in parenthesis? ******
   Meteor.setInterval( ( () => this.date.set(new Date()) ), 1000);
 })
 
