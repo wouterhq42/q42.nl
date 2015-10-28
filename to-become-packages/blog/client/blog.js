@@ -2,7 +2,7 @@ $Template({
   postDate: {
     prettyDate: function() {
       date = new Date(this.date.replace(" GMT", "").split(" ").join("T") + "Z");
-      "${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}";
+      return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
     },
     authorName: function() {
       return this.authorName || "Q42";
