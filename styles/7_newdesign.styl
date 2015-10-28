@@ -10,8 +10,6 @@
   .block-large
     position relative
     margin 0 auto 16px auto
-    background #fff
-    box-shadow 0 1px 1px rgba(0,0,0,.18)
     &.block-no-padding-after
       margin-bottom 0
     &.block-no-padding
@@ -37,30 +35,18 @@
     & > .body
       margin 0
       padding 32px
-      background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
-      color white
+      background white
+      // background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
 
       @media (min-width 940px)
         position absolute
         width 40%
         z-index 99
-        bottom 0
+        bottom 40px
         left 1rem
 
       & + .visual
         height 100%
-      h2
-        font-size 2rem
-        text-align center
-      h3
-        text-align center
-        color rgba(255,255,255,.7)
-        fontSmoothing antialiased
-      a
-        color white
-        border-color rgba(255,255,255,.7)
-        &:hover
-          border-color white
 
     &.right > .body
       right 1rem
