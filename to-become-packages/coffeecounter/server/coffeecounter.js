@@ -30,7 +30,7 @@ Meteor.startup( () => {
 
     // update the counter every minute
     Meteor.setTimeout(updateCoffeeCounter, 1000 * 60);
-  }
+  };
 
   updateCoffeeCounter();
 });
