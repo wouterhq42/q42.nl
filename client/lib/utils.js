@@ -3,14 +3,14 @@ Utils = {
   // return the correct name of the template
   // depending on the current language
   getTemplate: (name) => {
-    if ( Session.equals("lang", "en") && Template["en_#{name}"] ){
-      "en_#{name}";
+    if ( Session.equals("lang", "en") && Template[`en_${name}`] ){
+      return `en_${name}`;
     } else if ( Session.equals("lang", "en") && !Template["en_#{name}"] ){
-      "error404";
+      return "error404";
     } else if ( Session.equals("lang", "nl") && !Template[name] ){
-      "error404";
+      return "error404";
     } else {
-      name;
+      return name;
     }
   },
 
