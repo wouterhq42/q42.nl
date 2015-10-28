@@ -87,23 +87,18 @@ Utils = {
 
     switch (false) {
       case !user || !user.services:
-        anon;
-        break;
-      case user && s.twitter:
-        s.twitter.profile_image_url;
-        break;
-      case user && s.google:
-        s.google.picture;
-        break;
-      case user && s.facebook:
-        "https://graph.facebook.com/${s.facebook.id}/picture";
-        break;
-      case user && s.github:
-        Gravatar.imageUrl(s.github.email || "");
-        break;
+        return anon;
+      case s.twitter:
+        return s.twitter.profile_image_url;
+      case s.google:
+        return s.google.picture;
+      case s.facebook:
+        return "https://graph.facebook.com/${s.facebook.id}/picture";
+      case s.github:
+        return Gravatar.imageUrl(s.github.email || "");
       default:
-        anon;
+        return anon;
     }
   }
 
-}
+};
