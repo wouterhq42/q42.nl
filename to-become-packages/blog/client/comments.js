@@ -14,7 +14,7 @@ Template.comments.events({
 Template.comment.onCreated(function() {
   this.editing = new ReactiveVar(false);
   this.numRows = new ReactiveVar(3);
-  this.date = new ReactiveVar(new Date);
+  this.date = new ReactiveVar(new Date());
   Meteor.setInterval( ( () => this.date.set(new Date()) ), 1000);
 });
 
