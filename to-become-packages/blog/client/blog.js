@@ -13,7 +13,7 @@ $Template({
     post: () => {
       // ***** this does not seem to be returning anything - why? *****
       return blogpostIndex.find({
-        id: { $ne: FlowRouter.getParam('blogpostid') },
+        id: { $ne: FlowRouter.getParam('id') },
         title: { $exists: true }
       }, { limit: 3 }).fetch();
     },
