@@ -6,7 +6,7 @@ _.each(currentQers, (e) => {
     q020boven: {x: 0, y: 0}
   };
 
-  qer = Employees.findOne({handle: e.handle});
+  const qer = Employees.findOne({handle: e.handle});
 
   if (qer && qer.floorplan){
     e.floorplan = qer.floorplan;
