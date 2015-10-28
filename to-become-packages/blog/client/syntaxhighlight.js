@@ -1,4 +1,4 @@
-syntaxHighlight = () => {
+syntaxHighlight = function() {
   let a = false;
 
   $('code').each(function() {
