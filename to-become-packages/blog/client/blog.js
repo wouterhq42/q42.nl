@@ -12,12 +12,10 @@ $Template({
   otherPosts: {
     post: () => {
       // ***** this does not seem to be returning anything - why? *****
-      let otherPosts = blogpostIndex.find({
+      return blogpostIndex.find({
         id: { $ne: FlowRouter.getParam('blogpostid') },
         title: { $exists: true }
       }, { limit: 3 }).fetch();
-      console.log(otherPosts);
-      return otherPosts;
     },
     firstImage: function() {
       if (this.intro){
