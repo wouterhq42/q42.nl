@@ -18,7 +18,7 @@ Meteor.startup( () => {
       newCount = 0;
 
     // work day - increment
-  } else if (hour >= 8 && hour <= 18 && day !== 6 && day !== 0){
+    } else if (hour >= 8 && hour <= 18 && day !== 6 && day !== 0){
       const ceil = hour < 12 ? 20 : 30;
       const inc = ~~(Math.random() * 42) > ceil ? 1 : 0;
       newCount = currentCount + inc;

@@ -23,10 +23,11 @@ Template.comment.helpers({
   service: function() {
     const user = Meteor.users.findOne({_id: this.userId});
     if (!user) return "";
-    for (let p in user.services){
-      // ****** what do we do with the p's here? return them? in what format? *****
-      return p;
+    let services = [];
+    for (let p of user.services) {
+      services.push(p);
     }
+    return services;
   },
   picture: function() {
     return Utils.getPictureURL( Meteor.users.findOne({_id: this.userId}) );

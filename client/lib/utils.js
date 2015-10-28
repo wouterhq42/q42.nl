@@ -27,18 +27,18 @@ Utils = {
     if (pages !== 1){
       const page = pageNum || 1;
       if (page > 1){
-        items.push({label: newer}, {page: page - 1});
+        items.push({ label: newer, page: page - 1 });
       }
 
       const min = Math.max(1, page - 3);
       const max = Math.min(pages, page + 3);
 
       for (let i=min; i<=max; i++){
-        items.push({label: i}, {pagex: i}, {active: i === page});
+        items.push({ label: i, pagex: i, active: i === page });
       }
 
       if (page < pages){
-        items.push({label: older}, {page: page + 1});
+        items.push({ label: older, page: page + 1 });
       }
     }
 
@@ -85,20 +85,12 @@ Utils = {
     const anon = "http://static.q42.nl/images/employees/anonymous.jpg";
     const s = user ? user.services : null;
 
-    switch (false) {
-      case !user || !user.services:
-        return anon;
-      case s.twitter:
-        return s.twitter.profile_image_url;
-      case s.google:
-        return s.google.picture;
-      case s.facebook:
-        return "https://graph.facebook.com/${s.facebook.id}/picture";
-      case s.github:
-        return Gravatar.imageUrl(s.github.email || "");
-      default:
-        return anon;
-    }
+    if (!s)               return anon;
+    else if (s.twitter)   return s.twitter.profile_image_url;
+    else if (s.google)    return s.google.picture;
+    else if (s.facebook)  return "https://graph.facebook.com/${s.facebook.id}/picture";
+    else if (s.github)    return Gravatar.imageUrl(s.github.email || "");
+    else                  return anon;
   }
 
 };
