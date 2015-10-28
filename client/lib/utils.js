@@ -42,7 +42,7 @@ Utils = {
       }
     }
 
-    items;
+    return items;
   },
 
   // if the page is reloaded with a hash in the url,
