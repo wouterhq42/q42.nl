@@ -32,11 +32,18 @@
         display block
 
   li.q42-logo
-    margin 0 8px;
-    
+    margin 0 24px;
+
+    a:hover {
+      border-bottom: none
+    }
+
   li
-    font-size .9rem
-    margin 50px 8px
+    font-family: 'Roboto Mono'
+    text-transform: uppercase
+    font-size: 24px
+    margin 30px 24px
+    font-weight: bold
 
     @media (max-width: 480px)
       margin 0
@@ -46,7 +53,7 @@
       text-shadow 0 1px rgba(0,0,0,.3)
       text-decoration none
       border-bottom none
-      smallcaps()
+
       &:hover
         border-bottom solid 1px rgba(255,255,255,.8)
 
@@ -128,8 +135,8 @@
     border-bottom none
 
   object, img
-    width 129px
-    height 180px
+    width 60px
+    //height 180px
     pointer-events none
 
     @media (max-width: 480px)

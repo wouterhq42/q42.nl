@@ -1,9 +1,19 @@
 @import "0_variables.styl"
 
+body:before
+  content ''
+  position absolute
+  z-index 999
+  top 0
+  width 100%
+  height 10px
+  background-color colorGreen
+
 body
   font 300 1rem bodyFont
   margin 0
   background-color #eee
+  border-bottom 10px solid colorGreen
 
   @media (max-width: 480px)
     &.show-mobile-menu
@@ -55,6 +65,23 @@ a
     color #419aff
     border-bottom-color #419aff
 
+#page:before
+  content ''
+  position fixed
+  z-index 999
+  left 0
+  width 10px
+  height 100vh
+  background-color colorGreen
+#page:after
+  content ''
+  position fixed
+  z-index 999
+  right 0
+  top 0
+  width 10px
+  height 100vh
+  background-color colorGreen
 #page
   transition transform .2s ease
   box-shadow -2px 0 20px rgba(0,0,0,.2)
@@ -187,17 +214,28 @@ a
     font-size 3rem
     font-weight 500
     text-align center
-    margin 0
+    margin 0 0 24px 0
   h2
-    font-size 1.5rem
-    font-weight 300
+    display: block
+    margin: 0 auto
+    font-size: 18px
+    font-weight: bold
+
+    a
+      color: colorGreen
+      border-bottom: 1px solid colorGreen
+    a:hover
+      border-color: 1px solid colorGreen
 
   blockquote p
     font-size 2rem
 
   .tagline
-    text-transform uppercase
-    font-weight 800
+    font-weight: 700
+    font-style: italic
+    text-transform: uppercase
+    font-size: 80px
+    line-height: 70px
 
 .block-large
   displayFlex()
