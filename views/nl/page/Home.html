@@ -11,8 +11,17 @@
       </p>
     </section>
 
-    <section class="block-full">
-      <p>Iets met blogshit hier</p>
+    <section class="block-full invert newslist">
+      {{#each post}}
+        <div class="block-large">
+          <div class="newsitem">
+            <div class="image">
+            </div>
+            <h2>{{title}}</h2>
+            <p>tekst-shizzle hier</p>
+          </div>
+        </div>
+      {{/each}}
     </section>
 
   </div>

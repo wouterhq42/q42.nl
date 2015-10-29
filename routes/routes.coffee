@@ -27,6 +27,8 @@ if Meteor.isClient
 FlowRouter.route "/",
   name: "home"
   action: -> renderPage RouteUtils.getTemplate("home")
+  subscriptions: ->
+    @register "allPosts", Meteor.subscribe("blogpostIndex")
 
 blogOverview = FlowRouter.group
   prefix: "/blog"

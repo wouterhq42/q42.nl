@@ -1,5 +1,5 @@
 // Blog admins
-var admins = ['sjoerd@q42.nl', 'rahul@q42.nl', 'chris@q42.nl'];
+var admins = ['sjoerd@q42.nl', 'rahul@q42.nl', 'chris@q42.nl', 'taco@q42.nl', 'ineke@q42.nl'];
 Meteor.publish("allUserData", function () {
   Meteor.users.update({
     'services.google.email': { $in : admins } }, { $set: { isAdmin: true }
