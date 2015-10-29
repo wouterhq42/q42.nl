@@ -7,7 +7,7 @@ const HTTP_REDIRECT_PERMANENT = 302;
 Picker.middleware((req, res, next) => {
   const urlsToRedirectToEn = ["/meteor", "/swift", "/vr", "/interaction-engineering"];
   if (req.headers.host === "q42.nl"){
-    if (req.url in urlsToRedirectToEn){
+    if (urlsToRedirectToEn.indexOf(req.url) !== -1){
       console.log(`Redirect NL to EN: ${req.url}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
         Location: `http://q42.com${req.url}`

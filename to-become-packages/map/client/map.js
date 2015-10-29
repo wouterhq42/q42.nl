@@ -82,8 +82,8 @@ initMap = function() {
       scaledSize: new google.maps.Size(16, 25),
     },
     attribution: {
-      source: "Q42.${tld}",
-      webUrl: "http://q42.${tld}"
+      source: `Q42.${tld}`,
+      webUrl: `http://q42.${tld}`
     }
   };
 
@@ -164,6 +164,6 @@ Template.map.onRendered( () => {
 });
 
 Template.map.helpers({
-  usQer: () => Employees.find({handle: "rahul"}),
-  nlQer: () => Employees.find({handle: {$ne: "rahul"}})
+  usQer: () => Employees.find({ $or: [{handle: "rahul"},{handle: "diedra"}]}),
+  nlQer: () => Employees.find({handle: {$nin: ["rahul", "diedra"]}})
 });

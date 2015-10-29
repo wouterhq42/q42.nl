@@ -1,5 +1,5 @@
 Template.numLinesOfCode.helpers({
-  numLinesOfCode: function() {
+  numLinesOfCode() {
     const numQers = Employees.find().count();
     let counter = 0;
     let to = null;

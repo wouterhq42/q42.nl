@@ -11,11 +11,13 @@ Template.registerHelper("avatar_animated", function() {
 });
 
 Template.employees.helpers({
-  employee: () => {
+  employee() {
     const filter = Session.get("employees_filter");
     if (_.first(filter) === "/" && _.last(filter) === "/"){
+      let regex;
+
       try {
-        const regex = new RegExp(_.without(filter, "/").join(""), "i");
+        regex = new RegExp(_.without(filter, "/").join(""), "i");
       } catch (error){
         console.log(error);
       }
@@ -56,7 +58,7 @@ Template.employeeView.helpers({
 });
 
 Template.employeeView.events({
-  "mouseenter .qer, click .qer": function(evt) {
+  "mouseenter .qer, click .qer": function() {
     polaroidVisibility.set(this._id, true);
   },
   "mouseleave .qer": function(evt) {
