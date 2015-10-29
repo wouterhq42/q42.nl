@@ -1,6 +1,5 @@
 FastRender.onAllRoutes(function() {
   this.subscribe("lights");
-  this.subscribe("micrio");
   this.subscribe("allUserData");
 });
 
