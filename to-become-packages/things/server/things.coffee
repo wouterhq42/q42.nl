@@ -1,16 +1,15 @@
-
-getThing = (thingId) ->
-  try
-    Assets.getText("things/#{thingId}.html")
-
-# The Things collection is empty on the server, and we just push contents
-# dynamically to the client-side collection using the below publication.
 Meteor.publish "things", (thingIds) ->
   check(thingIds, Array)
+  Things.find name: $in: thingIds
 
-  for thingId in thingIds
-    thing = getThing thingId
-    if thing
-      @added "things", new Mongo.ObjectID(), {name: thingId, content: thing}
+if Things.find().count() is 0
 
-  @ready()
+  for thingId in [
+    "benbenet", "game-of-drones"
+    "jumpstarts-header", "jumpstarts-intro"
+    "livelearn", "nannii", "paper", "shell"
+    "spinn", "swisscom", "taxi-electric", "tesloop", "umuntu-media"
+  ]
+    try Things.insert
+      name: thingId
+      content: Assets.getText("things/#{thingId}.html")
