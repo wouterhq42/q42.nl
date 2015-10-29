@@ -80,9 +80,10 @@ cite
   font-style normal
 
 a
-  color #000
+  font-weight bold
   text-decoration none
   transition all .15s ease 0s
+  color colorQgreen
 
 #page:before
   content ''
@@ -103,7 +104,7 @@ a
   background-color colorGreen
 #page
   transition transform .2s ease
-  background white
+  background colorLight
 
   &.visible-backgrounds
     #backgrounds
@@ -201,7 +202,8 @@ a
     @media (max-width 480px)
       font-size 3rem
   h2
-    font-size 3rem
+    max-width 650px
+    margin 0 auto
 
 .block-full
   display block
@@ -340,7 +342,7 @@ a
     &:not(:last-child)
       margin-right 10px
   & > .body
-    padding 0 20px 20px 20px
+    padding 20px
   //   h2
   //     font-weight 900
   //     background-color #222
@@ -364,15 +366,23 @@ a
     margin 10px
     width 285px
 
+address.vcard.body
+    margin 10px 0
+    font-weight 500
+    color colorDark
+
 .light-background
   background colorLight
 
+.white-background
+  background white
+
 .subcontent
-  padding 32px
-  gradient-box()
+  background white
+  padding 10px
   doFlex 2
   color white
-  font-family serifTitleFont
+  widht 300px
   h2
     font-weight normal
     &:first-child
@@ -417,20 +427,23 @@ a
       fontSmoothing antialiased
 
 .block-with-icons
+  padding 10px
   ul
     padding 0
-    margin-bottom 0
+    margin-bottom 10px
   li
     displayFlex()
-    alignItems center
+    alignItems top
     &:not(:last-child)
-      padding 0 0 8px 0px
+      padding 0 0 20px 0px
     i
       min-width 40px
     div
       margin-left 12px
   h2
-    margin-top 0
+    margin-bottom 20px
+  body
+    padding 0
 
 .censored
   color black
@@ -438,21 +451,45 @@ a
   padding 0 4px
 
 .portfolio-thumb
+  cursor pointer
+  position relative
   padding 10px
   background white
+  height 300px
   &:not(:last-child)
     margin-right 10px
   box-shadow 0 2px 4px rgba(0,0,0,.1)
+  transition all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000)
 
   h2
     font-size 15px
     font-weight 700
     font-style italic
+    margin-top 10px
 
   .descriptor
     color colorDark
     font-size 13px
     font-weight 500
+    margin-top 10px
+
+.portfolio-thumb:hover
+  box-shadow 0px 4px 6px rgba(0,0,0,.2)
+  transform translateY(-2px)
 
 .q-logo-svg
   fill colorQgreen
+
+.page-title
+  padding-bottom 0
+
+.tech-icons
+  position absolute
+  bottom 0px
+  margin-bottom 5px
+  img
+    height 28px
+    margin-right 5px
+
+.q-filters
+  width 400px

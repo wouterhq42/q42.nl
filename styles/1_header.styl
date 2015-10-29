@@ -1,10 +1,11 @@
 @import "0_variables.styl"
 
 #header
-  animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
-  animationFillMode forwards !important
+  // animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
+  // animationFillMode forwards !important
   position relative
   z-index 99
+  background colorLight
 
   nav
     displayFlex()
@@ -47,7 +48,7 @@
       margin 0
 
     a
-      color #fff
+      color colorDark
       text-decoration none
       border-bottom none
 
@@ -132,3 +133,9 @@
 
     @media (max-width: 480px)
       height 110px
+
+#page.ishome a
+  color white
+
+#page.ishome #header
+  background none
