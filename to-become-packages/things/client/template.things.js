@@ -1,4 +1,4 @@
-Template.thing.onCreated(() => {
+Template.thing.onCreated(function() {
   this.thingId = Template.currentData().id;
   this.autorun( () => this.subscribe("things", [this.thingId]) );
 });
@@ -11,7 +11,7 @@ Template.thing.helpers({
   }
 });
 
-Template.group.onCreated(() => {
+Template.group.onCreated(function() {
   this.thingIds = Template.currentData().ids.split(",");
   this.autorun( () => this.subscribe("things", this.thingIds) );
 });
