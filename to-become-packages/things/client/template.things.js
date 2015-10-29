@@ -1,4 +1,3 @@
-
 Template.thing.onCreated(() => {
   this.thingId = Template.currentData().id;
   this.autorun( () => this.subscribe("things", [this.thingId]) );
