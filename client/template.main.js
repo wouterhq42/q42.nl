@@ -3,5 +3,5 @@ Template.main.helpers({
     footer: () => Session.equals("lang", "en") ? "en_footer" : "footer",
     openChat: () => Session.equals("openChat", true),
     visible: () =>
-      Session.equals("backgroundsVisible", true) ? "visible-backgrounds" : "visible-micrio"
+      Session.equals("backgroundsVisible", true) ? "visible-backgrounds" : "visible-micrio",
 });
