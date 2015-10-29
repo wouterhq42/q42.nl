@@ -4,6 +4,8 @@ Meteor.publish "things", (thingIds) ->
 
 if Things.find().count() is 0
 
+  # XXX: loop over everything in the /things/ folder and insert it rather
+  # than doing this manually
   for thingId in [
     "benbenet", "game-of-drones"
     "jumpstarts-header", "jumpstarts-intro"
