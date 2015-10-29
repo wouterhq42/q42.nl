@@ -15,7 +15,7 @@ const attachGoogleAnalytics = function(){
   if (attachedGoogleAnalytics) return;
 
   (function(i, s, o, g, r, a, m){
-    i["GoogleAnalyticsObject"] = r;
+    i.GoogleAnalyticsObject = r;
     i[r] = i[r] || (() => {
       (i[r].q = i[r].q || []).push(arguments);
       return;
