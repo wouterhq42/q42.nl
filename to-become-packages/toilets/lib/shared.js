@@ -1,1 +1,1 @@
-Toilets = new Mongo.Collection("toilets")
+Toilets = new Mongo.Collection("toilets");

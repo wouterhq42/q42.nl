@@ -129,7 +129,7 @@ publishWithObserveChanges("blogpostIndex", function (page, tag) {
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1
+      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1, authorName: 1
     }
   });
 });
