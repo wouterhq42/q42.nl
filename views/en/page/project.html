@@ -31,10 +31,10 @@
       </aside>
     </div>
 
-    {{#each b in work.blocks}}
+    {{#each t in work.things}}
 
-      {{#block size=b.size align=b.align}}
-        {{> thing id=b.thingId}}
+      {{#block size=t.size align=t.align}}
+        {{> thing id=t.thingId}}
       {{/block}}
 
     {{/each}}

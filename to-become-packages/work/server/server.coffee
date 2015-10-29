@@ -1,8 +1,7 @@
 
 Meteor.publish "work", (slug) ->
   check(slug, String)
-
-  Work.find(slug: slug)
+  return if slug then Work.find(slug: slug) else Work.find()
 
 
 Meteor.startup ->
@@ -23,13 +22,15 @@ Meteor.startup ->
         <p><a href="http://localhost/blog/post/125336396528/klms-apple-watch-app-catches-your-plane">Read how we did it</a></p>
       """
       properties:
+        pinned: no
+        category: "project"
         qers: ["guus", "kamil", "jasper"]
         date: new Date("2015-09-01")
-        tags: ["travel", "apple-watch", "swift", "ios"]
+        tags: ["travel", "apple-watch", "swift", "ios", "app", "wearable"]
       image:
         url: "http://static.q42.nl/images/projecten/klm-applewatch3.jpg"
         caption: "So much more convenient than a stack of paper"
-      blocks: [
+      things: [
         {
           size: 'large'
           thingId: 'tesloop'
