@@ -14,11 +14,14 @@
     <section class="block-full invert newslist">
       {{#each post}}
         <div class="block-large">
-          <div class="newsitem">
-            <div class="image">
-            </div>
+          <div class="newsitem {{isByQer authorName}}">
             <h2>{{title}}</h2>
-            <p>tekst-shizzle hier</p>
+            {{#if isByQer authorName}}
+            <div class="author">
+              <img src="{{gravatar "johan@q42.nl"}}" alt="{{authorName}}" class="gravatar" />
+              <p>{{authorName}}</p>
+            </div>
+            {{/if}}
           </div>
         </div>
       {{/each}}

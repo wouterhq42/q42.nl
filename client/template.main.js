@@ -4,5 +4,5 @@ Template.main.helpers({
     openChat: () => Session.equals("openChat", true),
     homeclass: () => (FlowRouter.getRouteName() == "home") ? ("ishome") : ("isnthome"),
     visible: () =>
-      Session.equals("backgroundsVisible", true) ? "visible-backgrounds" : "visible-micrio",
+      Session.equals("backgroundsVisible", true) ? "visible-backgrounds" : "visible-micrio"
 });
