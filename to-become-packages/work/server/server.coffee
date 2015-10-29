@@ -6,8 +6,6 @@ Meteor.publish "work", (slug) ->
 
 Meteor.startup ->
 
-  Work.remove({})
-
   if Work.find().count() is 0
 
     Work.insert
