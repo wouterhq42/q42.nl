@@ -13,7 +13,7 @@ Template.registerHelper("avatar_animated", function() {
 Template.employees.helpers({
   employee() {
     const filter = Session.get("employees_filter");
-    if (_.first(filter) === "/" && _.last(filter) === "/"){
+    if (_.first(filter) === "/" && _.last(filter) === "/") {
       let regex;
 
       try {
