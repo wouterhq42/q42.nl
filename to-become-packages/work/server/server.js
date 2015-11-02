@@ -9,7 +9,7 @@ Meteor.publish("work", (slug) => {
 Meteor.startup(() => {
   if (Work.find().count() === 0) {
     Work.insert({
-      slug: "klm-for-apple-watch",
+      slug: "klm-apple-watch",
       name: "KLM for Apple Watch",
       clientName: "KLM",
       subtitle: "Check in from your watch",
