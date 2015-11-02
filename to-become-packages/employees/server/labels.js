@@ -1,6 +1,6 @@
 const addLabel = function(label, handles) {
   handles = _.isString(handles) ? handles.split(" ") : handles;
-  for (let handle in handles){
+  for (let handle of handles){
     Employees.update(
       {handle: handle},
       {$addToSet: {labels: label}}
@@ -76,4 +76,4 @@ const arbitrary = {
   "Troll": "benjamin"
 };
 
-_.each(_.extend(roles, arbitrary), (label, handles) => addLabel(label, handles));
+_.each(_.extend(roles, arbitrary), (handles, label) => addLabel(label, handles));
