@@ -47,7 +47,7 @@ Picker.middleware((req, res, next) => {
 
 Picker.middleware((req, res, next) => {
   const host = req.headers.host;
-  const fullUrl = `http://#{host}${req.url}`;
+  const fullUrl = `http://${host}${req.url}`;
   if (host.indexOf("www") === 0){
     console.log(`Route: removeWWW (${req.url})`);
     res.writeHead(HTTP_REDIRECT_PERMANENT, {
