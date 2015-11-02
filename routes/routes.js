@@ -9,7 +9,7 @@ Triggers = {
   checkForNewPosts: () => Meteor.call("checkTumblr"),
   set404StatusCode: () => Spiderable.httpStatusCode = 404,
   setLanguage() {
-    Session.set("lang", window.location.hostname === "q42.com" ? "nl" : "en");
+    Session.set("lang", window.location.hostname === "q42.com" ? "en" : "nl");
   }
 };
 
