@@ -118,8 +118,10 @@ Template.polaroid.events({
 
 
 Template.filter_employees.helpers({
-  list: () => _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort(),
-  selected: (filter) => Session.equals("employees_filter", filter) ? "selected" : ""
+  list: () =>
+    _.uniq(_.flatten(_.pluck(Employees.find().fetch(), "labels"))).sort(),
+  selected: (filter) =>
+    Session.equals("employees_filter", filter) ? "selected" : ""
 });
 
 // Dutch only
@@ -131,7 +133,7 @@ Template.filter_employees.events({
     return false;
   },
   "keyup [data-role='filter-qers']": (evt) => {
-    val = $(evt.target).val();
+    const val = $(evt.target).val();
     Session.set("employees_filter", val);
   }
 });

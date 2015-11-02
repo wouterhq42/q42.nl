@@ -3,8 +3,8 @@ RouteUtils = {
   // return the correct name of the template
   // depending on the current language
   getTemplate(name) {
-    let enName = `en_${name}`;
-    let isEn = Session.equals("lang", "en");
+    const enName = `en_${name}`;
+    const isEn = Session.equals("lang", "en");
     if (isEn && Template[enName]) {
       return enName;
     } else if (isEn && !Template[enName]) {

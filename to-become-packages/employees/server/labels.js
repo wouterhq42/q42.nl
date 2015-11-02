@@ -76,4 +76,5 @@ const arbitrary = {
   "Troll": "benjamin"
 };
 
-_.each(_.extend(roles, arbitrary), (handles, label) => addLabel(label, handles));
+_.each(_.extend(roles, arbitrary),
+  (handles, label) => addLabel(label, handles));

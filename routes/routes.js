@@ -55,7 +55,7 @@ blogOverview.route("/page/:pageNum", {
   name: "blog",
   action() { renderPage("blog"); },
   subscriptions(params) {
-    let pageNum = parseInt(params.pageNum);
+    const pageNum = parseInt(params.pageNum);
     this.register("pagePosts", Meteor.subscribe("blogpostIndex", pageNum));
     this.register("tags", Meteor.subscribe("pagesByTag", ""));
   }
@@ -66,7 +66,7 @@ blogOverview.route("/tagged/:tag",{
   name: "blog",
   action() { renderPage("blog"); },
   subscriptions(params) {
-    let tag = params.tag;
+    const tag = params.tag;
     this.register("tagPosts", Meteor.subscribe("blogpostIndex", 1, tag));
     this.register("tags", Meteor.subscribe("pagesByTag", tag || ""));
   }
@@ -78,7 +78,7 @@ FlowRouter.route("/blog/post/:id/:title?", {
   action(){ renderPage("blogpost"); },
   triggersEnter: [Triggers.checkForNewPosts],
   subscriptions(params) {
-    let id = parseInt(params.id);
+    const id = parseInt(params.id);
     this.register("blogpost", Meteor.subscribe("blogpostFull", id));
     this.register("comments", Meteor.subscribe("blogComments", id));
     this.register("allTitles", Meteor.subscribe("blogpostTitles", 1));
