@@ -258,24 +258,3 @@
 
   </div>
 </template>
-
-<template name="employees">
-  {{#each employee}}
-    {{> employeeView}}
-  {{else}}
-  <li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
-  {{/each}}
-</template>
-
-<template name="filter_employees">
-  <div id="filter-colleagues">
-    <h2>Filter de Q'ers</h2>
-    <ul id="filter-options">
-      {{#each list}}
-        <li><a href="#" class="{{selected this}}">{{.}}</a></li>
-      {{/each}}
-    </ul>
-    <h2>Of gebruik regex!</h2>
-    <input data-role="filter-qers" placeholder="/.*/" id="filter-qers-input">
-  </div>
-</template>

@@ -301,26 +301,17 @@ a
 #page .newslist
   margin-top 6rem
 
+  .newsitem:hover
+      transition: all 0.2s
+      transform scale(1.05,1.05)
+
   .newsitem
     background-color colorQgreen
     border-radius 5px
     position relative
 
-  .newsitem:hover
-      transition: all 0.2s
-      transform scale(1.05,1.05)
-
-    // &.byqer:before
-    //   content ''
-    //   position absolute
-    //   z-index 200
-    //   bottom -16px
-    //   left 50%
-    //   width 30px
-    //   height 28px
-    //   background-image url('/images/text-balloon-tail.svg')
-    //   background-repeat: no-repeat
-    //   background-size: 30px 28px
+    a
+      color: white
 
     &.byqer
       background-color white
@@ -330,7 +321,6 @@ a
         border-bottom none
 
       p
-        // color colorQgreen
         display inline-block
         position relative
         bottom 1rem
