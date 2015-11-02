@@ -5,7 +5,7 @@ Utils = {
   getTemplate: (name) => {
     if ( Session.equals("lang", "en") && Template[`en_${name}`] ){
       return `en_${name}`;
-    } else if ( Session.equals("lang", "en") && !Template["en_#{name}"] ){
+    } else if ( Session.equals("lang", "en") && !Template[`en_${name}`] ){
       return "error404";
     } else if ( Session.equals("lang", "nl") && !Template[name] ){
       return "error404";
