@@ -23,7 +23,6 @@ body
 
 p, ol, ul
   line-height 1.7em
-  margin 1.5rem 0
   max-width 650px
   margin 0 auto
 
@@ -40,7 +39,6 @@ h1, h2, h3
   font-weight bold
   font-style italic
   text-transform uppercase
-  margin 0
 
 h2
   font-size 25px
@@ -105,6 +103,8 @@ a
 #page
   transition transform .2s ease
   background colorLight
+  &.portfolio-item
+    background white
 
   &.visible-backgrounds
     #backgrounds
@@ -185,7 +185,6 @@ a
 
 .block-text
   padding 40px 0
-  margin 20px 0
   text-align center
   margin 0 auto
   @media (max-width: 480px)
@@ -234,7 +233,7 @@ a
       font-size 1.3rem
       font-weight 700
 
-      a
+      a, a:hover, a:visited
         color colorGreen
 
   p
@@ -295,7 +294,6 @@ a
 
   .bodytext
     doFlex 5
-    padding 42px
     max-width 650px
     margin 0 auto
     h3
@@ -304,6 +302,7 @@ a
       margin-bottom 15px
 
   .newsitem
+    transition: all 0.2s
     margin 1em 200px
     width 600px
     text-align left
@@ -318,12 +317,16 @@ a
       background-size cover
 
     h2
-      font-size 1.7rem
-      padding 0
+      font-size 35px
+      padding 15px
 
     p
       font-size 1rem
       font-weight normal
+
+  .newsitem:hover
+    transition: all 0.2s
+    transform scale(1.05,1.05)
 
 .newslist
   margin-top 6rem
@@ -384,9 +387,6 @@ a
       margin 1rem
       font-style normal
 
-
-
-
 .block-large > .body h2
   margin-top 0
 
@@ -424,12 +424,18 @@ a
   //   color black
   .block-small-image
     margin 10px
-    width 285px
+    width 100%
+
+  h2
+    margin-top 0
 
 address.vcard.body
     margin 10px 0
     font-weight 500
     color colorDark
+    &.footer
+      color white
+      margin 0
 
 .light-background
   background colorLight
@@ -537,9 +543,6 @@ address.vcard.body
   box-shadow 0px 4px 6px rgba(0,0,0,.2)
   transform translateY(-2px)
 
-.q-logo-svg
-  fill colorQgreen
-
 .page-title
   padding-bottom 0
 
@@ -550,6 +553,3 @@ address.vcard.body
   img
     height 28px
     margin-right 5px
-
-.q-filters
-  width 400px
