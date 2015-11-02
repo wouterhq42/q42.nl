@@ -11,7 +11,7 @@ if (Things.find().count() === 0) {
 
   // XXX: loop over everything in the /things/ folder and insert it rather
   // than doing this manually
-  for (let thingId in [
+  for (let thingId of [
     "benbenet", "game-of-drones",
     "jumpstarts-header", "jumpstarts-intro",
     "livelearn", "nannii", "paper", "shell",
@@ -20,7 +20,7 @@ if (Things.find().count() === 0) {
     try {
       Things.insert({
         name: thingId,
-        content: Assets.getText("things/#{thingId}.html")
+        content_en: Assets.getText(`things/${thingId}.html`)
       });
     } catch (e) {}
   }
