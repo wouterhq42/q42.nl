@@ -4,10 +4,10 @@ Template.thing.onCreated(function() {
 });
 
 Template.thing.helpers({
-  content() {
+  thing() {
     let thing = Things.findOne({name: Template.instance().thingId});
     if (thing)
-      return thing.content;
+      return thing;
   }
 });
 

@@ -1,9 +1,11 @@
 <template name="thing">
-  {{#if langEn}}
-    {{{content_en}}}
-  {{else}}
-    {{{content_nl}}}
-  {{/if}}
+  {{#with thing}}
+    {{#if langEn}}
+      {{{content_en}}}
+    {{else}}
+      {{{content_nl}}}
+    {{/if}}
+  {{/with}}
 </template>
 
 <template name="block">
