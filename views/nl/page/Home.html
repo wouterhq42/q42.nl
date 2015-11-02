@@ -15,10 +15,10 @@
       {{#each post}}
         <div class="block-large">
           <div class="newsitem {{isByQer authorName}}">
-            <h2>{{title}}</h2>
+            <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
             {{#if isByQer authorName}}
             <div class="author">
-              <img src="{{gravatar "johan@q42.nl"}}" alt="{{authorName}}" class="gravatar" />
+              <img src="{{gravatar authorName}}" alt="{{authorName}}" class="gravatar" />
               <p>{{authorName}}</p>
             </div>
             {{/if}}
