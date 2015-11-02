@@ -12,14 +12,16 @@
     </section>
 
     <section class="block-full invert newslist">
-      {{#each post}}
+      {{#each postWithAuthor}}
         <div class="block-large">
-          <div class="newsitem {{isByQer authorName}}">
-            <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
-            {{#if isByQer authorName}}
+          <div class="newsitem {{isByQer post.authorName}}">
+            <h2><a href="/blog/post/{{id}}/{{slug}}">{{post.title}}</a></h2>
+            {{#if isByQer post.authorName}}
             <div class="author">
-              <img src="{{gravatar authorName}}" alt="{{authorName}}" class="gravatar" />
-              <p>{{authorName}}</p>
+                {{#with author}}
+                  <img src="http://static.q42.nl/images/employees/{{avatar_static}}" alt="{{post.authorName}}" class="gravatar" />
+                {{/with}}
+              <p>{{post.authorName}}</p>
             </div>
             {{/if}}
           </div>
