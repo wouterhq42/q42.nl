@@ -12,7 +12,6 @@ accounts-google
 accounts-facebook
 accounts-twitter
 accounts-github
-coffeescript
 ongoworks:spiderable
 dfischer:phantomjs
 jparker:gravatar

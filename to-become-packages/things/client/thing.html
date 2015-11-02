@@ -1,5 +1,11 @@
 <template name="thing">
-  {{{content}}}
+  {{#with thing}}
+    {{#if langEn}}
+      {{{content_en}}}
+    {{else}}
+      {{{content_nl}}}
+    {{/if}}
+  {{/with}}
 </template>
 
 <template name="block">
@@ -12,7 +18,11 @@
   <div class="block-large">
     {{#each things}}
       <div class="block-small">
-        {{{content}}}
+        {{#if langEn}}
+          {{{content_en}}}
+        {{else}}
+          {{{content_nl}}}
+        {{/if}}
       </div>
     {{/each}}
   </div>
