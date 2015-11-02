@@ -56,8 +56,10 @@
 <template name="main">
   <div id="fb-root"></div>
 
-  <div id="page" class="{{visible}} {{homeclass}}">
-    {{> hero}}
+  <div id="page" class="{{homeclass}}">
+    {{#if homeclass}}
+      {{> hero}}
+    {{/if}}
 
     <div id="header">
       {{> Template.dynamic template=header}}

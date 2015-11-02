@@ -1,19 +1,10 @@
 @import "0_variables.styl"
 
-body:before
-  content ''
-  position absolute
-  z-index 999
-  top 0
-  width 100%
-  height 10px
-  background-color colorGreen
-
 body
   font 300 1rem bodyFont
   margin 0
   background-color colorGreen
-  border-bottom 10px solid colorGreen
+  border 10px solid colorGreen
 
   @media (max-width: 480px)
     &.show-mobile-menu
@@ -83,23 +74,6 @@ a
   transition all .15s ease 0s
   color colorQgreen
 
-#page:before
-  content ''
-  position fixed
-  z-index 999
-  left 0
-  width 10px
-  height 100vh
-  background-color colorGreen
-#page:after
-  content ''
-  position fixed
-  z-index 999
-  right 0
-  top 0
-  width 10px
-  height 100vh
-  background-color colorGreen
 #page
   transition transform .2s ease
   background colorLight
@@ -324,17 +298,17 @@ a
       font-size 1rem
       font-weight normal
 
-  .newsitem:hover
-    transition: all 0.2s
-    transform scale(1.05,1.05)
-
-.newslist
+#page .newslist
   margin-top 6rem
 
   .newsitem
     background-color colorQgreen
     border-radius 5px
     position relative
+
+  .newsitem:hover
+      transition: all 0.2s
+      transform scale(1.05,1.05)
 
     // &.byqer:before
     //   content ''
@@ -351,8 +325,9 @@ a
     &.byqer
       background-color white
 
-      h2
+      a
         color colorQgreen
+        border-bottom none
 
       p
         // color colorQgreen

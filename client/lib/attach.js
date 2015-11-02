@@ -41,7 +41,7 @@ const attachGoogleAnalytics = function(){
 
 
 let initCalled = false;
-const attachFacebook = function(){
+const attachFacebook = function() {
   $.getScript('//connect.facebook.net/en_US/all.js', function(){
     if (initCalled){
       FB.XFBML.parse();
