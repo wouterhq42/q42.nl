@@ -1,34 +1,39 @@
 <template name="workDetail">
   <div class="container">
-    <header class="block-text">
+    <header class="block-text page-title">
       <h1>{{work.name}}</h1>
-      <h2>with {{work.clientName}}</h2>
     </header>
 
-    <div class="block-large">
-      <div class="intro">
-        {{{work.intro}}}
+    <section>
+      <div class="block-text">
+          {{{work.intro}}}
       </div>
-      <aside class="block-small subcontent">
-        <h2>About</h2>
-        <ul>
+    </section>
+
+    <section>
+      <div class="block-large portfolio-meta-header">
+        <img src="http://static.q42.nl/images/q42hq.jpg" class="thumb">
           {{#with work.properties}}
-          <li>{{prettifyDate date}}</li>
-          <li>
-            {{#each t in tags}}
-              <a href="/work?tag={{t}}">{{t}}</a>
-            {{/each}}
-          </li>
-          <li>
-            {{#each qer in qers}}
-              <img src="http://static.q42.nl/images/employees/{{qer}}.jpg"
-                   alt="" style="width: 120px; height: 120px">
-            {{/each}}
-          </li>
+          <div class="metadata">dit project ging {{prettifyDate date}} live. wow.</div>
           {{/with}}
-        </ul>
-      </aside>
-    </div>
+      </div>
+    </section>
+
+    <section>
+      {{#with work.properties}}
+        {{#each t in tags}}
+          <a href="/work?tag={{t}}">{{t}}</a>
+        {{/each}}
+        {{#each qer in qers}}
+          <img src="http://static.q42.nl/images/employees/{{qer}}.jpg"
+               alt="" style="width: 120px; height: 120px">
+        {{/each}}
+      {{/with}}
+    </section>
+
+    {{#with work.properties}}
+      <h1>{{prettifyDate date}}</h1>
+    {{/with}}
 
     {{#each t in work.things}}
 
