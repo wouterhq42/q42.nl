@@ -307,14 +307,17 @@ a
 #page .newslist
   margin-top 6rem
 
+  .newsitem:hover
+      transition: all 0.2s
+      transform scale(1.05,1.05)
+
   .newsitem
     background-color colorQgreen
     border-radius 5px
     position relative
 
-  .newsitem:hover
-      transition: all 0.2s
-      transform scale(1.05,1.05)
+    a
+      color: white
 
     &.byqer
       background-color white
@@ -324,7 +327,6 @@ a
         border-bottom none
 
       p
-        // color colorQgreen
         display inline-block
         position relative
         bottom 1rem
