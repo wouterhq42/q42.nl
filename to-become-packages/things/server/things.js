@@ -2,9 +2,9 @@ Meteor.publish("things", (thingIds) => {
   check(thingIds, Match.Optional(Array));
   // if we specify IDs, we get the content too
   if (thingIds)
-    Things.find({name: {$in: thingIds}});
+    return Things.find({name: {$in: thingIds}});
   else
-    Things.find({}, {fields: {name: 1}});
+    return Things.find({}, {fields: {name: 1}});
 });
 
 if (Things.find().count() === 0) {
