@@ -103,7 +103,7 @@ FlowRouter.route("/:page", {
     renderPage(RouteUtils.getTemplate(params.page));
   },
   subscriptions(params) {
-    if (params.page in ["over-q42", "about-q42"]){
+    if (_.contains(["over-q42", "about-q42"], params.page)){
       this.register("employees", Meteor.subscribe("employees"));
       this.register("coffeeCounter", Meteor.subscribe("coffeeCounter"));
       this.register("toilets", Meteor.subscribe("toilets"));
