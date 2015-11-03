@@ -3,9 +3,10 @@ Utils = {
   // return the correct name of the template
   // depending on the current language
   getTemplate: (name) => {
-    if ( Session.equals("lang", "en") && Template[`en_${name}`] ){
-      return `en_${name}`;
-    } else if ( Session.equals("lang", "en") && !Template["en_#{name}"] ){
+    const enName = `en_${name}`;
+    if ( Session.equals("lang", "en") && Template[enName] ){
+      return enName;
+    } else if ( Session.equals("lang", "en") && !Template[enName] ){
       return "error404";
     } else if ( Session.equals("lang", "nl") && !Template[name] ){
       return "error404";
@@ -71,14 +72,14 @@ Utils = {
 
     $("meta[property='og:title']").attr("content", document.title);
     $("meta[property='og:url']").attr("content", window.location.href);
-    $("meta[property='og:image']").attr(
-      "content",
+    $("meta[property='og:image']").attr("content",
       $( ".block-large img:first-of-type").attr("src")
     );
 
     const desc = $(".blog-post p:not(.post-date)").first().text() ||
-           $("p:first-of-type").first().text();
+                 $("p:first-of-type").first().text();
     $("meta[property='og:description']").attr("content", desc);
+    $("meta[name='description']").attr("content", desc);
   },
 
   getPictureURL: (user) => {
@@ -88,7 +89,7 @@ Utils = {
     if (!s)               return anon;
     else if (s.twitter)   return s.twitter.profile_image_url;
     else if (s.google)    return s.google.picture;
-    else if (s.facebook)  return "https://graph.facebook.com/${s.facebook.id}/picture";
+    else if (s.facebook)  return `https://graph.facebook.com/${s.facebook.id}/picture`;
     else if (s.github)    return Gravatar.imageUrl(s.github.email || "");
     else                  return anon;
   }

@@ -1,5 +1,8 @@
 @import "0_variables.styl"
 
+.q-logo-svg
+  fill colorQgreen
+
 #header
   // animation fadeInHeader 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000)
   // animationFillMode forwards !important
@@ -42,15 +45,12 @@
     text-transform: uppercase
     font-size: 24px
     margin 30px 24px
-    font-weight: bold
 
     @media (max-width: 480px)
       margin 0
 
     a
       color colorDark
-      text-decoration none
-      border-bottom none
 
       @media (max-width: 480px)
         display block
@@ -132,8 +132,8 @@
     @media (max-width: 480px)
       height 110px
 
-#page.ishome a
+#page.home nav a
   color white
 
-#page.ishome #header
+#page.home #header
   background none
