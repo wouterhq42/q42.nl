@@ -89,11 +89,27 @@ FlowRouter.route("/blog/post/:id/:title?", {
 // custom blog pages matching a given tag
 customBlogPages(this);
 
+FlowRouter.route("/work/tagged/:tag", {
+  name: "workTag",
+  action: () => renderPage("work"),
+  subscriptions(params) {
+    this.register("workTags", Meteor.subscribe("workTags"));
+    this.register("work", Meteor.subscribe("work", null, params.tag));
+  }
+});
 FlowRouter.route("/work/:slug", {
-  name: "work",
-  action(params) { renderPage("workDetail"); },
+  name: "workDetail",
+  action: () => renderPage("workDetail"),
   subscriptions(params) {
     this.register("work", Meteor.subscribe("work", params.slug));
+  }
+});
+FlowRouter.route("/work", {
+  name: "workOverview",
+  action: () => renderPage("work"),
+  subscriptions(params) {
+    this.register("workTags", Meteor.subscribe("workTags"));
+    this.register("work", Meteor.subscribe("work"));
   }
 });
 

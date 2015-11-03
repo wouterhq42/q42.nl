@@ -1,9 +1,18 @@
-Meteor.publish("work", (slug) => {
-  check(slug, String);
+Meteor.publish("work", (slug, tag) => {
   if (slug)
     return Work.find({slug: slug});
+  else if (tag)
+    return Work.find({"properties.tags": {$in: [tag]}});
   else
     return Work.find();
+});
+Meteor.publish("workTags", function(){
+  const work = Work.find({}, {fields: {_id: 1, "properties.tags": 1}});
+  const tags = _.map(work.fetch(), (w) => w.properties.tags);
+  this.added("work_tags", new Mongo.ObjectID(), {
+    tags: _.compact(_.uniq(_.flatten(tags))).sort()
+  });
+  this.ready();
 });
 
 Meteor.startup(() => {
