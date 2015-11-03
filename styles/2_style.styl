@@ -55,8 +55,8 @@ a
   font-weight 500
   border-bottom solid 1px rgba(0,0,0,.2)
   &:hover
-    color #419aff
-    border-bottom-color #419aff
+    color qColor
+    border-bottom-color qColor
 
 #page
   transition transform .2s ease
@@ -185,12 +185,17 @@ a
     font-size 1.5rem
     font-weight 300
 
+  a
+    color qColor
+
   blockquote p
     font-size 2rem
 
   .tagline
     text-transform uppercase
-    font-weight 800
+    font-weight 700
+    font-style italic
+    font-size 80px
 
 .block-large
   displayFlex()
