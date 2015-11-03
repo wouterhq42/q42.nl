@@ -29,7 +29,10 @@ if (Meteor.isClient)
 // Homepage
 FlowRouter.route("/", {
   name: "home",
-  action() { renderPage(RouteUtils.getTemplate("home")); }
+  action() { renderPage(RouteUtils.getTemplate("home")); },
+  subscriptions() {
+    this.register("employeeCount", Meteor.subscribe("employeeCount"));
+  }
 });
 
 blogOverview = FlowRouter.group({
