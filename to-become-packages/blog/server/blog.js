@@ -161,6 +161,26 @@ publishWithObserveChanges("LatestComments", function(limit) {
   return BlogComments.find({}, { sort: { date: -1 }, limit: limit });
 });
 
+// XXX: limit how much of the intro is sent to the client
+Meteor.publish("posts_with_authors", function() {
+  const posts = Posts.find({}, {sort: {date: -1}, limit: 5, fields: {
+    title: 1, authorName: 1, slug: 1,
+    intro: 1, date: 1, id: 1
+  }}).map((rec) => {
+    const author = Employees.findOne({name: rec.authorName});
+    return {post: rec, author: author};
+  });
+
+  console.log(`Found ${posts.length} posts`);
+
+  _.each(posts, (p) => {
+    this.added("posts_with_authors", p.post._id, p);
+  });
+
+  this.ready();
+
+});
+
 Meteor.publish("pagesByTag", function (tag) {
   var self = this;
   var uuid = Meteor.uuid();
