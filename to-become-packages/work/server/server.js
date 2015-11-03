@@ -1,5 +1,5 @@
 Meteor.publish("work", (slug) => {
-  check(slug, String);
+  // check(slug, String);
   if (slug)
     return Work.find({slug: slug});
   else
