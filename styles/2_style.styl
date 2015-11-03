@@ -3,7 +3,10 @@
 body
   font 300 1rem bodyFont
   margin 0
-  background-color #eee
+  background-color #333
+
+  @media (min-width 480px)
+    border solid 1rem qColor
 
   @media (max-width: 480px)
     &.show-mobile-menu

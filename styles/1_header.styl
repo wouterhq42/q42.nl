@@ -16,6 +16,7 @@
   ul
     displayFlex()
     list-style none
+    alignItems center
     padding 0
 
     @media (max-width: 480px)
@@ -29,10 +30,9 @@
       li:first-child
         display block
   li
-    font-size .9rem
+    font-size 24px
     margin 0 8px
-    &:first-child
-      display none
+    font-family monoFont
 
     @media (max-width: 480px)
       margin 0
@@ -44,7 +44,7 @@
       border-bottom none
       smallcaps()
       &:hover
-        border-bottom solid 1px rgba(255,255,255,.8)
+        color qColor
 
       @media (max-width: 480px)
         display block
@@ -111,6 +111,10 @@
     border-radius 8px
     &:active
       transform scale(0.9)
+
+@media (min-width 481px)
+  nav > .q42-logo
+    display none
 
 .q42-logo
   animationFillMode forwards !important
