@@ -25,5 +25,19 @@ Template.home.helpers({
         date: -1
       }
     });
+  },
+
+  cleanIntro: (intro) => {
+    var tag = document.createElement('div');
+    tag.innerHTML = intro;
+    var txt = tag.innerText;
+    txt = txt.substr(0, 150);
+    txt = txt.substr(0, Math.min(txt.length, txt.lastIndexOf(" "))) + "...";
+    return txt;
+  },
+
+  cleanDate: (dateString) => {
+    return dateString.substr(0,dateString.indexOf(' '));
   }
+
 });

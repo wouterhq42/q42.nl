@@ -1,5 +1,5 @@
 Template.hero.onRendered(function() {
-  let client = new WebSocket('ws://localhost:8084/');
+  let client = new WebSocket('ws://floating-everglades-9343.herokuapp.com/');
   let canvas = document.getElementById('bgvid');
   let player = new jsmpeg(client, {canvas:canvas});
 });

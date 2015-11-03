@@ -50,5 +50,5 @@ customBlogPages = (router) => {
     path: "/io",
     tags: ["io"]
   });
-  
+
 };

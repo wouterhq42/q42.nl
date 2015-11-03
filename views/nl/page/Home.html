@@ -2,40 +2,38 @@
 
   <div class="container">
 
+
     <section class="block-full invert hero">
       <h1 class="tagline">Creative Technology</h1>
-      <p>Q42 bouwt <a href="/apps">apps</a>, <a href="/sites">websites</a>,
-          <a href="/iot">connected devices</a>, en <a href="/games">games en VR</a> voor
-          <a href="/werk">buitengewone klanten</a>.
-          Dat doen we met z'n <a href="over-q42">{{num_employees}}-en</a>, vanuit Amsterdam, Den Haag, en Mountain View.
+      <p>gebouwd met z'n {{num_employees}}-en bij een
+        happy place for nerds in Amsterdam, Den Haag en Mountain View.
+      </p>
+      <p class="startingpoints">
+        <span>
+          <a href="/apps">apps</a>
+        </span>
+        <span>
+          <a href="/web">web</a>
+        </span>
+        <span>
+          <a href="/iot">internet of things</a>
+        </span>
+        <span>
+          <a href="/games">games</a> &amp; <a href="/vr">VR</a>
+        </span>
+        <span>
+          <a href="/jumpstarts">jumpstarts</a>
+        </span>
       </p>
     </section>
-
-    <!--
-    <section class="block-full invert hero">
-      <h1 class="tagline">Happy place for nerds</h1>
-      <p>Q42 bouwt <a href="/apps">apps</a>, <a href="/sites">websites</a>,
-          <a href="/iot">connected devices</a>, en <a href="/games">games en VR</a> voor
-          <a href="/werk">buitengewone klanten</a>.
-          Dat doen we met z'n <a href="over-q42">{{num_employees}}-en</a>, vanuit Amsterdam, Den Haag, en Mountain View.
-      </p>
-    </section>
-    
-    <section class="block-full invert hero">
-      <h1 class="tagline">Happy place for nerds</h1>
-      <p>Q42 bouwt <a href="/apps">apps</a>, <a href="/sites">websites</a>,
-          <a href="/iot">connected devices</a>, en <a href="/games">games en VR</a> voor
-          <a href="/werk">buitengewone klanten</a>.
-          Dat doen we met z'n <a href="over-q42">{{num_employees}}-en</a>, vanuit Amsterdam, Den Haag, en Mountain View.
-      </p>
-    </section>
--->
 
     <section class="block-full invert newslist">
       {{#each post}}
         <div class="block-large">
           <div class="newsitem {{isByQer authorName}}">
+            <p class="date">{{cleanDate date}}</p>
             <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
+            <p class="preview">{{cleanIntro intro}}</p>
             {{#if isByQer authorName}}
             <div class="author">
               <img src="{{gravatar authorName}}" alt="{{authorName}}" class="gravatar" />

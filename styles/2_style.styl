@@ -194,10 +194,18 @@ a
     margin-top 10em
 
     p
+      font-weight 400
       font-size 1.3rem
 
-      a, a:hover, a:visited
-        color colorGreen
+    p.startingpoints
+      margin-top 1em
+      span
+        margin 0 0.5em
+      a
+        font-weight 500
+        color white
+        text-decoration underline
+
 
   p
     font-size 1.3rem
@@ -208,12 +216,12 @@ a
     text-align center
     margin 48px auto 24px auto
     width 75%
+
   h2
     display: block
     margin: 0 auto
     font-size: 1rem
     font-weight: bold
-    width: 75%
 
     a
       color: colorGreen
@@ -228,8 +236,8 @@ a
     font-weight: 700
     font-style: italic
     text-transform: uppercase
-    font-size: 6.5rem
-    line-height: 6rem
+    font-size: 4.5rem
+    line-height: 4rem
 
 .block-large
   displayFlex()
@@ -301,8 +309,8 @@ a
       transform scale(1.05,1.05)
 
   .newsitem
+    padding 1.5em
     background-color colorQgreen
-    border-radius 5px
     position relative
 
     a
@@ -310,15 +318,16 @@ a
 
     &.byqer
       background-color white
+      margin-bottom 2em
 
       a
         color colorQgreen
         border-bottom none
 
       p
+        color colorQgreen
         display inline-block
         position relative
-        bottom 1rem
 
       img
         border-radius 50%
@@ -328,8 +337,10 @@ a
 
       .author
         position absolute
-        bottom: -42px;
-        right: 1rem;
+        bottom -42px
+        right 1rem
+        p
+          color white
 
       .author:before
         content ''
@@ -344,8 +355,15 @@ a
 
 
     h2
-      margin 1rem
-      font-style normal
+      margin 0.3em 0
+      padding 0
+      font-style italic
+      font-size 1.2rem
+
+    p.date
+      font-weight 300
+
+
 
 .block-large > .body h2
   margin-top 0
