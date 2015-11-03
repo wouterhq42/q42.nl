@@ -11,10 +11,8 @@ $OnRendered = function(tmpl, fn) {
   _tmpl("onRendered", tmpl, fn);
 };
 
-const _tmpl = function(type, tmpl, obj) {
+_tmpl = function(type, tmpl, obj) {
   const result = Template["en_" + tmpl];
-  if (result)
-    return result[type](obj);
-  else
-    return Template[tmpl][type](obj);
+  if (result) result[type](obj);
+  Template[tmpl][type](obj);
 };
