@@ -6,6 +6,10 @@
   position relative
   z-index 99
 
+  @media (max-width 480px)
+    li > .q42-logo
+      display none
+
   nav
     displayFlex()
     flexDirection column
@@ -21,6 +25,8 @@
 
     @media (max-width: 480px)
       position absolute
+      display block
+      font-size 18px
       top 0
       width 150px
       margin-top 0
@@ -31,17 +37,17 @@
         display block
   li
     font-size 24px
-    margin 0 8px
+    margin 0 24px
     font-family monoFont
 
     @media (max-width: 480px)
       margin 0
 
     a
-      color #fff
-      text-shadow 0 1px rgba(0,0,0,.3)
+      font-weight 700
       text-decoration none
       border-bottom none
+      color #315011
       smallcaps()
       &:hover
         color qColor
@@ -103,11 +109,13 @@
     display block
     position absolute
     left 1rem
-    color white
+    color black
     cursor pointer
     font-weight 500
+    text-transform uppercase
+    font-family monoFont
     padding 8px
-    border solid 1px rgba(255,255,255,.8)
+    border solid 1px rgba(0,0,0,.8)
     border-radius 8px
     &:active
       transform scale(0.9)
