@@ -20,7 +20,8 @@ if (Things.find().count() === 0) {
     try {
       Things.insert({
         name: thingId,
-        content_en: Assets.getText(`things/${thingId}.html`)
+        content_en: Assets.getText(`things/en/${thingId}.html`),
+        content_nl: Assets.getText(`things/nl/${thingId}.html`)
       });
     } catch (e) {}
   }

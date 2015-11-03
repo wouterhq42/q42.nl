@@ -13,9 +13,8 @@ body
         transform translateX(150px)
 
 p, ol, ul
-  line-height 1.7em
-  max-width 650px
-  margin 0 auto
+  line-height 1.5rem
+  margin 1.5rem 0
 
 p
   &:first-child
@@ -42,6 +41,8 @@ h3
 .descriptor
   color colorDark
   font-weight 300
+  width 70%
+  margin 0 auto
 
 iframe
   border none
@@ -320,7 +321,7 @@ a
       background-color white
       margin-bottom 2em
 
-      a
+      h2
         color colorQgreen
         border-bottom none
 
@@ -400,9 +401,6 @@ a
   //   font-weight 400
   //   font-size 1.2rem
   //   color black
-  .block-small-image
-    margin 10px
-    width 100%
 
   h2
     margin-top 0
@@ -494,40 +492,67 @@ address.vcard.body
   background black
   padding 0 4px
 
-.portfolio-thumb
-  cursor pointer
-  position relative
-  padding 10px
+.portfolio-item
+  doFlex 1
+  padding 1rem
   background white
-  height 300px
   &:not(:last-child)
     margin-right 10px
   box-shadow 0 2px 4px rgba(0,0,0,.1)
   transition all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000)
 
+  &:not(.client-only)
+    cursor pointer
+    &:hover, &.pinned
+      box-shadow 0px 4px 6px rgba(0,0,0,.2)
+      transform translateY(-2px)
+
+  &.client-only
+    text-align center
+    background-color #ccc
+    fontSmoothing antialiased
+    displayFlex()
+    alignItems center
+    justifyContent center
+    h2
+      margin 0
+      color #bbb
+      font-size 24px
+
+  img
+    max-width 100%
+
   h2
     font-size 15px
     font-weight 700
     font-style italic
-    margin-top 10px
+    margin-top 1rem
+    margin-bottom 0
 
-  .descriptor
+  .slogan
     color colorDark
-    font-size 13px
-    font-weight 500
-    margin-top 10px
-
-.portfolio-thumb:hover
-  box-shadow 0px 4px 6px rgba(0,0,0,.2)
-  transform translateY(-2px)
+    font-size 14px
+    margin-top 0
 
 .page-title
   padding-bottom 0
 
-.tech-icons
-  position absolute
-  bottom 0px
-  margin-bottom 5px
-  img
-    height 28px
-    margin-right 5px
+.work-tags
+  doFlex 1
+  background white
+  padding 1rem
+  box-shadow 0 2px 4px rgba(0,0,0,.1)
+  ul
+    list-style none
+    padding 0
+    margin 0
+  li
+    line-height 2rem
+    display inline
+  a
+    padding .3rem 1rem
+    background-color #f0f0f0
+    font-style italic
+    margin 0 .2rem 0 0
+    &:hover
+      background-color #eee

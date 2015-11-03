@@ -19,12 +19,13 @@ Template.home.helpers({
     if (EmployeeCount.findOne()) return EmployeeCount.findOne().count;
   },
 
-  post: function() {
-    return blogpostIndex.find({}, {
-      sort: {
-        date: -1
-      }
+  postWithAuthor: () => {
+    let postsWithAuthor = [];
+    const posts = blogpostIndex.find({}, { sort: { date: -1 } });
+    posts.forEach((p) => {
+      postsWithAuthor.push({ post: p, author: Employees.findOne({ name: p.authorName })});
     });
+    return postsWithAuthor;
   },
 
   cleanIntro: (intro) => {
