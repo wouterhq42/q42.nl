@@ -1,0 +1,54 @@
+<template name="workDetail">
+  <div class="container">
+    <header class="block-text">
+      <h1>
+        {{#if work.name}}
+          {{work.name}} voor {{work.clientName}}
+        {{else}}
+          {{work.clientName}}
+        {{/if}}
+
+      </h1>
+      <p>
+        {{#if langEn}}
+          {{work.slogan}}
+        {{else}}
+          {{work.slogan_nl}}
+        {{/if}}
+      </p>
+    </header>
+
+    <section>
+      <div class="block-large">
+        <div class="block-small">
+          <img src="{{work.image.url}}" alt="{{work.image.caption_nl}}" />
+        </div>
+        <div class="block-small">
+            <p>
+              {{#if langEn}}
+                {{work.intro}}
+              {{else}}
+                {{work.intro_nl}}
+              {{/if}}
+            </p>
+        </div>
+      </div>
+
+      {{#each work.things}}
+        {{#block size=size align=align}}
+          {{> thing id=thingId}}
+        {{/block}}
+      {{/each}}
+
+      <div class="block-full">
+        <ul>
+          {{#each qers}}
+            <li>
+              {{name}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </section>
+  </div>
+</template>
