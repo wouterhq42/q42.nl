@@ -162,7 +162,7 @@ publishWithObserveChanges("LatestComments", function(limit) {
 });
 
 // XXX: limit how much of the intro is sent to the client
-Meteor.publish("posts_with_authors", function() {
+Meteor.publish("postsWithAuthors", function() {
   const posts = Posts.find({}, {sort: {date: -1}, limit: 3, fields: {
     title: 1, authorName: 1, slug: 1,
     intro: 1, prettyDate: 1, id: 1

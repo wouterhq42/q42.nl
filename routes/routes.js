@@ -31,7 +31,7 @@ FlowRouter.route("/", {
   name: "home",
   action() { renderPage(RouteUtils.getTemplate("home")); },
   subscriptions() {
-    this.register("postsWithAuthors", Meteor.subscribe("posts_with_authors"));
+    this.register("postsWithAuthors", Meteor.subscribe("postsWithAuthors"));
     this.register("employeeCount", Meteor.subscribe("employeeCount"));
   }
 });
