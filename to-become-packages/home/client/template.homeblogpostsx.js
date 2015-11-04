@@ -20,8 +20,10 @@ Template.homeBlogposts.helpers({
     tag.innerHTML = intro;
     let txt = tag.innerText;
     txt = txt.substr(0, 150);
-    txt = txt.substr(0, Math.min(txt.length, txt.lastIndexOf(" "))) + "...";
-    return txt;
+    txt = txt.substr(0, Math.min(txt.length, txt.lastIndexOf(" ")));
+    if (txt)
+      return txt + "...";
+    return "";
   },
 
   cleanImg(intro) {
