@@ -6,17 +6,20 @@
           {{#if cleanImg post.intro}}
             <div class="image col"><img src="{{cleanImg post.intro}}" alt=""></div>
           {{/if}}
-          <div class="metadata col">
+          <div class="col">
             <h2>{{post.title}}</h2>
             <p class="preview">{{cleanIntro post.intro}}</p>
-            {{#if isByQer post.authorName}}
-              <div class="author">
-                <img src="{{gravatar post.authorName}}" alt="{{post.authorName}}"
-                     class="gravatar" />
-                <p>{{authorName}}</p>
-              </div>
-            {{/if}}
-            <p class="date">{{post.prettyDate}}</p>
+            <div class="metadata">
+              <div class="date">{{post.prettyDate}}</div>
+              {{#if isByQer post.authorName}}
+                <div class="author">
+                  <p>
+                    {{post.authorName}}
+                    <img src="http://static.q42.nl/images/employees/{{author.handle}}.jpg" alt="{{post.authorName}}">
+                  </p>
+                </div>
+              {{/if}}
+            </div>
           </div>
         </a>
       </div>
