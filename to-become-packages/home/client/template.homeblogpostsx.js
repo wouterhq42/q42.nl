@@ -1,33 +1,36 @@
 PostsWithAuthors = new Mongo.Collection("posts_with_authors");
-Meteor.subscribe("posts_with_authors");
 
-$Template({
-  home: {
-    isByQer(authorName) {
-      return (authorName !== 'Rahul Choudhury' && authorName !== 'Q42' &&
-          authorName !== 'Ineke Scheffers') ? 'byqer' : '';
-    },
+Template.homeBlogposts.helpers({
+  isByQer(authorName) {
+    return (authorName !== 'Rahul Choudhury' && authorName !== 'Q42' &&
+        authorName !== 'Ineke Scheffers') ? 'byqer' : '';
+  },
 
-    num_employees() {
-      if (EmployeeCount.findOne()) return EmployeeCount.findOne().count;
-    },
+  num_employees() {
+    if (EmployeeCount.findOne()) return EmployeeCount.findOne().count;
+  },
 
-    postWithAuthor() {
-      return PostsWithAuthors.find();
-    },
+  postWithAuthor() {
+    return PostsWithAuthors.find();
+  },
 
-    cleanIntro(intro) {
-      // XXX: trolololol
-      var tag = document.createElement('div');
-      tag.innerHTML = intro;
-      var txt = tag.innerText;
-      txt = txt.substr(0, 150);
-      txt = txt.substr(0, Math.min(txt.length, txt.lastIndexOf(" "))) + "...";
-      return txt;
-    },
+  cleanIntro(intro) {
+    // XXX: trolololol
+    let tag = document.createElement('div');
+    tag.innerHTML = intro;
+    let txt = tag.innerText;
+    txt = txt.substr(0, 150);
+    txt = txt.substr(0, Math.min(txt.length, txt.lastIndexOf(" "))) + "...";
+    return txt;
+  },
 
-    cleanDate(dateString) {
-      return dateString.substr(0,dateString.indexOf(' '));
-    }
+  cleanImg(intro) {
+    // XXX: trolololol
+    let div = document.createElement('div');
+    div.innerHTML = intro;
+    let img = div.querySelector('img');
+    if (img)
+      return img.src;
+    return "";
   }
 });

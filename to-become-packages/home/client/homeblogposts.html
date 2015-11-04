@@ -1,18 +1,24 @@
 <template name="homeBlogposts">
-  <section class="block-full newslist">
+  <section class="newslist">
     {{#each postWithAuthor}}
-      <div class="block-large">
-        <div class="newsitem {{isByQer post.authorName}}">
-          <p class="date">{{cleanDate post.date}}</p>
-          <h2><a href="/blog/post/{{post.id}}/{{post.slug}}">{{post.title}}</a></h2>
-          <p class="preview">{{cleanIntro post.intro}}</p>
-          {{#if isByQer post.authorName}}
-          <div class="author">
-            <img src="{{gravatar post.authorName}}" alt="{{post.authorName}}" class="gravatar" />
-            <p>{{authorName}}</p>
-          </div>
+      <div class="newsitem {{isByQer post.authorName}}">
+        <a href="/blog/post/{{post.id}}/{{post.slug}}">
+          {{#if cleanImg post.intro}}
+            <div class="image col"><img src="{{cleanImg post.intro}}" alt=""></div>
           {{/if}}
-        </div>
+          <div class="metadata col">
+            <h2>{{post.title}}</h2>
+            <p class="preview">{{cleanIntro post.intro}}</p>
+            {{#if isByQer post.authorName}}
+              <div class="author">
+                <img src="{{gravatar post.authorName}}" alt="{{post.authorName}}"
+                     class="gravatar" />
+                <p>{{authorName}}</p>
+              </div>
+            {{/if}}
+            <p class="date">{{post.prettyDate}}</p>
+          </div>
+        </a>
       </div>
     {{/each}}
   </section>
