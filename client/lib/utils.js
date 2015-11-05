@@ -63,23 +63,32 @@ Utils = {
 
   // set the correct <title> and meta info
   setTitleAndMeta: () => {
-    const routeName = FlowRouter.getRouteName();
-    if (routeName === "home" || routeName === undefined){
-      document.title = "Q42";
-    } else {
-      document.title = $('h1').first().text() + " - Q42";
-    }
 
-    $("meta[property='og:title']").attr("content", document.title);
-    $("meta[property='og:url']").attr("content", window.location.href);
-    $("meta[property='og:image']").attr("content",
-      $( ".block-large img:first-of-type").attr("src")
-    );
+    Meteor.startup(() => {
+      Tracker.autorun(() => {
+        FlowRouter.watchPathChange();
 
-    const desc = $(".blog-post p:not(.post-date)").first().text() ||
-                 $("p:first-of-type").first().text();
-    $("meta[property='og:description']").attr("content", desc);
-    $("meta[name='description']").attr("content", desc);
+        const routeName = FlowRouter.getRouteName();
+        if (routeName === "home" || routeName === undefined){
+          document.title = "Q42";
+        } else {
+          document.title = $('h1').first().text() + " - Q42";
+        }
+
+        $("meta[property='og:title']").attr("content", document.title);
+        $("meta[property='og:url']").attr("content", window.location.href);
+        $("meta[property='og:image']").attr("content",
+          $( ".block-large img:first-of-type").attr("src")
+        );
+
+        const desc = $(".blog-post p:not(.post-date)").first().text() ||
+                     $("p:first-of-type").first().text();
+        $("meta[property='og:description']").attr("content", desc);
+        $("meta[name='description']").attr("content", desc);
+
+      });
+    });
+
   },
 
   getPictureURL: (user) => {
