@@ -39,7 +39,8 @@
     font-size 24px
     margin 0 24px
     font-family monoFont
-
+    &.menu-link
+      margin-top -6px
     @media (max-width: 480px)
       margin 0
 
@@ -62,12 +63,13 @@
           background -webkit-linear-gradient(top, #ccc, #eee)
           color #555
 
-.inverted #header
-  li
-    a
-      color white
-    a:hover
-      color qColor
+@media (min-width: 481px)
+  .inverted #header
+    li
+      a
+        color white
+      a:hover
+        color qColor
 
 #buttons
   position absolute
@@ -126,6 +128,11 @@
     border-radius 8px
     &:active
       transform scale(0.9)
+
+.inverted #mobile-menu-icon
+  @media (max-width: 480px)
+    color white
+    border-color white
 
 @media (min-width 481px)
   nav > .q42-logo
