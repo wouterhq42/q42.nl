@@ -15,7 +15,7 @@ Template.workDetail.helpers({
 
 Template.workTagBlock.helpers({
   workTags: () => {
-    let tags = WorkTags.findOne();
+    const tags = WorkTags.findOne();
     if (tags)
       return tags.tags;
   }
@@ -33,7 +33,7 @@ Template.work.helpers({
     // the filters block as the first item of the second row
     if (result[1])
       result[1][0].showTagFiltersHere = true;
-    else
+    else if (result[0])
       result[0][0].showTagFiltersHere = true;
 
     return result;
