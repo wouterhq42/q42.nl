@@ -1,53 +1,20 @@
 <template name="work">
-  <div class="container light-background">
+  <div class="container">
 
-    <section>
-      <div class="block-text page-title">
-        <h1>Ons werk</h1>
-      </div>
-    </section>
-
-    <section>
-      <div class="block-text">
-        <p class="descriptor">Wij houden erg van samen mooie internetdingen
-          maken. Omdat we van internetdingen houden, of het nou webapplicaties
-          of mobiele apps zijn. Omdat we graag uitgedaagd worden en de grenzen
-          opzoeken van wat technisch mogelijk is.</p>
-      </div>
-    </section>
+    <div class="block-text">
+      <h1>Ons werk</h1>
+      <p class="descriptor">Wij houden erg van samen mooie internetdingen
+        maken. Omdat we van internetdingen houden, of het nou webapplicaties
+        of mobiele apps zijn. Omdat we graag uitgedaagd worden en de grenzen
+        opzoeken van wat technisch mogelijk is.</p>
+    </div>
 
     {{#each items in allWork}}
       <div class="block-large">
-      {{#each work in items}}
-
-        {{#if work.showTagFiltersHere}}
-          {{#if workTags}}
-          <aside class="work-tags block-small">
-            <ul>
-              {{#each tag in workTags}}
-                <li><a href="/work/tagged/{{tag}}">{{tag}}</a></li>
-              {{/each}}
-            </ul>
-          </aside>
-          {{/if}}
-        {{/if}}
-
-        {{#if work.name}}
-          <div class="portfolio-item {{isPinned work}}">
-            <a href="/work/{{work.slug}}">
-              <img src="{{work.image.url}}" alt="">
-              <h2>{{work.name}}</h2>
-              <p class="slogan">{{work.subtitle}}</p>
-            </a>
-          </div>
-        {{else}}
-          {{#if work.clientName}}
-          <div class="client-only portfolio-item {{isPinned work}}">
-            <h2>{{work.clientName}}</h2>
-          </div>
-          {{/if}}
-        {{/if}}
-      {{/each}}
+        {{#each work in items}}
+          {{> workTagBlock work=work}}
+          {{> portfolioItem work=work}}
+        {{/each}}
       </div>
     {{else}}
       <div class="block-text">
@@ -56,4 +23,38 @@
     {{/each}}
 
   </div>
+</template>
+
+<template name="workTagBlock">
+  {{#if work.showTagFiltersHere}}
+    {{#if workTags}}
+    <aside class="work-tags block-small">
+      <ul>
+        {{#each tag in workTags}}
+          <li><a href="/work/tagged/{{tag}}">{{tag}}</a></li>
+        {{/each}}
+      </ul>
+    </aside>
+    {{/if}}
+  {{/if}}
+</template>
+
+<template name="portfolioItem">
+  {{#if work.name}}
+    <div class="portfolio-item {{isPinned work}}">
+      <a href="/work/{{work.slug}}">
+        <img src="{{work.image.url}}" alt="">
+        <div class="details">
+          <h2>{{work.name}}</h2>
+          <p class="slogan">{{work.subtitle}}</p>
+        </div>
+      </a>
+    </div>
+  {{else}}
+    {{#if work.clientName}}
+    <div class="client-only portfolio-item {{isPinned work}}">
+      <h2>{{work.clientName}}</h2>
+    </div>
+    {{/if}}
+  {{/if}}
 </template>

@@ -13,23 +13,34 @@ Template.workDetail.helpers({
   prettifyDate: (date) => `${date.getMonth()+1}/${date.getFullYear()}`
 });
 
-Template.work.helpers({
+Template.workTagBlock.helpers({
   workTags: () => {
     let tags = WorkTags.findOne();
     if (tags)
       return tags.tags;
-  },
+  }
+});
+
+Template.work.helpers({
   allWork: () => {
     const work = Work.find({}, {
+      // first the pinned items, then alphabetically
       sort: {"properties.pinned": -1, name: 1}
     }).fetch();
     let result = _.toArray(_.groupBy(work, (el, i) => ~~(i/3)));
+
+    // quick hack to make it easier to figure out how to show
+    // the filters block as the first item of the second row
     if (result[1])
       result[1][0].showTagFiltersHere = true;
     else
       result[0][0].showTagFiltersHere = true;
+
     return result;
-  },
+  }
+});
+
+Template.portfolioItem.helpers({
   isPinned(work) {
     return work.properties && work.properties.pinned ? "pinned" : "";
   }
