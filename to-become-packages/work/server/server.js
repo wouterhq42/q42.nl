@@ -20,7 +20,7 @@ Meteor.startup(() => {
         <p><a href="http://localhost/blog/post/125336396528/klms-apple-watch-app-catches-your-plane">Read how we did it</a></p>
       `,
       properties: {
-        pinned: no,
+        pinned: false,
         category: "project",
         qers: ["guus", "kamil", "jasper"],
         date: new Date("2015-09-01"),
