@@ -26,10 +26,6 @@ $Template({
         return "";
       }
     }
-  },
-
-  latestComments: {
-    comment: () => LatestComments.find({}, {sort: {date: -1}})
   }
 });
 

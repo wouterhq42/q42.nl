@@ -157,10 +157,6 @@ publishWithObserveChanges("blogpostFull", function (id) {
   });
 });
 
-publishWithObserveChanges("LatestComments", function(limit) {
-  return BlogComments.find({}, { sort: { date: -1 }, limit: limit });
-});
-
 // XXX: limit how much of the intro is sent to the client
 Meteor.publish("postsWithAuthors", function() {
   const posts = Posts.find({}, {sort: {date: -1}, limit: 3, fields: {

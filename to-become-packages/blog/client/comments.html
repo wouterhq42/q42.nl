@@ -56,12 +56,3 @@
     {{/if}}
   </li>
 </template>
-
-<template name="latestComments">
-  <h2>Nieuwste reacties</h2>
-  <ul id="latestComments">
-    {{#each comment}}
-      <li><div><a href="/blog/post/{{blogpostId}}/#comment{{_id}}">{{text}}</a></div></li>
-    {{/each}}
-  </ul>
-</template>
