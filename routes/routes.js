@@ -26,7 +26,9 @@ renderPage = (templateName) => {
 if (Meteor.isClient)
   Template.registerHelper("subsReady", () => FlowRouter.subsReady());
 
-// Homepage
+/*****************************************************************************/
+// HOMEPAGE                                                                   /
+/*****************************************************************************/
 FlowRouter.route("/", {
   name: "home",
   action() { renderPage(RouteUtils.getTemplate("home")); },
@@ -36,15 +38,13 @@ FlowRouter.route("/", {
   }
 });
 
-blogOverview = FlowRouter.group({
+/*****************************************************************************/
+// BLOG                                                                       /
+/*****************************************************************************/
+const blogOverview = FlowRouter.group({
   prefix: "/blog",
-  triggersEnter: [Triggers.checkForNewPosts],
-  subscriptions() {
-    this.register("comments", Meteor.subscribe("LatestComments", 10));
-  }
+  triggersEnter: [Triggers.checkForNewPosts]
 });
-
-// Blog overview
 blogOverview.route("/", {
   name: "blog",
   action() { renderPage("blog"); },
@@ -53,8 +53,6 @@ blogOverview.route("/", {
     this.register("tags", Meteor.subscribe("pagesByTag", ""));
   }
 });
-
-// Blog paging
 blogOverview.route("/page/:pageNum", {
   name: "blog",
   action() { renderPage("blog"); },
@@ -64,8 +62,6 @@ blogOverview.route("/page/:pageNum", {
     this.register("tags", Meteor.subscribe("pagesByTag", ""));
   }
 });
-
-// Posts matching a given tag
 blogOverview.route("/tagged/:tag",{
   name: "blog",
   action() { renderPage("blog"); },
@@ -75,8 +71,6 @@ blogOverview.route("/tagged/:tag",{
     this.register("tags", Meteor.subscribe("pagesByTag", tag || ""));
   }
 });
-
-// Actual blogpost
 FlowRouter.route("/blog/post/:id/:title?", {
   name: "blogpost",
   action(){ renderPage("blogpost"); },
@@ -89,9 +83,22 @@ FlowRouter.route("/blog/post/:id/:title?", {
   }
 });
 
-// custom blog pages matching a given tag
+/*****************************************************************************/
+// CUSTOM BLOG PAGES                                                          /
+/*****************************************************************************/
 customBlogPages(this);
 
+/*****************************************************************************/
+// WORK                                                                       /
+/*****************************************************************************/
+FlowRouter.route("/work/tagged/:tag", {
+  name: "workTag",
+  action: () => renderPage("work"),
+  subscriptions(params) {
+    this.register("workTags", Meteor.subscribe("workTags"));
+    this.register("work", Meteor.subscribe("work", null, params.tag));
+  }
+});
 FlowRouter.route("/work/:slug", {
   name: "work",
   action(params) { renderPage("workDetail"); },
@@ -99,7 +106,18 @@ FlowRouter.route("/work/:slug", {
     this.register("work", Meteor.subscribe("work", params.slug));
   }
 });
+FlowRouter.route("/work", {
+  name: "workOverview",
+  action: () => renderPage("work"),
+  subscriptions(params) {
+    this.register("workTags", Meteor.subscribe("workTags"));
+    this.register("work", Meteor.subscribe("work"));
+  }
+});
 
+/*****************************************************************************/
+// ANY OTHER PAGE                                                             /
+/*****************************************************************************/
 // Any other page
 FlowRouter.route("/:page", {
   name: "page",
@@ -115,7 +133,9 @@ FlowRouter.route("/:page", {
   }
 });
 
-// not found
+/*****************************************************************************/
+// NOT FOUND                                                                  /
+/*****************************************************************************/
 FlowRouter.route("/(.*)", {
   name: "404",
   triggersEnter: [Triggers.set404StatusCode],

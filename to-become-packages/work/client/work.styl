@@ -1,0 +1,68 @@
+@import "../../../styles/0_variables.styl"
+
+.portfolio-item
+  doFlex 1
+  background white
+  &:not(:last-child)
+    margin-right 10px
+  box-shadow 0 2px 4px rgba(0,0,0,.1)
+  transition all 200ms cubic-bezier(0.420, 0.000, 0.580, 1.000)
+
+  a
+    border-bottom none
+    padding 12px
+    display block
+
+  &:not(.client-only)
+    cursor pointer
+    &:hover, &.pinned
+      box-shadow 0px 4px 6px rgba(0,0,0,.2)
+      transform translateY(-2px)
+
+  &.client-only
+    text-align center
+    background-color #ccc
+    fontSmoothing antialiased
+    displayFlex()
+    alignItems center
+    justifyContent center
+    h2
+      margin 0
+      color #bbb
+      font-size 24px
+
+  img
+    max-width 100%
+
+  h2
+    smallcaps()
+    font-size 15px
+    font-weight 700
+    font-style italic
+    margin-top 1rem
+    margin-bottom 0
+
+  .slogan
+    color colorDark
+    font-size 14px
+    margin-top 0
+
+.work-tags
+  doFlex 1
+  background white
+  padding 12px
+  box-shadow 0 2px 4px rgba(0,0,0,.1)
+  ul
+    list-style none
+    padding 0
+    margin 0
+  li
+    line-height 2rem
+    display inline
+  a
+    padding .3rem 1rem
+    background-color #f0f0f0
+    font-style italic
+    margin 0 .2rem 0 0
+    &:hover
+      background-color #eee
