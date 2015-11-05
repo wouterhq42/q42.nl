@@ -260,6 +260,9 @@ a
 
 .block-small
   doFlex 1
+  @media (min-width 620px)
+    &:not(:last-child)
+      margin-right 8px
   &.solid
     @media (min-width 620px)
       &:not(:last-child)
