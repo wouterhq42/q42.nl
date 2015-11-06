@@ -1,3 +1,7 @@
+Template.comments.onCreated(function() {
+  this.subscribe("blogComments", FlowRouter.getParam("id"));
+});
+
 Template.comments.helpers({
   picture: () => Utils.getPictureURL(Meteor.user()),
   commentsCount: () => BlogComments.find().count(),
@@ -8,9 +12,10 @@ Template.comments.helpers({
 // all of these events relate to comments, so only on NL site
 Template.comments.events({
   "click #addComment": () => {
-    const comm = $("#comment")[0].value;
-    if (comm) Meteor.call("addComment", Session.get("blogpostid"), comm);
-    $("#comment")[0].value = "";
+    let $input = $("#comment-input");
+    const comm = $input.val();
+    if (comm) Meteor.call("addComment", FlowRouter.getParam("id"), comm);
+    $input[0].value = "";
   }
 });
 
@@ -23,27 +28,23 @@ Template.comment.onCreated(function() {
 
 // only on NL site
 Template.comment.helpers({
-  service: function() {
+  service() {
     const user = Meteor.users.findOne({_id: this.userId});
     if (!user) return "";
-    let services = [];
-    for (let p of user.services) {
-      services.push(p);
-    }
-    return services;
+    return _.first(_.compact(_.values(user.services)));
   },
-  picture: function() {
+  picture() {
     return Utils.getPictureURL( Meteor.users.findOne({_id: this.userId}) );
   },
-  ownsComment: function() {
+  ownsComment() {
     return (Meteor.userId() === this.userId) ||
            (Meteor.user() && Meteor.user().isAdmin);
   },
-  datediff: function() {
+  datediff() {
     const date = new Date(this.date);
     return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
   },
-  textAsHTML: function() {
+  textAsHTML() {
     return this.text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>");
   },
   editing: () => Template.instance().editing.get(),
@@ -53,12 +54,12 @@ Template.comment.helpers({
 Template.comment.events({
   "click .edit-comment": (evt, tmpl) => tmpl.editing.set(true),
 
-  "click .save-comment": function(evt, tmpl) {
+  "click .save-comment"(evt, tmpl) {
     tmpl.editing.set(false);
     Meteor.call("updateComment", this._id, tmpl.$(".edit-area")[0].value);
   },
 
-  "click .delete-comment": function(evt) {
+  "click .delete-comment"(evt) {
     Meteor.call("deleteComment", this._id);
   },
 
