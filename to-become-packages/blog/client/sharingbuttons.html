@@ -1,6 +1,11 @@
 <template name="sharingButtons">
   {{#unless isPhantom}}
   <div class="socialShare">
+    {{#if langEn}}
+      <p>Like it? Share it!</p>
+    {{else}}
+      <p>Vond je het wat? Deel het!</p>
+    {{/if}}
     <div class="twitterShare" style="float: left;">
       <a href="https://twitter.com/share" class="twitter-share-button"
         data-url="http://q42.nl/blog/post/{{id}}/{{slug}}"
