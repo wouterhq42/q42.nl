@@ -1,7 +1,8 @@
 Template.comments.helpers({
   picture: () => Utils.getPictureURL(Meteor.user()),
   commentsCount: () => BlogComments.find().count(),
-  oneComment: () => BlogComments.find().count() === 1
+  oneComment: () => BlogComments.find().count() === 1,
+  comments: () => BlogComments.find()
 });
 
 // all of these events relate to comments, so only on NL site
