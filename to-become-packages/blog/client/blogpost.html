@@ -7,7 +7,7 @@
           <header>
             <h1>{{#if langEn}}Video{{else}}Filmpje{{/if}}</h1>
             {{> postDate}}
-            {{> socialButtons}}
+            {{> tags}}
           </header>
           {{#each player}}
             {{#if widthEquals 500}}
@@ -20,7 +20,7 @@
           <header>
             <h1>{{#if langEn}}Photos{{else}}Foto's{{/if}}</h1>
             {{> postDate}}
-            {{> socialButtons}}
+            {{> tags}}
           </header>
           {{{caption}}}
           {{#each photos.[0].alt_sizes}}
@@ -44,7 +44,7 @@
           <header>
             <h1>{{title}}</h1>
             {{> postDate}}
-            {{> sharingButtons}}
+            {{> tags}}
           </header>
           {{{body}}}
         {{/if}}
@@ -52,7 +52,6 @@
     </div>
     <div class="blog">
       {{> sharingButtons}}
-      {{> tags}}
     </div>
     {{/with}}
 
