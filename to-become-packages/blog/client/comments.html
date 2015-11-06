@@ -5,7 +5,7 @@
       <div class="input">
         <img src="{{picture}}">
         <div class="add-comment">
-          <textarea placeholder="Reageer..."></textarea>
+          <textarea id="comment-input" placeholder="Reageer..."></textarea>
         </div>
       </div>
       <div class="submit-comment">
@@ -55,13 +55,4 @@
       {{/if}}
     {{/if}}
   </li>
-</template>
-
-<template name="latestComments">
-  <h2>Nieuwste reacties</h2>
-  <ul id="latestComments">
-    {{#each comment}}
-      <li><div><a href="/blog/post/{{blogpostId}}/#comment{{_id}}">{{text}}</a></div></li>
-    {{/each}}
-  </ul>
 </template>

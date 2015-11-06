@@ -12,11 +12,8 @@ accounts-google
 accounts-facebook
 accounts-twitter
 accounts-github
-coffeescript
 ongoworks:spiderable
 dfischer:phantomjs
-iron:router
-meteorhacks:fast-render
 jparker:gravatar
 jparker:crypto-md5
 jparker:crypto-core
@@ -25,6 +22,10 @@ reactive-dict
 meteorhacks:kadira
 service-configuration
 reactive-var
+meteorhacks:picker
+kadira:blaze-layout
+kadira:flow-router
+meteorhacks:fast-render
 standard-minifiers
 meteor-base
 mongo
@@ -39,3 +40,6 @@ ejson
 spacebars
 check
 fastclick
+kadira:debug
+meteortoys:allthings
+ecmascript

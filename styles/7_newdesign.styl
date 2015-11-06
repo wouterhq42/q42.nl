@@ -10,14 +10,19 @@
   .block-large
     position relative
     margin 0 auto 16px auto
-    background #fff
-    box-shadow 0 1px 1px rgba(0,0,0,.18)
+    &.solid
+      background #fff
+      box-shadow 0 1px 1px rgba(0,0,0,.18)
     &.block-no-padding-after
       margin-bottom 0
     &.block-no-padding
       padding 0
-    &.blog:first-child
-      margin-top 64px
+    &.blog
+      // to accommodate tumblr's weird image width
+      @media (min-width 540px)
+        width 540px
+      @media (max-width 539px)
+        max-width 100%
 
     @media (max-width 940px)
       flexDirection column
@@ -37,7 +42,7 @@
     & > .body
       margin 0
       padding 32px
-      background-image radial-gradient(closest-corner,rgba(16,47,70,0) 60%,rgba(16,47,70,0.26)), linear-gradient(0deg, rgba(0,0,0,.9), rgba(0,0,0,0.5))
+      background-color rgba(0,0,0,.8)
       color white
 
       @media (min-width 940px)
@@ -52,6 +57,8 @@
       h2
         font-size 2rem
         text-align center
+        smallcaps()
+        font-style italic
       h3
         text-align center
         color rgba(255,255,255,.7)
@@ -66,31 +73,11 @@
       right 1rem
       left inherit
 
-@media (min-width 940px)
-  .booklet
-    margin-top 32px
-    margin-bottom 32px
-    perspective 2000px
-
-    .block-small
-      background white
-      &:first-child
-        transformOrigin right
-        box-shadow -10px 0 20px rgba(0,0,0,.1)
-        transform rotateY(15deg)
-      &:last-child
-        transformOrigin left
-        transform rotateY(-15deg)
-        box-shadow 10px 0 20px rgba(0,0,0,.1)
-
-
-
 @media (max-width 940px)
 
   .blog .blog-posts,
   .blog .blog-post
-    margin-right 0
-    max-width 100%
+    padding 0
 
   .block-large > .block-small:first-child:nth-last-child(2),
   .block-large > .block-small:first-child:nth-last-child(2) ~ div

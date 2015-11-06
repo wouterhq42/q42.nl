@@ -17,6 +17,7 @@ echo
 
 # Publish all assets to the CDN rather than serving them from meteor.com
 echo "--- Publishing assets to CDN..."
+gcloud components update
 gsutil -m rsync -r -d public gs://static.q42.nl || exit 1
 echo "--- Done with CDN."
 echo

@@ -1,0 +1,29 @@
+<template name="thing">
+  {{#with thing}}
+    {{#if langEn}}
+      {{{content_en}}}
+    {{else}}
+      {{{content_nl}}}
+    {{/if}}
+  {{/with}}
+</template>
+
+<template name="block">
+  <div class="block-{{size}}{{#if align}} {{align}}{{/if}}">
+    {{> Template.contentBlock}}
+  </div>
+</template>
+
+<template name="group">
+  <div class="block-large">
+    {{#each things}}
+      <div class="block-small">
+        {{#if langEn}}
+          {{{content_en}}}
+        {{else}}
+          {{{content_nl}}}
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</template>

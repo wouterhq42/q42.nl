@@ -1,32 +1,16 @@
 <template name="en_header">
 
-  <div id="headergame">
-    {{#if headerGameActive}}
-      {{> headergame}}
-    {{/if}}
-  </div>
-
   <nav>
     <div id="mobile-menu-icon">menu</div>
-    <div class="q42-logo">
-      <a href="/">
-        <object data="http://static.q42.nl/images/q42-logo-white.svg" type="image/svg+xml">
-          <img src="http://static.q42.nl/images/q42-logo-white.png" alt="Q42">
-        </object>
-      </a>
-    </div>
+    {{> qlogo}}
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/jumpstarts">Jumpstarts</a></li>
+      <li><a href="/projects">Work</a></li>
+      <li>
+        {{> qlogo}}
+      </li>
       <li><a href="/about-q42">About</a></li>
       <li><a href="/blog/tagged/en">Blog</a></li>
-      <li id="lang-switch">
-        <a href="http://q42.nl">Dutch</a>
-      </li>
-      {{#if dev}}
-        <li id="toggle-lang"><a href="#">Toggle</a></li>
-      {{/if}}
     </ul>
     {{> buttons}}
   </nav>

@@ -1,0 +1,33 @@
+<template name="workTagBlock">
+  {{#if work.showTagFiltersHere}}
+    {{#if workTags}}
+    <aside class="work-tags block-small">
+      <ul>
+        {{#each tag in workTags}}
+          <li><a href="/work/tagged/{{tag}}">{{tag}}</a></li>
+        {{/each}}
+      </ul>
+    </aside>
+    {{/if}}
+  {{/if}}
+</template>
+
+<template name="portfolioItem">
+  {{#if work.name}}
+    <div class="portfolio-item {{isPinned work}}">
+      <a href="/work/{{work.slug}}">
+        <img src="{{work.image.url}}" alt="">
+        <div class="details">
+          <h2>{{work.name}}</h2>
+          <p class="slogan">{{work.subtitle}}</p>
+        </div>
+      </a>
+    </div>
+  {{else}}
+    {{#if work.clientName}}
+    <div class="client-only portfolio-item {{isPinned work}}">
+      <h2>{{work.clientName}}</h2>
+    </div>
+    {{/if}}
+  {{/if}}
+</template>

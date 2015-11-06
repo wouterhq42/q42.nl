@@ -1,30 +1,30 @@
-var BLOGPOSTS_PER_PAGE = 12;
-var lastTumblrCheck;
+const BLOGPOSTS_PER_PAGE = 12;
+let lastTumblrCheck;
 
-var Posts = new Mongo.Collection("Posts");
-var TumblrKey = Meteor.settings.TUMBLR_KEY;
+const Posts = new Mongo.Collection("Posts");
+const TumblrKey = Meteor.settings.TUMBLR_KEY;
 
 Meteor.methods({
-  checkTumblr: function() {
+  checkTumblr() {
     // Only check once every minute
     if (new Date() - lastTumblrCheck < 60*1000)
       return;
 
     lastTumblrCheck = new Date();
     this.unblock();
+
     Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 5 }
-    }, function(error, result) {
-      var count = result.data && result.data.response &&
+    }, (error, result) => {
+      const count = result.data && result.data.response &&
                   result.data.response.posts &&
                   result.data.response.posts.length;
       if (result.statusCode == 200 && count) {
         console.log("Updating " + count + " from Tumblr.");
-        for (var i = 0; i < count; i++)
+        for (let i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
       }
-      else
-      {
+      else {
         if (count !== 0)
           console.log("Unexpected result:", result);
         if (error)
@@ -32,7 +32,7 @@ Meteor.methods({
       }
     });
   },
-  reimportTumblr: function(offset) {
+  reimportTumblr(offset) {
     this.unblock();
     if (!offset) {
       Posts.remove({});
@@ -40,19 +40,17 @@ Meteor.methods({
     }
     Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 20, offset: offset }
-    }, function(error, result) {
-      var count = result.data && result.data.response &&
+    }, (error, result) => {
+      const count = result.data && result.data.response &&
                   result.data.response.posts &&
                   result.data.response.posts.length;
-      if (result.statusCode == 200 && count)
-      {
+      if (result.statusCode == 200 && count) {
         console.log("Importing " + count + " from Tumblr.");
-        for (var i = 0; i < count; i++)
+        for (let i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
         Meteor.call("reimportTumblr", offset + 20);
       }
-      else
-      {
+      else {
         if (count !== 0)
           console.log("Unexpected result:", result);
         if (error)
@@ -60,9 +58,8 @@ Meteor.methods({
       }
     });
   },
-  addComment: function(blogpostId, text) {
-    if (!text)
-      return;
+  addComment(blogpostId, text) {
+    check(text, String);
 
     BlogComments.insert({
       text: text,
@@ -72,11 +69,11 @@ Meteor.methods({
       date: new Date()
     });
 
-    var token = ChatConfig.findOne().incomingToken;
-    var url = "https://q42.slack.com/services/" +
+    const token = ChatConfig.findOne().incomingToken;
+    const url = "https://q42.slack.com/services/" +
               "hooks/incoming-webhook?token=" + token;
-    var blogpostUrl = "http://q42.nl/blog/post/" + blogpostId;
-    var formattedMsg = Meteor.user().profile.name +
+    const blogpostUrl = "http://q42.nl/blog/post/" + blogpostId;
+    const formattedMsg = Meteor.user().profile.name +
                        " comment op het blog (" + blogpostUrl + "):";
 
     HTTP.post(url, {
@@ -88,10 +85,10 @@ Meteor.methods({
       }
     });
   },
-  updateComment: function(_id, text) {
+  updateComment(_id, text) {
     BlogComments.update(commentSecurityFilter(_id), { $set: { text: text } });
   },
-  deleteComment: function(_id) {
+  deleteComment(_id) {
     BlogComments.remove(commentSecurityFilter(_id));
   }
 });
@@ -100,11 +97,11 @@ function upsertPost(post) {
   post.prettyDate = post.date.substr(8, 2) + "-" +
                     post.date.substr(5, 2) + "-" + post.date.substr(0, 4);
 
-  var employee = Employees.findOne({tumblr: post.post_author});
+  const employee = Employees.findOne({tumblr: post.post_author});
   post.authorName = employee ? employee.name : "Q42";
 
   if (post.body) {
-    var pos = post.body.indexOf("<!-- more -->");
+    const pos = post.body.indexOf("<!-- more -->");
     post.intro = pos > -1 ? post.body.substring(0, pos) : post.body;
   }
   if (post.tags)
@@ -121,54 +118,74 @@ function commentSecurityFilter(_id) {
     { _id: _id } : { _id: _id, userId: Meteor.userId() };
 }
 
-publishWithObserveChanges("blogpostIndex", function (page, tag) {
+publishWithObserveChanges("blogpostIndex", (page, tag) => {
   page = page || 1;
-  var filter = tag ? { tags: tag } : {};
+
+  let filter = tag ? { tags: tag } : {};
+  // if (tag.indexOf("!") === 0) {
+  //   filter = {$ne: {tags: tag}};
+  // }
+
   return Posts.find(filter, {
     limit: BLOGPOSTS_PER_PAGE,
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1
+      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1,
+      photos: 1, description: 1, caption: 1
     }
   });
 });
 
-publishWithObserveChanges("blogpostTitles", function(page, tag) {
+publishWithObserveChanges("blogpostTitles", (page, tag) => {
   page = page || 1;
-  var filter = tag ? { tags: tag } : {};
+  const filter = tag ? { tags: tag } : {};
   return Posts.find(filter, {
     limit: BLOGPOSTS_PER_PAGE,
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      title: 1, slug: 1, id: 1
+      title: 1, slug: 1, id: 1, intro: 1, link_image: 1
     }
   });
 });
 
-publishWithObserveChanges("blogpostFull", function (id) {
+publishWithObserveChanges("blogpostFull", (id) => {
   return Posts.find({ id: id }, {
     fields: {
       _id: 1, authorName: 1, body: 1,
       date: 1, id: 1, intro: 1,
-      slug: 1, tags: 1, timestamp: 1, title: 1, type: 1
+      slug: 1, tags: 1, timestamp: 1, title: 1, type: 1,
+      photos: 1, description: 1, caption: 1
     }
   });
 });
 
-publishWithObserveChanges("LatestComments", function(limit) {
-  return BlogComments.find({}, { sort: { date: -1 }, limit: limit });
+// XXX: limit how much of the intro is sent to the client
+Meteor.publish("postsWithAuthors", function() {
+  const posts = Posts.find({}, {sort: {date: -1}, limit: 3, fields: {
+    title: 1, authorName: 1, slug: 1,
+    intro: 1, prettyDate: 1, id: 1
+  }}).map((rec) => {
+    const author = Employees.findOne({name: rec.authorName});
+    return {post: rec, author: author};
+  });
+
+  _.each(posts, (p) => {
+    this.added("posts_with_authors", p.post._id, p);
+  });
+
+  this.ready();
 });
 
-Meteor.publish("pagesByTag", function (tag) {
-  var self = this;
-  var uuid = Meteor.uuid();
-  var count = 0;
-  var initializing = true;
+Meteor.publish("pagesByTag", function(tag) {
+  const self = this;
+  const uuid = Meteor.uuid();
+  let count = 0;
+  let initializing = true;
 
-  var filter = tag ? {tags: tag} : {};
-  var handle = Posts.find(filter).observeChanges({
+  const filter = tag ? {tags: tag} : {};
+  const handle = Posts.find(filter).observeChanges({
     added: function () {
       count++;
       if (!initializing)
@@ -188,7 +205,7 @@ Meteor.publish("pagesByTag", function (tag) {
   });
 
   // Observe only returns after the initial added callbacks have
-  // run.  Now mark the subscription as ready.
+  // run. Now mark the subscription as ready.
   initializing = false;
   self.added("PageCounts", uuid, {
     tag: tag,
@@ -202,7 +219,7 @@ Meteor.publish("pagesByTag", function (tag) {
   });
 });
 
-Meteor.publish("blogComments", function (blogpostId) {
+Meteor.publish("blogComments", (blogpostId) => {
   return BlogComments.find({ blogpostId: blogpostId });
 });
 

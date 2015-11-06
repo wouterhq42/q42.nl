@@ -10,13 +10,13 @@
   animationFillMode forwards !important
 
   &.blog
-    animation fadeIn 0.6s cubic-bezier(.34,.91,.62,1.09)
+    animation fadeIn 0.6s cubic-bezier(0,1,.6,1)
   &:not(.blog)
-    animation scaleUp 0.6s cubic-bezier(.34,.91,.62,1.09)
+    animation scaleUp 0.6s cubic-bezier(0,1,.6,1)
 
   for i in (2..10)
     &:nth-child({i})
-      animationDelay 0.2s * i
+      animationDelay 0.1s * i
 
 @-webkit-keyframes fadeIn
   from
@@ -41,7 +41,7 @@
 
 @-webkit-keyframes scaleUp
   from
-    transform scale(0.1)
+    transform scale(.8)
   to
     transform scale(1)
     opacity 1
