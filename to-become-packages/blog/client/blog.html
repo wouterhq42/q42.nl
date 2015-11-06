@@ -2,8 +2,19 @@
   <div class="container">
 
     <header class="block-text">
-      <h1>Blog</h1>
+      <h1>
+        {{#if tag}}{{tag}}{{else}}Blog{{/if}}
+      </h1>
       <p class="startingpoints">
+        {{#if tag}}
+        <span>
+          {{#if langEn}}
+          <a href="/blog/tagged/en">everything</a>
+          {{else}}
+          <a href="/blog">alles</a>
+          {{/if}}
+        </span>
+        {{/if}}
         <span>
           <a href="/blog/tagged/tech">tech blogs</a>
         </span>

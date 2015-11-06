@@ -25,6 +25,10 @@ $Template({
   }
 });
 
+Template.blog.helpers({
+  tag: () => FlowRouter.getParam('tag')
+});
+
 Template.blogpost.helpers({
   post: () => blogpostFull.findOne()
 });
