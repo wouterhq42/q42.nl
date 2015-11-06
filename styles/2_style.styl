@@ -335,10 +335,8 @@ a
 
     @media (min-width 941px)
       p, img, video
-        transition all .2s ease-out
+        transition all .2s cubic-bezier(0,1,.6,1)
       &:hover
-        img, video
-          transform scale(1.02)
         p
           transform translateY(-25px)
 
