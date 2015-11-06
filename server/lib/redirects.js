@@ -65,23 +65,23 @@ Picker.middleware((req, res, next) => {
 });
 
 // XXX: make this easier
-Picker.middleware((req, res, next) => {
-  const isDotCom = req.headers.host === "q42.com";
-  if (isDotCom && _.contains("products", req.url)) {
-    res.writeHead(HTTP_REDIRECT_PERMANENT, {
-      Location: "http://q42.com/projects"
-    });
-    res.end();
-  }
-  else if (!isDotCom && _.contains("producten", req.url)) {
-    res.writehead(HTTP_REDIRECT_PERMANENT, {
-      Location: "http://q42.nl/projecten"
-    });
-    res.end();
-  } else {
-    next();
-  }
-});
+// Picker.middleware((req, res, next) => {
+//   const isDotCom = req.headers.host === "q42.com";
+//   if (isDotCom && _.contains("products", req.url)) {
+//     res.writeHead(HTTP_REDIRECT_PERMANENT, {
+//       Location: "http://q42.com/projects"
+//     });
+//     res.end();
+//   }
+//   else if (!isDotCom && _.contains("producten", req.url)) {
+//     res.writehead(HTTP_REDIRECT_PERMANENT, {
+//       Location: "http://q42.nl/projecten"
+//     });
+//     res.end();
+//   } else {
+//     next();
+//   }
+// });
 
 Picker.middleware((req, res, next) => {
   const host = req.headers.host;
