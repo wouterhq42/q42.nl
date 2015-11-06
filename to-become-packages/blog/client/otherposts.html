@@ -3,7 +3,12 @@
     {{#each post}}
     <div class="block-small">
       <div class="visual" style="height:160px;overflow:hidden">
-        <img src="{{firstImage}}" alt="">
+        {{#if firstImage}}
+          <img src="{{firstImage}}" alt="">
+        {{else}}
+          <img src="http://static.q42.nl/images/employees/anonymous.jpg"
+               alt="" style="margin-top:-20%">
+        {{/if}}
       </div>
       <div class="body">
         <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>

@@ -11,20 +11,16 @@ $Template({
 
   otherPosts: {
     post: () => {
-      // ***** this does not seem to be returning anything - why? *****
-      return blogpostIndex.find({
+      return blogpostTitles.find({
         id: { $ne: FlowRouter.getParam('id') },
         title: { $exists: true }
       }, { limit: 3 }).fetch();
     },
     firstImage: function() {
-      if (this.intro){
-        return this.intro.match( (/<img src="(.*?)"/) ? (/<img src="(.*?)"/)[1] : "" );
-      } else if (this.link_image){
-        return this.link_image;
-      } else {
-        return "";
-      }
+      let div = document.createElement('div');
+      div.innerHTML = this.intro || this.link_image;
+      const img = div.querySelector('img');
+      return (img && img.src) || "";
     }
   }
 });

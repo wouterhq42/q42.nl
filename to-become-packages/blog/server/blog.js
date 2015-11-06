@@ -144,7 +144,7 @@ publishWithObserveChanges("blogpostTitles", (page, tag) => {
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      title: 1, slug: 1, id: 1
+      title: 1, slug: 1, id: 1, intro: 1, link_image: 1
     }
   });
 });
