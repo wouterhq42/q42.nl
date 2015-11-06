@@ -5,21 +5,6 @@ const urlsToRedirectToEn = ["/meteor", "/swift", "/vr",
 const urlsToRedirectToNl = ["/games"];
 const demoUrls = ["/demos/colorblindnesssimulator", "/demos/contrastcheck"];
 
-// const redirect = (lang, from, to) => {
-//   Picker.middleware((req, res, next) => {
-//     const isDotCom = req.headers.host === "q42.com";
-//     if (!isDotCom && _.contains(["producten"], req.url)) {
-//       res.writeHead(HTTP_REDIRECT_PERMANENT, {
-//         Location: "http://q42.nl/projecten"
-//       });
-//       res.end();
-//
-//     } else {
-//       next();
-//     }
-//   });
-// };
-
 // Use Picker middleware to handle server-side routes
 // per https://github.com/meteorhacks/picker/issues/22
 
