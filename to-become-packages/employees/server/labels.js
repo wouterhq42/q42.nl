@@ -26,11 +26,12 @@ const roles = {
   "Ex-concullega": [
     "arjen", "sander", "bas", "guido", "jaap", "jasper", "jasperh", "johan",
     "roelfjan", "marcel", "mark", "mathijs", "michiel", "stef", "timd", "taco",
-    "wouter", "corina", "silvy"
+    "wouter", "corina", "silvy", "bram"
   ],
   "Ex-ex-q'er": "sjoerd laurens suzanne",
   "Ex-Fabriquer": "sander bram",
-  "Mr. Sarien.net": "martin"
+  "Mr. Sarien.net": "martin",
+  "Google Expert": "kars christiaan rahul"
 };
 
 // Arbitrary selections
