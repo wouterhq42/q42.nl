@@ -2,24 +2,12 @@
 
   <nav>
     <div id="mobile-menu-icon">menu</div>
-    <div class="q42-logo">
-      <a href="/">
-        <object data="http://static.q42.nl/images/q42-logo-rgb.svg" type="image/svg+xml">
-          <img src="http://static.q42.nl/images/q42-logo-rgb.png" alt="Q42">
-        </object>
-      </a>
-    </div>
+    {{> qlogo}}
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/projects">Work</a></li>
       <li>
-        <div class="q42-logo">
-          <a href="/">
-            <object data="http://static.q42.nl/images/q42-logo-rgb.svg" type="image/svg+xml">
-              <img src="http://static.q42.nl/images/q42-logo-rgb.png" alt="Q42">
-            </object>
-          </a>
-        </div>
+        {{> qlogo}}
       </li>
       <li><a href="/about-q42">About</a></li>
       <li><a href="/blog/tagged/en">Blog</a></li>
