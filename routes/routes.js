@@ -71,6 +71,16 @@ blogOverview.route("/tagged/:tag",{
     this.register("tags", Meteor.subscribe("pagesByTag", tag || ""));
   }
 });
+blogOverview.route("/tagged/:tag/page/:pageNum",{
+  name: "blog",
+  action() { renderPage("blog"); },
+  subscriptions(params) {
+    const tag = params.tag;
+    const pageNum = params.pageNum;
+    this.register("tagPosts", Meteor.subscribe("blogpostIndex", pageNum, tag));
+    this.register("tags", Meteor.subscribe("pagesByTag", tag || ""));
+  }
+});
 FlowRouter.route("/blog/post/:id/:title?", {
   name: "blogpost",
   action(){ renderPage("blogpost"); },

@@ -25,20 +25,20 @@ Utils = {
     const newer = lang === "en" ? "newer" : "nieuwer";
     let items = [];
 
-    if (pages !== 1){
+    if (pages !== 1) {
       const page = pageNum || 1;
-      if (page > 1){
+      if (page > 1) {
         items.push({ label: newer, page: page - 1 });
       }
 
       const min = Math.max(1, page - 3);
       const max = Math.min(pages, page + 3);
 
-      for (let i=min; i<=max; i++){
+      for (let i = min; i <= max; i++) {
         items.push({ label: i, pagex: i, active: i === page });
       }
 
-      if (page < pages){
+      if (page < pages) {
         items.push({ label: older, page: page + 1 });
       }
     }

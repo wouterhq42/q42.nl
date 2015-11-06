@@ -35,6 +35,10 @@ Template.blogposts.helpers({
 });
 
 Template.pageNav.helpers({
-  pagination: () => Utils.getPagination(FlowRouter.getParam("pageNum") || 1),
+  pagination: () => {
+    const pageNum = FlowRouter.getParam("pageNum") || 1;
+    const tag = FlowRouter.getParam("tag") || "";
+    return Utils.getPagination(pageNum, tag);
+  },
   tag: () => FlowRouter.getParam("tag")
 });

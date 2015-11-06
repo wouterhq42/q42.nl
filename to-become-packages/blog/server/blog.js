@@ -131,7 +131,8 @@ publishWithObserveChanges("blogpostIndex", (page, tag) => {
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: {
-      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1
+      intro: 1, id: 1, date: 1, slug: 1, title: 1, type: 1, url: 1,
+      photos: 1, description: 1, caption: 1
     }
   });
 });
@@ -154,7 +155,8 @@ publishWithObserveChanges("blogpostFull", (id) => {
     fields: {
       _id: 1, authorName: 1, body: 1,
       date: 1, id: 1, intro: 1,
-      slug: 1, tags: 1, timestamp: 1, title: 1, type: 1
+      slug: 1, tags: 1, timestamp: 1, title: 1, type: 1,
+      photos: 1, description: 1, caption: 1
     }
   });
 });
