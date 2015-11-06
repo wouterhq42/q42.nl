@@ -39,8 +39,9 @@
     font-size 24px
     margin 0 24px
     font-family monoFont
-    &.menu-link
-      margin-top -6px
+    @media (min-width 480px)
+      &.menu-link
+        margin-top -6px
     @media (max-width: 480px)
       margin 0
 
@@ -57,7 +58,6 @@
         display block
         padding 10px
         color #000
-        text-shadow none
         border-bottom solid 1px #ccc
         &:active
           background -webkit-linear-gradient(top, #ccc, #eee)
