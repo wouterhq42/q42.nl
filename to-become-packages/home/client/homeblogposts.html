@@ -1,5 +1,8 @@
 <template name="homeBlogposts">
   <section class="newslist">
+    <h2>
+      {{#if langEn}}What we're up to{{else}}Wat ons bezighoudt{{/if}}
+    </h2>
     {{#each postWithAuthor}}
       <div class="newsitem {{isByQer post.authorName}}">
         <a href="/blog/post/{{post.id}}/{{post.slug}}">
@@ -24,5 +27,12 @@
         </a>
       </div>
     {{/each}}
+    <p>
+      {{#if langEn}}
+      <a href="/blog/tagged/en">More...</a>
+      {{else}}
+      <a href="/blog">Nog meer...</a>
+      {{/if}}
+    </p>
   </section>
 </template>
