@@ -38,7 +38,7 @@ currentQers = [
   { name: "Marcel Duin", handle:"marcel", web: "http://webglmarcel.q42.net/" },
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" },
   { name: "Martin Kool", handle:"martin", web: "http://martinkool.com/" },
-  { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/" },
+  { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", tumblr: "mathijskadijk" },
   { name: "Meindert Hart", handle: "meindert" },
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/" },
   { name: "Rahul Choudhury", handle:"rahul", phone: "+1 (650) 564-7742", tumblr: "primigenus" },
