@@ -21,7 +21,7 @@ function redirect(urls, from, to) {
   const HTTP_REDIRECT_PERMANENT = 302;
   Picker.middleware((req, res, next) => {
     const check = (from) => from ? req.headers.host === from : true;
-    if (check() && urls.indexOf(req.url) !== -1) {
+    if (check(from) && urls.indexOf(req.url) !== -1) {
       console.log(`Redirect ${from} to ${to}: ${req.url}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
         Location: `http://${to}${req.url}`
