@@ -1,6 +1,8 @@
 // Use Picker middleware to handle server-side routes
 // per https://github.com/meteorhacks/picker/issues/22
 
+const HTTP_REDIRECT_PERMANENT = 302;
+
 redirect(["/meteor", "/swift", "/interaction-engineering"],
   "q42.nl", "q42.com");
 redirect(["/games"], "q42.com", "q42.nl");
@@ -18,7 +20,6 @@ redirect(["/products"], null, "http://q42.com/projects");
 redirect(["/producten"], null, "http://q42.nl/projecten");
 
 function redirect(urls, from, to) {
-  const HTTP_REDIRECT_PERMANENT = 302;
   Picker.middleware((req, res, next) => {
     const check = (from) => from ? req.headers.host === from : true;
     if (check(from) && urls.indexOf(req.url) !== -1) {
