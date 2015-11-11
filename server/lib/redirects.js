@@ -18,10 +18,17 @@ redirect(["products"], "q42.com", "http://q42.com/projects");
 redirect(["producten"], "q42.nl", "http://q42.nl/projecten");
 
 function redirect(urls, from, to) {
+  console.log("redirecting!");
   const HTTP_REDIRECT_PERMANENT = 302;
   Picker.middleware((req, res, next) => {
-    const check = (from) => from ? req.headers.host === from : true;
-    if (check(from) && urls.indexOf(req.url) !== -1) {
+    const check = (from) => req.headers.host === from;
+    if (!from && urls.indexOf(req.url) !== -1) {
+      console.log(`Redirect ${from} to ${to}`);
+      res.writeHead(HTTP_REDIRECT_PERMANENT, {
+        Location: to
+      });
+      res.end();
+    } else if (check(from) && urls.indexOf(req.url) !== -1) {
       console.log(`Redirect ${from} to ${to}: ${req.url}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
         Location: `http://${to}${req.url}`
