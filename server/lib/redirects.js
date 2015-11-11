@@ -20,17 +20,12 @@ redirect(["/producten"], null, "http://q42.nl/projecten");
 function redirect(urls, from, to) {
   const HTTP_REDIRECT_PERMANENT = 302;
   Picker.middleware((req, res, next) => {
-    const check = (from) => req.headers.host === from;
-    if (!from && urls.indexOf(req.url) !== -1) {
-      console.log(`Redirect ${from} to ${to}`);
+    const check = (from) => from ? req.headers.host === from : true;
+    if (check(from) && urls.indexOf(req.url) !== -1) {
+      const destination = from ? `http://${to}${req.url}` : to;
+      console.log(`Redirect ${from} to ${destination}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
-        Location: to
-      });
-      res.end();
-    } else if (check(from) && urls.indexOf(req.url) !== -1) {
-      console.log(`Redirect ${from} to ${to}: ${req.url}`);
-      res.writeHead(HTTP_REDIRECT_PERMANENT, {
-        Location: `http://${to}${req.url}`
+        Location: destination
       });
       res.end();
     } else {
