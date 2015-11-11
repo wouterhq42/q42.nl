@@ -26,7 +26,10 @@ $Template({
 });
 
 Template.blog.helpers({
-  tag: () => FlowRouter.getParam('tag')
+  tag: () => {
+    const tag = FlowRouter.getParam('tag');
+    return tag === "en" ? "blog" : tag;
+  }
 });
 
 Template.blogpost.helpers({
