@@ -19,10 +19,11 @@ redirect(demoUrls, null, seeChromeWebStore);
 redirect(["/products"], null, "http://q42.com/projects");
 redirect(["/producten"], null, "http://q42.nl/projecten");
 
+// XXX: redesign magic 'from' argument
 function redirect(urls, from, to) {
   Picker.middleware((req, res, next) => {
-    const check = (from) => from ? req.headers.host === from : true;
-    if (check(from) && urls.indexOf(req.url) !== -1) {
+    const match = () => from ? req.headers.host === from : true;
+    if (match() && urls.indexOf(req.url) !== -1) {
       const destination = from ? `http://${to}${req.url}` : to;
       console.log(`Redirect ${from} to ${destination}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
