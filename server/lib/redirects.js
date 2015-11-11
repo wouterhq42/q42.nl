@@ -14,8 +14,8 @@ const seeChromeWebStore = "https://chrome.google.com/webstore/detail/see/" +
                           "dkihcccbkkakkbpikjmpnbamkgbjfdcn";
 redirect(demoUrls, null, seeChromeWebStore);
 
-redirect(["products"], "q42.com", "http://q42.com/projects");
-redirect(["producten"], "q42.nl", "http://q42.nl/projecten");
+redirect(["/products"], null, "http://q42.com/projects");
+redirect(["/producten"], null, "http://q42.nl/projecten");
 
 function redirect(urls, from, to) {
   console.log("redirecting!");
