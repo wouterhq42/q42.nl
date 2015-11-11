@@ -18,7 +18,6 @@ redirect(["/products"], null, "http://q42.com/projects");
 redirect(["/producten"], null, "http://q42.nl/projecten");
 
 function redirect(urls, from, to) {
-  console.log("redirecting!");
   const HTTP_REDIRECT_PERMANENT = 302;
   Picker.middleware((req, res, next) => {
     const check = (from) => req.headers.host === from;
