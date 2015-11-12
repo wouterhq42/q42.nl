@@ -1,17 +1,23 @@
 PostsWithAuthors = new Mongo.Collection("posts_with_authors");
 
 Template.homeBlogposts.helpers({
-  isByQer(authorName) {
-    return (authorName !== 'Rahul Choudhury' && authorName !== 'Q42' &&
-        authorName !== 'Ineke Scheffers') ? 'byqer' : '';
-  },
-
   num_employees() {
     if (EmployeeCount.findOne()) return EmployeeCount.findOne().count;
   },
 
   postWithAuthor() {
-    return PostsWithAuthors.find();
+    return PostsWithAuthors.find({}, {limit: 3});
+  },
+
+  englishPostWithAuthor() {
+    return PostsWithAuthors.find({tags: 'en'}, {limit: 3});
+  }
+});
+
+Template.postWithAuthorTemplate.helpers({
+  isByQer(authorName) {
+    return (authorName !== 'Rahul Choudhury' && authorName !== 'Q42' &&
+        authorName !== 'Ineke Scheffers') ? 'byqer' : '';
   },
 
   cleanIntro(intro) {

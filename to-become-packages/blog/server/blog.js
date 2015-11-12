@@ -163,12 +163,13 @@ publishWithObserveChanges("blogpostFull", (id) => {
 
 // XXX: limit how much of the intro is sent to the client
 Meteor.publish("postsWithAuthors", function() {
-  const posts = Posts.find({}, {sort: {date: -1}, limit: 3, fields: {
+  const posts = Posts.find({}, {sort: {date: -1}, fields: {
     title: 1, authorName: 1, slug: 1,
-    intro: 1, prettyDate: 1, id: 1
+    intro: 1, prettyDate: 1, id: 1,
+    tags: 1
   }}).map((rec) => {
     const author = Employees.findOne({name: rec.authorName});
-    return {post: rec, author: author};
+    return {post: rec, author: author, tags: rec.tags};
   });
 
   _.each(posts, (p) => {
