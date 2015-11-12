@@ -121,9 +121,6 @@ function commentSecurityFilter(_id) {
 publishWithObserveChanges("blogpostIndex", (page, tag) => {
   page = page || 1;
 
-  // tag = tag ? tag.split('&')[0] : tag;
-  // let filter = tag ? { tags: tag } : {};
-
   let tags = [{}];
   if (tag){
     tags = tag.split('&').map((word) => {
@@ -144,9 +141,6 @@ publishWithObserveChanges("blogpostIndex", (page, tag) => {
 
 publishWithObserveChanges("blogpostTitles", (page, tag) => {
   page = page || 1;
-
-  // tag = tag ? tag.split('&')[0] : tag;
-  // const filter = tag ? { tags: tag } : {};
 
   let tags = [{}];
   if (tag){
@@ -199,9 +193,6 @@ Meteor.publish("pagesByTag", function(tag) {
   let count = 0;
   let initializing = true;
 
-  // tag = tag ? tag.split('&')[0] : tag;
-  // let filter = tag ? {tags: tag} : {};
-
   let tags = [{}];
   if (tag){
     tags = tag.split('&').map((word) => {
@@ -214,7 +205,6 @@ Meteor.publish("pagesByTag", function(tag) {
       count++;
       if (!initializing)
         self.changed("PageCounts", uuid, {
-          // !!important!! this presumably doesn't work for the dual-tags
           tag: tag,
           count: Math.ceil(count / BLOGPOSTS_PER_PAGE)
         });
@@ -222,7 +212,6 @@ Meteor.publish("pagesByTag", function(tag) {
     removed: function () {
       count--;
       self.changed("PageCounts", uuid, {
-        // !!important!! this presumably doesn't work for the dual-tags
         tag: tag,
         count: Math.ceil(count / BLOGPOSTS_PER_PAGE)
       });
@@ -234,7 +223,6 @@ Meteor.publish("pagesByTag", function(tag) {
   // run. Now mark the subscription as ready.
   initializing = false;
   self.added("PageCounts", uuid, {
-    // !!important!! this presumably doesn't work for the dual-tags
     tag: tag,
     count: Math.ceil(count / BLOGPOSTS_PER_PAGE)
   });
