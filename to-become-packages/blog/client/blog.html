@@ -7,35 +7,23 @@
       </h1>
       <p class="startingpoints">
         {{#if tag}}
-        <span>
-          {{#if langEn}}
-          <a href="/blog/tagged/en">everything</a>
-          {{else}}
-          <a href="/blog">alles</a>
-          {{/if}}
-        </span>
+          <span>
+            {{#if langEn}}
+            <a href="/blog/tagged/en">everything</a>
+            {{else}}
+            <a href="/blog">alles</a>
+            {{/if}}
+          </span>
         {{/if}}
-        <span>
-          {{#if langEn}}
-          <a href="/blog/tagged/en&amp;tech">tech blogs</a>
-          {{else}}
-          <a href="/blog/tagged/tech">tech blogs</a>
-          {{/if}}
-        </span>
-        <span>
-          {{#if langEn}}
-          <a href="/blog/tagged/en&amp;news">new stuff</a>
-          {{else}}
-          <a href="/blog/tagged/news">nieuwe dingen</a>
-          {{/if}}
-        </span>
-        <span>
-          {{#if langEn}}
-          <a href="/blog/tagged/en&amp;brainfart">brainfarts</a>
-          {{else}}
-          <a href="/blog/tagged/brainfart">brainfarts</a>
-          {{/if}}
-        </span>
+        {{#if langEn}}
+          <span><a href="/blog/tagged/en&amp;tech">tech blogs</a></span>
+          <span><a href="/blog/tagged/en&amp;news">new stuff</a></span>
+          <span><a href="/blog/tagged/en&amp;brainfart">brainfarts</a></span>
+        {{else}}
+          <span><a href="/blog/tagged/tech">tech blogs</a></span>
+          <span><a href="/blog/tagged/news">nieuwe dingen</a></span>
+          <span><a href="/blog/tagged/brainfart">brainfarts</a></span>
+        {{/if}}
       </p>
     </header>
 
