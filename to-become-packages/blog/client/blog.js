@@ -27,12 +27,9 @@ $Template({
 
 Template.blog.helpers({
   tag: () => {
-    let tag = FlowRouter.getParam('tag');
-    if (tag && tag.indexOf('&' > -1)){
-      tag = tag.split('&')[1];
-    }
-    if (tag === 'en') tag = 'blog';
-    return tag;
+    let tag = FlowRouter.getParam('tag') || "";
+    tag = tag.split('&').filter(function(word){if (word !== 'en') return word;});
+    return tag.length ? tag : ['blog'];
   }
 });
 

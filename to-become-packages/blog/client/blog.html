@@ -3,7 +3,9 @@
 
     <header class="block-text">
       <h1>
-        {{#if tag}}{{tag}}{{else}}Blog{{/if}}
+        {{#each tag}}
+          {{this}}
+        {{/each}}
       </h1>
       <p class="startingpoints">
         {{#if tag}}
