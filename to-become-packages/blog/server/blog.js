@@ -4,6 +4,16 @@ let lastTumblrCheck;
 const Posts = new Mongo.Collection("Posts");
 const TumblrKey = Meteor.settings.TUMBLR_KEY;
 
+const separateTags = function(tag){
+  let tags = [{}];
+  if (tag){
+    tags = tag.split('&').map((word) => {
+      return {tags: word};
+    });
+  }
+  return tags;
+};
+
 Meteor.methods({
   checkTumblr() {
     // Only check once every minute
@@ -120,13 +130,7 @@ function commentSecurityFilter(_id) {
 
 publishWithObserveChanges("blogpostIndex", (page, tag) => {
   page = page || 1;
-
-  let tags = [{}];
-  if (tag){
-    tags = tag.split('&').map((word) => {
-      return {tags: word};
-    });
-  }
+  const tags = separateTags(tag);
 
   return Posts.find({$and: tags}, {
     limit: BLOGPOSTS_PER_PAGE,
@@ -141,13 +145,7 @@ publishWithObserveChanges("blogpostIndex", (page, tag) => {
 
 publishWithObserveChanges("blogpostTitles", (page, tag) => {
   page = page || 1;
-
-  let tags = [{}];
-  if (tag){
-    tags = tag.split('&').map((word) => {
-      return {tags: word};
-    });
-  }
+  const tags = separateTags(tag);
 
   return Posts.find({$and: tags}, {
     limit: BLOGPOSTS_PER_PAGE,
@@ -193,12 +191,7 @@ Meteor.publish("pagesByTag", function(tag) {
   let count = 0;
   let initializing = true;
 
-  let tags = [{}];
-  if (tag){
-    tags = tag.split('&').map((word) => {
-      return {tags: word};
-    });
-  }
+  const tags = separateTags(tag);
 
   const handle = Posts.find({$and: tags}).observeChanges({
     added: function () {
