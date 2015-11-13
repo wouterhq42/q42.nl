@@ -4,14 +4,8 @@ let lastTumblrCheck;
 const Posts = new Mongo.Collection("Posts");
 const TumblrKey = Meteor.settings.TUMBLR_KEY;
 
-const separateTags = function(tag){
-  let tags = [{}];
-  if (tag){
-    tags = tag.split('&').map((word) => {
-      return {tags: word};
-    });
-  }
-  return tags;
+const separateTags = (tag) => {
+  return tag ? tag.split('&').map((w) => { return {tags: w}; } ) : [{}];
 };
 
 Meteor.methods({
