@@ -1,4 +1,5 @@
 PostsWithAuthors = new Mongo.Collection("posts_with_authors");
+EnglishPostsWithAuthors = new Mongo.Collection("english_posts_with_authors");
 
 Template.homeBlogposts.helpers({
   isByQer(authorName) {
