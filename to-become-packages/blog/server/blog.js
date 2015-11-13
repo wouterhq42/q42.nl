@@ -162,8 +162,9 @@ publishWithObserveChanges("blogpostFull", (id) => {
 });
 
 // XXX: limit how much of the intro is sent to the client
-Meteor.publish("postsWithAuthors", function() {
-  const posts = Posts.find({}, {sort: {date: -1}, limit: 3, fields: {
+Meteor.publish("postsWithAuthors", function(filter) {
+  filter = filter || {};
+  const posts = Posts.find({filter}, {sort: {date: -1}, limit: 3, fields: {
     title: 1, authorName: 1, slug: 1,
     intro: 1, prettyDate: 1, id: 1
   }}).map((rec) => {
