@@ -34,6 +34,8 @@ FlowRouter.route("/", {
   action() { renderPage(RouteUtils.getTemplate("home")); },
   subscriptions() {
     this.register("postsWithAuthors", Meteor.subscribe("postsWithAuthors"));
+    this.register("englishPostsWithAuthors",
+      Meteor.subscribe("postsWithAuthors", {tags: 'en'}));
     this.register("employeeCount", Meteor.subscribe("employeeCount"));
   }
 });
