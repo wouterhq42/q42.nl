@@ -33,9 +33,9 @@ FlowRouter.route("/", {
   name: "home",
   action() { renderPage(RouteUtils.getTemplate("home")); },
   subscriptions() {
-    this.register("postsWithAuthors", Meteor.subscribe("postsWithAuthors"));
-    this.register("englishPostsWithAuthors",
-      Meteor.subscribe("postsWithAuthors", {tags: 'en'}));
+    const englishOnly = Meteor.isClient && Session.equals('lang', 'en');
+
+    this.register("postsWithAuthors", Meteor.subscribe("postsWithAuthors", englishOnly));
     this.register("employeeCount", Meteor.subscribe("employeeCount"));
   }
 });
