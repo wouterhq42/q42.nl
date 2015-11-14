@@ -48,23 +48,28 @@ Utils = {
       Tracker.autorun(() => {
         FlowRouter.watchPathChange();
 
-        const routeName = FlowRouter.getRouteName();
-        if (routeName === "home" || routeName === undefined){
-          document.title = "Q42";
-        } else {
-          document.title = $('h1').first().text() + " - Q42";
-        }
+        Meteor.setTimeout(() => {
+          const routeName = FlowRouter.getRouteName();
+          if (routeName === "home" || routeName === undefined){
+            document.title = "Q42";
+          } else {
+            let title = $('h1').first().text();
+            title = title.trim();
+            title = title.charAt(0).toUpperCase() + title.substring(1);
+            document.title = `${title} - Q42`;
+          }
 
-        $("meta[property='og:title']").attr("content", document.title);
-        $("meta[property='og:url']").attr("content", window.location.href);
-        $("meta[property='og:image']").attr("content",
-          $( ".block-large img:first-of-type").attr("src")
-        );
+          $("meta[property='og:title']").attr("content", document.title);
+          $("meta[property='og:url']").attr("content", window.location.href);
+          $("meta[property='og:image']").attr("content",
+            $( ".block-large img:first-of-type").attr("src")
+          );
 
-        const desc = $(".blog-post p:not(.post-date)").first().text() ||
-                     $("p:first-of-type").first().text();
-        $("meta[property='og:description']").attr("content", desc);
-        $("meta[name='description']").attr("content", desc);
+          const desc = $(".blog-post p:not(.post-date)").first().text() ||
+                       $("p:first-of-type").first().text();
+          $("meta[property='og:description']").attr("content", desc);
+          $("meta[name='description']").attr("content", desc);
+        }, 200);
 
       });
     });
@@ -78,7 +83,8 @@ Utils = {
     if (!s)               return anon;
     else if (s.twitter)   return s.twitter.profile_image_url;
     else if (s.google)    return s.google.picture;
-    else if (s.facebook)  return `https://graph.facebook.com/${s.facebook.id}/picture`;
+    else if (s.facebook)
+      return `https://graph.facebook.com/${s.facebook.id}/picture`;
     else if (s.github)    return Gravatar.imageUrl(s.github.email || "");
     else                  return anon;
   }
