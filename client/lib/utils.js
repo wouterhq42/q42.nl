@@ -1,11 +1,13 @@
 Utils = {
 
+  getSiteVersion: () => window.location.hostname === "q42.com" ? "en" : "nl",
+
   // return the pages to be displayed as pagination on the blog
   getPagination: (pageNum, tag) => {
     pageNum = pageNum * 1;
     const item = PageCounts.findOne({tag: (tag || "")});
     const pages = item ? item.count : 1;
-    const lang = Session.get("lang");
+    const lang = Utils.getSiteVersion();
     const older = lang === "en" ? "older" : "ouder";
     const newer = lang === "en" ? "newer" : "nieuwer";
     let items = [];

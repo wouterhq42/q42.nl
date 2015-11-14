@@ -1,6 +1,6 @@
 Template.toilets.helpers({
   getState: function() {
-    if ( Session.equals("lang", "nl") ){
+    if ( Utils.getSiteVersion() === "nl" ){
       this.state = this.state === "occupied" ? "bezet" : "vrij";
     }
     return this.state;

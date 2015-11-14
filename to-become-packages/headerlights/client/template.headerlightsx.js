@@ -82,7 +82,7 @@ Template.headerlights.helpers({
   },
   supportsInputTypeColor: () => supportsInputTypeColor(),
   explanation() {
-    if (Session.equals("lang", "en"))
+    if (Utils.getSiteVersion() === "en")
       return "en_lightsExplanation";
     else
       return "lightsExplanation";

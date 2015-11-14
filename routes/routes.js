@@ -7,13 +7,10 @@ Triggers = {
     }, 200);
   },
   checkForNewPosts: () => Meteor.call("checkTumblr"),
-  set404StatusCode: () => Spiderable.httpStatusCode = 404,
-  setLanguage() {
-    Session.set("lang", window.location.hostname === "q42.com" ? "en" : "nl");
-  }
+  set404StatusCode: () => Spiderable.httpStatusCode = 404
 };
 
-FlowRouter.triggers.enter([Triggers.setLanguage, Triggers.setupPage]);
+FlowRouter.triggers.enter([Triggers.setupPage]);
 
 renderPage = (templateName) => {
   BlazeLayout.render("main", {
@@ -33,9 +30,10 @@ FlowRouter.route("/", {
   name: "home",
   action() { renderPage(RouteUtils.getTemplate("home")); },
   subscriptions() {
-    const englishOnly = Meteor.isClient && Session.equals('lang', 'en');
-
-    this.register("postsWithAuthors", Meteor.subscribe("postsWithAuthors", englishOnly));
+    const englishOnly = Meteor.isClient &&
+                        Utils.getSiteVersion() === "en";
+    this.register("postsWithAuthors",
+      Meteor.subscribe("postsWithAuthors", englishOnly));
     this.register("employeeCount", Meteor.subscribe("employeeCount"));
   }
 });

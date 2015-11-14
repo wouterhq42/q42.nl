@@ -4,7 +4,7 @@ RouteUtils = {
   // depending on the current language
   getTemplate(name) {
     const enName = `en_${name}`;
-    const isEn = Session.equals("lang", "en");
+    const isEn = Utils.getSiteVersion() === "en";
     if (isEn && Template[enName]) {
       return enName;
     } else if (isEn && !Template[enName]) {
