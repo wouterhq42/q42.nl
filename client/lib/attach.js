@@ -3,12 +3,7 @@ reattachBehavior = function(){
   attachGoogleAnalytics();
   attachFacebook();
   attachTwitter();
-  attachUnveil();
 };
-
-
-attachUnveil = function(){ $("img").unveil(300); };
-
 
 let attachedGoogleAnalytics = false;
 const attachGoogleAnalytics = function(){
