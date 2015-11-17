@@ -62,10 +62,12 @@ Utils = {
           }
 
           $("meta[property='og:title']").attr("content", document.title);
-          $("meta[property='og:url']").attr("content", window.location.href);
           $("meta[property='og:image']").attr("content",
             $( ".block-large img:first-of-type").attr("src")
           );
+
+          // XXX: fix, since Facebook parses this into "localhost:20049"
+          // $("meta[property='og:url']").attr("content", window.location.href);
 
           const desc = $(".blog-post p:not(.post-date)").first().text() ||
                        $("p:first-of-type").first().text();
