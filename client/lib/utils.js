@@ -63,12 +63,10 @@ Utils = {
 
           $("meta[property='og:title']").attr("content", document.title);
 
-          const isBlogpost = $(".blog-post").length > 0;
-          let imgSrc;
-          if (isBlogpost)
-            imgSrc = "http://static.q42.nl/images/q42-logo.png";
-          else
+          let imgSrc = $(".blog-post img").attr("src");
+          if (!imgSrc) {
             imgSrc = $(".block-large img:first-of-type").attr("src");
+          }
           $("meta[property='og:image']").attr("content", imgSrc);
 
           // XXX: fix, since Facebook parses this into "localhost:20049"
