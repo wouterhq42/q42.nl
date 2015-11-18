@@ -63,9 +63,11 @@ Utils = {
 
           $("meta[property='og:title']").attr("content", document.title);
 
-          let imgSrc = $(".blog-post img").attr("src");
-          if (!imgSrc) {
-            imgSrc = $(".block-large img:first-of-type").attr("src");
+          let imgSrc = $(".block-large img:first-of-type").attr("src");
+          if ($(".blog-post").length > 0) {
+            imgSrc = $(".blog-post img").attr("src");
+            if (!imgSrc)
+              imgSrc = "http://static.q42.nl/images/q42-logo.png";
           }
           $("meta[property='og:image']").attr("content", imgSrc);
 
