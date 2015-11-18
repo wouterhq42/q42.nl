@@ -5,7 +5,7 @@ const HTTP_REDIRECT_PERMANENT = 302;
 
 redirect(["/meteor", "/swift", "/interaction-engineering"],
   "q42.nl", "q42.com");
-redirect(["/games"], "q42.com", "q42.nl");
+redirect(["/games", "/vacatures"], "q42.com", "q42.nl");
 
 redirect(["/accessibility", "/a11y"], null,
   "http://q42.com/interaction-engineering");
