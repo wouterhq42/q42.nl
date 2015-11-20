@@ -57,7 +57,7 @@ currentQers = [
   { name: "Thijs Suijten", handle:"thijs", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" },
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" },
-  { name: "Tim van Steenis", handle:"tims", web:"http://www.vansteenis-photography.nl/" },
+  { name: "Tim van Steenis", handle:"tims", web:"http://www.vansteenis-photography.nl/", tumblr: "timvansteenis" },
   { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" },
   { name: "Tomas Harkema", handle:"tomas" },
