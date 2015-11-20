@@ -4,7 +4,7 @@ Triggers = {
       Utils.setScrollPosition();
       Utils.setTitleAndMeta();
       reattachBehavior();
-    }, 200);
+    }, 300);
   },
   checkForNewPosts: () => Meteor.call("checkTumblr"),
   set404StatusCode: () => Spiderable.httpStatusCode = 404
