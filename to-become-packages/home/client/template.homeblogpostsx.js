@@ -1,6 +1,11 @@
 PostsWithAuthors = new Mongo.Collection("posts_with_authors");
 
 Template.homeBlogposts.helpers({
+  postLink() {
+    const post = this.post;
+    return post.type === 'link' ? post.url : `/blog/post/${post.id}/${post.slug}`;
+  },
+
   isByQer(authorName) {
     return (authorName !== 'Rahul Choudhury' && authorName !== 'Q42' &&
         authorName !== 'Ineke Scheffers') ? 'byqer' : '';
