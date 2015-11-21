@@ -92,3 +92,5 @@ We use the reblog icon by Yo Szczepanska from the Noun Project: http://thenounpr
 
 There is no license. This is the code for our website, copyright Q42. You can browse the source and learn from our mishaps,
 but please don't re-use the code elsewhere or redistribute it.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Q42/q42.nl/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

@@ -26,7 +26,11 @@ $Template({
 });
 
 Template.blog.helpers({
-  tag: () => FlowRouter.getParam('tag')
+  tag: () => {
+    let tag = FlowRouter.getParam('tag') || "";
+    tag = tag.split('&').filter(function(word){if (word !== 'en') return word;});
+    return tag.length ? tag : ['blog'];
+  }
 });
 
 Template.blogpost.helpers({
@@ -35,7 +39,7 @@ Template.blogpost.helpers({
 
 Template.blogposts.helpers({
   post: () => blogpostIndex.find({}, {sort: {date: -1}}),
-  readmore: () => Session.equals("lang", "en") ? "Read more" : "Lees verder"
+  readmore: () => Utils.getSiteVersion() === "en" ? "Read more" : "Lees verder"
 });
 
 Template.pageNav.helpers({

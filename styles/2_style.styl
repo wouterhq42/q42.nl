@@ -66,11 +66,6 @@ a
   transition transform .2s ease
   box-shadow -2px 0 20px rgba(0,0,0,.2)
 
-  &.visible-backgrounds
-    #backgrounds
-      opacity 1
-      background transparent
-
 #not-found
   margin 40px auto
   text-align center
@@ -236,6 +231,10 @@ a
 
   .visual
     doFlex 3
+
+  & > .visual img
+    min-height 300px
+    background-color white
 
   .intro
     doFlex 5

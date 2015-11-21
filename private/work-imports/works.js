@@ -81,8 +81,8 @@
     "intro_nl": "<p>Een helder verrassende visie voor de toekomst van post: daar bouwen we samen met PostNL aan. De eerste stap\n          bestaat uit nieuwe apps voor iOS en Android!</p>\n          <p><a href=\"http://www.postnl.nl/ontvangen/pakket-ontvangen/postnl-app/\" class=\"external\">Installeer de app</a></p>",
     "image": {
       "url": "http://static.q42.nl/images/projecten/postnl.jpg",
-      "caption": "Bar codes and QR codes: hipster and retro at the same time",
-      "caption_nl": "Streepjes- én QR-codes. Hipster en retro tegelijk"
+      "caption": "Mail and apps: hipster and retro at the same time",
+      "caption_nl": "Post en apps. Hipster en retro tegelijk"
     },
     "properties": {
       "pinned": false, // Op overzicht vastgezet of niet.
@@ -105,8 +105,8 @@
     "intro_nl": "<p>Een helder verrassende visie voor de toekomst van post: daar bouwen we samen met PostNL aan. De eerste stap\n          bestaat uit nieuwe apps voor iOS en Android!</p>\n          <p><a href=\"http://www.postnl.nl/ontvangen/pakket-ontvangen/postnl-app/\" class=\"external\">Installeer de app</a></p>",
     "image": {
       "url": "http://static.q42.nl/images/projecten/postnl.jpg",
-      "caption": "Bar codes and QR codes: hipster and retro at the same time",
-      "caption_nl": "Streepjes- én QR-codes. Hipster en retro tegelijk"
+      "caption": "Mail and apps: hipster and retro at the same time",
+      "caption_nl": "Post en apps. Hipster en retro tegelijk"
     },
     "properties": {
       "pinned": false, // Op overzicht vastgezet of niet.

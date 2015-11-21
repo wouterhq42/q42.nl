@@ -1,46 +1,28 @@
 Utils = {
 
-  // return the correct name of the template
-  // depending on the current language
-  getTemplate: (name) => {
-    const enName = `en_${name}`;
-    if ( Session.equals("lang", "en") && Template[enName] ){
-      return enName;
-    } else if ( Session.equals("lang", "en") && !Template[enName] ){
-      return "error404";
-    } else if ( Session.equals("lang", "nl") && !Template[name] ){
-      return "error404";
-    } else {
-      return name;
-    }
-  },
+  getSiteVersion: () => window.location.hostname === "q42.com" ? "en" : "nl",
 
   // return the pages to be displayed as pagination on the blog
   getPagination: (pageNum, tag) => {
     pageNum = pageNum * 1;
     const item = PageCounts.findOne({tag: (tag || "")});
     const pages = item ? item.count : 1;
-    const lang = Session.get("lang");
+    const lang = Utils.getSiteVersion();
     const older = lang === "en" ? "older" : "ouder";
     const newer = lang === "en" ? "newer" : "nieuwer";
     let items = [];
 
     if (pages !== 1) {
       const page = pageNum || 1;
-      if (page > 1) {
-        items.push({ label: newer, page: page - 1 });
-      }
-
       const min = Math.max(1, page - 3);
       const max = Math.min(pages, page + 3);
 
-      for (let i = min; i <= max; i++) {
-        items.push({ label: i, pagex: i, active: i === page });
-      }
+      if (page > 1) items.push({ label: newer, page: page - 1 });
 
-      if (page < pages) {
-        items.push({ label: older, page: page + 1 });
-      }
+      for (let i = min; i <= max; i++)
+        items.push({ label: i, page: i, active: i === page });
+
+      if (page < pages) items.push({ label: older, page: page + 1 });
     }
 
     return items;
@@ -68,23 +50,35 @@ Utils = {
       Tracker.autorun(() => {
         FlowRouter.watchPathChange();
 
-        const routeName = FlowRouter.getRouteName();
-        if (routeName === "home" || routeName === undefined){
-          document.title = "Q42";
-        } else {
-          document.title = $('h1').first().text() + " - Q42";
-        }
+        Meteor.setTimeout(() => {
+          const routeName = FlowRouter.getRouteName();
+          if (routeName === "home" || routeName === undefined){
+            document.title = "Q42";
+          } else {
+            let title = $('h1').first().text();
+            title = title.trim();
+            title = title.charAt(0).toUpperCase() + title.substring(1);
+            document.title = `${title} - Q42`;
+          }
 
-        $("meta[property='og:title']").attr("content", document.title);
-        $("meta[property='og:url']").attr("content", window.location.href);
-        $("meta[property='og:image']").attr("content",
-          $( ".block-large img:first-of-type").attr("src")
-        );
+          $("meta[property='og:title']").attr("content", document.title);
 
-        const desc = $(".blog-post p:not(.post-date)").first().text() ||
-                     $("p:first-of-type").first().text();
-        $("meta[property='og:description']").attr("content", desc);
-        $("meta[name='description']").attr("content", desc);
+          let imgSrc = $(".block-large img:first-of-type").attr("src");
+          if ($(".blog-post").length > 0) {
+            imgSrc = $(".blog-post img").attr("src");
+            if (!imgSrc)
+              imgSrc = "http://static.q42.nl/images/q42-logo.png";
+          }
+          $("meta[property='og:image']").attr("content", imgSrc);
+
+          // XXX: fix, since Facebook parses this into "localhost:20049"
+          // $("meta[property='og:url']").attr("content", window.location.href);
+
+          const desc = $(".blog-post p:not(.post-date)").first().text() ||
+                       $("p:first-of-type").first().text();
+          $("meta[property='og:description']").attr("content", desc);
+          $("meta[name='description']").attr("content", desc);
+        }, 200);
 
       });
     });
@@ -98,7 +92,8 @@ Utils = {
     if (!s)               return anon;
     else if (s.twitter)   return s.twitter.profile_image_url;
     else if (s.google)    return s.google.picture;
-    else if (s.facebook)  return `https://graph.facebook.com/${s.facebook.id}/picture`;
+    else if (s.facebook)
+      return `https://graph.facebook.com/${s.facebook.id}/picture`;
     else if (s.github)    return Gravatar.imageUrl(s.github.email || "");
     else                  return anon;
   }

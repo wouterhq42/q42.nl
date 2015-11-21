@@ -3,12 +3,7 @@ reattachBehavior = function(){
   attachGoogleAnalytics();
   attachFacebook();
   attachTwitter();
-  attachUnveil();
 };
-
-
-attachUnveil = function(){ $("img").unveil(300); };
-
 
 let attachedGoogleAnalytics = false;
 const attachGoogleAnalytics = function(){
@@ -46,7 +41,7 @@ const attachFacebook = function(){
     if (initCalled){
       FB.XFBML.parse();
     } else {
-      FB.init({appId: '226130564064804', xfbml: true, version: 'v2.3'});
+      FB.init({appId: '226130564064804', xfbml: true, version: 'v2.4'});
       initCalled = true;
     }
   });
