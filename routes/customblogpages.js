@@ -50,5 +50,11 @@ customBlogPages = (router) => {
     path: "/io",
     tags: ["io"]
   });
-  
+
+  customPageWithBlogTags({
+    routeName: "girlcode",
+    path: "/girlcode",
+    tags: ["girlcode"]
+  });
+
 };
