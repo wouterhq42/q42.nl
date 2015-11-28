@@ -1,11 +1,11 @@
-// Template.hero.onRendered(function() {
-//   const client = new WebSocket('ws://floating-everglades-9343.herokuapp.com/');
-//   const canvas = document.getElementById('bgvid');
-//   try {
-//     new jsmpeg(client, {canvas:canvas});
-//   }
-//   catch (e) {}
-// });
+Template.hero.onRendered(function() {
+  const client = new WebSocket('ws://q42-live-1.herokuapp.com/test');
+  const canvas = document.getElementById('bg-video');
+  try {
+    new jsmpeg(client, {canvas:canvas});
+  }
+  catch (e) {}
+});
 
 Template.hero.helpers({
   show: function() {
