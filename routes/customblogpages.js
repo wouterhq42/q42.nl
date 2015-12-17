@@ -6,7 +6,7 @@ customBlogPages = (router) => {
       const tmpl = Template[templateName];
       if (tmpl) {
         tmpl.helpers({
-          post: () => blogpostIndex.find()
+          post: () => blogpostIndex.find({}, {limit: 5})
         });
       }
     }
