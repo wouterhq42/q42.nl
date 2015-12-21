@@ -16,7 +16,7 @@ Template.homeBlogposts.helpers({
   },
 
   postWithAuthor() {
-    return PostsWithAuthors.find();
+    return PostsWithAuthors.find({"post.intro": {$exists: true}});
   },
 
   cleanIntro(intro) {
