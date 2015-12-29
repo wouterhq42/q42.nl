@@ -1,5 +1,5 @@
 Template.numCupsOfCoffee.helpers({
   numCupsOfCoffee: () => {
-    return CoffeeCounter.findOne() ? CoffeeCounter.findOne().count : 0;
+    return Counts.get("coffeeCups");
   }
 });
