@@ -8,6 +8,11 @@ Meteor.startup(() => {
 
 Utils = {
 
+  getStaticAssetsUrl: () => {
+    return window.location.hostname === "localhost" ? ""
+      : "https://storage.googleapis.com/static.q42.nl";
+  },
+
   getSiteVersion: () => window.location.hostname === "q42.com" ? "en" : "nl",
 
   // return the pages to be displayed as pagination on the blog
@@ -74,7 +79,7 @@ Utils = {
     if ($(".blog-post").length > 0) {
       imgSrc = $(".blog-post img").attr("src");
       if (!imgSrc)
-        imgSrc = "http://static.q42.nl/images/q42-logo.png";
+        imgSrc = `${Utils.getStaticAssetsUrl()}/images/q42-logo.png`;
     }
     $("meta[property='og:image']").attr("content", imgSrc);
 
@@ -91,7 +96,7 @@ Utils = {
   },
 
   getPictureURL: (user) => {
-    const anon = "http://static.q42.nl/images/employees/anonymous.jpg";
+    const anon = `${Utils.getStaticAssetsUrl()}/images/employees/anonymous.jpg`;
     const s = user ? user.services : null;
 
     if (!s)               return anon;

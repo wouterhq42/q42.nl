@@ -17,7 +17,7 @@ Meteor.methods({
     lastTumblrCheck = new Date();
     this.unblock();
 
-    Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
+    Meteor.http.get("https://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 5 }
     }, (error, result) => {
       const count = result.data && result.data.response &&
@@ -42,7 +42,7 @@ Meteor.methods({
       Posts.remove({});
       offset = 0;
     }
-    Meteor.http.get("http://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
+    Meteor.http.get("https://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 20, offset: offset }
     }, (error, result) => {
       const count = result.data && result.data.response &&
@@ -76,7 +76,7 @@ Meteor.methods({
     const token = ChatConfig.findOne().incomingToken;
     const url = "https://q42.slack.com/services/" +
               "hooks/incoming-webhook?token=" + token;
-    const blogpostUrl = "http://q42.nl/blog/post/" + blogpostId;
+    const blogpostUrl = "https://q42.nl/blog/post/" + blogpostId;
     const formattedMsg = Meteor.user().profile.name +
                        " comment op het blog (" + blogpostUrl + "):";
 

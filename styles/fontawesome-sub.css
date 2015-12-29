@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fontawesome-sub';
-  src: url('http://static.q42.nl/fonts/font-awesome/fontawesome-sub.eot?97123836');
-  src: url('http://static.q42.nl/fonts/font-awesome/fontawesome-sub.eot?97123836#iefix') format('embedded-opentype'),
-       url('http://static.q42.nl/fonts/font-awesome/fontawesome-sub.woff?97123836') format('woff'),
-       url('http://static.q42.nl/fonts/font-awesome/fontawesome-sub.ttf?97123836') format('truetype'),
-       url('http://static.q42.nl/fonts/font-awesome/fontawesome-sub.svg?97123836#fontawesome-sub') format('svg');
+  src: url('https://storage.googleapis.com/static.q42.nl/fonts/font-awesome/fontawesome-sub.eot?97123836');
+  src: url('https://storage.googleapis.com/static.q42.nl/fonts/font-awesome/fontawesome-sub.eot?97123836#iefix') format('embedded-opentype'),
+       url('https://storage.googleapis.com/static.q42.nl/fonts/font-awesome/fontawesome-sub.woff?97123836') format('woff'),
+       url('https://storage.googleapis.com/static.q42.nl/fonts/font-awesome/fontawesome-sub.ttf?97123836') format('truetype'),
+       url('https://storage.googleapis.com/static.q42.nl/fonts/font-awesome/fontawesome-sub.svg?97123836#fontawesome-sub') format('svg');
   font-weight: normal;
   font-style: normal;
 }
