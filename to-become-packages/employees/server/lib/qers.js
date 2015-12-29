@@ -54,7 +54,7 @@ currentQers = [
   { name: "Suzanne Waalberg", handle:"suzanne" },
   { name: "Taco Ekkel", handle: "taco" },
   { name: "Ted de Koning", handle:"ted" },
-  { name: "Thijs Suijten", handle:"thijs" },
+  { name: "Thijs Suijten", handle:"thijs", tumblr: "tsuijten" },
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" },
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" },
   { name: "Tim van Steenis", handle:"tims", web:"http://www.vansteenis-photography.nl/", tumblr: "timvansteenis" },
