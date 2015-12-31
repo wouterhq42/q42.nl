@@ -1,3 +1,10 @@
 <template name="numCupsOfCoffee">
   <p class="counter">{{numCupsOfCoffee}}</p>
 </template>
+
+<template name="numCupsOfCoffeeSparkline">
+  {{#if Template.subscriptionsReady}}
+    <embed src="//sparksvg.me/line.svg?{{sparklineData}}"
+      type="image/svg+xml" style="width:100px;height:16px">
+  {{/if}}
+</template>

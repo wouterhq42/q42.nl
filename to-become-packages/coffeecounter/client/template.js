@@ -1,5 +1,17 @@
+const CoffeeCups = new Mongo.Collection("coffeecups");
+
 Template.numCupsOfCoffee.helpers({
-  numCupsOfCoffee: () => {
-    return Counts.get("coffeeCups");
+  numCupsOfCoffee: () => Counts.get("coffeeCups")
+});
+
+Template.numCupsOfCoffeeSparkline.helpers({
+  sparklineData() {
+    const cups = CoffeeCups.findOne();
+    if (cups)
+      return cups.values;
   }
+});
+
+Template.numCupsOfCoffeeSparkline.onCreated(function() {
+  this.subscribe("coffeeCounterHistory");
 });
