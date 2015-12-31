@@ -50,7 +50,7 @@ ChatMessages.allow({
 
     const path = doc.path;
     const url = `https://q42.slack.com/services/hooks/incoming-webhook?token=${token}`;
-    const pathWithoutHttp = path.replace("http://", "");
+    const pathWithoutHttp = path.replace(/http(s?):\/\//, "");
     const user = Meteor.users.findOne(userId);
     let res;
 

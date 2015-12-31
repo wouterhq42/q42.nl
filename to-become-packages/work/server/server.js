@@ -41,7 +41,7 @@ Meteor.startup(() => {
         tags: ["travel", "apple-watch", "swift", "ios", "app", "wearable"]
       },
       image: {
-        url: "http://static.q42.nl/images/projecten/klm-applewatch3.jpg",
+        url: "https://storage.googleapis.com/static.q42.nl/images/projecten/klm-applewatch3.jpg",
         caption: "So much more convenient than a stack of paper",
         caption_nl: "Zoveel handiger dan een stapel papier"
       },
