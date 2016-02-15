@@ -46,7 +46,7 @@ currentQers = [
   { name: "Richard Lems", handle:"richard" },
   { name: "Rik Nijessen", handle:"rikn", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Rob Lokhorst", handle:"rob" },
-  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" },
+  { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl", tumblr: "roelfjandevries" },
   { name: "Sander de Vos", handle:"sander" },
   { name: "Sander Ploegsma", handle:"sanderp", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Silvy van Houdt", handle:"silvy" },

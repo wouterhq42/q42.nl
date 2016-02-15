@@ -1,4 +1,4 @@
-<template name="workDetail">
+<template name="workDetail_en">
   <div class="container">
 
     <header class="block-text">
@@ -12,7 +12,7 @@
       </div>
       <aside class="block-small subcontent">
         <h2>About</h2>
-        <ul>
+        <ul class="meta">
           {{#with work.properties}}
           <li>{{prettifyDate date}}</li>
           <li>
@@ -21,9 +21,8 @@
             {{/each}}
           </li>
           <li>
-            {{#each qer in qers}}
-              <img src="{{assetsUrl}}/images/employees/{{qer}}.jpg"
-                   alt="" style="width: 120px; height: 120px">
+            {{#each qer in this.qers}}
+              <img src="{{assetsUrl}}/images/employees/{{qer}}.jpg" alt="">
             {{/each}}
           </li>
           {{/with}}
