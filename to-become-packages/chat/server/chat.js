@@ -83,7 +83,7 @@ Picker.route("/api/chat", (params, req, res, next) => {
   if (!req.body) return;
   if (req.body.token !== chatConfig.outgoingToken) return;
 
-  const msg = req.body.text.replace("@q42nl ", "").replace("@q42com ", "");
+  const msg = req.body.text.replace("@q42nl", "").replace("@q42com", "").trim();
   const user = req.body.user_name + " (Q42)";
   ChatMessages.insert({
     userId: null,
