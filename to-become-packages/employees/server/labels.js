@@ -63,7 +63,7 @@ const arbitrary = {
   ],
   "WWDC kaartje kwijtgeraakt": "tims",
   "Heeft Max Raabe live gezien": "kars martin laurens bob lukas",
-  "Schoenmaat 42": "rahul chris arian guus christiaan mark",
+  "Schoenmaat 42": "rahul chris arian guus christiaan mark taco",
   "IQ boven de 200": "sjoerd",
   "Blessure tijdens werktijd": "rahul guus",
   "Nerfgun owner": "mark chris arian jeroen frank guus kars benjamin",
