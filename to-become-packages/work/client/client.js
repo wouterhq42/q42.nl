@@ -14,15 +14,8 @@ $Template({
     getThing: (thingId) => Things.findOne({ name: thingId }),
     prettifyDate: (date) => `${date.getMonth()+1}/${date.getFullYear()}`
   },
-  workTagBlock: {
-    workTags: () => {
-      const tags = WorkTags.findOne();
-      if (tags)
-        return tags.tags;
-    }
-  },
   work: {
-    allWork: () => {
+    allWork() {
       const work = Work.find({}, {
         // first the pinned items, then alphabetically
         sort: {"properties.pinned": -1, name: 1}
@@ -46,10 +39,28 @@ $Template({
   }
 });
 
-$Events("work", {
+Template.workTagBlock.helpers({
+  workTags() {
+    const tags = WorkTags.findOne();
+    if (tags)
+      return tags.tags;
+  },
+  isSelected(tag) {
+    const selectedTag = Template.instance().selectedTag.get() || FlowRouter.current().params.tag;
+    return selectedTag === tag;
+  }
+});
+
+Template.workTagBlock.onCreated(function() {
+  this.selectedTag = new ReactiveVar("");
+});
+
+Template.workTagBlock.events({
   "click aside a" (evt) {
-    Meteor.subscribe("work", null, evt.target.innerHTML);
-    // FlowRouter.go(`/work/tagged/${evt.target.innerHTML}`);
+    const tag = evt.target.innerHTML;
+    Meteor.subscribe("work", null, tag);
+    // FlowRouter.go($(evt.target).attr("href"));
     evt.preventDefault();
+    Template.instance().selectedTag.set(tag);
   }
 });

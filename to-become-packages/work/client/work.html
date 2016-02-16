@@ -4,8 +4,9 @@
     <aside class="work-tags block-small">
       <ul>
         {{#each tag in workTags}}
-          <li><a href="/work/tagged/{{tag}}">{{tag}}</a></li>
+          <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
         {{/each}}
+        <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
       </ul>
     </aside>
     {{/if}}
