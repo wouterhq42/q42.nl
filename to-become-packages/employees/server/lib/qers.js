@@ -39,7 +39,6 @@ currentQers = [
   { name: "Mark van Straten", handle:"mark", phone: "070-4452347" },
   { name: "Martin Kool", handle:"martin", web: "http://martinkool.com/" },
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", tumblr: "mathijskadijk" },
-  { name: "Meindert Hart", handle: "meindert" },
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/" },
   { name: "Rahul Choudhury", handle:"rahul", phone: "+1 (650) 564-7742", tumblr: "primigenus" },
   { name: "Remco Veldkamp", handle:"remco", web: "http://realstuffforabstractpeople.com/" },
@@ -54,12 +53,12 @@ currentQers = [
   { name: "Suzanne Waalberg", handle:"suzanne" },
   { name: "Taco Ekkel", handle: "taco" },
   { name: "Ted de Koning", handle:"ted" },
-  { name: "Thijs Suijten", handle:"thijs", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
+  { name: "Thijs Suijten", handle:"thijs", tumblr: "tsuijten" },
   { name: "Tim Logtenberg", handle:"timl", phone: "070-4452360", email: "tim" },
   { name: "Tim van Deursen", handle:"timd", phone: "070-4452361" },
   { name: "Tim van Steenis", handle:"tims", web:"http://www.vansteenis-photography.nl/", tumblr: "timvansteenis" },
   { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
-  { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/" },
+  { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/", tumblr: "tomlokhorst" },
   { name: "Tomas Harkema", handle:"tomas" },
   { name: "Wouter van Drunen", handle: "wouter" }
 ];

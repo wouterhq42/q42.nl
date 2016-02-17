@@ -1,36 +1,25 @@
-Meteor.startup( () => {
-  if (CoffeeCounter.find().count() === 0){
-    CoffeeCounter.insert({count: 0});
-  }
+const iotApi = DDP.connect("https://iot-api.scalingo.io");
+const CoffeeCups = new Mongo.Collection("coffeecups", iotApi);
 
-  Meteor.publish("coffeeCounter", () => CoffeeCounter.find());
+Meteor.publish("coffeeCounter", function() {
+  const yesterday = new Date(new Date().setHours(0,0,0,0)).toISOString();
+  Counts.publish(this, "coffeeCups",
+    CoffeeCups.find({published_at: {$gt: yesterday}}));
+});
 
-  updateCoffeeCounter = function() {
-    const date = new Date();
-    const day = date.getDay();
-    const hour = date.getHours();
-    const first = CoffeeCounter.findOne();
-    const currentCount = first.count;
-    let newCount = currentCount;
+Meteor.publish("coffeeCounterHistory", function() {
+  const threeWeeks = 1000 * 60 * 60 * 24 * 21;
+  let threeWeeksAgo = new Date().setHours(0,0,0,0) - threeWeeks;
+  threeWeeksAgo = new Date(threeWeeksAgo).toISOString();
+  const cups = CoffeeCups.find({published_at: {$gt: threeWeeksAgo}},
+    {fields: {published_at: 1}});
 
-    // reset at midnight
-    if (hour === 0) {
-      newCount = 0;
+  const grouped = _.groupBy(cups.fetch(), (doc) => {
+    return +new Date(doc.published_at).setHours(0,0,0,0);
+  });
+  const result = _.map(grouped, arr => arr.length).join(",");
 
-    // work day - increment
-    } else if (hour >= 8 && hour <= 18 && day !== 6 && day !== 0){
-      const ceil = hour < 12 ? 20 : 30;
-      const inc = ~~(Math.random() * 42) > ceil ? 1 : 0;
-      newCount = currentCount + inc;
-    }
-
-    if (newCount !== currentCount){
-      CoffeeCounter.update(first._id, {$set: {count: newCount}});
-    }
-
-    // update the counter every minute
-    Meteor.setTimeout(updateCoffeeCounter, 1000 * 60);
-  };
-
-  updateCoffeeCounter();
+  // XXX: make this reactive to the above cursor if we want it to be live
+  this.added("coffeecups", null, { values: result });
+  this.ready();
 });

@@ -8,12 +8,12 @@ don't hesitate to send us a pull request or create an issue. We maintain the sit
 # Getting the damn thing to run
 Sounds like it'll be a royal pain in the butt ey? Guess again amigo.
 
-### Fork and checkout this project
+## Fork and checkout this project
 The hard bit since the repo is around ~220MB
 
 	git clone https://github.com/[YOURUSERNAME]/q42.nl.git
 
-### Install Meteor
+## Install Meteor
 
 On Mac or Linux, run this:
 
@@ -21,14 +21,15 @@ On Mac or Linux, run this:
 
 On Windows, just go to http://meteor.com/install and download the Windows installer!
 
-### Configure your editor
+## Configure your editor
 
 Make sure your editor has support for .editorconfig, and .jshintrc.
 
-### Add settings you need
+## Add settings you need
 
 Create a `config/settings.json` file containing the correct Tumblr and Kadira account information:
 
+```
   {
     "TUMBLR_KEY": "myTumblrKey",
 		"kadira": {
@@ -36,37 +37,27 @@ Create a `config/settings.json` file containing the correct Tumblr and Kadira ac
 			"appSecret": "myKadiraAppSecret"
 		}
   }
+```
 
 The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
 
-### Set up the Slack chat integration
-
-In order to get this working you need to call a Meteor method named `setupChatConfig` and pass it your incoming and outgoing webhook tokens from Slack. Or you can not do this, and then nothing will change except that the chat won't work.
-
-### Set up the CDN
-
-We serve assets from a Google Cloud Storage bucket. To set this up on your machine you're going to need the `gsutil` command line utility. Info on how to get this running and other details you might be interested in are found here:
-
-https://developers.google.com/storage/docs/gsutil_install
-
-The `gsutil` command is used by the `deploy.sh` script when deploying the site. It will publish all the assets to the CDN for you automatically! Unfortunately, to be able to do this you need to have write access to the bucket.
-
-As a result of serving assets from the CDN, Meteor's `/public` folder is only useful for local development. All assets are referenced via `http://static.q42.nl` rather than something like `<img src="/mypicture.jpg">`! To get things working nicely in local dev, you'll need to add `http://static.q42.nl` to your `hosts` file:
-
-	127.0.0.1 static.q42.nl
-
-But since Meteor runs on port 3000, this won't work, so we'll have to run Meteor on port 80 too (see below).
-
-### cd into checkout and run meteor
+## cd into checkout and run meteor
 
 	cd q42.nl
-	sudo ./run.sh
+	meteor --settings config/settings.json
+
+# Optional stuff to set up
+
+## Slack chat integration
+
+In order to get this working you need to call a Meteor method named `setupChatConfig` and pass it your incoming and outgoing webhook tokens from Slack. Or you can not do this, and then nothing will change except that the chat won't work.
 
 # Deploying
 
 First you need the following prerequisites:
 
- - Git Flow, which you can get here: https://github.com/nvie/gitflow/wiki/Installation
+ - Git Flow, which you can get here: https://github.com/nvie/gitflow/wiki/Installation -- note you'll need to `git flow init` whole on the `develop` branch, as the gitflow state isn't checked in to the repository. At init time, choose 'master' for production releases and 'develop' for next release (the defaults). Choose the defaults for all others too (feature/, release/, hotfix/, support/, empty).
+ - `gcloud` command line tool, from https://cloud.google.com/sdk/. install, then authenticate using `gcloud auth login`.
  - Access to the two environments on http://scalingo.com (q42nlsite and q42comsite). Ask rahul or lukas.
  - Access to GCS bucket static.q42.nl at https://console.developers.google.com/project/504623166341/storage/browser. Ask rahul or lukas.
 

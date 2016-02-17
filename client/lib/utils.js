@@ -1,4 +1,17 @@
+Meteor.startup(() => {
+  _.each(_.keys(Template), (name) => {
+    const tmpl = Template[name];
+    if (tmpl && tmpl.onRendered)
+      tmpl.onRendered(Utils.setTitleAndMeta);
+  });
+});
+
 Utils = {
+
+  getStaticAssetsUrl: () => {
+    return window.location.hostname === "localhost" ? ""
+      : "https://storage.googleapis.com/static.q42.nl";
+  },
 
   getSiteVersion: () => window.location.hostname === "q42.com" ? "en" : "nl",
 
@@ -45,48 +58,45 @@ Utils = {
 
   // set the correct <title> and meta info
   setTitleAndMeta: () => {
+    const routeName = FlowRouter.getRouteName();
+    document.title = "Q42";
 
-    Meteor.startup(() => {
-      Tracker.autorun(() => {
-        FlowRouter.watchPathChange();
+    if (routeName !== "home" && routeName !== undefined) {
+      let title = "";
+      const post = blogpostFull.findOne();
+      if (post) {
+        title = post.title;
+      } else {
+        title = $('h1').first().text().trim();
+        title = title.charAt(0).toUpperCase() + title.substring(1);
+      }
+      if (title)
+        document.title = `${title} - Q42`;
+    }
+    $("meta[property='og:title']").attr("content", document.title);
 
-        Meteor.setTimeout(() => {
-          const routeName = FlowRouter.getRouteName();
-          if (routeName === "home" || routeName === undefined){
-            document.title = "Q42";
-          } else {
-            let title = $('h1').first().text();
-            title = title.trim();
-            title = title.charAt(0).toUpperCase() + title.substring(1);
-            document.title = `${title} - Q42`;
-          }
+    let imgSrc = $(".block-large img:first-of-type").attr("src");
+    if ($(".blog-post").length > 0) {
+      imgSrc = $(".blog-post img").attr("src");
+      if (!imgSrc)
+        imgSrc = `${Utils.getStaticAssetsUrl()}/images/q42-logo.png`;
+    }
+    $("meta[property='og:image']").attr("content", imgSrc);
 
-          $("meta[property='og:title']").attr("content", document.title);
+    // fix url, since Facebook parses this into "localhost:20049"
+    let currUrl = window.location.href;
+    if (currUrl.indexOf("localhost") > -1)
+      currUrl = currUrl.replace(/localhost:\d{4,5}/, "q42.nl");
+    $("meta[property='og:url']").attr("content", currUrl);
 
-          let imgSrc = $(".block-large img:first-of-type").attr("src");
-          if ($(".blog-post").length > 0) {
-            imgSrc = $(".blog-post img").attr("src");
-            if (!imgSrc)
-              imgSrc = "http://static.q42.nl/images/q42-logo.png";
-          }
-          $("meta[property='og:image']").attr("content", imgSrc);
-
-          // XXX: fix, since Facebook parses this into "localhost:20049"
-          // $("meta[property='og:url']").attr("content", window.location.href);
-
-          const desc = $(".blog-post p:not(.post-date)").first().text() ||
-                       $("p:first-of-type").first().text();
-          $("meta[property='og:description']").attr("content", desc);
-          $("meta[name='description']").attr("content", desc);
-        }, 200);
-
-      });
-    });
-
+    const desc = $(".blog-post p:not(.post-date)").first().text() ||
+                 $("p:first-of-type").first().text();
+    $("meta[property='og:description']").attr("content", desc);
+    $("meta[name='description']").attr("content", desc);
   },
 
   getPictureURL: (user) => {
-    const anon = "http://static.q42.nl/images/employees/anonymous.jpg";
+    const anon = `${Utils.getStaticAssetsUrl()}/images/employees/anonymous.jpg`;
     const s = user ? user.services : null;
 
     if (!s)               return anon;

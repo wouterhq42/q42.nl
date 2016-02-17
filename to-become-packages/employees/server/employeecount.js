@@ -5,6 +5,8 @@ Meteor.startup( () => {
       {$set: {count: Employees.find().count()}},
       {upsert: true}
     );
+  } else {
+    EmployeeCount.insert({count: 0});
   }
 });
 

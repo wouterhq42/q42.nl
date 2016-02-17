@@ -8,23 +8,23 @@ redirect(["/meteor", "/swift", "/interaction-engineering", "/io", "/girlcode"],
 redirect(["/games", "/vacatures"], "q42.com", "q42.nl");
 
 redirect(["/accessibility", "/a11y"], null,
-  "http://q42.com/interaction-engineering");
-redirect(["/adventures"], null, "http://adventures.handcraft.com");
+  "https://q42.com/interaction-engineering");
+redirect(["/adventures"], null, "https://adventures.handcraft.com");
 
 const demoUrls = ["/demos/colorblindnesssimulator", "/demos/contrastcheck"];
 const seeChromeWebStore = "https://chrome.google.com/webstore/detail/see/" +
                           "dkihcccbkkakkbpikjmpnbamkgbjfdcn";
 redirect(demoUrls, null, seeChromeWebStore);
 
-redirect(["/products"], null, "http://q42.com/projects");
-redirect(["/producten"], null, "http://q42.nl/projecten");
+redirect(["/products"], null, "https://q42.com/projects");
+redirect(["/producten"], null, "https://q42.nl/projecten");
 
 // XXX: redesign magic 'from' argument
 function redirect(urls, from, to) {
   Picker.middleware((req, res, next) => {
     const match = () => from ? req.headers.host === from : true;
     if (match() && urls.indexOf(req.url) !== -1) {
-      const destination = from ? `http://${to}${req.url}` : to;
+      const destination = from ? `https://${to}${req.url}` : to;
       console.log(`Redirect ${from} to ${destination}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
         Location: destination
@@ -38,7 +38,7 @@ function redirect(urls, from, to) {
 
 Picker.middleware((req, res, next) => {
   const host = req.headers.host;
-  const fullUrl = `http://${host}${req.url}`;
+  const fullUrl = `https://${host}${req.url}`;
   if (host.indexOf("www") === 0){
     console.log(`Route: removeWWW (${req.url})`);
     res.writeHead(HTTP_REDIRECT_PERMANENT, {
