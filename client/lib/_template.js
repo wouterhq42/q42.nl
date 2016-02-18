@@ -10,6 +10,9 @@ $Events = function(tmpl, events) {
 $OnRendered = function(tmpl, fn) {
   _tmpl("onRendered", tmpl, fn);
 };
+$OnCreated = function(tmpl, fn) {
+  _tmpl("onCreated", tmpl, fn);
+};
 
 _tmpl = function(type, tmpl, obj) {
   const result = Template["en_" + tmpl];
