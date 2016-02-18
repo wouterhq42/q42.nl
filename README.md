@@ -39,7 +39,7 @@ Create a `config/settings.json` file containing the correct Tumblr and Kadira ac
   }
 ```
 
-The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors.
+The Tumblr key is required for the blog to not explode (even though you won't actually be able to see any posts without our real API key). If you misconfigure Kadira, you'll just get console errors. You can get a hold of the keys in the "q42.nl" vault in 1 Password.
 
 ## cd into checkout and run meteor
 
