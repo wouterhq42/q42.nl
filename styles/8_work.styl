@@ -1,0 +1,47 @@
+@import "0_variables.styl"
+
+// body
+//   background-color white
+
+.portfolio-hero
+  max-width 42rem
+  .clientName
+    margin-bottom 0
+  .slogan
+    font-family serifTitleFont
+    font-style italic
+    font-size 1.375rem
+  h1
+    margin 0 auto
+    text-shadow 2px 2px 0px rgba(0,0,0,.15)
+    line-height 4.2rem
+    border-top 3px solid
+    border-bottom 3px solid
+    padding 1rem 0 1rem 0
+
+.tldr
+  margin 0 auto
+  max-width 960px
+  displayFlex()
+  .tldr-image
+    doFlex 1
+    img
+      display relative
+      width 100%
+  .tldr-text
+    doFlex 1
+    background-color #F0F3ED
+    padding 2rem
+
+.filterHeader
+  font-weight 500
+  color colorDark
+  display block
+  text-align center
+  padding-top 1.25rem
+  text-transform uppercase
+  font-style italic
+
+.portfolio-item
+  a
+    color colorDark

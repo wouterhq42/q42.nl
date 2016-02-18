@@ -2,6 +2,7 @@
   {{#if work.showTagFiltersHere}}
     {{#if workTags}}
     <aside class="work-tags block-small">
+      <div class="filterHeader">Toon alleen</div>
       <ul>
         {{#each tag in workTags}}
           <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
@@ -19,10 +20,8 @@
       <a href="/work/{{work.slug}}">
         <img src="{{work.image.url}}" alt="">
         <div class="details">
-          <h2>{{work.name}}</h2>
-          <p class="slogan">{{work.slogan}}</p>
-          <p>Client: {{work.clientName}}<br>
-          Tech Stack: {{work.properties.techStack}}</p>
+          <h2><span style="color: {{work.properties.color}}">{{work.clientName}}</span> {{work.name}}</h2>
+          <p>{{work.slogan}}</p>
         </div>
       </a>
     </div>

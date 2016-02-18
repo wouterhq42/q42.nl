@@ -20,11 +20,9 @@ itemBoxShadow()
 
   &:not(.client-only)
     cursor pointer
-    &:hover, &.pinned
+    &:hover
       box-shadow 0px 4px 6px rgba(0,0,0,.2)
       transform translateY(-2px)
-    &.pinned
-      border solid 2px #69f
 
   &.client-only
     text-align center
@@ -66,8 +64,7 @@ itemBoxShadow()
 
 .work-tags
   doFlex 1
-  background white
-  itemBoxShadow()
+  background #BAC1B4
   ul
     list-style none
     padding 0
@@ -77,12 +74,20 @@ itemBoxShadow()
     line-height 2.5rem
     display inline
   a
-    padding .3rem 1rem
-    background-color #f0f0f0
-    font-style italic
+    padding .5rem .7rem
+    background-color white
+    font-weight 500
+    font-size .8125rem
+    color colorDark
     margin 0 .2rem 0 0
     border-bottom none
+    border-radius .1825rem
+    box-shadow 0px 2px 4px rgba(0,0,0,.1)
+    transition all ease-in-out .1s
     &:hover
-      background-color #eee
+      background-color #73895B
+      color white
     &.selected
-      background-color #ffc
+      background-color colorDark
+      color white
+      transition all ease-in-out .1s
