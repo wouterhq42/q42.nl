@@ -1,15 +1,20 @@
 <template name="workDetail">
-  <div class="container">
 
-    <header class="block-text">
+    <header class="block-text portfolio-hero">
+      <p class="clientName">{{work.clientName}}</p>
       <h1>{{work.name}}</h1>
-      <h2>met {{work.clientName}}</h2>
+      <p class="slogan">{{work.slogan}}</p>
     </header>
 
+  <div class="container">
+    <div class="tldr">
+      <div class="tldr-image"><img src="{{work.image.url}}"></div>
+      <div class="tldr-text">{{{work.intro}}}</div>
+    </div>
+  </div>
+
     <div class="block-large">
-      <div class="intro">
-        {{{work.intro_nl}}}
-      </div>
+
       <aside class="block-small subcontent">
         <h2>Over</h2>
         <ul class="meta">
@@ -38,5 +43,4 @@
 
     {{/each}}
 
-  </div>
 </template>
