@@ -63,7 +63,7 @@ First you need the following prerequisites:
 
 Then, add the two Scalingo Git Remotes:
 
-    git remote add scalingo-nl git@scalingo.com:q42nlsite.git
+    git remote add scalingo-nl git@scalingo.com:q42nl-site.git
     git remote add scalingo-en git@scalingo.com:q42comsite.git
 
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a script which will take care of both commands. Just run:
