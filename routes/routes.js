@@ -112,6 +112,11 @@ FlowRouter.route("/work/tagged/:tag", {
 FlowRouter.route("/work/:slug", {
   name: "work",
   action(params) { renderPage("workDetail"); },
+  triggersExit: [() => {
+    // remove the portfolio item bg color
+    $("body").css("borderColor", "#80bd42");
+    $("#header, .container").css("backgroundColor", "");
+  }],
   subscriptions(params) {
     this.register("work", Meteor.subscribe("work", params.slug));
   }
