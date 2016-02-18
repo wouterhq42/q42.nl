@@ -5,5 +5,8 @@ Template.main.helpers({
     visible: () => "visible-backgrounds",
     inverted() {
       return (FlowRouter.getRouteName() === 'home') ? 'inverted' : '';
+    },
+    showVideo() {
+      return (FlowRouter.getRouteName() === 'home') ? 'showVideo' : '';
     }
 });
