@@ -16,10 +16,10 @@
   {{#if work.name}}
     <div class="portfolio-item {{isPinned work}}">
       <a href="/work/{{work.slug}}">
-        <img src="{{work.image.url}}" alt="">
+        <img src="{{work.image.url}}" alt="{{work.slogan}}">
         <div class="details">
-          <h2><span style="color: {{work.properties.color}}">{{work.clientName}}</span> {{work.name}}</h2>
-          <p>{{work.slogan}}</p>
+          <h2>{{work.name}}</h2>
+          <h3>{{work.clientName}}</h3>
         </div>
       </a>
     </div>
