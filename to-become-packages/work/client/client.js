@@ -53,20 +53,12 @@ $Template({
   },
   work: {
     allWork() {
-      const work = Work.find({}, {
-        // first the pinned items, then alphabetically
-        sort: {"properties.pinned": -1, name: 1}
+      return Work.find({}, {
+        sort: {
+            "properties.pinned": -1,
+            name: 1
+        }
       }).fetch();
-      let result = _.toArray(_.groupBy(work, (el, i) => ~~(i/3)));
-
-      // quick hack to make it easier to figure out how to show
-      // the filters block as the first item of the second row
-      if (result[1])
-        result[1][0].showTagFiltersHere = true;
-      else if (result[0])
-        result[0][0].showTagFiltersHere = true;
-
-      return result;
     }
   },
   portfolioItem: {
