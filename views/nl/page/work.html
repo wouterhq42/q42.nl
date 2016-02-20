@@ -12,19 +12,15 @@
       <p class="descriptor">Check hieronder een greep uit de toffe klussen die we doen. Insert toffe christekst</p>
     </div>
 
-    <div class="block-large">
+    <div class="block-large portfolio-collection">
       {{> workTagBlock}}
-    </div>
-
-    {{#each work in allWork}}
-      <div class="block-large">
+      {{#each work in allWork}}
         {{> portfolioItem work=work}}
-      </div>
-    {{else}}
-      <div class="block-text">
-        <p class="descriptor">No work found for that tag :(</p>
-      </div>
-    {{/each}}
-
+        {{else}}
+          <div class="block-text">
+            <p class="descriptor">No work found for that tag :(</p>
+          </div>
+      {{/each}}
+    </div>
   </div>
 </template>
