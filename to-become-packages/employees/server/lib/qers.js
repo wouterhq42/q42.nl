@@ -41,7 +41,7 @@ currentQers = [
   { name: "Mathijs Bernson", handle: "mathijsb", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", tumblr: "mathijskadijk" },
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/", tumblr: "michielpostnl" },
-  { name: "Rahul Choudhury", handle:"rahul", phone: "+1 (650) 564-7742", tumblr: "primigenus" },
+  { name: "Rahul Choudhury", handle:"rahul", tumblr: "primigenus" },
   { name: "Remco Veldkamp", handle:"remco", web: "http://realstuffforabstractpeople.com/" },
   { name: "Richard Lems", handle:"richard" },
   { name: "Rik Nijessen", handle:"rikn", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
