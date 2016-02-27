@@ -1,8 +1,10 @@
 reattachBehavior = function(){
   if (/phantom/i.test(navigator.userAgent)) return;
   attachGoogleAnalytics();
-  attachFacebook();
-  attachTwitter();
+  if (window.location.href.match("/blog")){
+    attachFacebook();
+    attachTwitter();
+  }
 };
 
 let attachedGoogleAnalytics = false;
@@ -24,11 +26,11 @@ const attachGoogleAnalytics = function(){
 
 let initCalled = false;
 const attachFacebook = function(){
-  $.getScript('//connect.facebook.net/en_US/all.js', function(){
+  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
     if (initCalled){
       FB.XFBML.parse();
     } else {
-      FB.init({appId: '226130564064804', xfbml: true, version: 'v2.4'});
+      FB.init({appId: '226130564064804', xfbml: true, version: 'v2.5'});
       initCalled = true;
     }
   });
@@ -36,9 +38,7 @@ const attachFacebook = function(){
 
 
 const attachTwitter = function(){
-  if (window.location.href.match("/blog")){
-    $.getScript('//platform.twitter.com/widgets.js', function(){
-      if (twttr && twttr.widgets) twttr.widgets.load();
-    });
-  }
+  $.getScript('//platform.twitter.com/widgets.js', function(){
+    if (twttr && twttr.widgets) twttr.widgets.load();
+  });
 };
