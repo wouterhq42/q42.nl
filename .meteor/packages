@@ -26,7 +26,6 @@ meteorhacks:picker
 kadira:blaze-layout
 kadira:flow-router
 meteorhacks:fast-render
-standard-minifiers
 meteor-base
 mongo
 blaze-html-templates
@@ -41,7 +40,9 @@ spacebars
 check
 fastclick
 kadira:debug
-meteortoys:allthings
 ecmascript
 force-ssl
 tmeasday:publish-counts
+standard-minifier-css
+standard-minifier-js
+modules
