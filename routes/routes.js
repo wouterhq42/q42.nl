@@ -88,7 +88,6 @@ FlowRouter.route("/blog/post/:id/:title?", {
   subscriptions(params) {
     const id = parseInt(params.id);
     this.register("blogpost", Meteor.subscribe("blogpostFull", id));
-    this.register("comments", Meteor.subscribe("blogComments", id));
     this.register("allTitles", Meteor.subscribe("blogpostTitles", 1));
   }
 });

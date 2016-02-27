@@ -61,39 +61,6 @@ Meteor.methods({
           console.log("Error:", error);
       }
     });
-  },
-  addComment(blogpostId, text) {
-    check(text, String);
-
-    BlogComments.insert({
-      text: text,
-      blogpostId: blogpostId,
-      userName: Meteor.user().profile.name,
-      userId: Meteor.userId(),
-      date: new Date()
-    });
-
-    const token = ChatConfig.findOne().incomingToken;
-    const url = "https://q42.slack.com/services/" +
-              "hooks/incoming-webhook?token=" + token;
-    const blogpostUrl = "https://q42.nl/blog/post/" + blogpostId;
-    const formattedMsg = Meteor.user().profile.name +
-                       " comment op het blog (" + blogpostUrl + "):";
-
-    HTTP.post(url, {
-      params: {
-        payload: JSON.stringify({
-          text: [formattedMsg, text].join("\n"),
-          icon_emoji: ":earth_africa:"
-        })
-      }
-    });
-  },
-  updateComment(_id, text) {
-    BlogComments.update(commentSecurityFilter(_id), { $set: { text: text } });
-  },
-  deleteComment(_id) {
-    BlogComments.remove(commentSecurityFilter(_id));
   }
 });
 
@@ -115,11 +82,6 @@ function upsertPost(post) {
     Posts.insert(post);
   else
     Posts.update({ id: post.id }, post);
-}
-
-function commentSecurityFilter(_id) {
-  return Meteor.user().isAdmin ?
-    { _id: _id } : { _id: _id, userId: Meteor.userId() };
 }
 
 publishWithObserveChanges("blogpostIndex", (page, tag) => {
@@ -221,10 +183,6 @@ Meteor.publish("pagesByTag", function(tag) {
   self.onStop(function () {
     handle.stop();
   });
-});
-
-Meteor.publish("blogComments", (blogpostId) => {
-  return BlogComments.find({ blogpostId: blogpostId });
 });
 
 if (Posts.find().count() === 0)
