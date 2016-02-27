@@ -32,7 +32,7 @@ $Events("header", {
 });
 
 Template.chat.helpers({
-  message() { return ChatMessages.find({}, {sort: {date: 1}}); },
+  message: () => ChatMessages.find({}, {sort: {date: 1}}),
   user() {
     let user = Meteor.users.findOne(this.userId);
     if (user && user.profile && user.profile.name)
@@ -51,7 +51,7 @@ Template.chat.events({
     evt.preventDefault();
     Session.set("openChat", false);
   },
-  "click button": () => sendChatMessage(),
+  "click button": sendChatMessage,
   "keyup input": function(evt) { if (evt.which === 13) sendChatMessage(); }
 });
 
