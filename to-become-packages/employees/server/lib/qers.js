@@ -11,7 +11,6 @@ currentQers = [
   { name: "Corina Maduro", handle:"corina" },
   { name: "Cynthia Wijntje", handle:"cynthia" },
   { name: "Diedra Rater", handle:"diedra", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
-  { name: "Elaine Oliver", handle:"elaine" },
   { name: "Frank Raterink", handle:"frank", web: "http://www.franklabs.nl" },
   { name: "Gerard Dorst", handle:"gerard" },
   { name: "Guido Bouman", handle:"guido" },
