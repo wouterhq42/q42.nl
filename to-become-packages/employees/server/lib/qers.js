@@ -7,7 +7,7 @@ currentQers = [
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" },
   { name: "Bram Stege", handle:"bram", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" },
-  { name: "Christiaan Hees", handle:"christiaan" },
+  { name: "Christiaan Hees", handle:"christiaan", tumblr: "www-chees-info" },
   { name: "Corina Maduro", handle:"corina" },
   { name: "Cynthia Wijntje", handle:"cynthia" },
   { name: "Diedra Rater", handle:"diedra", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
