@@ -17,10 +17,10 @@ const roles = {
     allHandles,
     "stef", "cynthia", "suzanne", "corina", "silvy", "ineke"
   ),
-  "Interaction Engineer": "rahul elaine johan roelfjan frank guido richard",
+  "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,
   "Oprichter": "kars",
-  "Student": "herman tomas jimmy tobias sanderp",
+  "Student": "herman tomas jimmy tobias sanderp rikn",
   "Ex-stagiair": "jeroen lukas chris bob katja timl tims kamil",
   "Ex-klant": "gerard stef taco",
   "Ex-concullega": [
@@ -47,7 +47,7 @@ const arbitrary = {
   "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel",
   "Stokoud": "stef johan",
   "Broers": "tom rob",
-  "Tatoeage": "chris jeroen jasperh elaine marcel tomas",
+  "Tatoeage": "chris jeroen jasperh marcel tomas",
   "Voortgeplant": [
     "martin", "chris", "mark", "kars", "bas", "cynthia", "gerard", "jaap",
     "jasper", "johan", "korjan", "michiel", "remco", "sander", "stef",
