@@ -7,7 +7,7 @@ Meteor.publish("things", (thingIds) => {
     return Things.find({}, {fields: {name: 1}});
 });
 
-if (Things.find().count() === 0) {
+Meteor.startup(() => {
 
   // XXX: loop over everything in the /things/ folder and insert it rather
   // than doing this manually
@@ -15,13 +15,15 @@ if (Things.find().count() === 0) {
     "benbenet", "game-of-drones",
     "jumpstarts-header", "jumpstarts-intro",
     "livelearn", "nannii", "paper", "shell",
-    "spinn", "swisscom", "taxi-electric", "tesloop", "umuntu-media"
+    "spinn", "swisscom", "taxi-electric", "tesloop",
+    "umuntu-media", "moti", "nexi", "locali",
+    "printr", "stockit", "kazoo"
   ]) {
     try {
-      Things.insert({
+      Things.upsert({name: thingId}, {$set: {
         name: thingId,
         content_en: Assets.getText(`things/${thingId}.html`)
-      });
+      }});
     } catch (e) {}
   }
-}
+});
