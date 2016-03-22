@@ -13,13 +13,13 @@
     </div>
 
     <div class="block-large portfolio-collection">
-      {{> workTagBlock}}
+      {{> workFilterBlock}}
       {{#each work in allWork}}
         {{> portfolioItem work=work}}
-        {{else}}
-          <div class="block-text">
-            <p class="descriptor">No work found for that tag :(</p>
-          </div>
+      {{else}}
+        <div class="block-text">
+          <p class="descriptor">No work found for that tag :(</p>
+        </div>
       {{/each}}
     </div>
   </div>

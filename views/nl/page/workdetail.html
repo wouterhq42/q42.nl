@@ -23,8 +23,10 @@
     <div class="portfolio-content-container chapter">
       <h2>hier komt de verdieping</h2>
       {{#with work.properties}}
-      <p>{{prettifyDate date}}</p>
-      <p>{{#each t in tags}}<a href="/work?tag={{t}}">{{t}}</a>, {{/each}}</p>
+        {{#if this.date}}
+          <p>{{prettifyDate this.date}}</p>
+        {{/if}}
+        <p>{{#each t in this.tags}}<a href="/work?tag={{t}}">{{t}}</a>, {{/each}}</p>
       {{/with}}
     </div>
   </div>

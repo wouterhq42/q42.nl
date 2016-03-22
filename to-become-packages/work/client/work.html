@@ -1,12 +1,11 @@
-<template name="workTagBlock">
+<template name="workFilterBlock">
   {{#if workTags}}
-  <aside class="work-tags portfolio-filtercontainer">
+  <aside class="work-filters portfolio-filtercontainer">
     <div class="filterHeader">Toon alleen</div>
     <ul>
-      {{#each tag in workTags}}
-        <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
+      {{#each type in types}}
+        <li><a href="/work?type={{type}}" class="{{#if isSelected type}}selected{{/if}}">{{type}}</a></li>
       {{/each}}
-      <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
     </ul>
   </aside>
   {{/if}}
@@ -16,7 +15,7 @@
   {{#if work.name}}
     <div class="portfolio-item {{isPinned work}}">
       <a href="/work/{{work.slug}}">
-        <img src="{{work.image.url}}" alt="{{work.slogan}}">
+        <img src="{{imageThumbnail work.image.url}}" alt="">
         <div class="details">
           <h2>{{work.name}}</h2>
           <h3>{{work.clientName}}</h3>

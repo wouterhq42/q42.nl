@@ -1,6 +1,5 @@
 Meteor.startup(() => {
-  // XXX: get rid of this since it subscribes the whole site to everything
-  Meteor.subscribe('work');
+  // XXX: get rid of this since it subscribes the whole site to every thing
   Meteor.subscribe('things');
 });
 
@@ -22,7 +21,7 @@ function getPortfolioItemBgColor() {
     FlowRouter.watchPathChange();
     const slug = FlowRouter.current().params.slug;
     if (slug) {
-      const work = Work.findOne();
+      const work = _.first(Work.find().fetch());
       if (work && work.properties)
         color.set(work.properties.color);
     }
@@ -48,48 +47,55 @@ $Template({
     work: () => currentWork(),
     qers: () => Employees.find({ handle: { $in: currentWork().properties.qers } }),
     getThing: (thingId) => Things.findOne({ name: thingId }),
-    prettifyDate: (date) => `${date.getMonth()+1}/${date.getFullYear()}`,
+    prettifyDate: (date) => date ? `${date.getMonth()+1}/${date.getFullYear()}` : '',
     invert: () => luminance(Template.instance().bgColor.get()) > 0.5
   },
   work: {
     allWork() {
       return Work.find({}, {
         sort: {
-            "properties.pinned": -1,
-            name: 1
+          "properties.pinned": -1,
+          name: 1
         }
-      }).fetch();
+      });
     }
   },
   portfolioItem: {
     isPinned(work) {
       return work.properties && work.properties.pinned ? "pinned" : "";
-    }
+    },
+    imageThumbnail: (url) => url || "https://placehold.it/600x320"
   }
 });
 
-Template.workTagBlock.helpers({
+Template.workFilterBlock.helpers({
   workTags() {
     const tags = WorkTags.findOne();
     if (tags)
       return tags.tags;
   },
-  isSelected(tag) {
-    const selectedTag = Template.instance().selectedTag.get() || FlowRouter.current().params.tag;
-    return selectedTag === tag;
+  types() {
+    return ["Mobile app", "Backend platform", "Connected device",
+            "Desktop app", "Website", "VR"];
+  },
+  isSelected(filter) {
+    const selectedFilter = Template.instance().selectedFilter.get() || FlowRouter.current().params.tag;
+    return selectedFilter === filter;
   }
 });
 
-Template.workTagBlock.onCreated(function() {
-  this.selectedTag = new ReactiveVar("");
+Template.workFilterBlock.onCreated(function() {
+  this.selectedFilter = new ReactiveVar("");
+  this.autorun(() => {
+    this.subscribe("work", null, null, this.selectedFilter.get());
+  });
 });
 
-Template.workTagBlock.events({
+Template.workFilterBlock.events({
   "click aside a" (evt) {
-    const tag = evt.target.innerHTML;
-    Meteor.subscribe("work", null, tag);
+    const type = evt.target.innerHTML;
     // FlowRouter.go($(evt.target).attr("href"));
     evt.preventDefault();
-    Template.instance().selectedTag.set(tag);
+    Template.instance().selectedFilter.set(type);
   }
 });

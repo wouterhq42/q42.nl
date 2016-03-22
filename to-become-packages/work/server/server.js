@@ -1,14 +1,19 @@
-Meteor.publish("work", (slug, tag) => {
+Meteor.publish("work", function(slug, tag, type) {
+  const alwaysFilter = {};
+  const fields = {name: 1, clientName: 1, slug: 1, type: 1, image: 1};
+  let query = {};
   if (slug)
-    return Work.find({slug: slug});
+    query = {slug: slug};
   else if (tag)
-    return Work.find({"properties.tags": {$in: [tag]}});
-  else
-    return Work.find();
+    query = {"properties.tags": {$in: [tag]}};
+  else if (type)
+    query = {type: type};
+
+  return Work.find(_.extend(alwaysFilter, query), {fields: fields});
 });
-Meteor.publish("workTags", function(){
-  const work = Work.find({}, {fields: {_id: 1, "properties.tags": 1}});
-  const tags = _.map(work.fetch(), (w) => w.properties.tags);
+Meteor.publish("workTags", function() {
+  const work = Work.find({}, {fields: {_id: 1, "properties.tags": 1}}).fetch();
+  const tags = _.map(work, w => w.properties.tags);
   this.added("work_tags", new Mongo.ObjectID(), {
     tags: _.compact(_.uniq(_.flatten(tags))).sort()
   });

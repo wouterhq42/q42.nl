@@ -126,7 +126,10 @@ FlowRouter.route("/work", {
   action: () => renderPage("work"),
   subscriptions(params) {
     this.register("workTags", Meteor.subscribe("workTags"));
-    this.register("work", Meteor.subscribe("work"));
+
+    // XXX: we want this for fast-render purposes, but if we include it
+    // then the filtering doesn't work...
+    // this.register("work", Meteor.subscribe("work"));
   }
 });
 
