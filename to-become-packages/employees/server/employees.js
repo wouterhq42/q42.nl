@@ -28,8 +28,6 @@ Employees.allow({
 });
 
 Meteor.publish("employees", (handles) => {
-  check(handles, Match.Optional([String]));
-
   if (handles)
     return Employees.find({ handle: { $in: handles } });
   else
