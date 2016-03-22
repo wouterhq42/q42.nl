@@ -48,13 +48,19 @@
   font-style italic
 
 .portfolio-collection
-  flexFlow row wrap
+  flexWrap wrap
 
 .portfolio-filtercontainer
 .portfolio-item
   margin .25rem
   min-width 18rem
   doFlex 1
+
+  /*
+    The following is needed for this to work in Safari.
+    See: https://bugs.webkit.org/show_bug.cgi?id=136041
+   */
+  flexBasis 18rem
 
   &:nth-child(3n)
     margin-right 0
