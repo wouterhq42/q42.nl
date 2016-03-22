@@ -27,6 +27,11 @@ Employees.allow({
   insert: () => false
 });
 
-Meteor.publish("employees", () => {
-  return Employees.find({}, {sort: {name: 1}});
+Meteor.publish("employees", (handles) => {
+  check(handles, Match.Optional([String]));
+
+  if (handles)
+    return Employees.find({ handle: { $in: handles } });
+  else
+    return Employees.find({}, {sort: {name: 1}});
 });

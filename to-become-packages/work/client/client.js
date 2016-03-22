@@ -15,40 +15,54 @@ function luminance(color) {
   return (red * 0.2126) + (green * 0.7152) + (blue * 0.0722);
 }
 
-function getPortfolioItemBgColor() {
-  const color = new ReactiveVar("");
+function getPortfolioItemBgColour() {
+  const colour = new ReactiveVar("");
   Tracker.autorun(() => {
     FlowRouter.watchPathChange();
     const slug = FlowRouter.current().params.slug;
     if (slug) {
       const work = _.first(Work.find().fetch());
       if (work && work.properties)
-        color.set(work.properties.color);
+        colour.set(work.properties.color);
     }
-    else color.set("transparent");
+    else colour.set("transparent");
   });
-  return color.get();
+  return colour.get();
 };
 
-Template.registerHelper("portfolioItemBgColor", getPortfolioItemBgColor);
+Template.registerHelper("portfolioItemBgColour", getPortfolioItemBgColour);
 
 $OnCreated("workDetail", function() {
-  this.bgColor = new ReactiveVar("");
   this.autorun(() => {
     FlowRouter.watchPathChange();
-    const color = getPortfolioItemBgColor();
-    document.body.style.borderColor = color;
-    this.bgColor.set(color);
+
+    const colour = getPortfolioItemBgColour();
+    $(document.body).css({
+      "border-color": colour,
+      "background-color": colour
+    }).toggleClass("inverted", luminance(colour) < 0.5);
+
+    const work = currentWork();
+    if (work && work.properties)
+      this.subscribe("employees", work.properties.qers);
   });
 });
 
 $Template({
   workDetail: {
     work: () => currentWork(),
-    qers: () => Employees.find({ handle: { $in: currentWork().properties.qers } }),
+    qers() {
+      const work = currentWork();
+      if (work && work.properties)
+        return Employees.find({ handle: { $in: _.uniq(work.properties.qers) } });
+    },
+    owner() {
+      const work = currentWork();
+      if (work && work.properties)
+        return Employees.findOne({handle: work.properties.contact});
+    },
     getThing: (thingId) => Things.findOne({ name: thingId }),
-    prettifyDate: (date) => date ? `${date.getMonth()+1}/${date.getFullYear()}` : '',
-    invert: () => luminance(Template.instance().bgColor.get()) > 0.5
+    prettifyDate: (date) => date ? `${date.getMonth()+1}/${date.getFullYear()}` : ''
   },
   work: {
     allWork() {

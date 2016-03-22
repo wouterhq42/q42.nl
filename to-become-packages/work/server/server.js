@@ -1,13 +1,17 @@
 Meteor.publish("work", function(slug, tag, type) {
   const alwaysFilter = {};
-  const fields = {name: 1, clientName: 1, slug: 1, type: 1, image: 1};
+  let fields = {name: 1, clientName: 1, slug: 1, type: 1, image: 1};
   let query = {};
-  if (slug)
+  if (slug) {
     query = {slug: slug};
-  else if (tag)
+    fields = {};
+  }
+  else if (tag) {
     query = {"properties.tags": {$in: [tag]}};
-  else if (type)
+  }
+  else if (type) {
     query = {type: type};
+  }
 
   return Work.find(_.extend(alwaysFilter, query), {fields: fields});
 });

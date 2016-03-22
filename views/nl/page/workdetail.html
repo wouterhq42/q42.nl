@@ -1,31 +1,37 @@
 <template name="workDetail">
-<style>
-  body { background-color: {{portfolioItemBgColor}} };
-</style>
-  <div class="container" style="background-color: {{portfolioItemBgColor}}">
+  <div class="container" style="background-color: {{portfolioItemBgColour}}">
     <header class="block-text portfolio-hero">
       <p class="clientName">{{work.clientName}}</p>
       <h1>{{work.name}}</h1>
-      <p class="slogan">{{work.slogan}}</p>
+      <p class="slogan">{{work.slogan_nl}}</p>
     </header>
   </div>
 
   <div class="container portfolio-container">
     <div class="portfolio-content-container tldr">
-      <div class="tldr-image"><img src="{{work.image.url}}"></div>
+      <div class="tldr-image">
+        <div class="visual caption">
+          <img src="{{work.image.url}}" alt="">
+          <p>{{work.image.caption_nl}}</p>
+        </div>
+      </div>
       <div class="tldr-textbox">
-        <div class="tldr-text">{{{work.intro}}}</div>
+        <div class="tldr-text">{{{work.intro_nl}}}</div>
       </div>
     </div>
   </div>
 
   <div class="container portfolio-container">
     <div class="portfolio-content-container chapter">
-      <h2>hier komt de verdieping</h2>
+      <h2>Over dit project</h2>
+      <dl>
+        <dt>Categorie</dt><dd>{{work.category}}</dd>
+        <dt>Industrie</dt><dd>{{work.industry_nl}}</dd>
+        <dt>Tech stack</dt><dd>{{#each work.techstack}}{{this}}, {{/each}}</dd>
+        <dt>Type</dt><dd>{{#each work.type}}{{this}}, {{/each}}</dd>
+      </dl>
+
       {{#with work.properties}}
-        {{#if this.date}}
-          <p>{{prettifyDate this.date}}</p>
-        {{/if}}
         <p>{{#each t in this.tags}}<a href="/work?tag={{t}}">{{t}}</a>, {{/each}}</p>
       {{/with}}
     </div>
@@ -35,17 +41,28 @@
     <div class="portfolio-content-container team">
       <h2>Meet the team</h2>
       {{#with work.properties}}
-      <p>{{#each qer in this.qers}}<img src="{{assetsUrl}}/images/employees/{{qer}}.jpg" alt="">, {{/each}}</p>
+      <p>{{#each qer in qers}}<img src="{{assetsUrl}}/images/employees/{{qer.handle}}.jpg" alt="">{{/each}}</p>
       {{/with}}
+
+      {{#if owner}}
+        <div class="contact-owner">
+          <h2>Meer info? Neem contact op met:</h2>
+          <p>
+            <img src="{{assetsUrl}}/images/employees/{{owner.handle}}.jpg" alt="">
+            <br>
+            {{owner.name}}
+            <br>
+            <a href="mailto:{{owner.handle}}@q42.nl">{{owner.handle}}@q42.nl</a>
+          </p>
+        </div>
+      {{/if}}
     </div>
   </div>
 
-    {{#each t in work.things}}
-
-      {{#block size=t.size align=t.align}}
-        {{> thing id=t.thingId}}
-      {{/block}}
-
-    {{/each}}
+  {{#each t in work.things}}
+    {{#block size=t.size align=t.align}}
+      {{> thing id=t.thingId}}
+    {{/block}}
+  {{/each}}
 
 </template>
