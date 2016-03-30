@@ -12,7 +12,7 @@ const allHandles = _.pluck(Employees.find().fetch(), "handle");
 
 // Roles
 const roles = {
-  "Projectleider": "jasper korjan timd gerard laurens meindert taco silvy",
+  "Projectleider": "jasper korjan timd gerard laurens meindert taco silvy braml",
   "Software Engineer": _.without(
     allHandles,
     "stef", "cynthia", "suzanne", "corina", "silvy", "ineke"
@@ -37,21 +37,22 @@ const roles = {
 // Arbitrary selections
 const arbitrary = {
   "Girl Code": "ineke katja kristin",
-  "Codeuur": "kars lukas johan kim",
+  "Codeuur": "lukas thijs kars johan",
   "Speelt nog World of Warcraft": "rahul christiaan richard benjamin tims",
   "Weet wat Spiffy is": "bob timl martin remco lukas sjoerd kars laurens" /* LOL! */,
   "Team Wintersport": [
     "lukas", "bob", "chris", "mark", "jeroen", "katja", "stef", "roelfjan",
-    "sjoerd", "meindert", "jaapm", "kars", "timd", "guido", "arjen"
+    "sjoerd", "meindert", "jaapm", "kars", "timd", "guido", "arjen", "tomas",
+    "leonard", "thijs"
   ],
-  "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel",
+  "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml",
   "Stokoud": "stef johan",
   "Broers": "tom rob",
   "Tatoeage": "chris jeroen jasperh marcel tomas",
   "Voortgeplant": [
     "martin", "chris", "mark", "kars", "bas", "cynthia", "gerard", "jaap",
     "jasper", "johan", "korjan", "michiel", "remco", "sander", "stef",
-    "suzanne", "timd", "laurens", "taco", "bart"
+    "suzanne", "timd", "laurens", "taco", "bart", "kamil"
   ],
   "Rijdt soms op een motor": "stef jeroen arian tom lukas bob jasperh chris",
   "Gaat binnenkort naar Microsoft":"michiel",
@@ -70,7 +71,7 @@ const arbitrary = {
   "Kan stiekem best programmeren": "chris",
   "Namespace collision": [
     "jaap", "jaapm", "jasper", "jasperh", "timl", "tims",
-    "timd", "leonard", "gerard", "sander", "sanderp"
+    "timd", "leonard", "gerard", "sander", "sanderp", "wouter", "wouterh"
   ],
   "Emigrant": "rahul",
   "Gewerkt met de Two Guys": "martin rahul richard",
