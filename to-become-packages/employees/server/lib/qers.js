@@ -5,6 +5,7 @@ currentQers = [
   { name: "Bas Warmerdam", handle:"bas" },
   { name: "Benjamin de Jager", handle:"benjamin" },
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" },
+  { name: "Bram Lohman", handle:"braml", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Bram Stege", handle:"bram", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Chris Waalberg", handle:"chris" , phone: "06-16170184" },
   { name: "Christiaan Hees", handle:"christiaan", tumblr: "www-chees-info" },
@@ -28,7 +29,6 @@ currentQers = [
   { name: "Kamil Afsar", handle:"kamil" },
   { name: "Kars Veling", handle:"kars" },
   { name: "Katja Hollaar", handle:"katja" },
-  { name: "Kim van der Veer", handle:"kim", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Korjan van Wieringen", handle:"korjan" },
   { name: "Kristin Rieping", handle:"kristin" },
   { name: "Laurens van den Oever", handle:"laurens" },
@@ -61,5 +61,6 @@ currentQers = [
   { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/", tumblr: "tomlokhorst" },
   { name: "Tomas Harkema", handle:"tomas" },
+  { name: "Wouter Horsman", handle:"wouterh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Wouter van Drunen", handle: "wouter" }
 ];
