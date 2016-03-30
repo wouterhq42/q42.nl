@@ -12,7 +12,7 @@ const allHandles = _.pluck(Employees.find().fetch(), "handle");
 
 // Roles
 const roles = {
-  "Projectleider": "jasper korjan timd gerard laurens meindert taco silvy braml",
+  "Projectleider": "jasper korjan timd gerard laurens meindert taco silvy braml wouterh",
   "Software Engineer": _.without(
     allHandles,
     "stef", "cynthia", "suzanne", "corina", "silvy", "ineke"
