@@ -39,7 +39,6 @@ ejson
 spacebars
 check
 fastclick
-kadira:debug
 ecmascript
 force-ssl
 tmeasday:publish-counts
@@ -47,3 +46,4 @@ standard-minifier-css
 standard-minifier-js
 modules
 simple:dev-error-overlay
+kadira:debug

@@ -21,8 +21,6 @@ caching-html-compiler@1.0.4
 callback-hook@1.0.6
 check@1.1.2
 chuangbo:cookie@1.1.0
-coffeescript@1.0.15
-cosmos:browserify@0.9.4
 ddp@1.2.3
 ddp-client@1.2.3
 ddp-common@1.2.3
@@ -52,8 +50,9 @@ jparker:crypto-md5@0.1.1
 jparker:gravatar@0.4.1
 jquery@1.11.6
 kadira:blaze-layout@2.3.0
-kadira:debug@2.2.4
+kadira:debug@3.2.2
 kadira:flow-router@2.11.0
+kadira:runtime-dev@0.0.1
 less@2.5.6
 livedata@1.0.16
 localstorage@1.0.7
