@@ -1,6 +1,9 @@
+import { _ } from 'meteor/underscore'
+import { Employees } from '../lib/shared'
+
 const addLabel = function(label, handles) {
   handles = _.isString(handles) ? handles.split(" ") : handles;
-  for (let handle of handles){
+  for (let handle of handles) {
     Employees.update(
       {handle: handle},
       {$addToSet: {labels: label}}

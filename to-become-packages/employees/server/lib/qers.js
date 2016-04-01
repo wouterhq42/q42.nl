@@ -64,3 +64,5 @@ currentQers = [
   { name: "Wouter Horsman", handle:"wouterh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Wouter van Drunen", handle: "wouter" }
 ];
+
+export { currentQers }

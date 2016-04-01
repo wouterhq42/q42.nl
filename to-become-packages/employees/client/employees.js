@@ -1,3 +1,9 @@
+import { Template } from 'meteor/templating'
+import { Session } from 'meteor/session'
+import { _ } from 'meteor/underscore'
+
+import { Employees } from '../lib/shared'
+
 Template.employees.helpers({
   employee() {
     const filter = Session.get("employees_filter");

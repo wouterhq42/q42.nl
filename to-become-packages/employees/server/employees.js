@@ -1,3 +1,9 @@
+import { Meteor } from 'meteor/meteor'
+import { _ } from 'meteor/underscore'
+
+import { Employees } from '../lib/shared'
+import { currentQers } from './lib/qers'
+
 _.each(currentQers, (e) => {
   e.labels = [];
   e.floorplan = {

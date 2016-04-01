@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating'
+
 Template.registerHelper("avatar_static", function() {
   return this.imageStatic || `${this.handle}.jpg`;
 });

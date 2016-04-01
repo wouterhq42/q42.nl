@@ -1,3 +1,6 @@
+import { Meteor } from 'meteor/meteor'
+import { Employees, EmployeeCount } from '../lib/shared'
+
 Meteor.startup( () => {
   if ( EmployeeCount.findOne() ){
     EmployeeCount.update(
