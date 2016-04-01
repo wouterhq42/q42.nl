@@ -42,8 +42,11 @@
       {{#each work in allWork}}
         {{> portfolioItem work=work}}
       {{else}}
-        <div class="block-text">
-          <p class="descriptor">No work found for that tag :(</p>
+        <div class="portfolio-item">
+          <div class="details">
+            <h2>No work found for that tag :(</h2>
+            <h3>...</h3>
+          </div>
         </div>
       {{/each}}
     </div>
