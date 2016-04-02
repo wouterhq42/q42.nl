@@ -1,3 +1,5 @@
+import { Template } from 'meteor/templating'
+
 // Helper to easily construct templates for multiple languages
 $Template = function(templates) {
   _.each(templates, (values, tmpl) => {
@@ -19,3 +21,5 @@ _tmpl = function(type, tmpl, obj) {
   if (result) result[type](obj);
   Template[tmpl][type](obj);
 };
+
+export { $Template, $Events, $OnRendered, $OnCreated }

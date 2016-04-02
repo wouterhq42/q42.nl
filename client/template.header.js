@@ -1,3 +1,6 @@
+import { $ } from 'meteor/jquery'
+import { $Events } from './lib/_template'
+
 $Events("header", {
     "click #mobile-menu-icon": (evt) => $("body").toggleClass("show-mobile-menu"),
     "focus li a":                 () => $("body").addClass("show-mobile-menu"),

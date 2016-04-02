@@ -1,4 +1,15 @@
-Triggers = {
+import { Meteor } from 'meteor/meteor'
+import { Template } from 'meteor/templating'
+import { _ } from 'meteor/underscore'
+import { Spiderable } from 'meteor/ongoworks:spiderable'
+import { FlowRouter } from 'meteor/kadira:flow-router'
+import { BlazeLayout } from 'meteor/kadira:blaze-layout'
+
+import { Utils } from '../lib/utils'
+import { RouteUtils } from './lib/routeutils'
+import { reattachBehavior } from '../lib/attach'
+
+const Triggers = {
   setupPage() {
     Meteor.setTimeout(() => {
       Utils.setScrollPosition();
@@ -28,7 +39,10 @@ if (Meteor.isClient)
 /*****************************************************************************/
 FlowRouter.route("/", {
   name: "home",
-  action() { renderPage(RouteUtils.getTemplate("home")); },
+  action() {
+    if (Meteor.isClient)
+      renderPage(RouteUtils.getTemplate("home"));
+  },
   subscriptions() {
     const englishOnly = Meteor.isClient &&
                         Utils.getSiteVersion() === "en";
@@ -136,7 +150,8 @@ FlowRouter.route("/work", {
 FlowRouter.route("/:page", {
   name: "page",
   action(params) {
-    renderPage(RouteUtils.getTemplate(params.page));
+    if (Meteor.isClient)
+      renderPage(RouteUtils.getTemplate(params.page));
   },
   subscriptions(params) {
     if (_.contains(["over-q42", "about-q42"], params.page)){
