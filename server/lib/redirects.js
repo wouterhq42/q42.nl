@@ -1,3 +1,5 @@
+import { Picker } from 'meteor/meteorhacks:picker'
+
 // Use Picker middleware to handle server-side routes
 // per https://github.com/meteorhacks/picker/issues/22
 
