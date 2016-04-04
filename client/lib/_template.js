@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating'
+import { _ } from 'meteor/underscore'
 
 // Helper to easily construct templates for multiple languages
 $Template = function(templates) {
