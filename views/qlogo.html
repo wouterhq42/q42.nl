@@ -1,9 +1,11 @@
 <template name="qlogo">
   <div class="q42-logo">
     <a href="/">
-      <object data="{{assetsUrl}}/images/q42-logo.svg" type="image/svg+xml">
-        <img src="{{assetsUrl}}/images/q42-logo.png" alt="Q42">
-      </object>
+      {{#if this.theme}}
+        <q42 theme="{{this.theme}}"></q42>
+      {{else}}
+        <q42></q42>
+      {{/if}}
     </a>
   </div>
 </template>
