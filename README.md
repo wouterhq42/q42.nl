@@ -20,10 +20,21 @@ account information:
 
 ```
 {
-	"TUMBLR_KEY": "myTumblrKey",
+	"public": {
+		"siteVersion": "nl", // or "en" to test the .com site
+		"TUMBLR_KEY": "..."
+	},
+	"private": {
+		"chatConfig": {
+			"incomingUrl": "INCOMING_SLACK_HOOK_URL",
+			"outgoingToken": "OUTGOING_SLACK_TOKEN"
+		},
+		"MONGO_URL": "...",
+		"MONGO_OPLOG_URL": "..."
+	},
 	"kadira": {
-		"appId": "myKadiraAppId",
-		"appSecret": "myKadiraAppSecret"
+		"appId": "...",
+		"appSecret": "..."
 	}
 }
 ```
@@ -35,7 +46,7 @@ Kadira, you'll just get console errors. You can get a hold of the keys in the
 
 ## Running the site locally
 
-	meteor --settings config/settings.json
+	meteor --settings config/dev/settings.json
 
 Or use this script so you don't have to remember the above:
 
@@ -50,7 +61,7 @@ In order to get this working you need to call a Meteor method named
 Slack. Or you can not do this, and then nothing will change except that the
 chat won't work.
 
-# Deploying
+# Deploying to Scalingo
 
 First you need the following prerequisites:
 
@@ -76,7 +87,7 @@ Then, add the two Scalingo Git Remotes:
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a
 script which will take care of both commands. Just run:
 
-	./deploy.sh
+	./deploy-scalingo.sh
 
 # Contributing
 
