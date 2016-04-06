@@ -46,7 +46,7 @@ Template.blogpost.helpers({
 
 Template.blogposts.helpers({
   post: () => blogpostIndex.find({}, {sort: {date: -1}}),
-  readmore: () => Utils.getSiteVersion() === "en" ? "Read more" : "Lees verder"
+  readmore: () => Meteor.settings.public.siteVersion === "en" ? "Read more" : "Lees verder"
 });
 
 Template.pageNav.helpers({

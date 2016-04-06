@@ -44,8 +44,7 @@ FlowRouter.route("/", {
       renderPage(RouteUtils.getTemplate("home"));
   },
   subscriptions() {
-    const englishOnly = Meteor.isClient &&
-                        Utils.getSiteVersion() === "en";
+    const englishOnly = Meteor.settings.public.siteVersion === "en";
     this.register("postsWithAuthors",
       Meteor.subscribe("postsWithAuthors", englishOnly));
     this.register("employeeCount", Meteor.subscribe("employeeCount"));

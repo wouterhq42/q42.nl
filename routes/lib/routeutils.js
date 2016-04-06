@@ -7,7 +7,7 @@ export const RouteUtils = {
   // depending on the current language
   getTemplate(name) {
     const enName = `en_${name}`;
-    const isEn = Utils.getSiteVersion() === "en";
+    const isEn = Meteor.settings.public.siteVersion === "en";
     if (isEn && Template[enName]) {
       return enName;
     } else if (isEn && !Template[enName]) {

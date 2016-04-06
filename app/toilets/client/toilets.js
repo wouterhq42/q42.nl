@@ -5,7 +5,7 @@ import { Toilets } from '../lib/shared'
 
 Template.toilets.helpers({
   getState: function() {
-    if ( Utils.getSiteVersion() === "nl" ){
+    if ( Meteor.settings.public.siteVersion === "nl" ){
       this.state = this.state === "occupied" ? "bezet" : "vrij";
     }
     return this.state;
