@@ -2,35 +2,18 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import { HTTP } from 'meteor/http'
 import { ChatMessages } from '../lib/shared'
-
-const ChatConfig = new Mongo.Collection("chatconfig");
+import { Utils } from '../../../lib/utils'
 
 Meteor.publish("chat", () => {
-  return ChatMessages.find({}, {
+  const lang = Meteor.settings.public.siteVersion;
+  return ChatMessages.find({lang}, {
     sort: { date: -1 },
     limit: 20
   });
 });
 
 Meteor.methods({
-  setupChatConfig(incomingToken, outgoingToken) {
-    /*
-      - Incoming token is found on the incoming webhook page under
-      "Integration Settings" -> "Webhook URL" -> fragment after last /
-
-      - Outgoing token is found on the outgoing webhook page under
-      "Integration Settings" -> "Token"
-    */
-    if (incomingToken && outgoingToken) {
-      ChatConfig.remove({});
-      ChatConfig.insert({
-        incomingToken: incomingToken,
-        outgoingToken: outgoingToken
-      });
-    }
-  },
-
-  setupChatDefaults(lang) {
+  setupChatDefaults(lang: string) {
     let user = Meteor.users.findOne(this.userId);
     if (!user.isAdmin) return;
     ChatMessages.remove({});
@@ -43,18 +26,16 @@ Meteor.methods({
   }
 });
 
+// This runs when someone on the site talks to us using the Chat widget
 ChatMessages.allow({
-  insert(userId, doc) {
+  insert(userId: string, doc: string) {
     check(userId, String);
     check(doc.msg, String);
 
-    const chatConfig = ChatConfig.findOne();
-
-    const token = chatConfig.incomingToken;
-    if (!token) return;
+    const url = Meteor.settings.private.chatConfig.incomingUrl;
+    if (!url) return;
 
     const path = doc.path;
-    const url = `https://q42.slack.com/services/hooks/incoming-webhook?token=${token}`;
     const pathWithoutHttp = path.replace(/http(s?):\/\//, "");
     const user = Meteor.users.findOne(userId);
     let res;
@@ -80,20 +61,22 @@ ChatMessages.allow({
   }
 });
 
+// This runs when someone in Slack responds to a message
 Picker.route("/api/chat", (params, req, res, next) => {
   console.log("Route: /api/chat");
-  console.log("request.body:", JSON.stringify(req.body));
-  const chatConfig = ChatConfig.findOne();
+
+  const lang = Meteor.settings.public.siteVersion;
+  const token = Meteor.settings.private.chatConfig.outgoingToken;
   const body = req.body;
-  if (!req.body) return;
-  if (req.body.token !== chatConfig.outgoingToken) return;
+  if (!req.body || req.body.token !== token) return;
 
   const msg = req.body.text.replace("@q42nl", "").replace("@q42com", "").trim();
-  const user = req.body.user_name + " (Q42)";
+  const username = req.body.user_name + " (Q42)";
   ChatMessages.insert({
     userId: null,
-    username: user,
-    msg: msg,
+    lang,
+    username,
+    msg,
     date: new Date(),
     path: "/api/chat"
   });

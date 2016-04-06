@@ -52,15 +52,6 @@ Or use this script so you don't have to remember the above:
 
 	./run.sh
 
-# Optional stuff to set up
-
-## Slack chat integration
-
-In order to get this working you need to call a Meteor method named
-`setupChatConfig` and pass it your incoming and outgoing webhook tokens from
-Slack. Or you can not do this, and then nothing will change except that the
-chat won't work.
-
 # Deploying to Scalingo
 
 First you need the following prerequisites:
