@@ -127,7 +127,7 @@ FlowRouter.route("/work/:slug", {
   action(params) { renderPage("workDetail"); },
   triggersExit: [() => {
     // remove the portfolio item bg color
-    $("body").css("borderColor", "#80bd42");
+    $("body").css("borderColor", "#84bc2d");
     $("#header, .container").css("backgroundColor", "");
   }],
   subscriptions(params) {
@@ -146,7 +146,6 @@ FlowRouter.route("/work", {
 /*****************************************************************************/
 // ANY OTHER PAGE                                                             /
 /*****************************************************************************/
-// Any other page
 FlowRouter.route("/:page", {
   name: "page",
   action(params) {
