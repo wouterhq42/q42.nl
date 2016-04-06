@@ -8,7 +8,7 @@ const BLOGPOSTS_PER_PAGE = 12;
 let lastTumblrCheck;
 
 const Posts = new Mongo.Collection("Posts");
-const TumblrKey = Meteor.settings.TUMBLR_KEY;
+const TumblrKey = Meteor.settings.public.TUMBLR_KEY;
 
 const separateTags = (tag) => {
   return tag ? tag.split('&').map((w) => { return {tags: w}; } ) : [{}];
