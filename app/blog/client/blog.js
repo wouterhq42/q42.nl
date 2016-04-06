@@ -3,9 +3,9 @@ import { Template } from 'meteor/templating'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { blogpostTitles, blogpostFull, blogpostIndex } from './lib/collections'
 import { Utils } from '../../../lib/utils'
-import { $Template } from '../../../client/lib/_template'
+import { $Helpers } from '../../../client/lib/_template'
 
-$Template({
+$Helpers({
   postDate: {
     prettyDate: function() {
       date = new Date(this.date.replace(" GMT", "").split(" ").join("T") + "Z");

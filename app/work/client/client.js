@@ -6,7 +6,7 @@ import { ReactiveVar } from 'meteor/reactive-var'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
 import { Work, WorkTags } from '../lib/collections'
-import { $Template, $OnCreated } from '../../../client/lib/_template'
+import { $Helpers, $OnCreated } from '../../../client/lib/_template'
 import { Employees } from '../../employees/lib/shared'
 
 Meteor.startup(() => {
@@ -54,7 +54,7 @@ $OnCreated("workDetail", function() {
   });
 });
 
-$Template({
+$Helpers({
   workDetail: {
     work: () => currentWork(),
     qers: () => Employees.find({ handle: { $in: currentWork().properties.qers } }),

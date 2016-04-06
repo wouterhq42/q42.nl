@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating'
 import { Utils } from '../../../lib/utils'
-import { $Template } from '../../../client/lib/_template'
+import { $Helpers } from '../../../client/lib/_template'
 import { Toilets } from '../lib/shared'
 
 Template.toilets.helpers({
@@ -12,7 +12,7 @@ Template.toilets.helpers({
   }
 });
 
-$Template({
+$Helpers({
   toilets: {
     toilet: () => Toilets.find()
   }

@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating'
 import { _ } from 'meteor/underscore'
 
 // Helper to easily construct templates for multiple languages
-$Template = function(templates) {
+$Helpers = function(templates) {
   _.each(templates, (values, tmpl) => {
     _tmpl("helpers", tmpl, values);
   });
@@ -23,4 +23,4 @@ _tmpl = function(type, tmpl, obj) {
   Template[tmpl][type](obj);
 };
 
-export { $Template, $Events, $OnRendered, $OnCreated }
+export { $Helpers, $Events, $OnRendered, $OnCreated }

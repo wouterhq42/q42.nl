@@ -1,7 +1,7 @@
-import { $Template } from './lib/_template'
+import { $Helpers } from './lib/_template'
 import { EmployeeCount } from '../app/employees/lib/shared'
 
-$Template({
+$Helpers({
   home: {
     num_employees: () => {
       if (EmployeeCount.findOne()) return EmployeeCount.findOne().count;
