@@ -11,13 +11,15 @@ Meteor.publish("whatsplaying", function() {
 });
 
 Meteor.startup(() => {
-  Meteor.setInterval(() => {
-    let state = HTTP.get(keukenStateServerUrl);
-    if (state) {
-      state = JSON.parse(state.content);
-      // state = _.pick(state, "artist", "title");
-      state.roomName = "keuken070";
-      WhatsPlaying.upsert({roomName: "keuken070"}, state);
+  Meteor.setInterval(function() {
+    const res = HTTP.get(keukenStateServerUrl);
+    if (res && res.data.playerState === "PLAYING") {
+      let currentTrack = res.data.currentTrack;
+      currentTrack = _.pick(currentTrack, "artist", "title");
+      currentTrack.roomName = "keuken070";
+      WhatsPlaying.upsert({roomName: "keuken070"}, currentTrack);
+    } else {
+      WhatsPlaying.remove({roomName: "keuken070"});
     }
   }, 20000);
 });
