@@ -15,13 +15,13 @@ Make sure your editor has support for .editorconfig, and .jshintrc.
 
 ## Add settings you need
 
-Create a `config/settings.json` file containing the correct Tumblr and Kadira
-account information:
+Create a `config/dev/settings.json` file containing the correct Tumblr and
+Kadira account information:
 
 ```
 {
 	"public": {
-		"siteVersion": "nl", // or "en" to test the .com site
+		"siteVersion": "nl", // or "en" to develop the .com site
 		"TUMBLR_KEY": "..."
 	},
 	"private": {
@@ -58,17 +58,17 @@ First you need the following prerequisites:
 
  - Git Flow, which you can get here:
 	 https://github.com/nvie/gitflow/wiki/Installation -- note you'll need to
-	 `git flow init` whole on the `develop` branch, as the gitflow state isn't
+	 `git flow init` while on the `develop` branch, as the git flow state isn't
 	 checked in to the repository. At init time, choose 'master' for production
 	 releases and 'develop' for next release (the defaults). Choose the defaults
 	 for all others too (feature/, release/, hotfix/, support/, empty).
  - `gcloud` command line tool, from https://cloud.google.com/sdk/. install,
  	 then authenticate using `gcloud auth login`.
  - Access to the two environments on http://scalingo.com (q42nlsite and
-	 q42comsite). Ask rahul or lukas.
- - Access to GCS bucket static.q42.nl a
+	 q42comsite). Ask Rahul or Lukas.
+ - Access to the static.q42.nl GCS bucket via
    https://console.developers.google.com/project/504623166341/storage/browser.
-   Ask rahul or lukas.
+   Ask Rahul or Lukas.
 
 Then, add the two Scalingo Git Remotes:
 
