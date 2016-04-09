@@ -10,6 +10,9 @@ Template.numLinesOfCode.helpers({
     let counter = 0;
     let to = null;
 
+    if (_.contains([0,6], new Date().getDay()))
+      return counter;
+
     class Qer {
       constructor() {
         this.codeLinesPerDay = _.random(100, 600);
