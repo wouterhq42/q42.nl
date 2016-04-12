@@ -29,7 +29,7 @@ echo "--- Done deploying to q42.com. Refresh your browser!"
 echo
 
 echo "--- Deploying to q42.nl..."
-meteor deploy q42.com --settings config/q42.nl/settings.json
+meteor deploy q42.nl --settings config/q42.nl/settings.json
 echo "--- Done deploying to q42.nl. Refresh your browser!"
 echo
 
