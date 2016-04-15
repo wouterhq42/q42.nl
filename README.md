@@ -29,6 +29,9 @@ Kadira account information:
 			"incomingUrl": "INCOMING_SLACK_HOOK_URL",
 			"outgoingToken": "OUTGOING_SLACK_TOKEN"
 		},
+		"serviceConfiguration": [
+			{ ... }
+		]
 		"MONGO_URL": "...",
 		"MONGO_OPLOG_URL": "..."
 	},
