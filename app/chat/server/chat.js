@@ -18,6 +18,7 @@ Meteor.methods({
     if (!user.isAdmin) return;
     ChatMessages.remove({});
     ChatMessages.insert({
+      lang,
       userId: this.userId,
       msg: lang === "nl" ? "Hoi! Alles goed?" : "Hello! How are you?",
       date: new Date(),

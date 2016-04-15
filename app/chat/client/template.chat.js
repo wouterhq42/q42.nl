@@ -20,7 +20,10 @@ sendChatMessage = () => {
 
   check(msg, String);
 
+  const lang = Meteor.settings.public.siteVersion;
+
   ChatMessages.insert({
+    lang,
     userId: Meteor.userId(),
     msg: msg,
     date: new Date(),
