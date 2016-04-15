@@ -20,12 +20,12 @@ echo
 # Deploy the site to two different Meteor domains
 # so we have an English and a Dutch website :-)
 echo "--- Deploying to q42.com..."
-meteor deploy q42.com --settings config/q42.com/settings.json
+meteor deploy www.q42.com --settings config/q42.com/settings.json
 echo "--- Done deploying to q42.com. Refresh your browser!"
 echo
 
 echo "--- Deploying to q42.nl..."
-meteor deploy q42.nl --settings config/q42.nl/settings.json
+meteor deploy www.q42.nl --settings config/q42.nl/settings.json
 echo "--- Done deploying to q42.nl. Refresh your browser!"
 echo
 
