@@ -42,7 +42,11 @@ function redirect(urls, from, to) {
 Picker.middleware((req, res, next) => {
   const host = req.headers.host;
   const fullUrl = `https://www.${host}${req.url}`;
-  if (host.indexOf("www") === -1) {
+  if (
+    Meteor.isProduction &&
+    host !== "localhost:3000" &&
+    host.indexOf("www") === -1
+  ) {
     console.log(`Route: addWWW (${host}${req.url})`);
     res.writeHead(HTTP_REDIRECT_PERMANENT, {
       Location: fullUrl
