@@ -18,7 +18,7 @@ const Triggers = {
   },
   checkForNewPosts: () => Meteor.call("checkTumblr"),
   set404StatusCode: () => {
-    const $meta = $("meta");
+    const $meta = $("<meta>");
     $meta.attr('name', 'prerender-status-code');
     $meta.attr('content', '404');
     $("head").append($meta);
@@ -44,8 +44,7 @@ if (Meteor.isClient)
 FlowRouter.route("/", {
   name: "home",
   action() {
-    if (Meteor.isClient)
-      renderPage(RouteUtils.getTemplate("home"));
+    renderPage(RouteUtils.getTemplate("home"));
   },
   subscriptions() {
     const englishOnly = Meteor.settings.public.siteVersion === "en";
@@ -152,8 +151,10 @@ FlowRouter.route("/work", {
 FlowRouter.route("/:page", {
   name: "page",
   action(params) {
-    if (Meteor.isClient)
-      renderPage(RouteUtils.getTemplate(params.page));
+    const tmpl = RouteUtils.getTemplate(params.page);
+    if (tmpl == "error404")
+      Triggers.set404StatusCode();
+    renderPage(tmpl);
   },
   subscriptions(params) {
     if (_.contains(["over-q42", "about-q42"], params.page)){
