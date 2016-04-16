@@ -12,8 +12,6 @@ accounts-google
 accounts-facebook
 accounts-twitter
 accounts-github
-jparker:gravatar
-jparker:crypto-md5
 jparker:crypto-core
 matb33:collection-hooks
 reactive-dict
