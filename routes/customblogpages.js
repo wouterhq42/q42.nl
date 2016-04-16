@@ -12,6 +12,7 @@ customBlogPages = (router) => {
     if (Meteor.isClient) {
       const templateName = RouteUtils.getTemplate(obj.routeName);
       const tmpl = Template[templateName];
+      const blogpostIndex = require('../app/blog/client/lib/collections').blogpostIndex;
       if (tmpl) {
         tmpl.helpers({
           post: () => blogpostIndex.find({}, {limit: 5})
