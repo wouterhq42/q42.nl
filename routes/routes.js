@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { _ } from 'meteor/underscore'
-import { Spiderable } from 'meteor/ongoworks:spiderable'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 
@@ -18,7 +17,12 @@ const Triggers = {
     }, 300);
   },
   checkForNewPosts: () => Meteor.call("checkTumblr"),
-  set404StatusCode: () => Spiderable.httpStatusCode = 404
+  set404StatusCode: () => {
+    const $meta = $("meta");
+    $meta.attr('name', 'prerender-status-code');
+    $meta.attr('content', '404');
+    $("head").append($meta);
+  }
 };
 
 FlowRouter.triggers.enter([Triggers.setupPage]);

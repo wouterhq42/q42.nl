@@ -27,7 +27,7 @@ ddp-common@1.2.4
 ddp-rate-limiter@1.0.3
 ddp-server@1.2.5
 deps@1.0.11
-dfischer:phantomjs@1.0.4
+dfischer:prerenderio@1.0.8
 diff-sequence@1.0.4
 ecmascript@0.4.2
 ecmascript-runtime@0.2.9
@@ -58,6 +58,7 @@ livedata@1.0.17
 localstorage@1.0.8
 logging@1.0.11
 matb33:collection-hooks@0.8.1
+mdg:seo@1.0.1
 meteor@1.1.13
 meteor-base@1.0.3
 meteorhacks:fast-render@2.13.0
@@ -78,7 +79,6 @@ oauth@1.1.9
 oauth1@1.1.8
 oauth2@1.1.8
 observe-sequence@1.0.10
-ongoworks:spiderable@1.0.7
 ordered-dict@1.0.6
 promise@0.6.6
 random@1.0.8
