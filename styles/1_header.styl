@@ -3,8 +3,14 @@
 #header
 
   nav
-    animation fadeInHeader 1.25s cubic-bezier(0.770, 0.000, 0.175, 1.000)
-    animationFillMode forwards !important
+    li
+      opacity 0
+      animation fadeInHeader .5s cubic-bezier(.87,-.41,.19,1.44)
+      animationFillMode forwards !important
+
+    for i in (2..5)
+      li:nth-child({i})
+        animationDelay 0.05s * i
 
   @media (max-width 480px)
     li > .q42-logo
@@ -139,9 +145,6 @@
     display none
 
 .q42-logo
-  animationFillMode forwards !important
-  animation fadeInUpward 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)
-
   a
     display inline-block
     position relative
