@@ -29,7 +29,7 @@ Meteor.methods({
 
 // This runs when someone on the site talks to us using the Chat widget
 ChatMessages.allow({
-  insert(userId: string, doc: string) {
+  insert(userId, doc) {
     check(userId, String);
     check(doc.msg, String);
 
