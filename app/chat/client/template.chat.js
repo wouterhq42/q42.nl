@@ -10,10 +10,8 @@ Meteor.startup(() => {
   Session.setDefault("openChat", false);
 });
 
-ChatMessages.after.insert(() => $("#chat .flex-stretch").scrollTop(99999));
-
 sendChatMessage = () => {
-  check(Meteor.user(), Object);
+  check(Meteor.userId(), String);
 
   let $input = $(Template.instance().find("input"));
   const msg = $input.val();
