@@ -152,9 +152,12 @@ FlowRouter.route("/:page", {
   name: "page",
   action(params) {
     const tmpl = RouteUtils.getTemplate(params.page);
-    if (tmpl == "error404")
+    if (tmpl) {
+      renderPage(tmpl);
+    } else {
       Triggers.set404StatusCode();
-    renderPage(tmpl);
+      renderPage("error404");
+    }
   },
   subscriptions(params) {
     if (_.contains(["over-q42", "about-q42"], params.page)){
