@@ -4,3 +4,4 @@ config/settings.json
 # Generic
 .DS_Store
 *.swp
+node_modules
