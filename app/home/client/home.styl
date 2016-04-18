@@ -34,17 +34,17 @@
 
 .newsitem
   perspective 2000px
-  fontSmoothing antialiased
+  -webkit-font-smoothing antialiased
   margin 0 0 40px 0
-  animationFillMode forwards !important
+  animation-fill-mode forwards !important
   animation scaleUp 0.6s cubic-bezier(.34,.91,.62,1.09)
 
   for i in (2..10)
     &:nth-child({i})
-      animationDelay 0.1s * i
+      animation-delay 0.1s * i
 
   .col:last-child
-    doFlex 4
+    flex 4
 
   h2
     text-transform uppercase
@@ -54,10 +54,9 @@
     margin-top 0
 
   a
-    display block
-    displayFlex()
-    justifyContent space-between
-    alignItems center
+    display flex
+    justify-content space-between
+    align-items center
     border none
     background white
     border-radius .5rem
@@ -82,9 +81,9 @@
     margin-top 0
 
   .metadata
-    displayFlex()
-    justifyContent space-between
-    alignItems center
+    display flex
+    justify-content space-between
+    align-items center
     font-size .9rem
     color rgba(0,0,0,.7)
 

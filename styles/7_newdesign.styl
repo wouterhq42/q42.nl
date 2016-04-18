@@ -25,13 +25,13 @@
         max-width 100%
 
     @media (max-width 940px)
-      flexDirection column
+      flex-direction column
       .intro
         margin-right 0
         width inherit
       &.blog
-        flexWrap inherit
-        flexDirection column
+        flex-wrap inherit
+        flex-direction column
       &.right .body
         order inherit
 
@@ -62,7 +62,7 @@
       h3
         text-align center
         color rgba(255,255,255,.7)
-        fontSmoothing antialiased
+        -webkit-font-smoothing antialiased
       a
         color white
         border-color rgba(255,255,255,.7)

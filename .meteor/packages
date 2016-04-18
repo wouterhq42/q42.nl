@@ -36,9 +36,9 @@ fastclick
 ecmascript
 force-ssl
 tmeasday:publish-counts
-standard-minifier-css
 standard-minifier-js
 modules
 simple:dev-error-overlay
 kadira:debug
 mdg:seo
+juliancwirko:postcss

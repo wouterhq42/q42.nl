@@ -4,7 +4,7 @@ itemBoxShadow()
   box-shadow 0 2px 4px rgba(0,0,0,.1)
 
 .portfolio-item
-  doFlex 1
+  flex 1
   background white
   &:not(:last-child)
     margin-right 8px
@@ -29,10 +29,10 @@ itemBoxShadow()
   &.client-only
     text-align center
     background-color #ccc
-    fontSmoothing antialiased
-    displayFlex()
-    alignItems center
-    justifyContent center
+    -webkit-font-smoothing antialiased
+    display flex
+    align-items center
+    justify-content center
     box-shadow none
     h2
       margin 0
@@ -65,7 +65,7 @@ itemBoxShadow()
     height 48px
 
 .work-tags
-  doFlex 1
+  flex 1
   background white
   itemBoxShadow()
   ul

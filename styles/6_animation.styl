@@ -7,7 +7,7 @@
   // Per http://stackoverflow.com/a/26393720/16308,
   // !important is needed here for some reason for the "forwards"
   // to stick. Seems to have something to do with flexbox.
-  animationFillMode forwards !important
+  animation-fill-mode forwards !important
 
   &.blog
     animation fadeIn 0.6s cubic-bezier(.87,-.41,.19,1.44)
@@ -16,7 +16,7 @@
 
   for i in (2..10)
     &:nth-child({i})
-      animationDelay 0.1s * i
+      animation-delay 0.1s * i
 
 @-webkit-keyframes fadeIn
   from
