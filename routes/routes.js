@@ -27,7 +27,7 @@ const Triggers = {
 
 FlowRouter.triggers.enter([Triggers.setupPage]);
 
-renderPage = (templateName) => {
+const renderPage = (templateName) => {
   BlazeLayout.render("main", {
     header: "header",
     footer: "footer",
