@@ -1,2 +1,2 @@
 #!/bin/bash
-meteor --settings config/settings.json
+meteor --settings config/dev/settings.json

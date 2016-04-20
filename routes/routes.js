@@ -1,4 +1,14 @@
-Triggers = {
+import { Meteor } from 'meteor/meteor'
+import { Template } from 'meteor/templating'
+import { _ } from 'meteor/underscore'
+import { FlowRouter } from 'meteor/kadira:flow-router'
+import { BlazeLayout } from 'meteor/kadira:blaze-layout'
+
+import { Utils } from '../lib/utils'
+import { RouteUtils } from './lib/routeutils'
+import { reattachBehavior } from '../lib/attach'
+
+const Triggers = {
   setupPage() {
     Meteor.setTimeout(() => {
       Utils.setScrollPosition();
@@ -7,12 +17,17 @@ Triggers = {
     }, 300);
   },
   checkForNewPosts: () => Meteor.call("checkTumblr"),
-  set404StatusCode: () => Spiderable.httpStatusCode = 404
+  set404StatusCode: () => {
+    const $meta = $("<meta>");
+    $meta.attr('name', 'prerender-status-code');
+    $meta.attr('content', '404');
+    $("head").append($meta);
+  }
 };
 
 FlowRouter.triggers.enter([Triggers.setupPage]);
 
-renderPage = (templateName) => {
+const renderPage = (templateName) => {
   BlazeLayout.render("main", {
     header: "header",
     footer: "footer",
@@ -28,10 +43,11 @@ if (Meteor.isClient)
 /*****************************************************************************/
 FlowRouter.route("/", {
   name: "home",
-  action() { renderPage(RouteUtils.getTemplate("home")); },
+  action() {
+    renderPage(RouteUtils.getTemplate("home"));
+  },
   subscriptions() {
-    const englishOnly = Meteor.isClient &&
-                        Utils.getSiteVersion() === "en";
+    const englishOnly = Meteor.settings.public.siteVersion === "en";
     this.register("postsWithAuthors",
       Meteor.subscribe("postsWithAuthors", englishOnly));
     this.register("employeeCount", Meteor.subscribe("employeeCount"));
@@ -88,7 +104,6 @@ FlowRouter.route("/blog/post/:id/:title?", {
   subscriptions(params) {
     const id = parseInt(params.id);
     this.register("blogpost", Meteor.subscribe("blogpostFull", id));
-    this.register("comments", Meteor.subscribe("blogComments", id));
     this.register("allTitles", Meteor.subscribe("blogpostTitles", 1));
   }
 });
@@ -115,7 +130,7 @@ FlowRouter.route("/work/:slug", {
   triggersExit: [() => {
     // remove the portfolio item bg color
     $("body").css({
-      "border-color": "#80bd42",
+      "border-color": "#84bc2d",
       "background-color": "#f0f3ed"
     }).removeClass("inverted");
     $("#header, .container").css("backgroundColor", "");
@@ -139,11 +154,16 @@ FlowRouter.route("/work", {
 /*****************************************************************************/
 // ANY OTHER PAGE                                                             /
 /*****************************************************************************/
-// Any other page
 FlowRouter.route("/:page", {
   name: "page",
   action(params) {
-    renderPage(RouteUtils.getTemplate(params.page));
+    const tmpl = RouteUtils.getTemplate(params.page);
+    if (tmpl) {
+      renderPage(tmpl);
+    } else {
+      Triggers.set404StatusCode();
+      renderPage("error404");
+    }
   },
   subscriptions(params) {
     if (_.contains(["over-q42", "about-q42"], params.page)){
