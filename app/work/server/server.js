@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import { _ } from 'meteor/underscore'
 
-import { Work } from '../lib/collections'
+import { Work, Media } from '../lib/collections'
 
 Meteor.publishComposite("work", function(slug, tag, type) {
   const alwaysFilter = {};

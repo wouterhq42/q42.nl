@@ -5,9 +5,10 @@ import { _ } from 'meteor/underscore'
 import { ReactiveVar } from 'meteor/reactive-var'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 
-import { Work, WorkTags } from '../lib/collections'
+import { Work, WorkTags, Media } from '../lib/collections'
 import { $Helpers, $OnCreated } from '../../../client/lib/_template'
 import { Employees } from '../../employees/lib/shared'
+import { Utils } from '../../../lib/utils'
 
 Meteor.startup(() => {
   // XXX: get rid of this since it subscribes the whole site to every thing
@@ -50,7 +51,7 @@ $OnCreated("workDetail", function() {
 
     const colour = getPortfolioItemBrandColour();
     let cssObj = {"background-color": colour};
-    
+
     if (colour != "transparent") {
       cssObj = _.extend(cssObj, {"border-color": colour});
       $(document.body).toggleClass("inverted", luminance(colour) < 0.5);
