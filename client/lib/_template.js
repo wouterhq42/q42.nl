@@ -18,9 +18,11 @@ $OnCreated = function(tmpl, fn) {
 };
 
 _tmpl = function(type, tmpl, obj) {
-  const result = Template["en_" + tmpl];
-  if (result) result[type](obj);
-  Template[tmpl][type](obj);
+  Meteor.startup(() => {
+    const result = Template["en_" + tmpl];
+    if (result) result[type](obj);
+    Template[tmpl][type](obj);
+  });
 };
 
 export { $Helpers, $Events, $OnRendered, $OnCreated }

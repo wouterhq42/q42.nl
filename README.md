@@ -47,6 +47,9 @@ actually be able to see any posts without our real API key). If you misconfigure
 Kadira, you'll just get console errors. You can get a hold of the keys in the
 "q42.nl" vault in 1Password.
 
+(if you use the config file as above, without actual values, the site will still
+	run, but without blog, and with warnings/errors).
+
 ## Running the site locally
 
 	meteor --settings config/dev/settings.json
@@ -55,33 +58,29 @@ Or use this script so you don't have to remember the above:
 
 	./run.sh
 
-# Deploying to Scalingo
+# Deploying to Galaxy
 
-First you need the following prerequisites:
+You need the following prerequisites:
 
+ - `config/q42.nl/settings.json` and `config/q42.com/settings.json` based on the
+   above template. In the '.com' version, be sure to set siteVersion to 'en'.
+	 Make sure _all_ fields are configured.
  - Git Flow, which you can get here:
 	 https://github.com/nvie/gitflow/wiki/Installation -- note you'll need to
 	 `git flow init` while on the `develop` branch, as the git flow state isn't
 	 checked in to the repository. At init time, choose 'master' for production
 	 releases and 'develop' for next release (the defaults). Choose the defaults
 	 for all others too (feature/, release/, hotfix/, support/, empty).
- - `gcloud` command line tool, from https://cloud.google.com/sdk/. install,
+ - `gcloud` command line tool, from https://cloud.google.com/sdk/. Install,
  	 then authenticate using `gcloud auth login`.
- - Access to the two environments on http://scalingo.com (q42nlsite and
-	 q42comsite). Ask Rahul or Lukas.
  - Access to the static.q42.nl GCS bucket via
    https://console.developers.google.com/project/504623166341/storage/browser.
    Ask Rahul or Lukas.
 
-Then, add the two Scalingo Git Remotes:
-
-    git remote add scalingo-nl git@scalingo.com:q42nl-site.git
-    git remote add scalingo-en git@scalingo.com:q42comsite.git
-
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a
 script which will take care of both commands. Just run:
 
-	./deploy-scalingo.sh
+	./deploy-galaxy.sh
 
 # Contributing
 
