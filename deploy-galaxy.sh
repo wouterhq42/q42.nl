@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NOW=$(date +"%Y-%m-%d")
-DEPLOY_HOSTNAME=galaxy.meteor.com
+export DEPLOY_HOSTNAME=galaxy.meteor.com
 
 echo "------ Begin Q42.nl and Q42.com deploy! ------"
 
