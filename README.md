@@ -47,6 +47,9 @@ actually be able to see any posts without our real API key). If you misconfigure
 Kadira, you'll just get console errors. You can get a hold of the keys in the
 "q42.nl" vault in 1Password.
 
+(if you use the config file as above, without actual values, the site will still
+	run, but without blog, and with warnings/errors).
+
 ## Running the site locally
 
 	meteor --settings config/dev/settings.json
@@ -57,8 +60,11 @@ Or use this script so you don't have to remember the above:
 
 # Deploying to Galaxy
 
-First you need the following prerequisites:
+You need the following prerequisites:
 
+ - `config/q42.nl/settings.json` and `config/q42.com/settings.json` based on the
+   above template. In the '.com' version, be sure to set siteVersion to 'en'.
+	 Make sure _all_ fields are configured.
  - Git Flow, which you can get here:
 	 https://github.com/nvie/gitflow/wiki/Installation -- note you'll need to
 	 `git flow init` while on the `develop` branch, as the git flow state isn't
