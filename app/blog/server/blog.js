@@ -30,7 +30,6 @@ Meteor.methods({
                   result.data.response.posts &&
                   result.data.response.posts.length;
       if (result.statusCode == 200 && count) {
-        console.log("Updating " + count + " from Tumblr.");
         for (let i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
       }
