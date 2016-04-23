@@ -11,14 +11,8 @@ Template.polaroid.onRendered(function(){
       _.each(["webkit", "moz", "ms", "o"], (type) =>
         $polaroid.css(`-${type}-transform`, rotateValue));
       $polaroid.css("transform", rotateValue);
-
-      if (this.find("video")) this.find("video").play();
     }
   });
-});
-
-Template.polaroid.onDestroyed(function(){
-  this.find("video") && this.find("video").pause();
 });
 
 Template.polaroid.helpers({
