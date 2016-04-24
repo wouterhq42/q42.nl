@@ -1,3 +1,21 @@
+<template name="work">
+  <div class="block-small">
+    <div class="visual caption">
+      {{#with imageThumbnail item.image.small}}
+        <img src="{{file}}" alt="">
+        <p>{{title}}</p>
+      {{else}}
+        <img src="http://fillmurray.com/600/320" alt="">
+      {{/with}}
+    </div>
+    <div class="body">
+      <h2>{{item.name}}</h2>
+      <h3>{{item.slogan_nl}}</h3>
+      {{{item.intro_nl}}}
+    </div>
+  </div>
+</template>
+
 <template name="workTagBlock">
   {{#if work.showTagFiltersHere}}
     {{#if workTags}}

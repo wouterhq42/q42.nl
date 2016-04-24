@@ -114,38 +114,6 @@ FlowRouter.route("/blog/post/:id/:title?", {
 customBlogPages(this);
 
 /*****************************************************************************/
-// WORK                                                                       /
-/*****************************************************************************/
-FlowRouter.route("/work/tagged/:tag", {
-  name: "workTag",
-  action: () => renderPage("work"),
-  subscriptions(params) {
-    this.register("workTags", Meteor.subscribe("workTags"));
-    this.register("work", Meteor.subscribe("work", null, params.tag));
-  }
-});
-FlowRouter.route("/work/:slug", {
-  name: "work",
-  action(params) { renderPage("workDetail"); },
-  triggersExit: [() => {
-    // remove the portfolio item bg color
-    $("body").css("borderColor", "#84bc2d");
-    $("#header, .container").css("backgroundColor", "");
-  }],
-  subscriptions(params) {
-    this.register("work", Meteor.subscribe("work", params.slug));
-  }
-});
-FlowRouter.route("/work", {
-  name: "workOverview",
-  action: () => renderPage("work"),
-  subscriptions(params) {
-    this.register("workTags", Meteor.subscribe("workTags"));
-    this.register("work", Meteor.subscribe("work"));
-  }
-});
-
-/*****************************************************************************/
 // ANY OTHER PAGE                                                             /
 /*****************************************************************************/
 FlowRouter.route("/:page", {
