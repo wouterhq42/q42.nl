@@ -28,7 +28,7 @@ Meteor.methods({
     Meteor.http.get("https://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 5 }
     }, (error, result) => {
-      const count = result.data && result.data.response &&
+      const count = result && result.data && result.data.response &&
                   result.data.response.posts &&
                   result.data.response.posts.length;
       if (result.statusCode == 200 && count) {
