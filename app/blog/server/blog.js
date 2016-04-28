@@ -8,6 +8,8 @@ const BLOGPOSTS_PER_PAGE = 12;
 let lastTumblrCheck;
 
 const Posts = new Mongo.Collection("Posts");
+Posts._ensureIndex({tags: 1});
+
 const TumblrKey = Meteor.settings.public.TUMBLR_KEY;
 
 const separateTags = (tag) => {
@@ -162,10 +164,6 @@ Meteor.publish("pagesByTag", function(tag) {
   let initializing = true;
 
   const tags = separateTags(tag);
-  if (_.isEmpty(tags)) {
-    this.ready();
-    return;
-  }
 
   const handle = Posts.find({$and: tags}).observeChanges({
     added: function () {
