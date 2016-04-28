@@ -1,11 +1,29 @@
+<template name="pinnedWork">
+  {{#if item}}
+    {{> work item=item size=size align=align}}
+  {{/if}}
+</template>
+
+<template name="workItems">
+  {{#each row in workItems}}
+    <div class="block-large">
+      {{#each workItem in row}}
+        {{> work item=workItem size="small"}}
+      {{/each}}
+    </div>
+  {{/each}}
+</template>
+
 <template name="work">
-  <div class="block-small">
+  <div class="block-{{size}}{{#if align}} {{align}}{{/if}}">
     <div class="visual caption">
-      {{#with imageThumbnail item.image.small}}
+      {{#with imageThumbnail item.image}}
         <img src="{{file}}" alt="">
-        <p>{{title}}</p>
+        {{#if title}}
+          <p>{{#if langEn}}{{title_en}}{{else}}{{title}}{{/if}}</p>
+        {{/if}}
       {{else}}
-        <img src="http://fillmurray.com/600/320" alt="">
+        <img src="https://unsplash.it/600/320/?random" alt="">
       {{/with}}
     </div>
     <div class="body">
@@ -16,37 +34,15 @@
   </div>
 </template>
 
-<template name="workTagBlock">
-  {{#if work.showTagFiltersHere}}
-    {{#if workTags}}
-    <aside class="work-tags block-small">
-      <ul>
-        {{#each tag in workTags}}
-          <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
-        {{/each}}
-        <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
-      </ul>
-    </aside>
-    {{/if}}
-  {{/if}}
-</template>
-
-<template name="portfolioItem">
-  {{#if work.name}}
-    <div class="portfolio-item {{isPinned work}}">
-      <a href="/work/{{work.slug}}">
-        <img src="{{work.image.url}}" alt="">
-        <div class="details">
-          <h2>{{work.name}}</h2>
-          <p class="slogan">{{work.subtitle}}</p>
-        </div>
-      </a>
-    </div>
-  {{else}}
-    {{#if work.clientName}}
-    <div class="client-only portfolio-item {{isPinned work}}">
-      <h2>{{work.clientName}}</h2>
-    </div>
-    {{/if}}
+<template name="workFilterBlock">
+  {{#if workTags}}
+  <aside class="work-tags block-small">
+    <ul>
+      {{#each tag in workTags}}
+        <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
+      {{/each}}
+      <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
+    </ul>
+  </aside>
   {{/if}}
 </template>

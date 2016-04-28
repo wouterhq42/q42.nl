@@ -11,44 +11,62 @@ import { $Helpers, $OnCreated } from '../../../client/lib/_template'
 
 Meteor.startup(() => {
   // XXX: get rid of this since it subscribes the whole site to everything
-  Meteor.subscribe('work');
   Meteor.subscribe('things');
 });
 
-Template.registerHelper('workItems', () => {
-  const work = Work.find({}, {
-    sort: {"properties.pinned": -1, name: 1}
-  }).fetch();
-  return _.toArray(_.groupBy(work, (el, i) => ~~(i/3)));
+Template.workItems.helpers({
+  workItems() {
+    const work = Work.find({"properties.pinned": false}, {
+      sort: {"properties.date": -1}
+    }).fetch();
+    return _.toArray(_.groupBy(work, (el, i) => ~~(i/3)));
+  }
 });
-Template.registerHelper('imageThumbnail', imageId => {
-  const media = Media.findOne(imageId);
-  if (media) return media;
+Template.work.helpers({
+  imageThumbnail(image) {
+    if (!image) return;
+    const size = Template.currentData().size;
+    let imageId = image.small;
+    if (size === "large") imageId = image.main;
+    const media = Media.findOne(imageId);
+    if (media) return media;
+  }
 });
 
-Template.workTagBlock.helpers({
+Template.pinnedWork.onCreated(function() {
+  this.index = Template.currentData().index;
+});
+Template.pinnedWork.helpers({
+  item() {
+    const index = Template.instance().index;
+    return Work.findOne({"properties.pinned": true}, {skip: index});
+  }
+});
+
+Template.workFilterBlock.helpers({
   workTags() {
     const tags = WorkTags.findOne();
     if (tags)
       return tags.tags;
   },
-  isSelected(tag) {
-    const selectedTag =
-      Template.instance().selectedTag.get() || FlowRouter.current().params.tag;
-    return selectedTag === tag;
+  isSelected(filter) {
+    const selectedFilter = Template.instance().selectedFilter.get() || FlowRouter.current().params.tag;
+    return selectedFilter === filter;
   }
 });
 
-Template.workTagBlock.onCreated(function() {
-  this.selectedTag = new ReactiveVar("");
+Template.workFilterBlock.onCreated(function() {
+  this.selectedFilter = new ReactiveVar("");
+  this.autorun(() => {
+    this.subscribe("work", null, null, this.selectedFilter.get());
+  });
 });
 
-Template.workTagBlock.events({
+Template.workFilterBlock.events({
   "click aside a" (evt) {
-    const tag = evt.target.innerHTML;
-    Meteor.subscribe("work", null, tag);
+    const type = evt.target.innerHTML;
     // FlowRouter.go($(evt.target).attr("href"));
     evt.preventDefault();
-    Template.instance().selectedTag.set(tag);
+    Template.instance().selectedFilter.set(type);
   }
 });

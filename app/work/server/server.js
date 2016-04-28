@@ -29,7 +29,7 @@ Meteor.publishComposite("work", function(tag, type) {
             // XXX: only the small image for now
             return workItem.image ?
               Media.find(
-                { _id: workItem.image.small },
+                {$or: [{_id: workItem.image.small},{_id: workItem.image.main}]},
                 {
                   fields: {
                     file: 1, imageWidth: 1, imageHeight: 1,
