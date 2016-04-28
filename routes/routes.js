@@ -133,6 +133,9 @@ FlowRouter.route("/:page", {
       this.register("coffeeCounter", Meteor.subscribe("coffeeCounter"));
       this.register("toilets", Meteor.subscribe("toilets"));
     }
+    if (_.contains(["projecten", "projects"], params.page)){
+      this.register("work", Meteor.subscribe("work"));
+    }
   }
 });
 
