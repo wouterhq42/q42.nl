@@ -77,10 +77,14 @@
       {{> Template.dynamic template=header}}
     </div>
 
-    {{#if subsReady}}
+    {{#if isBlog}}
       {{> Template.dynamic template=body}}
     {{else}}
-      {{> loading}}
+      {{#if subsReady}}
+        {{> Template.dynamic template=body}}
+      {{else}}
+        {{> loading}}
+      {{/if}}
     {{/if}}
 
     {{> Template.dynamic template=footer}}

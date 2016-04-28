@@ -35,8 +35,14 @@ const renderPage = (templateName) => {
   });
 };
 
-if (Meteor.isClient)
-  Template.registerHelper("subsReady", () => FlowRouter.subsReady());
+if (Meteor.isClient) {
+  Template.registerHelper("subsReady", (name) => {
+    return name ? FlowRouter.subsReady(name) : FlowRouter.subsReady();
+  });
+  Template.registerHelper("isBlog", () => {
+    return FlowRouter.getRouteName() === "blog";
+  });
+}
 
 /*****************************************************************************/
 // HOMEPAGE                                                                   /
@@ -66,7 +72,7 @@ blogOverview.route("/", {
   action() { renderPage("blog"); },
   subscriptions() {
     this.register("allPosts", Meteor.subscribe("blogpostIndex", 1));
-    this.register("tags", Meteor.subscribe("pagesByTag", ""));
+    this.register("pages", Meteor.subscribe("pagesByTag", ""));
   }
 });
 blogOverview.route("/page/:pageNum", {
@@ -74,8 +80,8 @@ blogOverview.route("/page/:pageNum", {
   action() { renderPage("blog"); },
   subscriptions(params) {
     const pageNum = parseInt(params.pageNum);
-    this.register("pagePosts", Meteor.subscribe("blogpostIndex", pageNum));
-    this.register("tags", Meteor.subscribe("pagesByTag", ""));
+    this.register("allPosts", Meteor.subscribe("blogpostIndex", pageNum));
+    this.register("pages", Meteor.subscribe("pagesByTag", ""));
   }
 });
 blogOverview.route("/tagged/:tag",{
@@ -83,8 +89,8 @@ blogOverview.route("/tagged/:tag",{
   action() { renderPage("blog"); },
   subscriptions(params) {
     const tag = params.tag;
-    this.register("tagPosts", Meteor.subscribe("blogpostIndex", 1, tag));
-    this.register("tags", Meteor.subscribe("pagesByTag", tag || ""));
+    this.register("allPosts", Meteor.subscribe("blogpostIndex", 1, tag));
+    this.register("pages", Meteor.subscribe("pagesByTag", tag || ""));
   }
 });
 blogOverview.route("/tagged/:tag/page/:pageNum",{
@@ -93,8 +99,8 @@ blogOverview.route("/tagged/:tag/page/:pageNum",{
   subscriptions(params) {
     const tag = params.tag;
     const pageNum = params.pageNum;
-    this.register("tagPosts", Meteor.subscribe("blogpostIndex", pageNum, tag));
-    this.register("tags", Meteor.subscribe("pagesByTag", tag || ""));
+    this.register("allPosts", Meteor.subscribe("blogpostIndex", pageNum, tag));
+    this.register("pages", Meteor.subscribe("pagesByTag", tag || ""));
   }
 });
 FlowRouter.route("/blog/post/:id/:title?", {
