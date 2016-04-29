@@ -35,7 +35,7 @@ Meteor.publishComposite("work", function(tag, type) {
                     file: 1, imageWidth: 1, imageHeight: 1,
                     title: 1, description: 1
                   },
-                  limit: 1
+                  limit: 2
                 }
               )
               : null;

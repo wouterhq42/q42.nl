@@ -26,8 +26,7 @@ Template.work.helpers({
   imageThumbnail(image) {
     if (!image) return;
     const size = Template.currentData().size;
-    let imageId = image.small;
-    if (size === "large") imageId = image.main;
+    let imageId = size === "large" ? image.main : image.small;
     const media = Media.findOne(imageId);
     if (media) return media;
   }
