@@ -140,7 +140,7 @@ Meteor.publishComposite("postsWithAuthors", function(englishOnly) {
         return Posts.find(filter, {sort: {date: -1}, limit: 3, fields: {
           title: 1, authorName: 1, slug: 1,
           intro: 1, prettyDate: 1, id: 1,
-          type: 1, url: 1
+          type: 1, url: 1, description: 1
         }});
       },
       children: [

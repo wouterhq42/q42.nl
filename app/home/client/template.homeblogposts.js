@@ -21,7 +21,12 @@ Template.homeBlogposts.helpers({
   },
 
   postWithAuthor() {
-    return PostsWithAuthors.find({intro: {$exists: true}});
+    return PostsWithAuthors.find({
+      $or: [
+        {description: {$exists: true}},
+        {intro: {$exists: true}}
+      ]
+    });
   },
   author() {
     return Employees.findOne({name: this.authorName});
