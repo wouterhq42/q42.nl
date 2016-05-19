@@ -1,6 +1,5 @@
 # Site specific
 config/dev/settings.json
-.gitignore
 
 # Generic
 .DS_Store
