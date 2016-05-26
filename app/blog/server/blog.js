@@ -13,7 +13,7 @@ Posts._ensureIndex({tags: 1});
 const TumblrKey = Meteor.settings.public.TUMBLR_KEY;
 
 const separateTags = (tag) => {
-  return tag ? tag.split('&').map(w => {tags: w}) : [{}];
+  return tag ? tag.split('&').map(w => ({tags: w})) : [{}];
 };
 
 Meteor.methods({
