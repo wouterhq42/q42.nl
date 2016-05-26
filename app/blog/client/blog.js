@@ -35,7 +35,7 @@ $Helpers({
 Template.blog.helpers({
   tag: () => {
     let tag = FlowRouter.getParam('tag') || "";
-    tag = tag.split('&').filter(function(word){if (word !== 'en') return word;});
+    tag = tag.split('&').filter(word => word !== 'en');
     return tag.length ? tag : ['blog'];
   }
 });
