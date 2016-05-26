@@ -82,3 +82,21 @@
   .block-large > .block-small:first-child:nth-last-child(2),
   .block-large > .block-small:first-child:nth-last-child(2) ~ div
     max-width inherit
+
+@media (min-width: 941px)
+  .blog,
+  #not-found,
+  .block-text,
+  .block-large,
+  .block-full
+    width 940px
+
+@media (max-width: 620px)
+
+  .visual iframe,
+  .blog-item iframe
+    width 100%
+
+  .fb_iframe_widget,
+  .fb_iframe_widget > span
+    width 100% !important
