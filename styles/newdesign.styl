@@ -79,9 +79,12 @@
   .blog .blog-post
     padding 0
 
+  // http://stackoverflow.com/q/8720931/16308
+  .block-large > .block-small:first-child:nth-last-child(1),
+  .block-large > .block-small:first-child:nth-last-child(1) ~ div,
   .block-large > .block-small:first-child:nth-last-child(2),
   .block-large > .block-small:first-child:nth-last-child(2) ~ div
-    max-width inherit
+    max-width inherit !important
 
 @media (min-width: 941px)
   .blog,
