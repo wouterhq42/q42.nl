@@ -1,3 +1,6 @@
+# Site specific
+settings.json
+
 # Generic
 .DS_Store
 *.swp

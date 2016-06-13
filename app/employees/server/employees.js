@@ -6,12 +6,7 @@ import { currentQers } from './lib/qers'
 
 _.each(currentQers, (e) => {
   e.labels = [];
-  const qer = Employees.findOne({handle: e.handle});
-  if (qer) {
-    Employees.update({handle: e.handle}, e);
-  } else {
-    Employees.insert(e);
-  }
+  Employees.upsert({handle: e.handle}, e);
 });
 
 // Delete employees whose handles are no longer there

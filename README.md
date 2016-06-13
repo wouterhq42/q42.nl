@@ -1,4 +1,4 @@
-# Q42.nl & Q42.com
+# Q42.nl & Q42.com [![Link](https://img.shields.io/website-up-down-green-red/https/www.q42.com.svg?maxAge=2592000)](https://www.q42.com) ![](https://img.shields.io/badge/nerds-happy-brightgreen.svg)
 
 We've published the source code to [q42.nl](https://q42.nl) and
 [q42.com](https://q42.com) here for your perusal.
